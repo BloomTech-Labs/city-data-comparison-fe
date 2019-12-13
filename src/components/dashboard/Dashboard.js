@@ -9,7 +9,7 @@ function Dashboard(){
           setCity(event.target.value)
      }
      
-     const onSubmit = (event) => {
+     const submitCity = (event) => {
           event.preventDefault();
      }
 
@@ -23,7 +23,7 @@ function Dashboard(){
                          <h1>Choice is YOURS</h1>
                          <p>Choose the information you want to see about city(ies).</p>
                          
-                         <form onSubmit={}>
+                         <form onSubmit={submitCity}>
                               <input 
                                    type="text"
                                    name="city"
