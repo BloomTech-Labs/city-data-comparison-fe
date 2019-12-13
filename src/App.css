@@ -53,9 +53,9 @@ html,body{
   margin:0 auto;
   font-family: 'Raleway', sans-serif;
   color: #2e2f38;
-  max-width:1440px;
+  /* max-width:1440px;
   width:100%;
-  margin:0 auto;
+  margin:0 auto; */
 }
 
 
@@ -83,5 +83,5 @@ html,body{
 }
 
 .dashboard-compare-container{
-
+  border:1px solid black;
 }

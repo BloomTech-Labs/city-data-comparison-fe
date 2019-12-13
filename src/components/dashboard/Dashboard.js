@@ -5,15 +5,36 @@ import insync from './assets/insync.svg'
 
 function Dashboard(){
 
-     const [city, setCity] = useState("")
-     
-     const handleChange = (event) => {
+     // * SEARCH STATE / HANDLECHANGE
+     const [search, setSearch] = useState({
+          city: "",
+          state:""
+     })
+     const searchChange = (event) => {
           event.preventDefault();
-          setCity(event.target.value)
+          setSearch({
+               ...search, 
+               [event.target.name]:event.target.value
+          })
      }
      
+     //* COMPARE STATE / HANDLECHANGE */
+     const [compare, setCompare] = useState({
+          cityOne:"",
+          cityTwo:""
+     })
+     const compareChange = (event) => {
+          event.preventDefault();
+          setCompare({
+               ...compare,
+               [event.target.name]:event.target.value
+          })
+     }
+
+     //* SUBMIT SEARCH */
      const submitCity = (event) => {
           event.preventDefault();
+          console.log(search)
      }
 
 
@@ -29,9 +50,16 @@ function Dashboard(){
                               <input 
                                    type="text"
                                    name="city"
-                                   value={city}
-                                   onChange={handleChange}
+                                   value={search.city}
+                                   onChange={searchChange}
                                    placeholder="City"
+                              />
+                              <input 
+                                   type="text"
+                                   name="state"
+                                   value={search.state}
+                                   onChange={searchChange}
+                                   placeholder="State"
                               />
                               <button>{"\u00BB"}</button>
                          </form>
@@ -65,7 +93,27 @@ function Dashboard(){
 
 
                <div className="dashboard-compare-container">
-
+                    <h2>Compare Multiple Cities</h2>
+                    <div className="compare-buttons">
+                         <form>
+                              <input 
+                                   type="text"
+                                   name="cityOne"
+                                   value={compare.cityOne}
+                                   onChange={compareChange}
+                                   placeholder="San Francisco, CA"
+                              />
+                              
+                              <input 
+                                   type="text"
+                                   name="cityTwo"
+                                   value={compare.cityTwo}
+                                   onChange={compareChange}
+                                   placeholder="Los Angeles, CA"
+                              />
+                              <button>Compare</button>
+                         </form>
+                    </div>
                </div>
           </div>
      )
