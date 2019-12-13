@@ -6,14 +6,13 @@ import pin from './pin.png';
 
 
 const Markers = ({ zoom, cityMarkers }) => {
-  console.log(cityMarker);
   return (
         <div>
         {cityMarkers.map(cityMarker=> {
             return (
-                <Marker latitude={Math.random()*(48-42+1)+42} longitude={Math.random()*(-97+91-1)-91}>
-                    <Link className='map-marker' to={`/location/${cityMarker.name}`}>
-                        <img src={pin} />
+                <Marker latitude={cityMarker.lat} longitude={cityMarker.lng}>
+                    <Link className='map-marker' to={`/map/${cityMarker.city}${cityMarker.state_id}`}>
+                        <img src={pin} alt={`A map pin indicating ${cityMarker.city}`} />
                     </Link>
                 </Marker>
                 );

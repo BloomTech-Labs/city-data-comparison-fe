@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 import Markers from "./map-components/Markers"
-import {markerDummyData} from "./data.js";
+import {markerDummyData} from "./map-components/data.js";
 
 const MapWrapper = styled.div`
   width:100vw;
@@ -11,6 +11,10 @@ const MapWrapper = styled.div`
 
 export default function LakesMap() {
   const [cityMarkers, setCityMarkers] = useState([]);
+
+  useEffect( _ => {
+      setCityMarkers(markerDummyData);
+  }, [])
 
     const [viewport, setViewport] = useState({
       width: '100%',
