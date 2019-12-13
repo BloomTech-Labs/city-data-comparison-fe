@@ -21,7 +21,6 @@ function Dashboard(){
           <div className="dashboard-container">
                <div className="dashboard-search-container">
                     {/* <div>map goes here</div> */}
-
                     <div>
                          <h1>Choice is YOURS</h1>
                          <p>Choose the information you want to see about city(ies).</p>
@@ -59,7 +58,9 @@ function Dashboard(){
 
 
                <div className="dashboard-metrics-container">
-
+                    <div>Data for living costs</div>
+                    <div>Data for job prospects</div>
+                    <div>Data for safety/crime</div>
                </div>
 
 
