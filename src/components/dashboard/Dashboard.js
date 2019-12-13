@@ -36,10 +36,16 @@ function Dashboard(){
           event.preventDefault();
           console.log(search)
      }
+     const submitCities = (event) => {
+          event.preventDefault();
+          console.log(compare)
+     }
 
 
      return(
           <div className="dashboard-container">
+
+               {/* SEARCH FUNCTION */}
                <div className="dashboard-search-container">
                     {/* <div>map goes here</div> */}
                     <div>
@@ -68,7 +74,7 @@ function Dashboard(){
                     </div>
                </div>
 
-
+               {/* PRODUCT FEATURES */}
                <div className="dashboard-features-container">
                     <div className="feature-descriptions">
                          <img className="feature-images" src={data} alt="data"/>
@@ -84,18 +90,18 @@ function Dashboard(){
                     </div>
                </div>
 
-
+               {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
                     <div>Data for living costs</div>
                     <div>Data for job prospects</div>
                     <div>Data for safety/crime</div>
                </div>
 
-
+               {/* COMPARE CITIES FUNCTION */}
                <div className="dashboard-compare-container">
                     <h2>Compare Multiple Cities</h2>
                     <div className="compare-buttons">
-                         <form>
+                         <form onSubmit={submitCities}>
                               <input 
                                    type="text"
                                    name="cityOne"
@@ -103,7 +109,6 @@ function Dashboard(){
                                    onChange={compareChange}
                                    placeholder="San Francisco, CA"
                               />
-                              
                               <input 
                                    type="text"
                                    name="cityTwo"
