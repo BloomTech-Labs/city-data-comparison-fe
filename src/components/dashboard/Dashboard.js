@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from 'react'
+import data from './assets/data.svg'
+import forsale from './assets/forsale.svg'
+import insync from './assets/insync.svg'
 
 function Dashboard(){
 
@@ -31,7 +34,7 @@ function Dashboard(){
                                    onChange={handleChange}
                                    placeholder="City"
                               />
-                              <button>\u279E</button>
+                              <button>{"\u00BB"}</button>
                          </form>
                          <p>OR</p>
                          <button>Compare cities</button>
@@ -40,7 +43,9 @@ function Dashboard(){
 
 
                <div className="dashboard-features-container">
-
+                    <img className="feature-images" src={data} alt=""/>
+                    <img className="feature-images" src={forsale} alt=""/>
+                    <img className="feature-images" src={insync} alt=""/>
                </div>
 
 
