@@ -1,7 +1,6 @@
 import React from 'react';
 import Dashboard from './components/dashboard/Dashboard'
 import Navigation from './components/navigation/Navigation'
-import {Route} from 'react-router-dom'
 import './App.css';
 import {Route, Link} from "react-router-dom";
 import Map from "./components/Map";
