@@ -17,6 +17,7 @@ const MapWrapper = styled.div`
 export default function Map() {
 
   const [cityMarkers, setCityMarkers] = useState([]);
+  const [selected, setSelected] = useState([]);
 
   useEffect( _ => {
       setCityMarkers(markerDummyData);
@@ -30,7 +31,7 @@ export default function Map() {
       zoom: 5,
     });
 
-    const _onViewportChange = viewport => {
+    const onViewportChange = viewport => {
         setViewport({ ...viewport });
       };
 
@@ -45,8 +46,11 @@ export default function Map() {
                     mapboxApiAccessToken={
                     'pk.eyJ1IjoiYnJ1bmNodGltZSIsImEiOiJjazIwdG80MGkxN3lmM25vaWZ5cThkZDU1In0.uYqrXjiEyUL1mTEO_N5-0w'
                     }
-                    onViewportChange={_onViewportChange}>
-                    <Markers cityMarkers={cityMarkers}/>
+                    onViewportChange={onViewportChange}>
+                    <Markers 
+                      cityMarkers={cityMarkers}
+                      selected={selected}
+                      setSelected={setSelected} />
                 </ReactMapGL>
               </MapWrapper>
             </div>

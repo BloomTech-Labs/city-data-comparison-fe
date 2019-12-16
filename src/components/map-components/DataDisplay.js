@@ -8,6 +8,9 @@ const DataDisplay = (props) => {
     return (
         <div className="data-browser">
             <nav className="data-nav">
+                <input
+                    name="search"
+                    placeholder="Search" />
                <Link to="/map/cost">Cost of Living</Link>
                <Link to="/map/jobs">Job Market</Link>
                <Link to="/map/safety">Safety</Link>
