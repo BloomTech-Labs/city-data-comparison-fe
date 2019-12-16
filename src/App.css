@@ -66,6 +66,24 @@ html,body{
 /* * Dashboard styling */
 .dashboard-search-container{
   border: 1px solid black;
+  position: relative;
+  width:100%;
+  height:400px;
+  z-index: 99999;
+  background: #F2F9FD;
+}
+.dashboard-search-container:before{
+  position:absolute;
+  width:100%;
+  height:100%;
+  content:'';
+  background:inherit;
+  z-index:-1;
+  top:0;
+  right:0;
+  left:0;
+  transform-origin: top left;
+  transform: skewY(4deg);
 }
 
 .dashboard-features-container{
