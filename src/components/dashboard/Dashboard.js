@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import data from './assets/data.svg'
 import forsale from './assets/forsale.svg'
 import insync from './assets/insync.svg'
+import sanFrancisco from './assets/sanFrancisco.jpeg'
 
 function Dashboard(){
 

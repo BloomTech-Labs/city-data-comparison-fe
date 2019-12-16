@@ -64,11 +64,11 @@ html,body{
 
 
 /* * Dashboard styling */
-.dashboard-search-container{
+/* .dashboard-search-container{
   border: 1px solid black;
   position: relative;
   width:100%;
-  height:400px;
+  height:300px;
   z-index: 99999;
   background: #F2F9FD;
 }
@@ -82,9 +82,22 @@ html,body{
   top:0;
   right:0;
   left:0;
-  transform-origin: top left;
+  transform-origin: bottom left;
   transform: skewY(4deg);
+    background: #F2F9FD;
+
+} */
+
+.dashboard-search-container{
+  background-image:url('./components/dashboard/assets/firstdiv.svg');
+  clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 90%);
+  height:500px;
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+
 
 .dashboard-features-container{
   border:1px solid black;
@@ -100,8 +113,11 @@ html,body{
 }
 
 .dashboard-metrics-container{
-  border:1px solid black;
+  background:url('./components/dashboard/assets/seconddiv.svg');
+  height:500px;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
+
 
 .dashboard-compare-container{
   border:1px solid black;
