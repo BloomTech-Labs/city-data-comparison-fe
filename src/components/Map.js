@@ -23,12 +23,23 @@ export default function Map() {
       setCityMarkers(markerDummyData);
   }, [])
 
+  const toggleSelected = cityMarker =>  {
+    console.log("toggling");
+    console.log(cityMarker);
+    if (selected.find(item => item === cityMarker)) {
+        setSelected(selected.filter(item => item !== cityMarker));
+    } else {
+        setSelected([...selected, cityMarker]);
+    }
+}
+
     const [viewport, setViewport] = useState({
       width: '100%',
       height: '100%',
       latitude: 45,
       longitude: -95,
       zoom: 5,
+      trackResize: true
     });
 
     const onViewportChange = viewport => {
@@ -50,11 +61,14 @@ export default function Map() {
                     <Markers 
                       cityMarkers={cityMarkers}
                       selected={selected}
-                      setSelected={setSelected} />
+                      toggleSelected={toggleSelected} />
                 </ReactMapGL>
               </MapWrapper>
             </div>
-            <DataDisplay />
+            <DataDisplay 
+              toggleSelected={toggleSelected}
+              selected={selected}
+            />
           </div>
 
       );

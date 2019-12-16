@@ -4,7 +4,7 @@ import Cost from "./Cost";
 import Jobs from "./Jobs";
 import Safety from "./Safety";
 
-const DataDisplay = (props) => {
+const DataDisplay = ({selected, toggleSelected}) => {
     return (
         <div className="data-browser">
             <nav className="data-nav">
@@ -14,9 +14,13 @@ const DataDisplay = (props) => {
                <Link to="/map/cost">Cost of Living</Link>
                <Link to="/map/jobs">Job Market</Link>
                <Link to="/map/safety">Safety</Link>
+               <ul>
+                {selected.map(item => <li>{item.city}, {item.state_id} <button onClick={ _ => toggleSelected(item)}>X</button></li>)}
+
+               </ul>
             </nav>
             <div className="data-by-category">
-                <Route path="/map/cost" component={Cost} />
+                <Route path="/map/cost" render={props => <Cost selected={selected} /> } />
                 <Route path="/map/jobs" component={Jobs} />
                 <Route path="/map/safety" component={Safety} />
             </div>

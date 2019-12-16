@@ -6,16 +6,8 @@ import pin from './pin.png';
 import bluepin from"./bluepin.png";
 
 
-const Markers = ({ zoom, cityMarkers, selected, setSelected }) => {
-    const toggleSelected = cityMarker =>  {
-        console.log("toggling");
-        console.log(cityMarker);
-        if (selected.find(item => item === cityMarker)) {
-            setSelected(selected.filter(item => item !== cityMarker));
-        } else {
-            setSelected([...selected, cityMarker]);
-        }
-    }
+const Markers = ({ zoom, cityMarkers, selected, toggleSelected }) => {
+
 
 
   return (
