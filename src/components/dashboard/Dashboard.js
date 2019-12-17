@@ -6,10 +6,7 @@ import insync from './assets/insync.svg'
 function Dashboard(){
 
      // * SEARCH STATE / HANDLECHANGE
-     const [search, setSearch] = useState({
-          city: "",
-          state:""
-     })
+     const [search, setSearch] = useState("")
      const searchChange = (event) => {
           event.preventDefault();
           setSearch({
@@ -47,8 +44,9 @@ function Dashboard(){
 
                {/* SEARCH FUNCTION */}
                <div className="dashboard-search-container">
-                    {/* <div>map goes here</div> */}
-                    <div>
+                    <div className="slanted-san-francisco"></div>
+                    {/* <div className="slanted-blue-one"></div> */}
+                    <div className="search-function">
                          <h1>Choice is YOURS</h1>
                          <p>Choose the information you want to see about city(ies).</p>
                          
@@ -56,23 +54,19 @@ function Dashboard(){
                               <input 
                                    type="text"
                                    name="city"
-                                   value={search.city}
+                                   value={search}
                                    onChange={searchChange}
                                    placeholder="City"
                               />
-                              <input 
-                                   type="text"
-                                   name="state"
-                                   value={search.state}
-                                   onChange={searchChange}
-                                   placeholder="State"
-                              />
-                              <button>{"\u00BB"}</button>
+                              <button className="search-city-button">Go</button>
                          </form>
-                         <p>OR</p>
-                         <button>Compare cities</button>
+                         <p className="compare-cities-title">Want to learn about more cities? Click the button below to compare multiple cities.</p>
+                         <button className="compare-cities-button">Compare cities</button>
                     </div>
                </div>
+
+
+
 
                {/* PRODUCT FEATURES */}
                <div className="dashboard-features-container">
