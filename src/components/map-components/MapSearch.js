@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 
-const MapSearch = ({search, onSearch, setSearch, cityMarkers}) => {
+const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
     const [suggestions, setSuggestions] = useState([]);
     const handleChange= e => {
         const searchText = e.target.value;
@@ -11,6 +11,11 @@ const MapSearch = ({search, onSearch, setSearch, cityMarkers}) => {
     const chooseSuggestion = city => {
         setSearch(city.city);
         setSuggestions([]);
+        setViewport({
+            ...viewport,
+            longitude: city.lng,
+            latitude: city.lat
+          })
     }
 
     return(

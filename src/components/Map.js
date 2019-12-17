@@ -96,6 +96,8 @@ export default function Map() {
               setSearch={setSearch}
               cityMarkers={cityMarkers}
               search={search}
+              viewport={viewport}
+              setViewport={setViewport}
             />
           </div>
 
