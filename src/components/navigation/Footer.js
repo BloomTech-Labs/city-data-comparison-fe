@@ -4,28 +4,34 @@ function Footer(){
 
      return(
           <div className="footer-container">
-               <div>
-                    <div>
-                    <h2>Find Your Best Place To Live</h2>
-                    <button>Get Started</button>
+               <div className="footer">
+                    <div className="footer-CTA">
+                         <div>
+                              <p>Find Your Best Place To Live</p>
+                              <button>Start Now</button>
+                         </div>
+                         <div>
+                              <p className="copyright">© City Data Comparison 2019</p>
+                         </div>
                     </div>
-                    <div>
-                         <div>
+
+                    <div className="footer-categories-container">
+                         <div className="footer-categories">
                               <h3>Services</h3>
-                              <a>Search a City</a>
-                              <a>Compare Cities</a>
+                              <a href="/">Search a City</a>
+                              <a href="/">Compare Cities</a>
                          </div>
-                         <div>
+                         <div className="footer-categories">
                               <h3>Company</h3>
-                              <a>Meet the Team</a>
-                              <a>About Us</a>
-                              <a>Contact Us</a>
+                              <a href="/">Meet the Team</a>
+                              <a href="/">About Us</a>
+                              <a href="/">Contact Us</a>
                          </div>
-                         <div>
+                         <div className="footer-categories">
                               <h3>Resources</h3>
-                              <a>Data Sources</a>
-                              <a>Private Policy</a>
-                              <a>Terms of Use</a>
+                              <a href="/">Data Sources</a>
+                              <a href="/">Private Policy</a>
+                              <a href="/">Terms of Use</a>
                          </div>
 
                     </div>

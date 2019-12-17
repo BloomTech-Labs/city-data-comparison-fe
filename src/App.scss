@@ -433,8 +433,63 @@ nav a:hover{
 
 // * Footer Styling
 .footer-container{
-  border-top:1px solid #efefef;
-  margin-top:10%;
+  // border-top:1px solid #efefef;
+  margin-top:13%;
   background-color:#F1F9FD;
   height:200px;
+  display:flex;
+  
+  .footer{
+    display:flex;
+    width:100%;
+    padding:0 5%;
+    justify-content:space-between;
+  }
+  .footer-CTA{
+    width:30%;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:space-between;
+
+    p{
+      font-size:1.3rem;
+      padding-top:8px;
+      margin-bottom:10px;
+    }
+    button{
+      background-color:#2ca4fc;
+      color:white;
+      padding:10px 20px;
+      border-radius:10px;
+      border:none;
+      font-size:1rem;
+    }
+    .copyright{
+      font-size:15px;
+      color:#8898aa;
+    }
+  }
+  .footer-categories-container{
+    width:55%;
+    display:flex;
+    justify-content:space-around;
+    padding-top:10px;
+    font-size:15px;
+  }
+  .footer-categories{
+    display:flex;
+    flex-direction:column;
+  }
+  h3{
+    color: #2e2f38;
+    margin-bottom:5px;
+  }
+  a{
+    color:#8898aa;
+    margin:8px 0;
+    text-decoration:none;
+    &:hover{
+      color: #2e2f38;
+    }
+  }
 }

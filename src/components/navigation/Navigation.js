@@ -11,7 +11,7 @@ function Navigation(){
           <div className="navigation-container">
                {/* Logo goes here */}
                {/* <Link to="/">Home</Link> */}
-               <a className="header-logo">Home</a>
+               <a className="header-logo" href="/">Home</a>
                <nav>
                     <a href="google.com">Link A</a>
                     <Link to="/map">Map</Link>
