@@ -11,9 +11,10 @@ function App() {
     <div className="App">
       
       <h1>City Data Comparison</h1>
+      <Link to="/">Home</Link>
       <Link to="/map">Map</Link>
       {/* route components in here here */}
-      <Route path='/' component={Navigation} />
+      <Navigation />
       <Route exact path='/' component={Dashboard} />
       <Route path='/' component={Footer} />
       <Route path="/map" component={Map} />
