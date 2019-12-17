@@ -20,8 +20,23 @@ export default function Map() {
   const [selected, setSelected] = useState([]);
   const [search, setSearch] = useState("");
 
+
+
+
   useEffect( _ => {
       setCityMarkers(markerDummyData);
+      const geo = navigator.geolocation;
+      if (!geo) {
+        console.log('Geolocation is not supported');
+        return;
+      }    
+      geo.getCurrentPosition(pos => 
+          setViewport({
+            ...viewport,
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude
+          })      
+        );
   }, [])
 
   const toggleSelected = cityMarker =>  {
