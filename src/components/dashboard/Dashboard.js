@@ -9,10 +9,7 @@ function Dashboard(){
      const [search, setSearch] = useState("")
      const searchChange = (event) => {
           event.preventDefault();
-          setSearch({
-               ...search, 
-               [event.target.name]:event.target.value
-          })
+          setSearch(event.target.value)
      }
      
      //* COMPARE STATE / HANDLECHANGE */
@@ -56,7 +53,7 @@ function Dashboard(){
                                    name="city"
                                    value={search}
                                    onChange={searchChange}
-                                   placeholder="City"
+                                   placeholder="San Francisco, CA"
                               />
                               <button className="search-city-button">Go</button>
                          </form>

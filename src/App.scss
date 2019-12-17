@@ -273,9 +273,11 @@ nav a:hover{
   }
   input{
     background-color: #f7f9f9;
-    width:170px;
-    height:30px;
+    // width:170px;
+    // height:30px;
+    padding:10px 65px;
     border-radius:50px;
+    font-size:1rem;
     border:none;
     padding-left:20px;
     &:focus{
@@ -293,7 +295,7 @@ nav a:hover{
     background-color:#2ca4fc;
     border:none;
     color:white;
-    margin-left:20px;
+    margin-left:25px;
     cursor:pointer;
     &:focus{
       outline:0;
