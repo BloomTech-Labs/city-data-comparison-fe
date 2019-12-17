@@ -46,6 +46,14 @@ export default function Map() {
         setViewport({ ...viewport, width:"100%" });
       };
 
+    const onSearch = _ => {
+      setViewport({
+        ...viewport,
+        longitude: 33,
+        latitude: 33
+      })
+    }
+
       return (
 
         <div className="map-page">
