@@ -2,6 +2,10 @@ import React, {useState, useEffect} from 'react'
 import data from './assets/data.svg'
 import forsale from './assets/forsale.svg'
 import insync from './assets/insync.svg'
+import dataVisual from './assets/dataVisual.svg'
+import map from './assets/map.svg'
+import money from './assets/money.svg'
+
 
 function Dashboard(){
 
@@ -68,24 +72,26 @@ function Dashboard(){
                {/* PRODUCT FEATURES */}
                <div className="dashboard-features-container">
                     <div className="feature-descriptions">
-                         <img className="feature-images" src={data} alt="data"/>
-                         <p>PHOTOS WILL CHANGE LATER. Lorem ipsum 90's meh master cleanse taxidermy kickstarter quinoa bespoke craft beer single-origin coffee cray PBR&B put a bird on it photo booth. </p>
+                         <img className="feature-images money" src={money} alt="data"/>
+                         <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
                     </div>
                     <div className="feature-descriptions">
-                         <img className="feature-images" src={forsale} alt="house-forsale"/>
-                         <p>PHOTOS WILL CHANGE LATER. Photo booth bespoke kogi food truck polaroid gentrify post-ironic. Leggings wolf YOLO pork belly, cliche quinoa plaid +1 humblebrag shaman ennui gochujang.</p>
+                         <img className="feature-images map" src={map} alt="house-forsale"/>
+                         <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
                     </div>
                     <div className="feature-descriptions">
-                         <img className="feature-images" src={insync} alt="business-insync"/>
-                         <p>PHOTOS WILL CHANGE LATER. Cold-pressed, art party bespoke heirloom fam vinyl copper mug hexagon pour-over offal. Twee aesthetic leggings, post-ironic waistcoat. </p>
+                         <img className="feature-images dataVisual" src={dataVisual} alt="business-insync"/>
+                         <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
                     </div>
                </div>
 
                {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
-                    <div>Data for living costs</div>
-                    <div>Data for job prospects</div>
-                    <div>Data for safety/crime</div>
+                    <div>
+                         <div>Data for living costs</div>
+                         <div>Data for job prospects</div>
+                         <div>Data for safety/crime</div>
+                    </div>
                </div>
 
                {/* COMPARE CITIES FUNCTION */}

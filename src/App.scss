@@ -273,8 +273,6 @@ nav a:hover{
   }
   input{
     background-color: #f7f9f9;
-    // width:170px;
-    // height:30px;
     padding:10px 65px;
     border-radius:50px;
     font-size:1rem;
@@ -286,6 +284,8 @@ nav a:hover{
   }
   .cities-description{
     text-align:center;
+    font-size:16px;
+    font-size:1rem;
     line-height:1.2;
   }
   .search-city-button{
@@ -304,14 +304,14 @@ nav a:hover{
   .cities-description-two{
     margin-top:20px;
     max-width:300px;
-    font-size:14px;
+    font-size:15px;
     text-align:center;
     line-height:1.26;
   }
   .compare-cities-button{    
     margin-top:20px;
     padding:10px 35px;
-    border-radius:40px;
+    border-radius:50px;
     border:1px solid #2ca4fc;
     color:#2ca4fc;
     font-size:1.1rem;
@@ -326,19 +326,44 @@ nav a:hover{
 
 
 
-
 .dashboard-features-container{
-  border:1px solid black;
+  padding:7% 0;
+  margin:0 auto;
+  max-width:800px;
+  width:100%;
   display:flex;
   flex-wrap:wrap;
-  justify-content:space-around;
+  justify-content:space-between;
+  .feature-descriptions{
+    width:28%;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .money{
+    width:127px;
+    height:132px;
+  }
+  .map{
+    width:155px;
+    height:132px;
+  }
+  .dataVisual{
+    width:180px;
+    height:130px;
+  }
+  img{
+    margin-bottom:25px;
+  }
+  p{
+    width:190px;
+    line-height:1.26;
+  }
 }
-.feature-descriptions{
-  width:25%;
-}
-.feature-images{
-  width:90%;
-}
+
+
 .dashboard-metrics-container{
   background:url('./components/dashboard/assets/seconddiv.svg');
   height:500px;
