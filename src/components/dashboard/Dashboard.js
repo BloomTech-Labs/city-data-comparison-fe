@@ -108,27 +108,33 @@ function Dashboard(){
 
                {/* COMPARE CITIES FUNCTION */}
                <div className="dashboard-compare-container">
-                    <h2>Compare Multiple Cities</h2>
-                    <div className="compare-buttons">
-                         <form onSubmit={submitCities}>
-                              <input 
-                                   type="text"
-                                   name="cityOne"
-                                   value={compare.cityOne}
-                                   onChange={compareChange}
-                                   placeholder="San Francisco, CA"
-                              />
-                              <input 
-                                   type="text"
-                                   name="cityTwo"
-                                   value={compare.cityTwo}
-                                   onChange={compareChange}
-                                   placeholder="Los Angeles, CA"
-                              />
-                              <button>Compare</button>
-                         </form>
+                    <div className="dashboard-compare">
+                         <h2>Compare Multiple Cities</h2>
+                         <div className="compare-buttons">
+                              <form onSubmit={submitCities}>
+                                   <input 
+                                        type="text"
+                                        name="cityOne"
+                                        value={compare.cityOne}
+                                        onChange={compareChange}
+                                        placeholder="San Francisco, CA"
+                                   />
+                                   <span className="versus">vs.</span>
+                                   <input 
+                                        type="text"
+                                        name="cityTwo"
+                                        value={compare.cityTwo}
+                                        onChange={compareChange}
+                                        placeholder="Los Angeles, CA"
+                                   />
+                                   <button>Compare</button>
+                              </form>
+                         </div>
                     </div>
                </div>
+
+
+
           </div>
      )
 }

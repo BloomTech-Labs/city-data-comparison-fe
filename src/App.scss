@@ -60,8 +60,7 @@ html,body{
 }
 
 
-
-/* Navigation Styling */
+//* Navigation Styling
 .navigation-container{
      display: flex;
      justify-content: space-between;
@@ -229,6 +228,7 @@ nav a:hover{
 
 
 /* * Dashboard styling */
+//* Dashboard Search Function Styling
 .dashboard-search-container{
   position:relative;
   height:750px;
@@ -236,7 +236,6 @@ nav a:hover{
   background-color:#F2F9FD;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
 }
-
 .slanted-san-francisco{
   background-image:url('./components/dashboard/assets/sanFrancisco.jpeg');
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
@@ -248,7 +247,6 @@ nav a:hover{
   z-index:-1;
   filter: contrast(110%) brightness(110%);
 }
-
 .search-function{
   position:relative;
   height: auto;
@@ -279,6 +277,7 @@ nav a:hover{
     font-size:1rem;
     border:none;
     padding-left:20px;
+    border:1px solid #efefef;
     &:focus{
       outline:0;
     }
@@ -320,11 +319,7 @@ nav a:hover{
     }
   }
 }
-
-
-
-
-
+//* Dashboard Features Styling
 .dashboard-features-container{
   padding:7% 0;
   margin:0 auto;
@@ -361,18 +356,17 @@ nav a:hover{
   }
 }
 
-
+//* Dashboard Data Metrics Styling
 .dashboard-metrics-container{
   background:url('./components/dashboard/assets/seconddiv.svg');
   height:500px;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   display:flex;
   align-items:center;
-  // justify-content:center;
 
   .dashboard-metrics{
     margin:0 auto;
-    max-width:800px;
+    max-width:900px;
     width:100%;
     display:flex;
     justify-content:space-between;
@@ -386,6 +380,50 @@ nav a:hover{
     text-align:center;
   }
 }
+
+//* Dashboard Compare Function Styling
 .dashboard-compare-container{
-  border:1px solid black;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:5% 0;
+  
+  .dashboard-compare{
+    margin:0 auto;
+    max-width:800px;
+    width:100%;
+  }
+  input{
+    background-color: #f7f9f9;
+    padding:10px 65px;
+    border-radius:10px;
+    font-size:1rem;
+    border:none;
+    padding-left:20px;
+    border:1px solid #efefef;
+    &:focus{
+      outline:0;
+    }
+  }
+  button{
+    font-size:1rem;
+    padding:10px 25px;
+    border-radius:10px;
+    background-color:#e5941e;
+    border:none;
+    color:white;
+    margin-left:15px;
+    cursor:pointer;
+    &:focus{
+      outline:0;
+    }
+  }
+  .compare-buttons{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+  }
+  .versus{
+    margin:0 15px;
+  }
 }
