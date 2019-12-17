@@ -126,6 +126,7 @@ html,body{
   height : 250px;
   margin:0 auto;
   width:60%;
+  max-width:600px;
   background-color:white;
   z-index:99999;
   margin-top:-100px;
@@ -150,10 +151,6 @@ html,body{
     background-color:#2ca4fc;
     border:none;
     color:white;
-
-    &:active{
-      border:none;
-    }
   }
   .compare-cities-title{
     width:50%;

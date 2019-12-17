@@ -44,10 +44,8 @@ function Dashboard(){
 
                {/* SEARCH FUNCTION */}
                <div className="dashboard-search-container">
-                    <div className="slanted-san-francisco">
-                    </div>
-
-                    <div className="slanted-blue-one"></div>
+                    <div className="slanted-san-francisco"></div>
+                    {/* <div className="slanted-blue-one"></div> */}
                     <div className="search-function">
                          <h1>Choice is YOURS</h1>
                          <p>Choose the information you want to see about city(ies).</p>
