@@ -1,51 +1,51 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+// /* http://meyerweb.com/eric/tools/css/reset/ 
+//    v2.0 | 20110126
+//    License: none (public domain)
+// */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+// html, body, div, span, applet, object, iframe,
+// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+// a, abbr, acronym, address, big, cite, code,
+// del, dfn, em, img, ins, kbd, q, s, samp,
+// small, strike, strong, sub, sup, tt, var,
+// b, u, i, center,
+// dl, dt, dd, ol, ul, li,
+// fieldset, form, label, legend,
+// table, caption, tbody, tfoot, thead, tr, th, td,
+// article, aside, canvas, details, embed, 
+// figure, figcaption, footer, header, hgroup, 
+// menu, nav, output, ruby, section, summary,
+// time, mark, audio, video {
+// 	margin: 0;
+// 	padding: 0;
+// 	border: 0;
+// 	font-size: 100%;
+// 	font: inherit;
+// 	vertical-align: baseline;
+// }
+// /* HTML5 display-role reset for older browsers */
+// article, aside, details, figcaption, figure, 
+// footer, header, hgroup, menu, nav, section {
+// 	display: block;
+// }
+// body {
+// 	line-height: 1;
+// }
+// ol, ul {
+// 	list-style: none;
+// }
+// blockquote, q {
+// 	quotes: none;
+// }
+// blockquote:before, blockquote:after,
+// q:before, q:after {
+// 	content: '';
+// 	content: none;
+// }
+// table {
+// 	border-collapse: collapse;
+// 	border-spacing: 0;
+// }
 /* fonts */
 @import url('https://fonts.google.com/specimen/Rubik?selection.family=Rubik:300,400,500,700');
 
@@ -56,6 +56,7 @@ html,body{
   font-family: 'Rubik', sans-serif;
   box-sizing:border-box;
   color: #2e2f38;
+  line-height:1.26;
 }
 
 
@@ -274,7 +275,7 @@ nav a:hover{
   input{
     background-color: #f7f9f9;
     padding:10px 65px;
-    border-radius:50px;
+    border-radius:10px;
     font-size:1rem;
     border:none;
     padding-left:20px;
@@ -286,12 +287,12 @@ nav a:hover{
     text-align:center;
     font-size:16px;
     font-size:1rem;
-    line-height:1.2;
+    margin-top:0;
   }
   .search-city-button{
     font-size:1rem;
     padding:10px 25px;
-    border-radius:50px;
+    border-radius:10px;
     background-color:#2ca4fc;
     border:none;
     color:white;
@@ -302,16 +303,14 @@ nav a:hover{
     }
   }
   .cities-description-two{
-    margin-top:20px;
+    margin-top:10px;
     max-width:300px;
     font-size:15px;
     text-align:center;
-    line-height:1.26;
   }
   .compare-cities-button{    
-    margin-top:20px;
     padding:10px 35px;
-    border-radius:50px;
+    border-radius:10px;
     border:1px solid #2ca4fc;
     color:#2ca4fc;
     font-size:1.1rem;
@@ -359,7 +358,6 @@ nav a:hover{
   }
   p{
     width:190px;
-    line-height:1.26;
   }
 }
 
@@ -368,6 +366,25 @@ nav a:hover{
   background:url('./components/dashboard/assets/seconddiv.svg');
   height:500px;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  display:flex;
+  align-items:center;
+  // justify-content:center;
+
+  .dashboard-metrics{
+    margin:0 auto;
+    max-width:800px;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+  }
+  img{
+    width:180px;
+    background-color:white;
+    padding:10px;
+  }
+  p{
+    text-align:center;
+  }
 }
 .dashboard-compare-container{
   border:1px solid black;

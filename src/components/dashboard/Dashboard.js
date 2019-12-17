@@ -5,6 +5,7 @@ import insync from './assets/insync.svg'
 import dataVisual from './assets/dataVisual.svg'
 import map from './assets/map.svg'
 import money from './assets/money.svg'
+import graph from './assets/graph.svg'
 
 
 function Dashboard(){
@@ -72,27 +73,38 @@ function Dashboard(){
                {/* PRODUCT FEATURES */}
                <div className="dashboard-features-container">
                     <div className="feature-descriptions">
-                         <img className="feature-images money" src={money} alt="data"/>
+                         <img className="feature-images money" src={money} alt="money" />
                          <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
                     </div>
                     <div className="feature-descriptions">
-                         <img className="feature-images map" src={map} alt="house-forsale"/>
+                         <img className="feature-images map" src={map} alt="map"/>
                          <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
                     </div>
                     <div className="feature-descriptions">
-                         <img className="feature-images dataVisual" src={dataVisual} alt="business-insync"/>
+                         <img className="feature-images dataVisual" src={dataVisual} alt="data visual"/>
                          <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
                     </div>
                </div>
 
                {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
-                    <div>
-                         <div>Data for living costs</div>
-                         <div>Data for job prospects</div>
-                         <div>Data for safety/crime</div>
+                    <div className="dashboard-metrics">
+                         <div>
+                              <img src={graph} alt="living cost graph" />
+                              <p>Data for living costs</p>
+                         </div>
+                         <div>
+                              <img src={graph} alt="living cost graph" />
+                              <p>Data for job prospects</p>
+                         </div>
+                         <div>
+                              <img src={graph} alt="living cost graph" />
+                              <p>Data for safety/crime</p>
+                         </div>
                     </div>
                </div>
+
+
 
                {/* COMPARE CITIES FUNCTION */}
                <div className="dashboard-compare-container">
