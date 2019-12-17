@@ -1,17 +1,29 @@
 import React, {useState, useEffect} from "react";
 
-const MapSearch = ({onSearch, setSearch}) => {
-
-    const handleChange= e => setSearch(e.target.value);
+const MapSearch = ({search, onSearch, setSearch, cityMarkers}) => {
+    const [suggestions, setSuggestions] = useState([]);
+    const handleChange= e => {
+        const searchText = e.target.value;
+        setSuggestions(cityMarkers.filter(city => city.city.toLowerCase().includes(searchText.toLowerCase())));
+        setSearch(searchText)
+    };
     
+    const chooseSuggestion = city => {
+        setSearch(city.city);
+        setSuggestions([]);
+    }
 
     return(
-        <form onSubmit={onSearch}>
+        <form autocomplete="off" onSubmit={onSearch}>
             <input
                         name="search"
                         placeholder="Search" 
                         onChange={handleChange} 
+                        value={search}
             />
+            {suggestions.map(item =>
+                <li key={item.lat} onClick={() => chooseSuggestion(item)}>{item.city}</li>    
+            )}
         </form>
     )
 }

@@ -5,14 +5,16 @@ import Jobs from "./Jobs";
 import Safety from "./Safety";
 import MapSearch from "./MapSearch";
 
-const DataDisplay = ({selected, toggleSelected, onSearch, setSearch}) => {
+const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers}) => {
     return (
         <div className="data-browser">
             <nav className="data-nav">
                 <MapSearch 
                     setSearch={setSearch}
-                    onSearch={onSearch} />
-                
+                    onSearch={onSearch} 
+                    cityMarkers={cityMarkers} 
+                    search={search}   
+                />
                 <Link to="/map/cost">Cost of Living</Link>
                 <Link to="/map/jobs">Job Market</Link>
                 <Link to="/map/safety">Safety</Link>

@@ -94,6 +94,8 @@ export default function Map() {
               selected={selected}
               onSearch={onSearch}
               setSearch={setSearch}
+              cityMarkers={cityMarkers}
+              search={search}
             />
           </div>
 
