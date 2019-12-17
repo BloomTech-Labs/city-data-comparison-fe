@@ -374,7 +374,7 @@ nav a:hover{
   img{
     width:180px;
     background-color:white;
-    padding:10px;
+    padding:15px;
   }
   p{
     text-align:center;
@@ -407,13 +407,15 @@ nav a:hover{
   }
   button{
     font-size:1rem;
-    padding:10px 25px;
+    padding:10px 35px;
     border-radius:10px;
     background-color:#e5941e;
     border:none;
     color:white;
     margin-left:15px;
+    font-size:1.1rem;
     cursor:pointer;
+    
     &:focus{
       outline:0;
     }
@@ -426,4 +428,13 @@ nav a:hover{
   .versus{
     margin:0 15px;
   }
+}
+
+
+// * Footer Styling
+.footer-container{
+  border-top:1px solid #efefef;
+  margin-top:10%;
+  background-color:#F1F9FD;
+  height:200px;
 }
