@@ -27,7 +27,7 @@ export default function Map() {
       setCityMarkers(markerDummyData);
       const geo = navigator.geolocation;
       if (!geo) {
-        console.log('Geolocation is not supported');
+        console.log('Geolocation is not supported by this browser');
         return;
       }    
       geo.getCurrentPosition(pos => 
@@ -40,7 +40,6 @@ export default function Map() {
   }, [])
 
   const toggleSelected = cityMarker =>  {
-    console.log("toggling");
     console.log(cityMarker);
     if (selected.find(item => item === cityMarker)) {
         setSelected(selected.filter(item => item !== cityMarker));
