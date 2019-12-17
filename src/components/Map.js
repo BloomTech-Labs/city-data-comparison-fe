@@ -10,7 +10,7 @@ import './map-components/Map.scss';
 
 const MapWrapper = styled.div`
   width:100vw;
-  height:100vh;
+  height:50vh;
 `;
 
 
@@ -18,13 +18,28 @@ export default function Map() {
 
   const [cityMarkers, setCityMarkers] = useState([]);
   const [selected, setSelected] = useState([]);
+  const [search, setSearch] = useState("");
+
+
+
 
   useEffect( _ => {
       setCityMarkers(markerDummyData);
+      const geo = navigator.geolocation;
+      if (!geo) {
+        console.log('Geolocation is not supported by this browser');
+        return;
+      }    
+      geo.getCurrentPosition(pos => 
+          setViewport({
+            ...viewport,
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude
+          })      
+        );
   }, [])
 
   const toggleSelected = cityMarker =>  {
-    console.log("toggling");
     console.log(cityMarker);
     if (selected.find(item => item === cityMarker)) {
         setSelected(selected.filter(item => item !== cityMarker));
@@ -32,7 +47,6 @@ export default function Map() {
         setSelected([...selected, cityMarker]);
     }
 }
-
     const [viewport, setViewport] = useState({
       width: '100%',
       height: '100%',
@@ -41,6 +55,16 @@ export default function Map() {
       zoom: 5,
       trackResize: true
     });
+
+    const onSearch = e => {
+      e.preventDefault();
+      const found = cityMarkers.find(item => item.city === search)
+      setViewport({
+        ...viewport,
+        longitude: found.lng,
+        latitude: found.lat
+      })
+    }
 
     const onViewportChange = viewport => {
         setViewport({ ...viewport, width:"100%" });
@@ -68,6 +92,12 @@ export default function Map() {
             <DataDisplay 
               toggleSelected={toggleSelected}
               selected={selected}
+              onSearch={onSearch}
+              setSearch={setSearch}
+              cityMarkers={cityMarkers}
+              search={search}
+              viewport={viewport}
+              setViewport={setViewport}
             />
           </div>
 
