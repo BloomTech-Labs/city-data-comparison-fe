@@ -48,7 +48,7 @@ function Dashboard(){
                     {/* <div className="slanted-blue-one"></div> */}
                     <div className="search-function">
                          <h1>Choice is YOURS</h1>
-                         <p>Choose the information you want to see about city(ies).</p>
+                         <p className="cities-description">Choose the information you want to see about city(ies).</p>
                          
                          <form onSubmit={submitCity}>
                               <input 
@@ -60,7 +60,7 @@ function Dashboard(){
                               />
                               <button className="search-city-button">Go</button>
                          </form>
-                         <p className="compare-cities-title">Want to learn about more cities? Click the button below to compare multiple cities.</p>
+                         <p className="cities-description">Want to learn about more cities? Click the button below to compare multiple cities.</p>
                          <button className="compare-cities-button">Compare cities</button>
                     </div>
                </div>

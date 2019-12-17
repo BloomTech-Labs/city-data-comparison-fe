@@ -46,71 +46,199 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* fonts */
+@import url('https://fonts.google.com/specimen/Rubik?selection.family=Rubik:300,400,500,700');
 
 /* * Styling code begins here */
 html,body{
   background: #fcfcfb;
   margin:0 auto;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Rubik', sans-serif;
   color: #2e2f38;
-  /* max-width:1440px;
-  width:100%;
-  margin:0 auto; */
 }
 
+
+
+/* Navigation Styling */
+.navigation-container{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     position: fixed;
+     top: 0;
+     width: 100%;
+     opacity: 0.97;
+     padding-top: 13px;
+     padding-bottom: 13px;
+     font-size: 1rem;
+     z-index: 99999;
+     margin:0 auto;
+   }
+   .header-logo {
+     display: flex;
+     align-items: center;
+     justify-content: flex-start;
+     padding-left: 1rem;
+     width: 15%;
+   }
+   nav {
+     width: 40%;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     padding-left: 4%;
+   }
+
+
+@media screen and (max-width: 500px) {
+     nav {
+          width:100%;
+    }
+    nav a {
+         display: none;
+    }
+    .sign-up-btn {
+         display: none;
+    }
+}
+
+nav a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration:none;
+  color:#2e2f38;
+  transition: .3s cubic-bezier(0.2,0.8,0.2,1);
+}
+nav a:hover{
+     color:#2e2f38;
+     text-decoration: underline;
+}
+
+#noUnderline {
+     text-decoration:none;
+}
+// .sign-up-btn{
+//      opacity:1;
+//      font-weight: bold;
+//      display:flex;
+//      align-items:center;
+//      justify-content:center;
+//      color: #5563fa;
+//      border:1.3px solid #5563fa;
+//      background: #fcfcfb;
+//      font-weight: bold;
+//      font-size: 1.1rem;
+//      border-radius: 5px;
+//      padding:10px 20px;
+//      transition: .4s cubic-bezier(0.2,0.8,0.2,1);
+// }
+// .sign-up-btn:hover{
+//      opacity:1;
+//      background-color:#5563fa;
+//      color:white;
+//      text-decoration: none;
+//      transform: translateY(-3px);
+// }
+
+
+/* Dropdown menu */
+@media screen and (max-width:6000px){
+     .dropdownContainer{
+          display:none;
+     }
+     .dropdown-content a{
+          display:none;
+     }
+}
+@media screen and (max-width:1440px){
+     .dropdownContainer{
+          display:none;
+     }
+     .dropdown-content a{
+          display:none;
+     }
+}
+@media screen and (max-width:800px){
+     .dropdownContainer{
+          display:none;
+     }
+     .dropdown-content a{
+          display:none;
+     }
+}
+@media screen and (max-width:500px){
+    .navigation-container nav {
+         display:none;
+    }
+    
+     .dropdownContainer{
+          display:flex;
+     }
+    .dropbtn {
+      background-color:#fcfcfb;
+      color: #2e2f38;
+      padding: 6px 15px;
+      font-size: 16px;
+      border: 1.3px solid #2e2f38;
+      border-radius:3px;
+      margin-right:2rem;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      float:right;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: #2e2f38;
+      padding: 13px 13px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+        color:#fcfcfb;
+        background-color: #2ca4fc;
+      }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        color:#fcfcfb;
+      background-color: #2ca4fc;
+    }
+
+}
 
 
 
 
 
 /* * Dashboard styling */
-/* .dashboard-search-container{
-  border: 1px solid black;
-  position: relative;
-  width:100%;
-  height:300px;
-  z-index: 99999;
-  background: #F2F9FD;
-}
-.dashboard-search-container:before{
-  position:absolute;
-  width:100%;
-  height:100%;
-  content:'';
-  background:inherit;
-  z-index:-1;
-  top:0;
-  right:0;
-  left:0;
-  transform-origin: bottom left;
-  transform: skewY(4deg);
-    background: #F2F9FD;
-
-} */
 .dashboard-search-container{
   position:relative;
   height:750px;
   width:100%;
   background-color:#F2F9FD;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
 }
-// .dashboard-search-container::after{
-//   position:absolute;
-//   width:100%;
-//   height:100%;
-//   content:'';
-//   background:inherit;
-//   z-index:-9999999999;
-//   top:0;
-//   right:0;
-//   bottom:0;
-//   left:0;
-//   transform-origin: top left;
-//   transform: skewY(4deg);
-// }
 
 .slanted-san-francisco{
   background-image:url('./components/dashboard/assets/sanFrancisco.jpeg');
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   height:350px;
   overflow:hidden;
   background-size:cover;
@@ -122,8 +250,7 @@ html,body{
 
 .search-function{
   position:relative;
-  z-index:999999;
-  height : 250px;
+  height: auto;
   margin:0 auto;
   width:60%;
   max-width:600px;
@@ -135,6 +262,7 @@ html,body{
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  border:1px solid red;
 
   h1{
     font-size:1.9rem;
@@ -142,20 +270,31 @@ html,body{
   };
   form{
     margin:30px 0;
-    
+    // border:1px solid purple;
+    // width:50%;
+  }
+  input{
+    background-color: #f7f9f9;
+    width:170px;
+    height:30px;
+    border-radius:50px;
+    border:none;
+    padding-left:10px;
   }
   .search-city-button{
-    border-radius:50px;
+    border-radius:40px;
     width:60px;
     height:30px;
     background-color:#2ca4fc;
     border:none;
     color:white;
+    margin-left:20px;
   }
-  .compare-cities-title{
+  .cities-description{
     width:50%;
     text-align:center;
     line-height:1.26;
+    border:1px solid red;
   }
   .compare-cities-button{
     width:25%;
@@ -164,6 +303,7 @@ html,body{
     border-radius:40px;
     border:1px solid #2ca4fc;
     color:#2ca4fc;
+    border:1px solid red;
   }
 }
 
@@ -187,7 +327,7 @@ html,body{
 .dashboard-metrics-container{
   background:url('./components/dashboard/assets/seconddiv.svg');
   height:500px;
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
 .dashboard-compare-container{
   border:1px solid black;

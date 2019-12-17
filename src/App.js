@@ -9,8 +9,6 @@ import Map from "./components/Map";
 function App() {
   return (
     <div className="App">
-      <Link to="/">Home</Link>
-      <Link to="/map">Map</Link>
       {/* route components in here here */}
       <Navigation />
       <Route exact path='/' component={Dashboard} />
