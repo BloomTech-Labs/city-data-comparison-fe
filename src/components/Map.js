@@ -10,7 +10,7 @@ import './map-components/Map.scss';
 
 const MapWrapper = styled.div`
   width:100vw;
-  height:100vh;
+  height:50vh;
 `;
 
 

@@ -3,7 +3,7 @@ import { Marker } from 'react-map-gl';
 import { Link } from 'react-router-dom';
 
 import pin from './pin.png';
-import bluepin from"./bluepin.png";
+import activepin from"./activepin.png";
 
 
 const Markers = ({ zoom, cityMarkers, selected, toggleSelected }) => {
@@ -18,7 +18,7 @@ const Markers = ({ zoom, cityMarkers, selected, toggleSelected }) => {
                     {/* <Link className='map-marker' to={`/map/${cityMarker.city}${cityMarker.state_id}`}> */}
                     <div onClick={() => toggleSelected(cityMarker)}>
                         {selected.find(item => item === cityMarker) 
-                        ? <img src={bluepin} alt={`A map pin indicating ${cityMarker.city}`} />
+                        ? <img src={activepin} alt={`A map pin indicating ${cityMarker.city}`} />
                         : <img src={pin} alt={`A map pin indicating ${cityMarker.city}`} />}
                     </div>
 
