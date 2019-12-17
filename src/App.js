@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       
-      <h1>City Data Comparison</h1>
       <Link to="/map">Map</Link>
       {/* route components in here here */}
       <Route path='/' component={Navigation} />

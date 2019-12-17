@@ -89,52 +89,89 @@ html,body{
 } */
 .dashboard-search-container{
   position:relative;
-  height:800px;
-  background-color:#F2F9FD;
-  border:1px solid purple;
-}
-.dashboard-search-container:after{
-  position:absolute;
+  height:750px;
   width:100%;
-  height:100%;
-  content:'';
-  background:inherit;
-  z-index:-1;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
-  transform-origin: top left;
-  transform: skewY(4deg);
+  background-color:#F2F9FD;
 }
+// .dashboard-search-container::after{
+//   position:absolute;
+//   width:100%;
+//   height:100%;
+//   content:'';
+//   background:inherit;
+//   z-index:-9999999999;
+//   top:0;
+//   right:0;
+//   bottom:0;
+//   left:0;
+//   transform-origin: top left;
+//   transform: skewY(4deg);
+// }
 
 .slanted-san-francisco{
   background-image:url('./components/dashboard/assets/sanFrancisco.jpeg');
   clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
-  height:400px;
+  height:350px;
   overflow:hidden;
   background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index:99999;
-  border:1px solid red;
+  z-index:-1;
+  filter: contrast(110%) brightness(110%);
 }
 
-/* .slanted-blue-one{
-  background-image:url('./components/dashboard/assets/firstdiv.svg');
-  clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 90%);
-  height:400px;
-  background-size:cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index:-99999;
-  border:1px solid red;
-} */
 .search-function{
   position:relative;
   z-index:999999;
-  border:1px solid red;
+  height : 250px;
+  margin:0 auto;
+  width:60%;
+  background-color:white;
+  z-index:99999;
+  margin-top:-100px;
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  h1{
+    font-size:1.9rem;
+    margin:10px 0;
+  };
+  form{
+    margin:30px 0;
+    
+  }
+  .search-city-button{
+    border-radius:50px;
+    width:60px;
+    height:30px;
+    background-color:#2ca4fc;
+    border:none;
+    color:white;
+
+    &:active{
+      border:none;
+    }
+  }
+  .compare-cities-title{
+    width:50%;
+    text-align:center;
+    line-height:1.26;
+  }
+  .compare-cities-button{
+    width:25%;
+    height:30px;
+    margin-top:10px;
+    border-radius:40px;
+    border:1px solid #2ca4fc;
+    color:#2ca4fc;
+  }
 }
+
+
+
 
 
 
