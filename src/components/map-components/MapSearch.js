@@ -27,7 +27,7 @@ const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewp
                         value={search}
             />
             {suggestions.map(item =>
-                <li key={item.lat} onClick={() => chooseSuggestion(item)}>{item.city}</li>    
+                <li className="autofill-option" key={item.lat} onClick={() => chooseSuggestion(item)}>{item.city}</li>    
             )}
         </form>
     )
