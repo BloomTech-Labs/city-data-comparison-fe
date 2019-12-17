@@ -18,6 +18,7 @@ export default function Map() {
 
   const [cityMarkers, setCityMarkers] = useState([]);
   const [selected, setSelected] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect( _ => {
       setCityMarkers(markerDummyData);
@@ -32,7 +33,6 @@ export default function Map() {
         setSelected([...selected, cityMarker]);
     }
 }
-
     const [viewport, setViewport] = useState({
       width: '100%',
       height: '100%',
@@ -42,17 +42,19 @@ export default function Map() {
       trackResize: true
     });
 
+    const onSearch = e => {
+      e.preventDefault();
+      const found = cityMarkers.find(item => item.city === search)
+      setViewport({
+        ...viewport,
+        longitude: found.lng,
+        latitude: found.lat
+      })
+    }
+
     const onViewportChange = viewport => {
         setViewport({ ...viewport, width:"100%" });
       };
-
-    const onSearch = _ => {
-      setViewport({
-        ...viewport,
-        longitude: 33,
-        latitude: 33
-      })
-    }
 
       return (
 
@@ -76,6 +78,8 @@ export default function Map() {
             <DataDisplay 
               toggleSelected={toggleSelected}
               selected={selected}
+              onSearch={onSearch}
+              setSearch={setSearch}
             />
           </div>
 

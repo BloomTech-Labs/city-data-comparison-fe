@@ -3,21 +3,23 @@ import {Link, Route}  from "react-router-dom";
 import Cost from "./Cost";
 import Jobs from "./Jobs";
 import Safety from "./Safety";
+import MapSearch from "./MapSearch";
 
-const DataDisplay = ({selected, toggleSelected}) => {
+const DataDisplay = ({selected, toggleSelected, onSearch, setSearch}) => {
     return (
         <div className="data-browser">
             <nav className="data-nav">
-                <input
-                    name="search"
-                    placeholder="Search" />
-               <Link to="/map/cost">Cost of Living</Link>
-               <Link to="/map/jobs">Job Market</Link>
-               <Link to="/map/safety">Safety</Link>
-               <ul>
-                {selected.map(item => <li>{item.city}, {item.state_id} <button onClick={ _ => toggleSelected(item)}>X</button></li>)}
+                <MapSearch 
+                    setSearch={setSearch}
+                    onSearch={onSearch} />
+                
+                <Link to="/map/cost">Cost of Living</Link>
+                <Link to="/map/jobs">Job Market</Link>
+                <Link to="/map/safety">Safety</Link>
+                <ul>
+                    {selected.map(item => <li>{item.city}, {item.state_id} <button onClick={ _ => toggleSelected(item)}>X</button></li>)}
 
-               </ul>
+                </ul>
             </nav>
             <div className="data-by-category">
                 <Route path="/map/cost" render={props => <Cost selected={selected} /> } />
