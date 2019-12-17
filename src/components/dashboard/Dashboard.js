@@ -60,7 +60,7 @@ function Dashboard(){
                               />
                               <button className="search-city-button">Go</button>
                          </form>
-                         <p className="cities-description">Want to learn about more cities? Click the button below to compare multiple cities.</p>
+                         <p className="cities-description-two">Want to learn about more cities? Click the button below to compare multiple cities.</p>
                          <button className="compare-cities-button">Compare cities</button>
                     </div>
                </div>
