@@ -9,10 +9,10 @@ import Map from "./components/Map";
 function App() {
   return (
     <div className="App">
-      
+      <Link to="/">Home</Link>
       <Link to="/map">Map</Link>
       {/* route components in here here */}
-      <Route path='/' component={Navigation} />
+      <Navigation />
       <Route exact path='/' component={Dashboard} />
       <Route path='/' component={Footer} />
       <Route path="/map" component={Map} />

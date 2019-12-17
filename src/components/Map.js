@@ -17,10 +17,21 @@ const MapWrapper = styled.div`
 export default function Map() {
 
   const [cityMarkers, setCityMarkers] = useState([]);
+  const [selected, setSelected] = useState([]);
 
   useEffect( _ => {
       setCityMarkers(markerDummyData);
   }, [])
+
+  const toggleSelected = cityMarker =>  {
+    console.log("toggling");
+    console.log(cityMarker);
+    if (selected.find(item => item === cityMarker)) {
+        setSelected(selected.filter(item => item !== cityMarker));
+    } else {
+        setSelected([...selected, cityMarker]);
+    }
+}
 
     const [viewport, setViewport] = useState({
       width: '100%',
@@ -28,10 +39,11 @@ export default function Map() {
       latitude: 45,
       longitude: -95,
       zoom: 5,
+      trackResize: true
     });
 
-    const _onViewportChange = viewport => {
-        setViewport({ ...viewport });
+    const onViewportChange = viewport => {
+        setViewport({ ...viewport, width:"100%" });
       };
 
       return (
@@ -45,12 +57,18 @@ export default function Map() {
                     mapboxApiAccessToken={
                     'pk.eyJ1IjoiYnJ1bmNodGltZSIsImEiOiJjazIwdG80MGkxN3lmM25vaWZ5cThkZDU1In0.uYqrXjiEyUL1mTEO_N5-0w'
                     }
-                    onViewportChange={_onViewportChange}>
-                    <Markers cityMarkers={cityMarkers}/>
+                    onViewportChange={onViewportChange}>
+                    <Markers 
+                      cityMarkers={cityMarkers}
+                      selected={selected}
+                      toggleSelected={toggleSelected} />
                 </ReactMapGL>
               </MapWrapper>
             </div>
-            <DataDisplay />
+            <DataDisplay 
+              toggleSelected={toggleSelected}
+              selected={selected}
+            />
           </div>
 
       );
