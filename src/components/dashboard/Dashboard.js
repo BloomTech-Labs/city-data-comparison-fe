@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import data from './assets/data.svg'
 import forsale from './assets/forsale.svg'
 import insync from './assets/insync.svg'
+import sanFrancisco from './assets/sanFrancisco.jpeg'
 
 function Dashboard(){
 
@@ -47,8 +48,7 @@ function Dashboard(){
 
                {/* SEARCH FUNCTION */}
                <div className="dashboard-search-container">
-                    {/* <div>map goes here</div> */}
-                    <div>
+                      <div className="search-function">
                          <h1>Choice is YOURS</h1>
                          <p>Choose the information you want to see about city(ies).</p>
                          
@@ -72,7 +72,13 @@ function Dashboard(){
                          <p>OR</p>
                          <button>Compare cities</button>
                     </div>
+                    <div className="slanted-san-francisco"></div>
+
+                    <div className="slanted-blue-one"></div>
                </div>
+
+
+
 
                {/* PRODUCT FEATURES */}
                <div className="dashboard-features-container">
