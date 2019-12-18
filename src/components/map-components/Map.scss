@@ -12,6 +12,31 @@
         width:25%;
         height:40vh;
 
+        li {
+            list-style-type: none;
+            margin: 2% 0;
+            font-weight:bold;
+            display:flex;
+            justify-content:space-between;
+            width:80%;
+        }
+
+        button {
+            border:none;
+            background:none;
+            color:white;
+            padding-bottom:.3rem;
+            font-size:1.1rem;
+            &:focus {
+                outline:none;
+            }
+        }
+        
+
+        ul {
+            padding-left:10%;
+        }
+
         form {
             margin: 5px auto;
             width:80%;
