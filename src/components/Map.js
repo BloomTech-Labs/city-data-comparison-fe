@@ -10,28 +10,64 @@ import './map-components/Map.scss';
 
 const MapWrapper = styled.div`
   width:100vw;
-  height:100vh;
+  height:50vh;
 `;
 
 
 export default function Map() {
 
   const [cityMarkers, setCityMarkers] = useState([]);
+  const [selected, setSelected] = useState([]);
+  const [search, setSearch] = useState("");
+
+
+
 
   useEffect( _ => {
       setCityMarkers(markerDummyData);
+      const geo = navigator.geolocation;
+      if (!geo) {
+        console.log('Geolocation is not supported by this browser');
+        return;
+      }    
+      geo.getCurrentPosition(pos => 
+          setViewport({
+            ...viewport,
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude
+          })      
+        );
   }, [])
 
+  const toggleSelected = cityMarker =>  {
+    console.log(cityMarker);
+    if (selected.find(item => item === cityMarker)) {
+        setSelected(selected.filter(item => item !== cityMarker));
+    } else {
+        setSelected([...selected, cityMarker]);
+    }
+}
     const [viewport, setViewport] = useState({
       width: '100%',
       height: '100%',
       latitude: 45,
       longitude: -95,
       zoom: 5,
+      trackResize: true
     });
 
-    const _onViewportChange = viewport => {
-        setViewport({ ...viewport });
+    const onSearch = e => {
+      e.preventDefault();
+      const found = cityMarkers.find(item => item.city === search)
+      setViewport({
+        ...viewport,
+        longitude: found.lng,
+        latitude: found.lat
+      })
+    }
+
+    const onViewportChange = viewport => {
+        setViewport({ ...viewport, width:"100%", height:"100%" });
       };
 
       return (
@@ -45,12 +81,24 @@ export default function Map() {
                     mapboxApiAccessToken={
                     'pk.eyJ1IjoiYnJ1bmNodGltZSIsImEiOiJjazIwdG80MGkxN3lmM25vaWZ5cThkZDU1In0.uYqrXjiEyUL1mTEO_N5-0w'
                     }
-                    onViewportChange={_onViewportChange}>
-                    <Markers cityMarkers={cityMarkers}/>
+                    onViewportChange={onViewportChange}>
+                    <Markers 
+                      cityMarkers={cityMarkers}
+                      selected={selected}
+                      toggleSelected={toggleSelected} />
                 </ReactMapGL>
               </MapWrapper>
             </div>
-            <DataDisplay />
+            <DataDisplay 
+              toggleSelected={toggleSelected}
+              selected={selected}
+              onSearch={onSearch}
+              setSearch={setSearch}
+              cityMarkers={cityMarkers}
+              search={search}
+              viewport={viewport}
+              setViewport={setViewport}
+            />
           </div>
 
       );
