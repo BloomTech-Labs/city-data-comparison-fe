@@ -4,7 +4,9 @@ const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewp
     const [suggestions, setSuggestions] = useState([]);
     const handleChange= e => {
         const searchText = e.target.value;
-        setSuggestions(cityMarkers.filter(city => city.city.toLowerCase().includes(searchText.toLowerCase())));
+        searchText
+        ? setSuggestions(cityMarkers.filter(city => city.city.toLowerCase().includes(searchText.toLowerCase())))
+        : setSuggestions([]);
         setSearch(searchText)
     };
     

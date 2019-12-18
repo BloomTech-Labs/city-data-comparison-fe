@@ -4,10 +4,51 @@
     nav {
         display:flex;
         flex-direction:column;
+        justify-content:space-between;
+        color:white;
+        background:#041734;
+        
+        input {
+            margin: 5px;
+        }
+
+
+        a {
+            color:white;
+            text-decoration:none;
+            padding:10px;
+            padding-left:20px;
+            margin: 10px 0px;
+        }
+
+        .selected {
+            color:#041734;
+            background:white;
+            font-size:1.1rem;
+        }
+
+        .data-nav-top {
+            display:flex;
+            flex-direction:column;
+            height:300px;
+        }
+        li {
+            list-style-type: none;
+            margin-left:1%;
+            padding:2px;
+            z-index:1;
+            background:white;
+            color:black;
+        }
     }
 }
 
 
 .sc-bdVaJa.bcvKQO {
     height:500px;
+}
+
+.autofill-option {
+    border: 1px solid grey;
+    font-size: .9rem;
 }

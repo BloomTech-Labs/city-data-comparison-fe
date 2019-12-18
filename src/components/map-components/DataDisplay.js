@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link, Route}  from "react-router-dom";
+import {Link, NavLink, Route}  from "react-router-dom";
 import Cost from "./Cost";
 import Jobs from "./Jobs";
 import Safety from "./Safety";
@@ -9,17 +9,19 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     return (
         <div className="data-browser">
             <nav className="data-nav">
-                <MapSearch 
-                    setSearch={setSearch}
-                    onSearch={onSearch} 
-                    cityMarkers={cityMarkers} 
-                    search={search}
-                    viewport={viewport}
-                    setViewport={setViewport}   
-                />
-                <Link to="/map/cost">Cost of Living</Link>
-                <Link to="/map/jobs">Job Market</Link>
-                <Link to="/map/safety">Safety</Link>
+                <div className="data-nav-top">
+                    <MapSearch 
+                        setSearch={setSearch}
+                        onSearch={onSearch} 
+                        cityMarkers={cityMarkers} 
+                        search={search}
+                        viewport={viewport}
+                        setViewport={setViewport}   
+                    />
+                    <NavLink activeClassName="selected" to="/map/cost">Cost of Living</NavLink>
+                    <NavLink activeClassName="selected" to="/map/jobs">Job Market</NavLink>
+                    <NavLink activeClassName="selected" to="/map/safety">Safety</NavLink>
+                </div>
                 <ul>
                     {selected.map(item => <li>{item.city}, {item.state_id} <button onClick={ _ => toggleSelected(item)}>X</button></li>)}
 
