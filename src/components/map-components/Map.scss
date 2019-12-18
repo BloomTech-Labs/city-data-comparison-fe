@@ -37,6 +37,10 @@
             font-size:1.1rem;
         }
 
+        ul {
+            height:20vh;
+        }
+
         .data-nav-top {
             display:flex;
             flex-direction:column;
@@ -50,6 +54,7 @@
             z-index:1;
             background:white;
             color:black;
+            position:relative;
         }
     }
 }
