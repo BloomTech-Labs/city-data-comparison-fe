@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 import Markers from "./map-components/Markers"
-
+import MapFooter from "./map-components/MapFooter"
 import DataDisplay from "./map-components/DataDisplay"
 import {markerDummyData} from "./map-components/data.js";
 import './map-components/Map.scss';
@@ -99,6 +99,7 @@ export default function Map() {
               viewport={viewport}
               setViewport={setViewport}
             />
+          <MapFooter />
           </div>
 
       );
