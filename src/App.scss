@@ -89,6 +89,20 @@ html,body{
      padding-left: 4%;
    }
 
+   nav a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration:none;
+    color:#2e2f38;
+    transition: .3s cubic-bezier(0.2,0.8,0.2,1);
+    }
+    
+    nav a:hover{
+        color:#2e2f38;
+        text-decoration: underline;
+    }
+
 
 @media screen and (max-width: 500px) {
      nav {
@@ -102,18 +116,7 @@ html,body{
     }
 }
 
-nav a{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration:none;
-  color:#2e2f38;
-  transition: .3s cubic-bezier(0.2,0.8,0.2,1);
-}
-nav a:hover{
-     color:#2e2f38;
-     text-decoration: underline;
-}
+
 
 #noUnderline {
      text-decoration:none;
