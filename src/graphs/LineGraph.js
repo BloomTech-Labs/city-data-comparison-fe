@@ -9,9 +9,10 @@ export default class LineGraph extends Component{
         labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New BedFord'],
         datasets:[
           {
-            label:'Population',
+            fill: false,
+            borderColor: "green",
             data:[
-              617594,
+              647594,
               181045,
               153060,
               106519,
@@ -26,15 +27,43 @@ export default class LineGraph extends Component{
               'rgba(153, 102, 255, 0.6)',
               'rgba(255, 159, 64, 0.6)',
               'rgba(255, 99, 132, 0.6)'
-            ]
+            ],
+          },
+          {
+            
+            fill: false,
+      backgroundColor: "rgba(54, 162, 235, 0.6)",
+      borderColor: "red",
+      data: [
+        617524,
+        381045,
+        653060,
+        206519,
+        105162,
+        950720]
+          },
+          {
+            
+        fill: false,
+        borderColor: "purple",
+        backgroundColor: "rgba(153, 102, 255, 0.6)",
+        data: [
+          67514,
+          481045,
+          253060,
+          806519,
+          905162,
+          50720]
+            
           }
+
         ]
       }
     }
   }
   static defaultProps = {
     displayTitle:true,
-    displayLegend: true,
+    displayLegend: false,
     legendPosition:'top',
     location:'Population'
   }

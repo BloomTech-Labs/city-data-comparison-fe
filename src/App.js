@@ -17,6 +17,7 @@ function App() {
       <Route path='/' component={Navigation} />
       <Route exact path='/' component={Dashboard} />
       <Route path="/map" component={Map} />
+      
     </div>
   );
 }
