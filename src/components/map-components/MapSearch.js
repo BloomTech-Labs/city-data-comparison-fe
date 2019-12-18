@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
     const [suggestions, setSuggestions] = useState([]);
