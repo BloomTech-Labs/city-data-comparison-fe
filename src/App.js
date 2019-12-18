@@ -13,7 +13,7 @@ function App() {
       {/* route components in here here */}
       <Navigation />
       <Route exact path='/' component={Dashboard} />
-      <Route path='/' component={Footer} />
+      <Route exact path='/' component={Footer} />
       <Route path="/map" component={Map} />
       <Route path="/privacypolicy" component={PrivacyPolicy} />
     </div>
