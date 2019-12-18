@@ -73,7 +73,7 @@ html,body{
      font-size: 0.9rem;
      z-index: 99999;
      margin:0 auto;
-   }
+   
    .header-logo {
      display: flex;
      align-items: center;
@@ -102,7 +102,7 @@ html,body{
         color:#2e2f38;
         text-decoration: underline;
     }
-
+  }
 
 @media screen and (max-width: 500px) {
      nav {
