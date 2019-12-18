@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
     const [suggestions, setSuggestions] = useState([]);
     const handleChange= e => {
         const searchText = e.target.value;
-        setSuggestions(cityMarkers.filter(city => city.city.toLowerCase().includes(searchText.toLowerCase())));
+        searchText
+        ? setSuggestions(cityMarkers.filter(city => city.city.toLowerCase().includes(searchText.toLowerCase())))
+        : setSuggestions([]);
         setSearch(searchText)
     };
     
@@ -27,7 +29,7 @@ const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewp
                         value={search}
             />
             {suggestions.map(item =>
-                <li key={item.lat} onClick={() => chooseSuggestion(item)}>{item.city}</li>    
+                <li className="autofill-option" key={item.lat} onClick={() => chooseSuggestion(item)}>{item.city}</li>    
             )}
         </form>
     )

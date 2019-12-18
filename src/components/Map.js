@@ -67,7 +67,7 @@ export default function Map() {
     }
 
     const onViewportChange = viewport => {
-        setViewport({ ...viewport, width:"100%" });
+        setViewport({ ...viewport, width:"100%", height:"100%" });
       };
 
       return (
