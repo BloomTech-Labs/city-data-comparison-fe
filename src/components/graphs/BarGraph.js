@@ -42,6 +42,8 @@ export default class BarGraph extends Component{
     return (
       <div className="chart">
         <Bar
+          width="800"
+          height="300"
           data={this.state.chartData}
           options={{
             title:{

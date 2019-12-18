@@ -1,8 +1,12 @@
 import React, {useState} from "react";
 import {Link, NavLink, Route}  from "react-router-dom";
-import Cost from "./Cost";
-import Jobs from "./Jobs";
+// import Cost from "./Cost";
+// import Jobs from "./Jobs";
+// import Safety from "./Safety";
+import Cost from "../graphs/BarGraph";
+import Jobs from "../graphs/LineGraph";
 import Safety from "./Safety";
+
 import MapSearch from "./MapSearch";
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
