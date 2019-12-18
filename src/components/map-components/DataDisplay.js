@@ -23,7 +23,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <NavLink activeClassName="selected" to="/map/safety">Safety</NavLink>
                 </div>
                 <ul>
-                    {selected.map(item => <li>{item.city}, {item.state_id} <button onClick={ _ => toggleSelected(item)}>X</button></li>)}
+                    {selected.map(item => <li>{item.city}, {item.state_id} <span onClick={ _ => toggleSelected(item)}>X</span></li>)}
 
                 </ul>
             </nav>
