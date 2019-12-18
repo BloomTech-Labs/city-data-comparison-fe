@@ -6,7 +6,7 @@ export default class BarGraph extends Component{
     super(props);
     this.state = {
       chartData: {
-        labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New BedFord'],
+        labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
         datasets:[
           {
             label:'Population',
@@ -42,10 +42,10 @@ export default class BarGraph extends Component{
     return (
       <div className="chart">
         <Bar
-          width="800"
-          height="300"
+
           data={this.state.chartData}
           options={{
+            maintainAspectRatio:true,
             title:{
               display:this.props.displayTitle,
               text:'Largest Cities By '+this.props.location,
