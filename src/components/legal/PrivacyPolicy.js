@@ -1,9 +1,17 @@
 import React from "react";
 
+//I intend for this page to serve as a stand alone resource for all visitors who want to review our tos.
+// I want to imploy a pop up container for tos when a user signs up. 
+//--Umeko Walker 12/19/2019 
+
 const PrivacyPolicy = () => 
 
 <div>
-    <div className="tos-nav"></div>
+    <div className="tos-nav">
+        {
+            //different points in tos
+        }
+    </div>
     <h1>Welcome to our Privacy Policy</h1>
     <h3>Your privacy is critically important to us.</h3>
     Cityvisor.com is located at:<br/>
