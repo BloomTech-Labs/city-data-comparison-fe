@@ -1,16 +1,21 @@
 import React from "react";
+//styling
+import '../../Privacy.scss'
 
 //I intend for this page to serve as a stand alone resource for all visitors who want to review our privacy policy.
 // I want to imploy a pop up container for private policy when a user signs up. 
 //--Umeko Walker 12/19/2019 
 
-const PrivacyPolicy = () => 
-
-<div className="privacy-policy">
+const PrivacyPolicy = () => {
+    const subtitles = ["Website Visitors", "Gathering of Personal Identifying Behavior", "Security","Advertisements","Link to External Sites","Aggregated Statistics", "Cookies","Privacy Policy Changes"]; 
+return(
+    <div className="privacy-policy">
     <div className="privacy-policy-nav">
-        {
-            //different points in tos
-        }
+        <ul>
+            {
+                subtitles.map(subtitle => <li>{subtitle}</li>)
+            }
+        </ul>
     </div>
     <div className="privacy-policy-container">
         <h1>Welcome to our Privacy Policy</h1>
@@ -64,7 +69,7 @@ const PrivacyPolicy = () =>
             
     </div>
     
-</div>   
-
+</div> )  
+}
 
 export default PrivacyPolicy;
