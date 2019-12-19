@@ -6,7 +6,7 @@ import React from "react";
 
 const PrivacyPolicy = () => 
 
-<div>
+<div className="privacy-policy">
     <div className="privacy-policy-nav">
         {
             //different points in tos
