@@ -4,6 +4,9 @@ import Cost from "./Cost";
 import Jobs from "./Jobs";
 import Safety from "./Safety";
 import MapSearch from "./MapSearch";
+import CostNav from "./subnavs/CostNav"
+import JobsNav from "./subnavs/JobsNav"
+import SafetyNav from "./subnavs/SafetyNav"
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
     return (
@@ -18,9 +21,12 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         viewport={viewport}
                         setViewport={setViewport}   
                     />
-                    <NavLink activeClassName="selected" to="/map/cost/housing">Cost of Living</NavLink>
-                    <NavLink activeClassName="selected" to="/map/jobs/employment">Job Market</NavLink>
-                    <NavLink activeClassName="selected" to="/map/safety/crime">Safety</NavLink>
+
+                    <Route path="/map/cost" component={CostNav} />
+                    <Route path="/map/jobs" component={JobsNav} />
+                    <Route path="/map/safety" component={SafetyNav} />
+
+
                 </div>
                 <ul>
                     {selected.map(item => <li>{item.city}, {item.state_id} <span onClick={ _ => toggleSelected(item)}>X</span></li>)}
