@@ -11,7 +11,7 @@ const Cost = ({selected}) => {
             <h1>Costs of living analysis:</h1>
             {selected.map(item => <h3>{item.city}, {item.state_id}</h3>)}
 
-            <nav>
+            <nav className="data-subnav">
                 <NavLink to="/map/cost/housing">Housing</NavLink>
                 <NavLink to="/map/cost/grocery">Grocery</NavLink>
                 <NavLink to="/map/cost/dining">Dining</NavLink>

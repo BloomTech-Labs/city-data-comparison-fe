@@ -31,8 +31,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
             </nav>
             <div className="data-by-category">
                 <Route path="/map/cost" render={props => <Cost selected={selected} /> } />
-                <Route path="/map/jobs" component={Jobs} />
-                <Route path="/map/safety" component={Safety} />
+                <Route path="/map/jobs" render={props => <Jobs selected={selected} /> } />
+                <Route path="/map/safety" render={props => <Safety selected={selected} /> } />
             </div>
         </div>
     );
