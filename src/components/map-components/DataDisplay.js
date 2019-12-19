@@ -9,6 +9,11 @@ import JobsNav from "./subnavs/JobsNav"
 import SafetyNav from "./subnavs/SafetyNav"
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
+
+    const toggleVisibility = city => {
+        console.log("toggling visibility of ", city.city)
+    }
+
     return (
         <div className="data-browser">
             <nav className="data-nav">
@@ -29,7 +34,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                 </div>
                 <ul>
-                    {selected.map(item => <li>{item.city}, {item.state_id} <span onClick={ _ => toggleSelected(item)}>X</span></li>)}
+                    {selected.map(item => <li onClick={ _ => toggleVisibility(item)}>{item.city}, {item.state_id} <span onClick={ _ => toggleSelected(item)}>X</span></li>)}
                 </ul>
             </nav>
             <div className="data-by-category">
