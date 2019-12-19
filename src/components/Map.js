@@ -20,6 +20,14 @@ export default function Map() {
 
   const [selected, setSelected] = useState([]);
   const [search, setSearch] = useState("");
+  const [viewport, setViewport] = useState({
+    width: '100%',
+    height: '100%',
+    latitude: 45,
+    longitude: -95,
+    zoom: 5,
+    trackResize: true
+  });
 
   useEffect( _ => {
       const geo = navigator.geolocation;
@@ -34,7 +42,7 @@ export default function Map() {
             longitude: pos.coords.longitude
           })      
         );
-  }, [])
+  }, [viewport])
 
   const toggleSelected = cityMarker =>  {
     console.log(cityMarker);
@@ -44,14 +52,7 @@ export default function Map() {
         setSelected([...selected, cityMarker]);
     }
 }
-    const [viewport, setViewport] = useState({
-      width: '100%',
-      height: '100%',
-      latitude: 45,
-      longitude: -95,
-      zoom: 5,
-      trackResize: true
-    });
+
 
     const onSearch = e => {
       e.preventDefault();
