@@ -1,5 +1,5 @@
 import React from "react";
-import {NavLink, Route} from "react-router-dom"
+import {Route} from "react-router-dom"
 import BarGraph from "../graphs/BarGraph"
 import LineGraph from "../graphs/LineGraph"
 import PieGraph from "../graphs/PieGraph"
