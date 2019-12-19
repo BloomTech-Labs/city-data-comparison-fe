@@ -18,7 +18,7 @@ const Markers = ({ zoom, cityMarkers, selected, toggleSelected }) => {
         height: '100%',
         latitude: 45,
         longitude: -95,
-        zoom: 5,
+        zoom: 1,
         trackResize: false
       });
 
@@ -28,13 +28,13 @@ const Markers = ({ zoom, cityMarkers, selected, toggleSelected }) => {
             return (
                 <Marker key={cityMarker.lat} latitude={cityMarker.lat} longitude={cityMarker.lng}>
                     {/* <Link className='map-marker' to={`/map/${cityMarker.city}${cityMarker.state_id}`}> */}
-                    <div 
+                    <div
                     onClick={() => toggleSelected(cityMarker)} 
-                    // onMouseEnter={(e) => (setSelectedViewport({...selectedViewport, latitude:e.target.name.lat, longitude:e.target.name.lng}), console.log(e.target.name))}
+                    onMouseEnter={(e) => setSelectedViewport({...selectedViewport, latitude:parseFloat(e.target.getAttribute("latitude")), longitude:parseFloat(e.target.getAttribute("longitude"))})}
                     >
                         {selected.find(item => item === cityMarker) 
-                        ? <img src={activepin} alt={`A map pin indicating ${cityMarker.city}`} />
-                        : <img src={pin} alt={`A map pin indicating ${cityMarker.city}`} />}
+                        ? <img src={activepin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />
+                        : <img src={pin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />}
                     </div>
 
                     {/* </Link> */}
