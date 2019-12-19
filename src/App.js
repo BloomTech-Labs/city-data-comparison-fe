@@ -6,6 +6,7 @@ import './App.scss';
 import {Route} from "react-router-dom";
 import Map from "./components/Map";
 import PrivacyPolicy from "./legal/PrivacyPolicy"
+import Profile from './components/user-profile/Profile'
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Route exact path='/' component={Dashboard} />
       <Route exact path='/' component={Footer} />
       <Route path="/map" component={Map} />
-      
+      <Route path='/profile' component={Profile} />
       <Route path="/privacypolicy" component={PrivacyPolicy} />
     </div>
   );
