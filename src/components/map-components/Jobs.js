@@ -12,9 +12,9 @@ const Jobs = ({selected}) => {
             {selected.map(item => <h3>{item.city}, {item.state_id}</h3>)}
 
             <nav className="data-subnav">
-                <NavLink to="/map/jobs/employment">Employment</NavLink>
-                <NavLink to="/map/jobs/salary">Average Salary</NavLink>
-                <NavLink to="/map/jobs/sectors">Active Sectors</NavLink>
+                <NavLink activeClassName="selected" to="/map/jobs/employment">Employment</NavLink>
+                <NavLink activeClassName="selected" to="/map/jobs/salary">Average Salary</NavLink>
+                <NavLink activeClassName="selected" to="/map/jobs/sectors">Active Sectors</NavLink>
                 
             </nav>
 

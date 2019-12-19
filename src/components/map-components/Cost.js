@@ -12,10 +12,10 @@ const Cost = ({selected}) => {
             {selected.map(item => <h3>{item.city}, {item.state_id}</h3>)}
 
             <nav className="data-subnav">
-                <NavLink to="/map/cost/housing">Housing</NavLink>
-                <NavLink to="/map/cost/grocery">Grocery</NavLink>
-                <NavLink to="/map/cost/dining">Dining</NavLink>
-                <NavLink to="/map/cost/transportation">Transportation</NavLink>
+                <NavLink activeClassName="selected" to="/map/cost/housing">Housing</NavLink>
+                <NavLink activeClassName="selected" to="/map/cost/grocery">Grocery</NavLink>
+                <NavLink activeClassName="selected" to="/map/cost/dining">Dining</NavLink>
+                <NavLink activeClassName="selected" to="/map/cost/transportation">Transportation</NavLink>
             </nav>
 
             <Route path="/map/cost/housing" component={BarGraph}/>

@@ -12,9 +12,9 @@ const Safety = ({selected}) => {
             {selected.map(item => <h3>{item.city}, {item.state_id}</h3>)}
 
             <nav className="data-subnav">
-                <NavLink to="/map/safety/crime">Crime/Capita</NavLink>
-                <NavLink to="/map/safety/auto">Automobile Accidents/Capita</NavLink>
-                <NavLink to="/map/safety/airquality">Air Quality</NavLink>
+                <NavLink activeClassName="selected" to="/map/safety/crime">Crime/Capita</NavLink>
+                <NavLink activeClassName="selected" to="/map/safety/auto">Automobile Accidents/Capita</NavLink>
+                <NavLink activeClassName="selected" to="/map/safety/airquality">Air Quality</NavLink>
                
             </nav>
 
