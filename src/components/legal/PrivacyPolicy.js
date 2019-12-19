@@ -1,8 +1,9 @@
 import React from "react";
 
-const PrivacyPolicy = _ => 
+const PrivacyPolicy = () => 
 
 <div>
+    <div className="tos-nav"></div>
     <h1>Welcome to our Privacy Policy</h1>
     <h3>Your privacy is critically important to us.</h3>
     Cityvisor.com is located at:<br/>
