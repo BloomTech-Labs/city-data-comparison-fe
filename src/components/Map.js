@@ -6,7 +6,6 @@ import './map-components/Map.scss';
 import Markers from "./map-components/Markers"
 import MapFooter from "./map-components/MapFooter"
 import DataDisplay from "./map-components/DataDisplay"
-import {markerDummyData} from "./map-components/data.js";
 
 import { CityContext } from '../contexts/CityContext'
 
