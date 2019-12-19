@@ -7,21 +7,16 @@ import DataDisplay from "./map-components/DataDisplay"
 import {markerDummyData} from "./map-components/data.js";
 import './map-components/Map.scss';
 
-
 const MapWrapper = styled.div`
   width:100vw;
   height:50vh;
 `;
-
 
 export default function Map() {
 
   const [cityMarkers, setCityMarkers] = useState([]);
   const [selected, setSelected] = useState([]);
   const [search, setSearch] = useState("");
-
-
-
 
   useEffect( _ => {
       setCityMarkers(markerDummyData);
@@ -101,6 +96,5 @@ export default function Map() {
             />
           <MapFooter />
           </div>
-
       );
     }

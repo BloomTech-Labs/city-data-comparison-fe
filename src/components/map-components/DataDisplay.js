@@ -1,10 +1,8 @@
-import React, {useState} from "react";
-import {Link, NavLink, Route}  from "react-router-dom";
+import React from "react";
+import {NavLink, Route}  from "react-router-dom";
 import Cost from "./Cost";
 import Jobs from "./Jobs";
 import Safety from "./Safety";
-
-
 import MapSearch from "./MapSearch";
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
@@ -26,7 +24,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 </div>
                 <ul>
                     {selected.map(item => <li>{item.city}, {item.state_id} <span onClick={ _ => toggleSelected(item)}>X</span></li>)}
-
                 </ul>
             </nav>
             <div className="data-by-category">
