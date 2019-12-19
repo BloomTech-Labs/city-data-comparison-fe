@@ -7,6 +7,7 @@ function Profile() {
     //state for logged in user
     const [user, setUser] = useState();
     console.log('Current user state',user)
+
     //state for saved cities for specific user
     const [savedCities, setSavedCities] = useState([]);
     console.log('Saved city state',savedCities)
@@ -17,7 +18,7 @@ function Profile() {
         axios
             .get('')
             .then(res => {
-                console.log('Resonse from user call',res)
+                console.log('Response from user call',res)
                 setUser(res.data)
             })
             .catch(err => {
@@ -36,7 +37,20 @@ function Profile() {
             .catch(err => {
                 console.error('Unable to get saved cities list', err);
             })
-    })
+    }, []);
+
+    //delete saved city handler
+    handleDelete = e => {
+        e.preventDefault();
+        axios
+            .delete(``)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.error('Error removing city', err);
+            })
+    };
 
 
     return (
