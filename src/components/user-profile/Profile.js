@@ -9,8 +9,10 @@ function Profile() {
     console.log('Current user state',user)
 
     //state for saved cities for specific user
+    const [savedCitiesUrl, setSavedCitiesUrl] = useState();
     const [savedCities, setSavedCities] = useState([]);
-    console.log('Saved city state',savedCities)
+    console.log('Saved cities url',savedCitiesUrl)
+    console.log('Saved cities array state',savedCities)
     
 
     //User information axios call
@@ -31,8 +33,18 @@ function Profile() {
         axios
             .get('')
             .then(res => {
-                console.log('Response from cities call',res)
-                setSavedCities(res.data)
+                console.log('Response to get users saved cities urls',res)
+                setSavedCitiesUrl(res.data)
+                //Once savedCitiesUrl is set, this call will take that information and call our DS db for the acutal information for each city
+                axios
+                    .get(setSavedCitiesUrl)
+                    .then(res => {
+                        console.log('Response from getting array of all saved cities', res)
+                        setSavedCities(res.data)
+                    })
+                    .catch(err => {
+                        console.error('Error calling DS db', err)
+                    })
             })
             .catch(err => {
                 console.error('Unable to get saved cities list', err);
