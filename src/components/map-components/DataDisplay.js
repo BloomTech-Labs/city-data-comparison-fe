@@ -18,9 +18,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         viewport={viewport}
                         setViewport={setViewport}   
                     />
-                    <NavLink activeClassName="selected" to="/map/cost">Cost of Living</NavLink>
-                    <NavLink activeClassName="selected" to="/map/jobs">Job Market</NavLink>
-                    <NavLink activeClassName="selected" to="/map/safety">Safety</NavLink>
+                    <NavLink activeClassName="selected" to="/map/cost/housing">Cost of Living</NavLink>
+                    <NavLink activeClassName="selected" to="/map/jobs/employment">Job Market</NavLink>
+                    <NavLink activeClassName="selected" to="/map/safety/crime">Safety</NavLink>
                 </div>
                 <ul>
                     {selected.map(item => <li>{item.city}, {item.state_id} <span onClick={ _ => toggleSelected(item)}>X</span></li>)}

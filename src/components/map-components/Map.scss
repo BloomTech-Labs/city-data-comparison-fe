@@ -90,6 +90,10 @@
             text-align:center;
         }
 
+        .chart {
+            margin-bottom:10px;
+        }
+
         .data-subnav {
             margin: 0 auto;
             display: flex;
@@ -106,11 +110,11 @@
                 font-weight:bold;
                 color:#041734;
                 &:first-child {
-                    border-radius:20px 0px 0px 20px;
+                    border-radius:25px 0px 0px 25px;
                 }
     
                 &:last-child {
-                    border-radius:0px 20px 20px 0px;
+                    border-radius:0px 25px 25px 0px;
                 }
             }
 
@@ -129,11 +133,11 @@
 .map-page {
     .footer-container {
         margin-top:0;
-
-        /* this needs to be aligned */
-        .copyright {
-            margin-top:50%;
+        p {
+            margin-top:125px;
         }
+        /* this needs to be aligned */
+
     }
 }
 
