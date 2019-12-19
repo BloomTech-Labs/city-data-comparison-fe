@@ -6,12 +6,10 @@ function Footer(){
           <div className="footer-container">
                <div className="footer">
                     <div className="footer-CTA">
-                         <div>
 
-                         </div>
-                         <div>
+
                               <p className="copyright">© City Data Comparison 2019</p>
-                         </div>
+
                     </div>
 
                     <div className="footer-categories-container">
@@ -32,7 +30,6 @@ function Footer(){
                               <a href="/">Private Policy</a>
                               <a href="/">Terms of Use</a>
                          </div>
-
                     </div>
                </div>
           </div>

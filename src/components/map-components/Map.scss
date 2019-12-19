@@ -117,8 +117,7 @@
 
             .selected {
                 background: #36A6FC;
-                color:white;
-                
+                color:white;                
             }
         }
     }
@@ -131,6 +130,11 @@
 .map-page {
     .footer-container {
         margin-top:0;
+
+        /* this needs to be aligned */
+        .copyright {
+            margin-top:50%;
+        }
     }
 }
 
