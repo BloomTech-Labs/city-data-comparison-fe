@@ -5,7 +5,7 @@ import Footer from './components/navigation/Footer'
 import './App.scss';
 import {Route} from "react-router-dom";
 import Map from "./components/Map";
-import PrivacyPolicy from "./legal/PrivacyPolicy"
+import PrivacyPolicy from "./components/legal/PrivacyPolicy"
 
 function App() {
   return (
