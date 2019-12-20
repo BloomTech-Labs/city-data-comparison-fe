@@ -6,11 +6,16 @@ import Dashboard from './components/dashboard/Dashboard'
 import Navigation from './components/navigation/Navigation'
 import Footer from './components/navigation/Footer'
 import Map from "./components/Map";
-import PrivacyPolicy from "./legal/PrivacyPolicy"
+
 import {markerDummyData} from "./components/map-components/data.js";
 
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
+
+import Profile from './components/user-profile/Profile'
+import PrivacyPolicy from "./components/legal/PrivacyPolicy"
+
+
 
 function App() {
 
@@ -25,6 +30,7 @@ function App() {
           <Route exact path='/' component={Dashboard} />
           <Route exact path='/' component={Footer} />
           <Route path="/map" component={Map} />
+          <Route path='/profile' component={Profile} />
           <Route path="/privacypolicy" component={PrivacyPolicy} />
         </div>
         </CityContext.Provider>
