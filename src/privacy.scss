@@ -45,7 +45,9 @@ h1{
 }
 
 .privacy-policy-container::-webkit-scrollbar-thumb {
-        border-radius: 20px;    }
+        border-radius: 20px;   
+        background-color: blue;
+     }
 
 .privacy-policy-container::-webkit-scrollbar-track{
     border-radius: 10px;
