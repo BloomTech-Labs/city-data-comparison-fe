@@ -3,6 +3,7 @@ import {Route, Link} from "react-router-dom";
 
 
 
+
 function Navigation(){
      const [offset, setOffset] = useState(0);
      const [displayNav, setDisplayNav] = useState('show-nav')

@@ -3,7 +3,7 @@ import Dashboard from './components/dashboard/Dashboard'
 import Navigation from './components/navigation/Navigation'
 import Footer from './components/navigation/Footer'
 import './App.scss';
-import {Route, Link} from "react-router-dom";
+import {Route} from "react-router-dom";
 import Map from "./components/Map";
 import PrivacyPolicy from "./legal/PrivacyPolicy"
 

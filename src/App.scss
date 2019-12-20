@@ -59,6 +59,10 @@ html,body{
   line-height:1.26;
 }
 
+* {
+  box-sizing:border-box
+}
+
 
 //* Navigation Styling
 .no-color{
@@ -77,15 +81,11 @@ html,body{
      z-index: 99999;
      margin:0 auto;
      background-color: #e5941e;
-    transition: top 0.3s
-     
+     transition: top 0.3s
    }
-  
 
   .hide-nav{
     display:none;
-   
-
   }
   .show-nav{
     display: flex;
@@ -93,10 +93,7 @@ html,body{
 
    .navigation-container:hover{
      background-color: #e5941e;
-     
-    
   }
-
 
    .header-logo {
      display: flex;
@@ -130,7 +127,7 @@ html,body{
         color:#2e2f38;
         text-decoration: underline;
     }
-
+  }
 
 @media screen and (max-width: 500px) {
      nav {

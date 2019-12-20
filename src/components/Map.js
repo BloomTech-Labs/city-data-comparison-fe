@@ -2,26 +2,21 @@ import React, { useState, useEffect } from 'react';
 import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 import Markers from "./map-components/Markers"
-
+import MapFooter from "./map-components/MapFooter"
 import DataDisplay from "./map-components/DataDisplay"
 import {markerDummyData} from "./map-components/data.js";
 import './map-components/Map.scss';
-
 
 const MapWrapper = styled.div`
   width:100vw;
   height:50vh;
 `;
 
-
 export default function Map() {
 
   const [cityMarkers, setCityMarkers] = useState([]);
   const [selected, setSelected] = useState([]);
   const [search, setSearch] = useState("");
-
-
-
 
   useEffect( _ => {
       setCityMarkers(markerDummyData);
@@ -99,7 +94,7 @@ export default function Map() {
               viewport={viewport}
               setViewport={setViewport}
             />
+          <MapFooter />
           </div>
-
       );
     }
