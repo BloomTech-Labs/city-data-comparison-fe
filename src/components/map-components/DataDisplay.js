@@ -26,24 +26,20 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         viewport={viewport}
                         setViewport={setViewport}   
                     />
-
                     <Route path="/map/cost" component={CostNav} />
                     <Route path="/map/jobs" component={JobsNav} />
                     <Route path="/map/safety" component={SafetyNav} />
-
-
                 </div>
                 <ul>
                     {selected.map(item => <li onClick={ _ => toggleVisibility(item)}>{item.city}, {item.state_id} <span onClick={ _ => toggleSelected(item)}>X</span></li>)}
                 </ul>
             </nav>
             <div className="data-by-category">
-            <nav className="data-subnav">
-                <NavLink activeClassName="selected" to="/map/cost">Cost of Living</NavLink>
-                <NavLink activeClassName="selected" to="/map/jobs">Job Market</NavLink>
-                <NavLink activeClassName="selected" to="/map/safety">Safety</NavLink>               
-            </nav>
-
+                <nav className="data-subnav">
+                    <NavLink activeClassName="selected" to="/map/cost">Cost of Living</NavLink>
+                    <NavLink activeClassName="selected" to="/map/jobs">Job Market</NavLink>
+                    <NavLink activeClassName="selected" to="/map/safety">Safety</NavLink>               
+                </nav>
                 <Route path="/map/cost" render={props => <Cost selected={selected} /> } />
                 <Route path="/map/jobs" render={props => <Jobs selected={selected} /> } />
                 <Route path="/map/safety" render={props => <Safety selected={selected} /> } />
