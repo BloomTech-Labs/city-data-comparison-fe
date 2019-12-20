@@ -5,8 +5,9 @@ import Footer from './components/navigation/Footer'
 import './App.scss';
 import {Route} from "react-router-dom";
 import Map from "./components/Map";
-import PrivacyPolicy from "./legal/PrivacyPolicy"
 import Profile from './components/user-profile/Profile'
+import PrivacyPolicy from "./components/legal/PrivacyPolicy"
+
 
 function App() {
   return (

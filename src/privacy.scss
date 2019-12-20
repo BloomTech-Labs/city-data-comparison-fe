@@ -1,0 +1,52 @@
+.container{
+    overflow: hidden;
+    border-radius: 10px; 
+    margin: 0 10%; 
+}
+
+
+.privacy-policy{
+    display:flex; 
+    padding: 3%; 
+    overflow: hidden;
+    height: 82vh;
+}
+
+.privacy-policy-nav{
+    padding: 2%;
+    background: rgb(179, 180, 253); 
+    width: 20%; 
+    text-align: end; 
+    border-radius: 10px 0px 0px 10px; 
+  
+
+    ul{
+        list-style-type: none;
+        margin: 19% 0; 
+        li{
+            padding: 5%; 
+        }
+    }
+
+    
+}
+h1{
+    text-align: center;
+}
+
+.privacy-policy-container{
+    overflow: auto;
+    height: 100%; 
+    padding: 0 3%; 
+    width: 80%; 
+
+}
+
+.privacy-policy-container::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.privacy-policy-container::-webkit-scrollbar-button{
+    background-color: blue;
+}
