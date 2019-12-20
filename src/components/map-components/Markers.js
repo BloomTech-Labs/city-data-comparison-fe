@@ -8,8 +8,6 @@ import activepin from"./activepin.png";
 
 const Markers = ({ zoom, cityMarkers, selected, toggleSelected }) => {
 
-
-
   return (
         <div>
         {cityMarkers.map(cityMarker=> {
