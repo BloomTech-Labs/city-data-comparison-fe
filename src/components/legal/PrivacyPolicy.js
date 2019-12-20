@@ -1,6 +1,6 @@
 import React from "react";
 //styling
-import '../../Privacy.scss'
+import './privacy.scss'
 
 //I intend for this page to serve as a stand alone resource for all visitors who want to review our privacy policy.
 // I want to imploy a pop up container for private policy when a user signs up. 
