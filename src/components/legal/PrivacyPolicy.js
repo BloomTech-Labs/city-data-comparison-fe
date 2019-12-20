@@ -2,6 +2,8 @@ import React from "react";
 //styling
 import '../../Privacy.scss'
 
+import { Scrollbars } from 'react-custom-scrollbars';
+
 // I intend for this page to serve as a stand alone resource for all visitors who want to review our privacy policy.
 // This component can act as a pop up container for private policy when a user signs up. 
 // The styling is not set in stone. I am planning to consult with Ruth after the holiday break
@@ -24,7 +26,7 @@ return(
         </div>
         
             
-        <div className="privacy-policy-container">
+        <Scrollbars className="privacy-policy-container">
             
             <h3>Your privacy is critically important to us.</h3>
             Cityvisor.com is located at:<br/>
@@ -74,7 +76,7 @@ return(
             <h2>Credit & Contact Information</h2>
             <p>This privacy policy was created at <a href="https://termsandconditionstemplate.com/privacy-policy-generator/" title="Privacy policy template generator">termsandconditionstemplate.com</a>. If you have any questions about this Privacy Policy, please contact us via <a href="mailto:cityvisorapp@gmail.com">email</a> or <a href="tel:5079935257">phone</a>.</p>
             
-        </div>
+        </Scrollbars>
     
 </div>
 
