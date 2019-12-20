@@ -3,7 +3,6 @@ import {NavLink} from"react-router-dom";
 
 const CostNav = _ => {
 
-
     return (
         <>
             <NavLink activeClassName="selected" to="/map/cost/housing">Housing</NavLink>
