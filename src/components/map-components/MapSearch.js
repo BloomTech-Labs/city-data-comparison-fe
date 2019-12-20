@@ -21,7 +21,7 @@ const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewp
     }
 
     return(
-        <form autocomplete="off" onSubmit={onSearch}>
+        <form autoComplete="off" onSubmit={onSearch}>
             <input
                         name="search"
                         placeholder="Search" 
