@@ -1,18 +1,53 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Route, Link} from "react-router-dom";
 
 
+
 function Navigation(){
+     const [offset, setOffset] = useState(0);
+     const [displayNav, setDisplayNav] = useState('show-nav')
+     const [bgColor, setBgColor] = useState('default-color')
+     const defaultNavigation = () => {
+          // console.log('called')
+          setBgColor('default-color')
+          if (offset == 0 ){
+               // console.log('calledOffset')
+               setDisplayNav('show-nav')
+          }else {
+               if (displayNav === 'hide-nav'){
+                    // console.log('calledAgain')
+                    setDisplayNav('show-nav')
+               }
+          }
+     }
+     window.addEventListener('scroll', (e) => {
+          // console.log(e)
+          // console.log(window.pageYOffset)
+          // setOffset(window.pageYOffset)
+          
+          if (window.pageYOffset > offset ){
+               // console.log('hi')
+               setDisplayNav('hide-nav')
+               setBgColor('no-color')
+          }else{
+               // console.log('show')
+               setDisplayNav('show-nav')
+               setBgColor('default-color')
+          }
+          setOffset(window.pageYOffset)
+
+     })
      let styles={
           float:"right"
      }
+     
 
      return(
-          <div className="navigation-container">
+          <div className={"navigation-container " + bgColor } onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
                {/* Logo goes here */}
                {/* <Link to="/">Home</Link> */}
                <a className="header-logo" href="/">Home</a>
-               <nav>
+               <nav className = {displayNav}>
                     <a href="google.com">Link A</a>
                     <Link to="/map">Map</Link>
                     <Link to="/map">Log In</Link>
