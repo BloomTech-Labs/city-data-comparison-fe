@@ -2,9 +2,11 @@ import React from "react";
 //styling
 import '../../Privacy.scss'
 
-//I intend for this page to serve as a stand alone resource for all visitors who want to review our privacy policy.
-// I want to imploy a pop up container for private policy when a user signs up. 
-//--Umeko Walker 12/19/2019 
+// I intend for this page to serve as a stand alone resource for all visitors who want to review our privacy policy.
+// This component can act as a pop up container for private policy when a user signs up. 
+// The styling is not set in stone. I am planning to consult with Ruth after the holiday break
+// TOS and privacy policy will be on the same page
+//--Umeko Walker 12/20/2019 
 
 const PrivacyPolicy = () => {
     const subtitles = ["Website Visitors", "Gathering of Personal Identifying Behavior", "Security","Advertisements","Link to External Sites","Aggregated Statistics", "Cookies","Privacy Policy Changes"]; 
