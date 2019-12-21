@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
-import 'profile.scss'
+import './profile.scss'
 
 function Profile() {
     //state for logged in user
@@ -52,7 +52,7 @@ function Profile() {
     }, []);
 
     //delete saved city handler
-    handleDelete = e => {
+    const handleDelete = e => {
         e.preventDefault();
         axios
             .delete(``)
