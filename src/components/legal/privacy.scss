@@ -23,6 +23,7 @@
     ul{
         list-style-type: none;
         margin: 19% 0; 
+        padding: 0; 
         li{
             padding: 5%; 
         }
@@ -35,18 +36,30 @@ h1{
 }
 
 .privacy-policy-container{
-    overflow: auto;
+    overflow-y: scroll;
     height: 100%; 
     padding: 0 3%; 
     width: 80%; 
 
+   
+ 
+
 }
+
+
+
+
+.privacy-policy-container::-webkit-scrollbar-thumb {
+        border-radius: 20px;   
+        background-color: blue;
+     }
 
 .privacy-policy-container::-webkit-scrollbar-track{
     border-radius: 10px;
     background-color: #F5F5F5;
+    
+    &::-webkit-scrollbar-button{
+        background-color: blue;
+}
 }
 
-.privacy-policy-container::-webkit-scrollbar-button{
-    background-color: blue;
-}
