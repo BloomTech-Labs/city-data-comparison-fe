@@ -78,6 +78,8 @@ return(
             <p>This privacy policy was created at <a href="https://termsandconditionstemplate.com/privacy-policy-generator/" title="Privacy policy template generator">termsandconditionstemplate.com</a>. If you have any questions about this Privacy Policy, please contact us via <a href="mailto:cityvisorapp@gmail.com">email</a> or <a href="tel:5079935257">phone</a>.</p>
             
         </ColoredScollbars>
+
+    
     
 </div>
 
