@@ -1,14 +1,12 @@
 import React from 'react';
 import { Marker } from 'react-map-gl';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import pin from './pin.png';
 import activepin from"./activepin.png";
 
 
 const Markers = ({ zoom, cityMarkers, selected, toggleSelected }) => {
-
-
 
   return (
         <div>

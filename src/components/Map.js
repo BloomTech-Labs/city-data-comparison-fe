@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
+import './map-components/Map.scss';
+
 import Markers from "./map-components/Markers"
 import MapFooter from "./map-components/MapFooter"
 import DataDisplay from "./map-components/DataDisplay"
-import {markerDummyData} from "./map-components/data.js";
-import './map-components/Map.scss';
+
+import { CityContext } from '../contexts/CityContext'
 
 const MapWrapper = styled.div`
   width:100vw;
@@ -14,12 +16,20 @@ const MapWrapper = styled.div`
 
 export default function Map() {
 
-  const [cityMarkers, setCityMarkers] = useState([]);
+  const { cityMarkers } = useContext(CityContext)
+
   const [selected, setSelected] = useState([]);
   const [search, setSearch] = useState("");
+  const [viewport, setViewport] = useState({
+    width: '100%',
+    height: '100%',
+    latitude: 45,
+    longitude: -95,
+    zoom: 5,
+    trackResize: true
+  });
 
   useEffect( _ => {
-      setCityMarkers(markerDummyData);
       const geo = navigator.geolocation;
       if (!geo) {
         console.log('Geolocation is not supported by this browser');
@@ -32,7 +42,7 @@ export default function Map() {
             longitude: pos.coords.longitude
           })      
         );
-  }, [])
+  }, [viewport])
 
   const toggleSelected = cityMarker =>  {
     console.log(cityMarker);
@@ -42,14 +52,7 @@ export default function Map() {
         setSelected([...selected, cityMarker]);
     }
 }
-    const [viewport, setViewport] = useState({
-      width: '100%',
-      height: '100%',
-      latitude: 45,
-      longitude: -95,
-      zoom: 5,
-      trackResize: true
-    });
+
 
     const onSearch = e => {
       e.preventDefault();

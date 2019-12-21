@@ -65,6 +65,9 @@ html,body{
 
 
 //* Navigation Styling
+.no-color{
+  background:none !important;
+}
 .navigation-container{
      display: flex;
      justify-content: space-between;
@@ -77,7 +80,21 @@ html,body{
      font-size: 0.9rem;
      z-index: 99999;
      margin:0 auto;
-   
+     background-color: #e5941e;
+     transition: top 0.3s
+   }
+
+  .hide-nav{
+    display:none;
+  }
+  .show-nav{
+    display: flex;
+  }
+
+   .navigation-container:hover{
+     background-color: #e5941e;
+  }
+
    .header-logo {
      display: flex;
      align-items: center;
@@ -91,7 +108,10 @@ html,body{
      justify-content: space-around;
      align-items: center;
      padding-left: 4%;
+     
    }
+
+  
 
    nav a{
     display: flex;
@@ -100,13 +120,14 @@ html,body{
     text-decoration:none;
     color:#2e2f38;
     transition: .3s cubic-bezier(0.2,0.8,0.2,1);
+
     }
     
     nav a:hover{
         color:#2e2f38;
         text-decoration: underline;
     }
-  }
+  
 
 @media screen and (max-width: 500px) {
      nav {
