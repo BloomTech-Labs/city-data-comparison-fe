@@ -1,7 +1,7 @@
 import React from "react";
 //styling
-import ColoredScollbars from './ColoredScrollbars.js'
-import './privacy.scss'
+import ColoredScollbars from './ColoredScrollbars.js';
+import './privacy.scss';
 
 
 // I intend for this page to serve as a stand alone resource for all visitors who want to review our privacy policy.
