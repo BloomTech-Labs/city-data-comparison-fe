@@ -70,7 +70,8 @@
 
         .autofill-option {
             list-style-type: none;
-            margin-left:1%;
+            margin: 0;
+            width:97%;
             padding:2px;            
             background:white;
             color:black;         
@@ -99,10 +100,11 @@
             width:80%;
             justify-content:center;
             align-items:center;
+            
             a {
                 padding:0px 20px;
                 height: 3rem;
-                padding-top:.9rem;
+                padding-top:.3rem;
                 margin: 0px 2px;
                 background:white;
                 text-decoration:none;
