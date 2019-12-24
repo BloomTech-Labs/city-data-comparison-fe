@@ -8,6 +8,8 @@ import CostNav from "./subnavs/CostNav"
 import JobsNav from "./subnavs/JobsNav"
 import SafetyNav from "./subnavs/SafetyNav"
 
+import deleteIcon from "./icons/close_red.png"
+
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
 
     const toggleVisibility = city => {
@@ -31,7 +33,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Route path="/map/safety" component={SafetyNav} />
                 </div>
                 <ul>
-                    {selected.map(item => <li onClick={ _ => toggleVisibility(item)}>{item.city}, {item.state_id} <span onClick={ _ => toggleSelected(item)}>X</span></li>)}
+                    {selected.map(item => <li onClick={ _ => toggleVisibility(item)}>{item.city}, {item.state_id} 
+                        <span onClick={ _ => toggleSelected(item)}>
+                            <img className="delete-icon" src={deleteIcon} />
+                        </span>
+                    </li>)}
                 </ul>
             </nav>
             <div className="data-by-category">
