@@ -11,10 +11,7 @@
         padding:0;
         width:25%;
  
-        .autofill-option {
-            border: 1px solid grey;
-            font-size: .9rem;
-        }
+    
 
         li {
             list-style-type: none;
@@ -74,11 +71,14 @@
         .autofill-option {
             list-style-type: none;
             margin-left:1%;
-            padding:2px;
-            z-index:1;
+            padding:2px;            
             background:white;
-            color:black;
-            position:relative;
+            color:black;         
+            border: 1px solid grey;
+            font-size: .9rem;
+            position: relative;
+            z-index: 99;
+            
         }
     }
 
