@@ -68,17 +68,23 @@
             width:100%; 
         }
 
+        .autofill-container {
+            position:absolute;
+            width:24.25%;
+        }
+
         .autofill-option {
             list-style-type: none;
             margin: 0;
-            width:97%;
+            
             padding:2px;            
             background:white;
             color:black;         
             border: 1px solid grey;
             font-size: .9rem;
-            position: relative;
-            z-index: 99;
+            
+
+
         }
     }
 
