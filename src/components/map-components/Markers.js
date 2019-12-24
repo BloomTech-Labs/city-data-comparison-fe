@@ -6,7 +6,7 @@ import pin from './pin.png';
 import activepin from"./activepin.png";
 
 
-const Markers = ({ zoom, cityMarkers, selected, toggleSelected }) => {
+const Markers = ({ cityMarkers, selected, toggleSelected }) => {
 
   return (
         <div>
