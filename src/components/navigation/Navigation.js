@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {Route, Link} from "react-router-dom";
+import React, {useState} from 'react';
+import { Link } from "react-router-dom";
 
 
 
@@ -11,7 +11,7 @@ function Navigation(){
      const defaultNavigation = () => {
           // console.log('called')
           setBgColor('default-color')
-          if (offset == 0 ){
+          if (offset === 0 ){
                // console.log('calledOffset')
                setDisplayNav('show-nav')
           }else {
