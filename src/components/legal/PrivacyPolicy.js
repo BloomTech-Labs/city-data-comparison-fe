@@ -14,7 +14,6 @@ const PrivacyPolicy = () => {
     const subtitles = ["Website Visitors", "Gathering of Personal Identifying Behavior", "Security","Advertisements","Link to External Sites","Aggregated Statistics", "Cookies","Privacy Policy Changes"]; 
 return(
     <div className="container">
-        <div className="pp-title"><h1> </h1></div>
         <div className="privacy-policy">
         
         <div className="privacy-policy-nav">
