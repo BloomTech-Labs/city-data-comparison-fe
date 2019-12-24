@@ -2,8 +2,8 @@ import React from 'react';
 import { Marker } from 'react-map-gl';
 // import { Link } from 'react-router-dom';
 
-import pin from './pin.png';
-import activepin from"./activepin.png";
+import pin from './icons/pin.png';
+import activepin from"./icons/activepin.png";
 
 
 const Markers = ({ cityMarkers, selected, toggleSelected }) => {
