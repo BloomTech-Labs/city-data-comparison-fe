@@ -1,14 +1,15 @@
 import React from "react";
 import {NavLink, Route}  from "react-router-dom";
+
 import Cost from "./Cost";
 import Jobs from "./Jobs";
 import Safety from "./Safety";
 import MapSearch from "./MapSearch";
-import CostNav from "./subnavs/CostNav"
-import JobsNav from "./subnavs/JobsNav"
-import SafetyNav from "./subnavs/SafetyNav"
+import CostNav from "./subnavs/CostNav";
+import JobsNav from "./subnavs/JobsNav";
+import SafetyNav from "./subnavs/SafetyNav";
 
-import deleteIcon from "./icons/close_red.png"
+import deleteIcon from "./icons/close_red.png";
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
 
