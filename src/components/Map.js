@@ -3,11 +3,11 @@ import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 import './map-components/Map.scss';
 
-import Markers from "./map-components/Markers"
-import MapFooter from "./map-components/MapFooter"
-import DataDisplay from "./map-components/DataDisplay"
+import Markers from "./map-components/Markers";
+import MapFooter from "./map-components/MapFooter";
+import DataDisplay from "./map-components/DataDisplay";
 
-import { CityContext } from '../contexts/CityContext'
+import { CityContext } from '../contexts/CityContext';
 
 const MapWrapper = styled.div`
   width:100vw;
