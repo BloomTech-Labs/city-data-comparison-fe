@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
 
 import pin from './pin.png';
 import activepin from"./activepin.png";
@@ -11,7 +10,7 @@ const SelectedMapWrapper = styled.div`
   height:10vh;
 `;
 
-const Markers = ({ zoom, cityMarkers, selected, toggleSelected }) => {
+const Markers = ({ cityMarkers, selected, toggleSelected }) => {
 
     const [selectedViewport, setSelectedViewport] = useState({
         width: '100%',

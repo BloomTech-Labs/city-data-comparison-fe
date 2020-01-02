@@ -2,7 +2,7 @@
     background: #E5E5E5;
     display:flex;
 
-    nav {
+    .data-nav {
         display:flex;
         flex-direction:column;
         justify-content:space-between;
@@ -10,12 +10,31 @@
         background:#041734;
         padding:0;
         width:25%;
+        min-height:40%;
+    
 
+        li {
+            list-style-type: none;
+            margin: 2% 0;
+            font-weight:bold;
+            display:flex;
+            justify-content:space-between;
+            width:100%;
+        }
+
+        span {
+            cursor:pointer;
+        }
+
+        ul {
+            width:77.6%;
+            padding-inline-start: 0px;
+            margin: 0 auto;
+        }
 
         form {
             margin: 5px auto;
             width:80%;
-            
         }
 
         input {
@@ -23,12 +42,13 @@
             margin: 0 auto;
         }
 
-
         a {
             color:white;
             text-decoration:none;
-            padding:10px;
+            padding:10px 0px;
             margin: 10px 0px;
+            text-align:left;
+            width:100%;
         }
 
         .selected {
@@ -37,29 +57,96 @@
             font-size:1.1rem;
         }
 
+        .chartjs-render-monitor {
+            width:80%;
+            margin: 0 auto;
+        }
+
         .data-nav-top {
             display:flex;
             flex-direction:column;
             height:300px;
-            width:100%;
+            width:100%; 
         }
+
+        .autofill-container {
+            position:absolute;
+            width:19.4%;
+        }
+
         .autofill-option {
             list-style-type: none;
-            margin-left:1%;
-            padding:2px;
-            z-index:1;
+            margin: 0;
+            padding:2px;            
             background:white;
-            color:black;
+            color:black;         
+            border: 1px solid grey;
+            font-size: .9rem;
+        }
+
+        .delete-icon {
+            height:1.2rem;
+            position:relative;
+            bottom: .1rem;
+        }
+    }
+
+    .data-by-category {
+        width:75%;
+        
+        h1{
+            text-align:center;
+        }
+
+        .chart {
+            margin-bottom:10px;
+        }
+
+        .data-subnav {
+            margin: 0 auto;
+            margin-top: 15px;
+            display: flex;
+            width:80%;
+            justify-content:center;
+            align-items:center;
+            
+            a {
+                padding:0px 20px;
+                height: 3rem;
+                padding-top:.3rem;
+                margin: 0px 2px;
+                background:white;
+                text-decoration:none;
+                font-weight:bold;
+                color:#041734;
+                &:first-child {
+                    border-radius:25px 0px 0px 25px;
+                }
+    
+                &:last-child {
+                    border-radius:0px 25px 25px 0px;
+                }
+            }
+
+            .selected {
+                background: #36A6FC;
+                color:white;                
+            }
         }
     }
 }
 
-
+/* the below code might not be doing anything anymore, idk */
 .sc-bdVaJa {
     margin: 0 auto;
 }
 
-.autofill-option {
-    border: 1px solid grey;
-    font-size: .9rem;
+.map-page {
+    .footer-container {
+        margin-top:0;
+        p {
+            margin-top:125px;
+        }
+    }
 }
+

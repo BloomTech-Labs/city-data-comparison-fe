@@ -21,16 +21,23 @@ const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewp
     }
 
     return(
-        <form autocomplete="off" onSubmit={onSearch}>
+        <form autoComplete="off" onSubmit={onSearch}>
             <input
                         name="search"
                         placeholder="Search" 
                         onChange={handleChange} 
                         value={search}
             />
-            {suggestions.map(item =>
-                <li className="autofill-option" key={item.lat} onClick={() => chooseSuggestion(item)}>{item.city}</li>    
-            )}
+            <div className="autofill-container">
+                {suggestions.map(item =>
+                    <li 
+                        className="autofill-option" 
+                        key={item.lat} 
+                        onClick={() => chooseSuggestion(item)}>
+                        {item.city}
+                    </li>    
+                )}
+            </div>
         </form>
     )
 }
