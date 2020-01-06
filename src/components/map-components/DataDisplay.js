@@ -29,9 +29,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         viewport={viewport}
                         setViewport={setViewport}   
                     />
-                    <Route path="/map/cost" component={CostNav} />
+                    <Route path="/map/housing" component={CostNav} />
                     <Route path="/map/jobs" component={JobsNav} />
-                    <Route path="/map/safety" component={SafetyNav} />
+                    <Route path="/map/culture" component={SafetyNav} />
                 </div>
                 <ul>
                     {selected.map(item => <li onClick={ _ => toggleVisibility(item)}>{item.city}, {item.state_id} 
@@ -43,13 +43,13 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
             </nav>
             <div className="data-by-category">
                 <nav className="data-subnav">
-                    <NavLink activeClassName="selected" to="/map/cost">Cost of Living</NavLink>
+                    <NavLink activeClassName="selected" to="/map/housing">Housing</NavLink>
                     <NavLink activeClassName="selected" to="/map/jobs">Job Market</NavLink>
-                    <NavLink activeClassName="selected" to="/map/safety">Safety</NavLink>               
+                    <NavLink activeClassName="selected" to="/map/culture">Culture</NavLink>               
                 </nav>
-                <Route path="/map/cost" render={props => <Housing selected={selected} /> } />
+                <Route path="/map/housing" render={props => <Housing selected={selected} /> } />
                 <Route path="/map/jobs" render={props => <Jobs selected={selected} /> } />
-                <Route path="/map/safety" render={props => <Culture selected={selected} /> } />
+                <Route path="/map/culture" render={props => <Culture selected={selected} /> } />
             </div>
         </div>
     );
