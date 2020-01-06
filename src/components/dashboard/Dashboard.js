@@ -159,7 +159,9 @@ function Dashboard(){
                                              </div>)
                                         }
                                    </PlacesAutocomplete>
+
                                    <span className="versus">vs.</span>
+                                   
                                    <PlacesAutocomplete name="cityTwo" value={cityTwo} onChange={setCityTwo} onSelect={handleCityTwo}>
                                         {
                                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
