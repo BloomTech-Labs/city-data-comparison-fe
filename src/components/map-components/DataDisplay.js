@@ -1,7 +1,7 @@
 import React from "react";
 import {NavLink, Route}  from "react-router-dom";
 
-import Cost from "./Cost";
+import Cost from "./Housing";
 import Jobs from "./Jobs";
 import Safety from "./Safety";
 import MapSearch from "./MapSearch";
