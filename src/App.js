@@ -1,22 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {Route} from "react-router-dom";
+import './App.scss';
+
 import Dashboard from './components/dashboard/Dashboard'
 import Navigation from './components/navigation/Navigation'
 import Footer from './components/navigation/Footer'
-import './App.scss';
-import {Route, Link} from "react-router-dom";
 import Map from "./components/Map";
-import PrivacyPolicy from "./legal/PrivacyPolicy"
+
+import {markerDummyData} from "./components/map-components/data.js";
+
+import { UserContext } from './contexts/UserContext';
+import { CityContext } from './contexts/CityContext';
+
+import Profile from './components/user-profile/Profile'
+import PrivacyPolicy from "./components/legal/PrivacyPolicy"
+
+
 
 function App() {
+
+  const [user, setUser] = useState({});
+  const [cityMarkers, setCityMarkers] = useState(markerDummyData);
+
   return (
-    <div className="App">
-      {/* route components in here here */}
-      <Navigation />
-      <Route exact path='/' component={Dashboard} />
-      <Route exact path='/' component={Footer} />
-      <Route path="/map" component={Map} />
-      <Route path="/privacypolicy" component={PrivacyPolicy} />
-    </div>
+    <UserContext.Provider value={{user, setUser}}>
+      <CityContext.Provider value={{cityMarkers, setCityMarkers}}>
+        <div className="App">
+          <Navigation />
+          <Route exact path='/' component={Dashboard} />
+          <Route exact path='/' component={Footer} />
+          <Route path="/map" component={Map} />
+          <Route path='/profile' component={Profile} />
+          <Route path="/privacypolicy" component={PrivacyPolicy} />
+        </div>
+        </CityContext.Provider>
+    </UserContext.Provider>
   );
 }
 

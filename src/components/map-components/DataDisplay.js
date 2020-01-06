@@ -1,11 +1,22 @@
-import React, {useState} from "react";
-import {Link, NavLink, Route}  from "react-router-dom";
+import React from "react";
+import {NavLink, Route}  from "react-router-dom";
+
 import Cost from "./Cost";
 import Jobs from "./Jobs";
 import Safety from "./Safety";
 import MapSearch from "./MapSearch";
+import CostNav from "./subnavs/CostNav";
+import JobsNav from "./subnavs/JobsNav";
+import SafetyNav from "./subnavs/SafetyNav";
+
+import deleteIcon from "./icons/close_red.png";
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
+
+    const toggleVisibility = city => {
+        console.log("toggling visibility of ", city.city)
+    }
+
     return (
         <div className="data-browser">
             <nav className="data-nav">
@@ -18,19 +29,27 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         viewport={viewport}
                         setViewport={setViewport}   
                     />
-                    <NavLink activeClassName="selected" to="/map/cost">Cost of Living</NavLink>
-                    <NavLink activeClassName="selected" to="/map/jobs">Job Market</NavLink>
-                    <NavLink activeClassName="selected" to="/map/safety">Safety</NavLink>
+                    <Route path="/map/cost" component={CostNav} />
+                    <Route path="/map/jobs" component={JobsNav} />
+                    <Route path="/map/safety" component={SafetyNav} />
                 </div>
                 <ul>
-                    {selected.map(item => <li>{item.city}, {item.state_id} <button onClick={ _ => toggleSelected(item)}>X</button></li>)}
-
+                    {selected.map(item => <li onClick={ _ => toggleVisibility(item)}>{item.city}, {item.state_id} 
+                        <span onClick={ _ => toggleSelected(item)}>
+                            <img className="delete-icon" src={deleteIcon} />
+                        </span>
+                    </li>)}
                 </ul>
             </nav>
             <div className="data-by-category">
+                <nav className="data-subnav">
+                    <NavLink activeClassName="selected" to="/map/cost">Cost of Living</NavLink>
+                    <NavLink activeClassName="selected" to="/map/jobs">Job Market</NavLink>
+                    <NavLink activeClassName="selected" to="/map/safety">Safety</NavLink>               
+                </nav>
                 <Route path="/map/cost" render={props => <Cost selected={selected} /> } />
-                <Route path="/map/jobs" component={Jobs} />
-                <Route path="/map/safety" component={Safety} />
+                <Route path="/map/jobs" render={props => <Jobs selected={selected} /> } />
+                <Route path="/map/safety" render={props => <Safety selected={selected} /> } />
             </div>
         </div>
     );

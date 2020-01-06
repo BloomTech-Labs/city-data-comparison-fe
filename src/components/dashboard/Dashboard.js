@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 // import data from './assets/data.svg'
 // import forsale from './assets/forsale.svg'
 // import insync from './assets/insync.svg'
