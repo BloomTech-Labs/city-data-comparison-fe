@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
-// import data from './assets/data.svg'
-// import forsale from './assets/forsale.svg'
-// import insync from './assets/insync.svg'
+import PlacesAutocomplete, {geocodeByAddress, geocodeByPlaceId} from 'react-places-autocomplete';
 import dataVisual from './assets/dataVisual.svg'
 import map from './assets/map.svg'
 import money from './assets/money.svg'
@@ -16,6 +14,7 @@ function Dashboard(){
           event.preventDefault();
           setSearch(event.target.value)
      }
+     const handleSelect = async value => {};
      
      //* COMPARE STATE / HANDLECHANGE */
      const [compare, setCompare] = useState({
@@ -67,6 +66,28 @@ function Dashboard(){
                     </div>
                </div>
 
+               <div>
+                    <PlacesAutocomplete value={search} onChange={setSearch} onSelect={handleSelect}>
+                         {
+                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
+                              <div>
+                                   <input {...getInputProps({placeholder: "Type address"})}/>
+                                   <div>
+                                        {loading ? <div>...loading</div> : null}
+
+                                        {suggestions.map( (suggestion) => {
+                                             const style = {
+                                                  backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                                             }
+                                             console.log(suggestion)
+
+                                             return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
+                                        })}
+                                   </div>
+                              </div>)
+                         }
+                    </PlacesAutocomplete>
+               </div>
 
 
 
