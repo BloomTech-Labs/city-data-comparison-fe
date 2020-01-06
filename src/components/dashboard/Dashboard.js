@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import PlacesAutocomplete, {geocodeByAddress, geocodeByPlaceId} from 'react-places-autocomplete';
+import PlacesAutocomplete from 'react-places-autocomplete';
 import dataVisual from './assets/dataVisual.svg'
 import map from './assets/map.svg'
 import money from './assets/money.svg'
@@ -74,7 +74,8 @@ function Dashboard(){
 
                                              {suggestions.map( (suggestion) => {
                                                   const style = {
-                                                       backgroundColor: suggestion.active ? "#F2F9FD" : "#fff"
+                                                       backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                       cursor: "pointer"
                                                   }
 
                                                   return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
@@ -150,7 +151,8 @@ function Dashboard(){
 
                                                        {suggestions.map( (suggestion) => {
                                                             const style = {
-                                                                 backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                                                                 backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                                 cursor: "pointer"
                                                             }
 
                                                             return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
@@ -161,7 +163,7 @@ function Dashboard(){
                                    </PlacesAutocomplete>
 
                                    <span className="versus">vs.</span>
-                                   
+
                                    <PlacesAutocomplete name="cityTwo" value={cityTwo} onChange={setCityTwo} onSelect={handleCityTwo}>
                                         {
                                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
@@ -172,7 +174,8 @@ function Dashboard(){
 
                                                        {suggestions.map( (suggestion) => {
                                                             const style = {
-                                                                 backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                                                                 backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                                 cursor: "pointer"
                                                             }
 
                                                             return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
@@ -186,9 +189,6 @@ function Dashboard(){
                          </div>
                     </div>
                </div>
-
-
-
           </div>
      )
 }
