@@ -5,7 +5,7 @@ import LineGraph from "../graphs/LineGraph";
 import PieGraph from "../graphs/PieGraph";
 import RadarGraph from "../graphs/RadarGraph";
 
-const Cost = ({selected}) => {
+const Housing = ({selected}) => {
     return (
         <div>
             <h1>Costs of living analysis:</h1>
@@ -19,4 +19,4 @@ const Cost = ({selected}) => {
         </div>
     );
   };
-  export default Cost;
+  export default Housing;
