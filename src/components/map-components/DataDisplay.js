@@ -1,9 +1,9 @@
 import React from "react";
 import {NavLink, Route}  from "react-router-dom";
 
-import Cost from "./Housing";
+import Housing from "./Housing";
 import Jobs from "./Jobs";
-import Safety from "./Safety";
+import Culture from "./Culture";
 import MapSearch from "./MapSearch";
 import CostNav from "./subnavs/CostNav";
 import JobsNav from "./subnavs/JobsNav";
@@ -47,9 +47,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <NavLink activeClassName="selected" to="/map/jobs">Job Market</NavLink>
                     <NavLink activeClassName="selected" to="/map/safety">Safety</NavLink>               
                 </nav>
-                <Route path="/map/cost" render={props => <Cost selected={selected} /> } />
+                <Route path="/map/cost" render={props => <Housing selected={selected} /> } />
                 <Route path="/map/jobs" render={props => <Jobs selected={selected} /> } />
-                <Route path="/map/safety" render={props => <Safety selected={selected} /> } />
+                <Route path="/map/safety" render={props => <Culture selected={selected} /> } />
             </div>
         </div>
     );

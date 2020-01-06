@@ -4,10 +4,10 @@ import BarGraph from "../graphs/BarGraph";
 import LineGraph from "../graphs/LineGraph";
 import PieGraph from "../graphs/PieGraph";
 
-const Safety = ({selected}) => {
+const Culture = ({selected}) => {
     return (
         <div>
-            <h1>City Safety Statistics:</h1>
+            <h1>City Cultural Statistics:</h1>
 
             {selected.map(item => <h3>{item.city}, {item.state_id}</h3>)}
 
@@ -18,4 +18,4 @@ const Safety = ({selected}) => {
         </div>
     );
   };
-  export default Safety;
+  export default Culture;
