@@ -47,9 +47,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <NavLink activeClassName="selected" to="/map/jobs">Job Market</NavLink>
                     <NavLink activeClassName="selected" to="/map/culture">Culture</NavLink>               
                 </nav>
-                <Route path="/map/housing" render={props => <Housing selected={selected} /> } />
-                <Route path="/map/jobs" render={props => <Jobs selected={selected} /> } />
-                <Route path="/map/culture" render={props => <Culture selected={selected} /> } />
+                <Route path="/map/housing" render={_ => <Housing selected={selected} /> } />
+                <Route path="/map/jobs" render={_ => <Jobs selected={selected} /> } />
+                <Route path="/map/culture" render={_ => <Culture selected={selected} /> } />
             </div>
         </div>
     );

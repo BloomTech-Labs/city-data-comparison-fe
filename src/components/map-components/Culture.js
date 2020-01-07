@@ -11,9 +11,9 @@ const Culture = ({selected}) => {
 
             {selected.map(item => <h3 key={item._id}>{item.name.replace(" city" , "")}</h3>)}
 
-            <Route path="/map/safety/crime" component={BarGraph}/>
-            <Route path="/map/safety/auto" component={LineGraph}/>
-            <Route path="/map/safety/airquality" component={PieGraph}/>
+            <Route path="/map/culture/crime" component={BarGraph}/>
+            <Route path="/map/culture/auto" component={LineGraph}/>
+            <Route path="/map/culture/airquality" component={PieGraph}/>
 
         </div>
     );
