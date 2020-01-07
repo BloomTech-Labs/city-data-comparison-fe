@@ -1,6 +1,8 @@
 import React from 'react'; 
 
-
+//icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
+import { faGithub, faTwitterSquare, faLinkedin } from '@fortawesome/free-solid-svg-icons'; 
 //images
 import anna from '../assets/team_photos/anna_t.png'; 
 import daniel from '../assets/team_photos/daniel_b.jpg'; 
@@ -35,7 +37,11 @@ const AboutUs = props => {
                         <div className="info">
                             <p className="role">Team Lead</p>
                             <p className="about"></p>
-                            <span className="social"></span>
+                            <span className="social">
+                                <FontAwesomeIcon icon={faGithub}/>
+                                <FontAwesomeIcon icon={faTwitterSquare}/>
+                                <FontAwesomeIcon icon={faLinkedin} />
+                            </span>
                         </div>
                     </div>
 
@@ -48,7 +54,11 @@ const AboutUs = props => {
                         <div className="info">
                             <p className="role">UX/UI Designer</p>
                             <p className="about"></p>
-                            <span className="social"></span>
+                            <span className="social">
+                                <FontAwesomeIcon icon={faGithub}/>
+                                <FontAwesomeIcon icon={faTwitterSquare}/>
+                                <FontAwesomeIcon icon={faLinkedin} />
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -61,7 +71,11 @@ const AboutUs = props => {
                         <div className="info">
                             <p className="role">Data Scientist</p>
                             <p className="about"></p>
-                            <span className="social"></span>
+                            <span className="social">
+                                <FontAwesomeIcon icon={faGithub}/>
+                                <FontAwesomeIcon icon={faTwitterSquare}/>
+                                <FontAwesomeIcon icon={faLinkedin} />
+                            </span>
                         </div>
                     </div>
 
@@ -71,7 +85,11 @@ const AboutUs = props => {
                         <div className="info">
                             <p className="role">Data Scientist</p>
                             <p className="about"></p>
-                            <span className="social"></span>
+                            <span className="social">
+                                <FontAwesomeIcon icon={faGithub}/>
+                                <FontAwesomeIcon icon={faTwitterSquare}/>
+                                <FontAwesomeIcon icon={faLinkedin} />
+                            </span>
                         </div>
                     </div>
 
@@ -81,7 +99,11 @@ const AboutUs = props => {
                         <div className="info">
                             <p className="role">Data Scientist</p>
                             <p className="about"></p>
-                            <span className="social"></span>
+                            <span className="social">
+                                <FontAwesomeIcon icon={faGithub}/>
+                                <FontAwesomeIcon icon={faTwitterSquare}/>
+                                <FontAwesomeIcon icon={faLinkedin} />
+                            </span>
                         </div>
                     </div>
 
@@ -95,7 +117,11 @@ const AboutUs = props => {
                         <div className="info">
                             <p className="role">Web Developer</p>
                             <p className="about"></p>
-                            <span className="social"></span>
+                            <span className="social">
+                                <FontAwesomeIcon icon={faGithub}/>
+                                <FontAwesomeIcon icon={faTwitterSquare}/>
+                                <FontAwesomeIcon icon={faLinkedin} />
+                            </span>
                         </div>
                     </div>
 
@@ -105,7 +131,11 @@ const AboutUs = props => {
                         <div className="info">
                             <p className="role">Web Developer</p>
                             <p className="about"></p>
-                            <span className="social"></span>
+                            <span className="social">
+                                <FontAwesomeIcon icon={faGithub}/>
+                                <FontAwesomeIcon icon={faTwitterSquare}/>
+                                <FontAwesomeIcon icon={faLinkedin} />
+                            </span>
                         </div>
                     </div>
 
@@ -115,7 +145,11 @@ const AboutUs = props => {
                         <div className="info">
                             <p className="role">Web Developer</p>
                             <p className="about"></p>
-                            <span className="social"></span>
+                            <span className="social">
+                                <FontAwesomeIcon icon={faGithub}/>
+                                <FontAwesomeIcon icon={faTwitterSquare}/>
+                                <FontAwesomeIcon icon={faLinkedin} />
+                            </span>
                         </div>
                     </div>
 
@@ -125,7 +159,11 @@ const AboutUs = props => {
                         <div className="info">
                             <p className="role">Web Developer</p>
                             <p className="about"></p>
-                            <span className="social"></span>
+                            <span className="social">
+                                <FontAwesomeIcon icon={faGithub}/>
+                                <FontAwesomeIcon icon={faTwitterSquare}/>
+                                <FontAwesomeIcon icon={faLinkedin} />
+                            </span>
                         </div>
                     </div>
 
@@ -135,7 +173,11 @@ const AboutUs = props => {
                         <div className="info">
                             <p className="role">Web Developer</p>
                             <p className="about"></p>
-                            <span className="social"></span>
+                            <span className="social">
+                                <FontAwesomeIcon icon={faGithub}/>
+                                <FontAwesomeIcon icon={faTwitterSquare}/>
+                                <FontAwesomeIcon icon={faLinkedin} />
+                            </span>
                         </div>
                     </div>
 
@@ -145,7 +187,11 @@ const AboutUs = props => {
                         <div className="info">
                             <p className="role">Web Developer</p>
                             <p className="about"></p>
-                            <span className="social"></span>
+                            <span className="social">
+                                <FontAwesomeIcon icon={faGithub}/>
+                                <FontAwesomeIcon icon={faTwitterSquare}/>
+                                <FontAwesomeIcon icon={faLinkedin} />
+                            </span>
                         </div>
                     </div>
                 </div>
