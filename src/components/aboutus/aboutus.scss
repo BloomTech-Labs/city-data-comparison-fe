@@ -1,19 +1,27 @@
 
+//all
 
-//web developers
-.web{
+.tl, .design, .ds, .web{
     width: 100%;
     display:flex; 
     justify-content: space-around;
+
+    .member{
+        width: 20%;
+    }
+}
+//data scientists
+.ds{
+   
+}
+
+//web developers
+.web{
+    
     flex-wrap: wrap;
     
     .member{
-        margin: 1%;
-        width: 26%;
-
-        .img{
-            width: 50%;
-        }
+        margin: 3%;
     }
 
 }

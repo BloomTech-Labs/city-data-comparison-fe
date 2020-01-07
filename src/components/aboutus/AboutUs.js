@@ -31,8 +31,8 @@ const AboutUs = props => {
 
             <div className="team">
                 
-                <div className="project">
-
+                <div className="tl">
+                    <h4></h4>
                     {/*Anna*/}
                     <div className="member">
                         <img src={anna} alt="Anna Townsend"/>
