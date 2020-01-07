@@ -1,57 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
-import styled from "styled-components";
 
-import pin from './pin.png';
-import activepin from"./activepin.png";
+import PopupMap from './PopupMap';
 
-const SelectedMapWrapper = styled.div`
-  width:10vh;
-  height:10vh;
-`;
+import pin from './icons/pin.png';
+import activepin from"./icons/activepin.png";
 
 const Markers = ({ cityMarkers, selected, toggleSelected }) => {
 
-    const [selectedViewport, setSelectedViewport] = useState({
-        width: '100%',
-        height: '100%',
-        latitude: 45,
-        longitude: -95,
-        zoom: 1,
-        trackResize: false
-      });
+
+
 
   return (
         <div>
-        {cityMarkers.map(cityMarker=> {
+          {cityMarkers.map(cityMarker=> {
             return (
-                <Marker key={cityMarker.lat} latitude={cityMarker.lat} longitude={cityMarker.lng}>
+              <Marker key={cityMarker.lat} latitude={cityMarker.lat} longitude={cityMarker.lng}>
                     {/* <Link className='map-marker' to={`/map/${cityMarker.city}${cityMarker.state_id}`}> */}
-                    <div
+                  <div
                     onClick={() => toggleSelected(cityMarker)} 
-                    onMouseEnter={(e) => setSelectedViewport({...selectedViewport, latitude:parseFloat(e.target.getAttribute("latitude")), longitude:parseFloat(e.target.getAttribute("longitude"))})}
-                    >
-                        {selected.find(item => item === cityMarker) 
-                        ? <img src={activepin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />
-                        : <img src={pin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />}
-                    </div>
+                    onMouseEnter={(e) => <PopupMap lat={parseFloat(e.target.getAttribute("latitude"))} lng={parseFloat(e.target.getAttribute("longitude"))}
+                    posleft={e.pageX} postop={e.pageY}/>}
+                  >
+                      {selected.find(item => item === cityMarker) 
+                      ? <img src={activepin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />
+                      : <img src={pin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />}
+                  </div>
 
-                    {/* </Link> */}
-                </Marker>
-                );
+                  {/* </Link> */}
+              </Marker>
+              );
         })}
-        <div className="citymap">
-                <SelectedMapWrapper>
-                  <ReactMapGL
-                    mapStyle='mapbox://styles/mapbox/streets-v11'
-                    {...selectedViewport}
-                    mapboxApiAccessToken={
-                    'pk.eyJ1IjoiYnJ1bmNodGltZSIsImEiOiJjazIwdG80MGkxN3lmM25vaWZ5cThkZDU1In0.uYqrXjiEyUL1mTEO_N5-0w'
-                    }
-                  />
-                </SelectedMapWrapper>
-              </div>
-    </div>
+      </div>
+      
   );
 };
 export default Markers;
