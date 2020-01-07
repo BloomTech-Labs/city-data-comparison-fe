@@ -13,15 +13,15 @@ const PopupMap = (props) => {
     const [selectedViewport, setSelectedViewport] = useState({
         width: '100%',
         height: '100%',
-        latitude: 0,
-        longitude: 0,
-        zoom: 1,
+        latitude: props.lng,
+        longitude: props.lat,
+        zoom: 10,
         trackResize: false
     });
 
     const [streetViewPos, setStreetViewPos] = useState({
-        posleft: 0,
-        postop: 0
+        posleft: props.posleft,
+        postop: props.postop
     });
 
     
@@ -36,14 +36,15 @@ const PopupMap = (props) => {
             setStreetViewPos({
                 ...streetViewPos,
                 posleft: props.posleft,
-                postop: props.postop
+                postop: props.postop,
+                display: props.display
             })
-        },[])
+        },[props])
 
     return(    
         console.log(selectedViewport.latitude, selectedViewport.longitude, streetViewPos),
         <div className="popupmap" id="popupmap" >
-            <SelectedMapWrapper style={{left:`${streetViewPos.posleft}px`, top:`${streetViewPos.postop}px`}}>
+            <SelectedMapWrapper style={{left:`${streetViewPos.posleft}px`, top:`${streetViewPos.postop}px`, display:`${streetViewPos.display}`}}>
                 <ReactMapGL 
                     mapStyle='mapbox://styles/mapbox/streets-v11'
                     {...selectedViewport}

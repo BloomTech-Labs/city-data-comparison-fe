@@ -12,11 +12,11 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
     lat: 1,
     lng: 1,
     posleft:0,
-    postop:0
+    postop:0,
+    display: 'none'
   })
 
   return (
-    <>
         <div>
           {cityMarkers.map(cityMarker=> {
             return (
@@ -25,21 +25,19 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
                   <div
                     onClick={() => toggleSelected(cityMarker)} 
                     onMouseEnter={(e) => (Number.isNaN(parseFloat(e.target.getAttribute("latitude"))) || setPopState({...popState, lat:parseFloat(e.target.getAttribute("latitude")), lng:parseFloat(e.target.getAttribute("longitude")),
-                    posleft:e.pageX, postop:e.pageY}), console.log(popState))}
+                    posleft:e.pageX, postop:e.pageY, display:'block'}), console.log(popState))}
+                    onMouseLeave={(e) => setPopState({...popState, display:'none'})}
                   >
                       {selected.find(item => item === cityMarker) 
                       ? <img src={activepin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />
-                      : <img src={pin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />}
+                      : <img src={pin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}/>}
                   </div>
                   {/* </Link> */}
               </Marker>
               );
         })}
-          
+         <PopupMap lat={popState.lat} lng={popState.lng} posleft={popState.posleft} postop={popState.postop} display={popState.display}/> 
       </div>
-      <PopupMap lat={popState.lat} lng={popState.lng} posleft={popState.posleft} postop={popState.postop}/> 
-      </>
-      
   );
 };
 export default Markers;
