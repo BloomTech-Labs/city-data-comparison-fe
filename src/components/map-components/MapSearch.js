@@ -34,7 +34,7 @@ const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewp
                         className="autofill-option" 
                         key={item.lat} 
                         onClick={() => chooseSuggestion(item)}>
-                        {item.name}
+                        {item.name.replace(" city" , "")}
                     </li>    
                 )}
             </div>
