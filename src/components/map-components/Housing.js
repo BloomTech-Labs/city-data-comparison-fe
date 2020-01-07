@@ -10,7 +10,7 @@ const Housing = ({selected}) => {
         <div>
             <h1>Costs of living analysis:</h1>
             
-            {selected.map(item => <h3>{item.city}, {item.state_id}</h3>)}
+            {selected.map(item => <h3 key={item._id}>{item.name.replace(" city" , "")}</h3>)}
 
             <Route path="/map/cost/housing" component={BarGraph}/>
             <Route path="/map/cost/grocery" component={LineGraph}/>

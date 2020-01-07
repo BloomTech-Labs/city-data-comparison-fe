@@ -36,7 +36,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 <ul>
                     {selected.map(item => <li key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name.replace(" city" , "")} 
                         <span onClick={ _ => toggleSelected(item)}>
-                            <img className="delete-icon" src={deleteIcon} />
+                            <img className="delete-icon" src={deleteIcon} alt="delete icon" />
                         </span>
                     </li>)}
                 </ul>
