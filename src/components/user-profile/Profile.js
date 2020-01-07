@@ -1,11 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
+import { CityContext } from "../../contexts/CityContext"
 
 import './profile.scss'
 
 function Profile() {
     //state for logged in user
-    const [user, setUser] = useState();
+    
+    const {user, setUser} = useContext(CityContext);
     console.log('Current user state',user)
 
     //state for saved cities for specific user
