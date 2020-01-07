@@ -1,12 +1,15 @@
 import React from "react";
 import {NavLink, Route}  from "react-router-dom";
-import Cost from "./Cost";
+
+import Housing from "./Housing";
 import Jobs from "./Jobs";
-import Safety from "./Safety";
+import Culture from "./Culture";
 import MapSearch from "./MapSearch";
-import CostNav from "./subnavs/CostNav"
-import JobsNav from "./subnavs/JobsNav"
-import SafetyNav from "./subnavs/SafetyNav"
+import CostNav from "./subnavs/CostNav";
+import JobsNav from "./subnavs/JobsNav";
+import SafetyNav from "./subnavs/SafetyNav";
+
+import deleteIcon from "./icons/close_red.png";
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
 
@@ -26,23 +29,27 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         viewport={viewport}
                         setViewport={setViewport}   
                     />
-                    <Route path="/map/cost" component={CostNav} />
+                    <Route path="/map/housing" component={CostNav} />
                     <Route path="/map/jobs" component={JobsNav} />
-                    <Route path="/map/safety" component={SafetyNav} />
+                    <Route path="/map/culture" component={SafetyNav} />
                 </div>
                 <ul>
-                    {selected.map(item => <li onClick={ _ => toggleVisibility(item)}>{item.city}, {item.state_id} <span onClick={ _ => toggleSelected(item)}>X</span></li>)}
+                    {selected.map(item => <li key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name.replace(" city" , "")} 
+                        <span onClick={ _ => toggleSelected(item)}>
+                            <img className="delete-icon" src={deleteIcon} alt="delete icon" />
+                        </span>
+                    </li>)}
                 </ul>
             </nav>
             <div className="data-by-category">
                 <nav className="data-subnav">
-                    <NavLink activeClassName="selected" to="/map/cost">Cost of Living</NavLink>
+                    <NavLink activeClassName="selected" to="/map/housing">Housing</NavLink>
                     <NavLink activeClassName="selected" to="/map/jobs">Job Market</NavLink>
-                    <NavLink activeClassName="selected" to="/map/safety">Safety</NavLink>               
+                    <NavLink activeClassName="selected" to="/map/culture">Culture</NavLink>               
                 </nav>
-                <Route path="/map/cost" render={props => <Cost selected={selected} /> } />
-                <Route path="/map/jobs" render={props => <Jobs selected={selected} /> } />
-                <Route path="/map/safety" render={props => <Safety selected={selected} /> } />
+                <Route path="/map/housing" render={_ => <Housing selected={selected} /> } />
+                <Route path="/map/jobs" render={_ => <Jobs selected={selected} /> } />
+                <Route path="/map/culture" render={_ => <Culture selected={selected} /> } />
             </div>
         </div>
     );

@@ -11,6 +11,7 @@ export default class LineGraph extends Component{
           {
             fill: false,
             borderColor: "green",
+            label: "Boston",
             data:[
               647594,
               181045,
@@ -30,7 +31,7 @@ export default class LineGraph extends Component{
             ],
           },
           {
-            
+            label: 'Worcester',
             fill: false,
       backgroundColor: "rgba(54, 162, 235, 0.6)",
       borderColor: "red",
@@ -43,7 +44,7 @@ export default class LineGraph extends Component{
         950720]
           },
           {
-            
+        label: 'Springfield',
         fill: false,
         borderColor: "purple",
         backgroundColor: "rgba(153, 102, 255, 0.6)",

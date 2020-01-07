@@ -5,7 +5,7 @@ const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewp
     const handleChange= e => {
         const searchText = e.target.value;
         searchText
-        ? setSuggestions(cityMarkers.filter(city => city.city.toLowerCase().includes(searchText.toLowerCase())))
+        ? setSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
         : setSuggestions([]);
         setSearch(searchText)
     };
@@ -28,9 +28,16 @@ const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewp
                         onChange={handleChange} 
                         value={search}
             />
-            {suggestions.map(item =>
-                <li className="autofill-option" key={item.lat} onClick={() => chooseSuggestion(item)}>{item.city}</li>    
-            )}
+            <div className="autofill-container">
+                {suggestions.map(item =>
+                    <li 
+                        className="autofill-option" 
+                        key={item.lat} 
+                        onClick={() => chooseSuggestion(item)}>
+                        {item.name.replace(" city" , "")}
+                    </li>    
+                )}
+            </div>
         </form>
     )
 }

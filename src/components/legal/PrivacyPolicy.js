@@ -1,8 +1,10 @@
 import React from "react";
 //styling
+
 import ColoredScollbars from './ColoredScrollbars.js'
 import './privacy.scss'
 //import './Privacy.scss'
+
 
 // I intend for this page to serve as a stand alone resource for all visitors who want to review our privacy policy.
 // This component can act as a pop up container for private policy when a user signs up. 
@@ -14,7 +16,6 @@ const PrivacyPolicy = () => {
     const subtitles = ["Website Visitors", "Gathering of Personal Identifying Behavior", "Security","Advertisements","Link to External Sites","Aggregated Statistics", "Cookies","Privacy Policy Changes"]; 
 return(
     <div className="container">
-        <div className="pp-title"><h1>Welcome to our Privacy Policy</h1></div>
         <div className="privacy-policy">
         
         <div className="privacy-policy-nav">
