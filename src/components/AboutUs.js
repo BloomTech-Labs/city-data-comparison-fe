@@ -33,7 +33,7 @@ const AboutUs = props => {
                     <div className="member">
                         <img src={anna} alt="Anna Townsend"/>
                         <div className="info">
-                            <p className="role"></p>
+                            <p className="role">Team Lead</p>
                             <p className="about"></p>
                             <span className="social"></span>
                         </div>
@@ -46,7 +46,7 @@ const AboutUs = props => {
                     <div className="member">
                         <img src={ruth} alt="Ruth Phillips"/>
                         <div className="info">
-                            <p className="role"></p>
+                            <p className="role">UX/UI Designer</p>
                             <p className="about"></p>
                             <span className="social"></span>
                         </div>
@@ -59,7 +59,7 @@ const AboutUs = props => {
                     <div className="member">
                         <img src={luke} alt="Luke Townsend"/>
                         <div className="info">
-                            <p className="role"></p>
+                            <p className="role">Data Scientist</p>
                             <p className="about"></p>
                             <span className="social"></span>
                         </div>
@@ -69,7 +69,7 @@ const AboutUs = props => {
                     <div className="member">
                         <img src={matthew} alt="Matthew Sessions"/>
                         <div className="info">
-                            <p className="role"></p>
+                            <p className="role">Data Scientist</p>
                             <p className="about"></p>
                             <span className="social"></span>
                         </div>
@@ -79,7 +79,7 @@ const AboutUs = props => {
                     <div className="member">
                         <img src={scott} alt="Scott Maxwell"/>
                         <div className="info">
-                            <p className="role"></p>
+                            <p className="role">Data Scientist</p>
                             <p className="about"></p>
                             <span className="social"></span>
                         </div>
@@ -93,7 +93,7 @@ const AboutUs = props => {
                     <div className="member">
                         <img src={daniel} alt="Daniel Briksza"/>
                         <div className="info">
-                            <p className="role"></p>
+                            <p className="role">Web Developer</p>
                             <p className="about"></p>
                             <span className="social"></span>
                         </div>
@@ -103,7 +103,7 @@ const AboutUs = props => {
                     <div className="member">
                         <img src={john} alt="John Watt"/>
                         <div className="info">
-                            <p className="role"></p>
+                            <p className="role">Web Developer</p>
                             <p className="about"></p>
                             <span className="social"></span>
                         </div>
@@ -113,7 +113,7 @@ const AboutUs = props => {
                     <div className="member">
                         <img src={kevin} alt="Kevin Nyugen"/>
                         <div className="info">
-                            <p className="role"></p>
+                            <p className="role">Web Developer</p>
                             <p className="about"></p>
                             <span className="social"></span>
                         </div>
@@ -123,7 +123,7 @@ const AboutUs = props => {
                     <div className="member">
                         <img src={michael} alt="Michael Harms"/>
                         <div className="info">
-                            <p className="role"></p>
+                            <p className="role">Web Developer</p>
                             <p className="about"></p>
                             <span className="social"></span>
                         </div>
@@ -133,7 +133,7 @@ const AboutUs = props => {
                     <div className="member">
                         <img src={muamer} alt="Muamer Kukic"/>
                         <div className="info">
-                            <p className="role"></p>
+                            <p className="role">Web Developer</p>
                             <p className="about"></p>
                             <span className="social"></span>
                         </div>
@@ -143,7 +143,7 @@ const AboutUs = props => {
                     <div className="member">
                         <img src={umeko} alt="Umeko Walker"/>
                         <div className="info">
-                            <p className="role"></p>
+                            <p className="role">Web Developer</p>
                             <p className="about"></p>
                             <span className="social"></span>
                         </div>
