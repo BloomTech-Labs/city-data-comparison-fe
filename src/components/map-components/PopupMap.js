@@ -2,19 +2,22 @@ import React, { useState, useEffect } from 'react';
 import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 
-const SelectedMapWrapper = styled.div`
-position:fixed;
-width:10vh;
-height:10vh;
-`;
 const PopupMap = (props) => {
+
+    const SelectedMapWrapper = styled.div`
+        position:fixed;
+        transition: height 10s;
+        transition: width 2s;
+        width: ${props => props.animation ? "0vh" : "15vh"};
+        height: ${props => props.animation ? "0vh" : "20vh"};
+    `;
 
     const [selectedViewport, setSelectedViewport] = useState({
         width: '100%',
         height: '100%',
         latitude: props.lng,
         longitude: props.lat,
-        zoom: 10,
+        zoom: 13,
         trackResize: false
     });
 
@@ -42,8 +45,8 @@ const PopupMap = (props) => {
 
     return(    
         console.log(selectedViewport.latitude, selectedViewport.longitude, streetViewPos),
-        <div className="popupmap" id="popupmap" >
-            <SelectedMapWrapper style={{left:`${streetViewPos.posleft}px`, top:`${streetViewPos.postop}px`, display:`${streetViewPos.display}`}}>
+        <div className="popupmapparent">
+            <SelectedMapWrapper className="popupmap" id="popupmap"  style={{left:`${streetViewPos.posleft+10}px`, top:`${streetViewPos.postop+10}px`, display:`${streetViewPos.display}`}}>
                 <ReactMapGL 
                     mapStyle='mapbox://styles/mapbox/streets-v11'
                     {...selectedViewport}

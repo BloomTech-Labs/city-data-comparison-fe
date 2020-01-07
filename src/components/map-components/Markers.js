@@ -13,7 +13,8 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
     lng: 1,
     posleft:0,
     postop:0,
-    display: 'none'
+    display: 'none',
+    animation:true
   })
 
   return (
@@ -24,9 +25,9 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
                     {/* <Link className='map-marker' to={`/map/${cityMarker.city}${cityMarker.state_id}`}> */}
                   <div
                     onClick={() => toggleSelected(cityMarker)} 
-                    onMouseEnter={(e) => (Number.isNaN(parseFloat(e.target.getAttribute("latitude"))) || setPopState({...popState, lat:parseFloat(e.target.getAttribute("latitude")), lng:parseFloat(e.target.getAttribute("longitude")),
-                    posleft:e.pageX, postop:e.pageY, display:'block'}), console.log(popState))}
-                    onMouseLeave={(e) => setPopState({...popState, display:'none'})}
+                    onMouseOver={(e) => (Number.isNaN(parseFloat(e.target.getAttribute("latitude"))) || setPopState({...popState, lat:parseFloat(e.target.getAttribute("latitude")), lng:parseFloat(e.target.getAttribute("longitude")),
+                    posleft:e.pageX, postop:e.pageY, display:'block', animation:false}), console.log(popState))}
+                    onMouseLeave={(e) => setPopState({...popState, display:'none', animation:true})}
                   >
                       {selected.find(item => item === cityMarker) 
                       ? <img src={activepin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />
