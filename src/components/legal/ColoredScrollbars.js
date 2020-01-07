@@ -15,13 +15,15 @@ export default class ColoredScrollbars extends Component {
         const { top } = values;
         this.setState({ top });
     }
-
+    
     renderView({ style, ...props }) {
         const { top } = this.state;
+        
+        //background and font color
         const viewStyle = {
             padding: 15,
-            backgroundColor: `rgb(${Math.round(255 - (top * 255))}, ${Math.round(top * 255)}, ${Math.round(255)})`,
-            color: `rgb(${Math.round(255 - (top * 255))}, ${Math.round(255 - (top * 255))}, ${Math.round(255 - (top * 255))})`
+            backgroundColor: `white`,
+            color: `black`
         };
         return (
             <div
@@ -34,7 +36,7 @@ export default class ColoredScrollbars extends Component {
     renderThumb({ style, ...props }) {
         const { top } = this.state;
         const thumbStyle = {
-            backgroundColor: `rgb(${Math.round(255 - (top * 255))}, ${Math.round(255 - (top * 255))}, ${Math.round(255 - (top * 255))})`
+            backgroundColor: `#2ca4fc`
         };
         return (
             <div
@@ -42,6 +44,8 @@ export default class ColoredScrollbars extends Component {
                 {...props}/>
         );
     }
+
+   
 
     render() {
         return (
