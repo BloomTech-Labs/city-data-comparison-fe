@@ -3,7 +3,6 @@ import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 
 const SelectedMapWrapper = styled.div`
-z-index:1;
 position:fixed;
 width:10vh;
 height:10vh;
