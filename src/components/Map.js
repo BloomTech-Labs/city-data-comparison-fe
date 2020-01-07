@@ -72,8 +72,8 @@ export default function Map() {
       return (
 
         <div className="map-page">
+          <PopupMap/>
           <div className="map">
-            <PopupMap/>
               <MapWrapper>
                 <ReactMapGL
                     mapStyle='mapbox://styles/mapbox/light-v9'
