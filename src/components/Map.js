@@ -6,6 +6,7 @@ import './map-components/Map.scss';
 import Markers from "./map-components/Markers";
 import MapFooter from "./map-components/MapFooter";
 import DataDisplay from "./map-components/DataDisplay";
+import PopupMap from "./map-components/PopupMap"
 
 import { CityContext } from '../contexts/CityContext';
 
@@ -72,6 +73,7 @@ export default function Map() {
 
         <div className="map-page">
           <div className="map">
+            <PopupMap/>
               <MapWrapper>
                 <ReactMapGL
                     mapStyle='mapbox://styles/mapbox/light-v9'
