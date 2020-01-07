@@ -31,7 +31,7 @@ const AboutUs = props => {
 
                     {/*Anna*/}
                     <div className="member">
-                        <img src="" alt=""/>
+                        <img src={anna} alt="Anna Townsend"/>
                         <div className="info">
                             <p className="role"></p>
                             <p className="about"></p>
@@ -44,7 +44,7 @@ const AboutUs = props => {
                 <div className="design">
                     {/*Ruth*/}
                     <div className="member">
-                        <img src="" alt=""/>
+                        <img src={ruth} alt="Ruth Phillips"/>
                         <div className="info">
                             <p className="role"></p>
                             <p className="about"></p>
@@ -57,7 +57,7 @@ const AboutUs = props => {
 
                     {/*Luke*/}
                     <div className="member">
-                        <img src="" alt=""/>
+                        <img src={luke} alt="Luke Townsend"/>
                         <div className="info">
                             <p className="role"></p>
                             <p className="about"></p>
@@ -67,7 +67,7 @@ const AboutUs = props => {
 
                     {/*Matthew*/}
                     <div className="member">
-                        <img src="" alt=""/>
+                        <img src={matthew} alt="Matthew Sessions"/>
                         <div className="info">
                             <p className="role"></p>
                             <p className="about"></p>
@@ -77,7 +77,7 @@ const AboutUs = props => {
 
                     {/*Scott*/}
                     <div className="member">
-                        <img src="" alt=""/>
+                        <img src={scott} alt="Scott Maxwell"/>
                         <div className="info">
                             <p className="role"></p>
                             <p className="about"></p>
@@ -91,7 +91,7 @@ const AboutUs = props => {
 
                     {/*Daniel*/}
                     <div className="member">
-                        <img src="" alt=""/>
+                        <img src={daniel} alt="Daniel Briksza"/>
                         <div className="info">
                             <p className="role"></p>
                             <p className="about"></p>
@@ -101,7 +101,7 @@ const AboutUs = props => {
 
                     {/*John*/}
                     <div className="member">
-                        <img src="" alt=""/>
+                        <img src={john} alt="John Watt"/>
                         <div className="info">
                             <p className="role"></p>
                             <p className="about"></p>
@@ -111,7 +111,7 @@ const AboutUs = props => {
 
                     {/*Kevin*/}
                     <div className="member">
-                        <img src="" alt=""/>
+                        <img src={kevin} alt="Kevin Nyugen"/>
                         <div className="info">
                             <p className="role"></p>
                             <p className="about"></p>
@@ -121,7 +121,7 @@ const AboutUs = props => {
 
                     {/*Michael*/}
                     <div className="member">
-                        <img src="" alt=""/>
+                        <img src={michael} alt="Michael Harms"/>
                         <div className="info">
                             <p className="role"></p>
                             <p className="about"></p>
@@ -131,7 +131,7 @@ const AboutUs = props => {
 
                     {/*Muamer*/}
                     <div className="member">
-                        <img src="" alt=""/>
+                        <img src={muamer} alt="Muamer Kukic"/>
                         <div className="info">
                             <p className="role"></p>
                             <p className="about"></p>
@@ -141,7 +141,7 @@ const AboutUs = props => {
 
                     {/*Umeko*/}
                     <div className="member">
-                        <img src="" alt=""/>
+                        <img src={umeko} alt="Umeko Walker"/>
                         <div className="info">
                             <p className="role"></p>
                             <p className="about"></p>
