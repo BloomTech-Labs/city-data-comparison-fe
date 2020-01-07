@@ -1,7 +1,30 @@
+.sc-bdVaJa {
+    margin: 0 auto;
+    margin-top:68px;
+    margin-bottom:20px;
+    max-width:90%;
+    border: 2px solid darkgrey;
+}
+
+html {
+    background: #041734;
+}
+
+.map-page {
+    background: #041734;
+    .footer-container {
+        margin-top:0;
+        p {
+            margin-top:125px;
+        }
+    }
+}
+
+/* The data-broswer is the component below the map */
+
 .data-browser {
     background: #E5E5E5;
     display:flex;
-
     .data-nav {
         display:flex;
         flex-direction:column;
@@ -136,29 +159,6 @@
                 background: #36A6FC;
                 color:white;                
             }
-        }
-    }
-}
-
-/* the below code might not be doing anything anymore, idk */
-.sc-bdVaJa {
-    margin: 0 auto;
-    margin-top:68px;
-    margin-bottom:20px;
-    max-width:90%;
-    border: 2px solid darkgrey;
-}
-
-html {
-    background: #041734;
-}
-
-.map-page {
-    background: #041734;
-    .footer-container {
-        margin-top:0;
-        p {
-            margin-top:125px;
         }
     }
 }
