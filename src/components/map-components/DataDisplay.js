@@ -34,7 +34,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Route path="/map/culture" component={SafetyNav} />
                 </div>
                 <ul>
-                    {selected.map(item => <li onClick={ _ => toggleVisibility(item)}>{item.city}, {item.state_id} 
+                    {selected.map(item => <li key={item._id} onClick={ _ => toggleVisibility(item)}>{item.city}, {item.state_id} 
                         <span onClick={ _ => toggleSelected(item)}>
                             <img className="delete-icon" src={deleteIcon} />
                         </span>
