@@ -16,6 +16,8 @@ import ruth from '../../assets/team_photos/ruth_p.jpg';
 import scott from '../../assets/team_photos/scott_m.png'
 import umeko from '../../assets/team_photos/umeko_w.jpg';
 
+//styling
+import './aboutus.scss'; 
 
 const AboutUs = props => {
     return(
