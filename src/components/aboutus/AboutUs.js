@@ -30,43 +30,57 @@ const AboutUs = props => {
             </p>
 
             <div className="team">
+                <div className="leadership-design">
+                    <div className="container">
+                        {/*leadership*/}
+                        <h3>Leadership</h3>
+                        <div className="tl">
+                            
+                            {/*Anna*/}
+                            <div className="member">
+                                <img src={anna} alt="Anna Townsend"/>
+                                <div className="info">
+                                    <p className="role">Team Lead</p>
+                                    <p className="about"></p>
+                                    <span className="social">
+                                        <FontAwesomeIcon icon={faGithubSquare}/>
+                                        <FontAwesomeIcon icon={faTwitterSquare}/>
+                                        <FontAwesomeIcon icon={faLinkedin} />
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    
+                    {/*Design*/}
+                    <div className="container">
+                        <h3>Design</h3>
+                        <div className="design">
+                            
+                            {/*Ruth*/}
+                            <div className="member">
+                                <img src={ruth} alt="Ruth Phillips"/>
+                                <div className="info">
+                                    <p className="role">UX/UI Designer</p>
+                                    <p className="about"></p>
+                                    <span className="social">
+                                        <FontAwesomeIcon icon={faGithubSquare}/>
+                                        <FontAwesomeIcon icon={faTwitterSquare}/>
+                                        <FontAwesomeIcon icon={faLinkedin} />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 
-                <div className="tl">
-                    <h4></h4>
-                    {/*Anna*/}
-                    <div className="member">
-                        <img src={anna} alt="Anna Townsend"/>
-                        <div className="info">
-                            <p className="role">Team Lead</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div className="design">
-                    {/*Ruth*/}
-                    <div className="member">
-                        <img src={ruth} alt="Ruth Phillips"/>
-                        <div className="info">
-                            <p className="role">UX/UI Designer</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
+                {/*data science*/}
+                <h3>Data Science</h3>
                 <div className="ds">
-
+                    
                     {/*Luke*/}
                     <div className="member">
                         <img src={luke} alt="Luke Townsend"/>
@@ -110,9 +124,12 @@ const AboutUs = props => {
                     </div>
 
                 </div>
+                
 
+                {/*web development*/}
+                <h3>Web Development</h3>
                 <div className="web">
-
+                    
                     {/*Daniel*/}
                     <div className="member">
                         <img src={daniel} alt="Daniel Briksza"/>
