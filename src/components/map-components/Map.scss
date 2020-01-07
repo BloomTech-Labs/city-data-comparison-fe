@@ -1,3 +1,10 @@
+/* I still haven't found a better way to set backgrounds en masse in react */
+
+html {
+    background: #041734;
+}
+
+/* this is the map container */
 .sc-bdVaJa {
     margin: 0 auto;
     margin-top:68px;
@@ -6,9 +13,8 @@
     border: 2px solid darkgrey;
 }
 
-html {
-    background: #041734;
-}
+
+/* this refers to the whole page (does not include navigation */
 
 .map-page {
     background: #041734;
