@@ -14,7 +14,7 @@ import { CityContext } from './contexts/CityContext';
 
 import Profile from './components/user-profile/Profile'
 import PrivacyPolicy from "./components/legal/PrivacyPolicy"
-import AboutUs from './components/AboutUs'; 
+import AboutUs from './components/aboutus/AboutUs'; 
 
 
 function App() {
