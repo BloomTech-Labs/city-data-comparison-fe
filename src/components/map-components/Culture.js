@@ -13,7 +13,7 @@ const Culture = ({selected}) => {
         <div>
             <h1>City Cultural Statistics:</h1>
 
-            {selected.map(item => <h3 key={item._id}>{item.name.replace(" city" , "")}</h3>)}
+            
 
             <Route path="/map/culture/demographics" component={BarGraph}/>
             <Route path="/map/culture/lifestyle" component={LineGraph}/>
