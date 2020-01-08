@@ -15,7 +15,8 @@ import { CityContext } from './contexts/CityContext';
 import Profile from './components/user-profile/Profile'
 import PrivacyPolicy from "./components/legal/PrivacyPolicy"
 import AboutUs from './components/aboutus/AboutUs'; 
-
+import Signup from './components/forms/Signup'; 
+import Login from './components/forms/Login'; 
 
 function App() {
 
@@ -33,6 +34,8 @@ function App() {
           <Route path='/profile' component={Profile} />
           <Route path="/privacypolicy" component={PrivacyPolicy} />
           <Route path="/aboutus" component={AboutUs} />
+          <Route path='/login' component={Login} />
+          <Route path="/signup" component={Signup} />
         </div>
         </CityContext.Provider>
     </UserContext.Provider>
