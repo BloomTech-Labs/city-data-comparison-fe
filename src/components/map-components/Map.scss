@@ -32,6 +32,11 @@ html {
 .data-browser {
     background: #E5E5E5;
     display:flex;
+
+    .charts-container {
+
+    }
+
     .data-nav {
         display:flex;
         flex-direction:column;

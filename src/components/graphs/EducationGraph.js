@@ -42,7 +42,7 @@ export default class EducationGraph extends Component{
  
   render(){
     return (
-      <div className="chart">
+      <div className="charts-container">
         {this.props.edData.map( item => 
           <Pie
             key={item._id}
@@ -67,7 +67,7 @@ export default class EducationGraph extends Component{
                     'rgba(75, 192, 192, 0.6)',
                     'rgba(153, 102, 255, 0.6)',
                     'rgba(255, 159, 64, 0.6)',
-                    'rgba(255, 99, 132, 0.6)'
+                    'rgba(255, 159, 182, 0.6)'
                   ]
                 }
               ]
@@ -80,7 +80,7 @@ export default class EducationGraph extends Component{
               },
               legend:{
                 display:this.props.displayLegend,
-                position:this.props.legendPosition
+                position:"top",
               }
             }}
           /> 
