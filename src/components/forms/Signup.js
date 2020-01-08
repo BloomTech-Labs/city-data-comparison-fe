@@ -1,5 +1,6 @@
 import React from 'react'; 
 
+import './forms.scss'; 
 const Signup = props => {
     return(
         <div className='signup'>
