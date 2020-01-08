@@ -46,13 +46,37 @@ export default class EducationGraph extends Component{
 
         {this.props.edData.map( item => 
         <div>
-          <h1>{item["Educational Attainment"]["Associate's degree"]}</h1>
           <Pie
-            data={this.state.chartData}
+            data={{
+              labels: ["9th to 12th grade no diploma", "Associate's degree", "Bachelor's degree", "Graduate degree", "High school", "Less than 9th grade", "Some college no degree"],
+              datasets:[
+                {
+                  label:'Population',
+                  data:[
+                    item["Educational Attainment"]["9th to 12th grade no diploma"],
+                    item["Educational Attainment"]["Associate's degree"],
+                    item["Educational Attainment"]["Bachelor's degree"],
+                    item["Educational Attainment"]["Graduate degree"],
+                    item["Educational Attainment"]["High school"],
+                    item["Educational Attainment"]["Less than 9th grade"],
+                    item["Educational Attainment"]["Some college no degree"]
+                  ],
+                  backgroundColor:[
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)',
+                    'rgba(255, 159, 64, 0.6)',
+                    'rgba(255, 99, 132, 0.6)'
+                  ]
+                }
+              ]
+            }}
             options={{
               title:{
                 display:this.props.displayTitle,
-                text:'Largest Cities by '+ this.props.location,
+                text:'Educational Breakdown For '+ item.name,
                 fontSize:25
               },
               legend:{
