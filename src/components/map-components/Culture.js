@@ -1,6 +1,6 @@
 import React from "react";
 import {Route} from "react-router-dom";
-import BarGraph from "../graphs/HouseIncome_BarGraph";
+import BarGraph from "../graphs/housing/HouseIncome_BarGraph";
 import LineGraph from "../graphs/LineGraph";
 import PieGraph from "../graphs/PieGraph";
 

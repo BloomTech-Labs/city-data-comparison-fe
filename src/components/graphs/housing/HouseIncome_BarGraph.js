@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Bar} from 'react-chartjs-2';
-import {markerDummyData} from "../map-components/data";
+import {markerDummyData} from "../../map-components/data";
 export default class BarGraph extends Component{
   componentDidMount(){
     // console.log(markerDummyData)
