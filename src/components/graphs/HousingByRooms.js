@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Line} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 import {markerDummyData} from "../map-components/data";
 export default class BarGraph extends Component{
   componentDidMount(){
@@ -7,27 +7,23 @@ export default class BarGraph extends Component{
     let data = markerDummyData[0]
     let labels = []
     let amount = []
-    let backgroundColors = []
-    let house_price = data["house_price"];
-    Object.keys(house_price).forEach(function (label) {
+
+    let houseRooms = data["Housing by rooms"];
+    Object.keys(houseRooms).forEach(function (label) {
       labels.push(label)
-      let value = house_price[label];
+      let value = houseRooms[label];
       amount.push(value);
     });
     console.log(labels);
     console.log(amount);
-
-    for( let i = 0; i < data.length; i++){
-      backgroundColors[i] = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6)
-    }
     var newState = {...this.state.chartData}
     console.log(newState)
     newState.labels = labels
     newState.datasets[0].data = amount
-    newState.datasets[0].backgroundColor = backgroundColors;
+    //newState.datasets[0].backgroundColor = backgroundColors;
     this.setState({chartData: newState})
   }
-
+  
   constructor(props){
     console.log(props);
     super(props);
@@ -35,12 +31,21 @@ export default class BarGraph extends Component{
       chartData: {
         labels: [],
         datasets:[
-            {
-            fill: false,
-            borderColor: "red",
+          {
             label:'Population',
             data: [],
-            backgroundColor:[]
+            backgroundColor:[
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(54, 162, 235, 0.6)',
+              'rgba(255, 206, 86, 0.6)',
+              'rgba(75, 192, 192, 0.6)',
+              'rgba(153, 102, 255, 0.6)',
+              'rgba(255, 159, 64, 0.6)',
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(255, 99, 132, 0.6)'
+            ]
           }
         ]
       }
@@ -55,13 +60,13 @@ export default class BarGraph extends Component{
   render(){
     return (
       <div className="chart">
-        <Line
+        <Bar
           data={this.state.chartData}
           options={{
             maintainAspectRatio:true,
             title:{
               display:this.props.displayTitle,
-              text:' Average House Price ',
+              text:' Rooms per House ',
               fontSize:25
             },
             legend:{
@@ -72,5 +77,5 @@ export default class BarGraph extends Component{
         />
       </div>
     )
-  }
-  }
+  }}
+  
