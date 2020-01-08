@@ -5,9 +5,9 @@ const SafetyNav = _ => {
 
     return (
         <>
-            <NavLink activeClassName="selected" to="/map/culture/crime">Crime/Capita</NavLink>
-            <NavLink activeClassName="selected" to="/map/culture/auto">Automobile Accidents/Capita</NavLink>
-            <NavLink activeClassName="selected" to="/map/culture/airquality">Air Quality</NavLink>
+            <NavLink activeClassName="selected" to="/map/culture/demographics">Demographyics</NavLink>
+            <NavLink activeClassName="selected" to="/map/culture/lifestyle">Lifestyle</NavLink>
+            <NavLink activeClassName="selected" to="/map/culture/education">Education</NavLink>
         </>
     )
 }
