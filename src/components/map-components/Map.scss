@@ -34,13 +34,21 @@ html {
     .data-nav {
         display:flex;
         flex-direction:column;
-        justify-content:space-between;
+        justify-content:center;
         color:white;
         background:#041734;
         padding:0;
         width:25%;
         min-height:40vh;
-    
+        
+        .closed{
+            border:1px solid red;
+            width: 100%;
+        }
+        .open{
+            border: 1px solid pink;
+        }
+        
 
         li {
             list-style-type: none;
@@ -125,6 +133,7 @@ html {
     }
 
     .data-by-category {
+        
         width:75%;
         
         h1{
@@ -136,6 +145,7 @@ html {
         }
 
         .data-subnav {
+            
             margin: 0 auto;
             margin-top: 15px;
             display: flex;
