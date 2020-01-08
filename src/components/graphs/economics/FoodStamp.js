@@ -68,7 +68,7 @@ export default class BarGraph extends Component{
             maintainAspectRatio:true,
             title:{
               display:this.props.displayTitle,
-              text:' PAP ',
+              text:' Percent of Public Assistance ',
               fontSize:25
             },
             legend:{
