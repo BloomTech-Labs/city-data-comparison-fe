@@ -1,27 +1,22 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Pie} from 'react-chartjs-2';
 
-export default class EducationGraph extends Component{
-  constructor(props){
-    super(props);
-   
-  }
-  static defaultProps = {
-    displayTitle:true,
-    displayLegend: true,
-    location:'Population'
-  }
+export default function EducationGraph (props) {
+  const [chartWidth, setChartWidth] = useState("100%")
 
- 
-  render(){
 
+
+
+  useEffect( () => {
+    console.log(chartWidth)
+    setChartWidth((props.edData.length < 2) ? "100% ": "50%");
+  }, [props.edData])
 
     return (
-      <div className="charts">
-        {this.props.edData.map( item => 
-          <div className="chart-container">
+      <div className="charts" >
+        {props.edData.map( item => 
+          <div key={item._id} className="chart-container" style={{width: `${chartWidth}`}}>
             <Pie
-              key={item._id}
               data={{
                 labels: ["9th to 12th grade no diploma", "Associate's degree", "Bachelor's degree", "Graduate degree", "High school", "Less than 9th grade", "Some college no degree"],
                 datasets:[
@@ -50,12 +45,12 @@ export default class EducationGraph extends Component{
               }}
               options={{
                 title:{
-                  display:this.props.displayTitle,
+                  display:true,
                   text:'Educational Breakdown For '+ item.name.replace(" city", ""),
                   fontSize:25
                 },
                 legend:{
-                  display:this.props.displayLegend,
+                  display:true,
                   position:"top",
                 }
               }}
@@ -65,4 +60,4 @@ export default class EducationGraph extends Component{
         </div>
     )
   }
-  }
+  
