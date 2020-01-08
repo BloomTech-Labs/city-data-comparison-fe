@@ -5,6 +5,10 @@ import map from './assets/map.svg'
 import money from './assets/money.svg'
 import graph from './assets/graph.svg'
 
+import location from './assets/location.svg'
+import data from './assets/data_visual.svg'
+import control from './assets/control_data.svg'
+
 
 function Dashboard(){
 
@@ -102,33 +106,37 @@ function Dashboard(){
                {/* PRODUCT FEATURES */}
                <div className="dashboard-features-container">
                     <div className="feature-descriptions">
-                         <img className="feature-images money" src={money} alt="money" />
+                         <h3>Control of data</h3>
+                         <img className="feature-images money" src={control} alt="money" />
                          <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
                     </div>
                     <div className="feature-descriptions">
-                         <img className="feature-images map" src={map} alt="map"/>
+                         <img className="feature-images map" src={data} alt="map"/>
+                         <h3>Map View</h3>
                          <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
                     </div>
                     <div className="feature-descriptions">
-                         <img className="feature-images dataVisual" src={dataVisual} alt="data visual"/>
+                         <img className="feature-images dataVisual" src={location} alt="data visual"/>
+                         <h3>Visualize Data</h3>
                          <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
                     </div>
                </div>
 
                {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
+                    <h2>Visualizing data made easier</h2>
                     <div className="dashboard-metrics">
                          <div>
                               <img src={graph} alt="living cost graph" />
-                              <p>Data for living costs</p>
+                              <p>Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div>
                               <img src={graph} alt="living cost graph" />
-                              <p>Data for job prospects</p>
+                              <p>Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
                          <div>
                               <img src={graph} alt="living cost graph" />
-                              <p>Data for safety/crime</p>
+                              <p>Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
                     </div>
                </div>
@@ -138,7 +146,8 @@ function Dashboard(){
                {/* COMPARE CITIES FUNCTION */}
                <div className="dashboard-compare-container">
                     <div className="dashboard-compare">
-                         <h2>Compare Multiple Cities</h2>
+                         <h2>Don’t settle for less</h2>
+                         <p>Moving to a new city, job hunting or choosing vacation spots? Compare cities to find out differences in cost of living, jobs, and safety.</p>
                          <div className="compare-buttons">
                               <form onSubmit={submitCities}>
                                    <PlacesAutocomplete name="cityOne" value={cityOne} onChange={setCityOne} onSelect={handleCityOne}>
