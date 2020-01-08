@@ -33,13 +33,7 @@ html {
     background: #E5E5E5;
     display:flex;
 
-    .chart-container {
-        width:50%;
-    }
 
-    .charts {
-        display: flex;
-    }
 
     .data-nav {
         display:flex;
@@ -141,8 +135,13 @@ html {
             text-align:center;
         }
 
-        .chart {
-            margin-bottom:10px;
+        .chart-container {
+            width:50%;
+        }
+    
+        .charts {
+            display: flex;
+            margin: 10px;
         }
 
         .data-subnav {
