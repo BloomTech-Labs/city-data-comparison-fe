@@ -9,7 +9,8 @@ export default function EducationGraph (props) {
 
   useEffect( () => {
     console.log(chartWidth)
-    setChartWidth((props.edData.length < 2) ? "100% ": "50%");
+    setChartWidth((props.edData.length <= 1) ? "100% ": "50%");
+    console.log("after set", chartWidth)
   }, [props.edData])
 
     return (
