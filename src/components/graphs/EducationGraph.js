@@ -45,21 +45,25 @@ export default class EducationGraph extends Component{
       <div className="chart">
 
         {this.props.edData.map( item => 
-        <Pie
-          data={this.state.chartData}
-          options={{
-            title:{
-              display:this.props.displayTitle,
-              text:'Largest Cities by '+ this.props.location,
-              fontSize:25
-            },
-            legend:{
-              display:this.props.displayLegend,
-              position:this.props.legendPosition
-            }
-          }}
-        /> )}
-        
+        <div>
+          <h1>{item["Educational Attainment"]["Associate's degree"]}</h1>
+          <Pie
+            data={this.state.chartData}
+            options={{
+              title:{
+                display:this.props.displayTitle,
+                text:'Largest Cities by '+ this.props.location,
+                fontSize:25
+              },
+              legend:{
+                display:this.props.displayLegend,
+                position:this.props.legendPosition
+              }
+            }}
+          /> 
+        </div>
+        )}
+
       </div>
     )
   }
