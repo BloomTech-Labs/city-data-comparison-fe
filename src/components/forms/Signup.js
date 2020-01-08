@@ -10,8 +10,8 @@ const Signup = props => {
                         <h2>Create Your Account</h2>
 
                         <div className="auth">
-                            <button className="google"></button>
-                            
+                            <button className="google">Sign up with Google</button>
+                            <button className="facebook">Sign up with Facebook</button>
                         </div>
                         
                         <div className="center-text">
