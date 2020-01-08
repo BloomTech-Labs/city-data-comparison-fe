@@ -43,10 +43,9 @@ export default class EducationGraph extends Component{
   render(){
     return (
       <div className="chart">
-
         {this.props.edData.map( item => 
-        <div>
           <Pie
+            key={item._id}
             data={{
               labels: ["9th to 12th grade no diploma", "Associate's degree", "Bachelor's degree", "Graduate degree", "High school", "Less than 9th grade", "Some college no degree"],
               datasets:[
@@ -76,7 +75,7 @@ export default class EducationGraph extends Component{
             options={{
               title:{
                 display:this.props.displayTitle,
-                text:'Educational Breakdown For '+ item.name,
+                text:'Educational Breakdown For '+ item.name.replace(" city", ""),
                 fontSize:25
               },
               legend:{
@@ -85,9 +84,7 @@ export default class EducationGraph extends Component{
               }
             }}
           /> 
-        </div>
         )}
-
       </div>
     )
   }
