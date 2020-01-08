@@ -33,8 +33,12 @@ html {
     background: #E5E5E5;
     display:flex;
 
-    .charts-container {
+    .chart-container {
+        width:50%;
+    }
 
+    .charts {
+        display: flex;
     }
 
     .data-nav {

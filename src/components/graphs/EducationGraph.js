@@ -42,50 +42,52 @@ export default class EducationGraph extends Component{
  
   render(){
     return (
-      <div className="charts-container">
+      <div className="charts">
         {this.props.edData.map( item => 
-          <Pie
-            key={item._id}
-            data={{
-              labels: ["9th to 12th grade no diploma", "Associate's degree", "Bachelor's degree", "Graduate degree", "High school", "Less than 9th grade", "Some college no degree"],
-              datasets:[
-                {
-                  label:'Population',
-                  data:[
-                    item["Educational Attainment"]["9th to 12th grade no diploma"],
-                    item["Educational Attainment"]["Associate's degree"],
-                    item["Educational Attainment"]["Bachelor's degree"],
-                    item["Educational Attainment"]["Graduate degree"],
-                    item["Educational Attainment"]["High school"],
-                    item["Educational Attainment"]["Less than 9th grade"],
-                    item["Educational Attainment"]["Some college no degree"]
-                  ],
-                  backgroundColor:[
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(255, 159, 64, 0.6)',
-                    'rgba(255, 159, 182, 0.6)'
-                  ]
+          <div className="chart-container">
+            <Pie
+              key={item._id}
+              data={{
+                labels: ["9th to 12th grade no diploma", "Associate's degree", "Bachelor's degree", "Graduate degree", "High school", "Less than 9th grade", "Some college no degree"],
+                datasets:[
+                  {
+                    label:'Population',
+                    data:[
+                      item["Educational Attainment"]["9th to 12th grade no diploma"],
+                      item["Educational Attainment"]["Associate's degree"],
+                      item["Educational Attainment"]["Bachelor's degree"],
+                      item["Educational Attainment"]["Graduate degree"],
+                      item["Educational Attainment"]["High school"],
+                      item["Educational Attainment"]["Less than 9th grade"],
+                      item["Educational Attainment"]["Some college no degree"]
+                    ],
+                    backgroundColor:[
+                      'rgba(255, 99, 132, 0.6)',
+                      'rgba(54, 162, 235, 0.6)',
+                      'rgba(255, 206, 86, 0.6)',
+                      'rgba(75, 192, 192, 0.6)',
+                      'rgba(153, 102, 255, 0.6)',
+                      'rgba(255, 159, 64, 0.6)',
+                      'rgba(255, 159, 182, 0.6)'
+                    ]
+                  }
+                ]
+              }}
+              options={{
+                title:{
+                  display:this.props.displayTitle,
+                  text:'Educational Breakdown For '+ item.name.replace(" city", ""),
+                  fontSize:25
+                },
+                legend:{
+                  display:this.props.displayLegend,
+                  position:"top",
                 }
-              ]
-            }}
-            options={{
-              title:{
-                display:this.props.displayTitle,
-                text:'Educational Breakdown For '+ item.name.replace(" city", ""),
-                fontSize:25
-              },
-              legend:{
-                display:this.props.displayLegend,
-                position:"top",
-              }
-            }}
-          /> 
+              }}
+            /> 
+          </div>
         )}
-      </div>
+        </div>
     )
   }
   }
