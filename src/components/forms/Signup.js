@@ -1,6 +1,12 @@
 import React from 'react'; 
 
+//images
+import google from '../../assets/logos/google.png'; 
+import facebook from '../../assets/logos/facebook.svg';
+
+//styling
 import './forms.scss'; 
+
 const Signup = props => {
     return(
         <div className='signup'>
@@ -10,8 +16,8 @@ const Signup = props => {
                         <h2>Create Your Account</h2>
 
                         <div className="auth">
-                            <button className="google">Sign up with Google</button>
-                            <button className="facebook">Sign up with Facebook</button>
+                            <button className="google"> <img className="google" src={google} alt="google logo"/>Sign up with Google</button>
+                            <button className="facebook"><img className="fb" src={facebook} alt="facebook logo"/>Sign up with Facebook</button>
                         </div>
                         
                         <div className="center-text">
