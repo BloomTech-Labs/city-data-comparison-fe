@@ -17,14 +17,28 @@
     
 }
 
+.auth{
+    display:flex; 
+    flex-direction: column;
+}
 .google{
     width: 20%; 
 }
 
 .fb{
-    width: 10%;
+    width: 7%;
+    padding: 3% 0; 
 }
 
 button{
     width: 200px; 
+    border-radius: 20px; 
+    background: white; 
+    border: 1px solid #3999fc;
+    margin-top: 2%; 
+    
+}
+
+.facebook{
+    width: 215px; 
 }
