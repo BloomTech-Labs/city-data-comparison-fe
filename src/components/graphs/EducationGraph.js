@@ -8,15 +8,14 @@ export default function EducationGraph (props) {
 
 
   useEffect( () => {
-    console.log(chartWidth)
-    setChartWidth((props.edData.length <= 1) ? "100% ": "50%");
-    console.log("after set", chartWidth)
+    console.log(props.edData.length)
+    setChartWidth((props.edData.length <= 1) ? "100%" : "50%");
   }, [props.edData])
 
     return (
       <div className="charts" >
         {props.edData.map( item => 
-          <div key={item._id} className="chart-container" style={{width: `${chartWidth}`}}>
+          <div key={item._id} className="chart-container" style={{position: "relative", width: `${chartWidth}`}}>
             <Pie
               data={{
                 labels: ["9th to 12th grade no diploma", "Associate's degree", "Bachelor's degree", "Graduate degree", "High school", "Less than 9th grade", "Some college no degree"],
