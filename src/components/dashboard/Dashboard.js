@@ -47,7 +47,15 @@ function Dashboard(){
                <div className="dashboard-search-container">
                     <div className="slanted-san-francisco"></div>
                     {/* <div className="slanted-blue-one"></div> */}
-                    <div className="search-function">
+                    <div className="search-function"
+                         data-aos="fade-up"
+                         data-aos-offset="200"
+                         data-aos-delay="50"
+                         data-aos-duration="1000"
+                         data-aos-easing="ease-in-out"
+                         data-aos-mirror="true"
+                         data-aos-once="true"
+                    >
                          <h1>Choice is YOURS</h1>
                          <p className="cities-description">Choose the information you want to see about city(ies).</p>
                          
@@ -70,26 +78,44 @@ function Dashboard(){
 
 
                {/* PRODUCT FEATURES */}
-               <div className="dashboard-features-container"
-                    data-aos="fade-up"
-                    data-aos-offset="200"
-                    data-aos-delay="50"
-                    data-aos-duration="1000"
-                    data-aos-easing="ease-in-out"
-                    data-aos-mirror="true"
-                    data-aos-once="true"
-                    data-aos-anchor-placement="top-center"
-               >
-                    <div className="feature-descriptions">
-                         <img className="feature-images money" src={money} alt="money" />
+               <div className="dashboard-features-container">
+                    <div className="feature-descriptions"
+                         data-aos="fade-right"
+                         data-aos-offset="200"
+                         data-aos-delay="50"
+                         data-aos-duration="1000"
+                         data-aos-easing="ease-in-out"
+                         data-aos-mirror="true"
+                         data-aos-once="true"
+                    >
+                         <h3>Control of data</h3>
+                         <img className="feature-images money" src={control} alt="money" />
                          <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
                     </div>
-                    <div className="feature-descriptions">
-                         <img className="feature-images map" src={map} alt="map"/>
+                    <div className="feature-descriptions"
+                         data-aos="fade-up"
+                         data-aos-offset="200"
+                         data-aos-delay="50"
+                         data-aos-duration="1000"
+                         data-aos-easing="ease-in-out"
+                         data-aos-mirror="true"
+                         data-aos-once="true"
+                    >
+                         <img className="feature-images map" src={data} alt="map"/>
+                         <h3>Map View</h3>
                          <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
                     </div>
-                    <div className="feature-descriptions">
-                         <img className="feature-images dataVisual" src={dataVisual} alt="data visual"/>
+                    <div className="feature-descriptions"
+                         data-aos="fade-left"
+                         data-aos-offset="200"
+                         data-aos-delay="50"
+                         data-aos-duration="1000"
+                         data-aos-easing="ease-in-out"
+                         data-aos-mirror="true"
+                         data-aos-once="true"
+                    >
+                         <img className="feature-images dataVisual" src={location} alt="data visual"/>
+                         <h3>Visualize Data</h3>
                          <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
                     </div>
                </div>
@@ -97,15 +123,36 @@ function Dashboard(){
                {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
                     <div className="dashboard-metrics">
-                         <div>
+                         <div
+                              data-aos="fade-up"
+                              data-aos-delay="150"
+                              data-aos-duration="1000"
+                              data-aos-easing="ease-in-out"
+                              data-aos-mirror="true"
+                              data-aos-once="true"
+                         >
                               <img src={graph} alt="living cost graph" />
                               <p>Data for living costs</p>
                          </div>
-                         <div>
+                         <div
+                              data-aos="fade-up"
+                              data-aos-delay="350"
+                              data-aos-duration="1000"
+                              data-aos-easing="ease-in-out"
+                              data-aos-mirror="true"
+                              data-aos-once="true"
+                         >
                               <img src={graph} alt="living cost graph" />
                               <p>Data for job prospects</p>
                          </div>
-                         <div>
+                         <div
+                              data-aos="fade-up"
+                              data-aos-delay="550"
+                              data-aos-duration="1000"
+                              data-aos-easing="ease-in-out"
+                              data-aos-mirror="true"
+                              data-aos-once="true"
+                         >
                               <img src={graph} alt="living cost graph" />
                               <p>Data for safety/crime</p>
                          </div>
@@ -116,13 +163,12 @@ function Dashboard(){
 
                {/* COMPARE CITIES FUNCTION */}
                <div className="dashboard-compare-container"
-                    data-aos="fade-up"
+                    data-aos="fade-right"
                     data-aos-delay="50"
                     data-aos-duration="1000"
                     data-aos-easing="ease-in-out"
                     data-aos-mirror="true"
                     data-aos-once="true"
-                    data-aos-anchor-placement="top-center"
                >
                     <div className="dashboard-compare">
                          <h2>Compare Multiple Cities</h2>
@@ -136,14 +182,38 @@ function Dashboard(){
                                         placeholder="San Francisco, CA"
                                    />
                                    <span className="versus">vs.</span>
-                                   <input 
-                                        type="text"
-                                        name="cityTwo"
-                                        value={compare.cityTwo}
-                                        onChange={compareChange}
-                                        placeholder="Los Angeles, CA"
-                                   />
-                                   <button>Compare</button>
+
+                                   <PlacesAutocomplete name="cityTwo" value={cityTwo} onChange={setCityTwo} onSelect={handleCityTwo}>
+                                        {
+                                             ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
+                                             <div>
+                                                  <input {...getInputProps({placeholder: "Type address"})}/>
+                                                  <div>
+                                                       {loading ? <div>...loading</div> : null}
+
+                                                       {suggestions.map( (suggestion) => {
+                                                            const style = {
+                                                                 backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                                 cursor: "pointer"
+                                                            }
+
+                                                            return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
+                                                       })}
+                                                  </div>
+                                             </div>)
+                                        }
+                                   </PlacesAutocomplete>
+                                   <button
+                                        data-aos="zoom-in"
+                                        data-aos-offset="200"
+                                        data-aos-delay="50"
+                                        data-aos-duration="1000"
+                                        data-aos-easing="ease-in-out"
+                                        data-aos-mirror="true"
+                                        data-aos-once="true"
+                                   >
+                                        Compare
+                                   </button>
                               </form>
                          </div>
                     </div>
