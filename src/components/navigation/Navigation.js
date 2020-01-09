@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from "react-router-dom";
+import citrics from './citrics-mock.png'
 
 
 
@@ -49,7 +50,7 @@ function Navigation(){
           <div className={"navigation-container " + bgColor } onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
                {/* Logo goes here */}
                {/* <Link to="/">Home</Link> */}
-               <a className="header-logo" href="/">Citrics</a>
+               <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
                <nav className = {displayNav}>
                     <a href="google.com">Link A</a>
                     <Link to="/map">Map</Link>

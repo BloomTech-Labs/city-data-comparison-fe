@@ -68,6 +68,11 @@ html,body{
 .no-color{
   background:none !important;
 }
+.mock-logo{
+  width:150px;
+  margin-top:-50px;
+  margin-bottom:-50px;
+}
 .navigation-container{
      display: flex;
      justify-content: space-between;
@@ -92,7 +97,7 @@ html,body{
     display: flex;
   }
 
-   .navigation-container:hover{
+   .navigation-container:active{
      background-color: #fff;
   }
 
@@ -109,7 +114,6 @@ html,body{
      justify-content: space-around;
      align-items: center;
      padding-left: 4%;
-     
    }
 
   
@@ -136,6 +140,9 @@ html,body{
     }
     nav a {
          display: none;
+    }
+    .navigation-container{
+      background-color:#fff !important;
     }
     .sign-up-btn {
          display: none;
