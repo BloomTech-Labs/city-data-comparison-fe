@@ -9,7 +9,7 @@ function Footer(){
                     <div className="footer-CTA">
                          <div className="footer-CTA-description">
                               <p>Find Your Best Place To Live</p>
-                              <button>Start Now</button>
+                              <button className="footer-CTA-button">Start Now</button>
                          </div>
                          <div>
                               <p className="copyright">© City Data Comparison 2019</p>
@@ -34,7 +34,9 @@ function Footer(){
                               <a href="/">Private Policy</a>
                               <a href="/">Terms of Use</a>
                          </div>
-
+                    </div>
+                    <div>
+                         <p className="copyright-mobile">© City Data Comparison 2019</p>
                     </div>
                </div>
           </div>

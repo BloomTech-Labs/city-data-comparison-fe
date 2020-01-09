@@ -501,7 +501,7 @@ html,body{
       padding-top:8px;
       margin-bottom:10px;
     }
-    button{
+    .footer-CTA-button{
       background-color:#2ca4fc;
       color:white;
       padding:10px 20px;
@@ -529,7 +529,7 @@ html,body{
     text-align:left;
     color: #2e2f38;
     margin-bottom:5px;
-    font-size:1.4rem;
+    font-size:1.3rem;
   }
   a{
     color:#8898aa;
@@ -550,27 +550,39 @@ html,body{
   
 }
 @media screen and (max-width:500px){
-
+  .footer-container{
+    height:450px;
+  }
   .footer{
-    border:1px solid green;
     flex-direction:column;
     align-items:center;
   }
    .footer-CTA{
-    border:1px solid blue;
+    border-bottom:1px solid #ceced0;
     width:100% !important;
+    padding-bottom:10%;
+    padding-top:5%;
+  }
+  .footer-CTA-description{
+    display:flex;
+    width:100%;
+    justify-content:space-around;
+    align-items:center;
+  }
+  .footer-CTA-button{
+    max-width:130px;
+    height:40px;
   }
   .copyright{
     display:none;
   }
-
   .footer-categories-container{
-    border:1px solid black;
     justify-content:space-between;
     width:100% !important;
-    padding-bottom:5%;
   }
-  .footer-categories{
-
+  .copyright-mobile{
+    width:100%;
+    padding:5% 0;
+    color:#8898aa;
   }
 }
