@@ -1,93 +1,57 @@
-import React, {Component} from 'react';
-import {Pie} from 'react-chartjs-2';
+import React, {useState, useEffect} from 'react';
+import {Bar} from 'react-chartjs-2';
 
-export default class EducationGraph extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      chartData: {
-        labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New BedFord'],
-        datasets:[
-          {
-            label:'Population',
-            data:[
-              617594,
-              181045,
-              153060,
-              106519,
-              105162,
-              95072
-            ],
-            backgroundColor:[
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)',
-              'rgba(255, 99, 132, 0.6)'
-            ]
-          }
-        ]
-      }
-    }
-  }
-  static defaultProps = {
-    displayTitle:true,
-    displayLegend: true,
-    legendPosition:'right',
-    location:'Population'
-  }
+export default function EducationGraph (props) {
 
- 
-  render(){
+  const dotRemover = num => {
+    return Number(String(num).replace(".",""));
+  }
+  
+
     return (
-      <div className="charts">
-        {this.props.edData.map( item => 
-          <div className="chart-container">
-            <Pie
-              key={item._id}
+      <div className="charts" >
+        
+          <div className="chart-container" style={{position: "relative", width: `100%`}}>
+            <Bar
               data={{
-                labels: ["9th to 12th grade no diploma", "Associate's degree", "Bachelor's degree", "Graduate degree", "High school", "Less than 9th grade", "Some college no degree"],
-                datasets:[
-                  {
-                    label:'Population',
-                    data:[
+                labels: ["Less than 9th grade",  "Some High School", "High school",  "Some College", "Associate's Degree", "Bachelor's Degree", "Graduate Degree"],
+                datasets: props.edData.map( item => {
+                  
+                  return {
+                    label: item.name.replace(" city" , ""),
+                    data: [
+                      item["Educational Attainment"]["Less than 9th grade"],
                       item["Educational Attainment"]["9th to 12th grade no diploma"],
+                      item["Educational Attainment"]["High school"],
+                      item["Educational Attainment"]["Some college no degree"],
                       item["Educational Attainment"]["Associate's degree"],
                       item["Educational Attainment"]["Bachelor's degree"],
-                      item["Educational Attainment"]["Graduate degree"],
-                      item["Educational Attainment"]["High school"],
-                      item["Educational Attainment"]["Less than 9th grade"],
-                      item["Educational Attainment"]["Some college no degree"]
+                      item["Educational Attainment"]["Graduate degree"]                    
+                      
                     ],
-                    backgroundColor:[
-                      'rgba(255, 99, 132, 0.6)',
-                      'rgba(54, 162, 235, 0.6)',
-                      'rgba(255, 206, 86, 0.6)',
-                      'rgba(75, 192, 192, 0.6)',
-                      'rgba(153, 102, 255, 0.6)',
-                      'rgba(255, 159, 64, 0.6)',
-                      'rgba(255, 159, 182, 0.6)'
-                    ]
+                    backgroundColor:
+                      `rgb(${dotRemover(item.lat) % 100 * 2.55}, 180, ${(item.lng * 100) % 100 * 2.55})`
+                      
+
                   }
-                ]
+                })
+
               }}
               options={{
                 title:{
-                  display:this.props.displayTitle,
-                  text:'Educational Breakdown For '+ item.name.replace(" city", ""),
+                  display:true,
+                  text:'Educational Attainment',
                   fontSize:25
                 },
                 legend:{
-                  display:this.props.displayLegend,
+                  display:true,
                   position:"top",
                 }
               }}
             /> 
           </div>
-        )}
+        
         </div>
     )
   }
-  }
+  

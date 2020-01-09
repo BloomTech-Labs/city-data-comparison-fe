@@ -1,19 +1,14 @@
 /* I still haven't found a better way to set backgrounds en masse in react */
 
-html {
-    background: #041734;
-}
+
 
 /* this is the map container */
-.sc-bdVaJa {
+.main-map {
     margin: 0 auto;
-    margin-top:68px;
+    padding-top:68px;
     margin-bottom:20px;
     max-width:90%;
-
-    border: 2px solid darkgrey;
 }
-
 
 /* this refers to the whole page (does not include navigation */
 
@@ -29,28 +24,113 @@ html {
 
 /* The data-broswer is the component below the map */
 
+
+
+
 .data-browser {
     background: #E5E5E5;
     display:flex;
 
-    .chart-container {
-        width:50%;
-    }
 
-    .charts {
-        display: flex;
-    }
 
     .data-nav {
         display:flex;
         flex-direction:column;
         justify-content:space-between;
         color:white;
-        background:#041734;
         padding:0;
         width:25%;
-        min-height:40vh;
-    
+        height: 20%;
+        align-items: flex-start;
+
+        //Side Nav Styling setup for mobile
+
+        //styling for menu slide out
+
+        .slider.closed {
+            display:flex;
+            flex-direction: column;
+            background:#041734;
+            width: 100%;
+            -webkit-transform: translateX(-200px) translate(-6px, -6px);
+                transform: translateX(-200px) translate(-6px, -6px);
+            transition: 0.5s;
+            
+        }
+
+        .slider.open {
+            display:flex;
+            flex-direction: column;
+            background:#041734;
+            width: 100%;
+            transition: 0.5s;
+        }
+
+        .top-menu{
+            display:flex;
+        }
+
+        .search-bar.open{
+            transition: 0.5s;
+        }
+
+        .menu-items.closed{
+            @media only screen and (max-width: 600px) {
+                -webkit-transform: translateX(-200px) translate(-6px, -6px);
+                transform: translateX(-200px) translate(-6px, -6px);  
+                transition: 0.5s;
+            }
+        }
+
+        .menu-items.open{
+            @media only screen and (max-width: 600px) {
+            }
+        }
+
+        .search-bar.closed{
+            @media only screen and (max-width: 600px) {
+                -webkit-transform: translateX(-200px) translate(-6px, -6px);
+                transform: translateX(-200px) translate(-6px, -6px);
+                }
+                transition: 0.5s;
+        }
+
+        //Styling for burger stack
+
+        .burger-menu.open .bar1 {
+            -webkit-transform: rotate(-45deg) translate(-4px, 4px);
+            transform: rotate(-45deg) translate(-4px, 4px);
+        }
+
+        .burger-menu.open .bar2 {
+            opacity: 0;
+        }
+
+        .burger-menu.open .bar3 {
+            -webkit-transform: rotate(45deg) translate(-6px, -6px);
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+
+        .burger-menu,
+        .burger-menu.open {
+        display:none; 
+            @media only screen and (max-width: 600px) {
+                display: inline-block;
+                cursor: pointer;
+                z-index: 9999;
+                padding: 10px;
+            }
+        }
+
+        .burger-menu .bar1,
+        .bar2,
+        .bar3 {
+            width: 25px;
+            height: 3px;
+            background-color:rgb(48, 48, 48);
+            margin: 4px 0;
+            transition: 0.5s;
+        }
 
         li {
             list-style-type: none;
@@ -129,23 +209,32 @@ html {
 
         .delete-icon {
             height:1.2rem;
+            width: 1.2rem;
             position:relative;
             bottom: .1rem;
         }
     }
 
     .data-by-category {
+        
         width:75%;
         
         h1{
             text-align:center;
         }
 
-        .chart {
-            margin-bottom:10px;
+        .chart-container {
+            width:100%;
+        }
+    
+        .charts {
+            display: flex;
+            flex-wrap:wrap;
+            margin: 10px;
         }
 
         .data-subnav {
+            
             margin: 0 auto;
             margin-top: 15px;
             display: flex;

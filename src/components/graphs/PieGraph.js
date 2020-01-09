@@ -40,7 +40,7 @@ export default class PieGraph extends Component{
   }
   render(){
     return (
-      <div className="chart">
+      <div className="chart" style={{width: "50%"}}>
         <Pie
           data={this.state.chartData}
           options={{
