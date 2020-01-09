@@ -26,7 +26,9 @@ function Navigation(){
           // console.log(window.pageYOffset)
           // setOffset(window.pageYOffset)
           
-          if (window.pageYOffset > offset ){
+          if (window.pageYOffset < 100){
+               setBgColor('no-color')
+          } else if (window.pageYOffset > offset ){
                // console.log('hi')
                setDisplayNav('hide-nav')
                setBgColor('no-color')
@@ -47,7 +49,7 @@ function Navigation(){
           <div className={"navigation-container " + bgColor } onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
                {/* Logo goes here */}
                {/* <Link to="/">Home</Link> */}
-               <a className="header-logo" href="/">Home</a>
+               <a className="header-logo" href="/">Citrics</a>
                <nav className = {displayNav}>
                     <a href="google.com">Link A</a>
                     <Link to="/map">Map</Link>

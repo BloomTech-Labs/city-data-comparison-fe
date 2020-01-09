@@ -80,10 +80,10 @@ html,body{
      font-size: 0.9rem;
      z-index: 99999;
      margin:0 auto;
-    //  background-color: #e5941e;
      background-color: #fff;
-     transition: top 0.3s
-   }
+    //  background:none;
+     transition: top 0.3s;
+  }
 
   .hide-nav{
     display:none;
