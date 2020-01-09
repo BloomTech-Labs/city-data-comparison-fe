@@ -366,8 +366,8 @@ html,body{
     margin-left:15px;
   }
   .feature-images{
-    width:55px;
-    height:55px;
+    width:50px;
+    height:50px;
     margin-top:5px;
   }
   .feature-title{
@@ -468,7 +468,7 @@ html,body{
   // border-top:1px solid #efefef;
   margin-top:13%;
   background-color:#F1F9FD;
-  height:250px;
+  height:300px;
   display:flex;
   
   .footer{
@@ -513,9 +513,11 @@ html,body{
     display:flex;
     flex-direction:column;
   }
-  h3{
+  .footer-title{
+    text-align:left;
     color: #2e2f38;
     margin-bottom:5px;
+    font-size:1.4rem;
   }
   a{
     color:#8898aa;
