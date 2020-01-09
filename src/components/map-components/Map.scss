@@ -57,12 +57,25 @@ html {
           }
           .burger-menu,
         .burger-menu.open {
+        display:none; 
+        @media only screen and (max-width: 600px) {
           display: inline-block;
           cursor: pointer;
           z-index: 9999;
           background:#041734;
           padding: 10px;
         //   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        .burger-menu .bar1,
+        .bar2,
+        .bar3 {
+          width: 25px;
+          height: 3px;
+          background-color: white;
+          margin: 4px 0;
+          transition: 0.4s;
+        }
+        
+    }
         }
         .burger-menu .bar1,
         .bar2,
@@ -75,11 +88,15 @@ html {
         }
         
         .menu-items.closed{
+            @media only screen and (max-width: 600px) {
             display: none;
+            }
         }
 
         .menu-items.open{
+            @media only screen and (max-width: 600px) {
             display: inline-block;
+            }
         }
 
         li {
