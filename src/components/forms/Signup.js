@@ -48,6 +48,8 @@ const Signup = props => {
                         {/*photo*/}
 
                         <img className="girl" src={girl} alt="girl illustration" />
+
+                        
                     </div>
                 </div>
             </div>
