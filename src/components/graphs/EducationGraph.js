@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Bar} from 'react-chartjs-2';
 
 export default function EducationGraph (props) {
-  
+
   const colors = ["red" , "blue" , "green"]
   let index = 0;
 
