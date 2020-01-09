@@ -33,7 +33,8 @@ const Signup = props => {
                             <div> </div><p>or with email</p><div></div>
                         </div>
                         <div className="fields">
-                            
+                            <input type='text' name='email' placeholder="Email"/>
+                            <input type='text' name='password' placeholder="Password"/>
                         </div>
                     </div>
                     <div className="photo">
