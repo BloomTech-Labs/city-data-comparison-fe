@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import ReactMapGL from 'react-map-gl';
+// import React, { useState, useEffect } from 'react';
+// import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 
 const SelectedMapWrapper = styled.div`
         position:fixed;
-        z-index:10;
         transition: height 10s;
-        transition: width 2s;
-        left: ${props => props.posleft+10}px;
-        top: ${props => props.postop+10}px;
+        transition: width 10s;
+        left: ${props => props.left+10}px;
+        top: ${props => props.top+10}px;
         display: ${props => props.display};
-        width: ${props => props.animated ? "30vh" : "30vh"};
-        height: ${props => props.animated ? "50vh" : "50vh"};
+        width: ${props => props.animation ? "30vh" : "0vh"};
+        height: ${props => props.animation ? "50vh" : "0vh"};
     `;
     export  default SelectedMapWrapper
 // const PopupMap = (props) => {
