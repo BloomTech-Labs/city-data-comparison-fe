@@ -43,9 +43,15 @@ function Dashboard(){
 
      return(
           <div className="dashboard-container">
-
                {/* SEARCH FUNCTION */}
-               <div className="dashboard-search-container">
+               <div className="dashboard-search-container"
+                    data-aos="fade-up"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-mirror="true"
+                    data-aos-once="true"
+               >
                     <div className="slanted-san-francisco"></div>
                     {/* <div className="slanted-blue-one"></div> */}
                     <div className="search-function">
@@ -71,7 +77,16 @@ function Dashboard(){
 
 
                {/* PRODUCT FEATURES */}
-               <div className="dashboard-features-container">
+               <div className="dashboard-features-container"
+                    data-aos="fade-up"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-mirror="true"
+                    data-aos-once="true"
+                    data-aos-anchor-placement="top-center"
+               >
                     <div className="feature-descriptions">
                          <img className="feature-images money" src={money} alt="money" />
                          <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
@@ -107,7 +122,15 @@ function Dashboard(){
 
 
                {/* COMPARE CITIES FUNCTION */}
-               <div className="dashboard-compare-container">
+               <div className="dashboard-compare-container"
+                    data-aos="fade-up"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-mirror="true"
+                    data-aos-once="true"
+                    data-aos-anchor-placement="top-center"
+               >
                     <div className="dashboard-compare">
                          <h2>Compare Multiple Cities</h2>
                          <div className="compare-buttons">
