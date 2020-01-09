@@ -3,8 +3,10 @@ import {Bar} from 'react-chartjs-2';
 
 export default function EducationGraph (props) {
 
-  const colors = ["red" , "blue" , "green"]
-  let index = 0;
+  const dotRemover = num => {
+    return Number(String(num).replace(".",""));
+  }
+  
 
     return (
       <div className="charts" >
@@ -14,7 +16,7 @@ export default function EducationGraph (props) {
               data={{
                 labels: ["Less than 9th grade",  "Some High School", "High school",  "Some College", "Associate's Degree", "Bachelor's Degree", "Graduate Degree"],
                 datasets: props.edData.map( item => {
-                  index = (index + 1) % 3;
+                  
                   return {
                     label: item.name.replace(" city" , ""),
                     data: [
@@ -28,7 +30,7 @@ export default function EducationGraph (props) {
                       
                     ],
                     backgroundColor:
-                      `rgb(${(item.lat * 100) % 100 * 2.55}, 180, ${(item.lng * 100) % 100 * 2.55})`
+                      `rgb(${dotRemover(item.lat) % 100 * 2.55}, 180, ${(item.lng * 100) % 100 * 2.55})`
                       
 
                   }
