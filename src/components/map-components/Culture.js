@@ -3,17 +3,21 @@ import {Route} from "react-router-dom";
 import BarGraph from "../graphs/BarGraph";
 import LineGraph from "../graphs/LineGraph";
 import PieGraph from "../graphs/PieGraph";
+import EducationGraph from "../graphs/EducationGraph";
 
 const Culture = ({selected}) => {
+
+
+
     return (
         <div>
-            <h1>City Cultural Statistics:</h1>
+            <h1>City Cultural Statistics:</h1>     
 
-            {selected.map(item => <h3 key={item._id}>{item.name.replace(" city" , "")}</h3>)}
-
-            <Route path="/map/culture/crime" component={BarGraph}/>
-            <Route path="/map/culture/auto" component={LineGraph}/>
-            <Route path="/map/culture/airquality" component={PieGraph}/>
+            <Route path="/map/culture/demographics" component={BarGraph}/>
+            <Route path="/map/culture/lifestyle" component={LineGraph}/>
+            <Route path="/map/culture/education" render={ _ => <EducationGraph 
+                edData={selected} 
+            />} />
 
         </div>
     );
