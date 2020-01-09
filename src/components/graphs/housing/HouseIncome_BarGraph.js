@@ -9,6 +9,8 @@ export default class BarGraph extends Component{
     let amount = []
     let backgroundColors = []
     let householdIncome = data["Household Income"];
+    
+    
     Object.keys(householdIncome).forEach(function (label) {
       labels.push(label)
       let value = householdIncome[label];
