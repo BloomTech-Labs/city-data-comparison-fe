@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactMapGL, { Marker } from 'react-map-gl';
+import { Marker } from 'react-map-gl';
 
 import PopupMap from './PopupMap';
 
@@ -7,8 +7,6 @@ import pin from './icons/pin.png';
 import activepin from"./icons/activepin.png";
 
 const Markers = ({ cityMarkers, selected, toggleSelected }) => {
-
-  const [isHover, setIsHover] = useState( false );
 
   const [popState, setPopState] = useState({
     lat: 1,
@@ -18,8 +16,6 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
     display: 'none',
     city: 'none'
   })
-
-  
 
   return (
         <div>
