@@ -1,16 +1,19 @@
-// import React, { useState, useEffect } from 'react';
-// import ReactMapGL from 'react-map-gl';
+import React, { useState, useEffect } from 'react';
+import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 
-const SelectedMapWrapper = styled.div`
+export const SelectedMapWrapper = styled.div`
         position:fixed;
         top:100px;
         left:200px;
         width: 25vh;
         height: 45vh;
         display:none;
+        border: 2px solid darkgrey;
+        padding-bottom:20px;
+        background-color:lightgrey;
     `;
-    export  default SelectedMapWrapper
+
 const PopupMap = (props) => {
 
     const [selectedViewport, setSelectedViewport] = useState({
@@ -48,7 +51,6 @@ const PopupMap = (props) => {
         },[props])
 
     return(    
-        console.log(selectedViewport.latitude, selectedViewport.longitude, streetViewPos),
         <div className="popupmapparent">
             <SelectedMapWrapper className="popupmap" id="popupmap"  style={{left:`${streetViewPos.posleft+20}px`, top:`${streetViewPos.postop+20}px`, display:`${streetViewPos.display}`}}>
             <span>{streetViewPos.city}</span>
@@ -63,4 +65,4 @@ const PopupMap = (props) => {
         </div>
     )
 }
-// export default PopupMap;
+export default PopupMap;

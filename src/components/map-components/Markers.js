@@ -1,21 +1,12 @@
 import React, { useState } from 'react';
 import { Marker } from 'react-map-gl';
 
-import  SelectedMapWrapper  from './PopupMap';
+import  PopupMap  from './PopupMap';
 
 import pin from './icons/pin.png';
 import activepin from"./icons/activepin.png";
 
 const Markers = ({ cityMarkers, selected, toggleSelected }) => {
-
-  const [selectedViewport, setSelectedViewport] = useState({
-    width: '100%',
-    height: '100%',
-    latitude: 1,
-    longitude: 1,
-    zoom: 13,
-    trackResize: false
-  });
 
   const [popState, setPopState] = useState ({
     posleft: 1,
@@ -33,8 +24,8 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
                   <div
                     onClick={() => toggleSelected(cityMarker)} 
                     onMouseOver={(e) => (Number.isNaN(parseFloat(e.target.getAttribute("latitude"))) || setPopState({...popState, lat:parseFloat(e.target.getAttribute("latitude")), lng:parseFloat(e.target.getAttribute("longitude")),
-                    posleft:e.target.getBoundingClientRect().left, postop:e.target.getBoundingClientRect().top, display:'block', city:`${cityMarker.city}, ${cityMarker.state_id}`}), setIsHover(true), console.log(popState))}
-                    onMouseLeave={(e) => (setPopState({...popState, display:'none'}), setIsHover(false))}
+                    posleft:e.target.getBoundingClientRect().left, postop:e.target.getBoundingClientRect().top, display:'block', city:`${cityMarker.city}, ${cityMarker.state_id}`}), console.log(popState))}
+                    onMouseLeave={(e) => (setPopState({...popState, display:'none'}))}
                   >
                       {selected.find(item => item === cityMarker) 
                       ? <img src={activepin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />
