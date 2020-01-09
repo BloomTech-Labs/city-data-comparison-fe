@@ -35,7 +35,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 <div className="bar2" key="b2" />
                 <div className="bar3" key="b3" />
                 </div>
-                    
+                    <div>
                     <MapSearch
                         menu={menu.status}
                         setSearch={setSearch}
@@ -52,14 +52,16 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Route path="/map/jobs" component={JobsNav} />
                     <Route path="/map/culture" component={SafetyNav} />
                 </div>
+                </div>
                 <ul>
-                    {selected.map(item => <li key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name.replace(" city" , "")} 
-                        <span onClick={ _ => toggleSelected(item)}>
+                    {selected.map(item => <div className={`menu-items ${menu.status}`}><li key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name.replace(" city" , "")} 
+                        <span  onClick={ _ => toggleSelected(item)}>
                             <img className="delete-icon" src={deleteIcon} alt="delete icon" />
                         </span>
-                    </li>)}
+                    </li></div>)}
                 </ul>
                 </div>
+                
             </nav>
             <div className="data-by-category">
                 <nav className="data-subnav">

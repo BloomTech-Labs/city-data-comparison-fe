@@ -37,7 +37,7 @@ html {
     .data-nav {
         display:flex;
         flex-direction:column;
-        justify-content:center;
+        justify-content:space-between;
         color:white;
         background:#041734;
         padding:0;
@@ -63,6 +63,7 @@ html {
           cursor: pointer;
           z-index: 9999;
           background:#041734;
+          
           padding: 10px;
         //   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
         .burger-menu .bar1,
