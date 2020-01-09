@@ -17,23 +17,32 @@
     
 }
 
+.form{
+    width: 35%; 
+    padding: 3%; 
+}
+
 .auth{
     display:flex; 
     flex-direction: column;
 }
-.google, .fb{
+.google{
     width: 20%; 
 }
 
+.fb{
+    width: 15%; 
+}
 
-
-button{
-    width: 200px; 
-    border-radius: 20px; 
-    background: white; 
-    border: 1px solid #3999fc;
-    margin-top: 2%; 
-    
+.auth{
+    div{
+        width: 100%; 
+        border-radius: 20px; 
+        background: white; 
+        border: 1px solid #3999fc;
+        margin-top: 2%; 
+        
+    }
 }
 
 .facebook{
