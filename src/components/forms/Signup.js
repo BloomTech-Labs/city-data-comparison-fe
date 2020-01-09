@@ -16,8 +16,14 @@ const Signup = props => {
                         <h2>Create Your Account</h2>
 
                         <div className="auth">
-                            <div className="google"> <img className="google" src={google} alt="google logo"/>Sign up with Google</div>
-                            <div className="facebook"><img className="fb" src={facebook} alt="facebook logo"/>Sign up with Facebook</div>
+                            <div className="google">
+                                <img className="google" src={google} alt="google logo"/>
+                                <p>Sign up with Google</p>
+                            </div>
+                            <div className="facebook">
+                                <img className="fb" src={facebook} alt="facebook logo"/>
+                                <p>Sign up with Facebook</p>
+                            </div>
                         </div>
                         
                         <div className="center-text">
