@@ -44,14 +44,7 @@ function Dashboard(){
      return(
           <div className="dashboard-container">
                {/* SEARCH FUNCTION */}
-               <div className="dashboard-search-container"
-                    data-aos="fade-up"
-                    data-aos-delay="50"
-                    data-aos-duration="1000"
-                    data-aos-easing="ease-in-out"
-                    data-aos-mirror="true"
-                    data-aos-once="true"
-               >
+               <div className="dashboard-search-container">
                     <div className="slanted-san-francisco"></div>
                     {/* <div className="slanted-blue-one"></div> */}
                     <div className="search-function">
