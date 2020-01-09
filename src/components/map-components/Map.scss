@@ -84,9 +84,22 @@ html {
           height: 3px;
           background-color: white;
           margin: 4px 0;
-          transition: 0.4s;
+          transition: 0.5s;
         }
-        
+        // .search-bar.open{
+        //     @media only screen and (max-width: 600px) {
+        //         display: inline-block;
+        //         }
+        // }
+
+        .search-bar.closed{
+            @media only screen and (max-width: 600px) {
+                display: none;
+                }
+        }
+
+
+
         .menu-items.closed{
             @media only screen and (max-width: 600px) {
             display: none;

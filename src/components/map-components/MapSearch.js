@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
+const MapSearch = (props,{search, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
     const [suggestions, setSuggestions] = useState([]);
     const handleChange= e => {
         const searchText = e.target.value;
@@ -19,11 +19,11 @@ const MapSearch = ({search, onSearch, setSearch, cityMarkers, viewport, setViewp
             latitude: city.lat
           })
     }
-
+    console.log(props.menu);
     return(
         <form autoComplete="off" onSubmit={onSearch}>
             <input
-                        name="search"
+                        className={`search-bar ${props.menu}`}
                         placeholder="Search" 
                         onChange={handleChange} 
                         value={search}
