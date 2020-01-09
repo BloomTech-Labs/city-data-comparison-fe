@@ -4,6 +4,9 @@ import React from 'react';
 import google from '../../assets/logos/google.svg'; 
 import facebook from '../../assets/logos/facebook.svg';
 
+//illustrations
+import girl from '../../assets/illustrations/girl_signup.svg'
+
 //styling
 import './forms.scss'; 
 
