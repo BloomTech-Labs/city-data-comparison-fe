@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Pie} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 import {markerDummyData} from "../../map-components/data";
 export default class BarGraph extends Component{
+  
+  
   componentDidMount(){
     // console.log(markerDummyData)
     let data = markerDummyData[0]
@@ -62,7 +64,7 @@ export default class BarGraph extends Component{
   render(){
     return (
       <div className="chart">
-        <Pie
+        <Bar
           data={this.state.chartData}
           options={{
             maintainAspectRatio:true,
