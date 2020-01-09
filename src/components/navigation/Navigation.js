@@ -51,8 +51,8 @@ function Navigation(){
                <nav className = {displayNav}>
                     <a href="google.com">Link A</a>
                     <Link to="/map">Map</Link>
-                    <Link to="/map">Log In</Link>
-                    <Link to="/map">Sign Up</Link>
+                    <Link to="/login">Log In</Link>
+                    <Link to="/signup">Sign Up</Link>
                     {/* <a id="noUnderline" href='https://www.lambdaschool.com/'><button className="sign-up-btn">Log In</button></a>
                     <a id="noUnderline" href='https://www.lambdaschool.com/'><button className="sign-up-btn">Try it Free</button></a> */}
                </nav> 

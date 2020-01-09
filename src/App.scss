@@ -80,7 +80,8 @@ html,body{
      font-size: 0.9rem;
      z-index: 99999;
      margin:0 auto;
-     background-color: #e5941e;
+    //  background-color: #e5941e;
+     background-color: #fff;
      transition: top 0.3s
    }
 
@@ -92,7 +93,7 @@ html,body{
   }
 
    .navigation-container:hover{
-     background-color: #e5941e;
+     background-color: #fff;
   }
 
    .header-logo {
@@ -468,7 +469,7 @@ html,body{
 
 // * Footer Styling
 .footer-container{
-  // border-top:1px solid #efefef;
+  border-top:1px solid #efefef;
   margin-top:13%;
   background-color:#F1F9FD;
   height:300px;
