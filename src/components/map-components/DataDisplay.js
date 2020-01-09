@@ -30,13 +30,13 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     return (
         <div className="data-browser">
             <nav className="data-nav">
+                <div className='top-menu'>
                 <div className= {`burger-menu ${menu.status}`} onClick={toggleMenu}>
                 <div className="bar1" key="b1" />
                 <div className="bar2" key="b2" />
                 <div className="bar3" key="b3" />
                 </div>
-                    <div>
-                    <MapSearch
+                <MapSearch
                         menu={menu.status}
                         setSearch={setSearch}
                         onSearch={onSearch} 
@@ -45,6 +45,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         viewport={viewport}
                         setViewport={setViewport}   
                     />
+                    </div>
+                    <div className='slider'>
+                    
                     
                 <div className={`menu-items ${menu.status}`}>
                 <div className="data-nav-top">
