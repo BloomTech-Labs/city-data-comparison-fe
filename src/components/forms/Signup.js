@@ -35,6 +35,8 @@ const Signup = props => {
                         <div className="fields">
                             <input type='text' name='email' placeholder="Email"/>
                             <input type='text' name='password' placeholder="Password"/>
+                            <div className="signup-button">Start exploring cities</div>
+                            <p class='question'>Have an account? Sign in to explore cities</p>
                         </div>
                     </div>
                     <div className="photo">
