@@ -4,12 +4,6 @@ import {Bar} from 'react-chartjs-2';
 export default function EducationGraph (props) {
   const [chartWidth, setChartWidth] = useState("100%")
 
-
-
-    
-
-
-
   useEffect( () => {
 
     
@@ -19,15 +13,15 @@ export default function EducationGraph (props) {
 
     return (
       <div className="charts" >
-        {props.edData.map( item => 
-          <div key={item._id} className="chart-container" style={{position: "relative", width: `${chartWidth}`}}>
+        
+          <div className="chart-container" style={{position: "relative", width: `100%`}}>
             <Bar
               data={{
                 labels: ["9th to 12th grade no diploma", "Associate's degree", "Bachelor's degree", "Graduate degree", "High school", "Less than 9th grade", "Some college no degree"],
-                datasets:[
-                  {
-                    label:'Population',
-                    data:[
+                datasets: props.edData.map( item => {
+                  return {
+                    label: item.name.replace(" city" , ""),
+                    data: [
                       item["Educational Attainment"]["9th to 12th grade no diploma"],
                       item["Educational Attainment"]["Associate's degree"],
                       item["Educational Attainment"]["Bachelor's degree"],
@@ -36,22 +30,17 @@ export default function EducationGraph (props) {
                       item["Educational Attainment"]["Less than 9th grade"],
                       item["Educational Attainment"]["Some college no degree"]
                     ],
-                    backgroundColor:[
-                      'rgba(255, 99, 132, 0.6)',
-                      'rgba(54, 162, 235, 0.6)',
-                      'rgba(255, 206, 86, 0.6)',
-                      'rgba(75, 192, 192, 0.6)',
-                      'rgba(153, 102, 255, 0.6)',
-                      'rgba(255, 159, 64, 0.6)',
-                      'rgba(255, 159, 182, 0.6)'
-                    ]
+                    backgroundColor:
+                      `rgba(${Math.random() * 255}, 99, 132, 0.6)`
+
                   }
-                ]
+                })
+
               }}
               options={{
                 title:{
                   display:true,
-                  text:'Educational Breakdown For '+ item.name.replace(" city", ""),
+                  text:'Educational Attainment',
                   fontSize:25
                 },
                 legend:{
@@ -61,7 +50,7 @@ export default function EducationGraph (props) {
               }}
             /> 
           </div>
-        )}
+        
         </div>
     )
   }
