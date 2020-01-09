@@ -2,12 +2,13 @@
 
 h2{
     font-size: 1.3rem;
+    text-align: center;
 }
 
 
 .signup{
     width: 100%; 
-    
+    font-family: Rubik;
     margin-top: 10%; 
     background: linear-gradient(90deg, #dfe3fe 42%, #5d73fa 42%);
 
@@ -95,9 +96,33 @@ h2{
     padding: 4% 0; 
     text-align: center;
     font-weight: 700;
+    margin-top: 3%; 
 }
 
 .question{
     font-size: .7rem;
     color: #7c7d80; 
+    text-align: center;
+}
+
+input{
+    border: 1px solid #3999fc; 
+    border-radius: 20px; 
+    width: 100%;
+    padding: 4% 2%; 
+    margin-top: 3%; 
+}
+
+.tos{
+    display:flex; 
+    font-size: .7rem;
+    color: #7c7d80; 
+    align-items: center;
+
+    .checkbox{
+        width: 10%;
+    }
+    p{
+
+    }
 }

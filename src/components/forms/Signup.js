@@ -33,14 +33,21 @@ const Signup = props => {
                             <div> </div><p>or with email</p><div></div>
                         </div>
                         <div className="fields">
-                            <input type='text' name='email' placeholder="Email"/>
-                            <input type='text' name='password' placeholder="Password"/>
+                            <input className="email" type='text' name='email' placeholder="Email"/>
+                            <input className="password" type='text' name='password' placeholder="Password"/>
+                            
+                            <div className="tos">
+                                <input className="checkbox" type="checkbox" name="tos"></input>
+                                <p>Accept terms of service</p>
+                            </div>
                             <div className="signup-button">Start exploring cities</div>
                             <p class='question'>Have an account? Sign in to explore cities</p>
                         </div>
                     </div>
                     <div className="photo">
                         {/*photo*/}
+
+                        <img className="girl" src={girl} alt="girl illustration" />
                     </div>
                 </div>
             </div>
