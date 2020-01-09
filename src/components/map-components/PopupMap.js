@@ -11,7 +11,7 @@ const SelectedMapWrapper = styled.div`
         display:none;
     `;
     export  default SelectedMapWrapper
-// const PopupMap = (props) => {
+const PopupMap = (props) => {
 
     const [selectedViewport, setSelectedViewport] = useState({
         width: '100%',
@@ -61,6 +61,6 @@ const SelectedMapWrapper = styled.div`
                 />
             </SelectedMapWrapper>
         </div>
-)
-
+    )
+}
 // export default PopupMap;
