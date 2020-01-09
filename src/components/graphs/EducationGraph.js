@@ -28,7 +28,8 @@ export default function EducationGraph (props) {
                       
                     ],
                     backgroundColor:
-                      colors[index]
+                      `rgb(${(item.lat * 100) % 100 * 2.55}, 180, ${(item.lng * 100) % 100 * 2.55})`
+                      
 
                   }
                 })
