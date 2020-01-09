@@ -6,10 +6,10 @@ const PopupMap = (props) => {
 
     const SelectedMapWrapper = styled.div`
         position:fixed;
-        transition: height 10s;
-        transition: width 2s;
-        width: ${props => props.animation ? "30vh" : "15vh"};
-        height: ${props => props.animation ? "50vh" : "20vh"};
+        top:100px;
+        left:200px;
+        width: 25vh;
+        height: 45vh;
     `;
 
     const [selectedViewport, setSelectedViewport] = useState({
