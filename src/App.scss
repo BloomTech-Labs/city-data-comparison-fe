@@ -351,11 +351,12 @@ html,body{
 .dashboard-features-container{
   padding:7% 0;
   margin:0 auto;
-  max-width:900px;
+  max-width:950px;
   width:100%;
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
+  
   .feature-descriptions-container{
     width:29%;
     display:flex;
@@ -363,12 +364,13 @@ html,body{
   }
   .feature-descriptions{
     line-height:1.5;
-    margin-left:15px;
+    margin-left:10px;
   }
   .feature-images{
-    width:50px;
-    height:50px;
+    width:55px;
+    height:55px;
     margin-top:5px;
+    width:100%;
   }
   .feature-title{
     font-weight:bold;
@@ -383,7 +385,7 @@ html,body{
 //* Dashboard Data Metrics Styling
 .dashboard-metrics-container{
   background:url('./components/dashboard/assets/seconddiv.svg');
-  height:640px;
+  height:700px;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   display:flex;
   flex-direction:column;
@@ -406,6 +408,7 @@ html,body{
   .metrics-title{
     width:100%;
     margin:50px auto;
+    margin-top:90px;
     max-width:1000px;
   }
   .metrics-description{
