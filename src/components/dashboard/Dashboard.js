@@ -127,6 +127,7 @@ function Dashboard(){
                     >
                          <h3>Control of data</h3>
                          <img className="feature-images money" src={control} alt="money" />
+                         <p className="feature-title">Control of data</p>
                          <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
                     </div>
                     <div className="feature-descriptions"
@@ -140,6 +141,7 @@ function Dashboard(){
                     >
                          <img className="feature-images map" src={data} alt="map"/>
                          <h3>Map View</h3>
+                         <p className="feature-title">Map View</p>
                          <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
                     </div>
                     <div className="feature-descriptions"
@@ -153,15 +155,17 @@ function Dashboard(){
                     >
                          <img className="feature-images dataVisual" src={location} alt="data visual"/>
                          <h3>Visualize Data</h3>
+                         <p className="feature-title">Visualize Data</p>
                          <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
+
                     </div>
                </div>
 
                {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
-                    <h2>Visualizing data made easier</h2>
+                    <h2 className="metrics-title">Visualizing data made easier</h2>
                     <div className="dashboard-metrics">
-                         <div
+                         <div className="metrics-description-container"
                               data-aos="fade-up"
                               data-aos-delay="150"
                               data-aos-duration="1000"
@@ -170,9 +174,9 @@ function Dashboard(){
                               data-aos-once="true"
                          >
                               <img src={graph} alt="living cost graph" />
-                              <p>Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
+                              <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
-                         <div
+                         <div className="metrics-description-container"
                               data-aos="fade-up"
                               data-aos-delay="350"
                               data-aos-duration="1000"
@@ -181,9 +185,9 @@ function Dashboard(){
                               data-aos-once="true"
                          >
                               <img src={graph} alt="living cost graph" />
-                              <p>Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
+                              <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
-                         <div
+                         <div className="metrics-description-container"
                               data-aos="fade-up"
                               data-aos-delay="550"
                               data-aos-duration="1000"
@@ -191,8 +195,9 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
+
                               <img src={graph} alt="living cost graph" />
-                              <p>Economic data includes health insurances, household income, major industries and etc.</p>
+                              <p className="metrics-description">Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
                     </div>
                </div>
