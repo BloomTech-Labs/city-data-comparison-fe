@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import ReactMapGL from 'react-map-gl';
+// import React, { useState, useEffect } from 'react';
+// import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 
-const PopupMap = (props) => {
-
-    const SelectedMapWrapper = styled.div`
+const SelectedMapWrapper = styled.div`
         position:fixed;
         top:100px;
         left:200px;
@@ -12,6 +10,8 @@ const PopupMap = (props) => {
         height: 45vh;
         display:none;
     `;
+    export  default SelectedMapWrapper
+// const PopupMap = (props) => {
 
     const [selectedViewport, setSelectedViewport] = useState({
         width: '100%',
@@ -62,6 +62,5 @@ const PopupMap = (props) => {
             </SelectedMapWrapper>
         </div>
 )
-}
 
-export default PopupMap;
+// export default PopupMap;

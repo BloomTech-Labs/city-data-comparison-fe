@@ -5,9 +5,9 @@ import Housing from "./Housing";
 import Jobs from "./Jobs";
 import Culture from "./Culture";
 import MapSearch from "./MapSearch";
-import CostNav from "./subnavs/CostNav";
+import CostNav from "./subnavs/HousingNav";
 import JobsNav from "./subnavs/JobsNav";
-import SafetyNav from "./subnavs/SafetyNav";
+import SafetyNav from "./subnavs/CultureNav";
 
 import deleteIcon from "./icons/close_red.png";
 

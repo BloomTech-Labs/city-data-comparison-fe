@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
 import { Marker } from 'react-map-gl';
 
-import PopupMap from './PopupMap';
+import  SelectedMapWrapper  from './PopupMap';
 
 import pin from './icons/pin.png';
 import activepin from"./icons/activepin.png";
 
 const Markers = ({ cityMarkers, selected, toggleSelected }) => {
 
-  const [popState, setPopState] = useState({
-    lat: 1,
-    lng: 1,
-    posleft:0,
-    postop:0,
+  const [selectedViewport, setSelectedViewport] = useState({
+    width: '100%',
+    height: '100%',
+    latitude: 1,
+    longitude: 1,
+    zoom: 13,
+    trackResize: false
+  });
+
+  const [popState, setPopState] = useState ({
+    posleft: 1,
+    postop: 1,
     display: 'none',
     city: 'none'
   })
