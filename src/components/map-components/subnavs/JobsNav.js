@@ -5,9 +5,9 @@ const CostNav = _ => {
 
     return (
         <>
-            <NavLink activeClassName="selected" to="/map/jobs/employment">Employment</NavLink>
-            <NavLink activeClassName="selected" to="/map/jobs/salary">Average Salary</NavLink>
-            <NavLink activeClassName="selected" to="/map/jobs/sectors">Active Sectors</NavLink>
+            <NavLink activeClassName="selected" to="/map/jobs/jobs">Jobs</NavLink>
+            <NavLink activeClassName="selected" to="/map/jobs/standards">Salary/Benefit Standards</NavLink>
+            <NavLink activeClassName="selected" to="/map/jobs/commute">Commute</NavLink>
         </>
     )
 }
