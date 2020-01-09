@@ -21,7 +21,7 @@ const Signup = props => {
                         </div>
                         
                         <div className="center-text">
-                            <p>or with email</p>
+                            <div> </div><p>or with email</p><div></div>
                         </div>
                         <div className="fields">
                             
