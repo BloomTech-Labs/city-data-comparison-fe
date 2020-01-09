@@ -28,6 +28,9 @@ html {
 
 /* The data-broswer is the component below the map */
 
+
+
+
 .data-browser {
     background: #E5E5E5;
     display:flex;
@@ -41,14 +44,43 @@ html {
         width:25%;
         min-height:40vh;
         
-        .closed{
-            border:1px solid red;
-            width: 100%;
+        .burger-menu.open .bar1 {
+            -webkit-transform: rotate(-45deg) translate(-4px, 4px);
+            transform: rotate(-45deg) translate(-4px, 4px);
+          }
+          .burger-menu.open .bar2 {
+            opacity: 0;
+          }
+          .burger-menu.open .bar3 {
+            -webkit-transform: rotate(45deg) translate(-6px, -6px);
+            transform: rotate(45deg) translate(-6px, -6px);
+          }
+          .burger-menu,
+        .burger-menu.open {
+          display: inline-block;
+          cursor: pointer;
+          z-index: 9999;
+          background:#041734;
+          padding: 10px;
+        //   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
         }
-        .open{
-            border: 1px solid pink;
+        .burger-menu .bar1,
+        .bar2,
+        .bar3 {
+          width: 25px;
+          height: 3px;
+          background-color: white;
+          margin: 4px 0;
+          transition: 0.4s;
         }
         
+        .menu-items.closed{
+            display: none;
+        }
+
+        .menu-items.open{
+            display: inline-block;
+        }
 
         li {
             list-style-type: none;

@@ -1,6 +1,6 @@
 import  React, {useState} from "react";
 import {NavLink, Route}  from "react-router-dom";
-
+import Burger from '@animated-burgers/burger-squeeze' 
 import Housing from "./Housing";
 import Jobs from "./Jobs";
 import Culture from "./Culture";
@@ -30,9 +30,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     return (
         <div className="data-browser">
             <nav className="data-nav">
-                <button className='menu-toggle' onClick={toggleMenu}>X</button>
-                <div className={menu.status}>
-                <div className="data-nav-top">
+                
                     
                     <MapSearch 
                         setSearch={setSearch}
@@ -42,7 +40,13 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         viewport={viewport}
                         setViewport={setViewport}   
                     />
-                    
+                    <div className= {`burger-menu ${menu.status}`} onClick={toggleMenu}>
+                <div className="bar1" key="b1" />
+                <div className="bar2" key="b2" />
+                <div className="bar3" key="b3" />
+                </div>
+                <div className={`menu-items ${menu.status}`}>
+                <div className="data-nav-top">
                     <Route path="/map/housing" component={CostNav} />
                     <Route path="/map/jobs" component={JobsNav} />
                     <Route path="/map/culture" component={SafetyNav} />
