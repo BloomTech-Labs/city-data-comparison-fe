@@ -57,11 +57,13 @@ export default function Map() {
     const onSearch = e => {
       e.preventDefault();
       const found = cityMarkers.find(item => item.city === search)
+      toggleSelected(found);
       setViewport({
         ...viewport,
         longitude: found.lng,
         latitude: found.lat
       })
+      
     }
 
     const onViewportChange = viewport => {
