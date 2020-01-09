@@ -46,7 +46,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         setViewport={setViewport}   
                     />
                     </div>
-                    <div className='slider'>
+                    <div className={`slider ${menu.status}`}>
                     
                     
                 <div className={`menu-items ${menu.status}`}>

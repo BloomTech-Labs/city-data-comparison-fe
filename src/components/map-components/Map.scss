@@ -44,11 +44,21 @@ html {
         height: 20%;
         align-items: flex-start;
 
-        .slider{
+        .slider.closed{
             display:flex;
             flex-direction: column;
             background:#041734;
             width: 100%;
+            -webkit-transform: translateX(-200px) translate(-6px, -6px);
+                transform: translateX(-200px) translate(-6px, -6px);
+            transition: 0.3s;
+        }
+        .slider.open{
+            display:flex;
+            flex-direction: column;
+            background:#041734;
+            width: 100%;
+            transition: 0.3s;
         }
 
         .top-menu{
@@ -93,21 +103,28 @@ html {
 
         .search-bar.closed{
             @media only screen and (max-width: 600px) {
-                display: none;
+                -webkit-transform: translateX(-200px) translate(-6px, -6px);
+                transform: translateX(-200px) translate(-6px, -6px);
                 }
+                transition: 0.3s;
+        }
+
+        .search-bar.open{
+            transition: 0.3s;
         }
 
 
 
         .menu-items.closed{
             @media only screen and (max-width: 600px) {
-            display: none;
+                -webkit-transform: translateX(-200px) translate(-6px, -6px);
+                transform: translateX(-200px) translate(-6px, -6px);  
+                transition: 0.3s;
             }
         }
 
         .menu-items.open{
             @media only screen and (max-width: 600px) {
-            display: inline-block;
             }
         }
 
