@@ -351,37 +351,27 @@ html,body{
 .dashboard-features-container{
   padding:7% 0;
   margin:0 auto;
-  max-width:800px;
+  max-width:900px;
   width:100%;
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
-  .feature-descriptions{
+  .feature-descriptions-container{
     width:28%;
     text-align:center;
     display:flex;
     align-items:center;
-    flex-wrap:wrap;
     justify-content:center;
+    border:1px solid blue;
   }
-  .money{
-    width:127px;
-    height:132px;
+  .feature-descriptions{
+    border:1px solid red;
   }
-  .map{
-    width:155px;
-    height:132px;
+  .feature-images{
+    border:1px solid green;
+    width:75px;
   }
-  .dataVisual{
-    width:180px;
-    height:130px;
-  }
-  img{
-    margin-bottom:25px;
-  }
-  p{
-    width:190px;
-  }
+
 }
 
 //* Dashboard Data Metrics Styling

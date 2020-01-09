@@ -105,20 +105,26 @@ function Dashboard(){
 
                {/* PRODUCT FEATURES */}
                <div className="dashboard-features-container">
-                    <div className="feature-descriptions">
-                         <h3>Control of data</h3>
-                         <img className="feature-images money" src={control} alt="money" />
+                    <div className="feature-descriptions-container">
+                         <img className="feature-images" src={control} alt="money" />
+                         <div className="feature-descriptions">
+                         <p>Control of data</p>
                          <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
+                         </div>
                     </div>
-                    <div className="feature-descriptions">
-                         <img className="feature-images map" src={data} alt="map"/>
-                         <h3>Map View</h3>
+                    <div className="feature-descriptions-container">
+                         <img className="feature-images" src={data} alt="map"/>
+                         <div className="feature-descriptions">
+                         <p>Map View</p>
                          <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
+                         </div>
                     </div>
-                    <div className="feature-descriptions">
-                         <img className="feature-images dataVisual" src={location} alt="data visual"/>
-                         <h3>Visualize Data</h3>
+                    <div className="feature-descriptions-container">
+                         <img className="feature-images" src={location} alt="data visual"/>
+                         <div className="feature-descriptions">
+                         <p>Visualize Data</p>
                          <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
+                         </div>
                     </div>
                </div>
 
