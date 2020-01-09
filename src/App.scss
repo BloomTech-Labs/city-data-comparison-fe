@@ -357,21 +357,27 @@ html,body{
   flex-wrap:wrap;
   justify-content:space-between;
   .feature-descriptions-container{
-    width:28%;
-    text-align:center;
+    width:29%;
     display:flex;
-    align-items:center;
-    justify-content:center;
-    border:1px solid blue;
+    align-items:start;
   }
   .feature-descriptions{
-    border:1px solid red;
+    line-height:1.5;
+    margin-left:15px;
   }
   .feature-images{
-    border:1px solid green;
-    width:75px;
+    width:55px;
+    height:55px;
+    margin-top:5px;
   }
-
+  .feature-title{
+    font-weight:bold;
+    font-size:1.15rem;
+    margin-bottom:8px;
+  }
+  p{
+    margin:0;
+  }
 }
 
 //* Dashboard Data Metrics Styling

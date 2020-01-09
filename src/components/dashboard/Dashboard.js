@@ -108,22 +108,22 @@ function Dashboard(){
                     <div className="feature-descriptions-container">
                          <img className="feature-images" src={control} alt="money" />
                          <div className="feature-descriptions">
-                         <p>Control of data</p>
-                         <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
+                              <p className="feature-title">Control of data</p>
+                              <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
                          </div>
                     </div>
                     <div className="feature-descriptions-container">
                          <img className="feature-images" src={data} alt="map"/>
                          <div className="feature-descriptions">
-                         <p>Map View</p>
-                         <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
+                              <p className="feature-title">Map View</p>
+                              <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
                          </div>
                     </div>
                     <div className="feature-descriptions-container">
                          <img className="feature-images" src={location} alt="data visual"/>
                          <div className="feature-descriptions">
-                         <p>Visualize Data</p>
-                         <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
+                              <p className="feature-title">Visualize Data</p>
+                              <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
                          </div>
                     </div>
                </div>
