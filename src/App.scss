@@ -116,23 +116,18 @@ html,body{
      align-items: center;
      padding-left: 4%;
    }
-
-  
-
-   nav a{
+  nav a{
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration:none;
     color:#2e2f38;
     transition: .3s cubic-bezier(0.2,0.8,0.2,1);
-
-    }
-    
-    nav a:hover{
-        color:#2e2f38;
-        text-decoration: underline;
-    }
+  }
+  nav a:hover{
+    color:#2e2f38;
+    text-decoration: underline;
+  }
   
 
 @media screen and (max-width: 500px) {
@@ -149,34 +144,10 @@ html,body{
          display: none;
     }
 }
-
-
-
 #noUnderline {
      text-decoration:none;
 }
-// .sign-up-btn{
-//      opacity:1;
-//      font-weight: bold;
-//      display:flex;
-//      align-items:center;
-//      justify-content:center;
-//      color: #5563fa;
-//      border:1.3px solid #5563fa;
-//      background: #fcfcfb;
-//      font-weight: bold;
-//      font-size: 1.1rem;
-//      border-radius: 5px;
-//      padding:10px 20px;
-//      transition: .4s cubic-bezier(0.2,0.8,0.2,1);
-// }
-// .sign-up-btn:hover{
-//      opacity:1;
-//      background-color:#5563fa;
-//      color:white;
-//      text-decoration: none;
-//      transform: translateY(-3px);
-// }
+
 
 
 /* Dropdown menu */
@@ -204,6 +175,7 @@ html,body{
           display:none;
      }
 }
+
 @media screen and (max-width:500px){
     .navigation-container nav {
          display:none;
@@ -233,7 +205,7 @@ html,body{
       position: absolute;
       right: 0;
       background-color: #f9f9f9;
-      min-width: 160px;
+      min-width: 100px;
       z-index: 1;
     }
 
@@ -424,6 +396,37 @@ html,body{
     line-height:1.5;
   }
 }
+@media screen and (max-width:500px){
+  .dashboard-features-container{
+    // border:1px solid blue;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    flex-direction:column;
+
+    .feature-descriptions-container{
+      padding-right:5%;
+      margin: 5% auto;
+      width:100%;
+    }
+
+    .feature-images{
+      width:50%;
+    }
+  }
+  .dashboard-features-container .feature-descriptions-container{
+    // border:1px solid red;
+    align-items:center;
+    width:100%;
+    height:auto;
+  }
+  .feature-descriptions{
+    // border:1px solid yellow;
+    margin-left:0 !important;
+  }
+  .feature-images{
+    // border:1px solid black;
+  }
+}
 
 //* Dashboard Compare Function Styling
 .dashboard-compare-container{
@@ -456,7 +459,7 @@ html,body{
     background-color:#e5941e;
     border:none;
     color:white;
-    margin-left:15px;
+    // margin-left:15px;
     font-size:1.1rem;
     cursor:pointer;
     
@@ -541,13 +544,20 @@ html,body{
   }
 }
 @media screen and (max-width:6000px){
-  
+
+  .copyright-mobile{
+    display:none;
+  }
 }
 @media screen and (max-width:1440px){
-  
+  .copyright-mobile{
+    display:none;
+  }
 }
 @media screen and (max-width:800px){
-  
+  .copyright-mobile{
+    display:none;
+  }
 }
 @media screen and (max-width:500px){
   .footer-container{
@@ -581,6 +591,7 @@ html,body{
     width:100% !important;
   }
   .copyright-mobile{
+    display:flex;
     width:100%;
     padding:5% 0;
     color:#8898aa;
