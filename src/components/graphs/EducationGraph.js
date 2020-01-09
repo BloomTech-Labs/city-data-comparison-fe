@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Pie} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
 export default function EducationGraph (props) {
   const [chartWidth, setChartWidth] = useState("100%")
@@ -16,7 +16,7 @@ export default function EducationGraph (props) {
       <div className="charts" >
         {props.edData.map( item => 
           <div key={item._id} className="chart-container" style={{position: "relative", width: `${chartWidth}`}}>
-            <Pie
+            <Bar
               data={{
                 labels: ["9th to 12th grade no diploma", "Associate's degree", "Bachelor's degree", "Graduate degree", "High school", "Less than 9th grade", "Some college no degree"],
                 datasets:[
