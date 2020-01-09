@@ -6,11 +6,6 @@ export default function EducationGraph (props) {
 
   useEffect( () => {
     console.log("data processing goes here")
-  }, [])
-
-
-  useEffect( () => {
-    console.log(props.edData.length)
     setChartWidth((props.edData.length <= 1) ? "100%" : "50%");
   }, [props.edData])
 
