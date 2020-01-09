@@ -1,34 +1,46 @@
 import React, {useState} from 'react'
-// import data from './assets/data.svg'
-// import forsale from './assets/forsale.svg'
-// import insync from './assets/insync.svg'
+import PlacesAutocomplete from 'react-places-autocomplete';
 import dataVisual from './assets/dataVisual.svg'
 import map from './assets/map.svg'
 import money from './assets/money.svg'
 import graph from './assets/graph.svg'
 
+import location from './assets/location.svg'
+import data from './assets/data_visual.svg'
+import control from './assets/control_data.svg'
+
 
 function Dashboard(){
 
-     // * SEARCH STATE / HANDLECHANGE
+     // * SEARCH 1 STATE / HANDLECHANGE
      const [search, setSearch] = useState("")
-     const searchChange = (event) => {
-          event.preventDefault();
-          setSearch(event.target.value)
-     }
-     
-     //* COMPARE STATE / HANDLECHANGE */
+     const handleSelect = async value => {
+          setSearch(value)
+     };
+
+
+     //* COMPARE 2 STATE / HANDLECHANGE */
+     const [cityOne, setCityOne] = useState("")
+     const [cityTwo, setCityTwo] = useState("")
      const [compare, setCompare] = useState({
           cityOne:"",
           cityTwo:""
      })
-     const compareChange = (event) => {
-          event.preventDefault();
+     const handleCityOne = async (value) => {
+          setCityOne(value)
           setCompare({
                ...compare,
-               [event.target.name]:event.target.value
+               cityOne:value
           })
      }
+     const handleCityTwo = async (value) => {
+          setCityTwo(value)
+          setCompare({
+               ...compare,
+               cityTwo:value
+          })
+     }
+
 
      //* SUBMIT SEARCH */
      const submitCity = (event) => {
@@ -39,6 +51,8 @@ function Dashboard(){
           event.preventDefault();
           console.log(compare)
      }
+
+
 
 
      return(
@@ -53,14 +67,35 @@ function Dashboard(){
                          <p className="cities-description">Choose the information you want to see about city(ies).</p>
                          
                          <form onSubmit={submitCity}>
-                              <input 
+                              <PlacesAutocomplete value={search} onChange={setSearch} onSelect={handleSelect}>
+                                   {
+                                   ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
+                                   <div>
+                                        <input {...getInputProps({placeholder: "San Francisco, CA"})}/>
+                                        <button className="search-city-button">Go</button>
+                                        <div>
+                                             {loading ? <div>...loading</div> : null}
+
+                                             {suggestions.map( (suggestion) => {
+                                                  const style = {
+                                                       backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                       cursor: "pointer"
+                                                  }
+
+                                                  return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
+                                             })}
+                                        </div>
+                                   </div>)
+                                   }
+                              </PlacesAutocomplete>
+                              {/* <input 
                                    type="text"
                                    name="city"
                                    value={search}
                                    onChange={searchChange}
                                    placeholder="San Francisco, CA"
                               />
-                              <button className="search-city-button">Go</button>
+                              <button className="search-city-button">Go</button> */}
                          </form>
                          <p className="cities-description-two">Want to learn about more cities? Click the button below to compare multiple cities.</p>
                          <button className="compare-cities-button">Compare cities</button>
@@ -68,38 +103,40 @@ function Dashboard(){
                </div>
 
 
-
-
                {/* PRODUCT FEATURES */}
                <div className="dashboard-features-container">
                     <div className="feature-descriptions">
-                         <img className="feature-images money" src={money} alt="money" />
+                         <h3>Control of data</h3>
+                         <img className="feature-images money" src={control} alt="money" />
                          <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
                     </div>
                     <div className="feature-descriptions">
-                         <img className="feature-images map" src={map} alt="map"/>
+                         <img className="feature-images map" src={data} alt="map"/>
+                         <h3>Map View</h3>
                          <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
                     </div>
                     <div className="feature-descriptions">
-                         <img className="feature-images dataVisual" src={dataVisual} alt="data visual"/>
+                         <img className="feature-images dataVisual" src={location} alt="data visual"/>
+                         <h3>Visualize Data</h3>
                          <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
                     </div>
                </div>
 
                {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
+                    <h2>Visualizing data made easier</h2>
                     <div className="dashboard-metrics">
                          <div>
                               <img src={graph} alt="living cost graph" />
-                              <p>Data for living costs</p>
+                              <p>Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div>
                               <img src={graph} alt="living cost graph" />
-                              <p>Data for job prospects</p>
+                              <p>Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
                          <div>
                               <img src={graph} alt="living cost graph" />
-                              <p>Data for safety/crime</p>
+                              <p>Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
                     </div>
                </div>
@@ -109,34 +146,87 @@ function Dashboard(){
                {/* COMPARE CITIES FUNCTION */}
                <div className="dashboard-compare-container">
                     <div className="dashboard-compare">
-                         <h2>Compare Multiple Cities</h2>
+                         <h2>Don’t settle for less</h2>
+                         <p>Moving to a new city, job hunting or choosing vacation spots? Compare cities to find out differences in cost of living, jobs, and safety.</p>
                          <div className="compare-buttons">
                               <form onSubmit={submitCities}>
-                                   <input 
-                                        type="text"
-                                        name="cityOne"
-                                        value={compare.cityOne}
-                                        onChange={compareChange}
-                                        placeholder="San Francisco, CA"
-                                   />
+                                   <PlacesAutocomplete name="cityOne" value={cityOne} onChange={setCityOne} onSelect={handleCityOne}>
+                                        {
+                                             ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
+                                             <div>
+                                                  <input {...getInputProps({placeholder: "Type address"})} />
+                                                  <div>
+                                                       {loading ? <div>...loading</div> : null}
+
+                                                       {suggestions.map( (suggestion) => {
+                                                            const style = {
+                                                                 backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                                 cursor: "pointer"
+                                                            }
+
+                                                            return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
+                                                       })}
+                                                  </div>
+                                             </div>)
+                                        }
+                                   </PlacesAutocomplete>
+
                                    <span className="versus">vs.</span>
-                                   <input 
-                                        type="text"
-                                        name="cityTwo"
-                                        value={compare.cityTwo}
-                                        onChange={compareChange}
-                                        placeholder="Los Angeles, CA"
-                                   />
+
+                                   <PlacesAutocomplete name="cityTwo" value={cityTwo} onChange={setCityTwo} onSelect={handleCityTwo}>
+                                        {
+                                             ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
+                                             <div>
+                                                  <input {...getInputProps({placeholder: "Type address"})}/>
+                                                  <div>
+                                                       {loading ? <div>...loading</div> : null}
+
+                                                       {suggestions.map( (suggestion) => {
+                                                            const style = {
+                                                                 backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                                 cursor: "pointer"
+                                                            }
+
+                                                            return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
+                                                       })}
+                                                  </div>
+                                             </div>)
+                                        }
+                                   </PlacesAutocomplete>
                                    <button>Compare</button>
                               </form>
                          </div>
                     </div>
                </div>
-
-
-
           </div>
      )
 }
 
 export default Dashboard;
+
+
+
+
+
+// PROTOTYPE AUTOFILL FUNCTION
+ {/* <div>
+                    <PlacesAutocomplete value={search} onChange={setSearch} onSelect={handleSelect}>
+                         {
+                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
+                              <div>
+                                   <input {...getInputProps({placeholder: "Type address"})}/>
+                                   <div>
+                                        {loading ? <div>...loading</div> : null}
+
+                                        {suggestions.map( (suggestion) => {
+                                             const style = {
+                                                  backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                                             }
+
+                                             return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
+                                        })}
+                                   </div>
+                              </div>)
+                         }
+                    </PlacesAutocomplete>
+               </div> */}
