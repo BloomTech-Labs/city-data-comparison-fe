@@ -4,6 +4,9 @@ import {Bar} from 'react-chartjs-2';
 export default function EducationGraph (props) {
   const [chartWidth, setChartWidth] = useState("100%")
 
+  const colors = ["red" , "blue" , "green"]
+  let index = 0;
+
   // useEffect( () => {
   //   setChartWidth((props.edData.length <= 1) ? "100%" : "50%");
   // }, [props.edData])
@@ -16,6 +19,7 @@ export default function EducationGraph (props) {
               data={{
                 labels: ["9th to 12th grade no diploma", "Associate's degree", "Bachelor's degree", "Graduate degree", "High school", "Less than 9th grade", "Some college no degree"],
                 datasets: props.edData.map( item => {
+                  index = (index + 1) % 3;
                   return {
                     label: item.name.replace(" city" , ""),
                     data: [
@@ -28,7 +32,7 @@ export default function EducationGraph (props) {
                       item["Educational Attainment"]["Some college no degree"]
                     ],
                     backgroundColor:
-                      `rgba(${Math.random() * 255}, 99, 132, 0.6)`
+                      colors[index]
 
                   }
                 })
