@@ -1,0 +1,44 @@
+//signup form
+
+
+.signup{
+    width: 100%; 
+    border: 5px solid green; 
+    margin-top: 10%; 
+    background: linear-gradient(90deg, #dfe3fe 42%, #5d73fa 42%);
+
+    .inner-form{
+        margin: 5% 10%;
+        padding: 5%; 
+        background: white;
+        border-radius: 20px;
+    }
+
+    
+}
+
+.auth{
+    display:flex; 
+    flex-direction: column;
+}
+.google{
+    width: 20%; 
+}
+
+.fb{
+    width: 7%;
+    padding: 3% 0; 
+}
+
+button{
+    width: 200px; 
+    border-radius: 20px; 
+    background: white; 
+    border: 1px solid #3999fc;
+    margin-top: 2%; 
+    
+}
+
+.facebook{
+    width: 215px; 
+}
