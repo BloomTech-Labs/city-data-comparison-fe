@@ -383,10 +383,9 @@ html,body{
 //* Dashboard Data Metrics Styling
 .dashboard-metrics-container{
   background:url('./components/dashboard/assets/seconddiv.svg');
-  height:500px;
+  height:640px;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   display:flex;
-  align-items:center;
   flex-direction:column;
 
   .dashboard-metrics{
@@ -394,27 +393,23 @@ html,body{
     max-width:1000px;
     width:100%;
     display:flex;
-    
     justify-content:space-between;
-    border:1px solid black;
   }
   .metrics-description-container{
-    border:1px solid blue;
-    width:29%;
-    text-align:center;
+    width:28%;
   }
   img{
-    width:80%;
+    width:100%;
     background-color:white;
-    padding:15px;
+    padding:25px;
   }
-  metrics-title{
-    
+  .metrics-title{
+    width:100%;
+    margin:50px auto;
+    max-width:1000px;
   }
   .metrics-description{
-    text-align:center;
     line-height:1.5;
-    border:1px solid red;
   }
 }
 
