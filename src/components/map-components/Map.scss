@@ -55,7 +55,8 @@ html {
             width: 100%;
             -webkit-transform: translateX(-200px) translate(-6px, -6px);
                 transform: translateX(-200px) translate(-6px, -6px);
-            transition: 0.3s;
+            transition: 0.5s;
+            
         }
 
         .slider.open {
@@ -63,7 +64,7 @@ html {
             flex-direction: column;
             background:#041734;
             width: 100%;
-            transition: 0.3s;
+            transition: 0.5s;
         }
 
         .top-menu{
@@ -71,14 +72,14 @@ html {
         }
 
         .search-bar.open{
-            transition: 0.3s;
+            transition: 0.5s;
         }
 
         .menu-items.closed{
             @media only screen and (max-width: 600px) {
                 -webkit-transform: translateX(-200px) translate(-6px, -6px);
                 transform: translateX(-200px) translate(-6px, -6px);  
-                transition: 0.3s;
+                transition: 0.5s;
             }
         }
 
@@ -92,7 +93,7 @@ html {
                 -webkit-transform: translateX(-200px) translate(-6px, -6px);
                 transform: translateX(-200px) translate(-6px, -6px);
                 }
-                transition: 0.3s;
+                transition: 0.5s;
         }
 
         //Styling for burger stack
@@ -131,7 +132,7 @@ html {
             margin: 4px 0;
             transition: 0.5s;
         }
-        
+
         li {
             list-style-type: none;
             margin: 2% 0;
