@@ -1,12 +1,13 @@
 import React from 'react';
 
+
 function Footer(){
 
      return(
           <div className="footer-container">
                <div className="footer">
                     <div className="footer-CTA">
-                         <div>
+                         <div className="footer-CTA-description">
                               <p>Find Your Best Place To Live</p>
                               <button>Start Now</button>
                          </div>

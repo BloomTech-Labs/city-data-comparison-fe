@@ -69,10 +69,11 @@ html,body{
   background:none !important;
 }
 .mock-logo{
-  width:150px;
-  margin-top:-50px;
+  width:140px;
+  margin-top:-45px;
   margin-bottom:-50px;
 }
+
 .navigation-container{
      display: flex;
      justify-content: space-between;
@@ -481,7 +482,7 @@ html,body{
   background-color:#F1F9FD;
   height:300px;
   display:flex;
-  
+
   .footer{
     display:flex;
     width:100%;
@@ -537,5 +538,39 @@ html,body{
     &:hover{
       color: #2e2f38;
     }
+  }
+}
+@media screen and (max-width:6000px){
+  
+}
+@media screen and (max-width:1440px){
+  
+}
+@media screen and (max-width:800px){
+  
+}
+@media screen and (max-width:500px){
+
+  .footer{
+    border:1px solid green;
+    flex-direction:column;
+    align-items:center;
+  }
+   .footer-CTA{
+    border:1px solid blue;
+    width:100% !important;
+  }
+  .copyright{
+    display:none;
+  }
+
+  .footer-categories-container{
+    border:1px solid black;
+    justify-content:space-between;
+    width:100% !important;
+    padding-bottom:5%;
+  }
+  .footer-categories{
+
   }
 }
