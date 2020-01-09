@@ -4,12 +4,9 @@ import {Bar} from 'react-chartjs-2';
 export default function EducationGraph (props) {
   const [chartWidth, setChartWidth] = useState("100%")
 
-  useEffect( () => {
-
-    
-    
-    setChartWidth((props.edData.length <= 1) ? "100%" : "50%");
-  }, [props.edData])
+  // useEffect( () => {
+  //   setChartWidth((props.edData.length <= 1) ? "100%" : "50%");
+  // }, [props.edData])
 
     return (
       <div className="charts" >
