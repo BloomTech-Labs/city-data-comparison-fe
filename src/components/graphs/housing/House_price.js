@@ -9,13 +9,18 @@ export default class BarGraph extends Component{
     let amount = []
     let backgroundColors = []
     let house_price = data["house_price"];
+
+
     Object.keys(house_price).forEach(function (label) {
-      labels.push(label)
       let value = house_price[label];
-      amount.push(value);
+      if ( value != null){
+       labels.push(label) 
+       amount.push(value);
+
+      }
     });
-    console.log(labels);
-    console.log(amount);
+      console.log(labels);
+      console.log(amount);
 
     for( let i = 0; i < data.length; i++){
       backgroundColors[i] = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6)

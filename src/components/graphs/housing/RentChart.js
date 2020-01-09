@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Pie} from 'react-chartjs-2';
 import {markerDummyData} from "../../map-components/data";
+
 export default class BarGraph extends Component{
   componentDidMount(){
     // console.log(markerDummyData)
@@ -27,7 +28,7 @@ export default class BarGraph extends Component{
   }
 
   constructor(props){
-    console.log(props);
+    console.log(props, 'props are below heer');
     super(props);
     this.state = {
       chartData: {

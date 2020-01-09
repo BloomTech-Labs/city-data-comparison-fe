@@ -7,19 +7,22 @@ export default class BarGraph extends Component{
     let data = markerDummyData[0]
     let labels = []
     let amount = []
+    let backgroundColors = []
     let householdIncome = data["Household Income"];
     Object.keys(householdIncome).forEach(function (label) {
       labels.push(label)
       let value = householdIncome[label];
       amount.push(value);
+      backgroundColors.push(  '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6))
     });
+    
     console.log(labels);
     console.log(amount);
     var newState = {...this.state.chartData}
     console.log(newState)
     newState.labels = labels
     newState.datasets[0].data = amount
-    //newState.datasets[0].backgroundColor = backgroundColors;
+    newState.datasets[0].backgroundColor = backgroundColors;
     this.setState({chartData: newState})
   }
   // componentDidUpdate(){
@@ -64,16 +67,7 @@ export default class BarGraph extends Component{
             label:'Population',
             data: [],
             backgroundColor:[
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)',
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(255, 99, 132, 0.6)'
+           
             ]
           }
         ]
