@@ -1,17 +1,13 @@
 /* I still haven't found a better way to set backgrounds en masse in react */
 
-html {
-    background: #041734;
-}
+
 
 /* this is the map container */
 .main-map {
     margin: 0 auto;
-    margin-top:68px;
+    padding-top:68px;
     margin-bottom:20px;
     max-width:90%;
-
-    border: 2px solid darkgrey;
 }
 
 /* this refers to the whole page (does not include navigation */
@@ -32,13 +28,7 @@ html {
     background: #E5E5E5;
     display:flex;
 
-    .chart-container {
-        width:50%;
-    }
 
-    .charts {
-        display: flex;
-    }
 
     .data-nav {
         display:flex;
@@ -128,6 +118,7 @@ html {
 
         .delete-icon {
             height:1.2rem;
+            width: 1.2rem;
             position:relative;
             bottom: .1rem;
         }
@@ -140,8 +131,14 @@ html {
             text-align:center;
         }
 
-        .chart {
-            margin-bottom:10px;
+        .chart-container {
+            width:100%;
+        }
+    
+        .charts {
+            display: flex;
+            flex-wrap:wrap;
+            margin: 10px;
         }
 
         .data-subnav {

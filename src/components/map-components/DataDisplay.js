@@ -27,7 +27,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         cityMarkers={cityMarkers} 
                         search={search}
                         viewport={viewport}
-                        setViewport={setViewport}   
+                        setViewport={setViewport}  
+                        toggleSelected={toggleSelected} 
                     />
                     <Route path="/map/housing" component={CostNav} />
                     <Route path="/map/jobs" component={JobsNav} />
