@@ -41,7 +41,7 @@ const Signup = props => {
                                 <p>Accept terms of service</p>
                             </div>
                             <div className="signup-button">Start exploring cities</div>
-                            <p class='question'>Have an account? Sign in to explore cities</p>
+                            <p class='question'>Have an account? <span>Sign in</span> to explore cities</p>
                         </div>
                     </div>
                     <div className="photo">
