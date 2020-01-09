@@ -14,6 +14,8 @@ export default class BarGraph extends Component{
       labels.push(label)
       let value = house_price[label];
       amount.push(value);
+      backgroundColors.push(  '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6))
+
     });
     console.log(labels);
     console.log(amount);
@@ -23,7 +25,7 @@ export default class BarGraph extends Component{
     console.log(newState)
     newState.labels = labels
     newState.datasets[0].data = amount
-    // newState.datasets[0].backgroundColor = backgroundColors;
+    newState.datasets[0].backgroundColor = backgroundColors;
     this.setState({chartData: newState})
   }
 
@@ -39,15 +41,8 @@ export default class BarGraph extends Component{
             label:'Population',
             data: [],
             backgroundColor:[
-                'rgba(235, 136, 52, 0.6)',
-                'rgba(7, 74, 23, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(153, 102, 255, 0.6)',
-                'rgba(13, 102, 25, 0.6)',
-                'rgba(15, 102, 555, 0.6)',
-                'rgba(202, 0, 42, 0.6)'
-                
-               
+              
+                 
             ]
           }
         ]
