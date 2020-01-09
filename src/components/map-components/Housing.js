@@ -13,7 +13,7 @@ const Housing = ({selected}) => {
             {selected.map(item => <h3 key={item._id}>{item.name.replace(" city" , "")}</h3>)}
 
             <Route path="/map/housing/housing" component={() => <BarGraph selected = {selected} />} />
-            <Route path="/map/housing/grocery" component={LineGraph}/>
+            <Route path="/map/housing/grocery" component={() => <LineGraph selected = {selected} />} />
             <Route path="/map/housing/dining" component={RoomGraph}/>
             <Route path="/map/housing/transportation" component={RentChart}/>
         </div>

@@ -5,7 +5,7 @@ import {markerDummyData} from "../../map-components/data";
 
 export default function BarGraph ({selected}){
     const [data, setData] = useState({})
-  console.log(selected, 'selected')
+  // console.log(selected, 'selected')
     useEffect( () => {
       let data = selected[0]
       let labels = []
@@ -56,7 +56,7 @@ export default function BarGraph ({selected}){
   }
     return (
       <div className="chart">
-        
+
         <Bar
           data={data.chartData}
           options={{
