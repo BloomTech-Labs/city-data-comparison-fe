@@ -16,6 +16,7 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
     posleft:0,
     postop:0,
     display: 'none',
+    city: 'none'
   })
 
   
@@ -29,7 +30,7 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
                   <div
                     onClick={() => toggleSelected(cityMarker)} 
                     onMouseOver={(e) => (Number.isNaN(parseFloat(e.target.getAttribute("latitude"))) || setPopState({...popState, lat:parseFloat(e.target.getAttribute("latitude")), lng:parseFloat(e.target.getAttribute("longitude")),
-                    posleft:e.target.getBoundingClientRect().left, postop:e.target.getBoundingClientRect().top, display:'block'}), setIsHover(true), console.log(popState))}
+                    posleft:e.target.getBoundingClientRect().left, postop:e.target.getBoundingClientRect().top, display:'block', city:`${cityMarker.city}, ${cityMarker.state_id}`}), setIsHover(true), console.log(popState))}
                     onMouseLeave={(e) => (setPopState({...popState, display:'none'}), setIsHover(false))}
                   >
                       {selected.find(item => item === cityMarker) 
@@ -40,7 +41,7 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
               </Marker>
               );
         })}
-        <PopupMap lat={popState.lat} lng={popState.lng} posleft={popState.posleft} postop={popState.postop} display={popState.display} />
+        <PopupMap lat={popState.lat} lng={popState.lng} posleft={popState.posleft} postop={popState.postop} display={popState.display} city={popState.city} />
       </div>
   );
 };
