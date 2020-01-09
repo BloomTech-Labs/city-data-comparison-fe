@@ -7,12 +7,15 @@ export default class BarGraph extends Component{
     let data = markerDummyData[0]
     let labels = []
     let amount = []
+    let backgroundColors = []
 
     let houseRooms = data["Housing by rooms"];
     Object.keys(houseRooms).forEach(function (label) {
       labels.push(label)
       let value = houseRooms[label];
       amount.push(value);
+      backgroundColors.push(  '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6))
+
     });
 
     
@@ -24,7 +27,7 @@ export default class BarGraph extends Component{
     console.log(newState)
     newState.labels = labels
     newState.datasets[0].data = amount
-    //newState.datasets[0].backgroundColor = backgroundColors;
+    newState.datasets[0].backgroundColor = backgroundColors;
     this.setState({chartData: newState})
   }
   
