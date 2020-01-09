@@ -387,21 +387,34 @@ html,body{
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   display:flex;
   align-items:center;
+  flex-direction:column;
 
   .dashboard-metrics{
     margin:0 auto;
-    max-width:900px;
+    max-width:1000px;
     width:100%;
     display:flex;
+    
     justify-content:space-between;
+    border:1px solid black;
+  }
+  .metrics-description-container{
+    border:1px solid blue;
+    width:29%;
+    text-align:center;
   }
   img{
-    width:180px;
+    width:80%;
     background-color:white;
     padding:15px;
   }
-  p{
+  metrics-title{
+    
+  }
+  .metrics-description{
     text-align:center;
+    line-height:1.5;
+    border:1px solid red;
   }
 }
 

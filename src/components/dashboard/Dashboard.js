@@ -130,19 +130,19 @@ function Dashboard(){
 
                {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
-                    <h2>Visualizing data made easier</h2>
+                    <h2 className="metrics-title">Visualizing data made easier</h2>
                     <div className="dashboard-metrics">
-                         <div>
+                         <div className="metrics-description-container">
                               <img src={graph} alt="living cost graph" />
-                              <p>Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
+                              <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
-                         <div>
+                         <div className="metrics-description-container">
                               <img src={graph} alt="living cost graph" />
-                              <p>Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
+                              <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
-                         <div>
+                         <div className="metrics-description-container">
                               <img src={graph} alt="living cost graph" />
-                              <p>Economic data includes health insurances, household income, major industries and etc.</p>
+                              <p className="metrics-description">Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
                     </div>
                </div>
