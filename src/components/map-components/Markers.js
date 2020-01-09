@@ -8,6 +8,8 @@ import activepin from"./icons/activepin.png";
 
 const Markers = ({ cityMarkers, selected, toggleSelected }) => {
 
+  const [isHover, setIsHover] = useState( false );
+
   const [popState, setPopState] = useState({
     lat: 1,
     lng: 1,
@@ -16,7 +18,7 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
     display: 'none',
   })
 
-  // const [isHover, setIsHover] = useState( false );
+  
 
   return (
         <div>
@@ -27,9 +29,8 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
                   <div
                     onClick={() => toggleSelected(cityMarker)} 
                     onMouseOver={(e) => (Number.isNaN(parseFloat(e.target.getAttribute("latitude"))) || setPopState({...popState, lat:parseFloat(e.target.getAttribute("latitude")), lng:parseFloat(e.target.getAttribute("longitude")),
-                    posleft:e.pageX, postop:e.pageY, display:'block'}), console.log(popState))}
-                    onMouseMove={(e) => setPopState({...popState, posleft:e.pageX, postop:e.pageY})}
-                    onMouseLeave={(e) => (setPopState({...popState, display:'none'}))}
+                    posleft:e.target.getBoundingClientRect().left, postop:e.target.getBoundingClientRect().top, display:'block'}), setIsHover(true), console.log(popState))}
+                    onMouseLeave={(e) => (setPopState({...popState, display:'none'}), setIsHover(false))}
                   >
                       {selected.find(item => item === cityMarker) 
                       ? <img src={activepin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />

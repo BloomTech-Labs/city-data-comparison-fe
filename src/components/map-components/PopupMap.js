@@ -46,7 +46,7 @@ const PopupMap = (props) => {
     return(    
         console.log(selectedViewport.latitude, selectedViewport.longitude, streetViewPos),
         <div className="popupmapparent">
-            <SelectedMapWrapper className="popupmap" id="popupmap"  style={{left:`${streetViewPos.posleft+10}px`, top:`${streetViewPos.postop+10}px`, display:`${streetViewPos.display}`}}>
+            <SelectedMapWrapper className="popupmap" id="popupmap"  style={{left:`${streetViewPos.posleft+20}px`, top:`${streetViewPos.postop+20}px`, display:`${streetViewPos.display}`}}>
                 <ReactMapGL 
                     mapStyle='mapbox://styles/mapbox/streets-v11'
                     {...selectedViewport}
