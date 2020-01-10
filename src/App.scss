@@ -125,7 +125,7 @@ html,body{
     justify-content: center;
     text-decoration:none;
     color:#2e2f38;
-    font-size:1.1rem;
+    font-size:1rem;
     transition: .3s cubic-bezier(0.2,0.8,0.2,1);
   }
   nav a:hover{
@@ -133,17 +133,28 @@ html,body{
     text-decoration: underline;
   }
   .login-link{
-    border:1.4px solid #2ca4fc;
-    border-radius:5px;
-    padding:10px 10px;
     color:#2ca4fc;
+
+    img{
+      height:20px;
+      width:20px;
+      margin-right:3px;
+    }
+
+    &:hover{
+      text-decoration:none;
+    }
   }
   .signup-link{
     border:none;
     background-color:#00bfa5;
     border-radius:5px;
-    padding:10px 20px;
+    padding:8px 16px;
     color:white;
+
+    &:hover{
+      
+    }
   }
 @media screen and (max-width:800px){
   nav{

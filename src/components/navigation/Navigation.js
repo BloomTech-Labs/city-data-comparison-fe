@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 import citrics from './citrics-mock.png'
-
+import lock from './lock.svg'
 
 
 
@@ -55,7 +55,7 @@ function Navigation(){
                <nav className = {displayNav}>
                     {/* <a href="google.com">Link A</a> */}
                     <Link to="/map">Map</Link>
-                    <Link className="login-link" to="/login">Log In</Link>
+                    <Link className="login-link" to="/login"><img src={lock}/>Log In</Link>
                     <Link className="signup-link" to="/signup">Get Started</Link>
                </nav> 
 
