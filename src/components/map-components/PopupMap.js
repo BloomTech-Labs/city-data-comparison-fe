@@ -9,7 +9,7 @@ export const SelectedMapWrapper = styled.div`
         display: none;
         border: 2px solid darkgrey;
         padding-bottom:20px;
-        background-color:lightgrey;
+        background-color:#F2F9FD;
         transition:'left 2s, top 2s'
     `;
 
@@ -53,7 +53,7 @@ const PopupMap = (props) => {
             <span
                 // this styling is also based on hover 
                 // the ternary on the transition is to transition away quickly so it's ready to fire again
-                style={{opacity:`${props.animate ? '1':'0'}`, transition: `${props.animate ? 'opacity .5s .5s' : 'opacity .01s'}`}}
+                style={{opacity:`${props.animate ? '1':'0'}`, transition: `${props.animate ? 'opacity .5s .5s' : 'opacity .01s'}`, display:'table', margin:'0 auto', color:'black'}}
             >
                 {props.city}
             </span>
