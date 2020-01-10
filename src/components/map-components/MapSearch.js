@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 
-const MapSearch = (props,{search, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
+const MapSearch = (props,{search, onSearch, setSearch, cityMarkers, viewport, setViewport,toggleSelected}) => {
 
 
     const [suggestions, setSuggestions] = useState([]);
