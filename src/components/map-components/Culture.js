@@ -14,8 +14,8 @@ const Culture = ({selected}) => {
             <h1>City Cultural Statistics:</h1>     
 
             <Route path="/map/culture/crime" component={() => <BarGraph selected = {selected} />} />
-            <Route path="/map/culture/auto" component={() => <Ethnicity selected = {selected} />} />
-            <Route path="/map/culture/airquality" component={() => <Population selected = {selected} />} />
+            <Route path="/map/culture/demographics" component={() => <Ethnicity selected = {selected} />} />
+            <Route path="/map/culture/lifestyle" component={() => <Population selected = {selected} />} />
             <Route path="/map/culture/education" render={ _ => <EducationGraph 
                 edData={selected} 
             />} />

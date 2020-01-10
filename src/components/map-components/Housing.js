@@ -12,10 +12,10 @@ const Housing = ({selected}) => {
             
             {selected.map(item => <h3 key={item._id}>{item.name.replace(" city" , "")}</h3>)}
 
-            <Route path="/map/housing/housing" component={() => <BarGraph selected = {selected} />} />
-            <Route path="/map/housing/grocery" component={() => <LineGraph selected = {selected} />} />
-    <Route path="/map/housing/dining" component={() => <RoomGraph selected = {selected}/> } />
-            <Route path="/map/housing/transportation" component={() => <RentChart selected = {selected}/> } />
+            <Route path="/map/housing/costs" component={() => <LineGraph selected = {selected} />} />
+            <Route path="/map/housing/homeinfo" component={() => <BarGraph selected = {selected} />} />
+    <Route path="/map/housing/rooms" component={() => <RoomGraph selected = {selected}/> } />
+            <Route path="/map/housing/quality" component={() => <RentChart selected = {selected}/> } />
         </div>
     );
   };
