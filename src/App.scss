@@ -284,7 +284,7 @@ html,body{
   input{
     background-color: #f7f9f9;
     padding:10px 65px;
-    border-radius:10px;
+    border-radius:5px;
     font-size:1rem;
     border:none;
     padding-left:20px;
@@ -295,7 +295,6 @@ html,body{
   }
   .cities-description{
     text-align:center;
-    font-size:16px;
     font-size:1rem;
     margin-top:0;
   }
@@ -320,7 +319,7 @@ html,body{
   }
   .compare-cities-button{    
     padding:10px 35px;
-    border-radius:10px;
+    border-radius:5px;
     border:1px solid #2ca4fc;
     color:#2ca4fc;
     font-size:1.1rem;
@@ -334,24 +333,8 @@ html,body{
   .search-function{
     // border:1px solid red;
       width:85%;
-      padding:40px 30px;
-    form{
-      border:1px solid blue;
-    }
-
-    input{
-      border:1px solid green;
-    }
-
-    .cities-description{
-      border:1px solid yellow;
-    }
-
-
-    
+      padding:30px 30px;
   }
-
-
 }
 
 
@@ -456,11 +439,14 @@ html,body{
   align-items:center;
   justify-content:center;
   margin:5% 0;
+  border:1px solid red;
   
   .dashboard-compare{
     margin:0 auto;
     max-width:800px;
     width:100%;
+    border:1px solid blue;
+    padding:3% 5%;
   }
   input{
     background-color: #f7f9f9;
@@ -498,7 +484,9 @@ html,body{
     margin:0 15px;
   }
 }
+@media screen and (max-width:600px){
 
+}
 
 // * Footer Styling
 .footer-container{
