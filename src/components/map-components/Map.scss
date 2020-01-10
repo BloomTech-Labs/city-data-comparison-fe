@@ -79,8 +79,9 @@
         }
 
         .top-menu{
+            width:100%;
             @media only screen and (max-width: 600px) {
-            display:flex;
+                display:flex;
             }
         }
 
@@ -162,18 +163,18 @@
         ul {
             width:77.6%;
             padding-inline-start: 0px;
-            margin: 0 auto;
+            margin: 10% auto;
         }
 
         form {
-            margin: 5px auto;
-            width:80%;
+            margin: 0 auto;
+            width:95%;
         }
 
         input {
-            width:97%;
+            width:100%;
             margin: 0 auto;
-            margin-top:2%;
+            
             height: 2rem;
             font-size:1.3rem;
             padding:2%;
@@ -204,11 +205,12 @@
             flex-direction:column;
             height:100%;
             width:100%; 
+            margin-top:4%;
         }
 
         .autofill-container {
             position:absolute;
-            width:19.4%;
+            width:19%;
         }
 
         .autofill-option {
