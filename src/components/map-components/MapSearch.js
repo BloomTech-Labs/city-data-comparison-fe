@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 
-const MapSearch = (props,{search, onSearch, setSearch, cityMarkers, viewport, setViewport,toggleSelected}) => {
+const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, setViewport,selectSearch}) => {
 
 
     const [suggestions, setSuggestions] = useState([]);
@@ -13,9 +13,10 @@ const MapSearch = (props,{search, onSearch, setSearch, cityMarkers, viewport, se
         setSearch(searchText)
     };
     
+    
     const chooseSuggestion = city => {
-        setSearch(city.city);
-        toggleSelected(city);
+        setSearch(city.name.replace(" city", ""));
+        selectSearch(city);
         setSuggestions([]);
         setViewport({
             ...viewport,
@@ -23,11 +24,11 @@ const MapSearch = (props,{search, onSearch, setSearch, cityMarkers, viewport, se
             latitude: city.lat
           })
     }
-    console.log(props.menu);
+    console.log(menu);
     return(
         <form autoComplete="off" onSubmit={onSearch}>
             <input
-                        className={`search-bar ${props.menu}`}
+                        className={`search-bar ${menu}`}
                         placeholder="Search" 
                         onChange={handleChange} 
                         value={search}
