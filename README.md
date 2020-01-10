@@ -15,7 +15,7 @@ Future features:
 - Expanded data set - Pending DS completion, this app aims to encompass data from ~30000 US cities
 - User-friendly API access to DS model via multiple endpoints (Premium feature)
 
-#### About the Project
+#### Project Origins
 
 This is project for Lambda Labs and built by a multi-functional team of 10.
 
