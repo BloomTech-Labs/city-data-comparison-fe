@@ -12,8 +12,6 @@ export default function EducationGraph (props) {
     let num3 = arr.pop();
 
     return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
-
-    // return Math.pow(Number(String(num).replace(".","")), 3);
   }
   
 
