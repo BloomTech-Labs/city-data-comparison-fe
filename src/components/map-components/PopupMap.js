@@ -18,42 +18,26 @@ const PopupMap = (props) => {
     const [selectedViewport, setSelectedViewport] = useState({
         width: '100%',
         height: '100%',
-        latitude: props.lng,
-        longitude: props.lat,
+        latitude: props.lat,
+        longitude: props.lng,
         zoom: 13,
         trackResize: false
     });
 
-    const [streetViewPos, setStreetViewPos] = useState({
-        posleft: props.posleft,
-        postop: props.postop,
-        display: props.city,
-        city: props.city
-    });
-
     useEffect(() => {
-        console.log("effect")
             setSelectedViewport({
                 ...selectedViewport,
                 latitude: props.lat,
                 longitude: props.lng,
             })
-            setStreetViewPos({
-                ...streetViewPos,
-                posleft: props.posleft,
-                postop: props.postop,
-                display: props.display,
-                city: props.city
-            })
         },[props])
 
     return(    
-        console.log(props.animate),
         <div className="popupmapparent">
             <SelectedMapWrapper className="popupmap" id="popupmap"
                 style={{
-                    left:`${streetViewPos.posleft+20}px`, 
-                    top:`${streetViewPos.postop+20}px`, 
+                    left:`${props.posleft + 25 < document.documentElement.clientWidth - document.documentElement.clientHeight * 0.25 ? props.posleft+20 : props.posleft - (document.documentElement.clientHeight * 0.25 + 20)}px`, 
+                    top:`${props.postop+20}px`, 
                     display:`block`, 
                     transition:`${props.animate ? 'height .5s .5s, width .5s' : 'height .01s, width .01s'}`, 
                     zIndex:`${props.animate ? '999':'-1'}`, 
@@ -64,7 +48,7 @@ const PopupMap = (props) => {
             <span
                 style={{opacity:`${props.animate ? '1':'0'}`, transition: `${props.animate ? 'opacity .5s .5s' : 'opacity .01s'}`}}
             >
-                {streetViewPos.city}
+                {props.city}
             </span>
                 <ReactMapGL 
                     mapStyle='mapbox://styles/mapbox/streets-v11'
