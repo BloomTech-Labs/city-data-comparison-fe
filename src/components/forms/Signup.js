@@ -18,12 +18,20 @@ const Signup = props => {
                         <h2>Create Your Account</h2>
 
                         <div className="auth">
-                            <button id="signup-button" className="google"> <img className="google" src={google} alt="google logo"/>Sign up with Google</button>
-                            <button id="signup-button" className="facebook"><img className="fb" src={facebook} alt="facebook logo"/>Sign up with Facebook</button>
+                            <button id="signup-button" className="google">
+                                <img className="google" src={google} alt="google logo"/>
+                                <p className="button-text">Sign up with Google</p>
+                            </button>
+                            <button id="signup-button" className="facebook">
+                                <img className="fb" src={facebook} alt="facebook logo"/>
+                                <p className="button-text">Sign up with Facebook</p>
+                            </button>
                         </div>
                         
-                        <div className="center-text">
-                            <div> </div><p>or with email</p><div></div>
+                        <div className="centerText">
+                            <div className="line"></div>
+                            <p className="center">or with email</p>
+                            <div className="line"></div>
                         </div>
                         <div className="fields">
                             <input className="email" type='text' name='email' placeholder="Email"/>
