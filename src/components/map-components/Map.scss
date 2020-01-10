@@ -36,12 +36,11 @@
     .data-nav {
         display:flex;
         flex-direction:column;
-        justify-content:center;
+        justify-content:flex-start;
         color:white;
         padding:0;
         width: 20%;
         min-height:40vh;
-        
         background:#041734;
         @media only screen and (max-width: 600px) {
             background: #04173400;
