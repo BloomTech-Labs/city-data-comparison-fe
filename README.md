@@ -14,3 +14,23 @@ Future features:
     - Allow users to save records of which cities important to them
 - Expanded data set - Pending DS completion, this app aims to encompass data from ~30000 US cities
 - User-friendly API access to DS model via multiple endpoints (Premium feature)
+
+#### About the Project
+
+This is project for Lambda Labs and built by a multi-functional team of 10.
+
+UX Design:
+Ruth Philips
+
+Data Science:
+Matthew Sessions
+Scott Maxwell
+Luke Townsend
+
+Web Devs:
+Kevin Nguyen
+Muamer Kukic
+Michael Harms
+Umeko Walker
+Daniel Brisza
+John Watt
