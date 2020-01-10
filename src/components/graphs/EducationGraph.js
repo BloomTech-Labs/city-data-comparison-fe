@@ -3,8 +3,11 @@ import {Bar} from 'react-chartjs-2';
 
 export default function EducationGraph (props) {
 
-  const dotRemover = num => {
-    return Math.pow(Number(String(num).replace(".","")), 3);
+  const colorifier = lat => {
+
+    return `rgb(${num1}, ${num2}, ${num3})`
+
+    // return Math.pow(Number(String(num).replace(".","")), 3);
   }
   
 
