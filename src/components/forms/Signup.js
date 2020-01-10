@@ -3,9 +3,8 @@ import React from 'react';
 //images
 import google from '../../assets/logos/google.svg'; 
 import facebook from '../../assets/logos/facebook.svg';
+import city from '../../assets/forms/nyc_signup_photo.png'; 
 
-//illustrations
-import girl from '../../assets/illustrations/girl_signup.svg'
 
 //styling
 import './forms.scss'; 
@@ -13,7 +12,7 @@ import './forms.scss';
 const Signup = props => {
     return(
         <div className='signup'>
-            <div className="form-container">
+           
                 <div className="inner-form">
                     <div className="form">
                         <h2>Create Your Account</h2>
@@ -41,13 +40,13 @@ const Signup = props => {
                     <div className="photo">
                         {/*photo*/}
 
-                        <img className="girl" src={girl} alt="girl illustration" />
+                        <img className="city" src={city} alt="Photo of city" />
 
                         
                     </div>
                 </div>
                 
-            </div>
+         
            
         </div>
     )
