@@ -3,7 +3,6 @@ import {Route} from "react-router-dom";
 import BarGraph from "../graphs/BarGraph";
 import LineGraph from "../graphs/LineGraph";
 import PieGraph from "../graphs/PieGraph";
-import RadarGraph from "../graphs/RadarGraph";
 
 const Housing = ({selected}) => {
     return (
