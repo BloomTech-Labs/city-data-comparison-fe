@@ -11,7 +11,7 @@ import SafetyNav from "./subnavs/CultureNav";
 
 import deleteIcon from "./icons/close_red.png";
 
-const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
+const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
 
     const [menu, setMenu] = useState({status: 'closed'})
 
@@ -48,7 +48,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         search={search}
                         viewport={viewport}
                         setViewport={setViewport}  
-                        toggleSelected={toggleSelected} 
+                        selectSearch={selectSearch}
                     />
                 </div>
 
@@ -61,7 +61,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         </div>
                     </div>
                     <ul>
-                        {selected.map(item => <div className={`city-items ${menu.status}`}><li  key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name.replace (" city" , "")} 
+                        {selected.map(item => <div className={`menu-items ${menu.status}`}><li  key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name.replace (" city" , "")} 
                             <span  onClick={ _ => toggleSelected(item)}>
                                 <img className="delete-icon" src={deleteIcon} alt="delete icon" />
                             </span>

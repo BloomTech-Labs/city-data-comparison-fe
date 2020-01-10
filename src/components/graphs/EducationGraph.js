@@ -3,8 +3,15 @@ import {Bar} from 'react-chartjs-2';
 
 export default function EducationGraph (props) {
 
-  const dotRemover = num => {
-    return Number(String(num).replace(".",""));
+  const colorifier = lat => {
+
+    let arr = String(lat).replace(".","").split("");
+
+    let num1 = arr.pop();
+    let num2 = arr.pop();
+    let num3 = arr.pop();
+
+    return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
   }
   
 
@@ -30,7 +37,7 @@ export default function EducationGraph (props) {
                       
                     ],
                     backgroundColor:
-                      `rgb(${dotRemover(item.lat) % 100 * 2.55}, 180, ${(item.lng * 100) % 100 * 2.55})`
+                      colorifier(item.lat)
                       
 
                   }
