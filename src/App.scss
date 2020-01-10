@@ -242,10 +242,10 @@ html,body{
 //* Dashboard Search Function Styling
 .dashboard-search-container{
   position:relative;
-  height:750px;
+  height:700px;
   width:100%;
   background-color:#F2F9FD;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
 }
 .slanted-san-francisco{
   background-image:url('./components/dashboard/assets/sanFrancisco.jpeg');
@@ -273,6 +273,7 @@ html,body{
   justify-content:center;
   align-items:center;
   padding:35px 40px;
+  border:1px solid red;
 
   h1{
     font-size:1.6rem;
