@@ -18,11 +18,11 @@ const Signup = props => {
                         <h2>Create Your Account</h2>
 
                         <div className="auth">
-                            <button id="signup-button" className="google">
+                            <button id="auth-button" className="google">
                                 <img className="google" src={google} alt="google logo"/>
                                 <p className="button-text">Sign up with Google</p>
                             </button>
-                            <button id="signup-button" className="facebook">
+                            <button id="auth-button" className="facebook">
                                 <img className="fb" src={facebook} alt="facebook logo"/>
                                 <p className="button-text">Sign up with Facebook</p>
                             </button>
