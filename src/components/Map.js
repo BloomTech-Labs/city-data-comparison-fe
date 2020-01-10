@@ -12,7 +12,7 @@ import { CityContext } from '../contexts/CityContext';
 
 const MapWrapper = styled.div`
   width:100vw;
-  height:50vh;
+  height:60vh;
 `;
 
 export default function Map() {
