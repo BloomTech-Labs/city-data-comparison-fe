@@ -54,13 +54,18 @@ const PopupMap = (props) => {
                 style={{
                     left:`${streetViewPos.posleft+20}px`, 
                     top:`${streetViewPos.postop+20}px`, 
-                    display:`block`, transition:'height .5s .5s, width .5s', 
+                    display:`block`, 
+                    transition:`${props.animate ? 'height .5s .5s, width .5s' : 'height .01s, width .01s'}`, 
                     zIndex:`${props.animate ? '999':'-1'}`, 
                     height:`${props.animate ? '45vh':'1vh'}`,  
-                    width:`${props.animate ? '25vh':'1vh'}`
+                    width:`${props.animate ? '25vh':'5vh'}`
                 }}    
             >
-            <span>{streetViewPos.city}</span>
+            <span
+                style={{opacity:`${props.animate ? '1':'0'}`, transition: `${props.animate ? 'opacity .5s .5s' : 'opacity .01s'}`}}
+            >
+                {streetViewPos.city}
+            </span>
                 <ReactMapGL 
                     mapStyle='mapbox://styles/mapbox/streets-v11'
                     {...selectedViewport}
