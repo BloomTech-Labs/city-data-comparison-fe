@@ -82,7 +82,8 @@ html,body{
      top: 0;
      width: 100%;
      opacity: 0.97;
-     padding:15px 0;
+     padding:10px 0;
+     padding-top:5px;
      font-size: 0.9rem;
      z-index: 99999;
      margin:0 auto;
@@ -96,6 +97,7 @@ html,body{
   }
   .show-nav{
     display: flex;
+    z-index:999999;
   }
 
    .navigation-container:active{
@@ -112,9 +114,10 @@ html,body{
    nav {
      width: 40%;
      display: flex;
-     justify-content: space-around;
+     justify-content: space-between;
      align-items: center;
      padding-left: 4%;
+     padding-right:4%;
    }
   nav a{
     display: flex;
@@ -122,13 +125,31 @@ html,body{
     justify-content: center;
     text-decoration:none;
     color:#2e2f38;
+    font-size:1.1rem;
     transition: .3s cubic-bezier(0.2,0.8,0.2,1);
   }
   nav a:hover{
     color:#2e2f38;
     text-decoration: underline;
   }
-  
+  .login-link{
+    border:1.4px solid #2ca4fc;
+    border-radius:5px;
+    padding:10px 10px;
+    color:#2ca4fc;
+  }
+  .signup-link{
+    border:none;
+    background-color:#00bfa5;
+    border-radius:5px;
+    padding:10px 20px;
+    color:white;
+  }
+@media screen and (max-width:800px){
+  nav{
+    width:50%;
+  }
+}
 
 @media screen and (max-width: 500px) {
      nav {
@@ -265,7 +286,7 @@ html,body{
   width:60%;
   max-width:600px;
   background-color:white;
-  z-index:99999;
+  // z-index:1;
   margin-top:-100px;
   display:flex;
   flex-wrap:wrap;
@@ -283,7 +304,7 @@ html,body{
   }
   input{
     background-color: #f7f9f9;
-    padding:10px 65px;
+    padding:10px 70px;
     border-radius:5px;
     font-size:1rem;
     border:none;
@@ -300,7 +321,7 @@ html,body{
   }
   .search-city-button{
     font-size:1rem;
-    padding:10px 25px;
+    padding:10px 30px;
     border-radius:5px;
     background-color:#2ca4fc;
     border:none;

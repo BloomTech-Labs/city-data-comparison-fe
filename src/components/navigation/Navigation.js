@@ -55,8 +55,8 @@ function Navigation(){
                <nav className = {displayNav}>
                     {/* <a href="google.com">Link A</a> */}
                     <Link to="/map">Map</Link>
-                    <Link to="/login">Log In</Link>
-                    <Link to="/signup">Sign Up</Link>
+                    <Link className="login-link" to="/login">Log In</Link>
+                    <Link className="signup-link" to="/signup">Get Started</Link>
                </nav> 
 
                {/* <!-- Dropdown Menu  --> */}
@@ -64,10 +64,9 @@ function Navigation(){
                     <div className="dropdown" style={styles}>
                          <button className="dropbtn">Menu</button>
                               <div className="dropdown-content">
-                                   <a href="google.com">Link A</a>
                                    <Link to="/map">Map</Link>
-                                   <a href="google.com">Log In</a>
-                                   <a href="google.com">Sign Up</a>
+                                   <Link to="/login">Log In</Link>
+                                   <Link to="/signup">Get Started</Link>
                               </div>
                     </div>
                </div>
