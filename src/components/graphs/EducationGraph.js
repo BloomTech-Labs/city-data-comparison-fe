@@ -5,7 +5,13 @@ export default function EducationGraph (props) {
 
   const colorifier = lat => {
 
-    return `rgb(${num1}, ${num2}, ${num3})`
+    let arr = String(lat).replace(".","").split("");
+
+    let num1 = arr.pop();
+    let num2 = arr.pop();
+    let num3 = arr.pop();
+
+    return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
 
     // return Math.pow(Number(String(num).replace(".","")), 3);
   }
@@ -33,7 +39,7 @@ export default function EducationGraph (props) {
                       
                     ],
                     backgroundColor:
-                      `rgb(${dotRemover(item.lat) % 100 * 2.55}, ${item.name.charCodeAt(2) * 2}, ${dotRemover(item.lng) % 100 * 2})`
+                      colorifier(item.lat)
                       
 
                   }
