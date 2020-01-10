@@ -487,12 +487,15 @@ html,body{
     padding:0 5%;
     justify-content:space-between;
     padding-top:10px;
+    border:1px solid red;
   }
   .footer-CTA{
     width:30%;
     display:flex;
     flex-wrap:wrap;
     align-content:space-between;
+    flex-direction:column;
+    justify-content:space-between;
 
     p{
       font-size:1.3rem;
