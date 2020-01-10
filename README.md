@@ -4,7 +4,9 @@ This app democratizes access to information about cities. Any user can log on an
 
 ## Implementation
 
-Citrics uses a proprietary data set from our data science team derived primarily from US census information. Cities with data are marked on a map generated from the Mapbox.com API. Selected markers populate navigable data graphs powered by the Chartjs library that indicate important information about the selected city.
+Citrics uses a proprietary data set from our data science team derived primarily from US census information. 
+
+Cities with data are marked on a searchable, indexed map generated from the Mapbox.com API. Selected markers populate navigable data graphs powered by the Chartjs library that indicate important information about the selected city. Graphs are generated dynamically as users adjust their selection of cities to compare.
 
 ### Roadmap
 
