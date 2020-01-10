@@ -2,7 +2,6 @@ import React from "react";
 import {Route} from "react-router-dom";
 import BarGraph from "../graphs/BarGraph";
 import LineGraph from "../graphs/LineGraph";
-import PieGraph from "../graphs/PieGraph";
 import EducationGraph from "../graphs/EducationGraph";
 
 const Culture = ({selected}) => {
