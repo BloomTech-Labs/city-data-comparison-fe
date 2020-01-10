@@ -14,7 +14,7 @@ const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, se
     };
     
     const chooseSuggestion = city => {
-        setSearch(city.city);
+        setSearch(city.name.replace(" city", ""));
         toggleSelected(city);
         setSuggestions([]);
         setViewport({
