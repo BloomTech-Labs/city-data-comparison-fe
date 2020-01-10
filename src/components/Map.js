@@ -12,7 +12,7 @@ import { CityContext } from '../contexts/CityContext';
 
 const MapWrapper = styled.div`
   width:100vw;
-  height:50vh;
+  height:60vh;
 `;
 
 export default function Map() {
@@ -32,6 +32,7 @@ export default function Map() {
 
   useEffect( _ => {
       const geo = navigator.geolocation;
+      console.log(cityMarkers);
       if (!geo) {
         console.log('Geolocation is not supported by this browser');
         return;
@@ -54,11 +55,20 @@ export default function Map() {
     }
 }
 
+const selectSearch = cityMarker =>  {
+  console.log(cityMarker);
+  if (selected.find(item => item === cityMarker)) {
+      return;
+  } else {
+      setSelected([...selected, cityMarker]);
+  }
+}
+
 
     const onSearch = e => {
       e.preventDefault();
-      const found = cityMarkers.find(item => item.city === search)
-      toggleSelected(found);
+      const found = cityMarkers.find(item => item.name.replace(" city", "") === search)
+      selectSearch(found);
       setViewport({
         ...viewport,
         longitude: found.lng,
@@ -92,6 +102,7 @@ export default function Map() {
               </MapWrapper>
             </div>
             <DataDisplay 
+              selectSearch={selectSearch}
               toggleSelected={toggleSelected}
               selected={selected}
               onSearch={onSearch}

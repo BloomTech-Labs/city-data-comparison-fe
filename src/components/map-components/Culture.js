@@ -1,8 +1,10 @@
 import React from "react";
 import {Route} from "react-router-dom";
+
 import BarGraph from "../graphs/culture/AgeDistrubution";
 import Ethnicity from "../graphs/culture/ethnicity_graph";
 import Population from "../graphs/culture/PopulationGrowth";
+
 import EducationGraph from "../graphs/EducationGraph";
 
 const Culture = ({selected}) => {

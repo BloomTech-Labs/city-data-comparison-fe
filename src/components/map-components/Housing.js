@@ -1,9 +1,12 @@
 import React from "react";
 import {Route} from "react-router-dom";
+
 import BarGraph from "../graphs/housing/HouseIncome_BarGraph";
 import LineGraph from "../graphs/housing/House_price";
 import RoomGraph from "../graphs/housing/HousingByRooms";
 import RentChart from "../graphs/housing/RentChart";
+
+
 
 const Housing = ({selected}) => {
     return (
