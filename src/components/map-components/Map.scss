@@ -79,8 +79,9 @@
         }
 
         .top-menu{
+            width:100%;
             @media only screen and (max-width: 600px) {
-            display:flex;
+                display:flex;
             }
         }
 
@@ -167,11 +168,11 @@
 
         form {
             margin: 5px auto;
-            width:80%;
+            width:95%;
         }
 
         input {
-            width:97%;
+            width:100%;
             margin: 0 auto;
             margin-top:2%;
             height: 2rem;
@@ -208,7 +209,7 @@
 
         .autofill-container {
             position:absolute;
-            width:19.4%;
+            width:19%;
         }
 
         .autofill-option {
