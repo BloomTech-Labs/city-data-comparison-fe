@@ -320,14 +320,17 @@ html,body{
   };
   form{
     margin:30px 0;
+    width:95%;
+    text-align:center;
   }
   input{
     background-color: #f7f9f9;
-    padding:10px 70px;
+    padding:10px 50px;
     border-radius:5px;
     font-size:1rem;
     border:none;
     padding-left:20px;
+    width:70%;
     border:1px solid #efefef;
     &:focus{
       outline:0;
@@ -384,7 +387,6 @@ html,body{
 }
 @media screen and (max-width:800px){
   .search-function{
-    // border:1px solid red;
       width:85%;
       padding:30px 30px;
   }
