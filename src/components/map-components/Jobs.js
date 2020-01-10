@@ -2,7 +2,8 @@ import React from "react";
 import {Route} from "react-router-dom";
 import Industry from "../graphs/economics/industries";
 import Commute from "../graphs/economics/commute";
-import FoodStamp from "../graphs/economics/FoodStamp";
+import BarGraph from "../graphs/economics/HouseIncome_BarGraph";
+
 
 const Jobs = ({selected}) => {
     return (
@@ -13,7 +14,7 @@ const Jobs = ({selected}) => {
             
             <Route path="/map/jobs/commute" component={() => <Commute selected = {selected} />} />
             <Route path="/map/jobs/jobs" component={() => <Industry selected = {selected} />} />
-            <Route path="/map/jobs/standards" component={() => <FoodStamp selected = {selected} />} />
+            <Route path="/map/jobs/standards"  render={ _ => <BarGraph edData={selected} />} />
         </div>
     );
   };
