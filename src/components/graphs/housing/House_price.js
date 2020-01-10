@@ -24,8 +24,8 @@ export default function BarGraph ({selected}){
           }
         });
         
-        console.log(labels);
-        console.log(amount);
+        // console.log(labels);
+        // console.log(amount);
         var newState = {
           labels: [],
           datasets:[
@@ -39,7 +39,7 @@ export default function BarGraph ({selected}){
             }
           ]
       }
-        console.log(newState, 'new State')
+        // console.log(newState, 'new State')
         newState.labels = labels
         newState.datasets[0].data = amount
         newState.datasets[0].backgroundColor = backgroundColors;
