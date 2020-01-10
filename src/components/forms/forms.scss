@@ -51,6 +51,13 @@ span{
     margin: 0 4% 0% 9%;
 }
 
+#signup-button{
+    width: 200px; 
+    border-radius: 20px; 
+    background: white; 
+    border: 1px solid #3999fc;
+    margin-top: 2%; 
+    
 .auth{
     div{
         width: 100%; 
@@ -136,4 +143,5 @@ input{
     position: absolute; 
     right: 33%;
     top: 80%; 
+}
 }

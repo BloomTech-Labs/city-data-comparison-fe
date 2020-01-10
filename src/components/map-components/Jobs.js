@@ -1,8 +1,8 @@
 import React from "react";
 import {Route} from "react-router-dom";
-import BarGraph from "../graphs/BarGraph";
-import LineGraph from "../graphs/LineGraph";
-import PieGraph from "../graphs/PieGraph";
+import Industry from "../graphs/economics/industries";
+import Commute from "../graphs/economics/commute";
+import FoodStamp from "../graphs/economics/FoodStamp";
 
 const Jobs = ({selected}) => {
     return (
@@ -11,9 +11,9 @@ const Jobs = ({selected}) => {
 
             {selected.map(item => <h3 key={item._id}>{item.name.replace(" city" , "")}</h3>)}
             
-            <Route path="/map/jobs/jobs" component={BarGraph}/>
-            <Route path="/map/jobs/standards" component={LineGraph}/>
-            <Route path="/map/jobs/commute" component={PieGraph}/> 
+            <Route path="/map/jobs/commute" component={() => <Commute selected = {selected} />} />
+            <Route path="/map/jobs/jobs" component={() => <Industry selected = {selected} />} />
+            <Route path="/map/jobs/standards" component={() => <FoodStamp selected = {selected} />} />
         </div>
     );
   };

@@ -145,13 +145,13 @@ function Dashboard(){
                          <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
                     </div>
                     <div className="feature-descriptions"
-                         data-aos="fade-left"
-                         data-aos-offset="200"
-                         data-aos-delay="50"
-                         data-aos-duration="1000"
-                         data-aos-easing="ease-in-out"
-                         data-aos-mirror="true"
-                         data-aos-once="true"
+                         // data-aos="fade-left"
+                         // data-aos-offset="200"
+                         // data-aos-delay="50"
+                         // data-aos-duration="1000"
+                         // data-aos-easing="ease-in-out"
+                         // data-aos-mirror="true"
+                         // data-aos-once="true"
                     >
                          <img className="feature-images dataVisual" src={location} alt="data visual"/>
                          <h3>Visualize Data</h3>
