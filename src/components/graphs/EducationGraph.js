@@ -4,7 +4,7 @@ import {Bar} from 'react-chartjs-2';
 export default function EducationGraph (props) {
 
   const dotRemover = num => {
-    return Number(String(num).replace(".",""));
+    return Math.pow(Number(String(num).replace(".","")), 3);
   }
   
 
@@ -30,7 +30,7 @@ export default function EducationGraph (props) {
                       
                     ],
                     backgroundColor:
-                      `rgb(${dotRemover(item.lat) % 100 * 2.55}, 180, ${(item.lng * 100) % 100 * 2.55})`
+                      `rgb(${dotRemover(item.lat) % 100 * 2.55}, ${item.name.charCodeAt(2) * 2}, ${dotRemover(item.lng) % 100 * 2})`
                       
 
                   }

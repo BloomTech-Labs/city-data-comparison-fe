@@ -32,6 +32,7 @@ export default function Map() {
 
   useEffect( _ => {
       const geo = navigator.geolocation;
+      console.log(cityMarkers);
       if (!geo) {
         console.log('Geolocation is not supported by this browser');
         return;

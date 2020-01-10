@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Route} from "react-router-dom";
 import './App.scss';
 
@@ -7,7 +7,7 @@ import Navigation from './components/navigation/Navigation'
 import Footer from './components/navigation/Footer'
 import Map from "./components/Map";
 
-import {markerDummyData} from "./components/map-components/data.js";
+import { markerDummyData } from "./components/map-components/data.js";
 
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
@@ -22,6 +22,8 @@ function App() {
 
   const [user, setUser] = useState({});
   const [cityMarkers, setCityMarkers] = useState(markerDummyData);
+
+
 
   return (
     <UserContext.Provider value={{user, setUser}}>

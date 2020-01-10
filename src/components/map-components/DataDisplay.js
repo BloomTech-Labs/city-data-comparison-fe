@@ -52,14 +52,14 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     />
                 </div>
 
-                <div className={`slider ${menu.status}`}>
-                    <div className={`menu-items ${menu.status}`}>
+                {/* <div className={`slider ${menu.status}`}>
+                    <div className={`menu-items ${menu.status}`}> */}
                         <div className="data-nav-top">
                             <Route path="/map/housing" component={CostNav} />
                             <Route path="/map/jobs" component={JobsNav} />
                             <Route path="/map/culture" component={SafetyNav} />
                         </div>
-                    </div>
+                    {/* </div> */}
                     <ul>
                         {selected.map(item => <div className={`menu-items ${menu.status}`}><li  key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name.replace (" city" , "")} 
                             <span  onClick={ _ => toggleSelected(item)}>
@@ -67,7 +67,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             </span>
                         </li></div>)}
                     </ul>
-                </div>    
+                {/* </div>     */}
             </nav>
             <div className="data-by-category">
                 <nav className="data-subnav">
