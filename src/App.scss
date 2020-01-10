@@ -186,12 +186,13 @@ html,body{
      }
     .dropbtn {
       background-color:#fcfcfb;
-      color: #2e2f38;
-      padding: 6px 15px;
+      color: #2ca4fc;
+      font-weight:600;
+      padding: 10px 20px;
       font-size: 16px;
-      border: 1.3px solid #2e2f38;
-      border-radius:3px;
-      margin-right:20px;
+      border: 1.4px solid #2ca4fc;
+      border-radius:5px;
+      margin-right:30px;
     }
 
     .dropdown {
@@ -205,15 +206,16 @@ html,body{
       position: absolute;
       right: 0;
       background-color: #f9f9f9;
-      min-width: 100px;
+      min-width: 150px;
       z-index: 1;
     }
 
     .dropdown-content a {
       color: #2e2f38;
-      padding: 13px 13px;
+      padding: 15px 15px;
       text-decoration: none;
       display: block;
+      font-size:1.1rem;
     }
 
     .dropdown-content a:hover {
@@ -300,7 +302,7 @@ html,body{
   .search-city-button{
     font-size:1rem;
     padding:10px 25px;
-    border-radius:10px;
+    border-radius:5px;
     background-color:#2ca4fc;
     border:none;
     color:white;
@@ -487,7 +489,7 @@ html,body{
     padding:0 5%;
     justify-content:space-between;
     padding-top:10px;
-    border:1px solid red;
+
   }
   .footer-CTA{
     width:30%;
