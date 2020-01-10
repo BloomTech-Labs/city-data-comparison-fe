@@ -125,7 +125,6 @@ function Dashboard(){
                          data-aos-mirror="true"
                          data-aos-once="true"
                     >
-                         <h3>Control of data</h3>
                          <img className="feature-images money" src={control} alt="money" />
                          <p className="feature-title">Control of data</p>
                          <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
@@ -140,7 +139,6 @@ function Dashboard(){
                          data-aos-once="true"
                     >
                          <img className="feature-images map" src={data} alt="map"/>
-                         <h3>Map View</h3>
                          <p className="feature-title">Map View</p>
                          <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
                     </div>
@@ -154,7 +152,6 @@ function Dashboard(){
                          // data-aos-once="true"
                     >
                          <img className="feature-images dataVisual" src={location} alt="data visual"/>
-                         <h3>Visualize Data</h3>
                          <p className="feature-title">Visualize Data</p>
                          <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
 
