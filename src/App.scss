@@ -665,7 +665,7 @@ html,body{
     justify-content:space-between;
 
     p{
-      font-size:1.3rem;
+      font-size:1.2rem;
       padding-top:8px;
       margin-bottom:10px;
     }
@@ -675,7 +675,7 @@ html,body{
       padding:10px 20px;
       border-radius:5px;
       border:none;
-      font-size:1rem;
+      font-size:1.3rem;
       transition:0.33s ease;
 
       &:hover{
@@ -734,7 +734,7 @@ html,body{
 @media screen and (max-width:500px){
   .footer-container{
     height:450px;
-  }
+  
   .footer{
     flex-direction:column;
     align-items:center;
@@ -744,17 +744,24 @@ html,body{
     width:100% !important;
     padding-bottom:10%;
     padding-top:5%;
+
+    .footer-CTA-button{
+    max-width:130px;
+    height:40px;
+    font-size:14px;
+    padding:0 10px;
+    text-align:center;
+    font-weight:500;
+    }
   }
   .footer-CTA-description{
     display:flex;
     width:100%;
+    flex-wrap:wrap;
     justify-content:space-around;
     align-items:center;
   }
-  .footer-CTA-button{
-    max-width:130px;
-    height:40px;
-  }
+  
   .copyright{
     display:none;
   }
@@ -768,4 +775,5 @@ html,body{
     padding:5% 0;
     color:#8898aa;
   }
+}
 }
