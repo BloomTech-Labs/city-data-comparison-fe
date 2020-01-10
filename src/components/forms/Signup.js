@@ -3,9 +3,8 @@ import React from 'react';
 //images
 import google from '../../assets/logos/google.svg'; 
 import facebook from '../../assets/logos/facebook.svg';
+import city from '../../assets/forms/nyc_signup_photo.png'; 
 
-//illustrations
-import girl from '../../assets/illustrations/girl_signup.svg'
 
 //styling
 import './forms.scss'; 
@@ -13,18 +12,26 @@ import './forms.scss';
 const Signup = props => {
     return(
         <div className='signup'>
-            <div className="form-container">
+           
                 <div className="inner-form">
                     <div className="form">
-                        <h2>Create Your Account</h2>
+                        <h2>Create your account</h2>
 
                         <div className="auth">
-                            <button id="signup-button" className="google"> <img className="google" src={google} alt="google logo"/>Sign up with Google</button>
-                            <button id="signup-button" className="facebook"><img className="fb" src={facebook} alt="facebook logo"/>Sign up with Facebook</button>
+                            <button id="auth-button" className="google">
+                                <img className="google" src={google} alt="google logo"/>
+                                <p className="button-text">Sign up with Google</p>
+                            </button>
+                            <button id="auth-button" className="facebook">
+                                <img className="fb" src={facebook} alt="facebook logo"/>
+                                <p className="button-text">Sign up with Facebook</p>
+                            </button>
                         </div>
                         
-                        <div className="center-text">
-                            <div> </div><p>or with email</p><div></div>
+                        <div className="centerText">
+                            <div className="line"></div>
+                            <p className="center">or with email</p>
+                            <div className="line"></div>
                         </div>
                         <div className="fields">
                             <input className="email" type='text' name='email' placeholder="Email"/>
@@ -41,13 +48,13 @@ const Signup = props => {
                     <div className="photo">
                         {/*photo*/}
 
-                        <img className="girl" src={girl} alt="girl illustration" />
+                        <img className="city" src={city} alt="Photo of city" />
 
                         
                     </div>
                 </div>
                 
-            </div>
+         
            
         </div>
     )

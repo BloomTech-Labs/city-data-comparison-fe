@@ -1,78 +1,64 @@
 import React, {useState, useEffect} from 'react';
 import {Bar} from 'react-chartjs-2';
-import {markerDummyData} from "../../map-components/data";
 
+export default function EducationGraph (props) {
 
-export default function BarGraph ({selected}){
-    const [data, setData] = useState({})
-  // console.log(selected, 'selected')
-    useEffect( () => {
-      let data = selected[0]
-      let labels = []
-      let amount = []
-      let backgroundColors = []
-      if (data){
-        let householdIncome = data["Rent"];
-        
-        
-        Object.keys(householdIncome).forEach(function (label) {
-          labels.push(label)
-          let value = householdIncome[label];
-          amount.push(value);
-          backgroundColors.push(  '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6))
-        });
-        
-        // console.log(labels);
-        // console.log(amount);
-        var newState = {
-          labels: [],
-          datasets:[
-            {
-              label:'%',
-              data: [],
-              backgroundColor:[
-             
-              ]
-            }
-          ]
-      }
-        // console.log(newState, 'new State')
-        newState.labels = labels
-        newState.datasets[0].data = amount
-        newState.datasets[0].backgroundColor = backgroundColors;
-        setData({chartData: newState})
+  const colorifier = lat => {
 
-      }
+    let arr = String(lat).replace(".","").split("");
 
-    },[selected])
-  
-  
-  
-  const defaultProps = {
-    displayTitle:true,
-    displayLegend: false,
-    legendPosition:'top',
-    location:'Population'
+    let num1 = arr.pop();
+    let num2 = arr.pop();
+    let num3 = arr.pop();
+
+    return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
   }
-    return (
-      <div className="chart">
+  
 
-        <Bar
-          data={data.chartData}
-          options={{
-            maintainAspectRatio:true,
-            title:{
-              display:defaultProps.displayTitle,
-              text:' % percentage of rent costs ',
-              fontSize:25
-            },
-            legend:{
-              display:defaultProps.displayLegend,
-              position:defaultProps.legendPosition
-            }
-          }}
-        />
-      </div>
+    return (
+      <div className="charts" >
+        
+          <div className="chart-container" style={{position: "relative", width: `100%`}}>
+            <Bar
+              data={{
+                labels: ["Less than $500",  "$500 - $999", "$1,000 - $1,499",  "$1,500 - $1,999", "$2,000 - $2,499", "$2,500 - $2,999", "$3,000 or more"],
+                datasets: props.edData.map( item => {
+                  
+                  return {
+                    label: item.name.replace(" city" , ""),
+                    data: [
+                      item["Rent"]["Less than $500"],
+                      item["Rent"]["$500 - $999"],
+                      item["Rent"]["$1,000 - $1,499"],
+                      item["Rent"]["$1,500 - $1,999"],
+                      item["Rent"]["$2,000 - $2,499"],
+                      item["Rent"]["$2,500 - $2,999"],
+                      item["Rent"]["$3,000 or more"]                    
+                      
+                    ],
+                    backgroundColor:
+                      colorifier(item.lat)
+                      
+
+                  }
+                })
+
+              }}
+              options={{
+                title:{
+                  display:true,
+                  text:'Rent',
+                  fontSize:25
+                },
+                legend:{
+                  display:true,
+                  position:"top",
+                }
+              }}
+            /> 
+          </div>
+        
+        </div>
     )
   }
   

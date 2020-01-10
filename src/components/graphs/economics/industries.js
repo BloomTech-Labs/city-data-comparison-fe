@@ -1,78 +1,70 @@
 import React, {useState, useEffect} from 'react';
 import {Bar} from 'react-chartjs-2';
-import {markerDummyData} from "../../map-components/data";
 
+export default function EducationGraph (props) {
 
-export default function BarGraph ({selected}){
-    const [data, setData] = useState({})
-  // console.log(selected, 'selected')
-    useEffect( () => {
-      let data = selected[0]
-      let labels = []
-      let amount = []
-      let backgroundColors = []
-      if (data){
-        let industry = data["Industry"];
-        
-        
-        Object.keys(industry).forEach(function (label) {
-          labels.push(label)
-          let value = industry[label];
-          amount.push(value);
-          backgroundColors.push(  '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6))
-        });
-        
-        // console.log(labels);
-        // console.log(amount);
-        var newState = {
-          labels: [],
-          datasets:[
-            {
-              label:'Population',
-              data: [],
-              backgroundColor:[
-             
-              ]
-            }
-          ]
-      }
-        // console.log(newState, 'new State')
-        newState.labels = labels
-        newState.datasets[0].data = amount
-        newState.datasets[0].backgroundColor = backgroundColors;
-        setData({chartData: newState})
+  const colorifier = lat => {
 
-      }
+    let arr = String(lat).replace(".","").split("");
 
-    },[selected])
-  
-  
-  
-  const defaultProps = {
-    displayTitle:true,
-    displayLegend: false,
-    legendPosition:'top',
-    location:'Population'
+    let num1 = arr.pop();
+    let num2 = arr.pop();
+    let num3 = arr.pop();
+
+    return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
   }
-    return (
-      <div className="chart">
+  
 
-        <Bar
-          data={data.chartData}
-          options={{
-            maintainAspectRatio:true,
-            title:{
-              display:defaultProps.displayTitle,
-              text:' Industries ',
-              fontSize:25
-            },
-            legend:{
-              display:defaultProps.displayLegend,
-              position:defaultProps.legendPosition
-            }
-          }}
-        />
-      </div>
+    return (
+      <div className="charts" >
+        
+          <div className="chart-container" style={{position: "relative", width: `100%`}}>
+            <Bar
+              data={{
+                labels: ["Agriculture forestry fishing and hunting and mining",  "Arts entertainment and recreation and accommodation and food services", "Construction","Educational services and health care and social assistance", "Finance and insurance and real estate and rental and leasing", "Information", "Manufacturing", "Other services except public administration" , "Professional scientific and management and administrative and waste management services" , "Public administration", "Retail trade", "Transportation and warehousing and utilities", "Wholesale trade"],
+                datasets: props.edData.map( item => {
+                  
+                  return {
+                    label: item.name.replace(" city" , ""),
+                    data: [
+                      item["Industry"]["Agriculture forestry fishing and hunting and mining"],
+                      item["Industry"]["Arts entertainment and recreation and accommodation and food services"],
+                      item["Industry"]["Construction"],
+                      item["Industry"]["Educational services and health care and social assistance"],
+                      item["Industry"]["Finance and insurance and real estate and rental and leasing"],
+                      item["Industry"]["Information"],
+                      item["Industry"]["Manufacturing"],
+                      item["Industry"]["Other services except public administration"],
+                      item["Industry"]["Professional scientific and management and administrative and waste management services"],
+                      item["Industry"]["Public administration"],
+                      item["Industry"]["Retail trade"],
+                      item["Industry"]["Transportation and warehousing and utilities"],
+                      item["Industry"]["Wholesale trade"],  
+                      
+                    ],
+                    backgroundColor:
+                      colorifier(item.lat)
+                      
+
+                  }
+                })
+
+              }}
+              options={{
+                title:{
+                  display:true,
+                  text:'Industry',
+                  fontSize:25
+                },
+                legend:{
+                  display:true,
+                  position:"top",
+                }
+              }}
+            /> 
+          </div>
+        
+        </div>
     )
   }
   
