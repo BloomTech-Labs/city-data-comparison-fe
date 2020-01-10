@@ -1,85 +1,78 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Bar} from 'react-chartjs-2';
 import {markerDummyData} from "../../map-components/data";
-export default class BarGraph extends Component{
-  componentDidMount(){
-    // console.log(markerDummyData)
-    let data = markerDummyData[0]
-    let labels = []
-    let amount = []
-    let backgroundColors = []
-    let Ethnicity = data["Ethnicity"];
 
-    
-    Object.keys(Ethnicity).forEach(function (label) {
-      labels.push(label)
-      let value = Ethnicity[label];
-      amount.push(value);
-    });
-    console.log(labels);
-    console.log(amount);
 
-   
-    var newState = {...this.state.chartData}
-    console.log(newState)
-    newState.labels = labels
-    newState.datasets[0].data = amount
-    // newState.datasets[0].backgroundColor = backgroundColors;
-    this.setState({chartData: newState})
-  }
-
-  constructor(props){
-    console.log(props);
-    super(props);
-    this.state = {
-      chartData: {
-        labels: [],
-        datasets:[
+export default function BarGraph ({selected}){
+    const [data, setData] = useState({})
+  // console.log(selected, 'selected')
+    useEffect( () => {
+      let data = selected[0]
+      let labels = []
+      let amount = []
+      let backgroundColors = []
+      if (data){
+        let ethnicity = data["Ethnicity"];
+        
+        
+        Object.keys(ethnicity).forEach(function (label) {
+          labels.push(label)
+          let value = ethnicity[label];
+          amount.push(value);
+          backgroundColors.push(  '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6))
+        });
+        
+        console.log(labels);
+        console.log(amount);
+        var newState = {
+          labels: [],
+          datasets:[
             {
-            fill: false,
-            label:'Population',
-            data: [],
-            backgroundColor:[
-                'rgba(7, 74, 23, 0.6)',
-                'rgba(235, 136, 52, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(153, 102, 255, 0.6)',
-                'rgba(13, 102, 25, 0.6)',
-                'rgba(15, 102, 555, 0.6)',
-                'rgba(202, 0, 42, 0.6)'
-                
-               
-            ]
-          }
-        ]
+              label:'Population',
+              data: [],
+              backgroundColor:[
+             
+              ]
+            }
+          ]
       }
-    }
-  }
-  static defaultProps = {
+        console.log(newState, 'new State')
+        newState.labels = labels
+        newState.datasets[0].data = amount
+        newState.datasets[0].backgroundColor = backgroundColors;
+        setData({chartData: newState})
+
+      }
+
+    },[selected])
+  
+  
+  
+  const defaultProps = {
     displayTitle:true,
-    displayLegend: true,
+    displayLegend: false,
     legendPosition:'top',
     location:'Population'
   }
-  render(){
     return (
       <div className="chart">
+
         <Bar
-          data={this.state.chartData}
+          data={data.chartData}
           options={{
             maintainAspectRatio:true,
             title:{
-              display:this.props.displayTitle,
-              text:' Ethnicities ',
+              display:defaultProps.displayTitle,
+              text:' Ethnicity ',
               fontSize:25
             },
             legend:{
-              display:this.props.displayLegend,
-              position:this.props.legendPosition
+              display:defaultProps.displayLegend,
+              position:defaultProps.legendPosition
             }
           }}
         />
       </div>
     )
   }
-  }
+  
