@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 
-const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, setViewport,toggleSelected}) => {
+const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, setViewport,selectSearch}) => {
 
 
     const [suggestions, setSuggestions] = useState([]);
@@ -13,9 +13,10 @@ const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, se
         setSearch(searchText)
     };
     
+    
     const chooseSuggestion = city => {
         setSearch(city.name.replace(" city", ""));
-        toggleSelected(city);
+        selectSearch(city);
         setSuggestions([]);
         setViewport({
             ...viewport,

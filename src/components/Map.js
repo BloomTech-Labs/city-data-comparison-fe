@@ -55,11 +55,20 @@ export default function Map() {
     }
 }
 
+const selectSearch = cityMarker =>  {
+  console.log(cityMarker);
+  if (selected.find(item => item === cityMarker)) {
+      return;
+  } else {
+      setSelected([...selected, cityMarker]);
+  }
+}
+
 
     const onSearch = e => {
       e.preventDefault();
-      const found = cityMarkers.find(item => item.city === search)
-      toggleSelected(found);
+      const found = cityMarkers.find(item => item.name.replace(" city", "") === search)
+      selectSearch(found);
       setViewport({
         ...viewport,
         longitude: found.lng,
@@ -93,6 +102,7 @@ export default function Map() {
               </MapWrapper>
             </div>
             <DataDisplay 
+              selectSearch={selectSearch}
               toggleSelected={toggleSelected}
               selected={selected}
               onSearch={onSearch}
