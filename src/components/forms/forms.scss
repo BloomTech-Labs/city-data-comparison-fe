@@ -100,6 +100,11 @@ span{
 
 
 
+    .fields{
+        width: 68%;
+        margin: auto;
+    }
+
     .question{
         font-size: .7rem;
         color: #7c7d80; 
@@ -107,7 +112,7 @@ span{
     }
 
     input{
-        border: 1px solid #3999fc; 
+        border: 1px solid #84868C; 
         border-radius: 20px; 
         width: 100%;
         padding: 4% 2%; 
