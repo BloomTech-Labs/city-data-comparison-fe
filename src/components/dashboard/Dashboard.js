@@ -208,12 +208,12 @@ function Dashboard(){
 
                {/* COMPARE CITIES FUNCTION */}
                <div className="dashboard-compare-container"
-                    data-aos="fade-right"
-                    data-aos-delay="50"
-                    data-aos-duration="1000"
-                    data-aos-easing="ease-in-out"
-                    data-aos-mirror="true"
-                    data-aos-once="true"
+                    // data-aos="fade-right"
+                    // data-aos-delay="50"
+                    // data-aos-duration="1000"
+                    // data-aos-easing="ease-in-out"
+                    // data-aos-mirror="true"
+                    // data-aos-once="true"
                >
                     <div className="dashboard-compare">
                          <h2>Don’t settle for less</h2>
@@ -223,7 +223,8 @@ function Dashboard(){
                                    <PlacesAutocomplete name="cityOne" value={cityOne} onChange={setCityOne} onSelect={handleCityOne}>
                                         {
                                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
-                                             <div>
+                                             <div className="compare-search-function">
+                                                  <label className="compare-address-label">Address 1</label>
                                                   <input {...getInputProps({placeholder: "Type address"})} />
                                                   <div>
                                                        {loading ? <div>...loading</div> : null}
@@ -241,12 +242,13 @@ function Dashboard(){
                                         }
                                    </PlacesAutocomplete>
 
-                                   <span className="versus">vs.</span>
+                                   {/* <span className="versus">vs.</span> */}
 
                                    <PlacesAutocomplete name="cityTwo" value={cityTwo} onChange={setCityTwo} onSelect={handleCityTwo}>
                                         {
                                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
-                                             <div>
+                                             <div className="compare-search-function">
+                                                  <label className="compare-address-label">Address 2</label>
                                                   <input {...getInputProps({placeholder: "Type address"})}/>
                                                   <div>
                                                        {loading ? <div>...loading</div> : null}
@@ -264,13 +266,13 @@ function Dashboard(){
                                         }
                                    </PlacesAutocomplete>
                                    <button
-                                        data-aos="zoom-in"
-                                        data-aos-offset="200"
-                                        data-aos-delay="50"
-                                        data-aos-duration="1000"
-                                        data-aos-easing="ease-in-out"
-                                        data-aos-mirror="true"
-                                        data-aos-once="true"
+                                        // data-aos="zoom-in"
+                                        // data-aos-offset="200"
+                                        // data-aos-delay="50"
+                                        // data-aos-duration="1000"
+                                        // data-aos-easing="ease-in-out"
+                                        // data-aos-mirror="true"
+                                        // data-aos-once="true"
                                    >
                                         Compare
                                    </button>

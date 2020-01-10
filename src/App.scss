@@ -439,14 +439,17 @@ html,body{
   align-items:center;
   justify-content:center;
   margin:5% 0;
-  border:1px solid red;
+  // border:1px solid red;
   
   .dashboard-compare{
     margin:0 auto;
     max-width:800px;
     width:100%;
-    border:1px solid blue;
+    // border:1px solid blue;
     padding:3% 5%;
+  }
+  .compare-address-label{
+    border:1px solid red;
   }
   input{
     background-color: #f7f9f9;
@@ -463,7 +466,7 @@ html,body{
   button{
     font-size:1rem;
     padding:10px 35px;
-    border-radius:10px;
+    border-radius:5px;
     background-color:#e5941e;
     border:none;
     color:white;
