@@ -13,7 +13,7 @@ const Login = props => {
            
            <div className="inner-form">
                <div className="form">
-                   <h2>Create your account</h2>
+                   <h2>Welcome Back!</h2>
 
                    <div className="auth">
                        <button id="auth-button" className="google">
