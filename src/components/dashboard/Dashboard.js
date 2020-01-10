@@ -66,7 +66,7 @@ function Dashboard(){
                     <div className="slanted-san-francisco"></div>
                     {/* <div className="slanted-blue-one"></div> */}
                     <div className="search-function"
-                         data-aos="fade-up"
+                         data-aos="fade-down"
                          data-aos-offset="200"
                          data-aos-delay="50"
                          data-aos-duration="1000"
@@ -116,35 +116,37 @@ function Dashboard(){
 
                {/* PRODUCT FEATURES */}
                <div className="dashboard-features-container">
-                    <div className="feature-descriptions"
-                         data-aos="fade-right"
-                         data-aos-offset="200"
-                         data-aos-delay="50"
-                         data-aos-duration="1000"
-                         data-aos-easing="ease-in-out"
-                         data-aos-mirror="true"
-                         data-aos-once="true"
+                    <div className="feature-descriptions-container"
+                         // data-aos="fade-right"
+                         // data-aos-offset="200"
+                         // data-aos-delay="50"
+                         // data-aos-duration="1000"
+                         // data-aos-easing="ease-in-out"
+                         // data-aos-mirror="true"
+                         // data-aos-once="true"
                     >
-                         <h3>Control of data</h3>
-                         <img className="feature-images money" src={control} alt="money" />
-                         <p className="feature-title">Control of data</p>
-                         <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
+                         <img className="feature-images" src={control} alt="money" />
+                         <div className="feature-descriptions">
+                              <p className="feature-title">Control of data</p>
+                              <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
+                         </div>
                     </div>
-                    <div className="feature-descriptions"
-                         data-aos="fade-up"
-                         data-aos-offset="200"
-                         data-aos-delay="50"
-                         data-aos-duration="1000"
-                         data-aos-easing="ease-in-out"
-                         data-aos-mirror="true"
-                         data-aos-once="true"
+                    <div className="feature-descriptions-container"
+                         // data-aos="fade-up"
+                         // data-aos-offset="200"
+                         // data-aos-delay="50"
+                         // data-aos-duration="1000"
+                         // data-aos-easing="ease-in-out"
+                         // data-aos-mirror="true"
+                         // data-aos-once="true"
                     >
-                         <img className="feature-images map" src={data} alt="map"/>
-                         <h3>Map View</h3>
-                         <p className="feature-title">Map View</p>
-                         <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
+                         <img className="feature-images" src={data} alt="map"/>
+                         <div className="feature-descriptions">
+                              <p className="feature-title">Map View</p>
+                              <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
+                         </div>
                     </div>
-                    <div className="feature-descriptions"
+                    <div className="feature-descriptions-container"
                          // data-aos="fade-left"
                          // data-aos-offset="200"
                          // data-aos-delay="50"
@@ -153,11 +155,11 @@ function Dashboard(){
                          // data-aos-mirror="true"
                          // data-aos-once="true"
                     >
-                         <img className="feature-images dataVisual" src={location} alt="data visual"/>
-                         <h3>Visualize Data</h3>
-                         <p className="feature-title">Visualize Data</p>
-                         <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
-
+                         <img className="feature-images" src={location} alt="data visual"/>
+                         <div className="feature-descriptions">
+                              <p className="feature-title">Visualize Data</p>
+                              <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
+                         </div>
                     </div>
                </div>
 
@@ -166,34 +168,34 @@ function Dashboard(){
                     <h2 className="metrics-title">Visualizing data made easier</h2>
                     <div className="dashboard-metrics">
                          <div className="metrics-description-container"
-                              data-aos="fade-up"
-                              data-aos-delay="150"
-                              data-aos-duration="1000"
-                              data-aos-easing="ease-in-out"
-                              data-aos-mirror="true"
-                              data-aos-once="true"
+                              // data-aos="fade-up"
+                              // data-aos-delay="150"
+                              // data-aos-duration="1000"
+                              // data-aos-easing="ease-in-out"
+                              // data-aos-mirror="true"
+                              // data-aos-once="true"
                          >
                               <img src={graph} alt="living cost graph" />
                               <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
-                              data-aos="fade-up"
-                              data-aos-delay="350"
-                              data-aos-duration="1000"
-                              data-aos-easing="ease-in-out"
-                              data-aos-mirror="true"
-                              data-aos-once="true"
+                              // data-aos="fade-up"
+                              // data-aos-delay="350"
+                              // data-aos-duration="1000"
+                              // data-aos-easing="ease-in-out"
+                              // data-aos-mirror="true"
+                              // data-aos-once="true"
                          >
                               <img src={graph} alt="living cost graph" />
                               <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
-                              data-aos="fade-up"
-                              data-aos-delay="550"
-                              data-aos-duration="1000"
-                              data-aos-easing="ease-in-out"
-                              data-aos-mirror="true"
-                              data-aos-once="true"
+                              // data-aos="fade-up"
+                              // data-aos-delay="550"
+                              // data-aos-duration="1000"
+                              // data-aos-easing="ease-in-out"
+                              // data-aos-mirror="true"
+                              // data-aos-once="true"
                          >
 
                               <img src={graph} alt="living cost graph" />
@@ -206,12 +208,12 @@ function Dashboard(){
 
                {/* COMPARE CITIES FUNCTION */}
                <div className="dashboard-compare-container"
-                    data-aos="fade-right"
-                    data-aos-delay="50"
-                    data-aos-duration="1000"
-                    data-aos-easing="ease-in-out"
-                    data-aos-mirror="true"
-                    data-aos-once="true"
+                    // data-aos="fade-right"
+                    // data-aos-delay="50"
+                    // data-aos-duration="1000"
+                    // data-aos-easing="ease-in-out"
+                    // data-aos-mirror="true"
+                    // data-aos-once="true"
                >
                     <div className="dashboard-compare">
                          <h2>Don’t settle for less</h2>
@@ -221,8 +223,9 @@ function Dashboard(){
                                    <PlacesAutocomplete name="cityOne" value={cityOne} onChange={setCityOne} onSelect={handleCityOne}>
                                         {
                                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
-                                             <div>
-                                                  <input {...getInputProps({placeholder: "Type address"})} />
+                                             <div className="compare-search-function">
+                                                  {/* <label className="compare-address-label">Address 1</label> */}
+                                                  <input {...getInputProps({placeholder: "City One"})} />
                                                   <div>
                                                        {loading ? <div>...loading</div> : null}
 
@@ -239,13 +242,14 @@ function Dashboard(){
                                         }
                                    </PlacesAutocomplete>
 
-                                   <span className="versus">vs.</span>
+                                   {/* <span className="versus">vs.</span> */}
 
                                    <PlacesAutocomplete name="cityTwo" value={cityTwo} onChange={setCityTwo} onSelect={handleCityTwo}>
                                         {
                                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
-                                             <div>
-                                                  <input {...getInputProps({placeholder: "Type address"})}/>
+                                             <div className="compare-search-function">
+                                                  {/* <label className="compare-address-label">Address 2</label> */}
+                                                  <input {...getInputProps({placeholder: "City Two"})}/>
                                                   <div>
                                                        {loading ? <div>...loading</div> : null}
 
@@ -262,13 +266,13 @@ function Dashboard(){
                                         }
                                    </PlacesAutocomplete>
                                    <button
-                                        data-aos="zoom-in"
-                                        data-aos-offset="200"
-                                        data-aos-delay="50"
-                                        data-aos-duration="1000"
-                                        data-aos-easing="ease-in-out"
-                                        data-aos-mirror="true"
-                                        data-aos-once="true"
+                                        // data-aos="zoom-in"
+                                        // data-aos-offset="200"
+                                        // data-aos-delay="50"
+                                        // data-aos-duration="1000"
+                                        // data-aos-easing="ease-in-out"
+                                        // data-aos-mirror="true"
+                                        // data-aos-once="true"
                                    >
                                         Compare
                                    </button>
