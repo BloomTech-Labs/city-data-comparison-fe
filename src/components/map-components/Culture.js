@@ -3,7 +3,7 @@ import {Route} from "react-router-dom";
 
 import BarGraph from "../graphs/culture/AgeDistrubution";
 import EthnicityGraph from "../graphs/culture/EthnicityGraph";
-import Population from "../graphs/culture/PopulationGrowth";
+import Population from "../graphs/culture/PopulationGraph";
 
 import EducationGraph from "../graphs/EducationGraph";
 
