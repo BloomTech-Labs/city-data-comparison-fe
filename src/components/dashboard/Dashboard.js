@@ -249,7 +249,7 @@ function Dashboard(){
                                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
                                              <div className="compare-search-function">
                                                   {/* <label className="compare-address-label">Address 2</label> */}
-                                                  <input {...getInputProps({placeholder: "Ciy Two"})}/>
+                                                  <input {...getInputProps({placeholder: "City Two"})}/>
                                                   <div>
                                                        {loading ? <div>...loading</div> : null}
 
