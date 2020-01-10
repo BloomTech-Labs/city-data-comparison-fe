@@ -24,14 +24,14 @@ function Footer(){
                          </div>
                          <div className="footer-categories">
                               <h3 className="footer-title">Company</h3>
-                              <a href="/">Meet the Team</a>
-                              <a href="/">About Us</a>
+                              <a href="/aboutus">Meet the Team</a>
+                              <a href="/aboutus">About Us</a>
                               <a href="/">Contact Us</a>
                          </div>
                          <div className="footer-categories">
                               <h3 className="footer-title">Resources</h3>
                               <a href="/">Data Sources</a>
-                              <a href="/">Private Policy</a>
+                              <a href="/privacypolicy">Privacy Policy</a>
                               <a href="/">Terms of Use</a>
                          </div>
                     </div>

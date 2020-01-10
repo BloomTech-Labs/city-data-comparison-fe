@@ -11,7 +11,7 @@ import SafetyNav from "./subnavs/CultureNav";
 
 import deleteIcon from "./icons/close_red.png";
 
-const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport}) => {
+const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
 
     const [menu, setMenu] = useState({status: 'closed'})
 
@@ -48,7 +48,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         search={search}
                         viewport={viewport}
                         setViewport={setViewport}  
-                        toggleSelected={toggleSelected} 
+                        selectSearch={selectSearch}
                     />
                 </div>
 

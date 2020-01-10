@@ -5,7 +5,7 @@
 /* this is the map container */
 .main-map {
     margin: 0 auto;
-    padding-top:68px;
+    padding-top:95px;
     margin-bottom:20px;
     max-width:90%;
 }
@@ -36,18 +36,28 @@
     .data-nav {
         display:flex;
         flex-direction:column;
-        justify-content:space-between;
+        justify-content:flex-start;
         color:white;
         padding:0;
-        width:25%;
-        height: 20%;
-        align-items: flex-start;
+        width: 20%;
+        min-height:40vh;
+        background:#041734;
+        @media only screen and (max-width: 600px) {
+            background: #04173400;
+            align-items: flex-start;
+            justify-content:space-between;
+            height: 100%;
+            width: 30%;
+        }
 
+        .slider {
+            width: 100%;
+        }
         //Side Nav Styling setup for mobile
 
         //styling for menu slide out
-
         .slider.closed {
+            @media only screen and (max-width: 600px) {
             display:flex;
             flex-direction: column;
             background:#041734;
@@ -55,19 +65,23 @@
             -webkit-transform: translateX(-200px) translate(-6px, -6px);
                 transform: translateX(-200px) translate(-6px, -6px);
             transition: 0.5s;
-            
+            }
         }
 
         .slider.open {
+            @media only screen and (max-width: 600px) {
             display:flex;
             flex-direction: column;
             background:#041734;
             width: 100%;
             transition: 0.5s;
+            }
         }
 
         .top-menu{
+            @media only screen and (max-width: 600px) {
             display:flex;
+            }
         }
 
         .search-bar.open{
@@ -188,7 +202,7 @@
         .data-nav-top {
             display:flex;
             flex-direction:column;
-            height:300px;
+            height:100%;
             width:100%; 
         }
 

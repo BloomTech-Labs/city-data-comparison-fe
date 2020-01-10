@@ -191,7 +191,7 @@ html,body{
       font-size: 16px;
       border: 1.3px solid #2e2f38;
       border-radius:3px;
-      margin-right:2rem;
+      // margin-right:2rem;
     }
 
     .dropdown {
@@ -341,7 +341,7 @@ html,body{
   .feature-descriptions-container{
     width:29%;
     display:flex;
-    align-items:start;
+    align-items:flex-start;
   }
   .feature-descriptions{
     line-height:1.5;
