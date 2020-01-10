@@ -24,6 +24,7 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
                     {/* <Link className='map-marker' to={`/map/${cityMarker.city}${cityMarker.state_id}`}> */}
                   <div
                     onClick={() => toggleSelected(cityMarker)} 
+                    // these events are to control state when a marker is hovered over
                     onMouseOver={(e) => (Number.isNaN(parseFloat(e.target.getAttribute("latitude"))) || setPopState({...popState, lat:parseFloat(e.target.getAttribute("latitude")), lng:parseFloat(e.target.getAttribute("longitude")),
                     posleft:e.target.getBoundingClientRect().left, postop:e.target.getBoundingClientRect().top, display:'block', city:`${cityMarker.city}, ${cityMarker.state_id}`, animate:true}))}
                     onMouseLeave={(e) => (setPopState({...popState, display:'none', animate:false}))}
@@ -36,6 +37,7 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
               </Marker>
               );
         })}
+        {/* passing state to PopupMap.js */}
         <PopupMap lat={popState.lat} lng={popState.lng} posleft={popState.posleft} postop={popState.postop} display={popState.display} city={popState.city} animate={popState.animate}/>
       </div>
   );

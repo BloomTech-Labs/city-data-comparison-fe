@@ -13,6 +13,7 @@ export const SelectedMapWrapper = styled.div`
         transition:'left 2s, top 2s'
     `;
 
+// these props come from Marker.js when a marker is moused over
 const PopupMap = (props) => {
 
     const [selectedViewport, setSelectedViewport] = useState({
@@ -24,6 +25,7 @@ const PopupMap = (props) => {
         trackResize: false
     });
 
+    // if anyone knows if it's not necesary to pass a state array into mapbox viewport I'd like to know
     useEffect(() => {
             setSelectedViewport({
                 ...selectedViewport,
@@ -36,9 +38,12 @@ const PopupMap = (props) => {
         <div className="popupmapparent">
             <SelectedMapWrapper className="popupmap" id="popupmap"
                 style={{
-                    left:`${props.posleft + 25 < document.documentElement.clientWidth - document.documentElement.clientHeight * 0.25 ? props.posleft+20 : props.posleft - (document.documentElement.clientHeight * 0.25 + 20)}px`, 
-                    top:`${props.postop+20}px`, 
-                    display:`block`, 
+                    display:`block`,
+                    // this long ternary is to ensure the popupmap doesn't go offscreen
+                    left:`${props.posleft + 25 < document.documentElement.clientWidth - document.documentElement.clientHeight * 0.25 ? props.posleft + 20 : props.posleft - (document.documentElement.clientHeight * 0.25 + 20)}px`, 
+                    // this styling is all conditional based on if a marker is being hovered over
+                    top:`${props.postop+20}px`,  
+                    // the ternary on the transition is to transition away quickly so it's ready to fire again
                     transition:`${props.animate ? 'height .5s .5s, width .5s' : 'height .01s, width .01s'}`, 
                     zIndex:`${props.animate ? '999':'-1'}`, 
                     height:`${props.animate ? '45vh':'1vh'}`,  
@@ -46,6 +51,8 @@ const PopupMap = (props) => {
                 }}    
             >
             <span
+                // this styling is also based on hover 
+                // the ternary on the transition is to transition away quickly so it's ready to fire again
                 style={{opacity:`${props.animate ? '1':'0'}`, transition: `${props.animate ? 'opacity .5s .5s' : 'opacity .01s'}`}}
             >
                 {props.city}
