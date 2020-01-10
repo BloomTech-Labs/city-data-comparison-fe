@@ -21,19 +21,23 @@ export default function EducationGraph (props) {
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
             <Bar
               data={{
-                labels: ["Drives Alone",  "Carpools", "Public Transport",  "Other transport", "Walks", "Works at home"],
+                labels: [ "Less than $10,000", "$10,000 - $14,999",  "$15,000 - $24,999", "$25,000 - $34,999",  "$35,000 - $49,999", "$50,000 - $74,999", "$75,000 - $99,999", "$100,000 - $149,999", "$150,000 - $199,999", "$200,000 or more" ],
                 datasets: props.edData.map( item => {
                   
                   return {
                     label: item.name.replace(" city" , ""),
                     data: [
-                      item["Commuting to Work"]["Drives Alone"],
-                      item["Commuting to Work"]["Carpools"],
-                      item["Commuting to Work"]["Public Transport"],
-                      item["Commuting to Work"]["Other transport"],
-                      item["Commuting to Work"]["Walks"],
-                      item["Commuting to Work"]["Works at home"],
-                                         
+                      item["Household Income"]["Less than $10,000"],
+                      item["Household Income"]["$10,000 - $14,999"],
+                      item["Household Income"]["$15,000 - $24,999"],
+                      item["Household Income"]["$25,000 - $34,999"],
+                      item["Household Income"]["$35,000 - $49,999"],
+                      item["Household Income"]["$50,000 - $74,999"],
+                      item["Household Income"]["$75,000 - $99,999"],
+                      item["Household Income"]["$100,000 - $149,999"],
+                      item["Household Income"]["$150,000 - $199,999"],
+                      item["Household Income"]["$200,000 or more"]
+                          
                       
                     ],
                     backgroundColor:
@@ -47,7 +51,7 @@ export default function EducationGraph (props) {
               options={{
                 title:{
                   display:true,
-                  text:'Commute',
+                  text:'Household Income',
                   fontSize:25
                 },
                 legend:{
