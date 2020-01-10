@@ -191,7 +191,7 @@ html,body{
       font-size: 16px;
       border: 1.3px solid #2e2f38;
       border-radius:3px;
-      // margin-right:2rem;
+      margin-right:20px;
     }
 
     .dropdown {
@@ -367,7 +367,7 @@ html,body{
     flex-direction:column;
 
     .feature-descriptions-container{
-      margin: 5% auto;
+      margin: 7% auto;
       align-items:center;
       align-content:space-between;
       width:75%;
@@ -376,8 +376,8 @@ html,body{
       margin-left:20px;
     }
     .feature-images{
-      width:70px;
-      height:70px;
+      width:65px;
+      height:65px;
       width:50%;
     }
   }
@@ -417,6 +417,9 @@ html,body{
   .metrics-description{
     line-height:1.5;
   }
+}
+@media screen and (max-width:500px){
+
 }
 
 
