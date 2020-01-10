@@ -116,7 +116,7 @@ function Dashboard(){
 
                {/* PRODUCT FEATURES */}
                <div className="dashboard-features-container">
-                    <div className="feature-descriptions"
+                    <div className="feature-descriptions-container"
                          data-aos="fade-right"
                          data-aos-offset="200"
                          data-aos-delay="50"
@@ -125,11 +125,13 @@ function Dashboard(){
                          data-aos-mirror="true"
                          data-aos-once="true"
                     >
-                         <img className="feature-images money" src={control} alt="money" />
-                         <p className="feature-title">Control of data</p>
-                         <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
+                         <img className="feature-images" src={control} alt="money" />
+                         <div className="feature-descriptions">
+                              <p className="feature-title">Control of data</p>
+                              <p>Explore cost of living and other data of a single city or compare multiple cities to learn about differences.</p>
+                         </div>
                     </div>
-                    <div className="feature-descriptions"
+                    <div className="feature-descriptions-container"
                          data-aos="fade-up"
                          data-aos-offset="200"
                          data-aos-delay="50"
@@ -138,11 +140,13 @@ function Dashboard(){
                          data-aos-mirror="true"
                          data-aos-once="true"
                     >
-                         <img className="feature-images map" src={data} alt="map"/>
-                         <p className="feature-title">Map View</p>
-                         <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
+                         <img className="feature-images" src={data} alt="map"/>
+                         <div className="feature-descriptions">
+                              <p className="feature-title">Map View</p>
+                              <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
+                         </div>
                     </div>
-                    <div className="feature-descriptions"
+                    <div className="feature-descriptions-container"
                          // data-aos="fade-left"
                          // data-aos-offset="200"
                          // data-aos-delay="50"
@@ -151,10 +155,11 @@ function Dashboard(){
                          // data-aos-mirror="true"
                          // data-aos-once="true"
                     >
-                         <img className="feature-images dataVisual" src={location} alt="data visual"/>
-                         <p className="feature-title">Visualize Data</p>
-                         <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
-
+                         <img className="feature-images" src={location} alt="data visual"/>
+                         <div className="feature-descriptions">
+                              <p className="feature-title">Visualize Data</p>
+                              <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
+                         </div>
                     </div>
                </div>
 

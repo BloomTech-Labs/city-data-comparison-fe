@@ -362,6 +362,38 @@ html,body{
     margin:0;
   }
 }
+@media screen and (max-width:500px){
+  .dashboard-features-container{
+    border:1px solid blue;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    flex-direction:column;
+
+    .feature-descriptions-container{
+      padding-right:5%;
+      margin: 5% auto;
+      width:100%;
+      border:1px solid red;
+      align-items:center;
+      width:100%;
+      height:auto;
+    }
+    .feature-descriptions{
+      border:1px solid yellow;
+      margin-left:0;
+    }
+    .feature-images{
+      width:100%;
+      border:1px solid black;
+    }
+
+    .feauture-title{
+
+    }
+  }
+}
+
+
 
 //* Dashboard Data Metrics Styling
 .dashboard-metrics-container{
@@ -396,37 +428,7 @@ html,body{
     line-height:1.5;
   }
 }
-@media screen and (max-width:500px){
-  .dashboard-features-container{
-    // border:1px solid blue;
-    flex-wrap:nowrap;
-    justify-content:space-between;
-    flex-direction:column;
 
-    .feature-descriptions-container{
-      padding-right:5%;
-      margin: 5% auto;
-      width:100%;
-    }
-
-    .feature-images{
-      width:50%;
-    }
-  }
-  .dashboard-features-container .feature-descriptions-container{
-    // border:1px solid red;
-    align-items:center;
-    width:100%;
-    height:auto;
-  }
-  .feature-descriptions{
-    // border:1px solid yellow;
-    margin-left:0 !important;
-  }
-  .feature-images{
-    // border:1px solid black;
-  }
-}
 
 //* Dashboard Compare Function Styling
 .dashboard-compare-container{
