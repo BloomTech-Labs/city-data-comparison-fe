@@ -53,12 +53,10 @@ function Navigation(){
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
                <nav className = {displayNav}>
-                    <a href="google.com">Link A</a>
+                    {/* <a href="google.com">Link A</a> */}
                     <Link to="/map">Map</Link>
                     <Link to="/login">Log In</Link>
                     <Link to="/signup">Sign Up</Link>
-                    {/* <a id="noUnderline" href='https://www.lambdaschool.com/'><button className="sign-up-btn">Log In</button></a>
-                    <a id="noUnderline" href='https://www.lambdaschool.com/'><button className="sign-up-btn">Try it Free</button></a> */}
                </nav> 
 
                {/* <!-- Dropdown Menu  --> */}

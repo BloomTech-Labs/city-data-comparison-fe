@@ -66,7 +66,7 @@ function Dashboard(){
                     <div className="slanted-san-francisco"></div>
                     {/* <div className="slanted-blue-one"></div> */}
                     <div className="search-function"
-                         data-aos="fade-up"
+                         data-aos="fade-down"
                          data-aos-offset="200"
                          data-aos-delay="50"
                          data-aos-duration="1000"
@@ -117,13 +117,13 @@ function Dashboard(){
                {/* PRODUCT FEATURES */}
                <div className="dashboard-features-container">
                     <div className="feature-descriptions-container"
-                         data-aos="fade-right"
-                         data-aos-offset="200"
-                         data-aos-delay="50"
-                         data-aos-duration="1000"
-                         data-aos-easing="ease-in-out"
-                         data-aos-mirror="true"
-                         data-aos-once="true"
+                         // data-aos="fade-right"
+                         // data-aos-offset="200"
+                         // data-aos-delay="50"
+                         // data-aos-duration="1000"
+                         // data-aos-easing="ease-in-out"
+                         // data-aos-mirror="true"
+                         // data-aos-once="true"
                     >
                          <img className="feature-images" src={control} alt="money" />
                          <div className="feature-descriptions">
@@ -132,13 +132,13 @@ function Dashboard(){
                          </div>
                     </div>
                     <div className="feature-descriptions-container"
-                         data-aos="fade-up"
-                         data-aos-offset="200"
-                         data-aos-delay="50"
-                         data-aos-duration="1000"
-                         data-aos-easing="ease-in-out"
-                         data-aos-mirror="true"
-                         data-aos-once="true"
+                         // data-aos="fade-up"
+                         // data-aos-offset="200"
+                         // data-aos-delay="50"
+                         // data-aos-duration="1000"
+                         // data-aos-easing="ease-in-out"
+                         // data-aos-mirror="true"
+                         // data-aos-once="true"
                     >
                          <img className="feature-images" src={data} alt="map"/>
                          <div className="feature-descriptions">
@@ -168,34 +168,34 @@ function Dashboard(){
                     <h2 className="metrics-title">Visualizing data made easier</h2>
                     <div className="dashboard-metrics">
                          <div className="metrics-description-container"
-                              data-aos="fade-up"
-                              data-aos-delay="150"
-                              data-aos-duration="1000"
-                              data-aos-easing="ease-in-out"
-                              data-aos-mirror="true"
-                              data-aos-once="true"
+                              // data-aos="fade-up"
+                              // data-aos-delay="150"
+                              // data-aos-duration="1000"
+                              // data-aos-easing="ease-in-out"
+                              // data-aos-mirror="true"
+                              // data-aos-once="true"
                          >
                               <img src={graph} alt="living cost graph" />
                               <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
-                              data-aos="fade-up"
-                              data-aos-delay="350"
-                              data-aos-duration="1000"
-                              data-aos-easing="ease-in-out"
-                              data-aos-mirror="true"
-                              data-aos-once="true"
+                              // data-aos="fade-up"
+                              // data-aos-delay="350"
+                              // data-aos-duration="1000"
+                              // data-aos-easing="ease-in-out"
+                              // data-aos-mirror="true"
+                              // data-aos-once="true"
                          >
                               <img src={graph} alt="living cost graph" />
                               <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
-                              data-aos="fade-up"
-                              data-aos-delay="550"
-                              data-aos-duration="1000"
-                              data-aos-easing="ease-in-out"
-                              data-aos-mirror="true"
-                              data-aos-once="true"
+                              // data-aos="fade-up"
+                              // data-aos-delay="550"
+                              // data-aos-duration="1000"
+                              // data-aos-easing="ease-in-out"
+                              // data-aos-mirror="true"
+                              // data-aos-once="true"
                          >
 
                               <img src={graph} alt="living cost graph" />
