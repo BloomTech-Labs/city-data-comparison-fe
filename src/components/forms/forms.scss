@@ -12,8 +12,7 @@ span{
 .signup{
     width: 100%; 
     font-family: 'Rubik', sans-serif;
-    //margin-top: 10%; 
-    //background: linear-gradient(90deg, #dfe3fe 42%, #5d73fa 42%);
+    
 
     .inner-form{
         margin: 5%;
@@ -78,23 +77,25 @@ span{
     .centerText{
         display:flex; 
         align-items: center;
-
+        width: 66%;
+        margin: auto;
         
     
     }
 
     .center{
-        font-size: .5rem;
+        font-size: .7rem;
         color: #7c7d80; 
-        width: 50%; 
+        width: 41%; 
+        text-align: center;
         
     }
 
     .line{
         border:.25px solid #d4d6d7; 
-        height: .5px; 
-        width: 25%; 
-        margin: 0 1%; 
+        height: 1px;
+        width: 64%;
+         
     }
 
 
