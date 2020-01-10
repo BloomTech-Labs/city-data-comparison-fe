@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Line} from 'react-chartjs-2';
 
-export default function EthnicityGraph({selected}) {
+export default function PopGrowthGraph({selected}) {
     const [labels, setLabels] = useState([])
 
 
