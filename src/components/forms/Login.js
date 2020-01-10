@@ -1,5 +1,9 @@
 import React from 'react'; 
 
+
+//images
+import google from '../../assets/logos/google.svg'; 
+import facebook from '../../assets/logos/facebook.svg';
 const Login = props => {
     return(
         <div className="login">
