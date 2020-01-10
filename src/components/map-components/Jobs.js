@@ -11,9 +11,9 @@ const Jobs = ({selected}) => {
 
             {selected.map(item => <h3 key={item._id}>{item.name.replace(" city" , "")}</h3>)}
             
-            <Route path="/map/jobs/employment" component={Industry}/>
-            <Route path="/map/jobs/salary" component={Commute}/>
-            <Route path="/map/jobs/sectors" component={FoodStamp}/> 
+            <Route path="/map/jobs/employment" component={() => <Commute selected = {selected} />} />
+            <Route path="/map/jobs/salary" component={() => <Industry selected = {selected} />} />
+            <Route path="/map/jobs/sectors" component={() => <FoodStamp selected = {selected} />} />
         </div>
     );
   };
