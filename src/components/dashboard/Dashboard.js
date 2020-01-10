@@ -224,8 +224,8 @@ function Dashboard(){
                                         {
                                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
                                              <div className="compare-search-function">
-                                                  <label className="compare-address-label">Address 1</label>
-                                                  <input {...getInputProps({placeholder: "Type address"})} />
+                                                  {/* <label className="compare-address-label">Address 1</label> */}
+                                                  <input {...getInputProps({placeholder: "City One"})} />
                                                   <div>
                                                        {loading ? <div>...loading</div> : null}
 
@@ -248,8 +248,8 @@ function Dashboard(){
                                         {
                                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
                                              <div className="compare-search-function">
-                                                  <label className="compare-address-label">Address 2</label>
-                                                  <input {...getInputProps({placeholder: "Type address"})}/>
+                                                  {/* <label className="compare-address-label">Address 2</label> */}
+                                                  <input {...getInputProps({placeholder: "Ciy Two"})}/>
                                                   <div>
                                                        {loading ? <div>...loading</div> : null}
 

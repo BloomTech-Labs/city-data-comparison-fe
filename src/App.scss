@@ -336,6 +336,21 @@ html,body{
       padding:30px 30px;
   }
 }
+@media screen and (max-width:500px){
+  .search-function{
+    input{
+        width:100%;
+      }
+      .search-city-button{
+        width:100%;
+        margin-left:0;
+        margin-top:10px;
+      }
+      .compare-cities-button{
+        width:90%;
+      }
+  }
+}
 
 
 //* Dashboard Features Styling
@@ -448,8 +463,19 @@ html,body{
     // border:1px solid blue;
     padding:3% 5%;
   }
-  .compare-address-label{
+  .compare-search-function{
     border:1px solid red;
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+    margin-bottom:10px;
+  }
+  .compare-address-label{
+    // border:1px solid red;
+    margin-right:10px;
+    font-size:1rem;
+    font-weight:600;
+    margin-bottom:5px;
   }
   input{
     background-color: #f7f9f9;
@@ -482,6 +508,7 @@ html,body{
     width:100%;
     display:flex;
     justify-content:space-between;
+    border:1px solid green;
   }
   .versus{
     margin:0 15px;
