@@ -1,79 +1,78 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Bar} from 'react-chartjs-2';
 import {markerDummyData} from "../../map-components/data";
 
-export default class BarGraph extends Component{
-  componentDidMount(){
-    // console.log(markerDummyData)
-    let data = markerDummyData[0]
-    let labels = []
-    let amount = []
-    let backgroundColors = []
-    let house_price = data["Rent"];
-    Object.keys(house_price).forEach(function (label) {
-      labels.push(label)
-      let value = house_price[label];
-      amount.push(value);
-      backgroundColors.push(  '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6))
 
-    });
-    console.log(labels);
-    console.log(amount);
-
-   
-    var newState = {...this.state.chartData}
-    console.log(newState)
-    newState.labels = labels
-    newState.datasets[0].data = amount
-    newState.datasets[0].backgroundColor = backgroundColors;
-    this.setState({chartData: newState})
-  }
-
-  constructor(props){
-    console.log(props, 'props are below heer');
-    super(props);
-    this.state = {
-      chartData: {
-        labels: [],
-        datasets:[
+export default function BarGraph ({selected}){
+    const [data, setData] = useState({})
+  // console.log(selected, 'selected')
+    useEffect( () => {
+      let data = selected[0]
+      let labels = []
+      let amount = []
+      let backgroundColors = []
+      if (data){
+        let householdIncome = data["Rent"];
+        
+        
+        Object.keys(householdIncome).forEach(function (label) {
+          labels.push(label)
+          let value = householdIncome[label];
+          amount.push(value);
+          backgroundColors.push(  '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6))
+        });
+        
+        console.log(labels);
+        console.log(amount);
+        var newState = {
+          labels: [],
+          datasets:[
             {
-            fill: false,
-            label:'Population',
-            data: [],
-            backgroundColor:[
-              
-                 
-            ]
-          }
-        ]
+              label:'%',
+              data: [],
+              backgroundColor:[
+             
+              ]
+            }
+          ]
       }
-    }
-  }
-  static defaultProps = {
+        console.log(newState, 'new State')
+        newState.labels = labels
+        newState.datasets[0].data = amount
+        newState.datasets[0].backgroundColor = backgroundColors;
+        setData({chartData: newState})
+
+      }
+
+    },[selected])
+  
+  
+  
+  const defaultProps = {
     displayTitle:true,
-    displayLegend: true,
+    displayLegend: false,
     legendPosition:'top',
     location:'Population'
   }
-  render(){
     return (
       <div className="chart">
+
         <Bar
-          data={this.state.chartData}
+          data={data.chartData}
           options={{
             maintainAspectRatio:true,
             title:{
-              display:this.props.displayTitle,
-              text:' Average Rent Price ',
+              display:defaultProps.displayTitle,
+              text:' % percentage of rent costs ',
               fontSize:25
             },
             legend:{
-              display:this.props.displayLegend,
-              position:this.props.legendPosition
+              display:defaultProps.displayLegend,
+              position:defaultProps.legendPosition
             }
           }}
         />
       </div>
     )
   }
-  }
+  

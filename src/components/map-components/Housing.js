@@ -14,8 +14,8 @@ const Housing = ({selected}) => {
 
             <Route path="/map/housing/housing" component={() => <BarGraph selected = {selected} />} />
             <Route path="/map/housing/grocery" component={() => <LineGraph selected = {selected} />} />
-            <Route path="/map/housing/dining" component={RoomGraph}/>
-            <Route path="/map/housing/transportation" component={RentChart}/>
+    <Route path="/map/housing/dining" component={() => <RoomGraph selected = {selected}/> } />
+            <Route path="/map/housing/transportation" component={() => <RentChart selected = {selected}/> } />
         </div>
     );
   };
