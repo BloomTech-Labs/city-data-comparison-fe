@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {Line} from 'react-chartjs-2';
-import {markerDummyData} from "../../map-components/data";
 
 
 export default function BarGraph ({selected}){
