@@ -273,7 +273,6 @@ html,body{
   justify-content:center;
   align-items:center;
   padding:35px 40px;
-  border:1px solid red;
 
   h1{
     font-size:1.6rem;
@@ -331,6 +330,31 @@ html,body{
     }
   }
 }
+@media screen and (max-width:800px){
+  .search-function{
+    // border:1px solid red;
+      width:85%;
+      padding:40px 30px;
+    form{
+      border:1px solid blue;
+    }
+
+    input{
+      border:1px solid green;
+    }
+
+    .cities-description{
+      border:1px solid yellow;
+    }
+
+
+    
+  }
+
+
+}
+
+
 //* Dashboard Features Styling
 .dashboard-features-container{
   padding:7% 0;
