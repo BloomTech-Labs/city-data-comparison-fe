@@ -364,31 +364,21 @@ html,body{
 }
 @media screen and (max-width:500px){
   .dashboard-features-container{
-    border:1px solid blue;
-    flex-wrap:nowrap;
-    justify-content:space-between;
     flex-direction:column;
 
     .feature-descriptions-container{
-      padding-right:5%;
       margin: 5% auto;
-      width:100%;
-      border:1px solid red;
       align-items:center;
-      width:100%;
-      height:auto;
+      align-content:space-between;
+      width:75%;
     }
     .feature-descriptions{
-      border:1px solid yellow;
-      margin-left:0;
+      margin-left:20px;
     }
     .feature-images{
-      width:100%;
-      border:1px solid black;
-    }
-
-    .feauture-title{
-
+      width:70px;
+      height:70px;
+      width:50%;
     }
   }
 }
