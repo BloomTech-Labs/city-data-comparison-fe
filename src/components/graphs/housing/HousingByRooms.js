@@ -1,78 +1,67 @@
 import React, {useState, useEffect} from 'react';
 import {Bar} from 'react-chartjs-2';
-import {markerDummyData} from "../../map-components/data";
 
+export default function EducationGraph (props) {
 
-export default function BarGraph ({selected}){
-    const [data, setData] = useState({})
-  // console.log(selected, 'selected')
-    useEffect( () => {
-      let data = selected[0]
-      let labels = []
-      let amount = []
-      let backgroundColors = []
-      if (data){
-        let houserooms = data["Housing by rooms"];
-        
-        
-        Object.keys(houserooms).forEach(function (label) {
-          labels.push(label)
-          let value = houserooms[label];
-          amount.push(value);
-          backgroundColors.push(  '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6))
-        });
-        
-        // console.log(labels);
-        // console.log(amount);
-        var newState = {
-          labels: [],
-          datasets:[
-            {
-              label:'%',
-              data: [],
-              backgroundColor:[
-             
-              ]
-            }
-          ]
-      }
-        // console.log(newState, 'new State')
-        newState.labels = labels
-        newState.datasets[0].data = amount
-        newState.datasets[0].backgroundColor = backgroundColors;
-        setData({chartData: newState})
+  const colorifier = lat => {
 
-      }
+    let arr = String(lat).replace(".","").split("");
 
-    },[selected])
-  
-  
-  
-  const defaultProps = {
-    displayTitle:true,
-    displayLegend: false,
-    legendPosition:'top',
-    location:'%'
+    let num1 = arr.pop();
+    let num2 = arr.pop();
+    let num3 = arr.pop();
+
+    return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
   }
-    return (
-      <div className="chart">
+  
 
-        <Bar
-          data={data.chartData}
-          options={{
-            maintainAspectRatio:true,
-            title:{
-              display:defaultProps.displayTitle,
-              text:' Rooms per House ',
-              fontSize:25
-            },
-            legend:{
-              display:defaultProps.displayLegend,
-              position:defaultProps.legendPosition
-            }
-          }}
-        />
-      </div>
+    return (
+      <div className="charts" >
+        
+          <div className="chart-container" style={{position: "relative", width: `100%`}}>
+            <Bar
+              data={{
+                labels: ["1 room",  "2 rooms", "3 rooms",  "4 rooms", "5 rooms", "6 rooms", "7 rooms", "8 rooms", "9 rooms or more"],
+                datasets: props.edData.map( item => {
+                  
+                  return {
+                    label: item.name.replace(" city" , ""),
+                    data: [
+                      item["Housing by rooms"]["1 room"],
+                      item["Housing by rooms"]["2 rooms"],
+                      item["Housing by rooms"]["3 rooms"],
+                      item["Housing by rooms"]["4 rooms"],
+                      item["Housing by rooms"]["5 rooms"],
+                      item["Housing by rooms"]["6 rooms"],
+                      item["Housing by rooms"]["7 rooms"],
+                      item["Housing by rooms"]["8 rooms"],
+                      item["Housing by rooms"]["9 rooms or more"],
+                                       
+                      
+                    ],
+                    backgroundColor:
+                      colorifier(item.lat)
+                      
+
+                  }
+                })
+
+              }}
+              options={{
+                title:{
+                  display:true,
+                  text:'Housing by rooms',
+                  fontSize:25
+                },
+                legend:{
+                  display:true,
+                  position:"top",
+                }
+              }}
+            /> 
+          </div>
+        
+        </div>
     )
   }
   
