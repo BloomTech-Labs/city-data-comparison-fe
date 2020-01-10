@@ -6,6 +6,7 @@ import './map-components/Map.scss';
 import Markers from "./map-components/Markers";
 import MapFooter from "./map-components/MapFooter";
 import DataDisplay from "./map-components/DataDisplay";
+import PopupMap from "./map-components/PopupMap"
 
 import { CityContext } from '../contexts/CityContext';
 
@@ -57,11 +58,13 @@ export default function Map() {
     const onSearch = e => {
       e.preventDefault();
       const found = cityMarkers.find(item => item.city === search)
+      toggleSelected(found);
       setViewport({
         ...viewport,
         longitude: found.lng,
         latitude: found.lat
       })
+      
     }
 
     const onViewportChange = viewport => {
@@ -71,8 +74,9 @@ export default function Map() {
       return (
 
         <div className="map-page">
+          <PopupMap/>
           <div className="map">
-              <MapWrapper>
+              <MapWrapper className="main-map">
                 <ReactMapGL
                     mapStyle='mapbox://styles/mapbox/light-v9'
                     {...viewport}

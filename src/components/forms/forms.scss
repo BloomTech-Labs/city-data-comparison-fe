@@ -1,0 +1,139 @@
+//signup form
+
+
+h2{
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+span{
+    color: #3999fc; 
+}
+.signup{
+    width: 100%; 
+    font-family: 'Rubik', sans-serif;
+    margin-top: 10%; 
+    background: linear-gradient(90deg, #dfe3fe 42%, #5d73fa 42%);
+
+    .inner-form{
+        margin: 5% 12%;
+        padding: 5%; 
+        background: white;
+        border-radius: 20px;
+        display:flex; 
+    }
+
+    
+}
+
+.form{
+    width: 35%; 
+    padding: 3%; 
+}
+
+.auth{
+    display:flex; 
+    flex-direction: column;
+}
+.google{
+    width: 20%;
+    padding: .5% 3%;
+
+
+    p{
+        margin-left: 3%;
+        font-size: .8rem;
+    }
+}
+
+.fb{
+    width: 11%;
+    margin: 0 4% 0% 9%;
+}
+
+.auth{
+    div{
+        width: 100%; 
+        border-radius: 20px; 
+        background: white; 
+        border: 1px solid #3999fc;
+        margin-top: 2%; 
+        display:flex; 
+        align-items: center;
+        color: #7c7d80; 
+
+        
+        
+    }
+}
+
+.facebook{
+    p{
+        
+        font-size: .8rem;
+    }
+}
+
+
+
+.center-text{
+    display:flex; 
+    align-items: center;
+
+    p{
+        font-size: .7rem;
+        color: #7c7d80; 
+        
+    }
+    div{
+        border:.25px solid #d4d6d7; 
+        height: .5px; 
+        width: 30%; 
+        margin: 0 1%; 
+    }
+}
+
+.signup-button{
+    color:white; 
+    background: #3999fc; 
+    border-radius: 20px; 
+    padding: 4% 0; 
+    text-align: center;
+    font-weight: 700;
+    margin-top: 3%; 
+}
+
+.question{
+    font-size: .7rem;
+    color: #7c7d80; 
+    text-align: center;
+}
+
+input{
+    border: 1px solid #3999fc; 
+    border-radius: 20px; 
+    width: 100%;
+    padding: 4% 2%; 
+    margin-top: 3%; 
+}
+
+.tos{
+    display:flex; 
+    font-size: .7rem;
+    color: #7c7d80; 
+    align-items: center;
+
+    .checkbox{
+        width: 10%;
+    }
+    p{
+
+    }
+}
+
+.girl{
+    width:10%; 
+    position: absolute; 
+    right: 33%;
+    top: 80%; 
+}
