@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 import citrics from './citrics-mock.png'
-
+import lock from './lock.svg'
 
 
 
@@ -53,12 +53,10 @@ function Navigation(){
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
                <nav className = {displayNav}>
-                    <a href="google.com">Link A</a>
+                    {/* <a href="google.com">Link A</a> */}
                     <Link to="/map">Map</Link>
-                    <Link to="/login">Log In</Link>
-                    <Link to="/signup">Sign Up</Link>
-                    {/* <a id="noUnderline" href='https://www.lambdaschool.com/'><button className="sign-up-btn">Log In</button></a>
-                    <a id="noUnderline" href='https://www.lambdaschool.com/'><button className="sign-up-btn">Try it Free</button></a> */}
+                    <Link className="login-link" to="/login"><img src={lock}/>Log In</Link>
+                    <Link className="signup-link" to="/signup">Get Started</Link>
                </nav> 
 
                {/* <!-- Dropdown Menu  --> */}
@@ -66,10 +64,9 @@ function Navigation(){
                     <div className="dropdown" style={styles}>
                          <button className="dropbtn">Menu</button>
                               <div className="dropdown-content">
-                                   <a href="google.com">Link A</a>
                                    <Link to="/map">Map</Link>
-                                   <a href="google.com">Log In</a>
-                                   <a href="google.com">Sign Up</a>
+                                   <Link to="/login">Log In</Link>
+                                   <Link to="/signup">Get Started</Link>
                               </div>
                     </div>
                </div>

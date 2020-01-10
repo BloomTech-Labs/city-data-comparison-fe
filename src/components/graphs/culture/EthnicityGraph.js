@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Bar} from 'react-chartjs-2';
 
-export default function EducationGraph (props) {
+export default function EthnicityGraph({ethData}) {
 
   const colorifier = lat => {
 
@@ -21,19 +21,20 @@ export default function EducationGraph (props) {
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
             <Bar
               data={{
-                labels: ["Drives Alone",  "Carpools", "Public Transport",  "Other transport", "Walks", "Works at home"],
-                datasets: props.edData.map( item => {
+                labels:  ["African American", "American Indian", "Asian", "Hispanic or Latino", "Pacific Islander", "Two or more races", "White", "other race"],
+                datasets: ethData.map( item => {
                   
                   return {
                     label: item.name.replace(" city" , ""),
                     data: [
-                      item["Commuting to Work"]["Drives Alone"],
-                      item["Commuting to Work"]["Carpools"],
-                      item["Commuting to Work"]["Public Transport"],
-                      item["Commuting to Work"]["Other transport"],
-                      item["Commuting to Work"]["Walks"],
-                      item["Commuting to Work"]["Works at home"],
-                                         
+                      item["Ethnicity"]["African American"],
+                      item["Ethnicity"]["American Indian"],
+                      item["Ethnicity"]["Asian"],
+                      item["Ethnicity"]["Hispanic or Latino"],
+                      item["Ethnicity"]["Pacific Islander"],
+                      item["Ethnicity"]["Two or more races"],
+                      item["Ethnicity"]["White"],
+                      item["Ethnicity"]["other race"]                   
                       
                     ],
                     backgroundColor:
@@ -47,7 +48,7 @@ export default function EducationGraph (props) {
               options={{
                 title:{
                   display:true,
-                  text:'Commute',
+                  text:'Ethnicity',
                   fontSize:25
                 },
                 legend:{
