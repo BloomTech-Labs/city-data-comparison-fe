@@ -1,4 +1,5 @@
 import React, {useState, useContext} from 'react'
+import {Link} from "react-router-dom"
 
 import PlacesAutocomplete from 'react-places-autocomplete';
 import graph from './assets/graph.svg'
@@ -111,14 +112,16 @@ function Dashboard(){
 
                          
                          <form onSubmit={submitCity}>
-                              <PlacesAutocomplete value={search} onChange={setSearch} onSelect={handleSelect}>
-                                   {
-                                   ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
+
                                    <div>
-                                        <input {...getInputProps({placeholder: "San Francisco, CA"})}/>
-                                        <button className="search-city-button">Go</button>
+                                        <input 
+                                        placeholder="San Francisco, CA"
+                                        onChange={searchChange}
+                                        value={search}
+                                        />
+                                        <Link to="map/jobs/standards"><button className="search-city-button">Go</button></Link>
                                         <div>
-                                             {loading ? <div>...loading</div> : null}
+                                             
 
                                              {suggestions.map( (suggestion) => {
                                                   const style = {
@@ -129,31 +132,11 @@ function Dashboard(){
                                                        padding:"10px",
                                                        boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                                   }
-                                                  return <div {...getSuggestionItemProps(suggestion, {style})}> <img className="imageStyle" src={pointer}/> {suggestion.description}</div>
+                                                  return <div style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name}</div>
                                              })}
                                         </div>
-                                   </div>)
-                                   }
-                              </PlacesAutocomplete>
-                              <input 
-                                   type="text"
-                                   name="city"
-                                   value={search}
-                                   onChange={searchChange}
-                                   placeholder="San Francisco, CA"
-                              />
-                              <div className="dashboard-autofill-container">
-                                   {suggestions.map(item =>
-                                        <li 
-                                        className="autofill-option" 
-                                        key={item.lat} 
-                                        onClick={() => chooseSuggestion(item)}>
-                                        {item.name.replace(" city" , "")}
-                                        </li>    
-                                   )}
-                              </div>
-                              <button className="search-city-button">Go</button> 
-                         </form> 
+                                   </div>
+                              </form> 
                          <p className="cities-description-two">Want to learn about more cities? Click the button below to compare multiple cities.</p>
                          <button className="compare-cities-button">Compare cities</button>
                     </div>
