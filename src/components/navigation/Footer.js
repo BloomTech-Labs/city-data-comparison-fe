@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 
 function Footer(){
@@ -19,8 +20,8 @@ function Footer(){
                     <div className="footer-categories-container">
                          <div className="footer-categories">
                               <h3 className="footer-title">Services</h3>
-                              <a href="/">Search a City</a>
-                              <a href="/">Compare Cities</a>
+                              <a href="/map">Search a City</a>
+                              <a href="/map">Compare Cities</a>
                          </div>
                          <div className="footer-categories">
                               <h3 className="footer-title">Company</h3>

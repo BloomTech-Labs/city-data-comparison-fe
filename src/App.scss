@@ -150,7 +150,7 @@ html,body{
     border:none;
     background-color:#00bfa5;
     border-radius:5px;
-    padding:8px 16px;
+    padding:10px 16px;
     color:white;
 
     &:hover{
@@ -287,6 +287,10 @@ html,body{
   background-color:#F2F9FD;
   // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
 }
+.imageStyle{
+  height:17px;
+  width:20px;
+}
 .slanted-san-francisco{
   background-image:url('./components/dashboard/assets/sanFrancisco.jpeg');
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
@@ -312,7 +316,7 @@ html,body{
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  padding:35px 40px;
+  padding:35px 20px;
 
   h1{
     font-size:1.6rem;
@@ -320,14 +324,17 @@ html,body{
   };
   form{
     margin:30px 0;
+    width:95%;
+    text-align:center;
   }
   input{
     background-color: #f7f9f9;
-    padding:10px 70px;
+    padding:10px 50px;
     border-radius:5px;
     font-size:1rem;
     border:none;
     padding-left:20px;
+    width:70%;
     border:1px solid #efefef;
     &:focus{
       outline:0;
@@ -384,7 +391,6 @@ html,body{
 }
 @media screen and (max-width:800px){
   .search-function{
-    // border:1px solid red;
       width:85%;
       padding:30px 30px;
   }
@@ -578,13 +584,6 @@ html,body{
     margin:10px 0;
     width:100%;
   }
-  // .compare-address-label{
-  //   // border:1px solid red;
-  //   margin-right:10px;
-  //   font-size:1rem;
-  //   font-weight:600;
-  //   margin-bottom:5px;
-  // }
   input{
     background-color: #f7f9f9;
     padding:10px 65px;
@@ -670,7 +669,7 @@ html,body{
     justify-content:space-between;
 
     p{
-      font-size:1.3rem;
+      font-size:1.2rem;
       padding-top:8px;
       margin-bottom:10px;
     }
@@ -680,7 +679,7 @@ html,body{
       padding:10px 20px;
       border-radius:5px;
       border:none;
-      font-size:1rem;
+      font-size:1.3rem;
       transition:0.33s ease;
 
       &:hover{
@@ -739,7 +738,7 @@ html,body{
 @media screen and (max-width:500px){
   .footer-container{
     height:450px;
-  }
+  
   .footer{
     flex-direction:column;
     align-items:center;
@@ -749,17 +748,24 @@ html,body{
     width:100% !important;
     padding-bottom:10%;
     padding-top:5%;
+
+    .footer-CTA-button{
+    max-width:130px;
+    height:40px;
+    font-size:14px;
+    padding:0 10px;
+    text-align:center;
+    font-weight:500;
+    }
   }
   .footer-CTA-description{
     display:flex;
     width:100%;
+    flex-wrap:wrap;
     justify-content:space-around;
     align-items:center;
   }
-  .footer-CTA-button{
-    max-width:130px;
-    height:40px;
-  }
+  
   .copyright{
     display:none;
   }
@@ -773,4 +779,5 @@ html,body{
     padding:5% 0;
     color:#8898aa;
   }
+}
 }
