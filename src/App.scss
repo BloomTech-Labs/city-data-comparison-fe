@@ -287,6 +287,10 @@ html,body{
   background-color:#F2F9FD;
   // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
 }
+.imageStyle{
+  height:17px;
+  width:20px;
+}
 .slanted-san-francisco{
   background-image:url('./components/dashboard/assets/sanFrancisco.jpeg');
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);

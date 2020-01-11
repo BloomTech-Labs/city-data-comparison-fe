@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
 import PlacesAutocomplete from 'react-places-autocomplete';
-import dataVisual from './assets/dataVisual.svg'
-import map from './assets/map.svg'
-import money from './assets/money.svg'
 import graph from './assets/graph.svg'
+import pointer from './assets/pointer.svg'
 
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
@@ -256,10 +254,14 @@ function Dashboard(){
                                                        {suggestions.map( (suggestion) => {
                                                             const style = {
                                                                  backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                                 cursor: "pointer"
+                                                                 cursor: "pointer",
+                                                                 // border: "1px solid red",
+                                                                 fontSize:"1rem",
+                                                                 textAlign:"left",
+                                                                 padding:"10px",
+                                                                 boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                                             }
-
-                                                            return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
+                                                            return <div {...getSuggestionItemProps(suggestion, {style})}> <img className="imageStyle" src={pointer}/> {suggestion.description}</div>
                                                        })}
                                                   </div>
                                              </div>)
