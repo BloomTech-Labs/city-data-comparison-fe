@@ -20,6 +20,7 @@ function Dashboard(){
      const { cityMarkers, selected, setSelected, viewport, setViewport } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
      const [search, setSearch] = useState("")
+     const [searchCities, setSearchCities] = useState([])
      const handleSelect = async value => {
           setSearch(value)
      };
@@ -75,14 +76,17 @@ function Dashboard(){
                ...compare,
                cityTwo:value
           })
+          console.log(value)
      }
 
 
      //* SUBMIT SEARCH */
      const submitCity = (event) => {
           event.preventDefault();
-          console.log(search)
+          console.log(cityMarkers)
+          selectSearch(cityMarkers.filter(city => city.name.replace(" city", "").toLowerCase().includes(search.toLowerCase())))
      }
+     
      const submitCities = (event) => {
           event.preventDefault();
           console.log(compare)
@@ -119,7 +123,7 @@ function Dashboard(){
                                         onChange={searchChange}
                                         value={search}
                                         />
-                                        <Link to="map/jobs/standards"><button className="search-city-button">Go</button></Link>
+                                        <Link to="map/jobs/standards"><button type="submit" className="search-city-button">Go</button></Link>
                                         <div>
                                              
 
@@ -132,7 +136,7 @@ function Dashboard(){
                                                        padding:"10px",
                                                        boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                                   }
-                                                  return <div style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name}</div>
+                                                  return <div style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
                                              })}
                                         </div>
                                    </div>
@@ -251,7 +255,7 @@ function Dashboard(){
                               <form onSubmit={submitCities}>
                                    <PlacesAutocomplete name="cityOne" value={cityOne} onChange={setCityOne} onSelect={handleCityOne}>
                                         {
-                                             ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
+                                             ({ getInputProps, getSuggestionItemProps, loading })=>(
                                              <div className="compare-search-function">
                                                   {/* <label className="compare-address-label">Address 1</label> */}
                                                   <input {...getInputProps({placeholder: "City One"})} />
@@ -267,7 +271,7 @@ function Dashboard(){
                                                                  padding:"10px",
                                                                  boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                                             }
-                                                            return <div {...getSuggestionItemProps(suggestion, {style})}> <img className="imageStyle" src={pointer}/> {suggestion.description}</div>
+                                                            return <div {...getSuggestionItemProps(suggestion, {style})}> <img className="imageStyle" src={pointer}/> {suggestion.name}</div>
                                                        })}
                                                   </div>
                                              </div>)
