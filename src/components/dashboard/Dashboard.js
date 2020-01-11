@@ -1,13 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+
 import PlacesAutocomplete from 'react-places-autocomplete';
 import dataVisual from './assets/dataVisual.svg'
 import map from './assets/map.svg'
 import money from './assets/money.svg'
 import graph from './assets/graph.svg'
-
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
+
+
+import { CityContext } from '../../contexts/CityContext';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -15,13 +18,43 @@ import 'aos/dist/aos.css';
 function Dashboard(){
 
      AOS.init()
-
+     const { cityMarkers, selected, setSelected, viewport, setViewport } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
      const [search, setSearch] = useState("")
      const handleSelect = async value => {
           setSearch(value)
      };
 
+     const [suggestions, setSuggestions] = useState([]);
+
+     const searchChange= e => {
+          const searchText = e.target.value;
+          searchText
+          ? setSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
+          : setSuggestions([]);
+          setSearch(searchText)
+      };
+      
+      const chooseSuggestion = city => {
+          setSearch(city.name.replace(" city", ""));
+          selectSearch(city);
+          setSuggestions([]);
+          setViewport({
+              ...viewport,
+              longitude: city.lng,
+              latitude: city.lat
+            })
+          
+      }
+      
+      const selectSearch = cityMarker =>  {
+          console.log(cityMarker);
+          if (selected.find(item => item === cityMarker)) {
+              return;
+          } else {
+              setSelected([...selected, cityMarker]);
+          }
+        }
 
      //* COMPARE 2 STATE / HANDLECHANGE */
      const [cityOne, setCityOne] = useState("")
@@ -75,39 +108,30 @@ function Dashboard(){
                          data-aos-once="true"
                     >
                          <h1>Choice is YOURS</h1>
-                         <p className="cities-description">Choose the information you want to see about city(ies).</p>
+                         <p className="cities-description">Search for a city:</p>
+
+
                          
-                         <form onSubmit={submitCity}>
-                              <PlacesAutocomplete value={search} onChange={setSearch} onSelect={handleSelect}>
-                                   {
-                                   ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
-                                   <div>
-                                        <input {...getInputProps({placeholder: "San Francisco, CA"})}/>
-                                        <button className="search-city-button">Go</button>
-                                        <div>
-                                             {loading ? <div>...loading</div> : null}
-
-                                             {suggestions.map( (suggestion) => {
-                                                  const style = {
-                                                       backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                       cursor: "pointer"
-                                                  }
-
-                                                  return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
-                                             })}
-                                        </div>
-                                   </div>)
-                                   }
-                              </PlacesAutocomplete>
-                              {/* <input 
+                         <form autoComplete="off" onSubmit={submitCity}>
+                              <input 
                                    type="text"
                                    name="city"
                                    value={search}
                                    onChange={searchChange}
                                    placeholder="San Francisco, CA"
                               />
-                              <button className="search-city-button">Go</button> */}
-                         </form>
+                              <div className="dashboard-autofill-container">
+                                   {suggestions.map(item =>
+                                        <li 
+                                        className="autofill-option" 
+                                        key={item.lat} 
+                                        onClick={() => chooseSuggestion(item)}>
+                                        {item.name.replace(" city" , "")}
+                                        </li>    
+                                   )}
+                              </div>
+                              <button className="search-city-button">Go</button> 
+                         </form> 
                          <p className="cities-description-two">Want to learn about more cities? Click the button below to compare multiple cities.</p>
                          <button className="compare-cities-button">Compare cities</button>
                     </div>

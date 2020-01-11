@@ -21,12 +21,21 @@ function App() {
 
   const [user, setUser] = useState({});
   const [cityMarkers, setCityMarkers] = useState(markerDummyData);
+  const [selected, setSelected] = useState([]);
+  const [viewport, setViewport] = useState({
+    width: '100%',
+    height: '100%',
+    latitude: 45,
+    longitude: -95,
+    zoom: 5,
+    trackResize: true
+  });
 
 
 
   return (
     <UserContext.Provider value={{user, setUser}}>
-      <CityContext.Provider value={{cityMarkers, setCityMarkers}}>
+      <CityContext.Provider value={{cityMarkers, setCityMarkers, selected, setSelected, viewport, setViewport}}>
         <div className="App">
           <Navigation />
           <Route exact path='/' component={Dashboard} />
