@@ -1,7 +1,6 @@
 import React, {useState, useContext} from 'react'
 import {Link} from "react-router-dom"
 
-import PlacesAutocomplete from 'react-places-autocomplete';
 import graph from './assets/graph.svg'
 import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
