@@ -88,10 +88,13 @@ function Dashboard(){
                                              {suggestions.map( (suggestion) => {
                                                   const style = {
                                                        backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                       cursor: "pointer"
+                                                       cursor: "pointer",
+                                                       fontSize:"1rem",
+                                                       textAlign:"left",
+                                                       padding:"10px",
+                                                       boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                                   }
-
-                                                  return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
+                                                  return <div {...getSuggestionItemProps(suggestion, {style})}> <img className="imageStyle" src={pointer}/> {suggestion.description}</div>
                                              })}
                                         </div>
                                    </div>)
@@ -230,10 +233,13 @@ function Dashboard(){
                                                        {suggestions.map( (suggestion) => {
                                                             const style = {
                                                                  backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                                 cursor: "pointer"
+                                                                 cursor: "pointer",
+                                                                 fontSize:"1rem",
+                                                                 textAlign:"left",
+                                                                 padding:"10px",
+                                                                 boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                                             }
-
-                                                            return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
+                                                            return <div {...getSuggestionItemProps(suggestion, {style})}> <img className="imageStyle" src={pointer}/> {suggestion.description}</div>
                                                        })}
                                                   </div>
                                              </div>)
@@ -255,7 +261,6 @@ function Dashboard(){
                                                             const style = {
                                                                  backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
                                                                  cursor: "pointer",
-                                                                 // border: "1px solid red",
                                                                  fontSize:"1rem",
                                                                  textAlign:"left",
                                                                  padding:"10px",
