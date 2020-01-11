@@ -60,8 +60,6 @@ function Dashboard(){
         }
 
      //* COMPARE 2 STATE / HANDLECHANGE */
-     const [cityOne, setCityOne] = useState("")
-     const [cityTwo, setCityTwo] = useState("")
      const [compare, setCompare] = useState({
           cityOne:"",
           cityTwo:""
@@ -69,7 +67,6 @@ function Dashboard(){
 
      const handleCityOne = e => {
           const searchText = e.target.value
-          setCityOne(e.target.value)
 
           searchText
           ? setCityOneSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
@@ -83,7 +80,6 @@ function Dashboard(){
 
      const handleCityTwo = e => {
           const searchText = e.target.value
-          setCityTwo(e.target.value)
           searchText
           ? setCityTwoSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
           : setCityTwoSuggestions([]);
