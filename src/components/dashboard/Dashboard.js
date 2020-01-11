@@ -19,10 +19,6 @@ function Dashboard(){
      const { cityMarkers, selected, setSelected, viewport, setViewport } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
      const [search, setSearch] = useState("")
-     const [searchCities, setSearchCities] = useState([])
-     const handleSelect = async value => {
-          setSearch(value)
-     };
 
      const [suggestions, setSuggestions] = useState([]);
      const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
@@ -66,11 +62,9 @@ function Dashboard(){
 
      const handleCityOne = e => {
           const searchText = e.target.value
-
           searchText
           ? setCityOneSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
           : setCityOneSuggestions([]);
-
           setCompare({
                ...compare,
                cityOne:e.target.value
