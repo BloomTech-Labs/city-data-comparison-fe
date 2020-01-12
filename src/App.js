@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Route} from "react-router-dom";
+import {Route, BrowserRouter as Router} from "react-router-dom";
 import './App.scss';
 
 import Dashboard from './components/dashboard/Dashboard'
@@ -34,21 +34,23 @@ function App() {
 
 
   return (
-    <UserContext.Provider value={{user, setUser}}>
-      <CityContext.Provider value={{cityMarkers, setCityMarkers, selected, setSelected, viewport, setViewport}}>
-        <div className="App">
-          <Navigation />
-          <Route exact path='/' component={Dashboard} />
-          <Route exact path='/' component={Footer} />
-          <Route path="/map" component={Map} />
-          <Route path='/profile' component={Profile} />
-          <Route path="/privacypolicy" component={PrivacyPolicy} />
-          <Route path="/aboutus" component={AboutUs} />
-          <Route path='/login' component={Login} />
-          <Route path="/signup" component={Signup} />
-        </div>
-        </CityContext.Provider>
-    </UserContext.Provider>
+    <Router>
+      <UserContext.Provider value={{user, setUser}}>
+        <CityContext.Provider value={{cityMarkers, setCityMarkers, selected, setSelected, viewport, setViewport}}>
+          <div className="App">
+            <Navigation />
+            <Route exact path='/' component={Dashboard} />
+            <Route exact path='/' component={Footer} />
+            <Route path="/map" component={Map} />
+            <Route path='/profile' component={Profile} />
+            <Route path="/privacypolicy" component={PrivacyPolicy} />
+            <Route path="/aboutus" component={AboutUs} />
+            <Route path='/login' component={Login} />
+            <Route path="/signup" component={Signup} />
+          </div>
+          </CityContext.Provider>
+      </UserContext.Provider>
+    </Router>
   );
 }
 
