@@ -13,7 +13,7 @@ const Login = props => {
            
            <div className="inner-form">
                <div className="form">
-                   <h2>Welcome Back!</h2>
+                   <h2 className="form-title">Welcome Back!</h2>
 
                    <div className="auth">
                        <button id="auth-button" className="google">
@@ -37,7 +37,7 @@ const Login = props => {
                        
                        <div className="tos">
                            <input className="checkbox" type="checkbox" name="tos"></input>
-                           <p>Accept terms of service</p>
+                           <p className="tos-text">Accept terms of service</p>
                        </div>
                        <div className="signup-button">Start exploring cities</div>
                        <p class='question'>Have an account? <span>Sign in</span> to explore cities</p>
