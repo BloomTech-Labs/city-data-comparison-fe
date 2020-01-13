@@ -55,8 +55,12 @@ h3{
 }
 
 //web developers
-.web{
+.web-container{
     background: #f2f9fd;
+    padding: 5%; 
+}
+.web{
+    
     flex-wrap: wrap;
     
     .member{
