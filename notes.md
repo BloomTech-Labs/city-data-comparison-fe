@@ -28,27 +28,23 @@ Application deployed at [https://master.d1td9ufw3xylcx.amplifyapp.com/](https://
 <br>
 <br>
 
-
+<!-- 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
 ![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) -->
 
-🚫 more info on using badges [here](https://github.com/badges/shields)
 
 ## Project Overview
 
 [Trello Board](https://trello.com/b/VXbaBrSL/labs-19-citydatacomparison)
 
-[Product Canvas](https://www.notion.so/Media-Organizer-800622a0360b4de4ae85757f19769824)
+[Product Canvas](https://www.notion.so/City-Data-Comparison-bc94a2f56b05482e9c42a12748a0ed0a)
 
-[UX Design files](https://www.figma.com/file/j8XG1mhNV4q9o8Y17aK9Dl/Travel-Mapping-User-Flow)
+[UX Design files](https://www.figma.com/file/mkHP2saWvSK02a9g1cHoCM/City-Data-Comparison-Ruth-Philips?node-id=275%3A84)
 
-Media Organizer is an app that allows you to organize your photos in any way that you choose. Whether it is by date, subject, or theme, you can organize your photos in the way that works best for you. 
-
-Media organizer also lets you invite collaborators to upload their photos, so you don't have to track down photos from event participants.
-
+Citrics is an application that analyzes data from cities such as populations, cost of living, crime rates and many other social and economic factors that are important in deciding where someone would like to live. Citrics present such important data in an intuitive and easy to understand interface.
 
 ### 4️⃣ Key Features
 
@@ -73,28 +69,23 @@ Media organizer also lets you invite collaborators to upload their photos, so yo
 
 ### Front end built using:
 - React 
-- Redux
-- Semantic UI
-- Reach
+- Sass
+- Chart JS
+- Mapbox
+- Font Awesome
 
-#### _Front end framework goes here_
+#### React
 
-🚫 Why did you choose this framework?
-
-1. What Framework are you using for your FE? (React, React Native, Angular, Vue, etc...)
-React (consider possibly using React Native for dedicated mobile app if time-frame allows?)
-2. What alternatives were considered?
-GatsbyJS, Vue, Next.js
-3. Why did you decide on this framework over the alternatives (what are the advantages?)
-We decided on this framework based on the knowledge base of the developers on the project. 
-4. What potential challenges can you foresee using this framework?
-State management, scalability, authentication, testing (React testing library)
+- Familiarity with React (lower technical debt)
+- Dynamic data rendering
+- Web optimized 
+- Lightweight 
 
 🚫List the rest of the front end features and libraries in the same format as the framework above.
 
-#### Front end deployed to `🚫insert service here`
+#### Front end deployed to https://master.d1td9ufw3xylcx.amplifyapp.com/
 
-#### [Back end](🚫link to back end repo here) built using:
+<!-- #### [Back end](🚫link to back end repo here) built using:
 
 #### 🚫 back end framework goes here
 
@@ -102,7 +93,7 @@ State management, scalability, authentication, testing (React testing library)
 -    point two
 -    point three
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+🚫 List the rest of the back end end features and libraries in the same format as the framework above -->
 
 # APIs
 
