@@ -19,16 +19,20 @@ import umeko from '../../assets/team_photos/umeko_w.jpg';
 //styling
 import './aboutus.scss'; 
 
+/*
+May create hover effect that desaturates photo and displays more information about team member
+*/
+
 const AboutUs = props => {
     return(
         <div className="aboutUs">
+            <div className='aboutus-intro'>
+                <h1 className="aboutus-title">Our Team</h1>
+                
+                <p className="aboutTeam">
 
-            <h1>Our Team</h1>
-            
-            <p className="aboutTeam">
-
-            </p>
-
+                </p>
+            </div>
             <div className="team">
                 <div className="leadership-design">
                     <div className="container">
