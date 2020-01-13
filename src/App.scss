@@ -643,6 +643,14 @@ html,body{
     }
   }
 }
+/* dashboard animations styling */
+
+@media screen and (max-width: 500px) {
+  [data-aos-delay] {
+    transition-delay: 0s !important;
+  }
+}
+
 
 // * Footer Styling
 .footer-container{
