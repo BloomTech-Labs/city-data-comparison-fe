@@ -57,7 +57,8 @@ html,body{
   box-sizing:border-box;
   color: #2e2f38;
   line-height:1.26;
-
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 * {
