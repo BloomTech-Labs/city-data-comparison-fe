@@ -31,6 +31,10 @@
     background: #E5E5E5;
     display:flex;
 
+    @media only screen and (max-width: 600px) {
+        flex-direction:column;
+        
+    }
 
 
     .data-nav {
@@ -47,7 +51,8 @@
             align-items: flex-start;
             justify-content:space-between;
             height: 100%;
-            width: 30%;
+            width: 100%;
+            min-height:0px;
         }
 
         .slider {
@@ -61,10 +66,14 @@
             display:flex;
             flex-direction: column;
             background:#041734;
-            width: 100%;
+            width: 0%;
+            height:100%;
             -webkit-transform: translateX(-200px) translate(-6px, -6px);
                 transform: translateX(-200px) translate(-6px, -6px);
             transition: 0.5s;
+            ul {
+                margin: 0;
+            }
             }
         }
 
@@ -93,7 +102,8 @@
             @media only screen and (max-width: 600px) {
                 -webkit-transform: translateX(-200px) translate(-6px, -6px);
                 transform: translateX(-200px) translate(-6px, -6px);  
-                transition: 0.5s;
+                transition: width 0.5s;
+                height:0;
             }
         }
 
@@ -128,7 +138,7 @@
 
         .burger-menu,
         .burger-menu.open {
-        display:none; 
+            display:none; 
             @media only screen and (max-width: 600px) {
                 display: inline-block;
                 cursor: pointer;
@@ -211,6 +221,9 @@
         .autofill-container {
             position:absolute;
             width:19%;
+            @media only screen and (max-width: 600px) {
+                width:95%;
+            }
         }
 
         .autofill-option {
@@ -235,6 +248,12 @@
         
         width:75%;
         
+        @media only screen and (max-width: 600px) {
+            width:100%;
+            
+        }
+
+
         h1{
             text-align:center;
         }

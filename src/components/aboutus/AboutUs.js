@@ -19,21 +19,25 @@ import umeko from '../../assets/team_photos/umeko_w.jpg';
 //styling
 import './aboutus.scss'; 
 
+/*
+May create hover effect that desaturates photo and displays more information about team member
+*/
+
 const AboutUs = props => {
     return(
         <div className="aboutUs">
-
-            <h1>Our Team</h1>
-            
-            <p className="aboutTeam">
-
-            </p>
-
+            <div className='aboutus-intro'>
+                <h1 className="aboutus-title">Our Team</h1>
+                
+                <p className="aboutTeam">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor pulvinar mauris vulputate consequat. Aliquam vel risus mollis, rhoncus nibh in, porttitor leo. Sed rutrum sed augue at egestas. Suspendisse massa turpis, pharetra ut dolor sit amet, ultricies fermentum eros. Vivamus sagittis, augue at facilisis accumsan, augue nisi dictum nulla, ut iaculis diam ligula et mauris. Cras finibus mauris sed egestas porttitor. Vivamus at est viverra, posuere mi nec, eleifend augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus maximus purus orci, non sodales sapien rhoncus vitae. Aliquam bibendum viverra venenatis. Praesent dictum urna aliquam dolor semper maximus.
+                </p>
+            </div>
             <div className="team">
                 <div className="leadership-design">
                     <div className="container">
                         {/*leadership*/}
-                        <h3>Leadership</h3>
+                        <h3 className="leadership-header">Leadership</h3>
                         <div className="tl">
                             
                             {/*Anna*/}
@@ -56,9 +60,9 @@ const AboutUs = props => {
                     
                     {/*Design*/}
                     <div className="container">
-                        <h3>Design</h3>
+                        
                         <div className="design">
-                            
+                            <h3 className="design-header">Design</h3>
                             {/*Ruth*/}
                             <div className="member">
                                 <img src={ruth} alt="Ruth Phillips"/>
@@ -76,141 +80,143 @@ const AboutUs = props => {
                     </div>
                 </div>
 
-                
-                {/*data science*/}
-                <h3>Data Science</h3>
-                <div className="ds">
+                <div className="ds-container">
+                    {/*data science*/}
+                    <h3 className="ds-header">Data Science</h3>  
+                    <div className="ds">
                     
-                    {/*Luke*/}
-                    <div className="member">
-                        <img src={luke} alt="Luke Townsend"/>
-                        <div className="info">
-                            <p className="role">Data Scientist</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
+                        {/*Luke*/}
+                        <div className="member">
+                            <img src={luke} alt="Luke Townsend"/>
+                            <div className="info">
+                                <p className="role">Data Scientist</p>
+                                <p className="about"></p>
+                                <span className="social">
+                                    <FontAwesomeIcon icon={faGithubSquare}/>
+                                    <FontAwesomeIcon icon={faTwitterSquare}/>
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    {/*Matthew*/}
-                    <div className="member">
-                        <img src={matthew} alt="Matthew Sessions"/>
-                        <div className="info">
-                            <p className="role">Data Scientist</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
+                        {/*Matthew*/}
+                        <div className="member">
+                            <img src={matthew} alt="Matthew Sessions"/>
+                            <div className="info">
+                                <p className="role">Data Scientist</p>
+                                <p className="about"></p>
+                                <span className="social">
+                                    <FontAwesomeIcon icon={faGithubSquare}/>
+                                    <FontAwesomeIcon icon={faTwitterSquare}/>
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    {/*Scott*/}
-                    <div className="member">
-                        <img src={scott} alt="Scott Maxwell"/>
-                        <div className="info">
-                            <p className="role">Data Scientist</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
+                        {/*Scott*/}
+                        <div className="member">
+                            <img src={scott} alt="Scott Maxwell"/>
+                            <div className="info">
+                                <p className="role">Data Scientist</p>
+                                <p className="about"></p>
+                                <span className="social">
+                                    <FontAwesomeIcon icon={faGithubSquare}/>
+                                    <FontAwesomeIcon icon={faTwitterSquare}/>
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-                
 
                 {/*web development*/}
-                <h3>Web Development</h3>
-                <div className="web">
+                <div className="web-container">
+                    <h3 className="web-header">Web Development</h3>  
+                    <div className="web">
                     
-                    {/*Daniel*/}
-                    <div className="member">
-                        <img src={daniel} alt="Daniel Briksza"/>
-                        <div className="info">
-                            <p className="role">Web Developer</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
+                        {/*Daniel*/}
+                        <div className="member">
+                            <img src={daniel} alt="Daniel Briksza"/>
+                            <div className="info">
+                                <p className="role">Web Developer</p>
+                                <p className="about"></p>
+                                <span className="social">
+                                    <FontAwesomeIcon icon={faGithubSquare}/>
+                                    <FontAwesomeIcon icon={faTwitterSquare}/>
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    {/*John*/}
-                    <div className="member">
-                        <img src={john} alt="John Watt"/>
-                        <div className="info">
-                            <p className="role">Web Developer</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
+                        {/*John*/}
+                        <div className="member">
+                            <img src={john} alt="John Watt"/>
+                            <div className="info">
+                                <p className="role">Web Developer</p>
+                                <p className="about"></p>
+                                <span className="social">
+                                    <FontAwesomeIcon icon={faGithubSquare}/>
+                                    <FontAwesomeIcon icon={faTwitterSquare}/>
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    {/*Kevin*/}
-                    <div className="member">
-                        <img src={kevin} alt="Kevin Nyugen"/>
-                        <div className="info">
-                            <p className="role">Web Developer</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
+                        {/*Kevin*/}
+                        <div className="member">
+                            <img src={kevin} alt="Kevin Nyugen"/>
+                            <div className="info">
+                                <p className="role">Web Developer</p>
+                                <p className="about"></p>
+                                <span className="social">
+                                    <FontAwesomeIcon icon={faGithubSquare}/>
+                                    <FontAwesomeIcon icon={faTwitterSquare}/>
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    {/*Michael*/}
-                    <div className="member">
-                        <img src={michael} alt="Michael Harms"/>
-                        <div className="info">
-                            <p className="role">Web Developer</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
+                        {/*Michael*/}
+                        <div className="member">
+                            <img src={michael} alt="Michael Harms"/>
+                            <div className="info">
+                                <p className="role">Web Developer</p>
+                                <p className="about"></p>
+                                <span className="social">
+                                    <FontAwesomeIcon icon={faGithubSquare}/>
+                                    <FontAwesomeIcon icon={faTwitterSquare}/>
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    {/*Muamer*/}
-                    <div className="member">
-                        <img src={muamer} alt="Muamer Kukic"/>
-                        <div className="info">
-                            <p className="role">Web Developer</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
+                        {/*Muamer*/}
+                        <div className="member">
+                            <img src={muamer} alt="Muamer Kukic"/>
+                            <div className="info">
+                                <p className="role">Web Developer</p>
+                                <p className="about"></p>
+                                <span className="social">
+                                    <FontAwesomeIcon icon={faGithubSquare}/>
+                                    <FontAwesomeIcon icon={faTwitterSquare}/>
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    {/*Umeko*/}
-                    <div className="member">
-                        <img src={umeko} alt="Umeko Walker"/>
-                        <div className="info">
-                            <p className="role">Web Developer</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
+                        {/*Umeko*/}
+                        <div className="member">
+                            <img src={umeko} alt="Umeko Walker"/>
+                            <div className="info">
+                                <p className="role">Web Developer</p>
+                                <p className="about"></p>
+                                <span className="social">
+                                    <FontAwesomeIcon icon={faGithubSquare}/>
+                                    <FontAwesomeIcon icon={faTwitterSquare}/>
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

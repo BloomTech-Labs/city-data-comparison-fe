@@ -20,20 +20,20 @@ function Footer(){
                     <div className="footer-categories-container">
                          <div className="footer-categories">
                               <h3 className="footer-title">Services</h3>
-                              <a href="/map">Search a City</a>
-                              <a href="/map">Compare Cities</a>
+                              <Link to="/map">Search a City</Link>
+                              <Link to="/map">Compare Cities</Link>
                          </div>
                          <div className="footer-categories">
                               <h3 className="footer-title">Company</h3>
-                              <a href="/aboutus">Meet the Team</a>
-                              <a href="/aboutus">About Us</a>
-                              <a href="/">Contact Us</a>
+                              <Link to="/aboutus">Meet the Team</Link>
+                              <Link to="/aboutus">About Us</Link>
+                              <Link to="/">Contact Us</Link>
                          </div>
                          <div className="footer-categories">
                               <h3 className="footer-title">Resources</h3>
-                              <a href="/">Data Sources</a>
-                              <a href="/privacypolicy">Privacy Policy</a>
-                              <a href="/">Terms of Use</a>
+                              <Link to="/">Data Sources</Link>
+                              <Link to="/privacypolicy">Privacy Policy</Link>
+                              <Link to="/">Terms of Use</Link>
                          </div>
                     </div>
                     <div>

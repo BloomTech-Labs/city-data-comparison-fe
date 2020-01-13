@@ -17,34 +17,27 @@ const MapWrapper = styled.div`
 
 export default function Map() {
 
-  const { cityMarkers } = useContext(CityContext)
+  const { cityMarkers, selected, setSelected, viewport, setViewport } = useContext(CityContext)
 
-  const [selected, setSelected] = useState([]);
+  
   const [search, setSearch] = useState("");
-  const [viewport, setViewport] = useState({
-    width: '100%',
-    height: '100%',
-    latitude: 45,
-    longitude: -95,
-    zoom: 5,
-    trackResize: true
-  });
 
-  useEffect( _ => {
-      const geo = navigator.geolocation;
-      console.log(cityMarkers);
-      if (!geo) {
-        console.log('Geolocation is not supported by this browser');
-        return;
-      }    
-      geo.getCurrentPosition(pos => 
-          setViewport({
-            ...viewport,
-            latitude: pos.coords.latitude,
-            longitude: pos.coords.longitude
-          })      
-        );
-  }, [viewport])
+
+  // useEffect( _ => {
+  //     const geo = navigator.geolocation;
+  //     console.log(cityMarkers);
+  //     if (!geo) {
+  //       console.log('Geolocation is not supported by this browser');
+  //       return;
+  //     }    
+  //     geo.getCurrentPosition(pos => 
+  //         setViewport({
+  //           ...viewport,
+  //           latitude: pos.coords.latitude,
+  //           longitude: pos.coords.longitude
+  //         })      
+  //       );
+  // }, [])
 
   const toggleSelected = cityMarker =>  {
     console.log(cityMarker);

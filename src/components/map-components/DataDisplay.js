@@ -40,7 +40,13 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         <div className="bar3" key="b3" />
                     </div>
 
-                    <MapSearch
+                    
+                </div>
+
+                <div className={`slider ${menu.status}`}>
+                    <div className={`menu-items ${menu.status}`}>
+                        <div className="data-nav-top">
+                        <MapSearch
                         menu={menu.status}
                         setSearch={setSearch}
                         onSearch={onSearch} 
@@ -50,18 +56,13 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         setViewport={setViewport}  
                         selectSearch={selectSearch}
                     />
-                </div>
-
-                <div className={`slider ${menu.status}`}>
-                    <div className={`menu-items ${menu.status}`}>
-                        <div className="data-nav-top">
                             <Route path="/map/housing" component={CostNav} />
                             <Route path="/map/jobs" component={JobsNav} />
                             <Route path="/map/culture" component={SafetyNav} />
                         </div>
                     </div>
                     <ul>
-                        {selected.map(item => <div className={`menu-items ${menu.status}`}><li  key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name.replace (" city" , "")} 
+                        {selected.map(item => <div key={item._id} className={`menu-items ${menu.status}`}><li  key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name.replace (" city" , "")} 
                             <span  onClick={ _ => toggleSelected(item)}>
                                 <img className="delete-icon" src={deleteIcon} alt="delete icon" />
                             </span>

@@ -7,13 +7,14 @@
 
 //headers
 
-h1{
+.aboutus-title{
     font-size: 3.2rem;
 }
 h3{
     text-align: center;
     font-size: 2rem;
 }
+
 
 //all sections
 .leadership-design, .web, .ds{
@@ -36,6 +37,10 @@ h3{
     width:100%;
     justify-content: space-around; 
     margin:auto;
+    height: 590px;
+    background: url(/static/media/seconddiv.61436097.svg);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     
     .member{
         width:70%; 
@@ -45,11 +50,15 @@ h3{
     }
 }
 //data scientists
-.ds{
-   
+.ds-container{
+   padding: 5%; 
 }
 
 //web developers
+.web-container{
+    background: #f2f9fd;
+    padding: 5%; 
+}
 .web{
     
     flex-wrap: wrap;
@@ -63,4 +72,14 @@ h3{
 
 img{
     width:100%;
+}
+
+//icons
+
+.svg-inline--fa.fa-w-14 {
+    width: 1.475em;
+}
+
+.svg-inline--fa {
+    height: 1.4rem; 
 }
