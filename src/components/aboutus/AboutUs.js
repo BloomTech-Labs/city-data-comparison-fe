@@ -80,55 +80,55 @@ const AboutUs = props => {
                     </div>
                 </div>
 
-                
-                {/*data science*/}
-                
-                <div className="ds">
-                  <h3 className="ds-header">Data Science</h3>  
-                    {/*Luke*/}
-                    <div className="member">
-                        <img src={luke} alt="Luke Townsend"/>
-                        <div className="info">
-                            <p className="role">Data Scientist</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
+                <div className="ds-container">
+                    {/*data science*/}
+                    <h3 className="ds-header">Data Science</h3>  
+                    <div className="ds">
+                    
+                        {/*Luke*/}
+                        <div className="member">
+                            <img src={luke} alt="Luke Townsend"/>
+                            <div className="info">
+                                <p className="role">Data Scientist</p>
+                                <p className="about"></p>
+                                <span className="social">
+                                    <FontAwesomeIcon icon={faGithubSquare}/>
+                                    <FontAwesomeIcon icon={faTwitterSquare}/>
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    {/*Matthew*/}
-                    <div className="member">
-                        <img src={matthew} alt="Matthew Sessions"/>
-                        <div className="info">
-                            <p className="role">Data Scientist</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
+                        {/*Matthew*/}
+                        <div className="member">
+                            <img src={matthew} alt="Matthew Sessions"/>
+                            <div className="info">
+                                <p className="role">Data Scientist</p>
+                                <p className="about"></p>
+                                <span className="social">
+                                    <FontAwesomeIcon icon={faGithubSquare}/>
+                                    <FontAwesomeIcon icon={faTwitterSquare}/>
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    {/*Scott*/}
-                    <div className="member">
-                        <img src={scott} alt="Scott Maxwell"/>
-                        <div className="info">
-                            <p className="role">Data Scientist</p>
-                            <p className="about"></p>
-                            <span className="social">
-                                <FontAwesomeIcon icon={faGithubSquare}/>
-                                <FontAwesomeIcon icon={faTwitterSquare}/>
-                                <FontAwesomeIcon icon={faLinkedin} />
-                            </span>
+                        {/*Scott*/}
+                        <div className="member">
+                            <img src={scott} alt="Scott Maxwell"/>
+                            <div className="info">
+                                <p className="role">Data Scientist</p>
+                                <p className="about"></p>
+                                <span className="social">
+                                    <FontAwesomeIcon icon={faGithubSquare}/>
+                                    <FontAwesomeIcon icon={faTwitterSquare}/>
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-                
 
                 {/*web development*/}
                 
