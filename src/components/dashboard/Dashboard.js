@@ -1,13 +1,14 @@
-import React, {useState} from 'react'
-import PlacesAutocomplete from 'react-places-autocomplete';
-import dataVisual from './assets/dataVisual.svg'
-import map from './assets/map.svg'
-import money from './assets/money.svg'
-import graph from './assets/graph.svg'
+import React, {useState, useContext} from 'react'
+import {Link} from "react-router-dom"
 
+import graph from './assets/graph.svg'
+import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
+
+
+import { CityContext } from '../../contexts/CityContext';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -15,42 +16,107 @@ import 'aos/dist/aos.css';
 function Dashboard(){
 
      AOS.init()
-
+     const { cityMarkers, selected, setSelected, viewport, setViewport } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
      const [search, setSearch] = useState("")
-     const handleSelect = async value => {
-          setSearch(value)
-     };
 
+     const [suggestions, setSuggestions] = useState([]);
+     const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
+     const [cityTwoSuggestions, setCityTwoSuggestions] = useState([]);
+
+     const searchChange= e => {
+          const searchText = e.target.value;
+          searchText
+          ? setSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
+          : setSuggestions([]);
+          setSearch(searchText)
+      };
+      
+      const chooseSuggestion = city => {
+          setSearch(city.name.replace(" city", ""));
+          selectSearch(city);
+          setSuggestions([]);
+          setViewport({
+              ...viewport,
+              longitude: city.lng,
+              latitude: city.lat
+            })  
+      }
+
+
+      
+      const selectSearch = cityMarker =>  {
+          console.log(cityMarker);
+          if (selected.find(item => item === cityMarker)) {
+              return;
+          } else {
+              setSelected([...selected, cityMarker]);
+          }
+        }
 
      //* COMPARE 2 STATE / HANDLECHANGE */
-     const [cityOne, setCityOne] = useState("")
-     const [cityTwo, setCityTwo] = useState("")
      const [compare, setCompare] = useState({
           cityOne:"",
           cityTwo:""
      })
-     const handleCityOne = async (value) => {
-          setCityOne(value)
+
+     const handleCityOne = e => {
+          const searchText = e.target.value
+          searchText
+          ? setCityOneSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
+          : setCityOneSuggestions([]);
           setCompare({
                ...compare,
-               cityOne:value
+               cityOne:e.target.value
           })
      }
-     const handleCityTwo = async (value) => {
-          setCityTwo(value)
+
+     const handleCityTwo = e => {
+          const searchText = e.target.value
+          searchText
+          ? setCityTwoSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
+          : setCityTwoSuggestions([]);
           setCompare({
                ...compare,
-               cityTwo:value
+               cityTwo:e.target.value
           })
+     }
+
+     const chooseCityOneSuggestion = city => {
+          setCompare({
+               ...compare,
+               cityOne:city.name.replace(" city", "")
+          })
+          selectSearch(city);
+          setCityOneSuggestions([]);
+          setViewport({
+              ...viewport,
+              longitude: city.lng,
+              latitude: city.lat
+            })  
+      }
+     const chooseCityTwoSuggestion = city => {
+          setCompare({
+               ...compare,
+               cityTwo:city.name.replace(" city", "")
+          })
+          selectSearch(city);
+          setCityTwoSuggestions([]);
+          setViewport({
+               ...viewport,
+               longitude: city.lng,
+               latitude: city.lat
+               })  
      }
 
 
      //* SUBMIT SEARCH */
      const submitCity = (event) => {
           event.preventDefault();
-          console.log(search)
+          console.log(cityMarkers)
+          selectSearch(cityMarkers.filter(city => city.name.replace(" city", "").toLowerCase().includes(search.toLowerCase())))
      }
+     
      const submitCities = (event) => {
           event.preventDefault();
           console.log(compare)
@@ -75,39 +141,36 @@ function Dashboard(){
                          data-aos-once="true"
                     >
                          <h1>Choice is YOURS</h1>
-                         <p className="cities-description">Choose the information you want to see about city(ies).</p>
+                         <p className="cities-description">Search for a city:</p>
+
+
                          
                          <form onSubmit={submitCity}>
-                              <PlacesAutocomplete value={search} onChange={setSearch} onSelect={handleSelect}>
-                                   {
-                                   ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
+
                                    <div>
-                                        <input {...getInputProps({placeholder: "San Francisco, CA"})}/>
-                                        <button className="search-city-button">Go</button>
+                                        <input 
+                                        placeholder="San Francisco, CA"
+                                        onChange={searchChange}
+                                        value={search}
+                                        />
+                                        <Link to="map/jobs/standards"><button type="submit" className="search-city-button">Go</button></Link>
                                         <div>
-                                             {loading ? <div>...loading</div> : null}
+                                             
 
                                              {suggestions.map( (suggestion) => {
                                                   const style = {
                                                        backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                       cursor: "pointer"
+                                                       cursor: "pointer",
+                                                       fontSize:"1rem",
+                                                       textAlign:"left",
+                                                       padding:"10px",
+                                                       boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                                   }
-
-                                                  return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
+                                                  return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
                                              })}
                                         </div>
-                                   </div>)
-                                   }
-                              </PlacesAutocomplete>
-                              {/* <input 
-                                   type="text"
-                                   name="city"
-                                   value={search}
-                                   onChange={searchChange}
-                                   placeholder="San Francisco, CA"
-                              />
-                              <button className="search-city-button">Go</button> */}
-                         </form>
+                                   </div>
+                              </form> 
                          <p className="cities-description-two">Want to learn about more cities? Click the button below to compare multiple cities.</p>
                          <button className="compare-cities-button">Compare cities</button>
                     </div>
@@ -220,52 +283,55 @@ function Dashboard(){
                          <p>Moving to a new city, job hunting or choosing vacation spots? Compare cities to find out differences in cost of living, jobs, and safety.</p>
                          <div className="compare-buttons">
                               <form onSubmit={submitCities}>
-                                   <PlacesAutocomplete name="cityOne" value={cityOne} onChange={setCityOne} onSelect={handleCityOne}>
-                                        {
-                                             ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
-                                             <div className="compare-search-function">
-                                                  {/* <label className="compare-address-label">Address 1</label> */}
-                                                  <input {...getInputProps({placeholder: "City One"})} />
-                                                  <div>
-                                                       {loading ? <div>...loading</div> : null}
+                              <div>
+                                   <input 
+                                   placeholder="San Francisco, CA"
+                                   onChange={handleCityOne}
+                                   value={compare.cityOne}
+                                   />
+                                   
+                                   <div>
+                                        
 
-                                                       {suggestions.map( (suggestion) => {
-                                                            const style = {
-                                                                 backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                                 cursor: "pointer"
-                                                            }
-
-                                                            return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
-                                                       })}
-                                                  </div>
-                                             </div>)
-                                        }
-                                   </PlacesAutocomplete>
+                                        {cityOneSuggestions.map( (suggestion) => {
+                                             const style = {
+                                                  backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                  cursor: "pointer",
+                                                  fontSize:"1rem",
+                                                  textAlign:"left",
+                                                  padding:"10px",
+                                                  boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
+                                             }
+                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                        })}
+                                   </div>
+                              </div>
 
                                    {/* <span className="versus">vs.</span> */}
 
-                                   <PlacesAutocomplete name="cityTwo" value={cityTwo} onChange={setCityTwo} onSelect={handleCityTwo}>
-                                        {
-                                             ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
-                                             <div className="compare-search-function">
-                                                  {/* <label className="compare-address-label">Address 2</label> */}
-                                                  <input {...getInputProps({placeholder: "City Two"})}/>
-                                                  <div>
-                                                       {loading ? <div>...loading</div> : null}
+                              <div>
+                                   <input 
+                                   placeholder="San Francisco, CA"
+                                   onChange={handleCityTwo}
+                                   value={compare.cityTwo}
+                                   />
+                                   <div>
+                                        
 
-                                                       {suggestions.map( (suggestion) => {
-                                                            const style = {
-                                                                 backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                                 cursor: "pointer"
-                                                            }
-
-                                                            return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
-                                                       })}
-                                                  </div>
-                                             </div>)
-                                        }
-                                   </PlacesAutocomplete>
-                                   <button
+                                        {cityTwoSuggestions.map( (suggestion) => {
+                                             const style = {
+                                                  backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                  cursor: "pointer",
+                                                  fontSize:"1rem",
+                                                  textAlign:"left",
+                                                  padding:"10px",
+                                                  boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
+                                             }
+                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                        })}
+                                   </div>
+                              </div>
+                                   <Link to="map/jobs/standards"><button
                                         // data-aos="zoom-in"
                                         // data-aos-offset="200"
                                         // data-aos-delay="50"
@@ -275,7 +341,7 @@ function Dashboard(){
                                         // data-aos-once="true"
                                    >
                                         Compare
-                                   </button>
+                                   </button></Link>
                               </form>
                          </div>
                     </div>

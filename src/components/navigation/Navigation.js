@@ -55,7 +55,7 @@ function Navigation(){
                <nav className = {displayNav}>
                     {/* <a href="google.com">Link A</a> */}
                     <Link to="/map">Map</Link>
-                    <Link className="login-link" to="/login"><img src={lock}/>Log In</Link>
+                    <Link className="login-link" to="/login"><img alt="lock" src={lock}/>Log In</Link>
                     <Link className="signup-link" to="/signup">Get Started</Link>
                </nav> 
 
