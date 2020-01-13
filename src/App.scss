@@ -168,6 +168,12 @@ html,body{
 }
 
 @media screen and (max-width: 500px) {
+     .main-nav {
+          width:100%;
+    }
+    .main-nav a {
+         display: none;
+    }
     .navigation-container{
       background-color:#fff !important;
       nav {
@@ -238,7 +244,7 @@ html,body{
 
     .dropdown {
       position: relative;
-      display: inline-block;
+      // display: inline-block;
       float:right;
     }
 

@@ -172,7 +172,7 @@ function Dashboard(){
                                    </div>
                               </form> 
                          <p className="cities-description-two">Want to learn about more cities? Click the button below to compare multiple cities.</p>
-                         <button className="compare-cities-button">Compare cities</button>
+                         <a href="#compareanchor"><button className="compare-cities-button">Compare cities</button></a>
                     </div>
                </div>
 
@@ -281,7 +281,7 @@ function Dashboard(){
                     data-aos-mirror="true"
                     data-aos-once="true"
                >
-                    <div className="dashboard-compare">
+                    <div id="compareanchor" className="dashboard-compare">
                          <h2>Don’t settle for less</h2>
                          <p>Moving to a new city, job hunting or choosing vacation spots? Compare cities to find out differences in cost of living, jobs, and safety.</p>
                          <div className="compare-buttons">

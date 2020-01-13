@@ -32,7 +32,6 @@
     display:flex;
 
 
-
     .data-nav {
         display:flex;
         flex-direction:column;
@@ -44,10 +43,15 @@
         background:#041734;
         @media only screen and (max-width: 600px) {
             background: #04173400;
-            align-items: flex-start;
+            align-items: center;
             justify-content:space-between;
             height: 100%;
             width: 30%;
+            margin-top: 10px;
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            margin-top: 82px;
         }
 
         .slider {
@@ -61,11 +65,16 @@
             display:flex;
             flex-direction: column;
             background:#041734;
+
             width: 100%;
-            -webkit-transform: translateX(-200px) translate(-6px, -6px);
-                transform: translateX(-200px) translate(-6px, -6px);
+            -webkit-transform: translateX(-1000px) translate(-6px, -6px);
+                transform: translateX(-1000px) translate(-6px, -6px);
             transition: 0.5s;
+            ul {
+                margin: 0;
             }
+            }
+            
         }
 
         .slider.open {
@@ -91,8 +100,8 @@
 
         .menu-items.closed{
             @media only screen and (max-width: 600px) {
-                -webkit-transform: translateX(-200px) translate(-6px, -6px);
-                transform: translateX(-200px) translate(-6px, -6px);  
+                -webkit-transform: translateX(-1000px) translate(-6px, -6px);
+                transform: translateX(-1000px) translate(-6px, -6px);  
                 transition: 0.5s;
             }
         }
@@ -104,8 +113,8 @@
 
         .search-bar.closed{
             @media only screen and (max-width: 600px) {
-                -webkit-transform: translateX(-200px) translate(-6px, -6px);
-                transform: translateX(-200px) translate(-6px, -6px);
+                -webkit-transform: translateX(-1000px) translate(-6px, -6px);
+                transform: translateX(-1000px) translate(-6px, -6px);
                 }
                 transition: 0.5s;
         }
@@ -128,7 +137,7 @@
 
         .burger-menu,
         .burger-menu.open {
-        display:none; 
+            display:none; 
             @media only screen and (max-width: 600px) {
                 display: inline-block;
                 cursor: pointer;
@@ -198,6 +207,7 @@
         .chartjs-render-monitor {
             width:80%;
             margin: 0 auto;
+            
         }
 
         .data-nav-top {
@@ -211,6 +221,9 @@
         .autofill-container {
             position:absolute;
             width:19%;
+            @media only screen and (max-width: 600px) {
+                width:95%;
+            }
         }
 
         .autofill-option {
@@ -232,21 +245,40 @@
     }
 
     .data-by-category {
+        width: 80%;
+
+
+        @media only screen and (max-width: 600px) {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            z-index: 4;
+        }
         
-        width:75%;
-        
+        @media only screen and (max-width: 600px) {
+            width:100%;
+            
+        }
+
+
         h1{
             text-align:center;
         }
 
-        .chart-container {
-            width:100%;
-        }
+        
     
         .charts {
             display: flex;
             flex-wrap:wrap;
             margin: 10px;
+            @media only screen and (max-width: 600px) {
+                padding: 0 5px;
+                
+                width: 100%;
+            }
+            
         }
 
         .data-subnav {
@@ -283,4 +315,3 @@
         }
     }
 }
-
