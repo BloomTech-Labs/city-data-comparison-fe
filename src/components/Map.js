@@ -37,7 +37,7 @@ export default function Map() {
   //           longitude: pos.coords.longitude
   //         })      
   //       );
-  // }, [viewport])
+  // }, [])
 
   const toggleSelected = cityMarker =>  {
     console.log(cityMarker);
