@@ -32,6 +32,7 @@ Application deployed at [https://master.d1td9ufw3xylcx.amplifyapp.com/](https://
 [UX Design files](https://www.figma.com/file/mkHP2saWvSK02a9g1cHoCM/City-Data-Comparison-Ruth-Philips?node-id=275%3A84)
 
 Citrics is an application that analyzes data from cities such as populations, cost of living, crime rates and many other social and economic factors that are important in deciding where someone would like to live. Citrics present such important data in an intuitive and easy to understand interface.
+<br>
 Cities with data are marked on a searchable, indexed map generated from the Mapbox.com API. Selected markers populate navigable data graphs powered by the Chartjs library that indicate important information about the selected city. Graphs are generated dynamically as users adjust their selection of cities to compare.
 
 
@@ -67,7 +68,6 @@ Cities with data are marked on a searchable, indexed map generated from the Mapb
 - Web optimized 
 - Lightweight 
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
 
 #### Front end deployed to https://master.d1td9ufw3xylcx.amplifyapp.com/
 
