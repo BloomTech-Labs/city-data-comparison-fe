@@ -48,6 +48,15 @@
             justify-content:space-between;
             height: 100%;
             width: 30%;
+            margin-top: 10px;
+            
+        }
+        @media only screen and (max-width: 500px) {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            margin-top: 82px;
+            
         }
 
         .slider {
@@ -62,10 +71,11 @@
             flex-direction: column;
             background:#041734;
             width: 100%;
-            -webkit-transform: translateX(-200px) translate(-6px, -6px);
-                transform: translateX(-200px) translate(-6px, -6px);
+            -webkit-transform: translateX(-500px) translate(-6px, -6px);
+                transform: translateX(-500px) translate(-6px, -6px);
             transition: 0.5s;
             }
+            
         }
 
         .slider.open {
@@ -91,8 +101,8 @@
 
         .menu-items.closed{
             @media only screen and (max-width: 600px) {
-                -webkit-transform: translateX(-200px) translate(-6px, -6px);
-                transform: translateX(-200px) translate(-6px, -6px);  
+                -webkit-transform: translateX(-500px) translate(-6px, -6px);
+                transform: translateX(-500px) translate(-6px, -6px);  
                 transition: 0.5s;
             }
         }
@@ -104,8 +114,8 @@
 
         .search-bar.closed{
             @media only screen and (max-width: 600px) {
-                -webkit-transform: translateX(-200px) translate(-6px, -6px);
-                transform: translateX(-200px) translate(-6px, -6px);
+                -webkit-transform: translateX(-500px) translate(-6px, -6px);
+                transform: translateX(-500px) translate(-6px, -6px);
                 }
                 transition: 0.5s;
         }
@@ -234,6 +244,15 @@
     .data-by-category {
         
         width:75%;
+
+        @media only screen and (max-width: 500px) {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            z-index: 4;
+        }
         
         h1{
             text-align:center;
@@ -247,6 +266,7 @@
             display: flex;
             flex-wrap:wrap;
             margin: 10px;
+            
         }
 
         .data-subnav {
