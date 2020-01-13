@@ -37,7 +37,7 @@ const AboutUs = props => {
                 <div className="leadership-design">
                     <div className="container">
                         {/*leadership*/}
-                        <h3>Leadership</h3>
+                        <h3 className="leadership-header">Leadership</h3>
                         <div className="tl">
                             
                             {/*Anna*/}
@@ -60,9 +60,9 @@ const AboutUs = props => {
                     
                     {/*Design*/}
                     <div className="container">
-                        <h3>Design</h3>
+                        
                         <div className="design">
-                            
+                            <h3 className="design-header">Design</h3>
                             {/*Ruth*/}
                             <div className="member">
                                 <img src={ruth} alt="Ruth Phillips"/>
@@ -82,9 +82,9 @@ const AboutUs = props => {
 
                 
                 {/*data science*/}
-                <h3>Data Science</h3>
+                
                 <div className="ds">
-                    
+                  <h3 className="ds-header">Data Science</h3>  
                     {/*Luke*/}
                     <div className="member">
                         <img src={luke} alt="Luke Townsend"/>
@@ -131,9 +131,9 @@ const AboutUs = props => {
                 
 
                 {/*web development*/}
-                <h3>Web Development</h3>
+                
                 <div className="web">
-                    
+                  <h3 className="web-header">Web Development</h3>  
                     {/*Daniel*/}
                     <div className="member">
                         <img src={daniel} alt="Daniel Briksza"/>
