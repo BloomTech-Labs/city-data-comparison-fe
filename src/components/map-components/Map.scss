@@ -30,7 +30,7 @@
 .data-browser {
     background: #E5E5E5;
     display:flex;
-
+    
 
 
     .data-nav {
@@ -49,14 +49,10 @@
             height: 100%;
             width: 30%;
             margin-top: 10px;
-            
-        }
-        @media only screen and (max-width: 500px) {
             position: relative;
             z-index: 5;
             width: 100%;
             margin-top: 82px;
-            
         }
 
         .slider {
@@ -71,8 +67,8 @@
             flex-direction: column;
             background:#041734;
             width: 100%;
-            -webkit-transform: translateX(-500px) translate(-6px, -6px);
-                transform: translateX(-500px) translate(-6px, -6px);
+            -webkit-transform: translateX(-1000px) translate(-6px, -6px);
+                transform: translateX(-1000px) translate(-6px, -6px);
             transition: 0.5s;
             }
             
@@ -101,8 +97,8 @@
 
         .menu-items.closed{
             @media only screen and (max-width: 600px) {
-                -webkit-transform: translateX(-500px) translate(-6px, -6px);
-                transform: translateX(-500px) translate(-6px, -6px);  
+                -webkit-transform: translateX(-1000px) translate(-6px, -6px);
+                transform: translateX(-1000px) translate(-6px, -6px);  
                 transition: 0.5s;
             }
         }
@@ -114,8 +110,8 @@
 
         .search-bar.closed{
             @media only screen and (max-width: 600px) {
-                -webkit-transform: translateX(-500px) translate(-6px, -6px);
-                transform: translateX(-500px) translate(-6px, -6px);
+                -webkit-transform: translateX(-1000px) translate(-6px, -6px);
+                transform: translateX(-1000px) translate(-6px, -6px);
                 }
                 transition: 0.5s;
         }
@@ -208,6 +204,7 @@
         .chartjs-render-monitor {
             width:80%;
             margin: 0 auto;
+            
         }
 
         .data-nav-top {
@@ -242,10 +239,10 @@
     }
 
     .data-by-category {
-        
-        width:75%;
+        width: 80%;
 
-        @media only screen and (max-width: 500px) {
+
+        @media only screen and (max-width: 600px) {
             position: absolute;
             display: flex;
             flex-direction: column;
@@ -258,14 +255,17 @@
             text-align:center;
         }
 
-        .chart-container {
-            width:100%;
-        }
+        
     
         .charts {
             display: flex;
             flex-wrap:wrap;
             margin: 10px;
+            @media only screen and (max-width: 600px) {
+                padding: 0 5px;
+                max-width: 31rem;
+                width: 100%;
+            }
             
         }
 
@@ -303,4 +303,3 @@
         }
     }
 }
-
