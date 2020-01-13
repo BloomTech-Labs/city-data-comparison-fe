@@ -195,7 +195,7 @@ function Dashboard(){
                          </div>
                     </div>
                     <div className="feature-descriptions-container"
-                         data-aos="fade-up"
+                         data-aos="fade"
                          data-aos-offset="200"
                          data-aos-delay="50"
                          data-aos-duration="1000"
