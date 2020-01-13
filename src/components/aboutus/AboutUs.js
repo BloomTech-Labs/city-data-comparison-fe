@@ -30,7 +30,7 @@ const AboutUs = props => {
                 <h1 className="aboutus-title">Our Team</h1>
                 
                 <p className="aboutTeam">
-
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor pulvinar mauris vulputate consequat. Aliquam vel risus mollis, rhoncus nibh in, porttitor leo. Sed rutrum sed augue at egestas. Suspendisse massa turpis, pharetra ut dolor sit amet, ultricies fermentum eros. Vivamus sagittis, augue at facilisis accumsan, augue nisi dictum nulla, ut iaculis diam ligula et mauris. Cras finibus mauris sed egestas porttitor. Vivamus at est viverra, posuere mi nec, eleifend augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus maximus purus orci, non sodales sapien rhoncus vitae. Aliquam bibendum viverra venenatis. Praesent dictum urna aliquam dolor semper maximus.
                 </p>
             </div>
             <div className="team">
