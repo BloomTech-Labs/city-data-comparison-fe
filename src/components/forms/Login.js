@@ -6,6 +6,8 @@ import google from '../../assets/logos/google.svg';
 import facebook from '../../assets/logos/facebook.svg';
 import city from '../../assets/forms/sf_sign_in.png'
 
+//butons
+
 const Login = props => {
     return(
        

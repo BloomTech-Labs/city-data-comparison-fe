@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'; 
 import axios from 'axios'; 
 
+//stylesheet
+import './styles/facebook.scss'
 //assets
 import facebook from '../../../assets/icons/white-facebook.svg'; 
 
