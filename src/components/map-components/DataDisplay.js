@@ -26,7 +26,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     const toggleVisibility = city => {
         console.log("toggling visibility of ", city.city)
     }
-
+     
     return (
         <div className="data-browser">
             <nav className="data-nav">
