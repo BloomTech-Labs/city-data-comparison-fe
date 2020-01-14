@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Route, BrowserRouter as Router} from "react-router-dom";
 import ReactGA from "react-ga";
+
 import './App.scss';
 
 import Dashboard from './components/dashboard/Dashboard'
@@ -18,26 +19,26 @@ import { markerDummyData } from "./components/map-components/data.js";
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
 
+
+function initializeAnalytics() {
+  ReactGA.initialize('UA-156199574-1', {debug:true});
+  ReactGA.pageview("/");
+}
+
 function App() {
-
-  function initializeReactGA() {
-    ReactGA.initialize('UA-156199574-1');
-    ReactGA.pageview('/homepage');
-  } 
-
   useEffect( _ => {
-    initializeReactGA()
-  },[])
-
+    initializeAnalytics()
+  }, [])
+  
   const [user, setUser] = useState({});
   const [cityMarkers, setCityMarkers] = useState(markerDummyData);
   const [selected, setSelected] = useState([]);
   const [viewport, setViewport] = useState({
     width: '100%',
     height: '100%',
-    latitude: 45,
+    latitude: 39,
     longitude: -95,
-    zoom: 5,
+    zoom: 3,
     trackResize: true
   });
 
