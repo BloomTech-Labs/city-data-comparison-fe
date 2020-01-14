@@ -51,7 +51,7 @@
 
 /* * Styling code begins here */
 html,body{
-  background: #fcfcfb;
+  background: #fff;
   margin:0 auto;
   font-family: 'Rubik', sans-serif;
   box-sizing:border-box;
@@ -283,18 +283,40 @@ html,body{
 }
 
 //* Dashboard Bonus Features CTA
-.bonus-features-CTA{
-  border:1px solid red;
-  max-width:800px;
+.bonus-features-container{
+  max-width:750px;
   width: 100%;
   margin: 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
+  .motorbike{
+    width:300px;
+    filter: contrast(105%);
+  }
+
+  .bonus-features-CTA{
+    margin-left:15px;
+  
   .bonus-features-title{
-    font-size:1.2rem;
+    font-size:1.55rem;
+    font-weight:500;
+    margin-bottom:0;
   }
 
   .bonus-features-description{
-    
+    margin-top:10px;
+  }
+
+  .sign-up-CTA{
+    background-color:#4E44FB;
+    color:white;
+    border:none;
+    padding:10px 45px;
+    border-radius:5px;
+    font-size:1.1rem;
+  }
   }
 }
 
