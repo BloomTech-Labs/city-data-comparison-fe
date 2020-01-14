@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import axios from 'axios'; 
 
 //stylesheet
-import './styles/facebook.scss'
+import './styles/linkedin.scss'
 //assets
 import linkedin from '../../../assets/icons/Linkedin.svg'; 
 
@@ -16,4 +16,4 @@ const Linkedin = props => {
     )
 }
 
-export default Linked; 
+export default Linkedin; 
