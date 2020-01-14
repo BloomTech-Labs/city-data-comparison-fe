@@ -7,6 +7,7 @@ import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
 import motorbike from './assets/motorbike.jpg'
+import landing from './assets/landing2.jpg'
 
 
 import { CityContext } from '../../contexts/CityContext';
@@ -128,6 +129,25 @@ function Dashboard(){
 
      return(
           <div className="dashboard-container">
+               <div>
+                    <div>
+                         <p>Make Your Move.</p>
+                         <div>
+                              <div>
+                                   <p></p>
+                              </div>
+                              <div>
+
+                              </div>
+                         </div>
+                    </div>
+                    <div>
+                         <img src={landing} alt="environment"/>
+                    </div>
+               </div>
+
+
+
                {/* SEARCH FUNCTION */}
                <div className="dashboard-search-container">
                     <div className="slanted-san-francisco"></div>

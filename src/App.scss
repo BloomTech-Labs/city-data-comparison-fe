@@ -84,7 +84,7 @@ html,body{
      width: 100%;
      opacity: 0.97;
      padding:10px 0;
-     padding-top:5px;
+     padding-top:15px;
      font-size: 0.9rem;
      z-index: 99999;
      margin:0 auto;
@@ -118,7 +118,7 @@ html,body{
      justify-content: space-between;
      align-items: center;
      padding-left: 4%;
-     padding-right:4%;
+     padding-right:2%;
    }
   nav a{
     display: flex;
@@ -152,7 +152,7 @@ html,body{
     border:none;
     background-color:#00bfa5;
     border-radius:5px;
-    padding:10px 16px;
+    padding:7px 13px;
     color:white;
 
     &:hover{
@@ -164,7 +164,7 @@ html,body{
   }
 @media screen and (max-width:800px){
   nav{
-    width:70%;
+    width:65%;
   }
 }
 
@@ -287,7 +287,7 @@ html,body{
   max-width:750px;
   width: 100%;
   margin: 5% auto;
-  margin-bottom:5%;
+  margin-bottom:13%;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -494,7 +494,8 @@ html,body{
 
 @media screen and (max-width:500px){
   .dashboard-features-title{
-    padding:10%;
+    padding-top:10%;
+    padding-bottom:7%;
     margin-bottom:0;
     text-align:center;
     .features-title{
