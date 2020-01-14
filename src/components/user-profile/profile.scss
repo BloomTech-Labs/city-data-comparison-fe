@@ -4,13 +4,13 @@ h1 {
 
 .side-nav {
     display: flex;
-    justify-content: space-around;
+    
     .profile-tabs {
-        width: 30%;
         .nav-items{
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            justify-content: flex-start;
+            margin: 0 auto;
                 a{
                     
                 }
