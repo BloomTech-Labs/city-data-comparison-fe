@@ -21,6 +21,7 @@ export default function EducationGraph (props) {
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
             <Bar
               data={{
+                
                 labels: ["Less than $500",  "$500 - $999", "$1,000 - $1,499",  "$1,500 - $1,999", "$2,000 - $2,499", "$2,500 - $2,999", "$3,000 or more"],
                 datasets: props.edData.map( item => {
                   
@@ -44,6 +45,7 @@ export default function EducationGraph (props) {
                 })
 
               }}
+              
               options={{
                 title:{
                   display:true,
@@ -53,7 +55,36 @@ export default function EducationGraph (props) {
                 legend:{
                   display:true,
                   position:"top",
+                },
+                scales: {
+                  xAxes: [ {
+                    
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Cost'
+                    },
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Percent',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    },
+
+                  } ]
                 }
+                
               }}
             /> 
           </div>
