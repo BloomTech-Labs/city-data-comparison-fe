@@ -16,12 +16,7 @@ const Facebook = props => {
 
     return (
         <div className='facebook-button'>
-            <div className="facebook-icon">
-
-                <img src={facebook} alt="facebook icon"/>
-                
-            </div>
-
+            <img src={facebook} alt="facebook icon"/>
             <p className="facebook-name">{props.action} with Facebook</p>
         </div>
     )
