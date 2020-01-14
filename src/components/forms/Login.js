@@ -7,6 +7,8 @@ import facebook from '../../assets/logos/facebook.svg';
 import city from '../../assets/forms/sf_sign_in.png'
 
 //butons
+import Facebook from './buttons/Facebook.js'; 
+
 
 const Login = props => {
     return(
@@ -22,10 +24,7 @@ const Login = props => {
                            <img className="google" src={google} alt="google logo"/>
                            <p className="button-text">Sign up with Google</p>
                        </button>
-                       <button id="auth-button" className="facebook">
-                           <img className="fb" src={facebook} alt="facebook logo"/>
-                           <p className="button-text">Sign up with Facebook</p>
-                       </button>
+                       <Facebook action="login"/>
                    </div>
                    
                    <div className="centerText">

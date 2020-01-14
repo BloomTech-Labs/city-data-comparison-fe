@@ -9,7 +9,7 @@ import facebook from '../../../assets/icons/white-facebook.svg';
 const Facebook = props => {
     useEffect(() => {
         axios
-            .get(`api/auth/login/${props.action}`)
+            .get(`api/auth/${props.action}`)
             .then(res => console.log(res))
             .catch(error => console.log('Failed to login/signup: ', error))
 
@@ -18,7 +18,7 @@ const Facebook = props => {
 
     return (
         <div className='facebook-button'>
-            <img src={facebook} alt="facebook icon"/>
+            <img className="fb-icon" src={facebook} alt="facebook icon"/>
             <p className="facebook-name">{props.action} with Facebook</p>
         </div>
     )
