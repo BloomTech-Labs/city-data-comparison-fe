@@ -134,13 +134,48 @@ function Dashboard(){
                          <p>Make Your Move.</p>
                          <div>
                               <div>
-                                   <p></p>
-                              </div>
-                              <div>
+                                   <p>Search for a city:</p>
+                                   
+                                   <form onSubmit={submitCity}>
+                                        <div>
+                                             <input 
+                                             placeholder="San Francisco, CA"
+                                             onChange={searchChange}
+                                             value={search}
+                                             />
+                                             <Link to="map/jobs/standards"><button type="submit">Go</button></Link>
+                                             
+                                             <div>
+                                                  {suggestions.map( (suggestion) => {
+                                                       const style = {
+                                                            backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                            cursor: "pointer",
+                                                            fontSize:"1rem",
+                                                            textAlign:"left",
+                                                            padding:"10px",
+                                                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
+                                                       }
+                                                       return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                  })}
+                                             </div>
+                                        </div>
+                                   </form>
 
+                                   <p>Want to  learn about more cities? Click the link to compare multiple cities. <Link>Compare cities</Link></p> 
+                              </div>
+
+
+
+
+
+
+                              <div>
+                                   <p></p>
                               </div>
                          </div>
                     </div>
+
+
                     <div>
                          <img src={landing} alt="environment"/>
                     </div>
@@ -211,9 +246,6 @@ function Dashboard(){
 
 
                {/* PRODUCT FEATURES */}
-               {/* <div className="dashboard-features-title">
-                    <p className="features-title">Features</p>
-               </div> */}
                <div className="dashboard-features-container">
                     <div className="dashboard-features-title">
                     <p className="features-title">Features</p>
