@@ -332,6 +332,15 @@ html,body{
     }
   }
 }
+@media screen and (max-width:500px){
+  .bonus-features-container{
+    flex-direction:column;
+
+    .bonus-features-CTA{
+      padding: 0 5%;
+    }    
+  }
+}
 
 
 
