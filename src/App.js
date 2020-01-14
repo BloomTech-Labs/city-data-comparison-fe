@@ -26,10 +26,11 @@ function initializeAnalytics() {
 }
 
 function App() {
+
   useEffect( _ => {
     initializeAnalytics()
   }, [])
-  
+
   const [user, setUser] = useState({});
   const [cityMarkers, setCityMarkers] = useState(markerDummyData);
   const [selected, setSelected] = useState([]);
@@ -42,7 +43,15 @@ function App() {
     trackResize: true
   });
 
+  useEffect( _ => {
+    ReactGA.event({ category: 'Map', 
+    action: 'Changed map location' });
+  }, [viewport.latitude])
 
+  useEffect( _ => {
+    ReactGA.event({ category: 'Map', 
+    action: 'Changed map zoom' });
+  }, [viewport.zoom])
 
   return (
     <Router>
