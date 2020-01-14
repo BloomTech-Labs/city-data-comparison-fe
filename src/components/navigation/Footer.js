@@ -3,6 +3,7 @@ import Modal from "../modal/modal"
 import useModal from "../modal/useModal"
 import "../modal/modal.scss";
 import AboutUs from "../aboutus/AboutUs"
+import PrivacyPolicy from "../legal/PrivacyPolicy"
 
 function Footer(){
 
@@ -43,7 +44,7 @@ function Footer(){
                               <div className="footer-categories">
                                    <h3 className="footer-title">Resources</h3>
                                    <a href="/">Data Sources</a>
-                                   <a href="/">Private Policy</a>
+                                   <a onClick={toggle}>Private Policy</a>
                                    <a href="/">Terms of Use</a>
                               </div>
                          </div>
