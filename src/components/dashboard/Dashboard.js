@@ -191,7 +191,13 @@ function Dashboard(){
 
 
                {/* PRODUCT FEATURES */}
+               {/* <div className="dashboard-features-title">
+                    <p className="features-title">Features</p>
+               </div> */}
                <div className="dashboard-features-container">
+                    <div className="dashboard-features-title">
+                    <p className="features-title">Features</p>
+               </div>
                     <div className="feature-descriptions-container"
                          data-aos="fade-right"
                          data-aos-offset="200"
