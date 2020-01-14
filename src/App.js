@@ -26,8 +26,10 @@ function initializeAnalytics() {
 }
 
 function App() {
-
-  initializeAnalytics()
+  useEffect( _ => {
+    initializeAnalytics()
+  }, [])
+  
   const [user, setUser] = useState({});
   const [cityMarkers, setCityMarkers] = useState(markerDummyData);
   const [selected, setSelected] = useState([]);

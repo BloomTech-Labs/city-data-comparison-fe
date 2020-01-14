@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 import './map-components/Map.scss';
+import ReactGA from "react-ga"
 
 import Markers from "./map-components/Markers";
 import MapFooter from "./map-components/MapFooter";
@@ -21,6 +22,11 @@ export default function Map() {
 
   
   const [search, setSearch] = useState("");
+
+  useEffect( _ => {
+    ReactGA.event({ category: 'Selected', 
+    action: 'selected a new city using map' });
+  }, [selected])
 
 
   // useEffect( _ => {
