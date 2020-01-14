@@ -72,6 +72,20 @@ export default function BarGraph ({selected}){
             legend:{
               display:defaultProps.displayLegend,
               position:defaultProps.legendPosition
+            },
+            scales: {
+              xAxes: [{
+                gridLines: {
+                  display:false
+                }
+              }],
+              yAxes: [{
+                gridLines: {
+                  display:false
+                }
+                
+              }]
+              
             }
           }}
         />
