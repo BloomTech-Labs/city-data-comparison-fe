@@ -5,6 +5,10 @@ import { CityContext } from "../../contexts/CityContext"
 
 import './profile.scss'
 
+import Favorites from './Favorites'
+import Preferences from './Preferences'
+import Settings from './Settings'
+
 function Profile({selected}) {
     //state for logged in user
     
@@ -78,6 +82,9 @@ function Profile({selected}) {
                     <NavLink activeClassName='selected' to='/profile/preferences'>Preferences</NavLink>
                     <NavLink activeClassName='selected' to='/profile/settings'>Settings</NavLink>
                 </nav>
+                    <Route path='/profile/favorites' render={_ => <Favorites selected={selected} />} />
+                    <Route path='/profile/preferences' render={_ => <Preferences selected={selected} />} />
+                    <Route path='/profile/settings' render={_ => <Settings selected={selected} />} />
             </div>
         </div>
     )
