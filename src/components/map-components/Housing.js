@@ -1,10 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
+import ReactGA from "react-ga";
 import {Route} from "react-router-dom";
 import LineGraph from "../graphs/housing/House_price";
 import RoomGraph from "../graphs/housing/HousingByRooms";
 import RentChart from "../graphs/housing/RentChart";
 
 const Housing = ({selected}) => {
+    useEffect( _ => {
+        ReactGA.event()
+    })
+    
     return (
         <div>
             <h1>Costs of living analysis:</h1>

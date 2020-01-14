@@ -24,6 +24,11 @@ export default function Map() {
   const [search, setSearch] = useState("");
 
   useEffect( _ => {
+    ReactGA.event({ category: 'Map', 
+    action: 'loaded map' });
+  }, [])
+
+  useEffect( _ => {
     ReactGA.event({ category: 'Selected', 
     action: 'selected a new city using map' });
   }, [selected])
