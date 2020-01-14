@@ -234,7 +234,7 @@ function Dashboard(){
                          <img className="feature-images" src={location} alt="data visual"/>
                          <div className="feature-descriptions">
                               <p className="feature-title">Visualize Data</p>
-                              <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
+                              <p>Data visuals help to easily understand cost of living in multiple cities and provide data from a bird’s eye view.</p>
                          </div>
                     </div>
                </div>
