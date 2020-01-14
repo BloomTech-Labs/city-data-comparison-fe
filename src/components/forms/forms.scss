@@ -40,6 +40,7 @@ span{
         width: 75%; 
         margin:auto; 
         margin-top:13%; 
+        align-items: center;
     }
     .google{
         width: 20%;
@@ -153,5 +154,12 @@ span{
     //login
 
     .login-button{
+        border-radius: 20px; 
+        background: #F99539; 
+        color: white; 
+        font-weight: 500; 
+        padding: 4% 2.5%;
+        text-align: center;
+        font-size: 1.2rem; 
         border:1px solid #F99539;
     }

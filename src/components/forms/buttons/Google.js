@@ -10,7 +10,7 @@ const Google = props => {
 
     return (
         <div className='google-button'>
-            <img className="google-icon" src={linkedin} alt="google icon"/>
+            <img className="google-icon" src={google} alt="google icon"/>
             <p className="google-name">{props.action} with Google</p>
         </div>
     )

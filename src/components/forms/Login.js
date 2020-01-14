@@ -1,14 +1,14 @@
 import React from 'react'; 
 
 
-//images
-import google from '../../assets/logos/google.svg'; 
-import facebook from '../../assets/logos/facebook.svg';
+
+
 import city from '../../assets/forms/sf_sign_in.png'
 
 //butons
 import Facebook from './buttons/Facebook.js'; 
-
+import Google from './buttons/Google.js'
+import Linkedin from './buttons/Linkedin'
 
 const Login = props => {
     return(
@@ -20,10 +20,7 @@ const Login = props => {
                    <h2 className="form-title">Welcome Back!</h2>
 
                    <div className="auth">
-                       <button id="auth-button" className="google">
-                           <img className="google" src={google} alt="google logo"/>
-                           <p className="button-text">Sign up with Google</p>
-                       </button>
+                       <Google action='Sign in '/>
                        <Facebook action="Login"/>
                    </div>
                    
@@ -40,7 +37,7 @@ const Login = props => {
                            <input className="checkbox" type="checkbox" name="tos"></input>
                            <p className="tos-text">Accept terms of service</p>
                        </div>
-                       <div className="signup-button">Start exploring cities</div>
+                       <div className="login-button">Start exploring cities</div>
                        <p class='question'>Have an account? <span>Sign in</span> to explore cities</p>
                    </div>
                </div>

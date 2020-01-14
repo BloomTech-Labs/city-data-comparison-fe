@@ -1,13 +1,16 @@
 import React from 'react'; 
 
 //images
-import google from '../../assets/logos/google.svg'; 
-import facebook from '../../assets/logos/facebook.svg';
+
 import city from '../../assets/forms/nyc_signup_photo.png'; 
 
 
 //styling
 import './forms.scss'; 
+
+//buttons
+import Facebook from './buttons/Facebook.js';
+import Google from './buttons/Google.js'
 
 const Signup = props => {
     return(
@@ -17,16 +20,9 @@ const Signup = props => {
                     <div className="form">
                         <h2 className="form-title">Create your account</h2>
 
-                        <div className="auth">
-                            <button id="auth-button" className="google">
-                                <img className="google" src={google} alt="google logo"/>
-                                <p className="button-text">Sign up with Google</p>
-                            </button>
-                            <button id="auth-button" className="facebook">
-                                <img className="fb" src={facebook} alt="facebook logo"/>
-                                <p className="button-text">Sign up with Facebook</p>
-                            </button>
-                        </div>
+                            <Google action="Sign up"/>
+                            <Facebook action="Sign up"/>
+                        
                         
                         <div className="centerText">
                             <div className="line"></div>

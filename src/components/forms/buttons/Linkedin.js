@@ -4,7 +4,7 @@ import axios from 'axios';
 //stylesheet
 import './styles/linkedin.scss'
 //assets
-import linkedin from '../../../assets/icons/Linkedin.svg'; 
+import linkedin from '../../../assets/icons/linkedin.svg'; 
 
 const Linkedin = props => {
 

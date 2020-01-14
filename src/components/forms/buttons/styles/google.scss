@@ -1,0 +1,25 @@
+.google-button{
+    display: flex; 
+    align-items: center;
+    background: #ffffff;
+    border-radius: 5px;
+    padding:2.5% 3%;
+    height: 4.6875rem; 
+    width: 100%; 
+    margin: 0% 0 5% 30%; 
+
+    .google-name{
+        color: #615d5d; 
+        font-weight: 700; 
+        letter-spacing: .1rem;
+        font-size: 1.1rem;
+        padding:  0 5%; 
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .google-icon{
+        width: 10%; 
+    }
+
+
+}
