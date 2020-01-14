@@ -59,6 +59,20 @@ export default function EducationGraph (props) {
                 legend:{
                   display:true,
                   position:"top",
+                },
+                scales: {
+                  xAxes: [{
+                    gridLines: {
+                      display:false
+                    }
+                  }],
+                  yAxes: [{
+                    gridLines: {
+                      display:false
+                    }
+                    
+                  }]
+                  
                 }
               }}
             /> 
