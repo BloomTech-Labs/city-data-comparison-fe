@@ -6,7 +6,7 @@ import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
-import motorbike from './assets/motorbike.svg'
+import motorbike from './assets/landing2.jpg'
 
 
 import { CityContext } from '../../contexts/CityContext';
