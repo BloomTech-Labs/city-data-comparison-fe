@@ -57,7 +57,8 @@ html,body{
   box-sizing:border-box;
   color: #2e2f38;
   line-height:1.26;
-
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 * {
@@ -124,6 +125,7 @@ html,body{
     align-items: center;
     justify-content: center;
     text-decoration:none;
+    text-align:center;
     color:#2e2f38;
     font-size:1rem;
     transition: .3s cubic-bezier(0.2,0.8,0.2,1);
@@ -167,14 +169,20 @@ html,body{
 }
 
 @media screen and (max-width: 500px) {
-     nav {
+     .main-nav {
           width:100%;
     }
-    nav a {
+    .main-nav a {
          display: none;
     }
     .navigation-container{
       background-color:#fff !important;
+      nav {
+        width:100%;
+      }
+      nav a {
+          display: none;
+      }
     }
     .sign-up-btn {
          display: none;
@@ -237,7 +245,7 @@ html,body{
 
     .dropdown {
       position: relative;
-      display: inline-block;
+      // display: inline-block;
       float:right;
     }
 
@@ -643,6 +651,14 @@ html,body{
     }
   }
 }
+/* dashboard animations styling */
+
+@media screen and (max-width: 500px) {
+  [data-aos-delay] {
+    transition-delay: 0s !important;
+  }
+}
+
 
 // * Footer Styling
 .footer-container{

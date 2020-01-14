@@ -52,7 +52,7 @@ function Navigation(){
           <div className={"navigation-container " + bgColor } onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
-               <nav className = {displayNav}>
+               <nav className = {`main-nav ${displayNav}`}>
                     {/* <a href="google.com">Link A</a> */}
                     <Link to="/map">Map</Link>
                     <Link className="login-link" to="/login"><img alt="lock" src={lock}/>Log In</Link>

@@ -21,7 +21,7 @@ export default function EducationGraph (props) {
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
             <Bar
               data={{
-                labels: ["Agriculture forestry fishing and hunting and mining",  "Arts entertainment and recreation and accommodation and food services", "Construction","Educational services and health care and social assistance", "Finance and insurance and real estate and rental and leasing", "Information", "Manufacturing", "Other services except public administration" , "Professional scientific and management and administrative and waste management services" , "Public administration", "Retail trade", "Transportation and warehousing and utilities", "Wholesale trade"],
+                labels: ["Agriculture/Mining",  "Entertainment", "Construction","Education/Health Care", "Finance/Real Estate", "Information", "Manufacturing", "Non-Governmental Services" , "Science" , "Public Administration", "Retail Trade", "Transportation", "Wholesale Trade"],
                 datasets: props.edData.map( item => {
                   
                   return {
