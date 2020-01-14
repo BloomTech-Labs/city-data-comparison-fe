@@ -286,7 +286,7 @@ html,body{
 .bonus-features-container{
   max-width:750px;
   width: 100%;
-  margin: 0 auto;
+  margin: 5% auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -297,26 +297,38 @@ html,body{
   }
 
   .bonus-features-CTA{
-    margin-left:15px;
+    margin-left:20px;
   
-  .bonus-features-title{
-    font-size:1.55rem;
-    font-weight:500;
-    margin-bottom:0;
-  }
+    .bonus-features-title{
+      font-size:1.55rem;
+      font-weight:500;
+      margin-bottom:0;
+    }
 
-  .bonus-features-description{
-    margin-top:10px;
-  }
+    .bonus-features-description{
+      margin-top:10px;
+    }
 
-  .sign-up-CTA{
-    background-color:#4E44FB;
-    color:white;
-    border:none;
-    padding:10px 45px;
-    border-radius:5px;
-    font-size:1.1rem;
-  }
+    .sign-up-CTA{
+      background-color:#5666fa;
+      color:white;
+      border:none;
+      padding:10px 45px;
+      border-radius:5px;
+      font-size:1.1rem;
+      transition:0.33s ease;
+
+      cursor:pointer;
+      &:focus{
+      outline:0;
+      }
+
+      &:hover{
+        color:#5666fa;
+        border:1px solid #5666fa;
+        background-color:white;
+      }
+    }
   }
 }
 

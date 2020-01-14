@@ -183,7 +183,8 @@ function Dashboard(){
                     <div className="bonus-features-CTA">
                          <p className="bonus-features-title">Unlock bonus features</p>
                          <p className="bonus-features-description">Sign up for free to unlock additional features to export data, review and comment on cities, and view favorited cities. </p>
-                         <button className="sign-up-CTA">Sign Up</button>
+                         
+                         <Link to="/signup"><button className="sign-up-CTA">Sign Up Free</button></Link>
                     </div>
                </div>
 
