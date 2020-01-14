@@ -77,11 +77,14 @@ function Profile({selected}) {
             <h1>Profile</h1>
 
             <div className='side-nav'>
-                <nav className='profile-edit'>
-                    <NavLink activeClassName='selected' to='/profile/favorites'>Favorites</NavLink>
-                    <NavLink activeClassName='selected' to='/profile/preferences'>Preferences</NavLink>
-                    <NavLink activeClassName='selected' to='/profile/settings'>Settings</NavLink>
-                </nav>
+                <div className='profile-tabs'>
+                    <nav className='nav-items'>
+                        <NavLink activeClassName='selected' to='/profile'>Profile</NavLink>
+                        <NavLink activeClassName='selected' to='/profile/favorites'>Favorites</NavLink>
+                        <NavLink activeClassName='selected' to='/profile/preferences'>Preferences</NavLink>
+                        <NavLink activeClassName='selected' to='/profile/settings'>Settings</NavLink>
+                    </nav>
+                </div>
                     <Route path='/profile/favorites' render={_ => <Favorites selected={selected} />} />
                     <Route path='/profile/preferences' render={_ => <Preferences selected={selected} />} />
                     <Route path='/profile/settings' render={_ => <Settings selected={selected} />} />
