@@ -54,6 +54,20 @@ export default function EthnicityGraph({ethData}) {
                 legend:{
                   display:true,
                   position:"top",
+                },
+                scales: {
+                  xAxes: [{
+                    gridLines: {
+                      display:false
+                    }
+                  }],
+                  yAxes: [{
+                    gridLines: {
+                      display:false
+                    }
+                    
+                  }]
+                  
                 }
               }}
             /> 
