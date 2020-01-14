@@ -11,6 +11,7 @@ import './forms.scss';
 //buttons
 import Facebook from './buttons/Facebook.js';
 import Google from './buttons/Google.js'
+import Linkedin from './buttons/Linkedin';
 
 const Signup = props => {
     return(
@@ -19,11 +20,11 @@ const Signup = props => {
                 <div className="inner-form">
                     <div className="form">
                         <h2 className="form-title">Create your account</h2>
-
-                            <Google action="Sign up"/>
-                            <Facebook action="Sign up"/>
-                        
-                        
+                            <div className="auth">
+                                <Google action="Sign up"/>
+                                <Facebook action="Sign up"/>
+                                <Linkedin action="Sign up"/>
+                            </div>
                         <div className="centerText">
                             <div className="line"></div>
                             <p className="center">or with email</p>

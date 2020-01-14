@@ -20,9 +20,11 @@ const Login = props => {
                    <h2 className="form-title">Welcome Back!</h2>
 
                    <div className="auth">
-                       <Linkedin action="Sign in" />
+                       
                        <Google action='Sign in '/>
                        <Facebook action="Sign in"/>
+                       <Linkedin action="Sign in" />
+                       
                    </div>
                    
                    <div className="centerText">

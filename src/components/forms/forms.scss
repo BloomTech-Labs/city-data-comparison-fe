@@ -5,7 +5,7 @@
     font-size: 2rem;
     text-align: center;
     letter-spacing: .1rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 span{
@@ -39,7 +39,7 @@ span{
         flex-direction: column;
         width: 75%; 
         margin:auto; 
-        margin-top:13%; 
+        margin-top:10%; 
         align-items: center;
     }
     .google{
@@ -148,7 +148,11 @@ span{
         text-align: center;
         font-size: 1.2rem; 
 
-
+        &:hover{
+            background:white; 
+            border:1px solid #3999FC; 
+            color: #3999FC; 
+        }
     }
 
     //login
