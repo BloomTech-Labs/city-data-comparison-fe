@@ -1,10 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react';
+import {NavLink, Route}  from "react-router-dom";
 import axios from 'axios';
 import { CityContext } from "../../contexts/CityContext"
 
 import './profile.scss'
 
-function Profile() {
+function Profile({selected}) {
     //state for logged in user
     
     const {user, setUser} = useContext(CityContext);
@@ -69,7 +70,15 @@ function Profile() {
 
     return (
         <div>
+            <h1>Profile</h1>
 
+            <div className='side-nav'>
+                <nav className='profile-edit'>
+                    <NavLink activeClassName='selected' to='/profile/favorites'>Favorites</NavLink>
+                    <NavLink activeClassName='selected' to='/profile/preferences'>Preferences</NavLink>
+                    <NavLink activeClassName='selected' to='/profile/settings'>Settings</NavLink>
+                </nav>
+            </div>
         </div>
     )
 }
