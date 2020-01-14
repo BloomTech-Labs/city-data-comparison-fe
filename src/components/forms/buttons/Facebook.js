@@ -1,6 +1,9 @@
 import React, {useEffect} from 'react'; 
 import axios from 'axios'; 
 
+//assets
+import facebook from '../../../assets/icons/white-facebook.svg'; 
+
 const Facebook = props => {
     useEffect(() => {
         axios
@@ -15,7 +18,7 @@ const Facebook = props => {
         <div className='facebook-button'>
             <div className="facebook-icon">
 
-                <img src={} alt="facebook icon"/>
+                <img src={facebook} alt="facebook icon"/>
                 
             </div>
 
