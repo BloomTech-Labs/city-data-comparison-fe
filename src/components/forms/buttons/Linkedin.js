@@ -10,7 +10,7 @@ const Linkedin = props => {
 
     return (
         <div className='linkedin-button'>
-            <img className="li-icon" src={linkedin} alt="linkedin icon"/>
+            <img className="linkedin-icon" src={linkedin} alt="linkedin icon"/>
             <p className="linkedin-name">{props.action} with Linkedin</p>
         </div>
     )

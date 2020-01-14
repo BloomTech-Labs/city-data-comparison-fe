@@ -162,4 +162,9 @@ span{
         text-align: center;
         font-size: 1.2rem; 
         border:1px solid #F99539;
+
+        &:hover{
+           background:white; 
+           color: #F99539;  
+        }
     }
