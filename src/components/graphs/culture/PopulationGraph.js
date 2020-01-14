@@ -35,6 +35,7 @@ export default function PopGrowthGraph({selected}) {
                   
                   return {
                     label: item.name.replace(" city" , ""),
+                    fill: false,
                     data: labels.map(label => item["Population Growth"][label]),
                     borderColor:
                       colorifier(item.lat)
