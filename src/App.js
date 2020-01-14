@@ -53,6 +53,11 @@ function App() {
     action: 'Changed map zoom' });
   }, [viewport.zoom])
 
+  useEffect( _ => {
+    ReactGA.event({ category: 'User', 
+    action: 'Signed in/out or updated User Info' });
+  }, [user])
+
   return (
     <Router>
       <UserContext.Provider value={{user, setUser}}>

@@ -1,5 +1,6 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {Link} from "react-router-dom"
+import ReactGA from "react-ga";
 
 import graph from './assets/graph.svg'
 import pointer from './assets/pointer.svg'
@@ -42,6 +43,12 @@ function Dashboard(){
               latitude: city.lat
             })  
       }
+
+   useEffect( _ => {
+          ReactGA.event({ category: 'Selected', 
+          action: 'selected a city using dashboard' });
+     }, [selected])
+      
 
 
       
