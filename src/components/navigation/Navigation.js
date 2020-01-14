@@ -47,13 +47,13 @@ function Navigation(){
           float:"right"
      }
      
+     // className = {`main-nav ${displayNav}`}
 
      return(
-          <div className={"navigation-container " + bgColor } onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
+          <div className={"navigation-container " + bgColor + `main-nav ${displayNav}`} onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
-               <nav className = {`main-nav ${displayNav}`}>
-                    {/* <a href="google.com">Link A</a> */}
+               <nav>
                     <Link to="/map">Explore</Link>
                     <Link to="/map">Compare</Link>
                     <Link className="login-link" to="/login"><img alt="lock" src={lock}/>Log In</Link>
