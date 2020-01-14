@@ -7,14 +7,6 @@ import './styles/facebook.scss'
 import facebook from '../../../assets/icons/white-facebook.svg'; 
 
 const Facebook = props => {
-    useEffect(() => {
-        axios
-            .get(`api/auth/${props.action}`)
-            .then(res => console.log(res))
-            .catch(error => console.log('Failed to login/signup: ', error))
-
-
-    })
 
     return (
         <div className='facebook-button'>

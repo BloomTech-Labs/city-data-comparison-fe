@@ -24,7 +24,7 @@ const Login = props => {
                            <img className="google" src={google} alt="google logo"/>
                            <p className="button-text">Sign up with Google</p>
                        </button>
-                       <Facebook action="login"/>
+                       <Facebook action="Login"/>
                    </div>
                    
                    <div className="centerText">
