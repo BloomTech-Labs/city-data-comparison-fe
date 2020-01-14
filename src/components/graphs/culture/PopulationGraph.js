@@ -56,18 +56,32 @@ export default function PopGrowthGraph({selected}) {
                   position:"top",
                 },
                 scales: {
-                  xAxes: [{
-                    gridLines: {
-                      display:false
-                    }
-                  }],
-                  yAxes: [{
-                    gridLines: {
-                      display:false
-                    }
+                  xAxes: [ {
                     
-                  }]
-                  
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Year'
+                    },
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'amount',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    },
+
+                  } ]
                 }
               }}
             /> 
