@@ -71,18 +71,32 @@ export default function BarGraph ({selected}){
               position:defaultProps.legendPosition
             },
             scales: {
-              xAxes: [{
-                gridLines: {
-                  display:false
-                }
-              }],
-              yAxes: [{
-                gridLines: {
-                  display:false
-                }
+              xAxes: [ {
                 
-              }]
-              
+                display: true,
+                gridLines: {
+                  display:false,
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Cost'
+                },
+              } 
+              ],
+              yAxes: [ {
+                display: true,
+                gridLines: {
+                  display:false,
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Percent',
+                  ticks: {
+                    beginAtZero: true
+                  }
+                },
+
+              } ]
             }
           }}
         />

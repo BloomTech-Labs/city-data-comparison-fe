@@ -61,18 +61,28 @@ export default function EducationGraph (props) {
                   position:"top",
                 },
                 scales: {
-                  xAxes: [{
-                    gridLines: {
-                      display:false
-                    }
-                  }],
-                  yAxes: [{
-                    gridLines: {
-                      display:false
-                    }
+                  xAxes: [ {
                     
-                  }]
-                  
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Percent',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    },
+
+                  } ]
                 }
               }}
             /> 
