@@ -7,8 +7,9 @@ import RentChart from "../graphs/housing/RentChart";
 
 const Housing = ({selected}) => {
     useEffect( _ => {
-        ReactGA.event()
-    })
+        ReactGA.event({ category: 'Data', 
+        action: 'loaded housing data' });
+    },[])
     
     return (
         <div>
