@@ -6,6 +6,7 @@ import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
+import motorbike from './assets/motorbike.svg'
 
 
 import { CityContext } from '../../contexts/CityContext';
@@ -177,10 +178,13 @@ function Dashboard(){
                </div>
                
                {/* Sign Up call-to-action */}
-               <div>
-                    <p>Unlock bonus features</p>
-                    <p>Sign up for free to unlock additional features to export data, review and comment on cities, and view favorited cities. </p>
-                    <button>Sign Up</button>
+               <div className="bonus-features-CTA">
+                    <img src={motorbike} alt="motorbike" />
+                    <div>
+                         <p className="bonus-features-title">Unlock bonus features</p>
+                         <p className="bonus-features-description">Sign up for free to unlock additional features to export data, review and comment on cities, and view favorited cities. </p>
+                         <button className="sign-up-CTA">Sign Up</button>
+                    </div>
                </div>
 
 
