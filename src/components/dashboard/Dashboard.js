@@ -175,6 +175,14 @@ function Dashboard(){
                          <a href="#compareanchor"><button className="compare-cities-button">Compare cities</button></a>
                     </div>
                </div>
+               
+               {/* Sign Up call-to-action */}
+               <div>
+                    <p>Unlock bonus features</p>
+                    <p>Sign up for free to unlock additional features to export data, review and comment on cities, and view favorited cities. </p>
+                    <button>Sign Up</button>
+               </div>
+
 
 
                {/* PRODUCT FEATURES */}
