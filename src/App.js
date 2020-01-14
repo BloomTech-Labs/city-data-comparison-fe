@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Route, BrowserRouter as Router} from "react-router-dom";
+import ReactGA from "react-ga";
 import './App.scss';
 
 import Dashboard from './components/dashboard/Dashboard'
@@ -18,6 +19,15 @@ import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
 
 function App() {
+
+  function initializeReactGA() {
+    ReactGA.initialize('UA-156199574-1');
+    ReactGA.pageview('/homepage');
+  } 
+
+  useEffect( _ => {
+    initializeReactGA()
+  },[])
 
   const [user, setUser] = useState({});
   const [cityMarkers, setCityMarkers] = useState(markerDummyData);
