@@ -7,6 +7,7 @@ import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
+import motorbike from './assets/motorbike.jpg'
 
 
 import { CityContext } from '../../contexts/CityContext';
@@ -147,7 +148,7 @@ function Dashboard(){
                          data-aos-mirror="true"
                          data-aos-once="true"
                     >
-                         <h1>Choice is YOURS</h1>
+                         <h1>Make Your Move.</h1>
                          <p className="cities-description">Search for a city:</p>
 
 
@@ -182,6 +183,18 @@ function Dashboard(){
                          <a href="#compareanchor"><button className="compare-cities-button">Compare cities</button></a>
                     </div>
                </div>
+               
+               {/* Sign Up call-to-action */}
+               <div className="bonus-features-container">
+                    <img className="motorbike" src={motorbike} alt="motorbike" />
+                    <div className="bonus-features-CTA">
+                         <p className="bonus-features-title">Unlock bonus features</p>
+                         <p className="bonus-features-description">Sign up for free to unlock additional features to export data, review and comment on cities, and view favorited cities. </p>
+                         
+                         <Link to="/signup"><button className="sign-up-CTA">Sign Up Free</button></Link>
+                    </div>
+               </div>
+
 
 
                {/* PRODUCT FEATURES */}
