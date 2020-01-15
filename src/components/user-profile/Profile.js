@@ -8,6 +8,7 @@ import './profile.scss'
 import Favorites from './Favorites'
 import Preferences from './Preferences'
 import Settings from './Settings'
+import ProfileCard from './ProfileCard'
 
 function Profile({selected}) {
     //state for logged in user
@@ -27,28 +28,11 @@ function Profile({selected}) {
         }
     }
     
-
-    //User information axios call
-    useEffect(() => {
-        axios
-            .get('')
-            .then(res => {
-                console.log('Response from user call',res)
-                setUser(res.data)
-            })
-            .catch(err => {
-                console.error('Unable to get user information', err);
-            });
-    }, []);
-
-
-
-
-
     return (
         <div>
-            <h1>Profile</h1>
-
+            <div>
+                <h1>Profile</h1>
+            </div>
             <div className='side-nav'>
                 <div className='profile-tabs'>
                     <nav className='nav-items'>
@@ -58,6 +42,7 @@ function Profile({selected}) {
                         <NavLink activeClassName='selected' to='/profile/settings'>Settings</NavLink>
                     </nav>
                 </div>
+                    <Route exact path='/profile/' render={_ => <ProfileCard selected={selected} />} />
                     <Route path='/profile/favorites' render={_ => <Favorites selected={selected} />} />
                     <Route path='/profile/preferences' render={_ => <Preferences selected={selected} />} />
                     <Route path='/profile/settings' render={_ => <Settings selected={selected} />} />
