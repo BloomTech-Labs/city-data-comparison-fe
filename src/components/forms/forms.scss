@@ -1,11 +1,11 @@
 //signup form
 
 
-h2{
+.form-title{
     font-size: 2rem;
     text-align: center;
     letter-spacing: .1rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 span{
@@ -39,7 +39,8 @@ span{
         flex-direction: column;
         width: 75%; 
         margin:auto; 
-        margin-top:13%; 
+        margin-top:10%; 
+        align-items: center;
     }
     .google{
         width: 20%;
@@ -147,11 +148,27 @@ span{
         text-align: center;
         font-size: 1.2rem; 
 
-
+        &:hover{
+            background:white; 
+            border:1px solid #3999FC; 
+            color: #3999FC; 
+        }
     }
 
     //login
 
     .login-button{
+        border-radius: 20px; 
+        background: #F99539; 
+        color: white; 
+        font-weight: 500; 
+        padding: 4% 2.5%;
+        text-align: center;
+        font-size: 1.2rem; 
         border:1px solid #F99539;
+
+        &:hover{
+           background:white; 
+           color: #F99539;  
+        }
     }
