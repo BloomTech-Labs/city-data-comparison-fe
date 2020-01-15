@@ -1,4 +1,4 @@
-import  React, {useState} from "react";
+import  React, {useState, useEffect} from "react";
 import {NavLink} from "react-router-dom";
 import MapSearch from "./MapSearch";
 import DataNav from "./DataNav";
@@ -29,6 +29,10 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     const toggleVisibility = city => {
         console.log("toggling visibility of ", city.city)
     }
+
+    useEffect( _ => {
+        console.log(selected)
+    },[selected])
      
     return (
         <div className="data-browser">
@@ -62,15 +66,12 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             <a href="#homeprice">Housing Costs</a>
                             <a href="#rent">Rent</a>
                             <a href="#rooms">Rooms per House</a>
-                            <NavLink activeClassName="selected" to="/map/housing/homeinfo">Home Info</NavLink>
-                            <NavLink activeClassName="selected" to="/map/housing/quality">Quality of Living</NavLink>
-                            <NavLink activeClassName="selected" to="/map/jobs/jobs">Jobs</NavLink>
-                            <NavLink activeClassName="selected" to="/map/jobs/standards">Salary Standards</NavLink>
-                            <NavLink activeClassName="selected" to="/map/jobs/commute">Commute</NavLink>
-                            <NavLink activeClassName="selected" to="/map/culture/demographics">Demographics</NavLink>
-                            <NavLink activeClassName="selected" to="/map/culture/populationgrowth">Population Growth</NavLink>
-                            <NavLink activeClassName="selected" to="/map/culture/education">Education</NavLink>
-
+                            <a href="#industries">Industries</a>
+                            <a href="#salary">Salary</a>
+                            <a href="#commute">Commute</a>
+                            <a href="#education">Education</a>
+                            <a href="#ethnicity">Ethnicity</a>
+                            <a href="#population">Population</a>
                         </div>
                     </div>
                     <ul>
@@ -89,23 +90,25 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <NavLink activeClassName="selected" to="/map/culture">Culture</NavLink>  
                 </nav> */}
 
-                <div className="housing-graphs data-category">
+                {selected.length > 0 
+                ? <div className="housing-graphs data-category">
                     <h3>Housing:</h3>
                     <span id="homeprice"><LineGraph selected = {selected} /></span>
                     <span id="rent"><RentChart edData={selected} /></span>
                     <span id="rooms"><RoomGraph edData={selected} /></span>
-                </div>
+                </div> 
+                : <h2>Select a city to begin browsing</h2>}
                 <div className="jobs-graphs data-category">
                     <h3>Job Market:</h3>
-                    <Commute edData={selected} />
-                    <Industry edData={selected} />
-                    <BarGraph edData={selected} />
+                    <span id="industries"><Industry edData={selected} /></span>
+                    <span id="salary"><BarGraph edData={selected} /></span>
+                    <span id="commute"><Commute edData={selected} /></span>
                 </div>
                 <div className="culture-graphs data-category">
                     <h3>Cultural Statistics:</h3>     
-                    <EthnicityGraph ethData = {selected} />
-                    <Population selected = {selected} />
-                    <EducationGraph edData={selected} />
+                    <span id="education"><EducationGraph edData={selected} /></span>
+                    <span id="ethnicity"><EthnicityGraph ethData = {selected} /></span>
+                    <span id="population"><Population selected = {selected} /></span>
                 </div>
             </div>
 
