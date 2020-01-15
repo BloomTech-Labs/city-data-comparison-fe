@@ -14,6 +14,9 @@ import RentChart from "../graphs/housing/RentChart";
 import Industry from "../graphs/economics/industries";
 import Commute from "../graphs/economics/commute";
 import BarGraph from "../graphs/economics/HouseIncome_BarGraph";
+import EthnicityGraph from "../graphs/culture/EthnicityGraph";
+import Population from "../graphs/culture/PopulationGraph";
+import EducationGraph from "../graphs/culture/EducationGraph";
 
 import deleteIcon from "./icons/close_red.png";
 
@@ -90,13 +93,19 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <RentChart edData={selected} />
                 </div>
                 <div>
-                    <h1>Job Market Breakdown:</h1>
+                    <h1>Job Market:</h1>
                     <Commute edData={selected} />
                     <Industry edData={selected} />
                     <BarGraph edData={selected} />
                 </div>
-                <Culture selected={selected} />
+                <div>
+                    <h1>Cultural Statistics:</h1>     
+                    <EthnicityGraph ethData = {selected} />
+                    <Population selected = {selected} />
+                    <EducationGraph edData={selected} />
+                </div>
             </div>
+
         </div>
     );
 };
