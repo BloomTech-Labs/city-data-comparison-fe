@@ -1,7 +1,6 @@
 import  React, {useState, useEffect} from "react";
-import {NavLink} from "react-router-dom";
+
 import MapSearch from "./MapSearch";
-import DataNav from "./DataNav";
 import LineGraph from "../graphs/housing/House_price";
 import RoomGraph from "../graphs/housing/HousingByRooms";
 import RentChart from "../graphs/housing/RentChart";
