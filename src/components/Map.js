@@ -51,7 +51,6 @@ const selectSearch = cityMarker =>  {
   }
 }
 
-
     const onSearch = e => {
       e.preventDefault();
       const found = cityMarkers.find(item => item.name.replace(" city", "") === search)
