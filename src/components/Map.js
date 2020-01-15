@@ -34,7 +34,6 @@ export default function Map() {
   }, [selected])
 
   const toggleSelected = cityMarker =>  {
-    console.log(cityMarker);
     if (selected.find(item => item === cityMarker)) {
         setSelected(selected.filter(item => item !== cityMarker));
     } else {
@@ -43,7 +42,6 @@ export default function Map() {
 }
 
 const selectSearch = cityMarker =>  {
-  console.log(cityMarker);
   if (selected.find(item => item === cityMarker)) {
       return;
   } else {

@@ -29,10 +29,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     const toggleVisibility = city => {
         console.log("toggling visibility of ", city.city)
     }
-
-    useEffect( _ => {
-        console.log(selected)
-    },[selected])
      
     return (
         <div className="data-browser">
