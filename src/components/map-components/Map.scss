@@ -42,7 +42,7 @@
 
     .data-category {
         width:95%;
-        margin: 0 auto;
+        margin: 0;
         background:white;
     }
 
@@ -82,6 +82,11 @@
         .subnav {
             display:flex;
             flex-direction:column;
+        }
+
+        .anchor-nav a {
+            text-decoration:none;
+            color:#2e2f38;
         }
 
         .slider {
