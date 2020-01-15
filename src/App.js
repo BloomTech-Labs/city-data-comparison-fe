@@ -55,6 +55,7 @@ function App() {
 
   return (
     <Router>
+      <div className="heatmap">
       <UserContext.Provider value={{user, setUser}}>
         <CityContext.Provider value={{cityMarkers, setCityMarkers, selected, setSelected, viewport, setViewport}}>
           <div className="App">
@@ -70,6 +71,7 @@ function App() {
           </div>
           </CityContext.Provider>
       </UserContext.Provider>
+      </div>
     </Router>
   );
 }
