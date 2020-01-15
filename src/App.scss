@@ -1005,3 +1005,17 @@ html,body{
   }
 }
 }
+
+.motoranimationcontainer{
+  display: block;
+  position: relative;
+  height: 300px;
+  min-width: 300px;
+  align-items: center;
+  .motoranim{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    // transform: scale(1.33);
+  }
+}

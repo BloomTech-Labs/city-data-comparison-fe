@@ -10,6 +10,12 @@ import control from './assets/control_data.svg'
 import motorbike from './assets/motorbike.jpg'
 import landing from './assets/landing2.jpg'
 
+import backwheel from "./assets/motorbike_back_wheel.png"
+import motorbackground from "./assets/motorbike_background.png"
+import driver from "./assets/motorbike_driver.png"
+import frontwheel from "./assets/motorbike_front_wheel.png"
+import plant from "./assets/motorbike_plant.png"
+
 
 import { CityContext } from '../../contexts/CityContext';
 
@@ -136,7 +142,6 @@ function Dashboard(){
 
      return(
           <div className="dashboard-container">
-
                <div className="dashboard-search-container">
                     <div className="dashboard-search-function">
                          <p className="dashboard-title">Make Your Move.</p>
@@ -289,7 +294,13 @@ function Dashboard(){
                
                {/* Sign Up call-to-action */}
                <div className="bonus-features-container">
-                    <img className="motorbike" src={motorbike} alt="motorbike" />
+                    <div className="motoranimationcontainer">
+                         <img className="motoranim" src={motorbackground} alt="motorbackground" />
+                         <img className="motoranim" src={backwheel} alt="backwheel" style={{top:"90px", right:"55px"}}/>
+                         <img className="motoranim" src={frontwheel} alt="frontwheel" style={{top:"90px", left:"67px"}}/>
+                         <img className="motoranim" src={driver} alt="driver" style={{top:"20px"}}/>
+                         <img className="motoranim" src={plant} alt="plant" style={{top:"27px", right:"60px"}} />
+                    </div>    
                     <div className="bonus-features-CTA">
                          <p className="bonus-features-title">Unlock bonus features</p>
                          <p className="bonus-features-description">Sign up for free to unlock additional features to export data, review and comment on cities, and view favorited cities. </p>
