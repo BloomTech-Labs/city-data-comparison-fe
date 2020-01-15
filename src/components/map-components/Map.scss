@@ -32,7 +32,10 @@
     display:flex;
 
     .anchor-header {
+        margin: 1%;
         margin-left:20px;
+        font-size: 1.5rem;
+        
     }
     .data-nav {
         display:flex;
@@ -188,10 +191,10 @@
         input {
             width:100%;
             margin: 0 auto;
-            
             height: 2rem;
             font-size:1.3rem;
             padding:2%;
+            margin-bottom:4%;
         }
 
         a {
@@ -220,7 +223,7 @@
             flex-direction:column;
             height:100%;
             width:100%; 
-            margin-top:4%;
+            
         }
 
         .autofill-container {
