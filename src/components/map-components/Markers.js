@@ -15,12 +15,13 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
     city: 'none',
     animate: false
   })
-
+  console.log(cityMarkers, "citymakrers")
   return (
         <div>
-          {cityMarkers.map(cityMarker=> {
+          {Object.keys(cityMarkers).forEach(cityMarker=> {
+            console.log(cityMarker, 'CITYMARKER')
             return (
-              <Marker key={cityMarker.lat} latitude={cityMarker.lat} longitude={cityMarker.lng}>
+              <Marker key={cityMarker['lat']} latitude={cityMarker['lat']} longitude={cityMarker['lng']}>
                     {/* <Link className='map-marker' to={`/map/${cityMarker.city}${cityMarker.state_id}`}> */}
                   <div
                     onClick={() => toggleSelected(cityMarker)} 
