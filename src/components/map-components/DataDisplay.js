@@ -2,9 +2,9 @@ import  React, {useState} from "react";
 import {NavLink, Route}  from "react-router-dom";
 
 import MapSearch from "./MapSearch";
-import CostNav from "./subnavs/HousingNav";
-import JobsNav from "./subnavs/JobsNav";
-import SafetyNav from "./subnavs/CultureNav";
+import CostNav from "./data-subnav/HousingNav";
+import JobsNav from "./data-subnav/JobsNav";
+import SafetyNav from "./data-subnav/CultureNav";
 import LineGraph from "../graphs/housing/House_price";
 import RoomGraph from "../graphs/housing/HousingByRooms";
 import RentChart from "../graphs/housing/RentChart";
