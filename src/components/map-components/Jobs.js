@@ -9,9 +9,9 @@ const Jobs = ({selected}) => {
     return (
         <div>
             <h1>Job Market Breakdown:</h1>
-            <Route path="/map/jobs/commute" render={ _ => <Commute edData={selected} />} />
-            <Route path="/map/jobs/jobs" render={ _ => <Industry edData={selected} />} />
-            <Route path="/map/jobs/standards"  render={ _ => <BarGraph edData={selected} />} />
+            <Commute edData={selected} />
+            <Industry edData={selected} />
+            <BarGraph edData={selected} />
         </div>
     );
   };
