@@ -3,7 +3,7 @@ import {Route} from "react-router-dom";
 
 import EthnicityGraph from "../graphs/culture/EthnicityGraph";
 import Population from "../graphs/culture/PopulationGraph";
-import EducationGraph from "../graphs/EducationGraph";
+import EducationGraph from "../graphs/culture/EducationGraph";
 
 const Culture = ({selected}) => {
 
