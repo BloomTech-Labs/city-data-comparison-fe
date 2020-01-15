@@ -69,6 +69,34 @@ export default function BarGraph ({selected}){
             legend:{
               display:defaultProps.displayLegend,
               position:defaultProps.legendPosition
+            },
+            scales: {
+              xAxes: [ {
+                
+                display: true,
+                gridLines: {
+                  display:false,
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Age'
+                },
+              } 
+              ],
+              yAxes: [ {
+                display: true,
+                gridLines: {
+                  display:false,
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Percent',
+                  ticks: {
+                    beginAtZero: true
+                  }
+                },
+
+              } ]
             }
           }}
         />

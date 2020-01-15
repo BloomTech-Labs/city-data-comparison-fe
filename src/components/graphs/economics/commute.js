@@ -47,12 +47,40 @@ export default function EducationGraph (props) {
               options={{
                 title:{
                   display:true,
-                  text:'Commute',
+                  text:'Ways to Commute',
                   fontSize:25
                 },
                 legend:{
                   display:true,
                   position:"top",
+                },
+                scales: {
+                  xAxes: [ {
+                    
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Commute'
+                    },
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Percent',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    },
+
+                  } ]
                 }
               }}
             /> 

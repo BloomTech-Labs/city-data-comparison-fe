@@ -8,7 +8,7 @@ const Housing = ({selected}) => {
     return (
         <div>
             <h1>Costs of living analysis:</h1>
-            <Route path="/map/housing/costs" component={() => <LineGraph selected = {selected} />} />
+            <Route path="/map/housing/costs" component={() => <LineGraph selected = {selected} />} /> 
             <Route path="/map/housing/homeinfo"  render={ _ => <RoomGraph edData={selected} />} />
             <Route path="/map/housing/quality" render={ _ => <RentChart edData={selected} />} />
         </div>
