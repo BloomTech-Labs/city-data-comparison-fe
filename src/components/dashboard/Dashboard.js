@@ -132,10 +132,10 @@ function Dashboard(){
                <div>
                     <div>
                          <p>Make Your Move.</p>
+                         
                          <div>
                               <div>
                                    <p>Search for a city:</p>
-                                   
                                    <form onSubmit={submitCity}>
                                         <div>
                                              <input 
@@ -161,7 +161,7 @@ function Dashboard(){
                                         </div>
                                    </form>
 
-                                   <p>Want to  learn about more cities? Click the link to compare multiple cities. <Link>Compare cities</Link></p> 
+                                   <p>Want to learn about more cities? Click the link to compare multiple cities. <Link>Compare cities</Link></p> 
                               </div>
 
 
@@ -170,7 +170,55 @@ function Dashboard(){
 
 
                               <div>
-                                   <p></p>
+                                   <p>Compare cities:</p>
+                                   <form onSubmit={submitCities}>
+                                        <div>
+                                             <input 
+                                             placeholder="San Francisco, CA"
+                                             onChange={handleCityOne}
+                                             value={compare.cityOne}
+                                             />                 
+                                             <div>
+                                                  {cityOneSuggestions.map( (suggestion) => {
+                                                       const style = {
+                                                            backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                            cursor: "pointer",
+                                                            fontSize:"1rem",
+                                                            textAlign:"left",
+                                                            padding:"10px",
+                                                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
+                                                       }
+                                                       return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                  })}
+                                             </div>
+                                        </div>
+
+                                        <div>
+                                             <input 
+                                             placeholder="San Francisco, CA"
+                                             onChange={handleCityTwo}
+                                             value={compare.cityTwo}
+                                             />
+                                             <div>
+                                                  {cityTwoSuggestions.map( (suggestion) => {
+                                                       const style = {
+                                                            backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                            cursor: "pointer",
+                                                            fontSize:"1rem",
+                                                            textAlign:"left",
+                                                            padding:"10px",
+                                                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
+                                                       }
+                                                       return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                  })}
+                                             </div>
+                                        </div>
+                                             <Link to="map/jobs/standards">
+                                                  <button>Compare</button>
+                                             </Link>
+                                   </form>
+
+
                               </div>
                          </div>
                     </div>
@@ -184,9 +232,8 @@ function Dashboard(){
 
 
                {/* SEARCH FUNCTION */}
-               <div className="dashboard-search-container">
+               {/* <div className="dashboard-search-container">
                     <div className="slanted-san-francisco"></div>
-                    {/* <div className="slanted-blue-one"></div> */}
                     <div className="search-function"
                          data-aos="fade-down"
                          data-aos-offset="200"
@@ -230,7 +277,7 @@ function Dashboard(){
                          <p className="cities-description-two">Want to learn about more cities? Click the button below to compare multiple cities.</p>
                          <a href="#compareanchor"><button className="compare-cities-button">Compare cities</button></a>
                     </div>
-               </div>
+               </div> */}
                
                {/* Sign Up call-to-action */}
                <div className="bonus-features-container">
