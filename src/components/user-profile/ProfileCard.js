@@ -132,6 +132,30 @@ const ProfileCard = ()=> {
                     <button className={`edit-email-btn ${emailEdit.status}`}onClick={toggleEmail}>Edit Email</button>
                     <button className={`save-email-btn ${emailEdit.status}`}onClick={toggleEmail}>Save</button>
                 </div>
+                <div>
+                    <p>City State of Residence<span> (Optional)</span></p>
+                    <h2 className={`user-location ${locationEdit.status}`}>{userInfo.city}, {userInfo.state}</h2>
+                    <form className={`edit-location ${locationEdit.status}`}>
+                    <input
+                        onChange={handleChange}
+                        className='edit-city'
+                        name='city'
+                        type='city'
+                        placeholder='City'
+                        value={userInfo.city}
+                    />
+                    <input
+                        onChange={handleChange}
+                        className='edit-state'
+                        name='state'
+                        type='state'
+                        placeholder='State'
+                        value={userInfo.state}
+                    />
+                    </form>
+                    <button className={`edit-location-btn ${locationEdit.status}`}onClick={toggleLocation}>Edit Location</button>
+                    <button className={`save-location-btn ${locationEdit.status}`}onClick={toggleLocation}>Save</button>
+                </div>
             </div>
         </div>
     )
