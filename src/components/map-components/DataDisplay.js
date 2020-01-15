@@ -63,15 +63,17 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             setViewport={setViewport}  
                             selectSearch={selectSearch}
                             />
-                            <a href="#homeprice">Housing Costs</a>
-                            <a href="#rent">Rent</a>
-                            <a href="#rooms">Rooms per House</a>
-                            <a href="#industries">Industries</a>
-                            <a href="#salary">Salary</a>
-                            <a href="#commute">Commute</a>
-                            <a href="#education">Education</a>
-                            <a href="#ethnicity">Ethnicity</a>
-                            <a href="#population">Population</a>
+                            <div className="anchor-nav">
+                                <a href="#homeprice">Housing Costs</a>
+                                <a href="#rent">Rent</a>
+                                <a href="#rooms">Rooms per House</a>
+                                <a href="#industries">Industries</a>
+                                <a href="#salary">Salary</a>
+                                <a href="#commute">Commute</a>
+                                <a href="#education">Education</a>
+                                <a href="#ethnicity">Ethnicity</a>
+                                <a href="#population">Population</a>
+                            </div>
                         </div>
                     </div>
                     <ul>
