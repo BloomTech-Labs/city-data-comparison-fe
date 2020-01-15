@@ -8,14 +8,14 @@ import PrivacyPolicy from "../legal/PrivacyPolicy"
 function Footer(){
 
      const {isShowing, toggle} = useModal();
-     // const {modalState, setModalState} = useState({});
+     const [modalState, setModalState] = useState();
 
      return(
           <>
                <Modal
                     isShowing={isShowing}
                     hide={toggle}
-                    component={<AboutUs/>}
+                    component={modalState}
                />
                <div className="footer-container">
                     <div className="footer">
@@ -38,7 +38,7 @@ function Footer(){
                               <div className="footer-categories">
                                    <h3 className="footer-title">Company</h3>
                                    <a href="/">Meet the Team</a>
-                                   <a onClick={toggle}>About Us</a>
+                                   <a onClick={() => (toggle, setModalState(<AboutUs/>))}>About Us</a>
                                    <a href="/">Contact Us</a>
                               </div>
                               <div className="footer-categories">
