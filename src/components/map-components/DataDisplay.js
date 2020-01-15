@@ -2,9 +2,7 @@ import  React, {useState} from "react";
 import {NavLink, Route}  from "react-router-dom";
 
 import MapSearch from "./MapSearch";
-import CostNav from "./data-subnav/HousingNav";
-import JobsNav from "./data-subnav/JobsNav";
-import SafetyNav from "./data-subnav/CultureNav";
+import DataNav from "./data-subnav/DataNav";
 import LineGraph from "../graphs/housing/House_price";
 import RoomGraph from "../graphs/housing/HousingByRooms";
 import RentChart from "../graphs/housing/RentChart";
@@ -52,19 +50,18 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 <div className={`slider ${menu.status}`}>
                     <div className={`menu-items ${menu.status}`}>
                         <div className="data-nav-top">
-                        <MapSearch
-                        menu={menu.status}
-                        setSearch={setSearch}
-                        onSearch={onSearch} 
-                        cityMarkers={cityMarkers} 
-                        search={search}
-                        viewport={viewport}
-                        setViewport={setViewport}  
-                        selectSearch={selectSearch}
-                    />
-                            <Route path="/map/housing" component={CostNav} />
-                            <Route path="/map/jobs" component={JobsNav} />
-                            <Route path="/map/culture" component={SafetyNav} />
+                            <MapSearch
+                            menu={menu.status}
+                            setSearch={setSearch}
+                            onSearch={onSearch} 
+                            cityMarkers={cityMarkers} 
+                            search={search}
+                            viewport={viewport}
+                            setViewport={setViewport}  
+                            selectSearch={selectSearch}
+                            />
+                            <DataNav />
+
                         </div>
                     </div>
                     <ul>
@@ -83,19 +80,19 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <NavLink activeClassName="selected" to="/map/culture">Culture</NavLink>  
                 </nav> */}
 
-                <div className="housing-graphs">
+                <div className="housing-graphs data-category">
                     <h1>Housing:</h1>
                     <LineGraph selected = {selected} />
                     <RoomGraph edData={selected} />
                     <RentChart edData={selected} />
                 </div>
-                <div>
+                <div className="jobs-graphs data-category">
                     <h1>Job Market:</h1>
                     <Commute edData={selected} />
                     <Industry edData={selected} />
                     <BarGraph edData={selected} />
                 </div>
-                <div>
+                <div className="culture-graphs data-category">
                     <h1>Cultural Statistics:</h1>     
                     <EthnicityGraph ethData = {selected} />
                     <Population selected = {selected} />
