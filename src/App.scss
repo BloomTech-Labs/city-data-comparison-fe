@@ -89,7 +89,6 @@ html,body{
      z-index: 99999;
      margin:0 auto;
      background-color: #fff;
-    //  background:none;
      transition: top 0.3s;
   }
 
@@ -283,17 +282,20 @@ html,body{
 }
 
 //* Dashboard Bonus Features CTA
+.kevin-motor{
+  background-color:#F8FCFF;
+}
 .bonus-features-container{
   max-width:900px;
   width: 100%;
   margin: 5% auto;
-  margin-bottom:5%;
+  margin-bottom:0;
   display:flex;
   align-items:center;
   justify-content:space-between;
 
   .motorbike{
-    width:400px;
+    width:350px;
     filter: contrast(105%);
   }
 
@@ -352,11 +354,12 @@ html,body{
   margin-bottom:60px;
   margin-left:4%;
   display:flex;
+  justify-content:space-between;
   // flex-direction:row-reverse;
 
   .dashboard-image{
     // border:1px solid green;
-    width:65%;
+    width:55%;
     
 
     .landing-image{
@@ -371,7 +374,7 @@ html,body{
   }
 
   .dashboard-search-function{
-    width:45%;
+    width:40%;
     // border:1px solid red;
 
 
@@ -602,7 +605,7 @@ html,body{
 
 .dashboard-features-title{
   margin:0 auto;
-  max-width:1200px;
+  max-width:1000px;
   width:100%;
   padding-bottom:25px;
   
@@ -631,10 +634,11 @@ html,body{
   padding-top:50px;
   padding-bottom:80px;
   background-color:#F1F9FD;
+  background-color:#F8FCFF;
 }
 .dashboard-features-container{
   margin:0 auto;
-  max-width:1200px;
+  max-width:1000px;
   width:100%;
   display:flex;
   flex-wrap:wrap;
@@ -715,11 +719,13 @@ html,body{
   // clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   display:flex;
   flex-direction:column;
-  // background-color:#F1F9FD;
+    // background-color:#F1F9FD;
+
 
   .dashboard-metrics{
     margin:0 auto;
-    max-width:1200px;
+    max-width:1000px;
+    padding: 0 3%;
     width:100%;
     display:flex;
     justify-content:space-between;

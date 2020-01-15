@@ -6,7 +6,8 @@ import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
-import motorbike from './assets/motorbike.jpg'
+import motorbike from './assets/motorbike2.png'
+
 import landing from './assets/landing2.jpg'
 
 
@@ -281,6 +282,7 @@ function Dashboard(){
                </div> */}
                
                {/* Sign Up call-to-action */}
+               <div className="kevin-motor">
                <div className="bonus-features-container">
                     <img className="motorbike" src={motorbike} alt="motorbike" />
                     <div className="bonus-features-CTA">
@@ -289,6 +291,7 @@ function Dashboard(){
                          
                          <Link to="/signup"><button className="sign-up-CTA">Sign Up Free</button></Link>
                     </div>
+               </div>
                </div>
 
 
