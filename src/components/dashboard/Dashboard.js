@@ -293,13 +293,24 @@ function Dashboard(){
                </div> */}
                
                {/* Sign Up call-to-action */}
-               <div className="bonus-features-container">
+               <div className="bonus-features-container"
+                    // data-aos="fade-right"
+                    // data-aos-offset="200"
+                    // data-aos-delay="50"
+                    // data-aos-duration="1000"
+                    // data-aos-easing="ease-in-out"
+                    // data-aos-mirror="true"
+                    // data-aos-once="true"
+               >
                     <div className="motoranimationcontainer">
-                         <img className="motoranim" src={motorbackground} alt="motorbackground" />
-                         <img className="motoranim" src={backwheel} alt="backwheel" style={{top:"90px", right:"55px"}}/>
-                         <img className="motoranim" src={frontwheel} alt="frontwheel" style={{top:"90px", left:"67px"}}/>
-                         <img className="motoranim" src={driver} alt="driver" style={{top:"20px"}}/>
-                         <img className="motoranim" src={plant} alt="plant" style={{top:"27px", right:"60px"}} />
+                         <div className="motoranimbackground">
+                         </div>
+                         <div className="moving">
+                              <img className="motoranim" src={backwheel} alt="backwheel" style={{top:"90px", right:"55px"}}/>
+                              <img className="motoranim" src={frontwheel} alt="frontwheel" style={{top:"90px", left:"67px"}}/>
+                              <img className="motoranim" src={driver} alt="driver" style={{top:"20px"}}/>
+                              <img className="motoranim" src={plant} alt="plant" style={{top:"27px", right:"60px"}} />
+                         </div>
                     </div>    
                     <div className="bonus-features-CTA">
                          <p className="bonus-features-title">Unlock bonus features</p>

@@ -1012,10 +1012,23 @@ html,body{
   height: 300px;
   min-width: 300px;
   align-items: center;
+  .motoranimbackground{
+    position: relative;
+    background: url("./components/dashboard/assets/motorbike_background.png") repeat 0 0;
+    background-size: cover;
+    animation: slide 3s linear infinite;
+    height: 300px;
+    width: 300px;
+    }
   .motoranim{
     position: absolute;
     height: 100%;
     width: 100%;
     // transform: scale(1.33);
   }
+}
+
+@keyframes slide {
+  from { background-position: 0 0; }
+  to { background-position: -300px 0; }
 }
