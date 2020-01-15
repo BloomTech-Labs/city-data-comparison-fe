@@ -99,7 +99,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <span id="rent"><RentChart edData={selected} /></span>
                     <span id="rooms"><RoomGraph edData={selected} /></span>
                 </div> 
-                : <h2>Select a city to begin browsing</h2>}
+                : <h2 className="map-prompt">Select a city to begin browsing</h2>}
                 {selected.length > 0 
                 ? <div className="jobs-graphs data-category">
                     <h3>Job Market:</h3>
