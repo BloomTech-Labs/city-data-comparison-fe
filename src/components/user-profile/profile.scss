@@ -18,3 +18,20 @@ h1 {
     }
     
 }
+
+.edit-name.closed, .save-name-btn.closed, .edit-name-btn.open {
+    display: none;
+}
+
+.name.open {
+    display: none;
+}
+
+.edit-email.closed,.save-email-btn.closed, .edit-email-btn.open {
+    display: none;
+}
+
+
+.user-email.open {
+    display: none;
+}

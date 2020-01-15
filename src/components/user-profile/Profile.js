@@ -16,17 +16,7 @@ function Profile({selected}) {
     const {user, setUser} = useContext(CityContext);
     console.log('Current user state',user)
 
-    // Edit state toggle
-
-    const {edit, setEdit} = useState({status:'open'})
-
-    const toggleMenu = () => {
-        if (edit.status === 'closed') {
-            setEdit({...edit, status:'open'}) 
-        } else if (edit.status === 'open') {
-            setEdit({...edit, status:'closed'})
-        }
-    }
+    
     
     return (
         <div>
@@ -37,8 +27,8 @@ function Profile({selected}) {
                 <div className='profile-tabs'>
                     <nav className='nav-items'>
                         <NavLink activeClassName='selected' to='/profile'>Profile</NavLink>
-                        <NavLink activeClassName='selected' to='/profile/favorites'>Favorites</NavLink>
                         <NavLink activeClassName='selected' to='/profile/preferences'>Preferences</NavLink>
+                        <NavLink activeClassName='selected' to='/profile/favorites'>Favorites</NavLink>        
                         <NavLink activeClassName='selected' to='/profile/settings'>Settings</NavLink>
                     </nav>
                 </div>
