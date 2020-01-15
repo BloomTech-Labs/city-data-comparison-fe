@@ -64,12 +64,15 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             selectSearch={selectSearch}
                             />
                             <div className="anchor-nav">
+                                <h4 className="anchor-header">Housing</h4>
                                 <a href="#homeprice">Housing Costs</a>
                                 <a href="#rent">Rent</a>
                                 <a href="#rooms">Rooms per House</a>
+                                <h4 className="anchor-header">Jobs</h4>
                                 <a href="#industries">Industries</a>
                                 <a href="#salary">Salary</a>
                                 <a href="#commute">Commute</a>
+                                <h4 className="anchor-header">Culture</h4>
                                 <a href="#education">Education</a>
                                 <a href="#ethnicity">Ethnicity</a>
                                 <a href="#population">Population</a>

@@ -31,7 +31,9 @@
     background: #E5E5E5;
     display:flex;
 
-
+    .anchor-header {
+        margin-left:20px;
+    }
     .data-nav {
         display:flex;
         flex-direction:column;
