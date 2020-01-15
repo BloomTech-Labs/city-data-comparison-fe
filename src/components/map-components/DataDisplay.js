@@ -58,11 +58,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             />
                             {selected.length > 0 
                             ? <div className="anchor-nav">
-                                <NavLink to="/map/housing"><h4 className="anchor-header">Housing</h4></NavLink>
+                                <NavLink activeClassName="selected" to="/map/housing"><h4 className="anchor-header">Housing</h4></NavLink>
                                 <HousingNav />
-                                <NavLink to="/map/jobs"><h4 className="anchor-header">Jobs</h4></NavLink>
+                                <NavLink activeClassName="selected" to="/map/jobs"><h4 className="anchor-header">Jobs</h4></NavLink>
                                 <JobsNav />
-                                <NavLink to="/map/culture"><h4 className="anchor-header">Culture</h4></NavLink>
+                                <NavLink activeClassName="selected" to="/map/culture"><h4 className="anchor-header">Culture</h4></NavLink>
                                 <CultureNav />
                             </div>
                             : null}

@@ -52,7 +52,6 @@
         font-size: 1.5rem;
         text-align:left;
         text-decoration:none;
-        
     }
     .data-nav {
         display:flex;
@@ -82,11 +81,19 @@
         .subnav {
             display:flex;
             flex-direction:column;
+
+            
         }
 
         .anchor-nav a {
             text-decoration:none;
             color:#2e2f38;
+            .selected {
+                color :white;
+                background:#041734;
+                font-size:1.1rem;
+            }
+            
         }
 
         .slider {
@@ -236,11 +243,7 @@
             width:100%;
         }
 
-        .selected {
-            color:#041734;
-            background:white;
-            font-size:1.1rem;
-        }
+        
 
         .chartjs-render-monitor {
             width:80%;
@@ -283,7 +286,7 @@
     }
 
     .data-by-category {
-        width: 70%;
+        width: 73%;
         margin-left:4%;
         
 

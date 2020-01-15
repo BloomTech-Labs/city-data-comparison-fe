@@ -120,6 +120,7 @@ html,body{
      padding-left: 4%;
      padding-right:2%;
    }
+   
   .main-nav a{
     display: flex;
     align-items: center;
@@ -131,6 +132,7 @@ html,body{
     transition: .3s cubic-bezier(0.2,0.8,0.2,1);
     transition:0.33s ease;
   }
+
   .main-nav a:hover{
     color:#2e2f38;
     text-decoration: underline;
