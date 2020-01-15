@@ -1,5 +1,5 @@
 import  React, {useState, useEffect} from "react";
-import {Route, NavLink, Link} from "react-router-dom"
+import {Route, NavLink} from "react-router-dom"
 
 import MapSearch from "./MapSearch";
 import JobsNav from "./subnavs/JobsNav";
@@ -59,11 +59,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             {selected.length > 0 
                             ? <div className="anchor-nav">
                                 <NavLink activeClassName="selected" to="/map/housing"><h4 className="anchor-header">Housing</h4></NavLink>
-                                <HousingNav />
+                                <Route path="/map/housing" render={ _ => <HousingNav /> } />
                                 <NavLink activeClassName="selected" to="/map/jobs"><h4 className="anchor-header">Jobs</h4></NavLink>
-                                <JobsNav />
+                                <Route path="/map/jobs" render={ _ => <JobsNav /> } />
                                 <NavLink activeClassName="selected" to="/map/culture"><h4 className="anchor-header">Culture</h4></NavLink>
-                                <CultureNav />
+                                <Route path="/map/culture" render={ _ => <CultureNav /> } />
                             </div>
                             : null}
                         </div>
