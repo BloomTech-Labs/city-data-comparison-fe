@@ -3,6 +3,8 @@ import {Route, NavLink} from "react-router-dom"
 
 import MapSearch from "./MapSearch";
 import JobsNav from "./subnavs/JobsNav";
+import HousingNav from "./subnavs/HousingNav";
+import CultureNav from "./subnavs/CultureNav";
 
 import LineGraph from "../graphs/housing/House_price";
 import RoomGraph from "../graphs/housing/HousingByRooms";
@@ -63,16 +65,12 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             />
                             {selected.length > 0 
                             ? <div className="anchor-nav">
-                                <h4 className="anchor-header">Housing</h4>
-                                <a href="#homeprice">Housing Costs</a>
-                                <a href="#rent">Rent</a>
-                                <a href="#rooms">Rooms per House</a>
-                                <h4 className="anchor-header">Jobs</h4>
+                                <NavLink to="/map/housing"><h4 className="anchor-header">Housing</h4></NavLink>
+                                <Route path="/map/housing" component={HousingNav}/>
+                                <NavLink to="/map/jobs"><h4 className="anchor-header">Jobs</h4></NavLink>
                                 <Route path="/map/jobs" component={JobsNav}/>
-                                <h4 className="anchor-header">Culture</h4>
-                                <a href="#education">Education</a>
-                                <a href="#ethnicity">Ethnicity</a>
-                                <a href="#population">Population</a>
+                                <NavLink to="/map/culture"><h4 className="anchor-header">Culture</h4></NavLink>
+                                <Route path="/map/culture" component={CultureNav}/>
                             </div>
                             : null}
                         </div>
