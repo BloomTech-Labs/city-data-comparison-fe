@@ -2,6 +2,8 @@ import  React, {useState, useEffect} from "react";
 import {Route, NavLink} from "react-router-dom"
 
 import MapSearch from "./MapSearch";
+import JobsNav from "./subnavs/JobsNav";
+
 import LineGraph from "../graphs/housing/House_price";
 import RoomGraph from "../graphs/housing/HousingByRooms";
 import RentChart from "../graphs/housing/RentChart";
@@ -66,9 +68,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <a href="#rent">Rent</a>
                                 <a href="#rooms">Rooms per House</a>
                                 <h4 className="anchor-header">Jobs</h4>
-                                <a href="#industries">Industries</a>
-                                <a href="#salary">Salary</a>
-                                <a href="#commute">Commute</a>
+                                <Route path="/map/jobs" component={JobsNav}/>
                                 <h4 className="anchor-header">Culture</h4>
                                 <a href="#education">Education</a>
                                 <a href="#ethnicity">Ethnicity</a>
