@@ -1,6 +1,6 @@
 import  React, {useState} from "react";
 import {NavLink, Route}  from "react-router-dom";
-import Burger from '@animated-burgers/burger-squeeze' 
+
 import Housing from "./Housing";
 import Jobs from "./Jobs";
 import Culture from "./Culture";
@@ -8,6 +8,9 @@ import MapSearch from "./MapSearch";
 import CostNav from "./subnavs/HousingNav";
 import JobsNav from "./subnavs/JobsNav";
 import SafetyNav from "./subnavs/CultureNav";
+import LineGraph from "../graphs/housing/House_price";
+import RoomGraph from "../graphs/housing/HousingByRooms";
+import RentChart from "../graphs/housing/RentChart";
 
 import deleteIcon from "./icons/close_red.png";
 
@@ -77,7 +80,12 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <NavLink activeClassName="selected" to="/map/culture">Culture</NavLink>  
                 </nav> */}
 
-                <Housing selected={selected} />
+                <div className="housing-graphs">
+                    <h1>Housing:</h1>
+                    <LineGraph selected = {selected} />
+                    <RoomGraph edData={selected} />
+                    <RentChart edData={selected} />
+                </div>
                 <Jobs selected={selected} />
                 <Culture selected={selected} />
             </div>

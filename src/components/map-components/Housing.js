@@ -12,12 +12,7 @@ const Housing = ({selected}) => {
     },[])
     
     return (
-        <div>
-            <h1>Costs of living analysis:</h1>
-            <LineGraph selected = {selected} />
-            <RoomGraph edData={selected} />
-            <RentChart edData={selected} />
-        </div>
+        <div />
     );
   };
   export default Housing;
