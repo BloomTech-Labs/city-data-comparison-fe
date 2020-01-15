@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Route, BrowserRouter as Router} from "react-router-dom";
 import ReactGA from "react-ga";
 
+
 import './App.scss';
 
 import Dashboard from './components/dashboard/Dashboard'
@@ -13,7 +14,7 @@ import PrivacyPolicy from "./components/legal/PrivacyPolicy"
 import AboutUs from './components/aboutus/AboutUs'; 
 import Signup from './components/forms/Signup'; 
 import Login from './components/forms/Login'; 
-
+import ReactHeatmap from "react-heatmap"
 import { markerDummyData } from "./components/map-components/data.js";
 
 import { UserContext } from './contexts/UserContext';
@@ -55,7 +56,6 @@ function App() {
 
   return (
     <Router>
-      <div className="heatmap">
       <UserContext.Provider value={{user, setUser}}>
         <CityContext.Provider value={{cityMarkers, setCityMarkers, selected, setSelected, viewport, setViewport}}>
           <div className="App">
@@ -71,7 +71,6 @@ function App() {
           </div>
           </CityContext.Provider>
       </UserContext.Provider>
-      </div>
     </Router>
   );
 }
