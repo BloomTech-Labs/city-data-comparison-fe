@@ -84,7 +84,7 @@ html,body{
      width: 100%;
      opacity: 0.97;
      padding:10px 0;
-     padding-top:5px;
+     padding-top:15px;
      font-size: 0.9rem;
      z-index: 99999;
      margin:0 auto;
@@ -118,7 +118,7 @@ html,body{
      justify-content: space-between;
      align-items: center;
      padding-left: 4%;
-     padding-right:4%;
+     padding-right:2%;
    }
   nav a{
     display: flex;
@@ -152,7 +152,7 @@ html,body{
     border:none;
     background-color:#00bfa5;
     border-radius:5px;
-    padding:10px 16px;
+    padding:7px 13px;
     color:white;
 
     &:hover{
@@ -164,7 +164,7 @@ html,body{
   }
 @media screen and (max-width:800px){
   nav{
-    width:70%;
+    width:65%;
   }
 }
 
@@ -287,6 +287,7 @@ html,body{
   max-width:750px;
   width: 100%;
   margin: 5% auto;
+  margin-bottom:13%;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -307,13 +308,14 @@ html,body{
 
     .bonus-features-description{
       margin-top:10px;
+      line-height:1.4;
     }
 
     .sign-up-CTA{
       background-color:#5666fa;
       color:white;
       border:none;
-      padding:10px 45px;
+      padding:10px 37px;
       border-radius:5px;
       font-size:1.1rem;
       transition:0.33s ease;
@@ -331,146 +333,301 @@ html,body{
     }
   }
 }
+@media screen and (max-width:500px){
+  .bonus-features-container{
+    flex-direction:column;
+    margin-bottom:10%;
+
+    .bonus-features-CTA{
+      padding: 0 5%;
+    }    
+  }
+}
+
+.dashboard-search-container{
+  // border:1px solid red;
+  margin-top:100px;
+  margin-bottom:50px;
+  margin-left:4%;
+  display:flex;
+  // flex-direction:row-reverse;
+
+  .dashboard-image{
+    // border:1px solid green;
+    width:65%;
+    
+
+    .landing-image{
+    position:relative;
+    width:100%;
+
+    // margin-top:-50px;
+    // width:800px;
+    // height:auto;
+    // margin-left:-100px;
+    z-index:-1;
+    }
+  }
+
+  .dashboard-search-function{
+    width:45%;
+    // border:1px solid red;
+
+
+    .dashboard-title{
+      margin-top:40px;
+      width:100%;
+      // border:1px solid blue;
+      font-weight:500;
+      font-size:7.5vw;
+      line-height:1;
+      margin-bottom:55px;
+    }
+
+
+    .dashboard-single-search-container{
+      font-size:1.1rem;
+      
+      .search-label{
+        margin-bottom:7px;
+      }
+
+      form{
+
+        input{
+          background-color: #f7f9f9;
+          padding:15px 40px;
+          font-size:1.1rem;
+          border:none;
+          padding-left:15px;
+          width:80%;
+          border:1px solid #b8bec4;
+          border-top-left-radius:5px;
+          border-bottom-left-radius:5px;
+          &:focus{
+            outline:0;
+          }
+        }
+
+        .imageStyle{
+          height:17px;
+          width:20px;
+        }
+      }
+      
+      .search-button{
+        font-size:1.1rem;
+        padding:16px 15px;
+        border-top-right-radius:5px;
+        border-bottom-right-radius:5px;
+        background-color:#2ca4fc;
+        border:1px solid white;
+        border-left:none;
+        color:white;
+        width:20%;
+        transition:0.33s ease;
+        cursor:pointer;
+        &:focus{
+          outline:0;
+        }
+        &:hover{
+          border:1px solid #2ca4fc;
+          background-color:#fff;
+          color:#2ca4fc;
+        }
+      }
+
+      .single-toggle-description{
+        margin-top:60px;
+        font-size:1.1rem;
+        .compare-toggle-button{
+          border:none;
+          font-size:1.1rem;
+          color:#2ca4fc;
+          text-decoration:underline;
+          cursor:pointer;
+          &:focus{
+            outline:0;
+          }
+        }
+      }
+    }
+
+
+
+
+
+    .dashboard-compare-search-container{
+      display:none;
+    }
+  }
+}
+
 
 
 
 /* * Dashboard styling */
 //* Dashboard Search Function Styling
-.dashboard-search-container{
-  position:relative;
-  height:700px;
-  width:100%;
-  background-color:#F2F9FD;
-  // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
-}
-.imageStyle{
-  height:17px;
-  width:20px;
-}
-.slanted-san-francisco{
-  background-image:url('./components/dashboard/assets/sanFrancisco.jpeg');
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  height:350px;
-  overflow:hidden;
-  background-size:cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index:-1;
-  filter: contrast(110%) brightness(110%);
-}
-.search-function{
-  position:relative;
-  height: auto;
+// .dashboard-search-container{
+//   position:relative;
+//   height:700px;
+//   width:100%;
+//   background-color:#F2F9FD;
+//   // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+// }
+// .imageStyle{
+//   height:17px;
+//   width:20px;
+// }
+// .slanted-san-francisco{
+//   background-image:url('./components/dashboard/assets/sanFrancisco.jpeg');
+//   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+//   height:350px;
+//   overflow:hidden;
+//   background-size:cover;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   z-index:-1;
+//   filter: contrast(110%) brightness(110%);
+// }
+// .search-function{
+//   position:relative;
+//   height: auto;
+//   margin:0 auto;
+//   width:60%;
+//   max-width:600px;
+//   background-color:white;
+//   // z-index:1;
+//   margin-top:-100px;
+//   display:flex;
+//   flex-wrap:wrap;
+//   flex-direction:column;
+//   justify-content:center;
+//   align-items:center;
+//   padding:35px 20px;
+
+//   h1{
+//     font-size:1.6rem;
+//     margin:10px 0;
+//   };
+//   form{
+//     margin:30px 0;
+//     width:95%;
+//     text-align:center;
+//   }
+//   input{
+//     background-color: #f7f9f9;
+//     padding:10px 50px;
+//     border-radius:5px;
+//     font-size:1rem;
+//     border:none;
+//     padding-left:20px;
+//     width:70%;
+//     border:1px solid #efefef;
+//     &:focus{
+//       outline:0;
+//     }
+//   }
+//   .cities-description{
+//     text-align:center;
+//     font-size:1rem;
+//     margin-top:0;
+//   }
+//   .search-city-button{
+//     font-size:1rem;
+//     padding:10px 30px;
+//     border-radius:5px;
+//     background-color:#2ca4fc;
+//     border:none;
+//     color:white;
+//     margin-left:25px;
+//     transition:0.33s ease;
+//     cursor:pointer;
+//     &:focus{
+//       outline:0;
+//     }
+//     &:hover{
+//       border:1px solid #2ca4fc;
+//       background-color:#fff;
+//       color:#2ca4fc;
+//     }
+//   }
+//   .cities-description-two{
+//     margin-top:10px;
+//     max-width:300px;
+//     font-size:15px;
+//     text-align:center;
+//   }
+//   .compare-cities-button{    
+//     padding:10px 35px;
+//     border-radius:5px;
+//     border:1px solid #2ca4fc;
+//     color:#2ca4fc;
+//     font-size:1.1rem;
+//     transition:0.33s ease;
+//     cursor:pointer;
+//     &:focus{
+//       outline:0;
+//     }
+
+//     &:hover{
+//       border:none;
+//       background-color:#2ca4fc;
+//       color:white;
+//     }
+//   }
+// }
+// @media screen and (max-width:800px){
+//   .search-function{
+//       width:85%;
+//       padding:30px 30px;
+//   }
+// }
+// @media screen and (max-width:500px){
+//   .search-function{
+//     input{
+//         width:100%;
+//       }
+//       .search-city-button{
+//         width:100%;
+//         margin-left:0;
+//         margin-top:10px;
+//       }
+//       .compare-cities-button{
+//         width:90%;
+//       }
+//   }
+// }
+
+.dashboard-features-title{
   margin:0 auto;
-  width:60%;
-  max-width:600px;
-  background-color:white;
-  // z-index:1;
-  margin-top:-100px;
-  display:flex;
-  flex-wrap:wrap;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:35px 20px;
-
-  h1{
+  max-width:950px;
+  width:100%;
+  padding-bottom:3%;
+  
+  .features-title{
     font-size:1.6rem;
-    margin:10px 0;
-  };
-  form{
-    margin:30px 0;
-    width:95%;
-    text-align:center;
+    font-weight:500;
+    padding-left:1%;
   }
-  input{
-    background-color: #f7f9f9;
-    padding:10px 50px;
-    border-radius:5px;
-    font-size:1rem;
-    border:none;
-    padding-left:20px;
-    width:70%;
-    border:1px solid #efefef;
-    &:focus{
-      outline:0;
-    }
-  }
-  .cities-description{
-    text-align:center;
-    font-size:1rem;
-    margin-top:0;
-  }
-  .search-city-button{
-    font-size:1rem;
-    padding:10px 30px;
-    border-radius:5px;
-    background-color:#2ca4fc;
-    border:none;
-    color:white;
-    margin-left:25px;
-    transition:0.33s ease;
-    cursor:pointer;
-    &:focus{
-      outline:0;
-    }
-    &:hover{
-      border:1px solid #2ca4fc;
-      background-color:#fff;
-      color:#2ca4fc;
-    }
-  }
-  .cities-description-two{
-    margin-top:10px;
-    max-width:300px;
-    font-size:15px;
-    text-align:center;
-  }
-  .compare-cities-button{    
-    padding:10px 35px;
-    border-radius:5px;
-    border:1px solid #2ca4fc;
-    color:#2ca4fc;
-    font-size:1.1rem;
-    transition:0.33s ease;
-    cursor:pointer;
-    &:focus{
-      outline:0;
-    }
+}
 
-    &:hover{
-      border:none;
-      background-color:#2ca4fc;
-      color:white;
-    }
-  }
-}
-@media screen and (max-width:800px){
-  .search-function{
-      width:85%;
-      padding:30px 30px;
-  }
-}
 @media screen and (max-width:500px){
-  .search-function{
-    input{
-        width:100%;
-      }
-      .search-city-button{
-        width:100%;
-        margin-left:0;
-        margin-top:10px;
-      }
-      .compare-cities-button{
-        width:90%;
-      }
+  .dashboard-features-title{
+    padding-top:10%;
+    padding-bottom:7%;
+    margin-bottom:0;
+    text-align:center;
+    .features-title{
+      padding:0;
+    }
   }
 }
 
 
 //* Dashboard Features Styling
 .dashboard-features-container{
-  padding:7% 0;
+  padding-bottom:7%;
   margin:0 auto;
   max-width:950px;
   width:100%;
@@ -494,17 +651,18 @@ html,body{
     width:100%;
   }
   .feature-title{
-    font-weight:bold;
-    font-size:1.15rem;
-    margin-bottom:8px;
+    margin-bottom:5px;
+    font-size:1.2rem;
+    font-weight:500;
   }
   p{
     margin:0;
   }
 }
-@media screen and (max-width:850px){
+@media screen and (max-width:900px){
   .dashboard-features-container{
     padding:7% 5%;
+    padding-top:0;
     .feature-descriptions-container{
       flex-direction:column;
     }
@@ -521,6 +679,7 @@ html,body{
 
     .feature-descriptions-container{
       margin: 7% auto;
+      margin-top:0;
       flex-direction:row;
       align-items:center;
       align-content:space-between;
@@ -772,7 +931,8 @@ html,body{
     text-align:left;
     color: #2e2f38;
     margin-bottom:5px;
-    font-size:1.3rem;
+    font-size:1.1rem;
+    font-weight:500;
   }
   a{
     color:#8898aa;
