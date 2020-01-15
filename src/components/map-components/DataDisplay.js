@@ -1,20 +1,13 @@
 import  React, {useState, useEffect} from "react";
-import {Route, NavLink} from "react-router-dom"
+import {Route, NavLink, Link} from "react-router-dom"
 
 import MapSearch from "./MapSearch";
 import JobsNav from "./subnavs/JobsNav";
 import HousingNav from "./subnavs/HousingNav";
 import CultureNav from "./subnavs/CultureNav";
-
-import LineGraph from "../graphs/housing/House_price";
-import RoomGraph from "../graphs/housing/HousingByRooms";
-import RentChart from "../graphs/housing/RentChart";
-import Industry from "../graphs/economics/industries";
-import Commute from "../graphs/economics/commute";
-import BarGraph from "../graphs/economics/HouseIncome_BarGraph";
-import EthnicityGraph from "../graphs/culture/EthnicityGraph";
-import Population from "../graphs/culture/PopulationGraph";
-import EducationGraph from "../graphs/culture/EducationGraph";
+import Housing from "./data-categories/Housing";
+import Culture from "./data-categories/Culture";
+import Jobs from "./data-categories/Jobs";
 
 import deleteIcon from "./icons/close_red.png";
 
@@ -66,11 +59,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             {selected.length > 0 
                             ? <div className="anchor-nav">
                                 <NavLink to="/map/housing"><h4 className="anchor-header">Housing</h4></NavLink>
-                                <Route path="/map/housing" component={HousingNav}/>
+                                <HousingNav />
                                 <NavLink to="/map/jobs"><h4 className="anchor-header">Jobs</h4></NavLink>
-                                <Route path="/map/jobs" component={JobsNav}/>
+                                <JobsNav />
                                 <NavLink to="/map/culture"><h4 className="anchor-header">Culture</h4></NavLink>
-                                <Route path="/map/culture" component={CultureNav}/>
+                                <CultureNav />
                             </div>
                             : null}
                         </div>
@@ -87,29 +80,13 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
             <div className="data-by-category">
 
                 {selected.length > 0 
-                ? <div className="housing-graphs data-category">
-                    <h3>Housing:</h3>
-                    <span id="homeprice"><LineGraph selected = {selected} /></span>
-                    <span id="rent"><RentChart edData={selected} /></span>
-                    <span id="rooms"><RoomGraph edData={selected} /></span>
-                </div> 
+                ? <>
+                    <Route path="/map/housing" render={ _ => <Housing selected={selected} /> } />
+                    <Route path="/map/culture" render={ _ => <Culture selected={selected} /> } />
+                    <Route path="/map/jobs" render={ _ => <Jobs selected={selected} /> } />
+
+                </>
                 : <h2 className="map-prompt">Select a city to begin browsing</h2>}
-                {selected.length > 0 
-                ? <div className="jobs-graphs data-category">
-                    <h3>Job Market:</h3>
-                    <span id="industries"><Industry edData={selected} /></span>
-                    <span id="salary"><BarGraph edData={selected} /></span>
-                    <span id="commute"><Commute edData={selected} /></span>
-                </div>
-                : null}
-                {selected.length > 0 
-                ? <div className="culture-graphs data-category">
-                    <h3>Cultural Statistics:</h3>     
-                    <span id="education"><EducationGraph edData={selected} /></span>
-                    <span id="ethnicity"><EthnicityGraph ethData = {selected} /></span>
-                    <span id="population"><Population selected = {selected} /></span>
-                </div>
-                : null}
             </div>
 
         </div>
