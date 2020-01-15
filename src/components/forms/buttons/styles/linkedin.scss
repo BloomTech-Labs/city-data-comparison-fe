@@ -11,8 +11,21 @@
     color: white; 
     font-weight: 700; 
     letter-spacing: .1rem;
-    font-size: 1.05rem;
+    font-size: 90%;
     padding-left:  5%; 
+
+        
+        @media screen and (max-width: 1650px) {
+            font-size: 85%;
+            padding: 0 6%;
+        }
+
+        @media screen and (max-width: 1500px){
+            font-size: 75%;
+            padding-left:5%;
+        }
+
+       
     }
 
     .linkedin-icon{

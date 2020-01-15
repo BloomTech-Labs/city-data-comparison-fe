@@ -1,8 +1,6 @@
 import React from 'react'; 
 
 
-
-
 import city from '../../assets/forms/sf_sign_in.png'
 
 //butons
@@ -41,7 +39,7 @@ const Login = props => {
                            <p className="tos-text">Accept terms of service</p>
                        </div>
                        <div className="login-button">Start exploring cities</div>
-                       <p class='question'>Have an account? <span>Sign in</span> to explore cities</p>
+                       <p className='question'>Have an account? <span>Sign in</span> to explore cities</p>
                    </div>
                </div>
                <div className="photo">

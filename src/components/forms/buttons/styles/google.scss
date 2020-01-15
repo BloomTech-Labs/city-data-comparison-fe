@@ -10,13 +10,25 @@
     border-bottom: 1px solid rgb(211, 211, 211);
     border-right: 1px solid rgb(211, 211, 211);
 
+
     .google-name{
         color: #615d5d; 
         font-weight: 700; 
         letter-spacing: .1rem;
-        font-size: 1.1rem;
+        font-size: 90%;
         padding:  0 7%; 
         font-family: 'Roboto', sans-serif;
+
+        @media screen and (max-width: 1650px) {
+            font-size: 85%;
+            padding: 0 6%;
+        }
+
+        @media screen and (max-width: 1500px){
+            font-size: 75%;
+            padding-left:5%;
+        }
+
     }
 
     .google-icon{
@@ -25,3 +37,4 @@
 
 
 }
+
