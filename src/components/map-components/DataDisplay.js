@@ -63,7 +63,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             setViewport={setViewport}  
                             selectSearch={selectSearch}
                             />
-                            <div className="anchor-nav">
+                            {selected.length > 0 
+                            ? <div className="anchor-nav">
                                 <h4 className="anchor-header">Housing</h4>
                                 <a href="#homeprice">Housing Costs</a>
                                 <a href="#rent">Rent</a>
@@ -77,11 +78,12 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <a href="#ethnicity">Ethnicity</a>
                                 <a href="#population">Population</a>
                             </div>
+                            : null}
                         </div>
                     </div>
                     <ul>
                         {selected.map(item => <div key={item._id} className={`menu-items ${menu.status}`}><li  key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name.replace (" city" , "")} 
-                            <span  onClick={ _ => toggleSelected(item)}>
+                            <span onClick={ _ => toggleSelected(item)}>
                                 <img className="delete-icon" src={deleteIcon} alt="delete icon" />
                             </span>
                         </li></div>)}
