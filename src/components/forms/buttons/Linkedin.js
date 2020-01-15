@@ -8,27 +8,26 @@ import linkedin from '../../../assets/icons/linkedin.svg';
 
 const Linkedin = props => {
     const [isLoggingIn, setIsLoggingIn] = useState(false); 
-    const isMounted = useRef(true); 
 
     useEffect(() => {
-        return () => {
-            isMounted.current = false; 
+        
+        const login = () => {
+            axios
+                .get("http://localhost:5000/api/auth/login/linkedin")
+                .then(res => {
+                    setIsLoggingIn(false)
+                    res.json()
+                })
+                .catch(error => console.log(error))
+                
         }
-    })
-    const login = useCallback(async () => {
-        if (isLoggingIn) return;
-        setIsLoggingIn(true); 
-        axios
-            .get('/localhost:5000/api/auth/login/linkedin')
-            .then(res => console.log(res))
-            .catch(error => console.log(error))
 
-            if (isMounted.current)
-            setIsLoggingIn(false)
+        if(isLoggingIn) {login()}
 
     }, [isLoggingIn])
+
     return (
-        <div className='linkedin-button' onClick={login}>
+        <div className='linkedin-button' onClick={ () => {setIsLoggingIn(true)} }>
             <img className="linkedin-icon" src={linkedin} alt="linkedin icon"/>
             <p className="linkedin-name">{props.action} with Linkedin</p>
         </div>
