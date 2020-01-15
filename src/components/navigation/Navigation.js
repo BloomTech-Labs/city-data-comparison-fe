@@ -22,21 +22,11 @@ function Navigation(){
                }
           }
      }
-     window.addEventListener('scroll', (e) => {
-          // console.log(e)
-          // console.log(window.pageYOffset)
-          // setOffset(window.pageYOffset)
-          
-          // if (window.pageYOffset < 100){
-          //      setBgColor('no-color')
-          // } else 
-          
+     window.addEventListener('scroll', (e) => {   
           if (window.pageYOffset > offset ){
-               // console.log('hi')
                setDisplayNav('hide-nav')
                setBgColor('no-color')
           }else{
-               // console.log('show')
                setDisplayNav('show-nav')
                setBgColor('default-color')
           }
