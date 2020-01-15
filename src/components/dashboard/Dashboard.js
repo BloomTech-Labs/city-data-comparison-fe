@@ -7,7 +7,8 @@ import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
-import motorbike from './assets/motorbike.jpg'
+import motorbike from './assets/motorbike2.png'
+
 import landing from './assets/landing2.jpg'
 
 
@@ -288,6 +289,7 @@ function Dashboard(){
                </div> */}
                
                {/* Sign Up call-to-action */}
+               <div className="kevin-motor">
                <div className="bonus-features-container">
                     <img className="motorbike" src={motorbike} alt="motorbike" />
                     <div className="bonus-features-CTA">
@@ -297,10 +299,12 @@ function Dashboard(){
                          <Link to="/signup"><button className="sign-up-CTA">Sign Up Free</button></Link>
                     </div>
                </div>
+               </div>
 
 
 
                {/* PRODUCT FEATURES */}
+               <div className="kevin">
                <div className="dashboard-features-container">
                     <div className="dashboard-features-title">
                     <p className="features-title">Features</p>
@@ -351,6 +355,7 @@ function Dashboard(){
                          </div>
                     </div>
                </div>
+               </div>
 
                {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
@@ -399,7 +404,7 @@ function Dashboard(){
 
 
                {/* COMPARE CITIES FUNCTION */}
-               <div className="dashboard-compare-container"
+               {/* <div className="dashboard-compare-container"
                     data-aos="fade-right"
                     data-aos-delay="50"
                     data-aos-duration="1000"
@@ -436,7 +441,6 @@ function Dashboard(){
                                    </div>
                               </div>
 
-                                   {/* <span className="versus">vs.</span> */}
 
                               <div>
                                    <input 
@@ -474,7 +478,7 @@ function Dashboard(){
                               </form>
                          </div>
                     </div>
-               </div>
+               </div> */}
           </div>
      )
 }
