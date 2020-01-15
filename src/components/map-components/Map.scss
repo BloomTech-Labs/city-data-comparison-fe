@@ -13,7 +13,7 @@
 /* this refers to the whole page (does not include navigation */
 
 .map-page {
-    background: #041734;
+    background: white;
     .footer-container {
         margin-top:0;
         p {
@@ -28,8 +28,9 @@
 
 
 .data-browser {
-    background: #E5E5E5;
+    background: #F2F9FD;
     display:flex;
+    padding-top: 5%;
 
     .map-prompt {
         text-align:center;
@@ -57,11 +58,13 @@
         flex-direction:column;
         justify-content:flex-start;
         align-items: flex-start;
-        color:white;
+        color:#393B40;
         padding:0;
         width: 20%;
+        
+        margin-left:3%;
         min-height:40vh;
-        background:#041734;
+        background: white;
         @media only screen and (max-width: 600px) {
             background: #04173400;
             align-items: center;
@@ -214,7 +217,7 @@
         }
 
         a {
-            color:white;
+            color: #84868C;
             text-decoration:none;
             padding:10px 0px;
             margin: 5px 0px;
@@ -270,7 +273,9 @@
     }
 
     .data-by-category {
-        width: 80%;
+        width: 70%;
+        margin-left:4%;
+        background:white;
 
         @media only screen and (max-width: 600px) {
             position: absolute;
