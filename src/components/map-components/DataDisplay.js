@@ -1,5 +1,4 @@
 import  React, {useState} from "react";
-import {NavLink, Route}  from "react-router-dom";
 
 import MapSearch from "./MapSearch";
 import DataNav from "./DataNav";
