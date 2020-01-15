@@ -294,6 +294,7 @@ function Dashboard(){
 
 
                {/* PRODUCT FEATURES */}
+               <div className="kevin">
                <div className="dashboard-features-container">
                     <div className="dashboard-features-title">
                     <p className="features-title">Features</p>
@@ -344,6 +345,7 @@ function Dashboard(){
                          </div>
                     </div>
                </div>
+               </div>
 
                {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
@@ -392,7 +394,7 @@ function Dashboard(){
 
 
                {/* COMPARE CITIES FUNCTION */}
-               <div className="dashboard-compare-container"
+               {/* <div className="dashboard-compare-container"
                     data-aos="fade-right"
                     data-aos-delay="50"
                     data-aos-duration="1000"
@@ -429,7 +431,6 @@ function Dashboard(){
                                    </div>
                               </div>
 
-                                   {/* <span className="versus">vs.</span> */}
 
                               <div>
                                    <input 
@@ -467,7 +468,7 @@ function Dashboard(){
                               </form>
                          </div>
                     </div>
-               </div>
+               </div> */}
           </div>
      )
 }
