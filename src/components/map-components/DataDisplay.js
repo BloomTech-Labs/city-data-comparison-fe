@@ -1,4 +1,5 @@
 import  React, {useState, useEffect} from "react";
+import {Route, NavLink} from "react-router-dom"
 
 import MapSearch from "./MapSearch";
 import LineGraph from "../graphs/housing/House_price";
