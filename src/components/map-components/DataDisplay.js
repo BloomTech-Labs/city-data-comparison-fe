@@ -98,18 +98,22 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <span id="rooms"><RoomGraph edData={selected} /></span>
                 </div> 
                 : <h2>Select a city to begin browsing</h2>}
-                <div className="jobs-graphs data-category">
+                {selected.length > 0 
+                ? <div className="jobs-graphs data-category">
                     <h3>Job Market:</h3>
                     <span id="industries"><Industry edData={selected} /></span>
                     <span id="salary"><BarGraph edData={selected} /></span>
                     <span id="commute"><Commute edData={selected} /></span>
                 </div>
-                <div className="culture-graphs data-category">
+                : null}
+                {selected.length > 0 
+                ? <div className="culture-graphs data-category">
                     <h3>Cultural Statistics:</h3>     
                     <span id="education"><EducationGraph edData={selected} /></span>
                     <span id="ethnicity"><EthnicityGraph ethData = {selected} /></span>
                     <span id="population"><Population selected = {selected} /></span>
                 </div>
+                : null}
             </div>
 
         </div>
