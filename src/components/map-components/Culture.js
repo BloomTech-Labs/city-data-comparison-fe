@@ -11,14 +11,11 @@ const Culture = ({selected}) => {
 
     return (
         <div>
-            <h1>City Cultural Statistics:</h1>     
-            
-            <Route path="/map/culture/demographics" render={() => <EthnicityGraph ethData = {selected} />} />
-            <Route path="/map/culture/populationgrowth" component={() => <Population selected = {selected} />} />
-            <Route path="/map/culture/education" render={ _ => <EducationGraph 
-                edData={selected} 
-            />} />
+            <h1>Cultural Statistics:</h1>     
 
+            <EthnicityGraph ethData = {selected} />
+            <Population selected = {selected} />
+            <EducationGraph edData={selected} />
         </div>
     );
   };
