@@ -1,9 +1,6 @@
 import  React, {useState} from "react";
 import {NavLink, Route}  from "react-router-dom";
 
-import Housing from "./Housing";
-import Jobs from "./Jobs";
-import Culture from "./Culture";
 import MapSearch from "./MapSearch";
 import CostNav from "./subnavs/HousingNav";
 import JobsNav from "./subnavs/JobsNav";
