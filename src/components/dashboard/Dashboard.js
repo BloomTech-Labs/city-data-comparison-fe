@@ -174,7 +174,7 @@ function Dashboard(){
                                                        padding:"10px",
                                                        boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                                   }
-                                                  return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                  return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin" /> {suggestion.name.replace(" city", "")}</div>
                                              })}
                                         </div>
                                    </div>
@@ -325,7 +325,7 @@ function Dashboard(){
                                                   padding:"10px",
                                                   boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                              }
-                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin"/> {suggestion.name.replace(" city", "")}</div>
                                         })}
                                    </div>
                               </div>
@@ -350,7 +350,7 @@ function Dashboard(){
                                                   padding:"10px",
                                                   boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                              }
-                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin" /> {suggestion.name.replace(" city", "")}</div>
                                         })}
                                    </div>
                               </div>
