@@ -1019,6 +1019,19 @@ html,body{
     animation: slide 3s linear infinite;
     height: 300px;
     width: 300px;
+    .edgeblurleft{
+      position: absolute;
+      left: 0px;
+      height:300px;
+      width: 150px;
+    }
+    .edgeblurright{
+      position: absolute;
+      transform: scaleX(-1);
+      right: 0px;
+      height:300px;
+      width: 150px;
+    }
     }
   .motoranim{
     position: absolute;

@@ -11,7 +11,7 @@ import motorbike from './assets/motorbike.jpg'
 import landing from './assets/landing2.jpg'
 
 import backwheel from "./assets/motorbike_back_wheel.png"
-import motorbackground from "./assets/motorbike_background.png"
+import edgeblur from "./assets/edge_blur.png"
 import driver from "./assets/motorbike_driver.png"
 import frontwheel from "./assets/motorbike_front_wheel.png"
 import plant from "./assets/motorbike_plant.png"
@@ -304,6 +304,8 @@ function Dashboard(){
                >
                     <div className="motoranimationcontainer">
                          <div className="motoranimbackground">
+                              <img className="edgeblurleft" src={edgeblur}/>
+                              <img className="edgeblurright" src={edgeblur}/>
                          </div>
                          <div className="moving">
                               <img className="motoranim" src={backwheel} alt="backwheel" style={{top:"90px", right:"55px"}}/>
