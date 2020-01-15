@@ -91,11 +91,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 </div>    
             </nav>
             <div className="data-by-category">
-                {/* <nav className="data-subnav">
-                    <NavLink activeClassName="selected" to="/map/housing">Housing</NavLink>
-                    <NavLink activeClassName="selected" to="/map/jobs">Job Market</NavLink>
-                    <NavLink activeClassName="selected" to="/map/culture">Culture</NavLink>  
-                </nav> */}
 
                 {selected.length > 0 
                 ? <div className="housing-graphs data-category">
