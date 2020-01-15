@@ -11,6 +11,9 @@ import SafetyNav from "./subnavs/CultureNav";
 import LineGraph from "../graphs/housing/House_price";
 import RoomGraph from "../graphs/housing/HousingByRooms";
 import RentChart from "../graphs/housing/RentChart";
+import Industry from "../graphs/economics/industries";
+import Commute from "../graphs/economics/commute";
+import BarGraph from "../graphs/economics/HouseIncome_BarGraph";
 
 import deleteIcon from "./icons/close_red.png";
 
@@ -86,7 +89,12 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <RoomGraph edData={selected} />
                     <RentChart edData={selected} />
                 </div>
-                <Jobs selected={selected} />
+                <div>
+                    <h1>Job Market Breakdown:</h1>
+                    <Commute edData={selected} />
+                    <Industry edData={selected} />
+                    <BarGraph edData={selected} />
+                </div>
                 <Culture selected={selected} />
             </div>
         </div>

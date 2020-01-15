@@ -7,12 +7,7 @@ import BarGraph from "../graphs/economics/HouseIncome_BarGraph";
 
 const Jobs = ({selected}) => {
     return (
-        <div>
-            <h1>Job Market Breakdown:</h1>
-            <Commute edData={selected} />
-            <Industry edData={selected} />
-            <BarGraph edData={selected} />
-        </div>
+        <div />
     );
   };
   export default Jobs;
