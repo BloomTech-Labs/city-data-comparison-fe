@@ -341,12 +341,31 @@ html,body{
 @media screen and (max-width:600px){
   .bonus-features-container{
     flex-direction:column;
-
     .bonus-features-CTA{
       padding: 0 5%;
     }    
+    .motorbike{
+      width:250px;
+    }
+    .bonus-features-CTA{
+      .fonus-features-title{
+        font-size:1.2rem;
+      }
+      .bonus-features-description{
+        font-size:1rem;
+      }
+      .sign-up-CTA{
+        font-size:1rem;
+      }
+    }
   }
 }
+
+
+
+
+
+
 
 .dashboard-search-container{
   margin-top:120px;
@@ -435,6 +454,7 @@ html,body{
           border:none;
           font-size:1.1rem;
           color:#2ca4fc;
+          background-color:white;
           text-decoration:underline;
           cursor:pointer;
           &:focus{
@@ -705,6 +725,11 @@ html,body{
   }
 }
 @media screen and (max-width:900px){
+  .kevin{
+    height:400px;
+    border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+  }
   .dashboard-features-container{
     padding-left:5%;
     padding-right:5%;
@@ -719,8 +744,11 @@ html,body{
 }
 @media screen and (max-width:500px){
   .kevin{
-    padding-top:20px;
-    padding-bottom:25px;
+    padding-top:90px;
+    // padding-bottom:15px;
+    height:650px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
   .dashboard-features-container{
     flex-direction:column;

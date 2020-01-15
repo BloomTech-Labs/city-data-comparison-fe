@@ -365,7 +365,7 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-                              <p className="metrics-subtitle">Housing</p>
+                              {/* <p className="metrics-subtitle">Housing</p> */}
                               <img src={graph} alt="living cost graph" />
                               
                               <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
@@ -379,7 +379,7 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-                              <p className="metrics-subtitle">Community</p>
+                              {/* <p className="metrics-subtitle">Community</p> */}
                               <img src={graph} alt="living cost graph" />
                               <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
@@ -392,7 +392,7 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-                              <p className="metrics-subtitle">Industry</p>
+                              {/* <p className="metrics-subtitle">Industry</p> */}
                               <img src={graph} alt="living cost graph" />
                               <p className="metrics-description">Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
