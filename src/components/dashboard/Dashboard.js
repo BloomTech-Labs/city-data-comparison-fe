@@ -1,11 +1,13 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {Link} from "react-router-dom"
+import ReactGA from "react-ga";
 
 import graph from './assets/graph.svg'
 import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
+import motorbike from './assets/motorbike.jpg'
 
 
 import { CityContext } from '../../contexts/CityContext';
@@ -42,6 +44,12 @@ function Dashboard(){
               latitude: city.lat
             })  
       }
+
+   useEffect( _ => {
+          ReactGA.event({ category: 'Selected', 
+          action: 'selected a city using dashboard' });
+     }, [selected])
+      
 
 
       
@@ -140,7 +148,7 @@ function Dashboard(){
                          data-aos-mirror="true"
                          data-aos-once="true"
                     >
-                         <h1>Choice is YOURS</h1>
+                         <h1>Make Your Move.</h1>
                          <p className="cities-description">Search for a city:</p>
 
 
@@ -166,7 +174,7 @@ function Dashboard(){
                                                        padding:"10px",
                                                        boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                                   }
-                                                  return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                  return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin" /> {suggestion.name.replace(" city", "")}</div>
                                              })}
                                         </div>
                                    </div>
@@ -175,6 +183,18 @@ function Dashboard(){
                          <a href="#compareanchor"><button className="compare-cities-button">Compare cities</button></a>
                     </div>
                </div>
+               
+               {/* Sign Up call-to-action */}
+               <div className="bonus-features-container">
+                    <img className="motorbike" src={motorbike} alt="motorbike" />
+                    <div className="bonus-features-CTA">
+                         <p className="bonus-features-title">Unlock bonus features</p>
+                         <p className="bonus-features-description">Sign up for free to unlock additional features to export data, review and comment on cities, and view favorited cities. </p>
+                         
+                         <Link to="/signup"><button className="sign-up-CTA">Sign Up Free</button></Link>
+                    </div>
+               </div>
+
 
 
                {/* PRODUCT FEATURES */}
@@ -305,7 +325,7 @@ function Dashboard(){
                                                   padding:"10px",
                                                   boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                              }
-                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin"/> {suggestion.name.replace(" city", "")}</div>
                                         })}
                                    </div>
                               </div>
@@ -330,7 +350,7 @@ function Dashboard(){
                                                   padding:"10px",
                                                   boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                              }
-                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin" /> {suggestion.name.replace(" city", "")}</div>
                                         })}
                                    </div>
                               </div>
@@ -354,30 +374,3 @@ function Dashboard(){
 }
 
 export default Dashboard;
-
-
-
-
-
-// PROTOTYPE AUTOFILL FUNCTION
- {/* <div>
-                    <PlacesAutocomplete value={search} onChange={setSearch} onSelect={handleSelect}>
-                         {
-                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
-                              <div>
-                                   <input {...getInputProps({placeholder: "Type address"})}/>
-                                   <div>
-                                        {loading ? <div>...loading</div> : null}
-
-                                        {suggestions.map( (suggestion) => {
-                                             const style = {
-                                                  backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
-                                             }
-
-                                             return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
-                                        })}
-                                   </div>
-                              </div>)
-                         }
-                    </PlacesAutocomplete>
-               </div> */}

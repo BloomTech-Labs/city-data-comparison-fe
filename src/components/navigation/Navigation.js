@@ -22,21 +22,11 @@ function Navigation(){
                }
           }
      }
-     window.addEventListener('scroll', (e) => {
-          // console.log(e)
-          // console.log(window.pageYOffset)
-          // setOffset(window.pageYOffset)
-          
-          // if (window.pageYOffset < 100){
-          //      setBgColor('no-color')
-          // } else 
-          
+     window.addEventListener('scroll', (e) => {   
           if (window.pageYOffset > offset ){
-               // console.log('hi')
                setDisplayNav('hide-nav')
                setBgColor('no-color')
           }else{
-               // console.log('show')
                setDisplayNav('show-nav')
                setBgColor('default-color')
           }
@@ -46,15 +36,14 @@ function Navigation(){
      let styles={
           float:"right"
      }
-     
 
      return(
-          <div className={"navigation-container " + bgColor } onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
+          <div className={"navigation-container " + bgColor + `main-nav ${displayNav}`} onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
-               <nav className = {`main-nav ${displayNav}`}>
-                    {/* <a href="google.com">Link A</a> */}
-                    <Link to="/map">Map</Link>
+               <nav>
+                    <Link to="/map">Explore</Link>
+                    <Link to="/map">Compare</Link>
                     <Link className="login-link" to="/login"><img alt="lock" src={lock}/>Log In</Link>
                     <Link className="signup-link" to="/signup">Get Started</Link>
                </nav> 
@@ -64,7 +53,8 @@ function Navigation(){
                     <div className="dropdown" style={styles}>
                          <button className="dropbtn">Menu</button>
                               <div className="dropdown-content">
-                                   <Link to="/map">Map</Link>
+                                   <Link to="/map">Explore</Link>
+                                   <Link to="/map">Compare</Link>
                                    <Link to="/login">Log In</Link>
                                    <Link to="/signup">Get Started</Link>
                               </div>

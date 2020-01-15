@@ -1,0 +1,25 @@
+.facebook-button{
+    display: flex; 
+    align-items: center;
+    background: #4267b2;
+    border-radius: 5px;
+    margin-bottom: 5%; 
+    padding:2.5% 3%;
+    height: 3.6875rem; 
+    width:65%;
+
+    .facebook-name{
+    color: white; 
+    font-weight: 700; 
+    letter-spacing: .1rem;
+    font-size: 1.05rem;
+    padding-left:  5%; 
+    }
+
+    .fb-icon{
+        width: 14%; 
+    }
+
+
+}
+

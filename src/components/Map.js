@@ -24,29 +24,16 @@ export default function Map() {
   const [search, setSearch] = useState("");
 
   useEffect( _ => {
+    ReactGA.event({ category: 'Map', 
+    action: 'loaded map' });
+  }, [])
+
+  useEffect( _ => {
     ReactGA.event({ category: 'Selected', 
     action: 'selected a new city using map' });
   }, [selected])
 
-
-  // useEffect( _ => {
-  //     const geo = navigator.geolocation;
-  //     console.log(cityMarkers);
-  //     if (!geo) {
-  //       console.log('Geolocation is not supported by this browser');
-  //       return;
-  //     }    
-  //     geo.getCurrentPosition(pos => 
-  //         setViewport({
-  //           ...viewport,
-  //           latitude: pos.coords.latitude,
-  //           longitude: pos.coords.longitude
-  //         })      
-  //       );
-  // }, [])
-
   const toggleSelected = cityMarker =>  {
-    console.log(cityMarker);
     if (selected.find(item => item === cityMarker)) {
         setSelected(selected.filter(item => item !== cityMarker));
     } else {
@@ -55,14 +42,12 @@ export default function Map() {
 }
 
 const selectSearch = cityMarker =>  {
-  console.log(cityMarker);
   if (selected.find(item => item === cityMarker)) {
       return;
   } else {
       setSelected([...selected, cityMarker]);
   }
 }
-
 
     const onSearch = e => {
       e.preventDefault();
