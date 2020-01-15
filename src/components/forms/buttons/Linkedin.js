@@ -12,7 +12,7 @@ const Linkedin = props => {
 
     useEffect(() => {
         return () => {
-            isLoggingIn.current = false; 
+            isMounted.current = false; 
         }
     })
     const login = useCallback(async () => {
