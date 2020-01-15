@@ -2,7 +2,7 @@ import  React, {useState} from "react";
 import {NavLink, Route}  from "react-router-dom";
 
 import MapSearch from "./MapSearch";
-import DataNav from "./data-subnav/DataNav";
+import DataNav from "./DataNav";
 import LineGraph from "../graphs/housing/House_price";
 import RoomGraph from "../graphs/housing/HousingByRooms";
 import RentChart from "../graphs/housing/RentChart";
