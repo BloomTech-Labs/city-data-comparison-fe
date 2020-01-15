@@ -129,13 +129,14 @@ function Dashboard(){
 
      return(
           <div className="dashboard-container">
-               <div>
-                    <div>
-                         <p>Make Your Move.</p>
-                         
-                         <div>
-                              <div>
-                                   <p>Search for a city:</p>
+
+               <div className="dashboard-search-container">
+                    <div className="dashboard-search-function">
+                         <p className="dashboard-title">Make Your Move.</p>
+
+                         <div className="dashboard-function-container">
+                              <div className="dashboard-single-search-container">
+                                   <p className="search-label">Search for a city:</p>
                                    <form onSubmit={submitCity}>
                                         <div>
                                              <input 
@@ -143,7 +144,7 @@ function Dashboard(){
                                              onChange={searchChange}
                                              value={search}
                                              />
-                                             <Link to="map/jobs/standards"><button type="submit">Go</button></Link>
+                                             <Link to="map/jobs/standards"><button type="submit" className="search-button">Go</button></Link>
                                              
                                              <div>
                                                   {suggestions.map( (suggestion) => {
@@ -169,8 +170,8 @@ function Dashboard(){
 
 
 
-                              <div>
-                                   <p>Compare cities:</p>
+                              <div className="dashboard-compare-search-container">
+                                   <p className="search-label">Compare cities:</p>
                                    <form onSubmit={submitCities}>
                                         <div>
                                              <input 
@@ -214,7 +215,7 @@ function Dashboard(){
                                              </div>
                                         </div>
                                              <Link to="map/jobs/standards">
-                                                  <button>Compare</button>
+                                                  <button className="compare-button">Compare</button>
                                              </Link>
                                    </form>
 
@@ -224,8 +225,8 @@ function Dashboard(){
                     </div>
 
 
-                    <div>
-                         <img src={landing} alt="environment"/>
+                    <div className="dashboard-image">
+                         <img className="landing-image" src={landing} alt="environment" />
                     </div>
                </div>
 
