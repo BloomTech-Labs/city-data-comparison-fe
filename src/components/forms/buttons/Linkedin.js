@@ -19,7 +19,7 @@ const Linkedin = props => {
         if (isLoggingIn) return;
         setIsLoggingIn(true); 
         axios
-            .get('/localhost:5000/api/auth/login/linkedin/')
+            .get('/localhost:5000/api/auth/login/linkedin')
             .then(res => console.log(res))
             .catch(error => console.log(error))
 
