@@ -1,0 +1,26 @@
+.linkedin-button{
+    display: flex; 
+    align-items: center;
+    background: #0076b2;
+    border-radius: 5px;
+    padding:2.5% 0%;
+    height: 3.6875rem; 
+    width:65%;
+
+    .linkedin-name{
+    color: white; 
+    font-weight: 700; 
+    letter-spacing: .1rem;
+    font-size: 1.05rem;
+    padding-left:  5%; 
+    }
+
+    .linkedin-icon{
+        width: 20%; 
+        margin: 0; 
+        border-radius: 5px;
+        border-right:1px solid #01608f; 
+    }
+
+
+}

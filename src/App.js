@@ -21,15 +21,16 @@ import { CityContext } from './contexts/CityContext';
 
 
 function initializeAnalytics() {
-  ReactGA.initialize('UA-156199574-1', {debug:true});
+  ReactGA.initialize('UA-156199574-1');
   ReactGA.pageview("/");
 }
 
 function App() {
+
   useEffect( _ => {
     initializeAnalytics()
   }, [])
-  
+
   const [user, setUser] = useState({});
   const [cityMarkers, setCityMarkers] = useState(markerDummyData);
   const [selected, setSelected] = useState([]);
@@ -42,7 +43,15 @@ function App() {
     trackResize: true
   });
 
+  useEffect( _ => {
+    ReactGA.event({ category: 'Map', 
+    action: 'Changed map location' });
+  }, [viewport.latitude])
 
+  useEffect( _ => {
+    ReactGA.event({ category: 'Map', 
+    action: 'Changed map zoom' });
+  }, [viewport.zoom])
 
   return (
     <Router>
