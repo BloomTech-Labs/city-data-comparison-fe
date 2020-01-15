@@ -162,7 +162,7 @@ function Dashboard(){
                                         </div>
                                    </form>
 
-                                   <p>Want to learn about more cities? Click the link to compare multiple cities. <Link>Compare cities</Link></p> 
+                                   <p className="single-toggle-description">Want to learn about more cities? Click the link to compare multiple cities. <button className="compare-toggle-button">Compare cities</button></p> 
                               </div>
 
 
