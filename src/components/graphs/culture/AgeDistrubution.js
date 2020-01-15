@@ -55,7 +55,7 @@ export default function BarGraph ({selected}){
     location:'Population'
   }
     return (
-      <div className="chart">
+      <div className="chart-container">
 
         <Bar
           data={data.chartData}
