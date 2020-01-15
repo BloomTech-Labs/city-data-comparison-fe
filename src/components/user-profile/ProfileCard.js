@@ -13,8 +13,8 @@ const ProfileCard = ()=> {
         first_name: 'John',
         last_name: 'Doe',
         email: 'johndoe@citrics.io',
-        city: 'Murrieta',
-        state: 'Ca'
+        city: '',
+        state: ''
     })
 
     const handleChange = e => {
@@ -50,10 +50,10 @@ const ProfileCard = ()=> {
     }
 
     const toggleLocation = () => {
-        if (nameEdit.status === 'closed') {
-            setNameEdit({...nameEdit, status:'open'}) 
-        } else if (nameEdit.status === 'open') {
-            setNameEdit({...nameEdit, status:'closed'})
+        if (locationEdit.status === 'closed') {
+            setLocationEdit({...locationEdit, status:'open'}) 
+        } else if (locationEdit.status === 'open') {
+            setLocationEdit({...locationEdit, status:'closed'})
         }
     }
 
@@ -94,7 +94,7 @@ const ProfileCard = ()=> {
             <div className='profile-contents'>
                 <div>
                     <p>Name</p>
-                    <h2 className={`name ${nameEdit.status}`}>{userInfo.first_name} {userInfo.last_name}</h2>
+                    <h2 className={`user-name ${nameEdit.status}`}>{userInfo.first_name} {userInfo.last_name}</h2>
                     <form className={`edit-name ${nameEdit.status}`}>
                     <input
                         onChange={handleChange}

@@ -19,19 +19,6 @@ h1 {
     
 }
 
-.edit-name.closed, .save-name-btn.closed, .edit-name-btn.open {
-    display: none;
-}
-
-.name.open {
-    display: none;
-}
-
-.edit-email.closed,.save-email-btn.closed, .edit-name-btn.open {
-    display: none;
-}
-
-
-.user-email.open {
+.edit-name.closed, .save-name-btn.closed,.edit-name-btn.open, .edit-email.closed,.save-email-btn.closed,  .edit-email-btn.open, .edit-location.open,.save-location-btn.open,  .edit-location-btn.closed, .user-name.open, .user-email.open, .user-location.closed {
     display: none;
 }
