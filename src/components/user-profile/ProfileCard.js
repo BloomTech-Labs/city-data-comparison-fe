@@ -90,7 +90,7 @@ const ProfileCard = ()=> {
 
     return (
         <div>
-            <h2>Profile Page</h2>
+            <h1>Profile</h1>
             <div className='profile-contents'>
                 <div>
                     <p>Name</p>
