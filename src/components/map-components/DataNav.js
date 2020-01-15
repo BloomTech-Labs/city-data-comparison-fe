@@ -5,7 +5,7 @@ const DataNav = _ => {
 
     return (
         <>
-            <NavLink activeClassName="selected" to="/map/housing/costs">Housing Costs</NavLink>
+            <a href="#home-price">Housing Costs</a>
             <NavLink activeClassName="selected" to="/map/housing/homeinfo">Home Info</NavLink>
             <NavLink activeClassName="selected" to="/map/housing/quality">Quality of Living</NavLink>
             <NavLink activeClassName="selected" to="/map/jobs/jobs">Jobs</NavLink>

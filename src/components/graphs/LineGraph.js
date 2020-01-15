@@ -70,7 +70,7 @@ export default class LineGraph extends Component{
   }
   render(){
     return (
-      <div className="chart">
+      <div id="homeprice" className="chart">
         
 
         <Line

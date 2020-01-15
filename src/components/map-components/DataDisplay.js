@@ -81,7 +81,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                 <div className="housing-graphs data-category">
                     <h3>Housing:</h3>
-                    <LineGraph id="home-price" selected = {selected} />
+                    <LineGraph selected = {selected} />
                     <RoomGraph edData={selected} />
                     <RentChart edData={selected} />
                 </div>

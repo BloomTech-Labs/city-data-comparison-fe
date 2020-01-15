@@ -21,7 +21,7 @@ import { CityContext } from './contexts/CityContext';
 
 
 function initializeAnalytics() {
-  ReactGA.initialize('UA-156199574-1', {debug:true});
+  ReactGA.initialize('UA-156199574-1');
   ReactGA.pageview("/");
 }
 
