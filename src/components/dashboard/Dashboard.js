@@ -1,5 +1,7 @@
 import React, {useState, useContext} from 'react'
 import {Link} from "react-router-dom"
+import LineGraph from '../graphs/PieGraph'
+import LineGraph2 from '../graphs/TwoGraph'
 
 import graph from './assets/graph.svg'
 import pointer from './assets/pointer.svg'
@@ -363,7 +365,9 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
+                              <p className="metrics-subtitle">Housing</p>
                               <img src={graph} alt="living cost graph" />
+                              
                               <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
@@ -375,6 +379,7 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
+                              <p className="metrics-subtitle">Community</p>
                               <img src={graph} alt="living cost graph" />
                               <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
@@ -387,14 +392,16 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-
+                              <p className="metrics-subtitle">Industry</p>
                               <img src={graph} alt="living cost graph" />
                               <p className="metrics-description">Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
                     </div>
                </div>
 
-
+               {/* <LineGraph />
+               <LineGraph2 /> */}
+               {/* <HousePrice /> */}
 
                {/* COMPARE CITIES FUNCTION */}
                {/* <div className="dashboard-compare-container"
