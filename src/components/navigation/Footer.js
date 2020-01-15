@@ -38,13 +38,13 @@ function Footer(){
                               <div className="footer-categories">
                                    <h3 className="footer-title">Company</h3>
                                    <a href="/">Meet the Team</a>
-                                   <a onClick={() => (toggle, setModalState(<AboutUs/>))}>About Us</a>
+                                   <a onClick={() => (setModalState(<AboutUs/>), toggle())}>About Us</a>
                                    <a href="/">Contact Us</a>
                               </div>
                               <div className="footer-categories">
                                    <h3 className="footer-title">Resources</h3>
                                    <a href="/">Data Sources</a>
-                                   <a onClick={toggle}>Private Policy</a>
+                                   <a onClick={() => (setModalState(<PrivacyPolicy/>), toggle())}>Private Policy</a>
                                    <a href="/">Terms of Use</a>
                               </div>
                          </div>
