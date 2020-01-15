@@ -31,8 +31,22 @@ function App() {
     initializeAnalytics()
   }, [])
 
+  let index = []
+  
+  Object.keys(citiesIndex).forEach(item => {
+    if(citiesIndex[item].population > 500000){
+      // console.log(citiesIndex[item])
+      let city = citiesIndex[item]
+      city.name = item
+      index.push(city)
+
+    }
+
+  })
+  // console.log(index, "INDEX")
+
   const [user, setUser] = useState({});
-  const [cityMarkers, setCityMarkers] = useState(citiesIndex);
+  const [cityMarkers, setCityMarkers] = useState(index);
   const [selected, setSelected] = useState([]);
   const [viewport, setViewport] = useState({
     width: '100%',
