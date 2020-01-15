@@ -1,5 +1,5 @@
 import  React, {useState} from "react";
-
+import {NavLink} from "react-router-dom";
 import MapSearch from "./MapSearch";
 import DataNav from "./DataNav";
 import LineGraph from "../graphs/housing/House_price";
@@ -59,7 +59,17 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             setViewport={setViewport}  
                             selectSearch={selectSearch}
                             />
-                            <DataNav />
+                            <a href="#homeprice">Housing Costs</a>
+                            <a href="#rent">Rent</a>
+                            <a href="#rooms">Rooms per House</a>
+                            <NavLink activeClassName="selected" to="/map/housing/homeinfo">Home Info</NavLink>
+                            <NavLink activeClassName="selected" to="/map/housing/quality">Quality of Living</NavLink>
+                            <NavLink activeClassName="selected" to="/map/jobs/jobs">Jobs</NavLink>
+                            <NavLink activeClassName="selected" to="/map/jobs/standards">Salary Standards</NavLink>
+                            <NavLink activeClassName="selected" to="/map/jobs/commute">Commute</NavLink>
+                            <NavLink activeClassName="selected" to="/map/culture/demographics">Demographics</NavLink>
+                            <NavLink activeClassName="selected" to="/map/culture/populationgrowth">Population Growth</NavLink>
+                            <NavLink activeClassName="selected" to="/map/culture/education">Education</NavLink>
 
                         </div>
                     </div>
@@ -81,9 +91,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                 <div className="housing-graphs data-category">
                     <h3>Housing:</h3>
-                    <LineGraph selected = {selected} />
-                    <RoomGraph edData={selected} />
-                    <RentChart edData={selected} />
+                    <span id="homeprice"><LineGraph selected = {selected} /></span>
+                    <span id="rent"><RentChart edData={selected} /></span>
+                    <span id="rooms"><RoomGraph edData={selected} /></span>
                 </div>
                 <div className="jobs-graphs data-category">
                     <h3>Job Market:</h3>
