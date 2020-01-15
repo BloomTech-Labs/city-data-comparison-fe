@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Bar} from 'react-chartjs-2';
 
 export default function EducationGraph (props) {
@@ -57,6 +57,34 @@ export default function EducationGraph (props) {
                 legend:{
                   display:true,
                   position:"top",
+                },
+                scales: {
+                  xAxes: [ {
+                    
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Income'
+                    },
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Percent',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    },
+
+                  }]
                 }
               }}
             /> 

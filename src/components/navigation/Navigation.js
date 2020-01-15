@@ -42,12 +42,11 @@ function Navigation(){
      //      }
      //      setOffset(window.pageYOffset)
 
+
      // })
      let styles={
           float:"right"
      }
-     
-     // className = {`main-nav ${displayNav}`}
 
      return(
           <div className={"navigation-container " + bgColor + `main-nav ${displayNav}`} onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>

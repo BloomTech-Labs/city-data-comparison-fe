@@ -35,6 +35,7 @@ export default function PopGrowthGraph({selected}) {
                   
                   return {
                     label: item.name.replace(" city" , ""),
+                    fill: false,
                     data: labels.map(label => item["Population Growth"][label]),
                     borderColor:
                       colorifier(item.lat)
@@ -53,6 +54,34 @@ export default function PopGrowthGraph({selected}) {
                 legend:{
                   display:true,
                   position:"top",
+                },
+                scales: {
+                  xAxes: [ {
+                    
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Year'
+                    },
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'amount',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    },
+
+                  } ]
                 }
               }}
             /> 

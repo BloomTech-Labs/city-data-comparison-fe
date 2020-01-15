@@ -24,7 +24,6 @@ const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, se
             latitude: city.lat
           })
     }
-    console.log(menu);
     return(
         <form autoComplete="off" onSubmit={onSearch}>
             <input

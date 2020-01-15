@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 import './map-components/Map.scss';
+import ReactGA from "react-ga"
 
 import Markers from "./map-components/Markers";
 import MapFooter from "./map-components/MapFooter";
@@ -22,25 +23,17 @@ export default function Map() {
   
   const [search, setSearch] = useState("");
 
+  useEffect( _ => {
+    ReactGA.event({ category: 'Map', 
+    action: 'loaded map' });
+  }, [])
 
-  // useEffect( _ => {
-  //     const geo = navigator.geolocation;
-  //     console.log(cityMarkers);
-  //     if (!geo) {
-  //       console.log('Geolocation is not supported by this browser');
-  //       return;
-  //     }    
-  //     geo.getCurrentPosition(pos => 
-  //         setViewport({
-  //           ...viewport,
-  //           latitude: pos.coords.latitude,
-  //           longitude: pos.coords.longitude
-  //         })      
-  //       );
-  // }, [])
+  useEffect( _ => {
+    ReactGA.event({ category: 'Selected', 
+    action: 'selected a new city using map' });
+  }, [selected])
 
   const toggleSelected = cityMarker =>  {
-    console.log(cityMarker);
     if (selected.find(item => item === cityMarker)) {
         setSelected(selected.filter(item => item !== cityMarker));
     } else {
@@ -49,14 +42,12 @@ export default function Map() {
 }
 
 const selectSearch = cityMarker =>  {
-  console.log(cityMarker);
   if (selected.find(item => item === cityMarker)) {
       return;
   } else {
       setSelected([...selected, cityMarker]);
   }
 }
-
 
     const onSearch = e => {
       e.preventDefault();

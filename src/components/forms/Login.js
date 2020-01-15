@@ -1,10 +1,14 @@
 import React from 'react'; 
 
 
-//images
-import google from '../../assets/logos/google.svg'; 
-import facebook from '../../assets/logos/facebook.svg';
+
+
 import city from '../../assets/forms/sf_sign_in.png'
+
+//butons
+import Facebook from './buttons/Facebook.js'; 
+import Google from './buttons/Google.js'
+import Linkedin from './buttons/Linkedin'
 
 const Login = props => {
     return(
@@ -13,17 +17,14 @@ const Login = props => {
            
            <div className="inner-form">
                <div className="form">
-                   <h2>Welcome Back!</h2>
+                   <h2 className="form-title">Welcome Back!</h2>
 
                    <div className="auth">
-                       <button id="auth-button" className="google">
-                           <img className="google" src={google} alt="google logo"/>
-                           <p className="button-text">Sign up with Google</p>
-                       </button>
-                       <button id="auth-button" className="facebook">
-                           <img className="fb" src={facebook} alt="facebook logo"/>
-                           <p className="button-text">Sign up with Facebook</p>
-                       </button>
+                       
+                       <Google action='Sign in '/>
+                       <Facebook action="Sign in"/>
+                       <Linkedin action="Sign in" />
+                       
                    </div>
                    
                    <div className="centerText">
@@ -37,9 +38,9 @@ const Login = props => {
                        
                        <div className="tos">
                            <input className="checkbox" type="checkbox" name="tos"></input>
-                           <p>Accept terms of service</p>
+                           <p className="tos-text">Accept terms of service</p>
                        </div>
-                       <div className="signup-button">Start exploring cities</div>
+                       <div className="login-button">Start exploring cities</div>
                        <p class='question'>Have an account? <span>Sign in</span> to explore cities</p>
                    </div>
                </div>
