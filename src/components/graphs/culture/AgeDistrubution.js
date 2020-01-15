@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {Bar} from 'react-chartjs-2';
-import {markerDummyData} from "../../map-components/data";
-
 
 export default function BarGraph ({selected}){
     const [data, setData] = useState({})
@@ -55,7 +53,7 @@ export default function BarGraph ({selected}){
     location:'Population'
   }
     return (
-      <div className="chart">
+      <div className="chart-container">
 
         <Bar
           data={data.chartData}
