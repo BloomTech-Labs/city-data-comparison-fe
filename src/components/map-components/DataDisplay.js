@@ -71,15 +71,15 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 </div>    
             </nav>
             <div className="data-by-category">
-                <nav className="data-subnav">
+                {/* <nav className="data-subnav">
                     <NavLink activeClassName="selected" to="/map/housing">Housing</NavLink>
                     <NavLink activeClassName="selected" to="/map/jobs">Job Market</NavLink>
                     <NavLink activeClassName="selected" to="/map/culture">Culture</NavLink>  
-                </nav>
+                </nav> */}
 
-                <Route path="/map/housing" render={_ => <Housing selected={selected} /> } />
-                <Route path="/map/jobs" render={_ => <Jobs selected={selected} /> } />
-                <Route path="/map/culture" render={_ => <Culture selected={selected} /> } />
+                <Housing selected={selected} />
+                <Jobs selected={selected} />
+                <Culture selected={selected} />
             </div>
         </div>
     );
