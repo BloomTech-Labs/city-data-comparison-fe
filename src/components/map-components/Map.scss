@@ -36,14 +36,14 @@
     }
 
     .data-category h3 {
-        margin-top:10px;
-        margin-bottom: 0px;
+        margin: 0 auto;
+        padding-top: 10px;
     }
 
     .data-category {
-        border: 1px solid black;
         width:95%;
-        margin: 2% auto;
+        margin: 0 auto;
+        background:white;
     }
 
     .anchor-header {
@@ -274,7 +274,7 @@
     .data-by-category {
         width: 70%;
         margin-left:4%;
-        background:white;
+        
 
         @media only screen and (max-width: 600px) {
             position: absolute;
