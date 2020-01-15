@@ -294,13 +294,13 @@ function Dashboard(){
                
                {/* Sign Up call-to-action */}
                <div className="bonus-features-container"
-                    // data-aos="fade-right"
-                    // data-aos-offset="200"
-                    // data-aos-delay="50"
-                    // data-aos-duration="1000"
-                    // data-aos-easing="ease-in-out"
-                    // data-aos-mirror="true"
-                    // data-aos-once="true"
+                    data-aos="fade-right"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-mirror="true"
+                    data-aos-once="true"
                >
                     <div className="motoranimationcontainer">
                          <div className="motoranimbackground">
@@ -308,10 +308,10 @@ function Dashboard(){
                               <img className="edgeblurright" src={edgeblur}/>
                          </div>
                          <div className="moving">
-                              <img className="motoranim" src={backwheel} alt="backwheel" style={{top:"90px", right:"55px"}}/>
-                              <img className="motoranim" src={frontwheel} alt="frontwheel" style={{top:"90px", left:"67px"}}/>
-                              <img className="motoranim" src={driver} alt="driver" style={{top:"20px"}}/>
-                              <img className="motoranim" src={plant} alt="plant" style={{top:"27px", right:"60px"}} />
+                              <img className="motoranim wheel" src={backwheel} alt="backwheel" style={{top:"90px", right:"55px"}}/>
+                              <img className="motoranim wheel" src={frontwheel} alt="frontwheel" style={{top:"90px", left:"67px"}}/>
+                              <img className="motoranim driver" src={driver} alt="driver" style={{top:"20px"}}/>
+                              <img className="motoranim plant" src={plant} alt="plant" style={{top:"27px", right:"60px"}} />
                          </div>
                     </div>    
                     <div className="bonus-features-CTA">
