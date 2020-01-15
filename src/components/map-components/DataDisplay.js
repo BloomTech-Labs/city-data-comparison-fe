@@ -80,19 +80,19 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 </nav> */}
 
                 <div className="housing-graphs data-category">
-                    <h1>Housing:</h1>
+                    <h3>Housing:</h3>
                     <LineGraph selected = {selected} />
                     <RoomGraph edData={selected} />
                     <RentChart edData={selected} />
                 </div>
                 <div className="jobs-graphs data-category">
-                    <h1>Job Market:</h1>
+                    <h3>Job Market:</h3>
                     <Commute edData={selected} />
                     <Industry edData={selected} />
                     <BarGraph edData={selected} />
                 </div>
                 <div className="culture-graphs data-category">
-                    <h1>Cultural Statistics:</h1>     
+                    <h3>Cultural Statistics:</h3>     
                     <EthnicityGraph ethData = {selected} />
                     <Population selected = {selected} />
                     <EducationGraph edData={selected} />
