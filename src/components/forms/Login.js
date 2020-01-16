@@ -15,46 +15,49 @@ import axios from 'axios';
 
 const Login = ({touched, errors, status}, props)=> {
 
-   const [validated, validate] = useState(false); 
-   const [emailError, setEmailError] = useState(''); 
-   const [passwordError, setPasswordError] = useState('')
+   const [validated, validate] = useState(false);
+   const [usernameError, setUsernameError] = useState(''); 
+   const [passwordError, setPasswordError] = useState('');
+   const [loginError, setLoginError] = useState(''); 
    const [isLoading, setIsLoading] = useState(false); 
-   const [user, setUser] = useState({email: '', password: ''})
+   const [user, setUser] = useState({username: '', password: ''})
 
 
     useEffect(() => {
         if (isLoading) {
             //axios call
-
+            if(validated) {
+                console.log('axios call')
+                axios
+                    .post('', user)
+                    .then(res => {
+                        console.log(res)
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        setLoginError('Email and ')
+                    }) 
+                } 
         }
         setIsLoading(false)
         
     }, [isLoading])
     
     const validateLogin = () => {
-        if (validated) {
-            //go to next page
-        }else {
-            if (user.email.includes('@')){
-                setEmailError('Please enter a valid email'); 
-                
-            }
             
-            
-            if (user.email === '') {
-                setEmailError('Please enter your email'); 
-                return;
+            if (user.username === '') {
+                setUsernameError('Please enter your username'); 
             }
-            if(!user.email.includes('@') || user.password === ''){
-                setEmailError('Please enter a valid email'); 
-                setPasswordError('Please enter your password')
-                }
             if (user.password === '') {
                 setPasswordError("Please enter your password")
-                return;
-            }
             
-        }
+            } else{
+                validate(true)
+            }
+
+
+            
+        
 
     }
 
@@ -65,8 +68,9 @@ const Login = ({touched, errors, status}, props)=> {
 
     const onSubmit = e => {
             e.preventDefault();
-            setEmailError('')
+            setUsernameError('')
             setPasswordError('')
+            setLoginError('');
             validateLogin();
             setIsLoading(true)
             
@@ -93,9 +97,9 @@ const Login = ({touched, errors, status}, props)=> {
                        <div className="line"></div>
                    </div>
                    <form className="fields" onSubmit={onSubmit}>
-                       <p className='error'>{emailError}</p>
-                       <input className="email" type='text' name='email' placeholder="Email" value={user.email} onChange={onChange}/>
-                       <p>{passwordError}</p>
+                       <p className='error'>{usernameError}</p>
+                       <input className="email" type='text' name='username' placeholder="Username" value={user.username} onChange={onChange}/>
+                       <p className='error'>{passwordError}</p>
                        <input className="password" type='password' name='password' placeholder="Password" value={user.password} onChange={onChange}/>
                        
                        

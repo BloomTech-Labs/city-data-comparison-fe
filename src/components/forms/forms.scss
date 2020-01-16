@@ -188,8 +188,10 @@ span{
         padding: 4% 2.5%;
         text-align: center;
         font-size: 1.2rem; 
-        border:1px solid #F99539;
-        margin-top: 5%; 
+        border:1px solid #F99539; 
+        width:100%;
+        margin: auto;
+        margin-top: 5%;
 
         &:hover{
            background:white; 
@@ -224,4 +226,12 @@ span{
             background-image:url('../../assets/forms/sf_sign_in_mobile.png')
         }
    
+    }
+
+    .error{
+        font-size: 80%;
+        color: #F99539;
+        padding: 0;
+        margin: 1%;
+        text-align: center;
     }
