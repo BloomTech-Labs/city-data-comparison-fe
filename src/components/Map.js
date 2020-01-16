@@ -39,7 +39,7 @@ export default function Map() {
     Axios
     .get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
     .then(res => {
-      console.log('DATA IS', res)
+      console.log('DATA IS', res.data)
       setSelected([...selected, res.data])
     })
     // if (selected.find(item => item === cityMarker)) {
