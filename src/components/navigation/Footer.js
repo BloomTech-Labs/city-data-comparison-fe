@@ -37,15 +37,15 @@ function Footer(){
                               </div>
                               <div className="footer-categories">
                                    <h3 className="footer-title">Company</h3>
-                                   <a onClick={() => (setModalState(<AboutUs/>), toggle())}>Meet the Team</a>
-                                   <a onClick={() => (setModalState(<AboutUs/>), toggle())}>About Us</a>
-                                   <a onClick={() => (setModalState(<AboutUs/>), toggle())}>Contact Us</a>
+                                   <a onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>Meet the Team</a>
+                                   <a onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>About Us</a>
+                                   <a onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>Contact Us</a>
                               </div>
                               <div className="footer-categories">
                                    <h3 className="footer-title">Resources</h3>
                                    <a href="http://api.citrics.io/docs">Data Sources</a>
-                                   <a onClick={() => (setModalState(<PrivacyPolicy/>), toggle())}>Private Policy</a>
-                                   <a onClick={() => (setModalState(<PrivacyPolicy/>), toggle())}>Terms of Use</a>
+                                   <a onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}>Private Policy</a>
+                                   <a onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}> Terms of Use</a>
                               </div>
                          </div>
                          <div>
