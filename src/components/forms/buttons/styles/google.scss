@@ -10,6 +10,12 @@
     border-bottom: 1px solid rgb(211, 211, 211);
     border-right: 1px solid rgb(211, 211, 211);
 
+    @media screen and (max-width: 950px){
+        padding: 1.5% .7%;
+        width: 59%;
+        
+    }
+
 
     .google-name{
         color: #615d5d; 
@@ -27,6 +33,11 @@
         @media screen and (max-width: 1500px){
             font-size: 75%;
             padding-left:5%;
+        }
+
+        @media screen and (max-width: 950px){
+            font-size: 78%;
+            padding: 0 8%;
         }
 
     }
