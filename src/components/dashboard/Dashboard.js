@@ -354,7 +354,7 @@ function Dashboard(){
 
                {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
-                    <h2 className="metrics-title">Visualizing data made easier</h2>
+                    <p className="metrics-title">Visualizing data made easier</p>
                     <div className="dashboard-metrics">
                          <div className="metrics-description-container"
                               data-aos="fade-up"
