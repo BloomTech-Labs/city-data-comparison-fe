@@ -18,30 +18,37 @@ const Login = props => {
    const [emailError, setEmailError] = useState(''); 
    const [passwordError, setPasswordError] = useState('')
    const [isLoading, setIsLoading] = useState(false); 
-   
+   const [email, setEmail] = useState(''); 
+   const [password, setPassword] = useState(''); 
+
+
     useEffect(() => {
+        if (isLoading) {
+            validateLogin()
+        }
+        setIsLoading(false)
+        
+    }, [isLoading])
+    
+    const validateLogin = () => {
+        if (validated) {
+            //go to next page
+        }else {
+            
 
-        const validateLogin = () => {
-            if (validated) {
-                //go to next page
-            }else {
-                var email = document.forms["fields"]['email'].value;
-                var password = document.forms['fields']['password'].value;
-
-                if (email === '') {
-                    setEmailError('Please enter your email'); 
-                    return;
-                }
-
-                if (password === '') {
-                    setPasswordError("Please enter your password")
-                }
-                
+            if (email === '') {
+                setEmailError('Please enter your email'); 
+                return;
             }
 
+            if (password === '') {
+                setPasswordError("Please enter your password")
+                return;
+            }
+            
         }
-    }, [validated])
-    
+
+    }
     return(
              <div className='login'>
                   
@@ -65,12 +72,12 @@ const Login = props => {
                    </div>
                    <form className="fields">
                        <p className='error'>{emailError}</p>
-                       <input className="email" type='text' name='email' placeholder="Email"/>
+                       <input className="email" type='text' name='email' placeholder="Email" value={email}/>
                        <p>{passwordError}</p>
-                       <input className="password" type='text' name='password' placeholder="Password"/>
+                       <input className="password" type='text' name='password' placeholder="Password" value={password}/>
                        
                        
-                       <div className="login-button">Start exploring cities</div>
+                       <div className="login-button" onClick={() => setIsLoading(true)}>Start exploring cities</div>
                        <p className='question'>Have an account? <span>Sign in</span> to explore cities</p>
                    </form>
                </div>
