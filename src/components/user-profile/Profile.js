@@ -22,7 +22,7 @@ function Profile({selected}) {
     return (
         <div className='profile-page'>
             <SideNav />
-            <Route exact path='/profile/' render={_ => <ProfileCard selected={selected} />} />
+            <Route path='/profile/' render={_ => <ProfileCard selected={selected} />} />
             <Route path='/profile/favorites' render={_ => <Favorites selected={selected} />} />
             <Route path='/profile/preferences' render={_ => <Preferences selected={selected} />} />
             <Route path='/profile/settings' render={_ => <Settings selected={selected} />} />

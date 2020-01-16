@@ -4,6 +4,7 @@ import housingImg from './icons/Housing.png'
 import econImg from './icons/Cash.png'
 import socialImg from './icons/Social.png'
 import checkMark from './icons/checkmark.png'
+import infoIcon from './icons/info.png'
 
 
 const Preferences = ()=> {
@@ -49,6 +50,7 @@ const Preferences = ()=> {
                         <p>Which of the following factors is the most important when moving to a new city?</p>
                     </div>
                     <div className='head-bottom'>
+                        <img src={infoIcon} />
                         <p>As a default, all the categories are displayed. <span>Deselect</span> categories that you wish not to see or click   a  category to view subcategories and make a change.</p>
                     </div>
                 </div>

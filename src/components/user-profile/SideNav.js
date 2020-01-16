@@ -9,7 +9,7 @@ const SideNav = () => {
         <div className='side-nav'>
             <div className='profile-tabs'>
                 <nav className='nav-items'>
-                    <NavLink activeClassName='selected' to='/profile'>Profile</NavLink>
+                    <NavLink activeClassName='selected' to='/profile/'>Profile</NavLink>
                     <NavLink activeClassName='selected' to='/profile/preferences'>Preferences</NavLink>
                     <NavLink activeClassName='selected' to='/profile/favorites'>Favorites</NavLink>        
                     <NavLink activeClassName='selected' to='/profile/settings'>Settings</NavLink>

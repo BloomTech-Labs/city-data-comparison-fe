@@ -7,29 +7,30 @@ h1 {
 }
 
 .side-nav {
-    display: flex;
-    margin-top: 20%;
+    margin-top: 10%;
+    width: 10%;
+    padding-left: 2%;
     
-    .profile-tabs {
-        
-        .nav-items{
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            margin: 0 auto;
-                a{
-                    
-                }
-            }
+    .nav-items {
+        display: flex;
+        flex-direction: column;
+        a {
+            margin-bottom: 24px;
+            text-decoration: none;
+            color: #84868C;
+            font-size: 18px;
+        }
+        .selected {
+            color: #5E6066;
+            font-weight: 500;
+        }
     }
-    
 }
 
 .profile-container{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 10%;
     
 
     .profile-contents {
@@ -45,7 +46,7 @@ h1 {
         margin-bottom: 32px;
         text-align: left;
         padding-left: 127px;
-        font-weight: 500;
+        font-weight: 400;
         color: #32373D;
     }
 
@@ -89,7 +90,7 @@ h1 {
 
         h2 {
             font-size: 24px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         input {
@@ -101,7 +102,7 @@ h1 {
         
         h2 {
             font-size: 20px;
-            font-weight: 600;
+            font-weight: 400;
         }
     }
 
@@ -109,7 +110,7 @@ h1 {
 
         h2 {
             font-size: 20px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         span{
@@ -172,11 +173,21 @@ h1 {
             width: 336px;
             font-size: 14px;
             color:#84868C;
+            display: flex;
+            align-items:center;
+            margin-top: -25px;
+
             span {
                 font-weight:450;
                 color:#84868C;
             }
 
+            img {
+                width: 18px;
+                height:18px;
+                margin-left: -22px;
+                margin-right: 5px;
+            }
         }
     }
 
@@ -215,7 +226,7 @@ h1 {
             font-size: 18px;
         }
 
-        .housing-tab.open, .econ-tab.open, .social-tab.open {
+        .housing-tab.closed, .econ-tab.closed, .social-tab.closed {
             border: 3px solid #4AC9AA;
         }
 
@@ -223,7 +234,7 @@ h1 {
             width: 31.34px;
             height: 24px;
         }
-        .housing-tab-check.closed, .social-tab-check.closed, .econ-tab-check.closed {
+        .housing-tab-check.open, .social-tab-check.open, .econ-tab-check.open {
             display: none;
         }
         .tab {
