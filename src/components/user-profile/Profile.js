@@ -20,9 +20,6 @@ function Profile({selected}) {
     
     return (
         <div>
-            <div>
-                <h1>Profile</h1>
-            </div>
             <div className='side-nav'>
                 <div className='profile-tabs'>
                     <nav className='nav-items'>
