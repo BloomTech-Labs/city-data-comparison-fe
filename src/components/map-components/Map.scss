@@ -85,15 +85,18 @@
             
         }
 
-        .anchor-nav a {
-            text-decoration:none;
-            color:#2e2f38;
-            .selected {
-                color :white;
-                background:#041734;
-                font-size:1.1rem;
+        .anchor-nav {
+            display:flex;
+            flex-direction:column;
+            a {
+                text-decoration:none;
+                color:#2e2f38;
+                .selected {
+                    color :white;
+                    background:#041734;
+                    font-size:1.1rem;
+                }
             }
-            
         }
 
         .slider {
