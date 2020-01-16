@@ -124,7 +124,7 @@ const Signup = props => {
                                     </p>
                                 </div>
                                 <button className="signup-button" htmlType="submit" onClick={() => setIsLoading(true)}>Start exploring cities</button>
-                                <p class='question'>Have an account? <Link to='/signin'>Sign in</Link> to explore cities</p>
+                                <p class='question'>Have an account? <Link className="link-signup" to='/signin'>Sign in</Link> to explore cities</p>
                             </form>
                         </div>
                         <div className="signup-photo">

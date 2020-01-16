@@ -46,7 +46,7 @@ span{
 .form{
     width: 50%; 
     padding: 1%; 
-    padding-top:5%; 
+    padding-top: 3%; 
 
     @media screen and (max-width: 950px) {
         width: 86%;
@@ -61,7 +61,7 @@ span{
         flex-direction: column;
         width: 75%; 
         margin:auto; 
-        margin-top:10%; 
+        margin-top:5%; 
         align-items: center;
     }
     .google{
@@ -106,7 +106,7 @@ span{
         display:flex; 
         align-items: center;
         width: 66%;
-        margin: 5% auto;
+        margin: 3% auto;
         
     
     }
@@ -150,12 +150,16 @@ span{
 
     .tos{
         display:flex; 
-        font-size: .7rem;
+        font-size: .9rem;
         color: #7c7d80; 
         align-items: center;
+        margin:auto;
+        justify-content: center;
+       
 
         .checkbox{
-            width: 10%;
+            width: 3%;
+            cursor: pointer;
         }
         
     }
@@ -169,6 +173,7 @@ span{
         padding: 4% 2.5%;
         text-align: center;
         font-size: 1.2rem; 
+        width:100%;
 
         &:hover{
             background:white; 
@@ -202,7 +207,7 @@ span{
 
     .signup-photo{
         background-image: url('../../assets/forms/nyc_signup_photo.png');
-        width:100%; 
+        width:90%; 
         width: 51%;
         border-radius: 0px 40px 40px 0px;
 
@@ -238,4 +243,13 @@ span{
 
     .error-signup{ 
        color: #3999fc; 
+    }
+
+    .tos-text, .link-signup{
+        color: #3999fc;
+        
+        &:hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
     }
