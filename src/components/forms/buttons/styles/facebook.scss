@@ -8,6 +8,11 @@
     height: 3.6875rem; 
     width:65%;
 
+    @media screen and (max-width: 950px){
+        padding: 1.5% .7%;
+        width: 59%;
+    }
+
     .facebook-name{
     color: white; 
     font-weight: 700; 
@@ -25,10 +30,18 @@
             font-size: 75%;
             padding-left:5%;
         }
+
+        @media screen and (max-width:950px){
+            padding-left: 7%;
+        }
     }
 
     .fb-icon{
         width: 14%; 
+
+        @media screen and (max-width: 950px){
+            width: 17%;
+        }
     }
 
 
