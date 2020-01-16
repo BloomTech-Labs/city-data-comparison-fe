@@ -3,13 +3,14 @@ import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 import './map-components/Map.scss';
 import ReactGA from "react-ga"
-import Axios from 'axios'
+
 import Markers from "./map-components/Markers";
 import MapFooter from "./map-components/MapFooter";
 import DataDisplay from "./map-components/DataDisplay";
 import PopupMap from "./map-components/PopupMap"
 
 import { CityContext } from '../contexts/CityContext';
+import Axios from 'axios';
 
 const MapWrapper = styled.div`
   width:100vw;
@@ -36,7 +37,7 @@ export default function Map() {
   const toggleSelected = cityMarker =>  {
     console.log(cityMarker, "CITYMARKER")
     Axios
-    .get(``)
+    .get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
     .then(res => {
       console.log('DATA IS', res.data)
       setSelected([...selected, res.data])

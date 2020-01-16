@@ -15,19 +15,19 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
     city: 'none',
     animate: false
   })
-  console.log(cityMarkers, "citymakrers")
+
   return (
         <div>
-          {Object.keys(cityMarkers).forEach(cityMarker=> {
-            console.log(cityMarker, 'CITYMARKER')
+          {cityMarkers.map(cityMarker=> {
+            // console.log(cityMarker, "CITYMARKER")
             return (
-              <Marker key={cityMarker['lat']} latitude={cityMarker['lat']} longitude={cityMarker['lng']}>
+              <Marker key={cityMarker.lat} latitude={cityMarker.lat} longitude={cityMarker.lng}>
                     {/* <Link className='map-marker' to={`/map/${cityMarker.city}${cityMarker.state_id}`}> */}
                   <div
                     onClick={() => toggleSelected(cityMarker)} 
                     // these events are to control state when a marker is hovered over
                     onMouseOver={(e) => (Number.isNaN(parseFloat(e.target.getAttribute("latitude"))) || setPopState({...popState, lat:parseFloat(e.target.getAttribute("latitude")), lng:parseFloat(e.target.getAttribute("longitude")),
-                    posleft:e.target.getBoundingClientRect().left, postop:e.target.getBoundingClientRect().top, display:'block', city:`${cityMarker.city}, ${cityMarker.state_id}`, animate:true}))}
+                    posleft:e.target.getBoundingClientRect().left, postop:e.target.getBoundingClientRect().top, display:'block', city:`${cityMarker.name}`, animate:true}))}
                     onMouseLeave={(e) => (setPopState({...popState, display:'none', animate:false}))}
                   >
                       {selected.find(item => item === cityMarker) 
