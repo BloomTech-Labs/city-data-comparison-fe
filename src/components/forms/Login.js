@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, {useState} from 'react'; 
 
 
 import city from '../../assets/forms/sf_sign_in.png'
@@ -8,10 +8,27 @@ import Facebook from './buttons/Facebook.js';
 import Google from './buttons/Google.js'
 import Linkedin from './buttons/Linkedin'
 
+//tos modals
+import Modal from "../modal/modal"
+import useModal from "../modal/useModal"
+import './privacypolicyform.scss'; 
+import PrivacyPolicy from '../legal/PrivacyPolicy'
+
+
+
 const Login = props => {
+
+    const {isShowing, toggle} = useModal();
+     const [modalState, setModalState] = useState();
     return(
-       
+            <>
+                <Modal
+                    isShowing={isShowing}
+                    hide={toggle}
+                    component={modalState}
+               />
              <div className='login'>
+                  
            
            <div className="inner-form">
                <div className="form">
@@ -36,7 +53,10 @@ const Login = props => {
                        
                        <div className="tos">
                            <input className="checkbox" type="checkbox" name="tos"></input>
-                           <p className="tos-text">Accept terms of service</p>
+                           <p>
+                                Please accept our 
+                                <a onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}>privacy policy</a>
+                           </p>
                        </div>
                        <div className="login-button">Start exploring cities</div>
                        <p className='question'>Have an account? <span>Sign in</span> to explore cities</p>
@@ -50,6 +70,8 @@ const Login = props => {
     
       
    </div>
+
+   </>
         
     )
 }
