@@ -17,7 +17,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
     const [menu, setMenu] = useState({status: 'closed'})
 
-    console.log(selected, "data display")
+    console.log(selected)
 
     const toggleMenu = () => {
         if (menu.status === 'closed') {
@@ -79,7 +79,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         </div>
                     </div>
                     <ul>
-                        {selected.map(item => <div key={item._id} className={`menu-items ${menu.status}`}><li  key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name_with_com})} 
+                        {selected.map(item => <div key={item._id} className={`menu-items ${menu.status}`}><li  key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name_with_com} 
                             <span onClick={ _ => toggleSelected(item)}>
                                 <img className="delete-icon" src={deleteIcon} alt="delete icon" />
                             </span>
@@ -92,7 +92,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 {selected.length > 0 
                 ? <div className="housing-graphs data-category">
                     <h3>Housing:</h3>
-                    <span id="homeprice"><LineGraph selected = {selected} /></span>
+                    {/* <span id="homeprice"><LineGraph selected = {selected} /></span> */}
                     <span id="rent"><RentChart edData={selected} /></span>
                     <span id="rooms"><RoomGraph edData={selected} /></span>
                 </div> 

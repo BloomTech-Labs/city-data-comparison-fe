@@ -38,7 +38,7 @@ export default function EthnicityGraph({ethData}) {
                       
                     ],
                     backgroundColor:
-                      colorifier(item.lat)
+                      colorifier(item.Longitude)
                       
 
                   }

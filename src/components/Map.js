@@ -38,7 +38,7 @@ export default function Map() {
     Axios
     .get(``)
     .then(res => {
-      console.log('DATA IS', res)
+      console.log('DATA IS', res.data)
       setSelected([...selected, res.data])
     })
     // if (selected.find(item => item === cityMarker)) {

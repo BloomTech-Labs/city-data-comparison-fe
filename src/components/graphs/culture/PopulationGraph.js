@@ -38,7 +38,7 @@ export default function PopGrowthGraph({selected}) {
                     fill: false,
                     data: labels.map(label => item["Population Growth"][label]),
                     borderColor:
-                      colorifier(item.lat)
+                      colorifier(item.Longitude)
                       
 
                   }

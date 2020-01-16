@@ -41,7 +41,7 @@ export default function EducationGraph (props) {
                       
                     ],
                     backgroundColor:
-                      colorifier(item.lat)
+                      colorifier(item.Longitude)
                       
 
                   }
