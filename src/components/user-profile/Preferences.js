@@ -47,7 +47,7 @@ const Preferences = ()=> {
                     <p>Which of the following factors is the most important when moving to a new city?</p>
                 </div>
                 <div className='head-bottom'>
-                    <p>As a default, all the categories are displayed. <span>Deselect</span> categories that you wish not to see or click a   category to view subcategories and make a change.</p>
+                    <p>As a default, all the categories are displayed. <span>Deselect</span> categories that you wish not to see or click a  category to view subcategories and make a change.</p>
                 </div>
             </div>
             <div className='pref-tabs'>

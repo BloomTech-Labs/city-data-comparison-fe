@@ -23,12 +23,46 @@ h1 {
     display: none;
 }
 
+.pref-container {
+    line-height: 126%;
+
+    .head-top {
+        width: 363px;
+        margin-bottom: 36px;
+        color: #32373D
+    }
+
+    .head-middle {
+        width: 436px;
+        font-weight: 450;
+        color: #393B40;
+    }
+
+    .head-bottom {
+        width: 336px;
+        font-size: 14px;
+        color:#84868C;
+        span {
+            font-weight:450;
+            color:#84868C;
+        }
+        
+    }
+}
+
 .pref-tabs{
     
 
     .pref-tabs-img{
         width: 30.56px;
         height: 24px;
+    }
+
+    .social-tab{
+        img {
+            width: 24px;
+            height: 24px;
+        }
     }
 
     .housing-tab, .econ-tab, .social-tab{
@@ -38,16 +72,14 @@ h1 {
         margin: 15px 0;
         align-items: center;
         border-radius: 3px;
-        width: 20%;
+        width: 197px;
         height: 40px;
         padding: 12px;
         box-shadow: 0px 0px 10px 0px rgba(197, 197, 197, 0.527);
         margin-right: 28px;
     }
 
-    .header{
-        border: 1px solid red;
-    }
+    
 
     p {
         font-size: 18px;
