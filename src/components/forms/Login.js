@@ -8,9 +8,7 @@ import Facebook from './buttons/Facebook.js';
 import Google from './buttons/Google.js'
 import Linkedin from './buttons/Linkedin'
 
-//form
-import {withFormik, Form, Field} from 'formik'
-import * as Yup from 'yup'
+import axios from 'axios';
 
 
 
@@ -26,7 +24,8 @@ const Login = ({touched, errors, status}, props)=> {
 
     useEffect(() => {
         if (isLoading) {
-        
+            //axios call
+
         }
         setIsLoading(false)
         
@@ -36,18 +35,21 @@ const Login = ({touched, errors, status}, props)=> {
         if (validated) {
             //go to next page
         }else {
-            
-            if(!email.includes('@') || password === ''){
+            if (user.email.includes('@')){
                 setEmailError('Please enter a valid email'); 
-                setPasswordError('Please enter your password')
+                
             }
             
-            if (email === '') {
+            
+            if (user.email === '') {
                 setEmailError('Please enter your email'); 
                 return;
             }
-
-            if (password === '') {
+            if(!user.email.includes('@') || user.password === ''){
+                setEmailError('Please enter a valid email'); 
+                setPasswordError('Please enter your password')
+                }
+            if (user.password === '') {
                 setPasswordError("Please enter your password")
                 return;
             }
@@ -57,15 +59,17 @@ const Login = ({touched, errors, status}, props)=> {
     }
 
     const onChange = e => {
-        
+        setUser({...user, [e.target.name] : e.target.value})
         
     }
 
     const onSubmit = e => {
-         e.preventDefault();
-            console.log("clicked!")
-            setIsLoading(true)
+            e.preventDefault();
+            setEmailError('')
+            setPasswordError('')
             validateLogin();
+            setIsLoading(true)
+            
     }
     return(
              <div className='login'>
