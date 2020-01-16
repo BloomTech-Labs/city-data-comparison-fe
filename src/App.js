@@ -68,7 +68,7 @@ function App() {
             <Route path='/profile' component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/aboutus" component={AboutUs} />
-            <Route path='/login' component={Login} />
+            <Route path='/signin' component={Login} />
             <Route path="/signup" component={Signup} />
           </div>
           </CityContext.Provider>
