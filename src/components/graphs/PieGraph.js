@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Pie} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
 export default class PieGraph extends Component{
   constructor(props){
@@ -33,15 +33,15 @@ export default class PieGraph extends Component{
     }
   }
   static defaultProps = {
-    displayTitle:true,
-    displayLegend: true,
+    displayTitle:false,
+    displayLegend: false,
     legendPosition:'right',
     location:'Population'
   }
   render(){
     return (
       <div className="chart" style={{width: "50%"}}>
-        <Pie
+        <Bar
           data={this.state.chartData}
           options={{
             title:{
@@ -52,7 +52,8 @@ export default class PieGraph extends Component{
             legend:{
               display:this.props.displayLegend,
               position:this.props.legendPosition
-            }
+            },
+            maintainAspectRatio:false
           }}
         />
       </div>

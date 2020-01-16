@@ -397,8 +397,7 @@ function Dashboard(){
                               data-aos-once="true"
                          >
                               {/* <p className="metrics-subtitle">Housing</p> */}
-                              <img src={graph} alt="living cost graph" />
-                              
+                              <img src={graph} alt="living cost graph" />                              
                               <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
@@ -467,7 +466,7 @@ function Dashboard(){
                                                   padding:"10px",
                                                   boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                              }
-                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin"/> {suggestion.name.replace(" city", "")}</div>
+                                             // return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin"/> {suggestion.name.replace(" city", "")}</div>
                                         })}
                                    </div>
                               </div>
