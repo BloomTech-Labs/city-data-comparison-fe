@@ -21,8 +21,7 @@ const Login = ({touched, errors, status}, props)=> {
    const [emailError, setEmailError] = useState(''); 
    const [passwordError, setPasswordError] = useState('')
    const [isLoading, setIsLoading] = useState(false); 
-   const [email, setEmail] = useState(''); 
-   const [password, setPassword] = useState(''); 
+   const [user, setUser] = useState({email: '', password: ''})
 
 
     useEffect(() => {
@@ -38,10 +37,11 @@ const Login = ({touched, errors, status}, props)=> {
             //go to next page
         }else {
             
-            if(!email.includes('@')){
-                setEmailError('Please enter a valid email')
-                return; 
+            if(!email.includes('@') || password === ''){
+                setEmailError('Please enter a valid email'); 
+                setPasswordError('Please enter your password')
             }
+            
             if (email === '') {
                 setEmailError('Please enter your email'); 
                 return;
@@ -90,9 +90,9 @@ const Login = ({touched, errors, status}, props)=> {
                    </div>
                    <form className="fields" onSubmit={onSubmit}>
                        <p className='error'>{emailError}</p>
-                       <input className="email" type='text' name='email' placeholder="Email" value={email} onChange={onChange}/>
+                       <input className="email" type='text' name='email' placeholder="Email" value={user.email} onChange={onChange}/>
                        <p>{passwordError}</p>
-                       <input className="password" type='password' name='password' placeholder="Password" value={password} onChange={onChange}/>
+                       <input className="password" type='password' name='password' placeholder="Password" value={user.password} onChange={onChange}/>
                        
                        
                        <button className="login-button" htmlType="submit" onClick={() => setIsLoading(true)}>Start exploring cities</button>
