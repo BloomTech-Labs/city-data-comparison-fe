@@ -9,7 +9,7 @@ function Footer(){
                <div className="footer">
                     <div className="footer-CTA">
                          <div className="footer-CTA-description">
-                              <p>Find Your Best Place To Live</p>
+                              <p>Find your best place to live</p>
                               <button className="footer-CTA-button">Start Now</button>
                          </div>
                          <div>
@@ -27,13 +27,13 @@ function Footer(){
                               <p className="footer-title">Company</p>
                               <Link to="/aboutus">Meet the Team</Link>
                               <Link to="/aboutus">About Us</Link>
-                              <Link to="/">Contact Us</Link>
+                              <Link to="/aboutus">Contact Us</Link>
                          </div>
                          <div className="footer-categories">
                               <p className="footer-title">Resources</p>
-                              <Link to="/">Data Sources</Link>
+                              <a href="http://api.citrics.io/docs">Data Sources</a>
                               <Link to="/privacypolicy">Privacy Policy</Link>
-                              <Link to="/">Terms of Use</Link>
+                              <Link to="/privatepolicy">Terms of Use</Link>
                          </div>
                     </div>
                     <div>
