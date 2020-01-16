@@ -49,25 +49,51 @@ h1 {
         color: #32373D;
     }
 
-    button {
-        background-color: rgba(255, 255, 255, 0);
-        font-size: 16px;
-        font-weight: 100;
-        color: #84868C;
-    }
+    
 
     .name-tab, .email-tab, .city-tab {
         margin-bottom: 76px;
+        display:flex;
+        flex-direction: column;
+
+        input {
+            width: 200px;
+            margin-right: 16px;
+            background-color: #F7F9F9;
+            border: 1px solid #B8BABF;
+            border-radius: 10px;
+            height: 40px;
+            font-size: 16px;
+            color: #84868C;
+            padding: 14px;
+            
+        }
 
         p {
             font-size: 18px;
             font-weight: 500;
         }
+
+        button {
+            background-color: rgba(255, 255, 255, 0);
+            font-size: 16px;
+            font-weight: 100;
+            color: #84868C;
+            width: 100%;
+        }
+        h2 {
+            margin-bottom: 1px;
+        }
     }
     .name-tab {
+
         h2 {
             font-size: 24px;
             font-weight: 600;
+        }
+
+        input {
+            width: 150px;
         }
     }
 
@@ -76,7 +102,6 @@ h1 {
         h2 {
             font-size: 20px;
             font-weight: 600;
-
         }
     }
 
@@ -91,6 +116,16 @@ h1 {
             font-size: 16px;
             color: #84868C;
             font-weight: 100;
+        }
+
+        
+        .edit-state {
+            width: 64px;
+            padding: 12px;
+        }
+        button {
+            width: 100%;
+            text-align: end;
         }
     }
 

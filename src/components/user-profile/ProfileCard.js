@@ -101,7 +101,6 @@ const ProfileCard = ()=> {
                         className='edit-first-name'
                         name='first_name'
                         type='first_name'
-                        placeholder='First Name'
                         value={userInfo.first_name}
                     />
                     <input
@@ -109,7 +108,6 @@ const ProfileCard = ()=> {
                         className='edit-last-name'
                         name='last_name'
                         type='last_name'
-                        placeholder='Last Name'
                         value={userInfo.last_name}
                     />
                     </form>
@@ -125,8 +123,7 @@ const ProfileCard = ()=> {
                         className='edit-email'
                         name='email'
                         type='email'
-                        placeholder='Email'
-                        value={userInfo.email}
+                        value={userInfo.email} 
                     />
                     </form>
                     <button className={`edit-email-btn ${emailEdit.status}`}onClick={toggleEmail}>Edit Email</button>
