@@ -12,6 +12,11 @@
         width: 59%;
     }
 
+    @media screen and (max-width:500px){
+        width: 92%;
+        height: 2.875rem;
+    }
+
 
     .linkedin-name{
     color: white; 
@@ -37,6 +42,11 @@
             padding-left:5%;
         }
 
+        @media screen and (max-width:500px){
+            font-size: 50%;
+            padding-left:0; 
+
+        }
        
     }
 
@@ -45,6 +55,12 @@
         margin: 0; 
         border-radius: 5px;
         border-right:1px solid #01608f; 
+
+        @media screen and (max-width: 500px){
+            width: 25%;; 
+            border-radius: 0px;
+            border-right: none; 
+        }
     }
 
 
