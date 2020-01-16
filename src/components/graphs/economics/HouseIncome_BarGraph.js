@@ -25,7 +25,7 @@ export default function EducationGraph (props) {
                 datasets: props.edData.map( item => {
                   
                   return {
-                    label: item.name.replace(" city" , ""),
+                    label: item.name_with_com,
                     data: [
                       item["Household Income"]["Less than $10,000"],
                       item["Household Income"]["$10,000 - $14,999"],
