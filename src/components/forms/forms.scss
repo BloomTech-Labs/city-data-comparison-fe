@@ -24,17 +24,9 @@ span{
         border-radius: 20px;
         display:flex;
 
-        .signup-photo{
-            background-image: url('../../assets/forms/nyc_signup_photo.png');
-        }
+        
 
-        .login-photo{
-            background-image:url("../../assets/forms/sf_sign_in.png");
-        }
-
-        @media screen and (max-width:900px) {
-            flex-direction: column-reverse;
-        }
+        
         
         @media screen and (max-width: 1500px){
             margin:1%;
@@ -44,6 +36,10 @@ span{
         @media screen and (max-width: 1200px){
             margin:0;
             margin-top:4%;
+        }
+
+        @media screen and (max-width: 950px){
+            flex-direction: column-reverse;
         }
     }
 
@@ -193,4 +189,32 @@ span{
            background:white; 
            color: #F99539;  
         }
+    }
+
+    .signup-photo{
+        background-image: url('../../assets/forms/nyc_signup_photo.png');
+        width:100%; 
+        width: 51%;
+        border-radius: 0px 40px 40px 0px;
+
+        @media screen and (max-width:950px) {
+            border-radius: 15px;
+            height: 231px;
+            width:100%; 
+            background-image:url('../../assets/forms/nyc_signup_photo_mobile.png')
+        }
+    }
+
+    .login-photo{
+        background-image:url("../../assets/forms/sf_sign_in.png");
+        width: 51%;
+        border-radius: 0px 40px 40px 0px;
+
+        @media screen and (max-width:950px) {
+            border-radius: 15px;
+            width:100%;
+            height: 231px;
+            background-image:url('../../assets/forms/sf_sign_in_mobile.png')
+        }
+   
     }
