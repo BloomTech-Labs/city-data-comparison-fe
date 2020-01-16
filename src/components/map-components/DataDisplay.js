@@ -1,4 +1,5 @@
 import  React, {useState, useEffect} from "react";
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 import MapSearch from "./MapSearch";
 import LineGraph from "../graphs/housing/House_price";
@@ -61,7 +62,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             {selected.length > 0 
                             ? <div className="anchor-nav">
                                 <h4 className="anchor-header">Housing</h4>
-                                <a href="#homeprice">Housing Costs</a>
+                                <Link activeClass="active" className="homeprice" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
                                 <a href="#rent">Rent</a>
                                 <a href="#rooms">Rooms per House</a>
                                 <h4 className="anchor-header">Jobs</h4>
@@ -90,9 +91,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 {selected.length > 0 
                 ? <div className="housing-graphs data-category">
                     <h3>Housing:</h3>
-                    <span id="homeprice"><LineGraph selected = {selected} /></span>
-                    <span id="rent"><RentChart edData={selected} /></span>
-                    <span id="rooms"><RoomGraph edData={selected} /></span>
+                    <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
+                    <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
+                    <Element name="rooms" className="element" ><RoomGraph edData={selected} /></Element>
                 </div> 
                 : <h2 className="map-prompt">Select a city to begin browsing</h2>}
                 {selected.length > 0 
