@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'; 
-
+import { Link } from 'react-router-dom'
 
 import city from '../../assets/forms/sf_sign_in.png'
 
@@ -104,7 +104,7 @@ const Login = ({touched, errors, status}, props)=> {
                        
                        
                        <button className="login-button" htmlType="submit" onClick={() => setIsLoading(true)}>Start exploring cities</button>
-                       <p className='question'>Have an account? <span>Sign in</span> to explore cities</p>
+                       <p className='question'>Have an account? <Link className='link-signup' to='/signup'>Sign up</Link> to explore cities</p>
                    </form>
                </div>
                <div className="login-photo">

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'; 
-
+import { Link } from 'react-router-dom';
 //images
 
 import city from '../../assets/forms/nyc_signup_photo.png'; 
@@ -48,10 +48,11 @@ const Signup = props => {
                                 <p className="center">or with email</p>
                                 <div className="line"></div>
                             </div>
-                            <div className="fields">
-                                <input className="email" type='text' name='email' placeholder="Email"/>
-                                <input className="password" type='password' name='password' placeholder="Password"/>
-                                
+                            <form className="fields" onSubmit={onSubmit}>
+                                <p className='error-signup'>{usernameError}</p>
+                                <input className="email" type='text' name='username' placeholder="Username" value={user.username} onChange={onChange}/>
+                                <p className='error-signup'>{passwordError}</p>
+                                <input className="password" type='password' name='password' placeholder="Password" value={user.password} onChange={onChange}/>
                                 <div className="tos">
                                     <input className="checkbox" type="checkbox" name="tos"></input>
                                     <p>
@@ -59,9 +60,9 @@ const Signup = props => {
                                         <a className="tos-text" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}> privacy policy</a>
                                     </p>
                                 </div>
-                                <div className="signup-button">Start exploring cities</div>
-                                <p class='question'>Have an account? <span>Sign in</span> to explore cities</p>
-                            </div>
+                                <button className="signup-button" htmlType="submit" onClick={() => setIsLoading(true)}>Start exploring cities</button>
+                                <p class='question'>Have an account? <Link to='/signin'>Sign in</Link> to explore cities</p>
+                            </form>
                         </div>
                         <div className="signup-photo">
                             {/*photo*/}
