@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {Pie} from 'react-chartjs-2';
-import {markerDummyData} from "../../map-components/data";
 
 
 export default function BarGraph ({selected}){
@@ -69,6 +68,34 @@ export default function BarGraph ({selected}){
             legend:{
               display:defaultProps.displayLegend,
               position:defaultProps.legendPosition
+            },
+            scales: {
+              xAxes: [ {
+                
+                display: true,
+                gridLines: {
+                  display:false,
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Cost'
+                },
+              } 
+              ],
+              yAxes: [ {
+                display: true,
+                gridLines: {
+                  display:false,
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Percent',
+                  ticks: {
+                    beginAtZero: true
+                  }
+                },
+
+              } ]
             }
           }}
         />

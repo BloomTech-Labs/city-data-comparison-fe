@@ -1,7 +1,8 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {Link} from "react-router-dom"
 import LineGraph from '../graphs/PieGraph'
 import LineGraph2 from '../graphs/TwoGraph'
+import ReactGA from "react-ga";
 
 import graph from './assets/graph.svg'
 import pointer from './assets/pointer.svg'
@@ -47,6 +48,12 @@ function Dashboard(){
               latitude: city.lat
             })  
       }
+
+   useEffect( _ => {
+          ReactGA.event({ category: 'Selected', 
+          action: 'selected a city using dashboard' });
+     }, [selected])
+      
 
 
       
@@ -273,7 +280,7 @@ function Dashboard(){
                                                        padding:"10px",
                                                        boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                                   }
-                                                  return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                  return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin" /> {suggestion.name.replace(" city", "")}</div>
                                              })}
                                         </div>
                                    </div>
@@ -436,7 +443,7 @@ function Dashboard(){
                                                   padding:"10px",
                                                   boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                              }
-                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin"/> {suggestion.name.replace(" city", "")}</div>
                                         })}
                                    </div>
                               </div>
@@ -460,7 +467,7 @@ function Dashboard(){
                                                   padding:"10px",
                                                   boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                              }
-                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin" /> {suggestion.name.replace(" city", "")}</div>
                                         })}
                                    </div>
                               </div>
@@ -484,30 +491,3 @@ function Dashboard(){
 }
 
 export default Dashboard;
-
-
-
-
-
-// PROTOTYPE AUTOFILL FUNCTION
- {/* <div>
-                    <PlacesAutocomplete value={search} onChange={setSearch} onSelect={handleSelect}>
-                         {
-                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
-                              <div>
-                                   <input {...getInputProps({placeholder: "Type address"})}/>
-                                   <div>
-                                        {loading ? <div>...loading</div> : null}
-
-                                        {suggestions.map( (suggestion) => {
-                                             const style = {
-                                                  backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
-                                             }
-
-                                             return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
-                                        })}
-                                   </div>
-                              </div>)
-                         }
-                    </PlacesAutocomplete>
-               </div> */}

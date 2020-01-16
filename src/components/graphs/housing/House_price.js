@@ -1,81 +1,93 @@
 import React, {useState, useEffect} from 'react';
 import {Line} from 'react-chartjs-2';
-import {markerDummyData} from "../../map-components/data";
+
+export default function HousePriceGraph({selected}) {
+    const [labels, setLabels] = useState([])
 
 
-export default function BarGraph ({selected}){
-    const [data, setData] = useState({})
-  // console.log(selected, 'selected')
-    useEffect( () => {
-      let data = selected[0]
-      let labels = []
-      let amount = []
-      let backgroundColors = []
-      if (data){
-        let house_price = data["house_price"];
-        
-        
-        Object.keys(house_price).forEach(function (label) {
-          let value = house_price[label];
-          if ( value != null){
-           labels.push(label) 
-           amount.push(value);
-           backgroundColors.push(  '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6))
-          }
-        });
-        
-        // console.log(labels);
-        // console.log(amount);
-        var newState = {
-          labels: [],
-          datasets:[
-            {
-              fill: false,
-              label:'Population',
-              data: [],
-              backgroundColor:[
-             
-              ]
-            }
-          ]
-      }
-        // console.log(newState, 'new State')
-        newState.labels = labels
-        newState.datasets[0].data = amount
-        newState.datasets[0].backgroundColor = backgroundColors;
-        setData({chartData: newState})
+    const colorifier = lat => {
 
-      }
+        let arr = String(lat).replace(".","").split("");
 
-    },[selected])
+        let num1 = arr.pop();
+        let num2 = arr.pop();
+        let num3 = arr.pop();
+
+        return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
+    }
+
+    useEffect(() => {
+        let data = selected[0]
+        if (data) {
+            setLabels(Object.keys(data["house_price"]))
+        }
+    }, [selected])
   
-  
-  
-  const defaultProps = {
-    displayTitle:true,
-    displayLegend: false,
-    legendPosition:'top',
-    location:'Population'
-  }
+
     return (
-      <div className="chart">
+      <div className="charts" >
         
-        <Line
-          data={data.chartData}
-          options={{
-            maintainAspectRatio:true,
-            title:{
-              display:defaultProps.displayTitle,
-              text:' House Prices Per Year ',
-              fontSize:25
-            },
-            legend:{
-              display:defaultProps.displayLegend,
-              position:defaultProps.legendPosition
-            }
-          }}
-        />
-      </div>
+          <div className="chart-container" style={{position: "relative", width: `100%`}}>
+            <Line
+              data={{
+                labels:  labels,
+                datasets: selected.map( item => {
+                  
+                  return {
+                    label: item.name.replace(" city" , ""),
+                    fill: false,
+                    data: labels.map(label => item["house_price"][label]),
+                    borderColor:
+                      colorifier(item.lat)
+                      
+
+                  }
+                })
+
+              }}
+              options={{
+                title:{
+                  display:true,
+                  text:'house price',
+                  fontSize:25
+                },
+                legend:{
+                  display:true,
+                  position:"top",
+                },
+                scales: {
+                  xAxes: [ {
+                    
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Year'
+                    },
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'amount',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    },
+
+                  } ]
+                }
+              }}
+            /> 
+          </div>
+        
+        </div>
     )
   }
   
