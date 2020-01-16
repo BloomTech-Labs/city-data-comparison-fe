@@ -28,13 +28,13 @@ export default function EducationGraph (props) {
                   return {
                     label: item.name_with_com,
                     data: [
-                      item["Rent"]["Less than $500"],
-                      item["Rent"]["$500 - $999"],
-                      item["Rent"]["$1,000 - $1,499"],
-                      item["Rent"]["$1,500 - $1,999"],
-                      item["Rent"]["$2,000 - $2,499"],
-                      item["Rent"]["$2,500 - $2,999"],
-                      item["Rent"]["$3,000 or more"]                    
+                      item["Rent"]["Less than USD 500"],
+                      item["Rent"]["USD 500 - USD 999"],
+                      item["Rent"]["USD 1,000 - USD 1,499"],
+                      item["Rent"]["USD 1,500 - USD 1,999"],
+                      item["Rent"]["USD 2,000 - USD 2,499"],
+                      item["Rent"]["USD 2,500 - USD 2,999"],
+                      item["Rent"]["USD 3,000 or more"]                    
                       
                     ],
                     backgroundColor:
