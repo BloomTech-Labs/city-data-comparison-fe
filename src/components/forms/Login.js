@@ -8,11 +8,14 @@ import Facebook from './buttons/Facebook.js';
 import Google from './buttons/Google.js'
 import Linkedin from './buttons/Linkedin'
 
+//form
+import {withFormik, Form, Field} from 'formik'
+import * as Yup from 'yup'
 
 
 
 
-const Login = props => {
+const Login = ({touched, errors, status}, props)=> {
 
    const [validated, validate] = useState(false); 
    const [emailError, setEmailError] = useState(''); 
@@ -24,7 +27,7 @@ const Login = props => {
 
     useEffect(() => {
         if (isLoading) {
-            validateLogin()
+        
         }
         setIsLoading(false)
         
@@ -35,7 +38,10 @@ const Login = props => {
             //go to next page
         }else {
             
-
+            if(!email.includes('@')){
+                setEmailError('Please enter a valid email')
+                return; 
+            }
             if (email === '') {
                 setEmailError('Please enter your email'); 
                 return;
@@ -51,7 +57,15 @@ const Login = props => {
     }
 
     const onChange = e => {
+        
+        
+    }
 
+    const onSubmit = e => {
+         e.preventDefault();
+            console.log("clicked!")
+            setIsLoading(true)
+            validateLogin();
     }
     return(
              <div className='login'>
@@ -74,14 +88,14 @@ const Login = props => {
                        <p className="center">or with email</p>
                        <div className="line"></div>
                    </div>
-                   <form className="fields">
+                   <form className="fields" onSubmit={onSubmit}>
                        <p className='error'>{emailError}</p>
                        <input className="email" type='text' name='email' placeholder="Email" value={email} onChange={onChange}/>
                        <p>{passwordError}</p>
                        <input className="password" type='password' name='password' placeholder="Password" value={password} onChange={onChange}/>
                        
                        
-                       <div className="login-button" onClick={() => setIsLoading(true)}>Start exploring cities</div>
+                       <button className="login-button" htmlType="submit" onClick={() => setIsLoading(true)}>Start exploring cities</button>
                        <p className='question'>Have an account? <span>Sign in</span> to explore cities</p>
                    </form>
                </div>
