@@ -42,12 +42,8 @@ const Login = props => {
                        <p className='question'>Have an account? <span>Sign in</span> to explore cities</p>
                    </div>
                </div>
-               <div className="photo">
+               <div className="login-photo">
                    {/*photo*/}
-
-                   <img className="city" src={city} alt="Photo of city" />
-
-                   
                </div>
            </div>
            

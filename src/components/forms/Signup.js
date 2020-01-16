@@ -42,11 +42,8 @@ const Signup = props => {
                             <p class='question'>Have an account? <span>Sign in</span> to explore cities</p>
                         </div>
                     </div>
-                    <div className="photo">
+                    <div className="signup-photo">
                         {/*photo*/}
-
-                        <img className="city" src={city} alt="Photo of city" />
-
                         
                     </div>
                 </div>

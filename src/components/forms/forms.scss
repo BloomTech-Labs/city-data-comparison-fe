@@ -23,6 +23,18 @@ span{
         background: white;
         border-radius: 20px;
         display:flex;
+
+        .signup-photo{
+            background-image: url('../../assets/forms/nyc_signup_photo.png');
+        }
+
+        .login-photo{
+            background-image:url("../../assets/forms/sf_sign_in.png");
+        }
+
+        @media screen and (max-width:900px) {
+            flex-direction: column-reverse;
+        }
         
         @media screen and (max-width: 1500px){
             margin:1%;
