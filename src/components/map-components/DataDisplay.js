@@ -17,6 +17,21 @@ import deleteIcon from "./icons/close_red.png";
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
 
     const [menu, setMenu] = useState({status: 'closed'})
+    const [offset, setOffset] = useState(0);
+
+    // fixed sidebar handling
+    useEffect( _ => {
+        console.log(window.pageYOffset)
+    }, [offset])
+
+    if (window.pageYOffset !== offset ){
+        console.log('hi')
+        setOffset(window.pageYOffset)
+    } 
+    
+
+
+
 
     const toggleMenu = () => {
         if (menu.status === 'closed') {
