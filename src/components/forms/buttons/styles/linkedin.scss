@@ -6,6 +6,12 @@
     padding:2.5% 0%;
     height: 3.6875rem; 
     width:65%;
+    
+    @media screen and (max-width: 950px) {
+        padding: 2.2% 0%;
+        width: 59%;
+    }
+
 
     .linkedin-name{
     color: white; 
@@ -13,6 +19,12 @@
     letter-spacing: .1rem;
     font-size: 90%;
     padding-left:  5%; 
+
+        @media screen and (max-width:950px){
+            font-size: 82%;
+            padding-left: 8%;
+            font-size: 85%;
+        }
 
         
         @media screen and (max-width: 1650px) {
