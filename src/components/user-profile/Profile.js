@@ -9,6 +9,7 @@ import Favorites from './Favorites'
 import Preferences from './Preferences'
 import Settings from './Settings'
 import ProfileCard from './ProfileCard'
+import SideNav from './SideNav'
 
 function Profile({selected}) {
     //state for logged in user
@@ -19,21 +20,12 @@ function Profile({selected}) {
     
     
     return (
-        <div>
-            <div className='side-nav'>
-                <div className='profile-tabs'>
-                    <nav className='nav-items'>
-                        <NavLink activeClassName='selected' to='/profile'>Profile</NavLink>
-                        <NavLink activeClassName='selected' to='/profile/preferences'>Preferences</NavLink>
-                        <NavLink activeClassName='selected' to='/profile/favorites'>Favorites</NavLink>        
-                        <NavLink activeClassName='selected' to='/profile/settings'>Settings</NavLink>
-                    </nav>
-                </div>
-                    <Route exact path='/profile/' render={_ => <ProfileCard selected={selected} />} />
-                    <Route path='/profile/favorites' render={_ => <Favorites selected={selected} />} />
-                    <Route path='/profile/preferences' render={_ => <Preferences selected={selected} />} />
-                    <Route path='/profile/settings' render={_ => <Settings selected={selected} />} />
-            </div>
+        <div className='profile-page'>
+            <SideNav />
+            <Route exact path='/profile/' render={_ => <ProfileCard selected={selected} />} />
+            <Route path='/profile/favorites' render={_ => <Favorites selected={selected} />} />
+            <Route path='/profile/preferences' render={_ => <Preferences selected={selected} />} />
+            <Route path='/profile/settings' render={_ => <Settings selected={selected} />} />
         </div>
     )
 }
