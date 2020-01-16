@@ -3,7 +3,7 @@ import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 import './map-components/Map.scss';
 import ReactGA from "react-ga"
-
+import Axios from 'axios'
 import Markers from "./map-components/Markers";
 import MapFooter from "./map-components/MapFooter";
 import DataDisplay from "./map-components/DataDisplay";
@@ -34,11 +34,18 @@ export default function Map() {
   }, [selected])
 
   const toggleSelected = cityMarker =>  {
-    if (selected.find(item => item === cityMarker)) {
-        setSelected(selected.filter(item => item !== cityMarker));
-    } else {
-        setSelected([...selected, cityMarker]);
-    }
+    console.log(cityMarker, "CITYMARKER")
+    Axios
+    .get(``)
+    .then(res => {
+      console.log('DATA IS', res)
+      setSelected([...selected, res.data])
+    })
+    // if (selected.find(item => item === cityMarker)) {
+    //     setSelected(selected.filter(item => item !== cityMarker));
+    // } else {
+    //     setSelected([...selected, cityMarker]);
+    // }
 }
 
 const selectSearch = cityMarker =>  {

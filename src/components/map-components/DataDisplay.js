@@ -17,6 +17,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
     const [menu, setMenu] = useState({status: 'closed'})
 
+    console.log(selected, "data display")
+
     const toggleMenu = () => {
         if (menu.status === 'closed') {
             setMenu({...menu, status:'open'}) 
@@ -77,7 +79,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         </div>
                     </div>
                     <ul>
-                        {selected.map(item => <div key={item._id} className={`menu-items ${menu.status}`}><li  key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name.replace (" city" , "")} 
+                        {selected.map(item => <div key={item._id} className={`menu-items ${menu.status}`}><li  key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name_with_com})} 
                             <span onClick={ _ => toggleSelected(item)}>
                                 <img className="delete-icon" src={deleteIcon} alt="delete icon" />
                             </span>
