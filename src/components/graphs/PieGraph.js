@@ -6,26 +6,26 @@ export default class PieGraph extends Component{
     super(props);
     this.state = {
       chartData: {
-        labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New BedFord'],
+        labels: ["White", "Hispanic", "African American", "Asian", "2+ races", "Other"],
         datasets:[
           {
             label:'Population',
             data:[
-              617594,
-              181045,
-              153060,
-              106519,
-              105162,
-              95072
+              32.1,
+              29.1,
+              22,
+              13.9,
+              1.8,
+              1.1
             ],
             backgroundColor:[
-              'rgba(255, 99, 132, 0.8)',
-              'rgba(54, 162, 235, 0.8)',
-              'rgba(255, 206, 86, 0.8)',
-              'rgba(75, 192, 192, 0.8)',
-              'rgba(153, 102, 255, 0.8)',
-              'rgba(255, 159, 64, 0.8)',
-              'rgba(255, 99, 132, 0.8)'
+              'rgba(255, 99, 132, 0.7)',
+              'rgba(54, 162, 235, 0.7)',
+              'rgba(255, 206, 86, 0.7)',
+              'rgba(75, 192, 192, 0.7)',
+              'rgba(153, 102, 255, 0.7)',
+              'rgba(255, 159, 64, 0.7)',
+              'rgba(255, 99, 132, 0.7)'
             ]
           }
         ]
