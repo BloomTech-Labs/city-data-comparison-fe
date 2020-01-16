@@ -25,7 +25,7 @@ function Footer(){
                                    <button className="footer-CTA-button">Start Now</button>
                               </div>
                               <div>
-                                   <p className="copyright">© City Data Comparison 2019</p>
+                                   <p className="copyright">© Citrics 2019</p>
                               </div>
                          </div>
 
@@ -49,7 +49,7 @@ function Footer(){
                               </div>
                          </div>
                          <div>
-                              <p className="copyright-mobile">© City Data Comparison 2019</p>
+                              <p className="copyright-mobile">© Citrics 2019</p>
                          </div>
                     </div>
                </div>
