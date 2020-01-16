@@ -62,17 +62,17 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             {selected.length > 0 
                             ? <div className="anchor-nav">
                                 <h4 className="anchor-header">Housing</h4>
-                                <Link activeClass="active" className="homeprice" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
-                                <Link activeClass="active" className="rent" to="rent" spy={true} smooth={true} duration={500} >Rent</Link>
-                                <Link activeClass="active" className="rooms" to="rooms" spy={true} smooth={true} duration={500} >Rooms</Link>
+                                <Link activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
+                                <Link activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} >Rent</Link>
+                                <Link activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} >Rooms</Link>
                                 <h4 className="anchor-header">Jobs</h4>
-                                <a href="#industries">Industries</a>
-                                <a href="#salary">Salary</a>
-                                <a href="#commute">Commute</a>
+                                <Link activeClass="active" className="anchor-link" to="industries" spy={true} smooth={true} duration={500} >Industries</Link>
+                                <Link activeClass="active" className="anchor-link" to="salary" spy={true} smooth={true} duration={500} >Salary</Link>
+                                <Link activeClass="active" className="anchor-link" to="commute" spy={true} smooth={true} duration={500} >Commute</Link>
                                 <h4 className="anchor-header">Culture</h4>
-                                <a href="#education">Education</a>
-                                <a href="#ethnicity">Ethnicity</a>
-                                <a href="#population">Population</a>
+                                <Link activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} >Education</Link>
+                                <Link activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} >Ethnicity</Link>
+                                <Link activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} >Population</Link>
                             </div>
                             : null}
                         </div>
