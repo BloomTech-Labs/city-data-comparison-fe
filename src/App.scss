@@ -1094,3 +1094,95 @@ html,body{
   }
 }
 }
+
+.motoranimationcontainer{
+  display: block;
+  position: relative;
+  height: 300px;
+  min-width: 300px;
+  align-items: center;
+  .motoranimbackground{
+    position: relative;
+    background: url("./components/dashboard/assets/motorbike_background.png") repeat 0 0;
+    background-size: cover;
+    animation: slide 3s linear infinite;
+    height: 300px;
+    width: 300px;
+    .edgeblurleft{
+      position: absolute;
+      left: 0px;
+      height:300px;
+      width: 150px;
+    }
+    .edgeblurright{
+      position: absolute;
+      transform: scaleX(-1);
+      right: 0px;
+      height:300px;
+      width: 150px;
+    }
+    }
+  .motoranim{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  .wheel{
+    animation: rotating .5s linear infinite;
+  }
+  .plant{
+    animation: plant .5s cubic-bezier(0.33333, 0.66667, 0.66667, 1) infinite;
+  }
+  .driver{
+    animation: driver .5s cubic-bezier(0.310, 0.440, 0.445, 1.650) infinite;
+  }
+}
+
+@keyframes slide {
+  from { background-position: 0 0; }
+  to { background-position: -300px 0; }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes plant {
+  0%{
+    transform: rotate(0deg);
+  }
+  25%{
+    transform: rotate(-5deg) translate(5px, -5px);
+  }
+  50%{
+    transform: rotate(10deg) translate(-5px, -5px);
+  }
+  75%{
+    transform: rotate(-7deg) translate(-7px, -8px);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+@keyframes driver {
+  0%{
+    transform: rotate(0deg);
+  }
+  25%{
+    transform: rotate(-3deg) translate(2px, -1px);
+  }
+  50%{
+    transform: rotate(5deg) translate(-3px, -2px);
+  }
+  75%{
+    transform: rotate(-3deg) translate(-4px, -3px);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
