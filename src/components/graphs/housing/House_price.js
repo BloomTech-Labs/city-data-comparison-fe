@@ -34,11 +34,11 @@ export default function HousePriceGraph({selected}) {
                 datasets: selected.map( item => {
                   
                   return {
-                    label: item.name.replace(" city" , ""),
+                    label: item.name_with_com,
                     fill: false,
                     data: labels.map(label => item["house_price"][label]),
                     borderColor:
-                      colorifier(item.lat)
+                      colorifier(item.Longitude)
                       
 
                   }

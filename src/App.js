@@ -15,7 +15,7 @@ import AboutUs from './components/aboutus/AboutUs';
 import Signup from './components/forms/Signup'; 
 import Login from './components/forms/Login'; 
 import { markerDummyData } from "./components/map-components/data.js";
-
+import citiesIndex from './data/city_ids.json'
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
 
@@ -34,8 +34,22 @@ function App() {
     action: 'Loaded app' });
   }, [])
 
+  let index = []
+  
+  Object.keys(citiesIndex).forEach(item => {
+    if(citiesIndex[item].population > 500000){
+      // console.log(citiesIndex[item])
+      let city = citiesIndex[item]
+      city.name = item
+      index.push(city)
+
+    }
+
+  })
+  // console.log(index, "INDEX")
+
   const [user, setUser] = useState({});
-  const [cityMarkers, setCityMarkers] = useState(markerDummyData);
+  const [cityMarkers, setCityMarkers] = useState(index);
   const [selected, setSelected] = useState([]);
   const [viewport, setViewport] = useState({
     width: '100%',

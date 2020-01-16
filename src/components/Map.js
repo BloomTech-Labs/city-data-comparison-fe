@@ -10,6 +10,7 @@ import DataDisplay from "./map-components/DataDisplay";
 import PopupMap from "./map-components/PopupMap"
 
 import { CityContext } from '../contexts/CityContext';
+import Axios from 'axios';
 
 const MapWrapper = styled.div`
   width:100vw;
@@ -34,11 +35,18 @@ export default function Map() {
   }, [selected])
 
   const toggleSelected = cityMarker =>  {
-    if (selected.find(item => item === cityMarker)) {
-        setSelected(selected.filter(item => item !== cityMarker));
-    } else {
-        setSelected([...selected, cityMarker]);
-    }
+    console.log(cityMarker, "CITYMARKER")
+    Axios
+    .get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
+    .then(res => {
+      console.log('DATA IS', res.data)
+      setSelected([...selected, res.data])
+    })
+    // if (selected.find(item => item === cityMarker)) {
+    //     setSelected(selected.filter(item => item !== cityMarker));
+    // } else {
+    //     setSelected([...selected, cityMarker]);
+    // }
 }
 
 const selectSearch = cityMarker =>  {
