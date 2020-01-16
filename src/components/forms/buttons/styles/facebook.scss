@@ -8,6 +8,10 @@
     height: 3.6875rem; 
     width:65%;
 
+    &:hover{
+        cursor:pointer; 
+    }
+
     @media screen and (max-width: 950px){
         padding: 1.5% .7%;
         width: 59%;
