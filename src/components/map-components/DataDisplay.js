@@ -63,8 +63,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             ? <div className="anchor-nav">
                                 <h4 className="anchor-header">Housing</h4>
                                 <Link activeClass="active" className="homeprice" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
-                                <a href="#rent">Rent</a>
-                                <a href="#rooms">Rooms per House</a>
+                                <Link activeClass="active" className="rent" to="rent" spy={true} smooth={true} duration={500} >Rent</Link>
+                                <Link activeClass="active" className="rooms" to="rooms" spy={true} smooth={true} duration={500} >Rooms</Link>
                                 <h4 className="anchor-header">Jobs</h4>
                                 <a href="#industries">Industries</a>
                                 <a href="#salary">Salary</a>
@@ -89,29 +89,29 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
             <div className="data-by-category">
 
                 {selected.length > 0 
-                ? <div className="housing-graphs data-category">
+                ? <> 
+                <div className="housing-graphs data-category">
                     <h3>Housing:</h3>
                     <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
                     <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
                     <Element name="rooms" className="element" ><RoomGraph edData={selected} /></Element>
                 </div> 
-                : <h2 className="map-prompt">Select a city to begin browsing</h2>}
-                {selected.length > 0 
-                ? <div className="jobs-graphs data-category">
+                
+
+                <div className="jobs-graphs data-category">
                     <h3>Job Market:</h3>
-                    <span id="industries"><Industry edData={selected} /></span>
-                    <span id="salary"><BarGraph edData={selected} /></span>
-                    <span id="commute"><Commute edData={selected} /></span>
+                    <Element name="industries" className="element" ><Industry edData={selected} /></Element>
+                    <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
+                    <Element name="commute" className="element" ><Commute edData={selected} /></Element>
                 </div>
-                : null}
-                {selected.length > 0 
-                ? <div className="culture-graphs data-category">
+                <div className="culture-graphs data-category">
                     <h3>Cultural Statistics:</h3>     
-                    <span id="education"><EducationGraph edData={selected} /></span>
-                    <span id="ethnicity"><EthnicityGraph ethData = {selected} /></span>
-                    <span id="population"><Population selected = {selected} /></span>
+                    <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
+                    <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
+                    <Element name="population" className="element" ><Population selected = {selected} /></Element>
                 </div>
-                : null}
+                </>
+                : <h2 className="map-prompt">Select a city to begin browsing</h2>}
             </div>
 
         </div>
