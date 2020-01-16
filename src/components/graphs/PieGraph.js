@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Bar} from 'react-chartjs-2';
+import {Pie} from 'react-chartjs-2';
 
 export default class PieGraph extends Component{
   constructor(props){
@@ -19,13 +19,13 @@ export default class PieGraph extends Component{
               95072
             ],
             backgroundColor:[
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)',
-              'rgba(255, 99, 132, 0.6)'
+              'rgba(255, 99, 132, 0.8)',
+              'rgba(54, 162, 235, 0.8)',
+              'rgba(255, 206, 86, 0.8)',
+              'rgba(75, 192, 192, 0.8)',
+              'rgba(153, 102, 255, 0.8)',
+              'rgba(255, 159, 64, 0.8)',
+              'rgba(255, 99, 132, 0.8)'
             ]
           }
         ]
@@ -40,8 +40,8 @@ export default class PieGraph extends Component{
   }
   render(){
     return (
-      <div className="chart" style={{width: "50%"}}>
-        <Bar
+      <div className="chart" style={{width: "100%"}}>
+        <Pie
           data={this.state.chartData}
           options={{
             title:{
@@ -53,7 +53,35 @@ export default class PieGraph extends Component{
               display:this.props.displayLegend,
               position:this.props.legendPosition
             },
-            maintainAspectRatio:false
+            maintainAspectRatio:false,
+            scales: {
+                  xAxes: [ {
+                    
+                    display: false,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Year'
+                    },
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: false,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'amount',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    },
+
+                  } ]
+                }
           }}
         />
       </div>

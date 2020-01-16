@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import {Link} from "react-router-dom"
 import LineGraph from '../graphs/PieGraph'
 import LineGraph2 from '../graphs/TwoGraph'
+import RadarGraph from '../graphs/RadarGraph'
 import ReactGA from "react-ga";
 
 import graph from './assets/graph.svg'
@@ -397,7 +398,9 @@ function Dashboard(){
                               data-aos-once="true"
                          >
                               {/* <p className="metrics-subtitle">Housing</p> */}
-                              <img src={graph} alt="living cost graph" />                              
+                              {/* <img src={graph} alt="living cost graph" /> */}
+                              
+                              <LineGraph2 />
                               <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
@@ -410,7 +413,9 @@ function Dashboard(){
                               data-aos-once="true"
                          >
                               {/* <p className="metrics-subtitle">Community</p> */}
-                              <img src={graph} alt="living cost graph" />
+                              {/* <img src={graph} alt="living cost graph" /> */}
+                              
+                              <LineGraph />
                               <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
@@ -423,14 +428,14 @@ function Dashboard(){
                               data-aos-once="true"
                          >
                               {/* <p className="metrics-subtitle">Industry</p> */}
-                              <img src={graph} alt="living cost graph" />
+                              {/* <img src={graph} alt="living cost graph" /> */}
+                              <RadarGraph />
                               <p className="metrics-description">Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
                     </div>
                </div>
 
-               {/* <LineGraph />
-               <LineGraph2 /> */}
+              
                {/* <HousePrice /> */}
 
                {/* COMPARE CITIES FUNCTION */}
@@ -466,7 +471,7 @@ function Dashboard(){
                                                   padding:"10px",
                                                   boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                              }
-                                             // return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin"/> {suggestion.name.replace(" city", "")}</div>
+                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin"/> {suggestion.name.replace(" city", "")}</div>
                                         })}
                                    </div>
                               </div>

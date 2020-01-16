@@ -694,7 +694,7 @@ html,body{
   padding-bottom:80px;
   background-color:#F1F9FD;
   border-bottom:1px solid #ECF1F5;
- 
+  border-top:1px solid #ECF1F5;
   height:270px;
   // border-bottom-left-radius: 100%;
   // border-bottom-right-radius: 100%;
@@ -791,25 +791,24 @@ html,body{
 .dashboard-metrics-container{
   display:flex;
   flex-direction:column;
-  margin-bottom:130px;
+  margin-bottom:100px;
 
   .dashboard-metrics{
     margin:0 auto;
+    margin-top:60px;
     max-width:1000px;
     padding: 0 3%;
     width:100%;
     display:flex;
     justify-content:space-between;
-    
   }
   .metrics-description-container{
     width:30%;
-
-  }
-  .line-graph{
-    border:1px solid red;
-    width:300px;
-    height:300px;
+    // display:flex;
+    // flex-wrap:wrap;
+    // align-items:space-between;
+    // border:1px solid red;
+    height:250px;
   }
 
   img{
@@ -822,7 +821,7 @@ html,body{
     font-size:1.6rem;
     text-align:center;
     font-weight:500;
-    margin-top:150px;
+    margin-top:100px;
     margin-bottom:0;
   }
   .metrics-description{
