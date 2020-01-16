@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {Route, BrowserRouter as Router} from "react-router-dom";
 import ReactGA from "react-ga";
 
-import {apikey} from "./key"
 import './App.scss';
 
 import Dashboard from './components/dashboard/Dashboard'
@@ -28,7 +27,6 @@ function initializeAnalytics() {
 function App() {
 
   useEffect( _ => {
-    console.log(apikey);
     initializeAnalytics();
     ReactGA.event({ category: 'App', 
     action: 'Loaded app' });
