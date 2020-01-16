@@ -133,10 +133,9 @@ html,body{
   }
 
   .main-nav a:hover{
-    color:#2e2f38;
     text-decoration: underline;
   }
-  .login-link{
+  #login-link{
     color:#2ca4fc;
 
     img{
@@ -149,18 +148,17 @@ html,body{
       color:#2ca4fc
     }
   }
-  .signup-link{
+  #signup-link{
     border:none;
     background-color:#00bfa5;
     border-radius:5px;
     padding:7px 13px;
     color:white;
-
+    text-decoration:none;
+    transition:0.22s ease;
     &:hover{
-      color:#00bfa5;
-      background-color:white;
-      border:1px solid #00bfa5;
-      text-decoration:none;
+      color:white;
+      filter:brightness(110%);
     }
   }
 @media screen and (max-width:800px){
@@ -693,6 +691,7 @@ html,body{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  
 }
 .dashboard-features-container{
   margin:0 auto;
