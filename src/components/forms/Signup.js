@@ -24,7 +24,7 @@ const Signup = props => {
 
     const {isShowing, toggle} = useModal();
     const [modalState, setModalState] = useState();
-    
+
     return(
 
         <>
@@ -50,7 +50,7 @@ const Signup = props => {
                             </div>
                             <div className="fields">
                                 <input className="email" type='text' name='email' placeholder="Email"/>
-                                <input className="password" type='text' name='password' placeholder="Password"/>
+                                <input className="password" type='password' name='password' placeholder="Password"/>
                                 
                                 <div className="tos">
                                     <input className="checkbox" type="checkbox" name="tos"></input>

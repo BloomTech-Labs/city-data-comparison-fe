@@ -74,7 +74,7 @@ const Login = props => {
                        <p className='error'>{emailError}</p>
                        <input className="email" type='text' name='email' placeholder="Email" value={email}/>
                        <p>{passwordError}</p>
-                       <input className="password" type='text' name='password' placeholder="Password" value={password}/>
+                       <input className="password" type='password' name='password' placeholder="Password" value={password}/>
                        
                        
                        <div className="login-button" onClick={() => setIsLoading(true)}>Start exploring cities</div>
