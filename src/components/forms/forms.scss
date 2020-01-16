@@ -228,10 +228,14 @@ span{
    
     }
 
-    .error{
+    .error, .error-signup{
         font-size: 80%;
         color: #F99539;
         padding: 0;
         margin: 1%;
         text-align: center;
+    }
+
+    .error-signup{ 
+       color: #3999fc; 
     }
