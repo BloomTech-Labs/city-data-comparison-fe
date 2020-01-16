@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react'; 
 import { Link } from 'react-router-dom';
-//images
 
-import city from '../../assets/forms/nyc_signup_photo.png'; 
+import axios from 'axios'
 
 
 //styling
@@ -22,8 +21,72 @@ import PrivacyPolicy from '../legal/PrivacyPolicy'
 
 const Signup = props => {
 
+    const [validated, validate] = useState(false);
+   const [usernameError, setUsernameError] = useState(''); 
+   const [passwordError, setPasswordError] = useState('');
+   const [loginError, setLoginError] = useState(''); 
+   const [isLoading, setIsLoading] = useState(false); 
+   const [user, setUser] = useState({username: '', password: ''})
+
+
+    useEffect(() => {
+        if (isLoading) {
+            //axios call
+            if(validated) {
+                console.log('axios call')
+                axios
+                    .post('', user)
+                    .then(res => {
+                        console.log(res)
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        setLoginError('Email and ')
+                    }) 
+                } 
+        }
+        setIsLoading(false)
+        
+    }, [isLoading])
+    
+    const validateLogin = () => {
+            
+            if (user.username === '') {
+                setUsernameError('Please enter your username'); 
+            }
+            if (user.password === '') {
+                setPasswordError("Please enter your password")
+            
+            } else{
+                validate(true)
+            }
+
+
+            
+        
+
+    }
+
+    const onChange = e => {
+        setUser({...user, [e.target.name] : e.target.value})
+        
+    }
+
+    const onSubmit = e => {
+            e.preventDefault();
+            setUsernameError('')
+            setPasswordError('')
+            setLoginError('');
+            validateLogin();
+            setIsLoading(true)
+            
+    }
+
+    //modal
     const {isShowing, toggle} = useModal();
     const [modalState, setModalState] = useState();
+
+
 
     return(
 

@@ -13,7 +13,7 @@ import axios from 'axios';
 
 
 
-const Login = ({touched, errors, status}, props)=> {
+const Login = props => {
 
    const [validated, validate] = useState(false);
    const [usernameError, setUsernameError] = useState(''); 
