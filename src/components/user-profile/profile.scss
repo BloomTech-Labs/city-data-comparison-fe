@@ -1,5 +1,5 @@
 h1 {
-    margin-top: 100px;
+    margin-top: 84px;
 }
 
 .profile-page {
@@ -25,8 +25,78 @@ h1 {
     
 }
 
-.edit-name.closed, .save-name-btn.closed,.edit-name-btn.open, .edit-email.closed,.save-email-btn.closed,  .edit-email-btn.open, .edit-location.open,.save-location-btn.open,  .edit-location-btn.closed, .user-name.open, .user-email.open, .user-location.closed {
-    display: none;
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 10%;
+    
+
+    .profile-contents {
+        line-height: 126%;
+        padding-left: 127px;
+        border-left: 1px solid #B8BABF;
+        padding-bottom: 100px;
+        
+    }
+
+    h1{
+        font-size: 32px;
+        margin-bottom: 32px;
+        text-align: left;
+        padding-left: 127px;
+        font-weight: 500;
+        color: #32373D;
+    }
+
+    button {
+        background-color: rgba(255, 255, 255, 0);
+        font-size: 16px;
+        font-weight: 100;
+        color: #84868C;
+    }
+
+    .name-tab, .email-tab, .city-tab {
+        margin-bottom: 76px;
+
+        p {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+    .name-tab {
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+    }
+
+    .email-tab {
+        
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+
+        }
+    }
+
+    .city-tab {
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        span{
+            font-size: 16px;
+            color: #84868C;
+            font-weight: 100;
+        }
+    }
+
+    .edit-name.closed, .save-name-btn.closed,.edit-name-btn.open,   .edit-email.closed,.save-email-btn.closed,  .edit-email-btn.open,     .edit-location.open,.save-location-btn.open,    .edit-location-btn.closed, .user-name.open, .user-email.open,     .user-location.closed {
+        display: none;
+    }
 }
 
 .pref-container {
@@ -34,14 +104,15 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 209px;
-    position: absolute;
-
+    margin-left: 10%;
+    
     h1{
         font-size: 32px;
         margin-bottom: 32px;
         text-align: left;
         padding-left: 127px;
+        font-weight: 400;
+        color: #32373D;
     }
 
     .pref-contents {

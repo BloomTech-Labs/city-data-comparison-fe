@@ -89,10 +89,10 @@ const ProfileCard = ()=> {
 
 
     return (
-        <div>
-            <h1>Profile</h1>
+        <div className='profile-container'>
+            <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
-                <div>
+                <div className='name-tab'>
                     <p>Name</p>
                     <h2 className={`user-name ${nameEdit.status}`}>{userInfo.first_name} {userInfo.last_name}</h2>
                     <form className={`edit-name ${nameEdit.status}`}>
@@ -116,7 +116,7 @@ const ProfileCard = ()=> {
                     <button className={`edit-name-btn ${nameEdit.status}`}onClick={toggleName}>Edit Name</button>
                     <button className={`save-name-btn ${nameEdit.status}`}onClick={toggleName}>Save</button>
                 </div>
-                <div>
+                <div className='email-tab'>
                     <p>Email</p>
                     <h2 className={`user-email ${emailEdit.status}`}>johndoe@citrics.io</h2>
                     <form className={`edit-email ${emailEdit.status}`}>
@@ -132,7 +132,7 @@ const ProfileCard = ()=> {
                     <button className={`edit-email-btn ${emailEdit.status}`}onClick={toggleEmail}>Edit Email</button>
                     <button className={`save-email-btn ${emailEdit.status}`}onClick={toggleEmail}>Save</button>
                 </div>
-                <div>
+                <div className='city-tab'>
                     <p>City State of Residence<span> (Optional)</span></p>
                     <h2 className={`user-location ${locationEdit.status}`}>{userInfo.city}, {userInfo.state}</h2>
                     <form className={`edit-location ${locationEdit.status}`}>
