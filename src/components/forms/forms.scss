@@ -50,6 +50,13 @@ span{
     width: 50%; 
     padding: 1%; 
     padding-top:5%; 
+
+    @media screen and (max-width: 950px) {
+        width: 86%;
+        padding: 1%;
+        padding-top: 0%;
+        margin: auto
+    }
 }
 
     .auth{
