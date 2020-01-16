@@ -42,7 +42,6 @@ function Navigation(){
      //      }
      //      setOffset(window.pageYOffset)
 
-
      // })
      let styles={
           float:"right"
@@ -52,7 +51,7 @@ function Navigation(){
           <div className={"navigation-container " + bgColor + `main-nav ${displayNav}`} onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
-               <nav>
+               <nav className="main-nav">
                     <Link to="/map">Explore</Link>
                     <Link to="/map">Compare</Link>
                     <Link className="login-link" to="/login"><img alt="lock" src={lock}/>Log In</Link>

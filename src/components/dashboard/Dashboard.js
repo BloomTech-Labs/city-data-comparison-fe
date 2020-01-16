@@ -1,5 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {Link} from "react-router-dom"
+import LineGraph from '../graphs/PieGraph'
+import LineGraph2 from '../graphs/TwoGraph'
 import ReactGA from "react-ga";
 
 import graph from './assets/graph.svg'
@@ -10,6 +12,12 @@ import control from './assets/control_data.svg'
 import motorbike from './assets/motorbike2.png'
 
 import landing from './assets/landing2.jpg'
+
+import backwheel from "./assets/motorbike_back_wheel.png"
+import edgeblur from "./assets/edge_blur.png"
+import driver from "./assets/motorbike_driver.png"
+import frontwheel from "./assets/motorbike_front_wheel.png"
+import plant from "./assets/motorbike_plant.png"
 
 
 import { CityContext } from '../../contexts/CityContext';
@@ -137,7 +145,6 @@ function Dashboard(){
 
      return(
           <div className="dashboard-container">
-
                <div className="dashboard-search-container">
                     <div className="dashboard-search-function">
                          <p className="dashboard-title">Make Your Move.</p>
@@ -289,9 +296,28 @@ function Dashboard(){
                </div> */}
                
                {/* Sign Up call-to-action */}
-               <div className="kevin-motor">
-               <div className="bonus-features-container">
-                    <img className="motorbike" src={motorbike} alt="motorbike" />
+               <div className="kevinmotor">
+               <div className="bonus-features-container"
+                    data-aos="fade-right"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-mirror="true"
+                    data-aos-once="true"
+               >
+                    <div className="motoranimationcontainer">
+                         <div className="motoranimbackground">
+                              <img className="edgeblurleft" src={edgeblur}/>
+                              <img className="edgeblurright" src={edgeblur}/>
+                         </div>
+                         <div className="moving">
+                              <img className="motoranim wheel" src={backwheel} alt="backwheel" style={{top:"90px", right:"55px"}}/>
+                              <img className="motoranim wheel" src={frontwheel} alt="frontwheel" style={{top:"90px", left:"67px"}}/>
+                              <img className="motoranim driver" src={driver} alt="driver" style={{top:"20px"}}/>
+                              <img className="motoranim plant" src={plant} alt="plant" style={{top:"27px", right:"60px"}} />
+                         </div>
+                    </div>    
                     <div className="bonus-features-CTA">
                          <p className="bonus-features-title">Unlock bonus features</p>
                          <p className="bonus-features-description">Sign up for free to unlock additional features to export data, review and comment on cities, and view favorited cities. </p>
@@ -359,7 +385,7 @@ function Dashboard(){
 
                {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
-                    <h2 className="metrics-title">Visualizing data made easier</h2>
+                    <p className="metrics-title">Visualizing data made easier</p>
                     <div className="dashboard-metrics">
                          <div className="metrics-description-container"
                               data-aos="fade-up"
@@ -370,7 +396,9 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
+                              {/* <p className="metrics-subtitle">Housing</p> */}
                               <img src={graph} alt="living cost graph" />
+                              
                               <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
@@ -382,6 +410,7 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
+                              {/* <p className="metrics-subtitle">Community</p> */}
                               <img src={graph} alt="living cost graph" />
                               <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
@@ -394,14 +423,16 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-
+                              {/* <p className="metrics-subtitle">Industry</p> */}
                               <img src={graph} alt="living cost graph" />
                               <p className="metrics-description">Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
                     </div>
                </div>
 
-
+               {/* <LineGraph />
+               <LineGraph2 /> */}
+               {/* <HousePrice /> */}
 
                {/* COMPARE CITIES FUNCTION */}
                {/* <div className="dashboard-compare-container"
