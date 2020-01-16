@@ -5,15 +5,14 @@
 /* this is the map container */
 .main-map {
     margin: 0 auto;
-    padding-top:95px;
-    margin-bottom:20px;
-    max-width:90%;
+    
+    max-width:100%;
 }
 
 /* this refers to the whole page (does not include navigation */
 
 .map-page {
-    background: #041734;
+    background: white;
     .footer-container {
         margin-top:0;
         p {
@@ -28,39 +27,43 @@
 
 
 .data-browser {
-    background: #E5E5E5;
+    background: #F2F9FD;
     display:flex;
+    padding-top: 5%;
 
     .map-prompt {
         text-align:center;
     }
 
     .data-category h3 {
-        margin-top:10px;
-        margin-bottom: 0px;
+        margin: 0 auto;
+        padding-top: 10px;
     }
 
     .data-category {
-        border: 1px solid black;
         width:95%;
-        margin: 2% auto;
+        margin: 0;
+        background:white;
     }
 
     .anchor-header {
         margin: 1%;
         margin-left:20px;
         font-size: 1.5rem;
-        
+        text-align:left;
+        text-decoration:none;
     }
     .data-nav {
         display:flex;
         flex-direction:column;
         justify-content:flex-start;
-        color:white;
+        align-items: flex-start;
+        color:#393B40;
         padding:0;
         width: 20%;
+        margin-left:3%;
         min-height:40vh;
-        background:#041734;
+        background: white;
         @media only screen and (max-width: 600px) {
             background: #04173400;
             align-items: center;
@@ -73,6 +76,24 @@
             width: 100%;
             margin-top: 82px;
             min-height:0px;
+        }
+
+        .subnav {
+            display:flex;
+            flex-direction:column;
+
+            
+        }
+
+        .anchor-nav a {
+            text-decoration:none;
+            color:#2e2f38;
+            .selected {
+                color :white;
+                background:#041734;
+                font-size:1.1rem;
+            }
+            
         }
 
         .slider {
@@ -212,20 +233,17 @@
             margin-bottom:1rem;
         }
 
-        a {
-            color:white;
+        .anchor-nav .anchor-link {
+            color: #84868C;
             text-decoration:none;
             padding:10px 0px;
-            margin: 10px 0px;
-            text-align:left;
+            margin: 5px 0px;
+            margin-left:30px;
+            justify-content:flex-start;
             width:100%;
         }
 
-        .selected {
-            color:#041734;
-            background:white;
-            font-size:1.1rem;
-        }
+        
 
         .chartjs-render-monitor {
             width:80%;
@@ -268,8 +286,9 @@
     }
 
     .data-by-category {
-        width: 80%;
-
+        width: 73%;
+        margin-left:4%;
+        
 
         @media only screen and (max-width: 600px) {
             position: absolute;
@@ -281,60 +300,22 @@
         }
         
         @media only screen and (max-width: 600px) {
-            width:100%;
-            
+            width:100%;           
         }
 
 
         h1{
             text-align:center;
-        }
-
-        
+        }    
     
         .charts {
             display: flex;
             flex-wrap:wrap;
             margin: 10px;
             @media only screen and (max-width: 600px) {
-                padding: 0 5px;
-                
+                padding: 0 5px;               
                 width: 100%;
-            }
-            
-        }
-
-        .data-subnav {
-            
-            margin: 0 auto;
-            margin-top: 15px;
-            display: flex;
-            width:80%;
-            justify-content:center;
-            align-items:center;
-            
-            a {
-                padding:0px 20px;
-                height: 3rem;
-                padding-top:.3rem;
-                margin: 0px 2px;
-                background:white;
-                text-decoration:none;
-                font-weight:bold;
-                color:#041734;
-                &:first-child {
-                    border-radius:25px 0px 0px 25px;
-                }
-    
-                &:last-child {
-                    border-radius:0px 25px 25px 0px;
-                }
-            }
-
-            .selected {
-                background: #36A6FC;
-                color:white;                
-            }
+            }   
         }
     }
 }

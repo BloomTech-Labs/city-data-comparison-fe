@@ -1,5 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {Link} from "react-router-dom"
+import LineGraph from '../graphs/PieGraph'
+import LineGraph2 from '../graphs/TwoGraph'
 import ReactGA from "react-ga";
 
 import graph from './assets/graph.svg'
@@ -7,7 +9,8 @@ import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
-import motorbike from './assets/motorbike.jpg'
+import motorbike from './assets/motorbike2.png'
+
 import landing from './assets/landing2.jpg'
 
 
@@ -288,6 +291,7 @@ function Dashboard(){
                </div> */}
                
                {/* Sign Up call-to-action */}
+               <div className="kevin-motor">
                <div className="bonus-features-container">
                     <img className="motorbike" src={motorbike} alt="motorbike" />
                     <div className="bonus-features-CTA">
@@ -297,10 +301,12 @@ function Dashboard(){
                          <Link to="/signup"><button className="sign-up-CTA">Sign Up Free</button></Link>
                     </div>
                </div>
+               </div>
 
 
 
                {/* PRODUCT FEATURES */}
+               <div className="kevin">
                <div className="dashboard-features-container">
                     <div className="dashboard-features-title">
                     <p className="features-title">Features</p>
@@ -351,10 +357,11 @@ function Dashboard(){
                          </div>
                     </div>
                </div>
+               </div>
 
                {/* TOP CITY METRICS */}
                <div className="dashboard-metrics-container">
-                    <h2 className="metrics-title">Visualizing data made easier</h2>
+                    <p className="metrics-title">Visualizing data made easier</p>
                     <div className="dashboard-metrics">
                          <div className="metrics-description-container"
                               data-aos="fade-up"
@@ -365,7 +372,9 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
+                              {/* <p className="metrics-subtitle">Housing</p> */}
                               <img src={graph} alt="living cost graph" />
+                              
                               <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
@@ -377,6 +386,7 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
+                              {/* <p className="metrics-subtitle">Community</p> */}
                               <img src={graph} alt="living cost graph" />
                               <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
@@ -389,17 +399,19 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-
+                              {/* <p className="metrics-subtitle">Industry</p> */}
                               <img src={graph} alt="living cost graph" />
                               <p className="metrics-description">Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
                     </div>
                </div>
 
-
+               {/* <LineGraph />
+               <LineGraph2 /> */}
+               {/* <HousePrice /> */}
 
                {/* COMPARE CITIES FUNCTION */}
-               <div className="dashboard-compare-container"
+               {/* <div className="dashboard-compare-container"
                     data-aos="fade-right"
                     data-aos-delay="50"
                     data-aos-duration="1000"
@@ -436,7 +448,6 @@ function Dashboard(){
                                    </div>
                               </div>
 
-                                   {/* <span className="versus">vs.</span> */}
 
                               <div>
                                    <input 
@@ -474,7 +485,7 @@ function Dashboard(){
                               </form>
                          </div>
                     </div>
-               </div>
+               </div> */}
           </div>
      )
 }

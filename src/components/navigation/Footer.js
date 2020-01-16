@@ -37,15 +37,15 @@ function Footer(){
                               </div>
                               <div className="footer-categories">
                                    <h3 className="footer-title">Company</h3>
-                                   <a href="/">Meet the Team</a>
+                                   <a onClick={() => (setModalState(<AboutUs/>), toggle())}>Meet the Team</a>
                                    <a onClick={() => (setModalState(<AboutUs/>), toggle())}>About Us</a>
-                                   <a href="/">Contact Us</a>
+                                   <a onClick={() => (setModalState(<AboutUs/>), toggle())}>Contact Us</a>
                               </div>
                               <div className="footer-categories">
                                    <h3 className="footer-title">Resources</h3>
-                                   <a href="/">Data Sources</a>
+                                   <a href="http://api.citrics.io/docs">Data Sources</a>
                                    <a onClick={() => (setModalState(<PrivacyPolicy/>), toggle())}>Private Policy</a>
-                                   <a href="/">Terms of Use</a>
+                                   <a onClick={() => (setModalState(<PrivacyPolicy/>), toggle())}>Terms of Use</a>
                               </div>
                          </div>
                          <div>
