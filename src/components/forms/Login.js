@@ -1,7 +1,5 @@
-import React from 'react'; 
-
-
-
+import React, {useState, useEffect} from 'react'; 
+import { Link } from 'react-router-dom'
 
 import city from '../../assets/forms/sf_sign_in.png'
 
@@ -10,10 +8,76 @@ import Facebook from './buttons/Facebook.js';
 import Google from './buttons/Google.js'
 import Linkedin from './buttons/Linkedin'
 
+import axios from 'axios';
+
+
+
+
 const Login = props => {
+
+   const [validated, validate] = useState(false);
+   const [usernameError, setUsernameError] = useState(''); 
+   const [passwordError, setPasswordError] = useState('');
+   const [loginError, setLoginError] = useState(''); 
+   const [isLoading, setIsLoading] = useState(false); 
+   const [user, setUser] = useState({username: '', password: ''})
+
+
+    useEffect(() => {
+        if (isLoading) {
+            //axios call
+            if(validated) {
+                console.log('axios call')
+                axios
+                    .post('', user)
+                    .then(res => {
+                        console.log(res)
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        setLoginError('Email and ')
+                    }) 
+                } 
+        }
+        setIsLoading(false)
+        
+    }, [isLoading])
+    
+    const validateLogin = () => {
+            
+            if (user.username === '') {
+                setUsernameError('Please enter your username'); 
+            }
+            if (user.password === '') {
+                setPasswordError("Please enter your password")
+            
+            } else{
+                validate(true)
+            }
+
+
+            
+        
+
+    }
+
+    const onChange = e => {
+        setUser({...user, [e.target.name] : e.target.value})
+        
+    }
+
+    const onSubmit = e => {
+            e.preventDefault();
+            setUsernameError('')
+            setPasswordError('')
+            setLoginError('');
+            validateLogin();
+            setIsLoading(true)
+            
+    }
     return(
-       
              <div className='login'>
+                  
            
            <div className="inner-form">
                <div className="form">
@@ -32,30 +96,27 @@ const Login = props => {
                        <p className="center">or with email</p>
                        <div className="line"></div>
                    </div>
-                   <div className="fields">
-                       <input className="email" type='text' name='email' placeholder="Email"/>
-                       <input className="password" type='text' name='password' placeholder="Password"/>
+                   <form className="fields" onSubmit={onSubmit}>
+                       <p className='error'>{usernameError}</p>
+                       <input className="email" type='text' name='username' placeholder="Username" value={user.username} onChange={onChange}/>
+                       <p className='error'>{passwordError}</p>
+                       <input className="password" type='password' name='password' placeholder="Password" value={user.password} onChange={onChange}/>
                        
-                       <div className="tos">
-                           <input className="checkbox" type="checkbox" name="tos"></input>
-                           <p className="tos-text">Accept terms of service</p>
-                       </div>
-                       <div className="login-button">Start exploring cities</div>
-                       <p class='question'>Have an account? <span>Sign in</span> to explore cities</p>
-                   </div>
+                       
+                       <button className="login-button" htmlType="submit" onClick={() => setIsLoading(true)}>Start exploring cities</button>
+                       <p className='question'>Have an account? <Link className='link-signup' to='/signup'>Sign up</Link> to explore cities</p>
+                   </form>
                </div>
-               <div className="photo">
+               <div className="login-photo">
                    {/*photo*/}
-
-                   <img className="city" src={city} alt="Photo of city" />
-
-                   
                </div>
            </div>
            
     
       
    </div>
+
+
         
     )
 }

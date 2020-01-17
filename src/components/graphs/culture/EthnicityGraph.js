@@ -25,7 +25,7 @@ export default function EthnicityGraph({ethData}) {
                 datasets: ethData.map( item => {
                   
                   return {
-                    label: item.name.replace(" city" , ""),
+                    label: item.name_with_com,
                     data: [
                       item["Ethnicity"]["African American"],
                       item["Ethnicity"]["American Indian"],
@@ -38,7 +38,7 @@ export default function EthnicityGraph({ethData}) {
                       
                     ],
                     backgroundColor:
-                      colorifier(item.lat)
+                      colorifier(item.Longitude)
                       
 
                   }

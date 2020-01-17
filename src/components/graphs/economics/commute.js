@@ -25,7 +25,7 @@ export default function EducationGraph (props) {
                 datasets: props.edData.map( item => {
                   
                   return {
-                    label: item.name.replace(" city" , ""),
+                    label: item.name_with_com,
                     data: [
                       item["Commuting to Work"]["Drives Alone"],
                       item["Commuting to Work"]["Carpools"],
@@ -37,7 +37,7 @@ export default function EducationGraph (props) {
                       
                     ],
                     backgroundColor:
-                      colorifier(item.lat)
+                      colorifier(item.Longitude)
                       
 
                   }

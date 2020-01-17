@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Radar, Chart, } from 'react-chartjs-2';
+import {Bar, Chart} from 'react-chartjs-2';
 
 
 
@@ -11,32 +11,32 @@ export default class RadarGraph extends Component{
             labels: ["Cost Of Living", "Job Prospects", "Housing", "Weather", "Safety", "Entertainment"],
             datasets: [{
               label: "San Diego",
-              backgroundColor: "rgba(200,0,0,0.2)",
+              backgroundColor: 'rgb(179, 142, 255, 0.8)',
               data: [65, 75, 70, 80, 60, 80]
             }, {
               label: "Los Angeles",
-              backgroundColor: "rgba(0,0,200,0.2)",
+              backgroundColor: "rgb(0, 191, 165, 0.8)",
               data: [54, 65, 60, 70, 70, 75]
             }]
           }
     }
   }
    radarChart = new Chart( {
-    type: 'radar',
+    type: 'bar',
     
   });
 
   static defaultProps = {
-    displayTitle:true,
-    displayLegend: true,
+    displayTitle:false,
+    displayLegend: false,
     legendPosition:'right',
     location:'Score'
   }
 
   render(){
     return (
-      <div className="chart">
-        <Radar
+      <div className="chart" style={{width:"100%"}}>
+        <Bar
           data={this.state.chartData}
           options={{
             title:{
@@ -46,8 +46,36 @@ export default class RadarGraph extends Component{
             },
             legend:{
               display:this.props.displayLegend,
-              position:this.props.legendPosition
-            }
+              position:this.props.legendPosition,
+              maintainAspectRatio:false,
+            },
+            scales: {
+                  xAxes: [ {
+                    display: false,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: false,
+                      labelString: 'Year'
+                    },
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: false,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: false,
+                      labelString: 'amount',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    },
+
+                  } ]
+                }
           }}
         />
       </div>
