@@ -13,7 +13,6 @@ import PrivacyPolicy from "./components/legal/PrivacyPolicy"
 import AboutUs from './components/aboutus/AboutUs'; 
 import Signup from './components/forms/Signup'; 
 import Login from './components/forms/Login'; 
-import { markerDummyData } from "./components/map-components/data.js";
 import citiesIndex from './data/city_ids.json'
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';

@@ -17,9 +17,9 @@ export default function HousePriceGraph({selected}) {
     }
 
     useEffect(() => {
-        let data = selected[0]
+        let data = selected[0];
         if (data) {
-            setLabels(Object.keys(data["house_price"]))
+            setLabels(Object.keys(data["Historical Property Value Data"]["Average Home Value"]))
         }
     }, [selected])
   
@@ -36,7 +36,7 @@ export default function HousePriceGraph({selected}) {
                   return {
                     label: item.name_with_com,
                     fill: false,
-                    data: labels.map(label => item["house_price"][label]),
+                    data: labels.map(label => item["Historical Property Value Data"]["Average Home Value"][label]),
                     borderColor:
                       colorifier(item.Longitude)
                       
