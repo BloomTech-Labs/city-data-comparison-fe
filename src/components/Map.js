@@ -36,17 +36,17 @@ export default function Map() {
 
   const toggleSelected = cityMarker =>  {
     console.log(cityMarker, "CITYMARKER")
-    Axios
-    .get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
-    .then(res => {
-      console.log('DATA IS', res.data)
-      setSelected([...selected, res.data])
-    })
-    // if (selected.find(item => item === cityMarker)) {
-    //     setSelected(selected.filter(item => item !== cityMarker));
-    // } else {
-    //     setSelected([...selected, cityMarker]);
-    // }
+
+    if (selected.find(item => item._id === cityMarker.ID)) {
+        setSelected(selected.filter(item => item._id !== cityMarker.ID));
+    } else {
+      Axios
+      .get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
+      .then(res => {
+        console.log('DATA IS', res.data)
+        setSelected([...selected, res.data])
+      })
+    }
 }
 
 const selectSearch = cityMarker =>  {
