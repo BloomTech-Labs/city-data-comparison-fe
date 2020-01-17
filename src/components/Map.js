@@ -63,6 +63,9 @@ const selectSearch = cityMarker =>  {
 }
 
     const onSearch = e => {
+
+      // TODO - More nimble handling on this autofill (use includes, remove commas,
+      // handle state abbreviations)
       e.preventDefault();
       const found = cityMarkers.find(item => item.name.replace(" city", "") === search)
       selectSearch(found);
