@@ -3,7 +3,6 @@ import {Line} from 'react-chartjs-2';
 
 export default function HousePriceGraph({selected}) {
     const [labels, setLabels] = useState([])
-    const [key, setKey] = useState("")
 
 
     const colorifier = lat => {
@@ -20,12 +19,8 @@ export default function HousePriceGraph({selected}) {
     useEffect(() => {
         let data = selected[0];
         if (data["Historical Property Value Data"]["Average Home Value"]) {
-            setKey("Average Home Value")
             setLabels(Object.keys(data["Historical Property Value Data"]["Average Home Value"]))
         } else if (data["Historical Property Value Data"]["Four Bedroom Houses"]){ 
-          // This throws an error if labels are already set
-            setKey("Four Bedroom Houses")
-            console.log(key);
             setLabels(Object.keys(data["Historical Property Value Data"]["Two Bedroom Houses"]))
         }
     }, [selected])
