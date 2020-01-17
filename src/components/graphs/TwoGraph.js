@@ -6,16 +6,16 @@ export default class HorizontalGraph extends Component{
     super(props);
     this.state = {
       chartData: {
-        labels: ["Median rent", "Home prices", "Homeowner costs", "Housing by rooms"],
+        labels: ["Average rooms", "Median rent ($1k)", "Median household income ($10k)", "Home prices ($100k)"],
         datasets:[
           {
-            label:'Seattle',
+            label:'Boston',
             stack: 'Stack 1',
             data:[
-              -6175,
-              -8810,
-              -4530,
-              -7265
+              -4,
+              -1.7,
+              -9.3,
+              -7.293
             ],
             backgroundColor:[
               'rgb(255, 220, 133, 0.7)',
@@ -32,10 +32,10 @@ export default class HorizontalGraph extends Component{
             stack: 'Stack 1',
             data: 
             [
-            6751,
-            4810,
-            2530,
-            8065
+            3.5,
+            2.5,
+            5.7,
+            6.47114
             ],
             backgroundColor: [
                 'rgb(105, 195, 255,0.8)',
