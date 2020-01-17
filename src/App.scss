@@ -424,7 +424,7 @@ html,body{
           width:20px;
         }
       }
-      
+
       .search-button{
         font-size:1.1rem;
         padding:14px 15px;
@@ -871,6 +871,10 @@ html,body{
       font-weight:400;
       transition:0.22s ease;
 
+      cursor:pointer;
+      &:focus{
+        outline:0;
+      }
       &:hover{
         filter:brightness(110%);
       }

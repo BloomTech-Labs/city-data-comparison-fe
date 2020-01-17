@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom'
 import Modal from "../modal/modal"
 import useModal from "../modal/useModal"
 import "../modal/modal.scss";
@@ -22,7 +23,7 @@ function Footer(){
                          <div className="footer-CTA">
                               <div className="footer-CTA-description">
                                    <p>Find your best place to live</p>
-                                   <button className="footer-CTA-button">Start Now</button>
+                                   <Link to="/signup"><button className="footer-CTA-button">Start Now</button></Link>
                               </div>
                               <div>
                                    <p className="copyright">© Citrics 2019</p>
