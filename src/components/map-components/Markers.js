@@ -30,7 +30,7 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
                     posleft:e.target.getBoundingClientRect().left, postop:e.target.getBoundingClientRect().top, display:'block', city:`${cityMarker.name}`, animate:true}))}
                     onMouseLeave={(e) => (setPopState({...popState, display:'none', animate:false}))}
                   >
-                      {selected.find(item => item === cityMarker) 
+                      {selected.find(item => item._id === cityMarker.ID) 
                       ? <img src={activepin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />
                       : <img src={pin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}/>}
                   </div>

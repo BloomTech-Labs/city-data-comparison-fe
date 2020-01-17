@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {Route, BrowserRouter as Router} from "react-router-dom";
 import ReactGA from "react-ga";
 
-import {apikey} from "./key"
 import './App.scss';
 
 import Dashboard from './components/dashboard/Dashboard'
@@ -14,7 +13,6 @@ import PrivacyPolicy from "./components/legal/PrivacyPolicy"
 import AboutUs from './components/aboutus/AboutUs'; 
 import Signup from './components/forms/Signup'; 
 import Login from './components/forms/Login'; 
-import { markerDummyData } from "./components/map-components/data.js";
 import citiesIndex from './data/city_ids.json'
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
@@ -28,7 +26,6 @@ function initializeAnalytics() {
 function App() {
 
   useEffect( _ => {
-    console.log(apikey);
     initializeAnalytics();
     ReactGA.event({ category: 'App', 
     action: 'Loaded app' });
