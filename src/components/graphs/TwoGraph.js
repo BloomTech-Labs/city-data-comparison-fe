@@ -73,7 +73,7 @@ export default class HorizontalGraph extends Component{
             title:{
               display:this.props.displayTitle,
               text:'Boston and '+this.props.location,
-              fontSize:15
+              fontSize:25
             },
             legend:{
               display:this.props.displayLegend,
