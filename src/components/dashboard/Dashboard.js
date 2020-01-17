@@ -5,12 +5,10 @@ import LineGraph2 from '../graphs/TwoGraph'
 import RadarGraph from '../graphs/RadarGraph'
 import ReactGA from "react-ga";
 
-import graph from './assets/graph.svg'
 import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
-import motorbike from './assets/motorbike2.png'
 
 import landing from './assets/landing2.jpg'
 
