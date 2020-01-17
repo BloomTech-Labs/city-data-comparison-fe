@@ -479,8 +479,8 @@ html,body{
 @media screen and (max-width:700px){
       .dashboard-search-container{
         flex-direction:column-reverse;
-        margin-top:80px;
-        margin-bottom:50px;
+        margin-top:100px;
+        margin-bottom:20px;
         margin-right:4%;
         align-items:center;
 
@@ -622,8 +622,8 @@ html,body{
 @media screen and (max-width:500px){
   .kevin{
     margin-top:50px;
-    padding-top:10px;
-    height:530px;
+    padding-top:0px;
+    height:550px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -676,13 +676,6 @@ html,body{
     // border:1px solid red;
     height:250px;
   }
-
-  img{
-    width:100%;
-    background-color:white;
-    padding:25px;
-    margin-top:30px;
-  }
   .metrics-title{
     font-size:1.6rem;
     text-align:center;
@@ -702,7 +695,7 @@ html,body{
 @media screen and (max-width:500px){
   .dashboard-metrics-container{
     height:900px;
-    margin-bottom:20px;
+    margin-bottom:130px;
 
     .dashboard-metrics{
         padding: 3% 5%;
@@ -711,16 +704,13 @@ html,body{
       .metrics-description-container{
         width:100%;
         display:flex;
-        margin:15px 0;
-        align-items:center;
-        justify-content:space-between;
+        flex-direction:column;
+        justify-content:center;
+        margin-bottom:40px;        
 
-        img{
-          padding:3px;
-          width:40%;
-        }
         p{
-          width:55%;
+          width:100%;
+          text-align:center;
         }
       }
     }
@@ -942,9 +932,9 @@ html,body{
     padding-top:5%;
 
     .footer-CTA-button{
-    max-width:130px;
+      min-width:300px;
     height:40px;
-    font-size:14px;
+    font-size:1.1rem;
     padding:0 10px;
     text-align:center;
     font-weight:500;
