@@ -40,7 +40,12 @@ export default function HousePriceGraph({selected}) {
                     fill: false,
                     data:  item["Historical Property Value Data"]["Average Home Value"]
                       ? labels.map(label => item["Historical Property Value Data"]["Average Home Value"][label])
-                      : labels.map(label => item["Historical Property Value Data"]["Four Bedroom Houses"][label])
+                      : item["Historical Property Value Data"]["Four Bedroom Houses"]
+                        ? labels.map(label => item["Historical Property Value Data"]["Four Bedroom Houses"][label]) 
+                        : item["Historical Property Value Data"]["Three Bedroom Houses"]
+                          ? labels.map(label => item["Historical Property Value Data"]["Three Bedroom Houses"][label])
+                          : item["Historical Property Value Data"]["Two Bedroom Houses"]
+
                       ,
                       borderColor:
                       colorifier(item.Longitude)
