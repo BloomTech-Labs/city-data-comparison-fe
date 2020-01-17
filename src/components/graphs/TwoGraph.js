@@ -9,7 +9,7 @@ export default class HorizontalGraph extends Component{
         labels: ["Median household rooms", "Median rent ($1k)", "Median household income ($10k)", "Median home prices ($100k)"],
         datasets:[
           {
-            label:'Boston',
+            label:'Boston, MA',
             stack: 'Stack 1',
             data:[
               -4,
@@ -28,7 +28,7 @@ export default class HorizontalGraph extends Component{
             ]
           },
           {
-            label: 'New york',
+            label: 'New york, NY',
             stack: 'Stack 1',
             data: 
             [
