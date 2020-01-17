@@ -24,6 +24,8 @@ export default function Map() {
   
   const [search, setSearch] = useState("");
 
+
+  // Google Analytics Events
   useEffect( _ => {
     ReactGA.event({ category: 'Map', 
     action: 'loaded map' });
@@ -52,7 +54,8 @@ export default function Map() {
 }
 
 const selectSearch = cityMarker =>  {
-  if (selected.find(item => item === cityMarker)) {
+  // Stop function and return if the city is already selected
+  if (selected.find(item => item._id === cityMarker.ID)) {
       return;
   } else {
       setSelected([...selected, cityMarker]);
