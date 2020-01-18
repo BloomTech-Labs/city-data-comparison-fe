@@ -8,13 +8,13 @@ export default class RadarGraph extends Component{
     super(props);
     this.state = {
         chartData: {
-            labels: ["Cost Of Living", "Job Prospects", "Housing", "Weather", "Safety", "Entertainment"],
+            labels: ["Cost of living score", "Job prospects score", "Housing score", "Weather score", "Safety score", "Entertainment score"],
             datasets: [{
-              label: "San Diego",
+              label: "Austen, TX",
               backgroundColor: 'rgb(179, 142, 255, 0.8)',
               data: [65, 75, 70, 80, 60, 80]
             }, {
-              label: "Los Angeles",
+              label: "Seattle, WA",
               backgroundColor: "rgb(0, 191, 165, 0.8)",
               data: [54, 65, 60, 70, 70, 75]
             }]
