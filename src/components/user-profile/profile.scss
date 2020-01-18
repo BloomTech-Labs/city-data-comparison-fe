@@ -193,7 +193,6 @@ h1 {
 
     .pref-tabs{
 
-
         .pref-tabs-img{
             width: 30.56px;
             height: 24px;
@@ -240,6 +239,20 @@ h1 {
         .tab {
             display: flex;
             align-items: center;
+        }
+
+        .housing-contents{
+            display: flex;
+            flex-direction: column;
+        }
+        .tab-name {
+            display: flex;
+            align-items: center;
+            
+            p {
+                font-size: 16px;
+            }
+
         }
     }
 }
