@@ -54,7 +54,7 @@ function Navigation(){
                <nav className="main-nav">
                     <Link to="/map">Explore</Link>
                     <Link to="/map">Compare</Link>
-                    <Link id="login-link" to="/login"><img alt="lock" src={lock}/>Log In</Link>
+                    <Link id="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
                     <Link id="signup-link" to="/signup">Get Started</Link>
                </nav> 
 
@@ -65,7 +65,7 @@ function Navigation(){
                               <div className="dropdown-content">
                                    <Link to="/map">Explore</Link>
                                    <Link to="/map">Compare</Link>
-                                   <Link to="/login">Log In</Link>
+                                   <Link to="/signin">Log In</Link>
                                    <Link to="/signup">Get Started</Link>
                               </div>
                     </div>
