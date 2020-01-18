@@ -55,6 +55,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
      
     return (
         <div className="data-browser">
+            <div className="nav-placeholder">
             <nav id="stickynav" className="data-nav">
                 <div className='top-menu'>
 
@@ -109,8 +110,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     </ul>
                 </div>    
             </nav>
-            <div className="data-by-category">
+            </div>
 
+            <div className="data-by-category">
                 {selected.length > 0 
                 ? <> 
                 <div className="housing-graphs data-category">
