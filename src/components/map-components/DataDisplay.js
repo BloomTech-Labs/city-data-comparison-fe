@@ -20,14 +20,20 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     const [offset, setOffset] = useState(0);
 
     // fixed sidebar handling
-    useEffect( _ => {
-        console.log(window.pageYOffset)
-    }, [offset])
+    window.onscroll = function() {myFunction()};
 
-    if (window.pageYOffset !== offset ){
-        console.log('hi')
-        setOffset(window.pageYOffset)
-    } 
+    var stickynav = document.getElementById("stickynav");
+    if (stickynav) {
+        var sticky = stickynav.offsetTop;
+    }
+
+    function myFunction() {
+    if (window.pageYOffset > sticky) {
+        stickynav.classList.add("sticky");
+    } else {
+        stickynav.classList.remove("sticky");
+    }
+    }
     
 
 
@@ -49,7 +55,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
      
     return (
         <div className="data-browser">
-            <nav className="data-nav">
+            <nav id="stickynav" className="data-nav">
                 <div className='top-menu'>
 
                     {/* Burger stack button */}
