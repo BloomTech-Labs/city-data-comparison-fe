@@ -20,20 +20,21 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     const [offset, setOffset] = useState(0);
 
     // fixed sidebar handling
-    window.onscroll = function() {myFunction()};
+    window.onscroll = _ => scrollAnchor();
 
     var stickynav = document.getElementById("stickynav");
     if (stickynav) {
-        var sticky = stickynav.offsetTop;
+        console.log(stickynav.offsetTop)
+        var sticky = stickynav.offsetTop - 83;
     }
 
-    function myFunction() {
+const scrollAnchor = _ => {
     if (window.pageYOffset > sticky) {
         stickynav.classList.add("sticky");
     } else {
         stickynav.classList.remove("sticky");
     }
-    }
+}
     
 
 
