@@ -24,7 +24,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
     var stickynav = document.getElementById("stickynav");
     if (stickynav) {
-        console.log(stickynav.offsetTop)
+        // This line handles the offset from the main nav bar - If we unfix the main nav bar
+        // (i believe we will) - the subtraction will be unnecessary.
         var sticky = stickynav.offsetTop - 83;
     }
 
