@@ -54,6 +54,7 @@ function App() {
     latitude: 39,
     longitude: -95,
     zoom: 3,
+    minZoom: 3,
     trackResize: true
   });
 
