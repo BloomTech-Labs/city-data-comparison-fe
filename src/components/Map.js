@@ -74,12 +74,16 @@ const selectSearch = cityMarker =>  {
 
       e.preventDefault();
       const found = cityMarkers.find(item => item.name.replace(" city", "") === search)
+      if (found) {
       selectSearch(found);
       setViewport({
         ...viewport,
         longitude: found.lng,
         latitude: found.lat
       })
+      } else {
+        // hit DS suggestion url with search string
+      }
       
     }
 
