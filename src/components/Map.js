@@ -83,19 +83,14 @@ const selectSearch = cityMarker =>  {
       })
       } else {
         Axios.get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
-          .then(res => {
-            // if there's a suggestion
-            if (res.data) {
-              let suggestionKey = Object.keys(res.data)[0]
-              getCity(res.data[suggestionKey])
-              
-
-                
-            }
-
-          })
-      }
-      
+        .then(res => {
+          // if there's a suggestion
+          if (res.data) {
+            let suggestionKey = Object.keys(res.data)[0]
+            getCity(res.data[suggestionKey])  
+          }
+        })
+      }   
     }
 
     const onViewportChange = viewport => {
