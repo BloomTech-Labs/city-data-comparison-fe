@@ -24,6 +24,16 @@ export default function Map() {
   
   const [search, setSearch] = useState("");
 
+  const getCity = cityMarker => {
+      Axios
+        .get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
+        .then(res => {
+          console.log('DATA IS', res.data)
+          setSelected([...selected, res.data])
+        })
+  }
+  
+
 
   // Google Analytics Events
   useEffect( _ => {
@@ -44,12 +54,7 @@ export default function Map() {
     } 
     // Outerwise get the city's data and add it to selected array
     else {
-      Axios
-      .get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
-      .then(res => {
-        console.log('DATA IS', res.data)
-        setSelected([...selected, res.data])
-      })
+      getCity(cityMarker);
     }
 }
 
@@ -58,7 +63,7 @@ const selectSearch = cityMarker =>  {
   if (selected.find(item => item._id === cityMarker.ID)) {
       return;
   } else {
-      setSelected([...selected, cityMarker]);
+      getCity(cityMarker);
   }
 }
 
@@ -66,6 +71,7 @@ const selectSearch = cityMarker =>  {
 
       // TODO - More nimble handling on this autofill (use includes, remove commas,
       // handle state abbreviations)
+
       e.preventDefault();
       const found = cityMarkers.find(item => item.name.replace(" city", "") === search)
       selectSearch(found);
