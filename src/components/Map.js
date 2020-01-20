@@ -88,7 +88,8 @@ const selectSearch = cityMarker =>  {
           <div className="map">
               <MapWrapper className="main-map">
                 <ReactMapGL
-                    mapStyle='mapbox://styles/mapbox/light-v9'
+                  // mapStyle='mapbox://styles/mapbox/light-v10'
+                    mapStyle='mapbox://styles/brunchtime/ck5miuybu2in21ipq7j47ey29'
                     {...viewport}
                     mapboxApiAccessToken={
                     'pk.eyJ1IjoiYnJ1bmNodGltZSIsImEiOiJjazIwdG80MGkxN3lmM25vaWZ5cThkZDU1In0.uYqrXjiEyUL1mTEO_N5-0w'
