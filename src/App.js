@@ -51,11 +51,13 @@ function App() {
   const [viewport, setViewport] = useState({
     width: '100%',
     height: '100%',
-    latitude: 39,
     longitude: -95,
+    latitude: 39,
     zoom: 3,
     minZoom: 3,
-    trackResize: true
+    trackResize: true,
+
+
   });
 
   useEffect( _ => {
