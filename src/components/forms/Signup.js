@@ -5,7 +5,8 @@ import axios from 'axios'
 
 
 //styling
-import './forms.scss'; 
+import './forms.scss';
+import './signupform.scss'; 
 
 //buttons
 import Facebook from './buttons/Facebook.js';

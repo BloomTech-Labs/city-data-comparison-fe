@@ -215,6 +215,7 @@ span{
         width:90%; 
         width: 51%;
         border-radius: 0px 40px 40px 0px;
+        background-repeat: round;
 
         @media screen and (max-width:950px) {
             border-radius: 15px;
