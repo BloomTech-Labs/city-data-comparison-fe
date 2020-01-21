@@ -141,6 +141,21 @@ function Dashboard(){
 
 
 
+     //* TOGGLING BUTTONS */
+     const [buttonClass, setButtonClass] = useState("")
+     const toggleClass = () => {
+          if(buttonClass === "search-toggle-green"){
+               setButtonClass("searchToggleLabel")
+          } else {
+               setButtonClass("search-toggle-green")
+          }
+     }
+     const toggleStyle = {
+          marginLeft: "15px",
+          fontSize:"1.1rem",
+          color:"grey",
+          color: buttonClass === "search-toggle-green" ? "searchToggleLabel" : "search-toggle-green"
+     }
 
      return(
           <div className="dashboard-container">
@@ -183,24 +198,15 @@ function Dashboard(){
                                    
                                    {/* <p className="single-toggle-description">Want to learn about more cities? Click the link to compare multiple cities. <button className="compare-toggle-button">Compare cities</button></p>  */}
                               </div>
-                              <div id="search-toggle">
-                                   <label className="switch">
-                                        <input type="checkbox" />
-                                        <span className="slider round"></span>
-                                   </label>
-                              </div>
-
-
-
 
 
                               {/* COMPARE CITIES FUNCTION */}
                               <div className="dashboard-compare-search-container">
-                                   <p className="search-label">Compare cities:</p>
+                                   {/* <p className="search-label">Compare cities:</p> */}
                                    <form onSubmit={submitCities}>
                                         <div>
                                              <input 
-                                             placeholder="San Francisco, CA"
+                                             placeholder="Search for a city"
                                              onChange={handleCityOne}
                                              value={compare.cityOne}
                                              />                 
@@ -221,7 +227,7 @@ function Dashboard(){
 
                                         <div>
                                              <input 
-                                             placeholder="Seattle, WA"
+                                             placeholder="Search for a city"
                                              onChange={handleCityTwo}
                                              value={compare.cityTwo}
                                              />
@@ -245,6 +251,15 @@ function Dashboard(){
                                    </form>
 
 
+                              </div>
+                               <div id="search-toggle">
+                                   <label className="switch">
+                                        <input type="checkbox"
+                                         onClick={toggleClass}
+                                        />
+                                        <span className="slider round"></span>
+                                   </label>
+                                        <p className={`${buttonClass}`} style={toggleStyle}>Compare</p>                                   
                               </div>
                          </div>
                     </div>
