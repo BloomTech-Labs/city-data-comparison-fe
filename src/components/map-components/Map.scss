@@ -8,6 +8,8 @@
     max-width:1000px;
 }
 
+
+
 /* this refers to the whole page (does not include navigation */
 
 .map-page {
@@ -105,6 +107,8 @@
                 }
             }
         }
+
+
 
         .slider {
             width: 100%;
@@ -217,9 +221,14 @@
             display:flex;
             justify-content:space-between;
             width:100%;
+            align-content:center;;
         }
 
-        span {
+        .color-legend-text {
+            color:black;
+        }
+
+        .delete-icon {
             cursor:pointer;
         }
 
@@ -310,6 +319,12 @@
         position:fixed;
         top:78px;
         width: 20%;
+    }
+
+    .nav-bottom-anchor {
+        height:100%;
+        justify-content:flex-end;
+        padding-bottom:130px;       
     }
 
     .data-by-category {
