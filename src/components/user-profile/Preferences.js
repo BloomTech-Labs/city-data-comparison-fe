@@ -18,11 +18,27 @@ const Preferences = ({selected, toggleSelected})=> {
     const [econExpand, setEconExpand] = useState({status: 'closed'})
     const [socialExpand, setSocialExpand] = useState({status: 'closed'})
 
-    const toggleExpand = () => {
-        if (expand.status === 'closed') {
-            setExpand({...expand, status:'open'}) 
-        } else if (expand.status === 'open') {
-            setExpand({...expand, status:'closed'})
+    const toggleHousingExpand = () => {
+        if (housingExpand.status === 'closed') {
+            setHousingExpand({...housingExpand, status:'open'}) 
+        } else if (housingExpand.status === 'open') {
+            setHousingExpand({...housingExpand, status:'closed'})
+        }
+    }
+
+    const toggleEconExpand = () => {
+        if (econExpand.status === 'closed') {
+            setEconExpand({...econExpand, status:'open'}) 
+        } else if (econExpand.status === 'open') {
+            setEconExpand({...econExpand, status:'closed'})
+        }
+    }
+
+    const toggleSocialExpand = () => {
+        if (socialExpand.status === 'closed') {
+            setSocialExpand({...socialExpand, status:'open'}) 
+        } else if (socialExpand.status === 'open') {
+            setSocialExpand({...socialExpand, status:'closed'})
         }
     }
 
@@ -72,7 +88,7 @@ const Preferences = ({selected, toggleSelected})=> {
                     {/* housing tab */}
 
                     <div className='tab'>
-                        <ExpandIcon name='housing-expand' expand={selectedHousing.status} toggle={toggleHousing}/>
+                        <ExpandIcon name='housing-expand' expand={housingExpand.status} toggle={toggleHousingExpand}/>
                         <div className={`housing-tab ${selectedHousing.status}`} onClick={toggleHousing}>
                             <img className='pref-tabs-img' src={housingImg} alt='housing tab icon'/>
                             <p>Housing</p>
@@ -107,7 +123,7 @@ const Preferences = ({selected, toggleSelected})=> {
                     {/* econ tab     */}
                     
                     <div className='tab'>
-                        <ExpandIcon name='econ-expand' expand={expand.status} toggleExpand={toggleExpand}/>
+                    <ExpandIcon name='econ-expand' expand={econExpand.status} toggle={toggleEconExpand}/>
                         <div className={`econ-tab ${selectedEcon.status}`} onClick={toggleEcon}>
                             <img className='pref-tabs-img' src={econImg} alt='econ icon'/>
                             <p>Economics</p>
@@ -146,7 +162,7 @@ const Preferences = ({selected, toggleSelected})=> {
                     {/* social tab */}
 
                     <div className='tab'>
-                        <ExpandIcon name='social-expand' expand={expand.status} toggleExpand={toggleExpand}/>
+                    <ExpandIcon name='social-expand' expand={socialExpand.status} toggle={toggleSocialExpand}/>
                         <div className={`social-tab ${selectedSocial.status}`} onClick={toggleSocial}>
                             <img className='pref-tabs-img' src={socialImg} alt='social icon'/>
                             <p>Social</p>

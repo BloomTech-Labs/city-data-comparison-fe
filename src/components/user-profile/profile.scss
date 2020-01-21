@@ -239,27 +239,28 @@ h1 {
         .tab {
             display: flex;
             align-items: center;
+            margin-left: -35px;
 
-            .housing-expand.open .bar1 {
+            .housing-expand.closed .bar1, .econ-expand.closed .bar1, .social-expand.closed .bar1 {
                 -webkit-transform: rotate(-45deg) translate(-4px, 4px);
                 transform: rotate(-45deg) translate(-4px, 4px);
             }
             
-            .housing-expand.open .bar2 {
-                opacity: 0;
+            .housing-expand.closed .bar2, .econ-expand.closed .bar2, .social-expand.closed .bar2 {
+                -webkit-transform: rotate(45deg) translate(-6px, -6px);
+                transform: rotate(45deg) translate(-1px, -1px);
             }
 
-            .housing-expand,
-            .housing-expand.open {
+            .housing-expand, .econ-expand, .social-expand, 
+            .housing-expand.open, .econ-expand.open, .social-expand.open {
                 display: inline-block;
                 cursor: pointer;
                 z-index: 9999;
                 padding: 10px;
             }
 
-            .housing-expand, .bar1,
-        .bar2 {
-            width: 25px;
+             .bar1, .bar2 {
+            width: 15px;
             height: 3px;
             background-color:rgb(48, 48, 48);
             margin: 4px 0;
