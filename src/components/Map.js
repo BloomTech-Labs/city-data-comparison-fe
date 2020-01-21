@@ -92,6 +92,8 @@ const selectSearch = cityMarker =>  {
           latitude: found.lat
       })
       } else {
+        ReactGA.event({ category: 'Data', 
+        action: `used suggestion endpoint: ${search}` });
         getBestSuggestion(search);
       }   
     }
