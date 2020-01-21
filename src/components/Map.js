@@ -37,6 +37,7 @@ export default function Map() {
     .then(res => {
       // if there's a suggestion
       if (res.data) {
+        // get the best (first) suggestion and add it to state
         let suggestionKey = Object.keys(res.data)[0]
         getCity(res.data[suggestionKey])  
       }
