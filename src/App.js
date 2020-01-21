@@ -57,7 +57,6 @@ function App() {
   });
 // this filters the map markers based on zoom - Closer zoom, lesser population cap
   useEffect( _ => {
-    console.log(viewport.zoom)
     if (viewport.zoom < 4) {
       setCityMarkers(index.filter(city => city.population > 500000))
     }
