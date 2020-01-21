@@ -1,5 +1,6 @@
 import  React, {useState, useEffect} from "react";
 import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import ReactGA from "react-ga";
 
 import MapSearch from "./MapSearch";
 import LineGraph from "../graphs/housing/House_price";
@@ -17,7 +18,6 @@ import deleteIcon from "./icons/close_red.png";
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
 
     const [menu, setMenu] = useState({status: 'closed'})
-    const [offset, setOffset] = useState(0);
 
     const dataNavClicked = link => {
         ReactGA.event({ category: 'Data', 
@@ -26,7 +26,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
     // fixed sidebar handling
     window.onscroll = _ => scrollAnchor();
-
     var stickynav = document.getElementById("stickynav");
     if (stickynav) {
         // This line handles the offset from the main nav bar - If we unfix the main nav bar
@@ -34,19 +33,13 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         var sticky = stickynav.offsetTop - 83;
     }
 
-const scrollAnchor = _ => {
-    if (window.pageYOffset > sticky) {
-        stickynav.classList.add("sticky");
-    } else {
-        stickynav.classList.remove("sticky");
+    const scrollAnchor = _ => {
+        if (window.pageYOffset > sticky) {
+            stickynav.classList.add("sticky");
+        } else {
+            stickynav.classList.remove("sticky");
+        }
     }
-}
-    
-
-
-
-
-    // console.log(selected)
 
     const toggleMenu = () => {
         if (menu.status === 'closed') {
@@ -54,10 +47,6 @@ const scrollAnchor = _ => {
         } else if (menu.status === 'open') {
             setMenu({...menu, status:'closed'})
         }
-    }
-
-    const toggleVisibility = city => {
-        console.log("toggling visibility of ", city.city)
     }
      
     return (
@@ -109,7 +98,7 @@ const scrollAnchor = _ => {
                         </div>
                     </div>
                     <ul>
-                        {selected.map(item => <div key={item._id} className={`menu-items ${menu.status}`}><li  key={item._id} onClick={ _ => toggleVisibility(item)}>{item.name_with_com} 
+                        {selected.map(item => <div key={item._id} className={`menu-items ${menu.status}`}><li  key={item._id}>{item.name_with_com} 
                             <span onClick={ _ => toggleSelected(item)}>
                                 <img className="delete-icon" src={deleteIcon} alt="delete icon" />
                             </span>
