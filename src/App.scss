@@ -366,6 +366,7 @@ html,body{
 
 
 .dashboard-search-container{
+
   margin-top:120px;
   margin-bottom:90px;
   margin-left:4%;
@@ -380,8 +381,72 @@ html,body{
     width:100%;
     }
   }
+  #search-toggle{
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+  }
 
   .dashboard-search-function{
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
     width:45%;
 
     .dashboard-title{
@@ -394,7 +459,8 @@ html,body{
     }
     .search-label{
         margin-bottom:7px;
-      }
+    }
+
 
     input{
       background-image:url('./components/dashboard/assets/search.svg');
@@ -405,7 +471,7 @@ html,body{
       padding:13px 40px;
       font-size:1.1rem;
       border:none;
-      padding-left:38px;
+      padding-left:39px;
       width:80%;
       border:1px solid #b8bec4;
       border-top-left-radius:5px;
@@ -471,28 +537,20 @@ html,body{
 
 
     .dashboard-compare-search-container{
-      // display:none;
+      display:none;
 
 
         input{
-
-          &:active{
-            border:1px solid blue;
-          }
-
-          &:focus{
-            border:1px solid blue;
-          }
+          border-radius:5px;
+          border:1px solid #b8bec4;
+          margin-bottom:10px;
         }
 
         .compare-button{
+          margin-top:10px;
           font-size:1.1rem;
           padding:14px 15px;
-          border-top-right-radius:5px;
-          border-bottom-right-radius:5px;
           background-color:#2ca4fc;
-
-          border-left:none;
           color:white;
           width:16%;
           transition:0.22s ease;

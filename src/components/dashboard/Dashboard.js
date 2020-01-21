@@ -154,11 +154,11 @@ function Dashboard(){
                          <div className="dashboard-function-container">
                               {/* SINGLE SEARCH FUNCTION */}
                               <div className="dashboard-single-search-container">
-                                   <p className="search-label">Search for a city:</p>
+                                   {/* <p className="search-label">Search for a city:</p> */}
                                    <form onSubmit={submitCity}>
                                         <div>
                                              <input 
-                                             placeholder="San Francisco, CA"
+                                             placeholder="Search for a city"
                                              onChange={searchChange}
                                              value={search}
                                              />
@@ -180,8 +180,14 @@ function Dashboard(){
                                              </div>
                                         </div>
                                    </form>
-
-                                   <p className="single-toggle-description">Want to learn about more cities? Click the link to compare multiple cities. <button className="compare-toggle-button">Compare cities</button></p> 
+                                   
+                                   {/* <p className="single-toggle-description">Want to learn about more cities? Click the link to compare multiple cities. <button className="compare-toggle-button">Compare cities</button></p>  */}
+                              </div>
+                              <div id="search-toggle">
+                                   <label className="switch">
+                                        <input type="checkbox" />
+                                        <span className="slider round"></span>
+                                   </label>
                               </div>
 
 
@@ -215,7 +221,7 @@ function Dashboard(){
 
                                         <div>
                                              <input 
-                                             placeholder="San Francisco, CA"
+                                             placeholder="Seattle, WA"
                                              onChange={handleCityTwo}
                                              value={compare.cityTwo}
                                              />
