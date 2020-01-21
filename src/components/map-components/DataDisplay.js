@@ -20,14 +20,22 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     const [offset, setOffset] = useState(0);
 
     // fixed sidebar handling
-    useEffect( _ => {
-        console.log(window.pageYOffset)
-    }, [offset])
+    window.onscroll = _ => scrollAnchor();
 
-    if (window.pageYOffset !== offset ){
-        console.log('hi')
-        setOffset(window.pageYOffset)
-    } 
+    var stickynav = document.getElementById("stickynav");
+    if (stickynav) {
+        // This line handles the offset from the main nav bar - If we unfix the main nav bar
+        // (i believe we will) - the subtraction will be unnecessary.
+        var sticky = stickynav.offsetTop - 83;
+    }
+
+const scrollAnchor = _ => {
+    if (window.pageYOffset > sticky) {
+        stickynav.classList.add("sticky");
+    } else {
+        stickynav.classList.remove("sticky");
+    }
+}
     
 
 
@@ -49,7 +57,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
      
     return (
         <div className="data-browser">
-            <nav className="data-nav">
+            <div className="nav-placeholder">
+            <nav id="stickynav" className="data-nav">
                 <div className='top-menu'>
 
                     {/* Burger stack button */}
@@ -103,8 +112,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     </ul>
                 </div>    
             </nav>
-            <div className="data-by-category">
+            </div>
 
+            <div className="data-by-category">
                 {selected.length > 0 
                 ? <> 
                 <div className="housing-graphs data-category">
