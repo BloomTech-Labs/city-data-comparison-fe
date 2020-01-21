@@ -108,7 +108,6 @@ const Login = props => {
                    </form>
                </div>
                <div className="login-photo">
-                   {/*photo*/}
                </div>
            </div>
            
