@@ -34,8 +34,9 @@ export default function VacancyGraph (props) {
                       
                     ],
                     backgroundColor:
-                      colorifier(item.Longitude)
-                      
+                      colorifier(item.Longitude),
+                      // colorifier(item.Latitude)
+                    
 
                   }
                 })
@@ -49,7 +50,7 @@ export default function VacancyGraph (props) {
                   fontSize:25
                 },
                 legend:{
-                  display:true,
+                  display:false,
                   position:"top",
                 },
                 scales: {

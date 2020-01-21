@@ -14,6 +14,7 @@ import EducationGraph from "../graphs/culture/EducationGraph";
 import AgeDistributionGraph from "../graphs/culture/AgeDistrubution";
 import RetirementGraph from "../graphs/economics/retirement";
 import VacancyGraph from "../graphs/housing/vacancy";
+// import TotalPopulation from "../graphs/culture/TotalpopCard";
 
 import deleteIcon from "./icons/close_red.png";
 
@@ -96,7 +97,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} >Ethnicity</Link>
                                 <Link activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} >Population</Link>
                                 <Link activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} >Age Distribution</Link>
-                                <Link activeClass="active" className="anchor-link" to="totalPopulation" spy={true} smooth={true} duration={500} >Total Population</Link>
+                                {/* <Link activeClass="active" className="anchor-link" to="totalPopulation" spy={true} smooth={true} duration={500} >Total Population</Link> */}
                             </div>
                             : null}
                         </div>
@@ -119,7 +120,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
                     <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
                     <Element name="rooms" className="element" ><RoomGraph edData={selected} /></Element>
-                    <Element name="vacany" className="element" ><VacancyGraph edData={selected} /></Element>
+                    <Element name="vacancy" className="element" ><VacancyGraph edData={selected} /></Element>
                 </div> 
                 
 
@@ -136,6 +137,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
                     <Element name="population" className="element" ><Population selected = {selected} /></Element>
                     <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
+                    {/* <Element name="totalPopulation" className="element" ><TotalPopulation ethData = {selected} /></Element> */}
                 </div>
                 </>
                 : <h2 className="map-prompt">Select a city to begin browsing</h2>}
