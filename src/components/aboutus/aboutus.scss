@@ -1,85 +1,78 @@
-
-//setting margin of the container for this page until nav is fixed
 .aboutUs{
-    margin-top: 10%;
-
+    display:flex; 
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
 }
-
-//headers
 
 .aboutus-title{
-    font-size: 3.2rem;
+    text-align:center;
 }
-h3{
+
+.member-info{
+    border-left: 1px solid #3999fc;
+    align-items: center;
+    align-content: center;
+}
+
+.member-name{
+    font-size:1.8rem;
+    
+}
+
+.member-role{
+    font-size: 1.2rem;
+}
+
+.member-portfolio{
     text-align: center;
-    font-size: 2rem;
-}
+    border: 1px solid #3999fc; 
+    color: #3999fc; 
+    cursor: pointer;
+    border-radius: 10px; 
+    padding: 2.5% 1%; 
 
-
-//all sections
-.leadership-design, .web, .ds{
-    margin-bottom: 5%;
-}
- .ds, .web{
-    width: 100%;
-    display:flex; 
-    justify-content: space-around;
-    text-align: center;
-
-    .member{
-        width: 20%;
+    &:hover{
+        color: white; 
+        background: #3999fc; 
     }
 }
-
-// container for leadership-design
-.leadership-design{
-    display:flex; 
-    width:100%;
-    justify-content: space-around; 
-    margin:auto;
-    height: 590px;
-    background: url(/static/media/seconddiv.61436097.svg);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-    
-    .member{
-        width:70%; 
-        margin: auto;
-        text-align: center;
-    
-    }
-}
-//data scientists
-.ds-container{
-   padding: 5%; 
+.member-display{
+    display:flex;
+    align-items: center;
 }
 
-//web developers
-.web-container{
-    background: #f2f9fd;
-    padding: 5%; 
-}
-.web{
-    
-    flex-wrap: wrap;
-    
-    .member{
-        margin: 3%;
+.member-photo{
+    width: 40%; 
+    padding: 2.5%;
+    img{
+        width: 100%; 
     }
 
 }
 
-
-img{
-    width:100%;
+.member-info{
+    width: 50%; 
+    padding:10%;
 }
 
-//icons
 
-.svg-inline--fa.fa-w-14 {
-    width: 1.475em;
+//arrows
+
+.left-arrow {
+	border-color: transparent #3999fc;
+	border-style: solid;
+	border-width: 20px 20px 20px 0px;
+	height: 0px;
+    width: 0px;
+    
 }
 
-.svg-inline--fa {
-    height: 1.4rem; 
+.right-arrow {
+	border-color: transparent #3999fc;
+	border-style: solid;
+	border-width: 20px 0px 20px 20px;
+	height: 0px;
+    width: 0px;
+    
 }
