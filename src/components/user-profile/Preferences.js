@@ -14,7 +14,9 @@ const Preferences = ({selected, toggleSelected})=> {
     const [selectedHousing, setSelectedHousing] = useState({status: 'closed'})
     const [selectedEcon, setSelectedEcon] = useState({status: 'closed'})
     const [selectedSocial, setSelectedSocial] = useState({status: 'closed'})
-    const [expand, setExpand] = useState([{name: 'housing', status: 'closed'}, {name: 'econ', status: 'closed'}, {name: 'social', status: 'closed'},])
+    const [housingExpand, setHousingExpand] = useState({status: 'closed'})
+    const [econExpand, setEconExpand] = useState({status: 'closed'})
+    const [socialExpand, setSocialExpand] = useState({status: 'closed'})
 
     const toggleExpand = () => {
         if (expand.status === 'closed') {
@@ -70,7 +72,7 @@ const Preferences = ({selected, toggleSelected})=> {
                     {/* housing tab */}
 
                     <div className='tab'>
-                        <ExpandIcon name='housing-expand' expand={expand.status} toggleExpand={toggleExpand}/>
+                        <ExpandIcon name='housing-expand' expand={selectedHousing.status} toggle={toggleHousing}/>
                         <div className={`housing-tab ${selectedHousing.status}`} onClick={toggleHousing}>
                             <img className='pref-tabs-img' src={housingImg} alt='housing tab icon'/>
                             <p>Housing</p>
