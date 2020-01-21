@@ -54,8 +54,8 @@ function Navigation(){
                <nav className="main-nav">
                     <Link to="/map">Explore</Link>
                     <Link to="/map">Compare</Link>
-                    <Link id="login-link" to="/login"><img alt="lock" src={lock}/>Log In</Link>
-                    <Link id="signup-link" to="/signup">Get Started</Link>
+                    <Link className="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
+                    <Link className="signup-link" to="/signup">Get Started</Link>
                </nav> 
 
                {/* <!-- Dropdown Menu  --> */}
