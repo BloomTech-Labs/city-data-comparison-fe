@@ -27,19 +27,36 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     // fixed sidebar handling
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
+    var height = document.body.scrollHeight;
     if (stickynav) {
         // This line handles the offset from the main nav bar - If we unfix the main nav bar
         // (i believe we will) - the subtraction will be unnecessary.
         var sticky = stickynav.offsetTop - 83;
     }
 
+    var isScrolledToFooter = _ => 
+        window.pageYOffset > document.body.scrollHeight - window.innerHeight - 300;
+
+    
+
+    
+
+
     const scrollAnchor = _ => {
-        if (window.pageYOffset > sticky) {
+        if (window.pageYOffset > sticky && !isScrolledToFooter()) {
             stickynav.classList.add("sticky");
         } else {
             stickynav.classList.remove("sticky");
         }
+        if (isScrolledToFooter() && selected.length > 0) {
+            stickynav.classList.add("nav-bottom-anchor")
+        } 
+        else {
+            stickynav.classList.remove("nav-bottom-anchor")
+        }
     }
+
+    
 
     const toggleMenu = () => {
         if (menu.status === 'closed') {
