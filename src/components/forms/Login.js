@@ -108,6 +108,7 @@ const Login = props => {
                    </form>
                </div>
                <div className="login-photo">
+                   <img src={city}/>
                </div>
            </div>
            

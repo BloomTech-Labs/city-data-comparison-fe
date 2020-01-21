@@ -15,10 +15,12 @@ import Linkedin from './buttons/Linkedin';
 
 //modal
 //tos modals
-import Modal from "../modal/modal"
-import useModal from "../modal/useModal"
+import Modal from "../modal/modal";
+import useModal from "../modal/useModal";
 import './privacypolicyform.scss'; 
-import PrivacyPolicy from '../legal/PrivacyPolicy'
+import PrivacyPolicy from '../legal/PrivacyPolicy';
+
+import city from '../../assets/forms/nyc_signup_photo.png'; 
 
 const Signup = props => {
 
@@ -129,7 +131,7 @@ const Signup = props => {
                             </form>
                         </div>
                         <div className="signup-photo">
-                            {/*photo*/}
+                            <img src={city}/>
                             
                         </div>
                     </div>
