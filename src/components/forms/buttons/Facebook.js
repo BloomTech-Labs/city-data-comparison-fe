@@ -13,7 +13,7 @@ const Facebook = props => {
         
         const login = () => {
             axios
-                .get("http://localhost:5000/api/auth/login/facebook")
+                .get("https://citrics-staging.herokuapp.com/api/auth/login/facebook")
                 .then(res => {
                     setIsLoggingIn(false)
                     res.json()

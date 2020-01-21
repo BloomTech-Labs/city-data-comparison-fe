@@ -13,7 +13,7 @@ const Linkedin = props => {
         
         const login = () => {
             axios
-                .get("http://localhost:5000/api/auth/login/linkedin")
+                .get("https://citrics-staging.herokuapp.com/api/auth/login/linkedin")
                 .then(res => {
                     setIsLoggingIn(false)
                     res.json()
