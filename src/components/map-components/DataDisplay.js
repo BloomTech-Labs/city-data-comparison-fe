@@ -11,7 +11,7 @@ import BarGraph from "../graphs/economics/HouseIncome_BarGraph";
 import EthnicityGraph from "../graphs/culture/EthnicityGraph";
 import Population from "../graphs/culture/PopulationGraph";
 import EducationGraph from "../graphs/culture/EducationGraph";
-
+import AgeDistributionGraph from "../graphs/culture/AgeDistrubution"
 import deleteIcon from "./icons/close_red.png";
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
@@ -90,6 +90,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} >Education</Link>
                                 <Link activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} >Ethnicity</Link>
                                 <Link activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} >Population</Link>
+                                <Link activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} >Age Distribution</Link>
                             </div>
                             : null}
                         </div>
@@ -126,6 +127,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
                     <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
                     <Element name="population" className="element" ><Population selected = {selected} /></Element>
+                    <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
                 </div>
                 </>
                 : <h2 className="map-prompt">Select a city to begin browsing</h2>}
