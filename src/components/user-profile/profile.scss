@@ -239,7 +239,33 @@ h1 {
         .tab {
             display: flex;
             align-items: center;
-        }
+
+            .housing-expand.open .bar1 {
+                -webkit-transform: rotate(-45deg) translate(-4px, 4px);
+                transform: rotate(-45deg) translate(-4px, 4px);
+            }
+            
+            .housing-expand.open .bar2 {
+                opacity: 0;
+            }
+
+            .housing-expand,
+            .housing-expand.open {
+                display: inline-block;
+                cursor: pointer;
+                z-index: 9999;
+                padding: 10px;
+            }
+
+            .housing-expand, .bar1,
+        .bar2 {
+            width: 25px;
+            height: 3px;
+            background-color:rgb(48, 48, 48);
+            margin: 4px 0;
+            transition: 0.5s;
+            }   
+    }
 
         .housing-contents{
             display: flex;
@@ -248,7 +274,23 @@ h1 {
         .tab-name {
             display: flex;
             align-items: center;
+            margin-left: 20px;
             
+            img {
+                width: 20.89px;
+                height: 16px;
+            }
+
+            .checkbox {
+                display: flex;
+                align-items: center;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #84868C;
+                margin-right: 20px;
+                padding-bottom: 5px;
+
+            }
             p {
                 font-size: 16px;
             }
@@ -256,3 +298,4 @@ h1 {
         }
     }
 }
+
