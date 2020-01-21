@@ -19,6 +19,7 @@ const AboutUs = props => {
      
     return(
         <div className="aboutUs">
+          
             <div className="left-arrow" onClick={() => {
                 
                 if(index <= 0){

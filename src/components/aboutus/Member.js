@@ -6,13 +6,13 @@ import './aboutus.scss'
 const Member = props => {
     return(
         <div className='member'>
-        <h3>The Masterminds Behind Citrics</h3>
+          <h3 className="aboutus-title">The Masterminds Behind Citrics</h3>
 
             <div className='member-display'>
                 <div className="member-photo">
                     <img src={props.member.image} alt={props.member.name}/>
                 </div>
-                
+
                 <div className="member-info">
                     <p className="member-name">{props.member.name}</p>
                     <p className="member-role">{props.member.role}</p>
