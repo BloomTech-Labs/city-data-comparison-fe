@@ -80,7 +80,7 @@ const Preferences = ({selected, toggleSelected})=> {
                     </div>
                     <div className='head-bottom'>
                         <img src={infoIcon} alt='info icon'/>
-                        <p>As a default, all the categories are displayed. <span>Deselect</span> categories that you wish not to see or click   a  category to view subcategories and make a change.</p>
+                        <p>As a default, all the categories are displayed. <span>Deselect</span> categories that you wish not to see or click the expand button (<span>=</span>) to view subcategories and make a change.</p>
                     </div>
                 </div>
                 <div className='pref-tabs'>
@@ -95,8 +95,8 @@ const Preferences = ({selected, toggleSelected})=> {
                         </div>
                             <img src={checkMark} className={`housing-tab-check ${selectedHousing.status}`} alt='check icon'/>
                     </div>
-                        <div calssName={`housing-pref ${selectedHousing.status}`}>
-                            <div className='housing-contents'>
+                        <div className={`housing-pref ${housingExpand.status}`}>
+                            <div className={`housing-contents ${housingExpand.status}`}>
                                 <div className='tab-name'>
                                     <div className='checkbox'><img src={checkMark} alt='check icon'/></div>
                                     <p>Median Rent</p>
@@ -131,7 +131,7 @@ const Preferences = ({selected, toggleSelected})=> {
                             <img src={checkMark} className={`econ-tab-check ${selectedEcon.status}`} alt='check icon'/>
                     </div>
                     <div calssName={`econ-pref ${selectedEcon.status}`}>
-                        <div className='econ-contents'>
+                        <div className={`econ-contents ${econExpand.status}`}>
                                 <div className='tab-name'>
                                     <div className='checkbox'><img src={checkMark} alt='check icon'/></div>
                                     <p>Household income</p>
@@ -170,7 +170,7 @@ const Preferences = ({selected, toggleSelected})=> {
                             <img src={checkMark} className={`social-tab-check ${selectedSocial.status}`} alt='check icon'/>
                     </div>
                     <div calssName={`social-pref ${selectedSocial.status}`}>
-                            <div className='social-contents'>
+                            <div className={`social-contents ${socialExpand.status}`}>
                                 <div className='tab-name'>
                                     <div className='checkbox'><img src={checkMark} alt='check icon'/></div>
                                     <p>Population growth</p>
@@ -192,7 +192,7 @@ const Preferences = ({selected, toggleSelected})=> {
                                     <p>Marital status</p>
                                 </div>
                                 <div className='tab-name'>
-                                    <div className='Marital statuscheckbox'><img src={checkMark} alt='check icon'/></div>
+                                    <div className='checkbox'><img src={checkMark} alt='check icon'/></div>
                                     <p>School enrollment</p>
                                 </div>
                             </div>
