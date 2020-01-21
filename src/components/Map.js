@@ -32,6 +32,18 @@ export default function Map() {
           setSelected([...selected, res.data])
         })
   }
+
+  const getBestSuggestion = search => {
+    Axios.get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
+    .then(res => {
+      // if there's a suggestion
+      if (res.data) {
+        let suggestionKey = Object.keys(res.data)[0]
+        getCity(res.data[suggestionKey])  
+      }
+      // maybe add an error message if nothing is found
+    })
+  }
   
 
 
@@ -47,7 +59,6 @@ export default function Map() {
   }, [selected])
 
   const toggleSelected = cityMarker =>  {
-
     // if the City is alraedy selected, deselect it
     if (selected.find(item => item._id === cityMarker.ID)) {
         setSelected(selected.filter(item => item._id !== cityMarker.ID));
@@ -68,28 +79,20 @@ const selectSearch = cityMarker =>  {
 }
 
     const onSearch = e => {
-
       // TODO - More nimble handling on this autofill (use includes, remove commas,
       // handle state abbreviations)
-
       e.preventDefault();
       const found = cityMarkers.find(item => item.name.replace(" city", "") === search)
       if (found) {
-      selectSearch(found);
-      setViewport({
-        ...viewport,
-        longitude: found.lng,
-        latitude: found.lat
+        selectSearch(found);
+        // the viewport set below will require zoom handling based on population
+        setViewport({
+          ...viewport,
+          longitude: found.lng,
+          latitude: found.lat
       })
       } else {
-        Axios.get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
-        .then(res => {
-          // if there's a suggestion
-          if (res.data) {
-            let suggestionKey = Object.keys(res.data)[0]
-            getCity(res.data[suggestionKey])  
-          }
-        })
+        getBestSuggestion(search);
       }   
     }
 
