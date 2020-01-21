@@ -13,7 +13,8 @@ import Population from "../graphs/culture/PopulationGraph";
 import EducationGraph from "../graphs/culture/EducationGraph";
 import AgeDistributionGraph from "../graphs/culture/AgeDistrubution";
 import RetirementGraph from "../graphs/economics/retirement";
-import VacancyGraph from "../graphs/housing/vacancy"
+import VacancyGraph from "../graphs/housing/vacancy";
+
 import deleteIcon from "./icons/close_red.png";
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
@@ -95,6 +96,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} >Ethnicity</Link>
                                 <Link activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} >Population</Link>
                                 <Link activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} >Age Distribution</Link>
+                                <Link activeClass="active" className="anchor-link" to="totalPopulation" spy={true} smooth={true} duration={500} >Total Population</Link>
                             </div>
                             : null}
                         </div>
