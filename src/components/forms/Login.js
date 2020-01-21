@@ -28,10 +28,11 @@ const Login = props => {
         if (isLoading) {
             //axios call
             if(validated) {
-                console.log('axios call')
+                console.log(user)
                 axios
-                    .post('', user)
+                    .post('https://citrics-staging.herokuapp.com/api/auth/login', user)
                     .then(res => {
+                        
                         console.log(res)
                     })
                     .catch(error => {

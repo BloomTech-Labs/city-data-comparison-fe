@@ -36,15 +36,15 @@ const Signup = props => {
         if (isLoading) {
             //axios call
             if(validated) {
-                console.log('axios call')
+                console.log(user)
                 axios
-                    .post('', user)
+                    .post('https://citrics-staging.herokuapp.com/api/auth/register', user)
                     .then(res => {
                         console.log(res)
                     })
                     .catch(error => {
                         console.log(error)
-                        setLoginError('Email and ')
+                       // setLoginError('Email and ')
                     }) 
                 } 
         }
