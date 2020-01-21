@@ -8,6 +8,8 @@
     max-width:1000px;
 }
 
+
+
 /* this refers to the whole page (does not include navigation */
 
 .map-page {
@@ -105,6 +107,8 @@
                 }
             }
         }
+
+
 
         .slider {
             width: 100%;
@@ -217,9 +221,14 @@
             display:flex;
             justify-content:space-between;
             width:100%;
+            align-content:center;;
         }
 
-        span {
+        .color-legend-text {
+            color:black;
+        }
+
+        .delete-icon {
             cursor:pointer;
         }
 
