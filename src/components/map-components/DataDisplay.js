@@ -12,7 +12,8 @@ import EthnicityGraph from "../graphs/culture/EthnicityGraph";
 import Population from "../graphs/culture/PopulationGraph";
 import EducationGraph from "../graphs/culture/EducationGraph";
 import AgeDistributionGraph from "../graphs/culture/AgeDistrubution";
-import RetirementGraph from "../graphs/economics/retirement"
+import RetirementGraph from "../graphs/economics/retirement";
+import VacancyGraph from "../graphs/housing/vacancy"
 import deleteIcon from "./icons/close_red.png";
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
@@ -83,6 +84,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
                                 <Link activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} >Rent</Link>
                                 <Link activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} >Rooms</Link>
+                                <Link activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} >Vacancy Rate</Link>
                                 <h4 className="anchor-header">Jobs</h4>
                                 <Link activeClass="active" className="anchor-link" to="industries" spy={true} smooth={true} duration={500} >Industries</Link>
                                 <Link activeClass="active" className="anchor-link" to="salary" spy={true} smooth={true} duration={500} >Salary</Link>
@@ -115,6 +117,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
                     <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
                     <Element name="rooms" className="element" ><RoomGraph edData={selected} /></Element>
+                    <Element name="vacany" className="element" ><VacancyGraph edData={selected} /></Element>
                 </div> 
                 
 
