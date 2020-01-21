@@ -11,7 +11,8 @@ import BarGraph from "../graphs/economics/HouseIncome_BarGraph";
 import EthnicityGraph from "../graphs/culture/EthnicityGraph";
 import Population from "../graphs/culture/PopulationGraph";
 import EducationGraph from "../graphs/culture/EducationGraph";
-import AgeDistributionGraph from "../graphs/culture/AgeDistrubution"
+import AgeDistributionGraph from "../graphs/culture/AgeDistrubution";
+import RetirementGraph from "../graphs/economics/retirement"
 import deleteIcon from "./icons/close_red.png";
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
@@ -21,11 +22,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
     // fixed sidebar handling
     useEffect( _ => {
-        console.log(window.pageYOffset)
+        // console.log(window.pageYOffset)
     }, [offset])
 
     if (window.pageYOffset !== offset ){
-        console.log('hi')
+        // console.log('hi')
         setOffset(window.pageYOffset)
     } 
     
@@ -86,6 +87,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link activeClass="active" className="anchor-link" to="industries" spy={true} smooth={true} duration={500} >Industries</Link>
                                 <Link activeClass="active" className="anchor-link" to="salary" spy={true} smooth={true} duration={500} >Salary</Link>
                                 <Link activeClass="active" className="anchor-link" to="commute" spy={true} smooth={true} duration={500} >Commute</Link>
+                                <Link activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} >Retirement</Link>
                                 <h4 className="anchor-header">Culture</h4>
                                 <Link activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} >Education</Link>
                                 <Link activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} >Ethnicity</Link>
@@ -121,6 +123,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="industries" className="element" ><Industry edData={selected} /></Element>
                     <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
                     <Element name="commute" className="element" ><Commute edData={selected} /></Element>
+                    <Element name="retirement" className="element" ><RetirementGraph ethData={selected} /></Element>
                 </div>
                 <div className="culture-graphs data-category">
                     <h3>Cultural Statistics:</h3>     
