@@ -27,10 +27,7 @@ const AboutUs = props => {
      
     return(
         <div className="aboutUs">
-
             
-            
-               
         </div>
     )
 }
