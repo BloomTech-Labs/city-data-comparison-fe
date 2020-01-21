@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import ReactGA from "react-ga";
 
 
 const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, setViewport,selectSearch}) => {
@@ -15,6 +16,10 @@ const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, se
     
     
     const chooseSuggestion = city => {
+
+        ReactGA.event({ category: 'Search', 
+        action: `used autofill` });
+
         setSearch(city.name.replace(" city", ""));
         selectSearch(city);
         setSuggestions([]);

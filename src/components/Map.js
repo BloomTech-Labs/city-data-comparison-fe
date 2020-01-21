@@ -24,6 +24,30 @@ export default function Map() {
   
   const [search, setSearch] = useState("");
 
+  const getCity = cityMarker => {
+      Axios.get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
+      .then(res => {
+        console.log('DATA IS', res.data)
+        setSelected([...selected, res.data])
+      })
+  }
+
+  const getBestSuggestion = search => {
+    Axios.get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
+    .then(res => {
+      // if there's a suggestion
+      if (res.data) {
+        // get the best (first) suggestion and add it to state
+        let suggestionKey = Object.keys(res.data)[0]
+        getCity(res.data[suggestionKey])  
+      }
+      // maybe add an error message if nothing is found
+    })
+  }
+  
+
+
+  // Google Analytics Events
   useEffect( _ => {
     ReactGA.event({ category: 'Map', 
     action: 'loaded map' });
@@ -35,38 +59,43 @@ export default function Map() {
   }, [selected])
 
   const toggleSelected = cityMarker =>  {
-    console.log(cityMarker, "CITYMARKER")
-
+    // if the City is alraedy selected, deselect it
     if (selected.find(item => item._id === cityMarker.ID)) {
         setSelected(selected.filter(item => item._id !== cityMarker.ID));
-    } else {
-      Axios
-      .get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
-      .then(res => {
-        console.log('DATA IS', res.data)
-        setSelected([...selected, res.data])
-      })
+    } 
+    // Outerwise get the city's data and add it to selected array
+    else {
+      getCity(cityMarker);
     }
 }
 
 const selectSearch = cityMarker =>  {
-  if (selected.find(item => item === cityMarker)) {
+  // Stop function and return if the city is already selected
+  if (selected.find(item => item._id === cityMarker.ID)) {
       return;
   } else {
-      setSelected([...selected, cityMarker]);
+      getCity(cityMarker);
   }
 }
 
     const onSearch = e => {
+      // TODO - More nimble handling on this autofill (use includes, remove commas,
+      // handle state abbreviations)
       e.preventDefault();
       const found = cityMarkers.find(item => item.name.replace(" city", "") === search)
-      selectSearch(found);
-      setViewport({
-        ...viewport,
-        longitude: found.lng,
-        latitude: found.lat
+      if (found) {
+        selectSearch(found);
+        // the viewport set below will require zoom handling based on population
+        setViewport({
+          ...viewport,
+          longitude: found.lng,
+          latitude: found.lat
       })
-      
+      } else {
+        ReactGA.event({ category: 'Data', 
+        action: `used suggestion endpoint: ${search}` });
+        getBestSuggestion(search);
+      }   
     }
 
     const onViewportChange = viewport => {
@@ -80,12 +109,15 @@ const selectSearch = cityMarker =>  {
           <div className="map">
               <MapWrapper className="main-map">
                 <ReactMapGL
-                    mapStyle='mapbox://styles/mapbox/light-v9'
+                  // mapStyle='mapbox://styles/mapbox/light-v10'
+                    mapStyle='mapbox://styles/brunchtime/ck5miuybu2in21ipq7j47ey29'
                     {...viewport}
                     mapboxApiAccessToken={
                     'pk.eyJ1IjoiYnJ1bmNodGltZSIsImEiOiJjazIwdG80MGkxN3lmM25vaWZ5cThkZDU1In0.uYqrXjiEyUL1mTEO_N5-0w'
                     }
-                    onViewportChange={onViewportChange}>
+                    onViewportChange={onViewportChange}
+                    >
+                    
                     <Markers 
                       cityMarkers={cityMarkers}
                       selected={selected}
