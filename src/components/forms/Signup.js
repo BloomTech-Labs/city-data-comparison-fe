@@ -6,7 +6,7 @@ import axios from 'axios'
 
 //styling
 import './forms.scss';
-import './signupform.scss'; 
+ 
 
 //buttons
 import Facebook from './buttons/Facebook.js';
@@ -99,7 +99,7 @@ const Signup = props => {
                 hide={toggle}
                 component={modalState}
                 />
-            <div className='signup'>
+            <div className='signup' style={{'background': 'linear-gradient(90deg, #C5CDFD 43.2%, #5D73FA 43.2%)'}}>
             
                     <div className="inner-form">
                         <div className="form">

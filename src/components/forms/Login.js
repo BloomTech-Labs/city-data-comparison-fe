@@ -10,7 +10,7 @@ import Linkedin from './buttons/Linkedin'
 
 import axios from 'axios';
 
-
+import './forms.scss'
 
 
 const Login = props => {
@@ -76,7 +76,7 @@ const Login = props => {
             
     }
     return(
-             <div className='login'>
+             <div className='login' style={{'background': 'linear-gradient(90deg, #FACE8F 43.2%, #F49D20 43.2%)'}}>
                   
            
            <div className="inner-form">
