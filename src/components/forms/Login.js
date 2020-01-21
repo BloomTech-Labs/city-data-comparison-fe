@@ -7,7 +7,7 @@ import city from '../../assets/forms/sf_sign_in.png'
 import Facebook from './buttons/Facebook'
 import Google from './buttons/Google'
 import Linkedin from './buttons/Linkedin'
-import LoginButton from './buttons/AnimatedButton'
+
 
 import axios from 'axios';
 
@@ -104,8 +104,8 @@ const Login = props => {
                        <input className="password" type='password' name='password' placeholder="Password" value={user.password} onChange={onChange}/>
                        
                        
-                        <LoginButton htmlType='submit' name="Start Exploring Cities" onClick={onSubmit}></LoginButton>
-                       {/* <button className="login-button" htmlType="submit" onClick={() => setIsLoading(true)}>Start exploring cities</button> */}
+                       
+                       <button className="login-button" htmlType="submit" onClick={() => setIsLoading(true)}>Start exploring cities</button>
                        <p className='question'>Have an account? <Link className='link-signup' to='/signup'>Sign up</Link> to explore cities</p>
                    </form>
                </div>

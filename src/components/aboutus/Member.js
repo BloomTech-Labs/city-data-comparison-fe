@@ -1,5 +1,7 @@
 import React from 'react'; 
 
+import './aboutus.scss'
+
 
 const Member = props => {
     return(
@@ -7,8 +9,10 @@ const Member = props => {
         <h3>The Masterminds Behind Citrics</h3>
 
             <div className='member-display'>
-                <img src={props.member.image} alt={props.member.name}/>
-
+                <div className="member-photo">
+                    <img src={props.member.image} alt={props.member.name}/>
+                </div>
+                
                 <div className="member-info">
                     <p className="member-name">{props.member.name}</p>
                     <p className="member-role">{props.member.role}</p>
