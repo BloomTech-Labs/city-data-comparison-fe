@@ -313,9 +313,12 @@
     }
 
     .nav-bottom-anchor {
-        width:20%;
-        position:absolute;
-        bottom: -3250px;
+        
+        height:100%;
+        justify-content:flex-end;
+        padding-bottom:130px;
+        // position:absolute;
+        // bottom: -3250px;
         
         
     }
