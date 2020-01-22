@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from "styled-components";
 
 const CenterCard = styled.h2`
@@ -8,16 +8,16 @@ justify-content:center;
 `
 function TotalPopulation({ethData}) {
     // console.log(ethData, "ETH")
-	const colorifier = lat => {
+	// const colorifier = lat => {
 
-        let arr = String(lat).replace(".","").split("");
+    //     let arr = String(lat).replace(".","").split("");
     
-        let num1 = arr.pop();
-        let num2 = arr.pop();
-        let num3 = arr.pop();
+    //     let num1 = arr.pop();
+    //     let num2 = arr.pop();
+    //     let num3 = arr.pop();
     
-        return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
-        }
+    //     return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
+    //     }
 
 
 	
