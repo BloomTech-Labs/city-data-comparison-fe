@@ -544,6 +544,7 @@ html,body{
         font-size:1.1rem;
         .compare-toggle-button{
           border:none;
+          border:none;
           font-size:1.1rem;
           color:#2ca4fc;
           background-color:white;
@@ -603,7 +604,10 @@ html,body{
     }
 
     .compare-button{
+      border:none;
+      border-radius:5px;
       font-size:1.1rem;
+      font-weight:500;
       padding:14px 55px;
       background-color:#2ca4fc;
       color:white;
@@ -758,7 +762,7 @@ html,body{
 }
 @media screen and (max-width:900px){
   .kevin{
-    height:350px;
+    height:370px;
   }
   .dashboard-features-container{
     padding-left:5%;
@@ -770,6 +774,11 @@ html,body{
       margin-bottom:15px;
     }
 
+  }
+}
+@media screen and (max-width:600px){
+  .kevin{
+    height:400px;
   }
 }
 @media screen and (max-width:500px){
@@ -852,6 +861,20 @@ html,body{
     padding: 3% 5%;
   }
 }
+@media screen and (max-width:800px){
+  .dashboard-metrics-container{
+    margin-bottom:30px;
+    
+    .dashboard-metrics{
+      .metrics-description-container{
+        height:auto;
+      }
+    }
+    .metrics-title{
+      margin-bottom:0px !important;
+    }
+  }
+}
 @media screen and (max-width:500px){
   .dashboard-metrics-container{
     margin-bottom:0px;
@@ -910,7 +933,8 @@ html,body{
     padding-top:10px;
   }
   .footer-CTA{
-    width:30%;
+    // border:1px solid red;
+    width:50%;
     display:flex;
     flex-wrap:wrap;
     align-content:space-between;
@@ -925,11 +949,10 @@ html,body{
     .footer-CTA-button{
       background-color:#2ca4fc;
       color:white;
-      padding:10px 20px;
+      padding:10px 40px;
       border-radius:5px;
       border:none;
-      font-size:1.3rem;
-      font-weight:400;
+      font-size:1.2rem;
       transition:0.22s ease;
 
       cursor:pointer;
@@ -984,6 +1007,9 @@ html,body{
   }
 }
 @media screen and (max-width:800px){
+  .footer-CTA{
+    width:30%;
+  }
   .copyright-mobile{
     display:none;
   }
@@ -1004,11 +1030,11 @@ html,body{
 
     .footer-CTA-button{
       min-width:300px;
-    height:40px;
-    font-size:1.1rem;
-    padding:0 10px;
-    text-align:center;
-    font-weight:500;
+      height:40px;
+      font-size:1.1rem;
+      padding:0 10px;
+      text-align:center;
+      font-weight:500;
     }
   }
   .footer-CTA-description{
