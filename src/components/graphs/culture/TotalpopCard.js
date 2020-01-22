@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
 import styled from "styled-components";
 
 const CenterCard = styled.h2`
