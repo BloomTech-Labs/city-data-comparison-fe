@@ -142,6 +142,26 @@ function Dashboard(){
 
 
 
+     //* TOGGLING BUTTONS */
+     const [buttonClass, setButtonClass] = useState("")
+     const [toggleSearch, setToggleSearch] = useState(true)
+
+     const toggleClass = () => {
+          if(buttonClass === "search-toggle-green"){
+               setButtonClass("")
+               setToggleSearch(true)
+          } else {
+               setButtonClass("search-toggle-green")
+               setToggleSearch(!toggleSearch)
+          }
+     }
+     const toggleStyle = {
+          marginLeft: "15px",
+          fontSize:"1.1rem",
+          color:"grey",
+          color: buttonClass === "search-toggle-green" ? "" : "search-toggle-green"
+     }
+
 
      return(
           <div className="dashboard-container">
@@ -153,13 +173,22 @@ function Dashboard(){
                          <p className="dashboard-title">Make Your Move.</p>
                          {/* SEARCH CONTAINER */}
                          <div className="dashboard-function-container">
-                              {/* SINGLE SEARCH FUNCTION */}
+                              <div id="search-toggle">
+                                   <label className="switch">
+                                        <input type="checkbox"
+                                         onClick={toggleClass}
+                                        />
+                                        <span className="slider round"></span>
+                                   </label>
+                                        <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
+                              </div>
+
+                              { toggleSearch ? 
                               <div className="dashboard-single-search-container">
-                                   <p className="search-label">Search for a city:</p>
                                    <form onSubmit={submitCity}>
                                         <div>
                                              <input 
-                                             placeholder="San Francisco, CA"
+                                             placeholder="Search for a city"
                                              onChange={searchChange}
                                              value={search}
                                              />
@@ -174,28 +203,20 @@ function Dashboard(){
                                                             textAlign:"left",
                                                             padding:"10px",
                                                             boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
-                                                            hover:{}
                                                        }                                                       
                                                        return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
                                                   })}
                                              </div>
                                         </div>
                                    </form>
-
-                                   <p className="single-toggle-description">Want to learn about more cities? Click the link to compare multiple cities. <button className="compare-toggle-button">Compare cities</button></p> 
                               </div>
 
-
-
-
-
-                              {/* COMPARE CITIES FUNCTION */}
+                              :
                               <div className="dashboard-compare-search-container">
-                                   <p className="search-label">Compare cities:</p>
                                    <form onSubmit={submitCities}>
                                         <div>
                                              <input 
-                                             placeholder="San Francisco, CA"
+                                             placeholder="Search for a city"
                                              onChange={handleCityOne}
                                              value={compare.cityOne}
                                              />                 
@@ -213,10 +234,9 @@ function Dashboard(){
                                                   })}
                                              </div>
                                         </div>
-
                                         <div>
                                              <input 
-                                             placeholder="San Francisco, CA"
+                                             placeholder="Search for a city"
                                              onChange={handleCityTwo}
                                              value={compare.cityTwo}
                                              />
@@ -238,9 +258,9 @@ function Dashboard(){
                                                   <button className="compare-button">Compare</button>
                                              </Link>
                                    </form>
-
-
                               </div>
+
+                              }
                          </div>
                     </div>
                     {/* LANDING IMAGE */}
