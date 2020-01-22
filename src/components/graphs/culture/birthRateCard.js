@@ -23,7 +23,7 @@ function TotalPopulation({ethData}) {
 	
 	return (
 		<div className="dataCards">
-            <h1>Monthly Owner Costs</h1>
+            <h1>Recent Mothers</h1>
 
             {ethData.map(item => 
                 <div key={item._id}>

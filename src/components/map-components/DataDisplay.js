@@ -21,6 +21,7 @@ import TotalPopulation from "../graphs/culture/TotalpopCard";
 import TravelTime from "../graphs/economics/TravelTimeCard";
 import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
+import BirthRateCard from "../graphs/culture/birthRateCard"
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
 
@@ -132,6 +133,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <h4 className="anchor-header">Culture</h4>
                                 <Link onClick={() => dataNavClicked("education")} activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} >Education</Link>
                                 <Link onClick={() => dataNavClicked("ethnicity")} activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} >Ethnicity</Link>
+                                <Link onClick={() => dataNavClicked("birthRate")} activeClass="active" className="anchor-link" to="birthRate" spy={true} smooth={true} duration={500} >Birth Rate</Link>
                                 <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} >Population</Link>
                                 <Link onClick={() => dataNavClicked("ageDistribution")} activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} >Age Distribution</Link>
                                 <Link onClick={() => dataNavClicked("totalPopulation")} activeClass="active" className="anchor-link" to="totalPopulation" spy={true} smooth={true} duration={500} >Total Population</Link>
@@ -180,6 +182,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <h3>Cultural Statistics:</h3>     
                     <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
                     <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
+                    <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
                     <Element name="population" className="element" ><Population selected = {selected} /></Element>
                     <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
                     <Element name="totalPopulation" className="element" ><TotalPopulation ethData = {selected} /></Element>
