@@ -367,10 +367,11 @@ html,body{
 
 .dashboard-search-container{
   margin-top:120px;
-  margin-bottom:90px;
+  margin-bottom:50px;
   margin-left:4%;
   display:flex;
   justify-content:space-between;
+  
 
   .dashboard-image{
     width:55%;
@@ -381,49 +382,128 @@ html,body{
     }
   }
 
+  // * TOGGLE FUNCTION
+  #search-toggle{
+    display:inline;
+    margin-top:5px;
+    display:flex;
+    align-items:center;
+    color:grey;
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 23px;
+    }
+
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .3s;
+      transition: .3s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 17.42px;
+      width: 17.42px;
+      left: 2.7px;
+      bottom: 2.7px;
+      background-color: white;
+      -webkit-transition: .3s;
+      transition: .3s;
+    }
+
+    input:checked + .slider {
+      background-color: #00bfa5;
+
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #00bfa5;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(17.42px);
+      -ms-transform: translateX(17.42px);
+      transform: translateX(17.42px);
+    }
+
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+
+    .search-toggle-green{
+      color:#00bfa5;
+    }
+  }
+
+  // * SEARCH FUNCION
   .dashboard-search-function{
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
     width:45%;
+    
 
     .dashboard-title{
-      margin-top:40px;
+      margin-top:30px;
       width:100%;
       font-weight:500;
       font-size:7.5vw;
       line-height:1;
-      margin-bottom:55px;
+      margin-bottom:35px;
     }
 
 
+    input{
+      background-image:url('./components/dashboard/assets/search.svg');
+      background-position:10px 12px;
+      background-repeat: no-repeat;
+      background-color: #f7f9f9;
+
+      padding:13px 40px;
+      font-size:1.1rem;
+      border:none;
+      padding-left:39px;
+      width:80%;
+      border:1px solid #b8bec4;
+      border-top-left-radius:5px;
+      border-bottom-left-radius:5px;
+      border-right:none;
+      box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.07);
+
+      &:focus{
+        outline:none;
+        filter:brightness(110%)
+      }
+    }
+
+      .imageStyle{
+        height:17px;
+        width:20px;
+      }
+
+    // * SINGLE SEARCH CONTAINER
     .dashboard-single-search-container{
       font-size:1.1rem;
-      
-      .search-label{
-        margin-bottom:7px;
-      }
-
-      form{
-        input{
-          background-color: #f7f9f9;
-          padding:13px 40px;
-          font-size:1.1rem;
-          border:none;
-          padding-left:15px;
-          width:80%;
-          border:1px solid #b8bec4;
-          border-top-left-radius:5px;
-          border-bottom-left-radius:5px;
-          border-right:none;
-
-          &:focus{
-            outline:none;
-          }
-        }
-
-        .imageStyle{
-          height:17px;
-          width:20px;
-        }
-      }
 
       .search-button{
         font-size:1.1rem;
@@ -438,6 +518,7 @@ html,body{
         width:16%;
         transition:0.22s ease;
         margin-left:0;
+        box-shadow:0 1px 16px 0 rgba(0, 0, 0, 0.07);
 
         cursor:pointer;
         &:focus{
@@ -471,10 +552,44 @@ html,body{
 
 
     .dashboard-compare-search-container{
-      display:none;
+      
+        input{
+          border-radius:5px;
+          border:1px solid #b8bec4;
+          margin-bottom:10px;
+        }
+
+        .compare-button{
+          margin-top:10px;
+          font-size:1.1rem;
+          padding:14px 15px;
+          background-color:#2ca4fc;
+          color:white;
+          width:30%;
+          transition:0.22s ease;
+          box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.07);
+
+          cursor:pointer;
+          &:focus{
+            outline:0;
+          }
+          &:hover{
+            filter: brightness(115%);
+          }
+        }
+
+
     }
   }
 }
+
+
+
+
+
+
+
+
 
 @media screen and (max-width:700px){
       .dashboard-search-container{
