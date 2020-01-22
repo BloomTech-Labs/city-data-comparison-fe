@@ -5,12 +5,10 @@ import LineGraph2 from '../graphs/TwoGraph'
 import RadarGraph from '../graphs/RadarGraph'
 import ReactGA from "react-ga";
 
-import graph from './assets/graph.svg'
 import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
-import motorbike from './assets/motorbike2.png'
 
 import landing from './assets/landing2.jpg'
 
@@ -25,6 +23,7 @@ import { CityContext } from '../../contexts/CityContext';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import "../../App.scss"
 
 function Dashboard(){
 
@@ -143,20 +142,53 @@ function Dashboard(){
 
 
 
+     //* TOGGLING BUTTONS */
+     const [buttonClass, setButtonClass] = useState("")
+     const [toggleSearch, setToggleSearch] = useState(true)
+
+     const toggleClass = () => {
+          if(buttonClass === "search-toggle-green"){
+               setButtonClass("")
+               setToggleSearch(true)
+          } else {
+               setButtonClass("search-toggle-green")
+               setToggleSearch(!toggleSearch)
+          }
+     }
+     const toggleStyle = {
+          marginLeft: "15px",
+          fontSize:"1.1rem",
+          color:"grey",
+          color: buttonClass === "search-toggle-green" ? "" : "search-toggle-green"
+     }
+
 
      return(
           <div className="dashboard-container">
+
+               {/* * LANDING PAGE AND SEARCH FUNCTION */}
                <div className="dashboard-search-container">
                     <div className="dashboard-search-function">
+                         {/* TITLE */}
                          <p className="dashboard-title">Make Your Move.</p>
-
+                         {/* SEARCH CONTAINER */}
                          <div className="dashboard-function-container">
+                              <div id="search-toggle">
+                                   <label className="switch">
+                                        <input type="checkbox"
+                                         onClick={toggleClass}
+                                        />
+                                        <span className="slider round"></span>
+                                   </label>
+                                        <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
+                              </div>
+
+                              { toggleSearch ? 
                               <div className="dashboard-single-search-container">
-                                   <p className="search-label">Search for a city:</p>
                                    <form onSubmit={submitCity}>
                                         <div>
                                              <input 
-                                             placeholder="San Francisco, CA"
+                                             placeholder="Search for a city"
                                              onChange={searchChange}
                                              value={search}
                                              />
@@ -170,28 +202,21 @@ function Dashboard(){
                                                             fontSize:"1rem",
                                                             textAlign:"left",
                                                             padding:"10px",
-                                                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
-                                                       }
+                                                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
+                                                       }                                                       
                                                        return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
                                                   })}
                                              </div>
                                         </div>
                                    </form>
-
-                                   <p className="single-toggle-description">Want to learn about more cities? Click the link to compare multiple cities. <button className="compare-toggle-button">Compare cities</button></p> 
                               </div>
 
-
-
-
-
-
+                              :
                               <div className="dashboard-compare-search-container">
-                                   <p className="search-label">Compare cities:</p>
                                    <form onSubmit={submitCities}>
                                         <div>
                                              <input 
-                                             placeholder="San Francisco, CA"
+                                             placeholder="Search for a city"
                                              onChange={handleCityOne}
                                              value={compare.cityOne}
                                              />                 
@@ -209,10 +234,9 @@ function Dashboard(){
                                                   })}
                                              </div>
                                         </div>
-
                                         <div>
                                              <input 
-                                             placeholder="San Francisco, CA"
+                                             placeholder="Search for a city"
                                              onChange={handleCityTwo}
                                              value={compare.cityTwo}
                                              />
@@ -234,69 +258,18 @@ function Dashboard(){
                                                   <button className="compare-button">Compare</button>
                                              </Link>
                                    </form>
-
-
                               </div>
+
+                              }
                          </div>
                     </div>
-
-
+                    {/* LANDING IMAGE */}
                     <div className="dashboard-image">
                          <img className="landing-image" src={landing} alt="environment" />
                     </div>
                </div>
-
-
-
-               {/* SEARCH FUNCTION */}
-               {/* <div className="dashboard-search-container">
-                    <div className="slanted-san-francisco"></div>
-                    <div className="search-function"
-                         data-aos="fade-down"
-                         data-aos-offset="200"
-                         data-aos-delay="50"
-                         data-aos-duration="1000"
-                         data-aos-easing="ease-in-out"
-                         data-aos-mirror="true"
-                         data-aos-once="true"
-                    >
-                         <h1>Make Your Move.</h1>
-                         <p className="cities-description">Search for a city:</p>
-
-
-                         
-                         <form onSubmit={submitCity}>
-
-                                   <div>
-                                        <input 
-                                        placeholder="San Francisco, CA"
-                                        onChange={searchChange}
-                                        value={search}
-                                        />
-                                        <Link to="map/jobs/standards"><button type="submit" className="search-city-button">Go</button></Link>
-                                        <div>
-                                             
-
-                                             {suggestions.map( (suggestion) => {
-                                                  const style = {
-                                                       backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                       cursor: "pointer",
-                                                       fontSize:"1rem",
-                                                       textAlign:"left",
-                                                       padding:"10px",
-                                                       boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
-                                                  }
-                                                  return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin" /> {suggestion.name.replace(" city", "")}</div>
-                                             })}
-                                        </div>
-                                   </div>
-                              </form> 
-                         <p className="cities-description-two">Want to learn about more cities? Click the button below to compare multiple cities.</p>
-                         <a href="#compareanchor"><button className="compare-cities-button">Compare cities</button></a>
-                    </div>
-               </div> */}
                
-               {/* Sign Up call-to-action */}
+               {/* SIGN UP CALL TO ACTION */}
                <div className="kevinmotor">
                <div className="bonus-features-container"
                     data-aos="fade-right"
@@ -384,7 +357,7 @@ function Dashboard(){
                </div>
                </div>
 
-               {/* TOP CITY METRICS */}
+               {/* VISUALIZING DATA CONTAINER */}
                <div className="dashboard-metrics-container">
                     <p className="metrics-title">Visualizing data made easier</p>
                     <div className="dashboard-metrics">
@@ -397,9 +370,6 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-                              {/* <p className="metrics-subtitle">Housing</p> */}
-                              {/* <img src={graph} alt="living cost graph" /> */}
-                              
                               <LineGraph2 />
                               <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
@@ -412,9 +382,6 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-                              {/* <p className="metrics-subtitle">Community</p> */}
-                              {/* <img src={graph} alt="living cost graph" /> */}
-                              
                               <LineGraph />
                               <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
@@ -427,16 +394,72 @@ function Dashboard(){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-                              {/* <p className="metrics-subtitle">Industry</p> */}
-                              {/* <img src={graph} alt="living cost graph" /> */}
                               <RadarGraph />
                               <p className="metrics-description">Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
                     </div>
                </div>
+          </div>
+     )
+}
 
-              
-               {/* <HousePrice /> */}
+export default Dashboard;
+
+
+
+
+{/* SEARCH FUNCTION */}
+               {/* <div className="dashboard-search-container">
+                    <div className="slanted-san-francisco"></div>
+                    <div className="search-function"
+                         data-aos="fade-down"
+                         data-aos-offset="200"
+                         data-aos-delay="50"
+                         data-aos-duration="1000"
+                         data-aos-easing="ease-in-out"
+                         data-aos-mirror="true"
+                         data-aos-once="true"
+                    >
+                         <h1>Make Your Move.</h1>
+                         <p className="cities-description">Search for a city:</p>
+
+
+                         
+                         <form onSubmit={submitCity}>
+
+                                   <div>
+                                        <input 
+                                        placeholder="San Francisco, CA"
+                                        onChange={searchChange}
+                                        value={search}
+                                        />
+                                        <Link to="map/jobs/standards"><button type="submit" className="search-city-button">Go</button></Link>
+                                        <div>
+                                             
+
+                                             {suggestions.map( (suggestion) => {
+                                                  const style = {
+                                                       backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                       cursor: "pointer",
+                                                       fontSize:"1rem",
+                                                       textAlign:"left",
+                                                       padding:"10px",
+                                                       boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
+                                                  }
+                                                  return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin" /> {suggestion.name.replace(" city", "")}</div>
+                                             })}
+                                        </div>
+                                   </div>
+                              </form> 
+                         <p className="cities-description-two">Want to learn about more cities? Click the button below to compare multiple cities.</p>
+                         <a href="#compareanchor"><button className="compare-cities-button">Compare cities</button></a>
+                    </div>
+               </div> */}
+
+
+
+
+
 
                {/* COMPARE CITIES FUNCTION */}
                {/* <div className="dashboard-compare-container"
@@ -514,8 +537,3 @@ function Dashboard(){
                          </div>
                     </div>
                </div> */}
-          </div>
-     )
-}
-
-export default Dashboard;

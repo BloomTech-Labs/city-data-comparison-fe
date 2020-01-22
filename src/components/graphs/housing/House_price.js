@@ -18,8 +18,10 @@ export default function HousePriceGraph({selected}) {
 
     useEffect(() => {
         let data = selected[0];
-        if (data) {
+        if (data["Historical Property Value Data"]["Average Home Value"]) {
             setLabels(Object.keys(data["Historical Property Value Data"]["Average Home Value"]))
+        } else if (data["Historical Property Value Data"]["Four Bedroom Houses"]){ 
+            setLabels(Object.keys(data["Historical Property Value Data"]["Two Bedroom Houses"]))
         }
     }, [selected])
   
@@ -36,8 +38,16 @@ export default function HousePriceGraph({selected}) {
                   return {
                     label: item.name_with_com,
                     fill: false,
-                    data: labels.map(label => item["Historical Property Value Data"]["Average Home Value"][label]),
-                    borderColor:
+                    data:  item["Historical Property Value Data"]["Average Home Value"]
+                      ? labels.map(label => item["Historical Property Value Data"]["Average Home Value"][label])
+                      : item["Historical Property Value Data"]["Four Bedroom Houses"]
+                        ? labels.map(label => item["Historical Property Value Data"]["Four Bedroom Houses"][label]) 
+                        : item["Historical Property Value Data"]["Three Bedroom Houses"]
+                          ? labels.map(label => item["Historical Property Value Data"]["Three Bedroom Houses"][label])
+                          : item["Historical Property Value Data"]["Two Bedroom Houses"]
+
+                      ,
+                      borderColor:
                       colorifier(item.Longitude)
                       
 

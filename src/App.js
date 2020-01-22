@@ -34,16 +34,12 @@ function App() {
   let index = []
   
   Object.keys(citiesIndex).forEach(item => {
-    if(citiesIndex[item].population > 500000){
       // console.log(citiesIndex[item])
       let city = citiesIndex[item]
       city.name = item
       index.push(city)
-
-    }
-
   })
-  // console.log(index, "INDEX")
+
 
   const [user, setUser] = useState({});
   const [cityMarkers, setCityMarkers] = useState(index);
@@ -51,17 +47,33 @@ function App() {
   const [viewport, setViewport] = useState({
     width: '100%',
     height: '100%',
-    latitude: 39,
     longitude: -95,
+    latitude: 39,
     zoom: 3,
-    trackResize: true
-  });
+    minZoom: 3,
+    trackResize: true,
 
+
+  });
+// this filters the map markers based on zoom - Closer zoom, lesser population cap
+  useEffect( _ => {
+    if (viewport.zoom < 4) {
+      setCityMarkers(index.filter(city => city.population > 500000))
+    }
+    if (viewport.zoom >= 4 && viewport.zoom < 5) {
+      setCityMarkers(index.filter(city => city.population > 300000))
+    }
+    if (viewport.zoom >= 5 && viewport.zoom < 6) {
+      setCityMarkers(index.filter(city => city.population > 100000))
+    }
+  },[viewport.zoom])
+
+
+  //Analytics Events
   useEffect( _ => {
     ReactGA.event({ category: 'Map', 
     action: 'Changed map location' });
   }, [viewport.latitude])
-
   useEffect( _ => {
     ReactGA.event({ category: 'Map', 
     action: 'Changed map zoom' });
