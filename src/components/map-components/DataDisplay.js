@@ -19,6 +19,7 @@ import UnemploymentCard from "../graphs/economics/unemploymentCard";
 import deleteIcon from "./icons/close_red.png";
 import TotalPopulation from "../graphs/culture/TotalpopCard";
 import TravelTime from "../graphs/economics/TravelTimeCard"
+import HealthInsurance from "../graphs/economics/HealthInsuranceCard"
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
 
@@ -120,6 +121,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 
                                 <h4 className="anchor-header">Jobs</h4>
                                 <Link onClick={() => dataNavClicked("industries")} activeClass="active" className="anchor-link" to="industries" spy={true} smooth={true} duration={500} >Industries</Link>
+                                <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} >Health Insurance</Link>
                                 <Link onClick={() => dataNavClicked("salary")} activeClass="active" className="anchor-link" to="salary" spy={true} smooth={true} duration={500} >Salary</Link>
                                 <Link onClick={() => dataNavClicked("travelTime")} activeClass="active" className="anchor-link" to="travelTime" spy={true} smooth={true} duration={500} >Travel Time to Work</Link>
                                 <Link onClick={() => dataNavClicked("commute")} activeClass="active" className="anchor-link" to="commute" spy={true} smooth={true} duration={500} >Commute</Link>
@@ -164,6 +166,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 <div className="jobs-graphs data-category">
                     <h3>Job Market:</h3>
                     <Element name="industries" className="element" ><Industry edData={selected} /></Element>
+                    <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
                     <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
                     <Element name="travelTime" className="element" ><TravelTime ethData = {selected} /></Element>
                     <Element name="commute" className="element" ><Commute edData={selected} /></Element>
