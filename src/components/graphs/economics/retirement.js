@@ -1,7 +1,9 @@
 import React from 'react';
-import {Bar} from 'react-chartjs-2';
+import {Pie} from 'react-chartjs-2';
 
-export default function EducationGraph (props) {
+export default function RetirementGraph({ethData}) {
+
+    
 
   const colorifier = lat => {
 
@@ -13,28 +15,24 @@ export default function EducationGraph (props) {
 
     return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
   }
-  
+
 
     return (
       <div className="charts" >
         
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
-            <Bar
+            <Pie
               data={{
-                labels: ["Drives Alone",  "Carpools", "Public Transport",  "Other transport", "Walks", "Works at home"],
-                datasets: props.edData.map( item => {
+                labels:  ["With Social Security", "With retirement income", "With Supplemental Security Income"],
+                datasets: ethData.map( item => {
                   
                   return {
                     label: item.name_with_com,
                     data: [
-                      item["Commuting to Work"]["Drives Alone"],
-                      item["Commuting to Work"]["Carpools"],
-                      item["Commuting to Work"]["Public Transport"],
-                      item["Commuting to Work"]["Other transport"],
-                      item["Commuting to Work"]["Walks"],
-                      item["Commuting to Work"]["Works at home"],
-                                         
-                      
+                      item["Retirement Percent"]["With Social Security"],
+                      item["Retirement Percent"]["With retirement income"],
+                      item["Retirement Percent"]["With Supplemental Security Income"],
+                                
                     ],
                     backgroundColor:
                       colorifier(item.Longitude)
@@ -47,33 +45,32 @@ export default function EducationGraph (props) {
               options={{
                 title:{
                   display:true,
-                  text:'Ways to Commute',
+                  text:'Retirement Percent',
                   fontSize:25
                 },
                 legend:{
-                  display:false,
-                  position:"top",
+                  display: false,
                 },
                 scales: {
                   xAxes: [ {
                     
-                    display: true,
+                    display: false,
                     gridLines: {
                       display:false,
                     },
                     scaleLabel: {
-                      display: true,
-                      labelString: 'Commute'
+                      display: false,
+                      labelString: 'Retirement Percent'
                     },
                   } 
                   ],
                   yAxes: [ {
-                    display: true,
+                    display: false,
                     gridLines: {
                       display:false,
                     },
                     scaleLabel: {
-                      display: true,
+                      display: false,
                       labelString: 'Percent',
                       ticks: {
                         beginAtZero: true

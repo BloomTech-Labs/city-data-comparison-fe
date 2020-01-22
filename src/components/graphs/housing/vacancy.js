@@ -1,7 +1,7 @@
 import React from 'react';
-import {Bar} from 'react-chartjs-2';
+import {Pie} from 'react-chartjs-2';
 
-export default function EducationGraph (props) {
+export default function VacancyGraph (props) {
 
   const colorifier = lat => {
 
@@ -19,35 +19,34 @@ export default function EducationGraph (props) {
       <div className="charts" >
         
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
-            <Bar
+            <Pie
               data={{
-                labels: ["Drives Alone",  "Carpools", "Public Transport",  "Other transport", "Walks", "Works at home"],
+                
+                labels: ["Homeowner vacancy rate", "Rental vacancy rate"],
                 datasets: props.edData.map( item => {
                   
                   return {
                     label: item.name_with_com,
                     data: [
-                      item["Commuting to Work"]["Drives Alone"],
-                      item["Commuting to Work"]["Carpools"],
-                      item["Commuting to Work"]["Public Transport"],
-                      item["Commuting to Work"]["Other transport"],
-                      item["Commuting to Work"]["Walks"],
-                      item["Commuting to Work"]["Works at home"],
-                                         
+                      item["Vacancy Rate"]["Homeowner vacancy rate"],
+                      item["Vacancy Rate"]["Rental vacancy rate"],
+                                       
                       
                     ],
                     backgroundColor:
-                      colorifier(item.Longitude)
-                      
+                      colorifier(item.Longitude),
+                      // colorifier(item.Latitude)
+                    
 
                   }
                 })
 
               }}
+              
               options={{
                 title:{
                   display:true,
-                  text:'Ways to Commute',
+                  text:'Vacancy Rate',
                   fontSize:25
                 },
                 legend:{
@@ -57,18 +56,18 @@ export default function EducationGraph (props) {
                 scales: {
                   xAxes: [ {
                     
-                    display: true,
+                    display: false,
                     gridLines: {
                       display:false,
                     },
                     scaleLabel: {
                       display: true,
-                      labelString: 'Commute'
+                      labelString: 'Rate'
                     },
                   } 
                   ],
                   yAxes: [ {
-                    display: true,
+                    display: false,
                     gridLines: {
                       display:false,
                     },
@@ -82,6 +81,7 @@ export default function EducationGraph (props) {
 
                   } ]
                 }
+                
               }}
             /> 
           </div>

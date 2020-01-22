@@ -110,8 +110,7 @@ function Dashboard({history}){
                let found2 = cityMarkers.find(item => item.name.replace(" city", "") === compare.cityTwo)
                if (found && found2) {
                     getCities([found, found2]);
-                    
-                    
+                         
                     // the viewport set below will require zoom handling based on population
                     setViewport({
                          ...viewport,
@@ -168,16 +167,8 @@ function Dashboard({history}){
                          <p className="dashboard-title">Make Your Move.</p>
                          {/* SEARCH CONTAINER */}
                          <div className="dashboard-function-container">
-                              <div id="search-toggle">
-                                   <label className="switch">
-                                        <input type="checkbox"
-                                         onClick={toggleClass}
-                                        />
-                                        <span className="slider round"></span>
-                                   </label>
-                                        <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
-                              </div>
-
+                              
+                              
                               { toggleSearch ? 
                               <div className="dashboard-single-search-container">
                                    <form autoComplete="off" onSubmit={submitCity}>
@@ -188,8 +179,6 @@ function Dashboard({history}){
                                              value={compare.cityOne}
                                              name="cityOne"
                                              />
-                                             <button type="submit" className="search-button">Go</button>
-                                             
                                              <div>
                                                   {cityOneSuggestions.map( (suggestion) => {
                                                        const style = {
@@ -208,11 +197,12 @@ function Dashboard({history}){
                               </div>
 
                               :
+
                               <div className="dashboard-compare-search-container">
                                    <form autoComplete="off" onSubmit={submitCity}>
                                         <div>
                                              <input 
-                                             placeholder="Search for a city"
+                                             placeholder="Enter city one"
                                              onChange={handleCityOne}
                                              value={compare.cityOne}
                                              name="cityOne"
@@ -233,7 +223,7 @@ function Dashboard({history}){
                                         </div>
                                         <div>
                                              <input 
-                                             placeholder="Search for a city"
+                                             placeholder="Enter city two"
                                              onChange={handleCityTwo}
                                              value={compare.cityTwo}
                                              />
@@ -251,13 +241,24 @@ function Dashboard({history}){
                                                   })}
                                              </div>
                                         </div>
-                                             {/* <Link to="map/jobs/standards"> */}
-                                                  <button className="compare-button">Compare</button>
-                                             {/* </Link> */}
                                    </form>
                               </div>
-
                               }
+                              {/* * TOGGLE DIV FOR SEARCH AND GO BUTTON */}
+                              <div className="toggle-div">
+                                   <div id="search-toggle">
+                                        <label className="switch">
+                                             <input type="checkbox"
+                                             onClick={toggleClass}
+                                             />
+                                             <span className="slider round"></span>
+                                        </label>
+                                             <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
+                                   </div>
+                                   
+                                        <button className="compare-button">Go</button>
+                                   
+                              </div>
                          </div>
                     </div>
                     {/* LANDING IMAGE */}
@@ -266,13 +267,14 @@ function Dashboard({history}){
                     </div>
                </div>
                
+               
                {/* SIGN UP CALL TO ACTION */}
                <div className="kevinmotor">
                <div className="bonus-features-container"
                     data-aos="fade-right"
-                    data-aos-offset="200"
-                    data-aos-delay="50"
-                    data-aos-duration="1000"
+                    data-aos-offset="100"
+                    // data-aos-delay="50"
+                    data-aos-duration="800"
                     data-aos-easing="ease-in-out"
                     data-aos-mirror="true"
                     data-aos-once="true"
@@ -307,10 +309,10 @@ function Dashboard({history}){
                     <p className="features-title">Features</p>
                </div>
                     <div className="feature-descriptions-container"
-                         data-aos="fade-right"
-                         data-aos-offset="200"
-                         data-aos-delay="50"
-                         data-aos-duration="1000"
+                         data-aos="fade-up"
+                         data-aos-offset="100"
+                         // data-aos-delay="50"
+                         data-aos-duration="500"
                          data-aos-easing="ease-in-out"
                          data-aos-mirror="true"
                          data-aos-once="true"
@@ -322,10 +324,10 @@ function Dashboard({history}){
                          </div>
                     </div>
                     <div className="feature-descriptions-container"
-                         data-aos="fade"
-                         data-aos-offset="200"
-                         data-aos-delay="50"
-                         data-aos-duration="1000"
+                         data-aos="fade-up"
+                         data-aos-offset="100"
+                         // data-aos-delay="50"
+                         data-aos-duration="500"
                          data-aos-easing="ease-in-out"
                          data-aos-mirror="true"
                          data-aos-once="true"
@@ -337,10 +339,10 @@ function Dashboard({history}){
                          </div>
                     </div>
                     <div className="feature-descriptions-container"
-                         data-aos="fade-left"
-                         data-aos-offset="200"
-                         data-aos-delay="50"
-                         data-aos-duration="1000"
+                         data-aos="fade-up"
+                         data-aos-offset="100"
+                         // data-aos-delay="50"
+                         data-aos-duration="500"
                          data-aos-easing="ease-in-out"
                          data-aos-mirror="true"
                          data-aos-once="true"
@@ -359,40 +361,40 @@ function Dashboard({history}){
                     <p className="metrics-title">Visualizing data made easier</p>
                     <div className="dashboard-metrics">
                          <div className="metrics-description-container"
-                              data-aos="fade-up"
-                              data-aos-offset="200"
-                              data-aos-delay="150"
-                              data-aos-duration="1000"
+                              data-aos="fade-down"
+                              data-aos-offset="100"
+                              data-aos-delay="100"
+                              data-aos-duration="600"
                               data-aos-easing="ease-in-out"
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
                               <LineGraph2 />
-                              <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
+                              <p className="metrics-description"><p className="metrics-description-title">Housing</p>Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
-                              data-aos="fade-up"
-                              data-aos-offset="200"
-                              data-aos-delay="350"
-                              data-aos-duration="1000"
+                              data-aos="fade-down"
+                              data-aos-offset="100"
+                              data-aos-delay="100"
+                              data-aos-duration="600"
                               data-aos-easing="ease-in-out"
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
                               <LineGraph />
-                              <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
+                              <p className="metrics-description"><p className="metrics-description-title">Community</p>Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
-                              data-aos="fade-up"
-                              data-aos-offset="200"
-                              data-aos-delay="550"
-                              data-aos-duration="1000"
+                              data-aos="fade-down"
+                              data-aos-offset="100"
+                              data-aos-delay="100"
+                              data-aos-duration="600"
                               data-aos-easing="ease-in-out"
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
                               <RadarGraph />
-                              <p className="metrics-description">Economic data includes health insurances, household income, major industries and etc.</p>
+                              <p className="metrics-description"><p className="metrics-description-title">Economy</p>Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
                     </div>
                </div>
@@ -404,133 +406,3 @@ export default Dashboard;
 
 
 
-
-{/* SEARCH FUNCTION */}
-               {/* <div className="dashboard-search-container">
-                    <div className="slanted-san-francisco"></div>
-                    <div className="search-function"
-                         data-aos="fade-down"
-                         data-aos-offset="200"
-                         data-aos-delay="50"
-                         data-aos-duration="1000"
-                         data-aos-easing="ease-in-out"
-                         data-aos-mirror="true"
-                         data-aos-once="true"
-                    >
-                         <h1>Make Your Move.</h1>
-                         <p className="cities-description">Search for a city:</p>
-
-
-                         
-                         <form onSubmit={submitCity}>
-
-                                   <div>
-                                        <input 
-                                        placeholder="San Francisco, CA"
-                                        onChange={searchChange}
-                                        value={search}
-                                        />
-                                        <Link to="map/jobs/standards"><button type="submit" className="search-city-button">Go</button></Link>
-                                        <div>
-                                             
-
-                                             {suggestions.map( (suggestion) => {
-                                                  const style = {
-                                                       backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                       cursor: "pointer",
-                                                       fontSize:"1rem",
-                                                       textAlign:"left",
-                                                       padding:"10px",
-                                                       boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
-                                                  }
-                                                  return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin" /> {suggestion.name.replace(" city", "")}</div>
-                                             })}
-                                        </div>
-                                   </div>
-                              </form> 
-                         <p className="cities-description-two">Want to learn about more cities? Click the button below to compare multiple cities.</p>
-                         <a href="#compareanchor"><button className="compare-cities-button">Compare cities</button></a>
-                    </div>
-               </div> */}
-
-
-
-
-
-
-               {/* COMPARE CITIES FUNCTION */}
-               {/* <div className="dashboard-compare-container"
-                    data-aos="fade-right"
-                    data-aos-delay="50"
-                    data-aos-duration="1000"
-                    data-aos-easing="ease-in-out"
-                    data-aos-mirror="true"
-                    data-aos-once="true"
-               >
-                    <div id="compareanchor" className="dashboard-compare">
-                         <h2>Don’t settle for less</h2>
-                         <p>Moving to a new city, job hunting or choosing vacation spots? Compare cities to find out differences in cost of living, jobs, and safety.</p>
-                         <div className="compare-buttons">
-                              <form onSubmit={submitCities}>
-                              <div>
-                                   <input 
-                                   placeholder="San Francisco, CA"
-                                   onChange={handleCityOne}
-                                   value={compare.cityOne}
-                                   />
-                                   
-                                   <div>
-                                        
-
-                                        {cityOneSuggestions.map( (suggestion) => {
-                                             const style = {
-                                                  backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                  cursor: "pointer",
-                                                  fontSize:"1rem",
-                                                  textAlign:"left",
-                                                  padding:"10px",
-                                                  boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
-                                             }
-                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin"/> {suggestion.name.replace(" city", "")}</div>
-                                        })}
-                                   </div>
-                              </div>
-
-
-                              <div>
-                                   <input 
-                                   placeholder="San Francisco, CA"
-                                   onChange={handleCityTwo}
-                                   value={compare.cityTwo}
-                                   />
-                                   <div>
-                                        
-
-                                        {cityTwoSuggestions.map( (suggestion) => {
-                                             const style = {
-                                                  backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                  cursor: "pointer",
-                                                  fontSize:"1rem",
-                                                  textAlign:"left",
-                                                  padding:"10px",
-                                                  boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
-                                             }
-                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img className="imageStyle" src={pointer} alt="gps pin" /> {suggestion.name.replace(" city", "")}</div>
-                                        })}
-                                   </div>
-                              </div>
-                                   <Link to="map/jobs/standards"><button
-                                        data-aos="zoom-in"
-                                        data-aos-offset="200"
-                                        data-aos-delay="50"
-                                        data-aos-duration="1000"
-                                        data-aos-easing="ease-in-out"
-                                        data-aos-mirror="true"
-                                        data-aos-once="true"
-                                   >
-                                        Compare
-                                   </button></Link>
-                              </form>
-                         </div>
-                    </div>
-               </div> */}
