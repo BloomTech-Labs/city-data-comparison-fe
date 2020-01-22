@@ -116,6 +116,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             ? <div className="anchor-nav">
                                 <h4 className="anchor-header">Housing</h4>
                                 <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
+                                <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} >Owner Costs</Link>
                                 <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} >Rent</Link>
                                 <Link onClick={() => dataNavClicked("rooms")} activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} >Rooms</Link>
                                 <Link onClick={() => dataNavClicked("vacancy")} activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} >Vacancy</Link>
@@ -158,6 +159,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 <div className="housing-graphs data-category">
                     <h3>Housing:</h3>
                     <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
+                    <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
                     <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
                     <Element name="rooms" className="element" ><RoomGraph edData={selected} /></Element>
                     <Element name="vacancy" className="element" ><VacancyGraph edData={selected} /></Element>

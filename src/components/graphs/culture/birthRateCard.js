@@ -28,8 +28,8 @@ function TotalPopulation({ethData}) {
             {ethData.map(item => 
                 <div key={item._id}>
                     <CenterCard> {item["City"]}</CenterCard>
-                    <CenterCard> Median Selected Monthly Owner Costs with Mortgage: {item["Median Selected Monthly Owner Costs with Mortgage"]}</CenterCard>
-                    <CenterCard> Median Selected Monthly Owner Costs without Mortgage: {item["Median Selected Monthly Owner Costs without Mortgage"]}</CenterCard>
+                    <CenterCard> Recent Mothers: {item['Recent Mothers']['Total']}</CenterCard>
+                    <CenterCard> Birth Rate Average per 1000 Females: {item['Recent Mothers']['Birth Rate']['Avg']}</CenterCard>
 
                </div>
             )}
