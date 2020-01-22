@@ -375,6 +375,7 @@ html,body{
 
   .dashboard-image{
     width:55%;
+    margin-right:2em;
   
     .landing-image{
     position:relative;
@@ -384,8 +385,7 @@ html,body{
 
   // * TOGGLE FUNCTION
   .toggle-div{
-    width:80%;
-    // border:1px solid blue;
+    width:85%;
     display:flex;
     flex-wrap:wrap;
     justify-content:space-between;
@@ -433,7 +433,6 @@ html,body{
       background-color: white;
       -webkit-transition: .3s;
       transition: .3s;
-      // background-color:#00bfa5;
     }
 
     input:checked + .slider {
@@ -461,11 +460,6 @@ html,body{
   }
   }
 
-
-
-
-
-  
   
   // * SEARCH FUNCION
   .dashboard-search-function{
@@ -503,16 +497,12 @@ html,body{
       background-position:10px 12px;
       background-repeat: no-repeat;
       background-color: #f7f9f9;
-
       padding:13px 40px;
       font-size:1.1rem;
       border:none;
       padding-left:39px;
-      width:80%;
+      width:85%;
       border:1px solid #b8bec4;
-      // border-top-left-radius:5px;
-      // border-bottom-left-radius:5px;
-      // border-right:none;
       border-radius:5px;
       box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.07);
 
@@ -529,6 +519,7 @@ html,body{
 
     // * SINGLE SEARCH CONTAINER
     .dashboard-single-search-container{
+      margin-bottom:15px;
       animation: DashboardCTR;
       animation-duration: 1s;
       animation-fill-mode:forwards;
@@ -548,30 +539,6 @@ html,body{
       }
       font-size:1.1rem;
 
-      .search-button{
-        font-size:1.1rem;
-        padding:14px 55px;
-        // border-top-right-radius:5px;
-        // border-bottom-right-radius:5px;
-        background-color:#2ca4fc;
-        border-radius:5px;
-        // border-top-left-radius:0px;
-        // border-bottom-left-radius:0px;
-        // border-left:none;
-        color:white;
-        width:100%;
-        transition:0.22s ease;
-        box-shadow:0 1px 16px 0 rgba(0, 0, 0, 0.07);
-
-        cursor:pointer;
-        &:focus{
-          outline:0;
-        }
-        &:hover{
-           filter: brightness(115%);
-        }
-      }
-
       .single-toggle-description{
         margin-top:60px;
         font-size:1.1rem;
@@ -590,11 +557,8 @@ html,body{
     }
     
 
-
-
-
-
     .dashboard-compare-search-container{
+      margin-bottom:15px;
       animation: DashboardCTA;
       animation-duration: 1s;
       animation-fill-mode:forwards;
@@ -636,37 +600,27 @@ html,body{
             filter: brightness(115%);
           }
         }
-
-
     }
 
     .compare-button{
-          // margin-top:10px;
-          font-size:1.1rem;
-          padding:14px 55px;
-          background-color:#2ca4fc;
-          color:white;
-          width:100%;
-          transition:0.22s ease;
-          box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.07);
+      font-size:1.1rem;
+      padding:14px 55px;
+      background-color:#2ca4fc;
+      color:white;
+      width:100%;
+      transition:0.22s ease;
+      box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.07);
 
-          cursor:pointer;
-          &:focus{
-            outline:0;
-          }
-          &:hover{
-            filter: brightness(115%);
-          }
-        }
+      cursor:pointer;
+      &:focus{
+        outline:0;
+      }
+      &:hover{
+        filter: brightness(115%);
+      }
+    }
   }
 }
-
-
-
-
-
-
-
 
 
 @media screen and (max-width:700px){
@@ -679,7 +633,7 @@ html,body{
 
         .toggle-div{
           width:100%;
-          justify-content:space-around;
+          justify-content:space-between;
         }
 
         .dashboard-image{
@@ -690,7 +644,7 @@ html,body{
         .dashboard-search-function{
           width:100%;
           input{
-            width:90%;
+            width:100%;
           }
 
           .dashboard-title{
