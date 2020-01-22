@@ -23,7 +23,8 @@ const team = [
             linkedin: '', 
             email: ''
         }, 
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. '
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: ''
     
     }, 
     {
@@ -36,7 +37,8 @@ const team = [
             linkedin: '', 
             email: ''
         }, 
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. '
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: ''
     
     }, 
     {
@@ -49,7 +51,8 @@ const team = [
             linkedin: '', 
             email: ''
         }, 
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. '
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: ''
     
     }, 
     {
@@ -62,7 +65,8 @@ const team = [
             linkedin: '', 
             email: ''
         }, 
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. '
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: ''
     
     }, 
     {
@@ -75,7 +79,8 @@ const team = [
             linkedin: '', 
             email: ''
         }, 
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. '
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: ''
     
     }, 
 
@@ -89,7 +94,8 @@ const team = [
             linkedin: '', 
             email: ''
         }, 
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. '
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: ''
     
     }
 ]

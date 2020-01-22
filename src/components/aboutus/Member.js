@@ -24,7 +24,7 @@ const Member = props => {
                         {props.member.about}
                     </p>
 
-                    <div className="member-portfolio">
+                    <div className="member-portfolio" href={props.member.p}>
                         View {props.member.name}'s Portfolio
                     </div>
                 </div>
