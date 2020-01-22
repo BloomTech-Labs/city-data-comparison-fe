@@ -7,7 +7,7 @@ justify-content:center;
 
 `
 function TotalPopulation({ethData}) {
-    console.log(ethData, "ETH")
+    // console.log(ethData, "ETH")
 	const colorifier = lat => {
 
         let arr = String(lat).replace(".","").split("");
