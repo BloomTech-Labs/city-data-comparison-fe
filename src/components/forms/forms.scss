@@ -14,11 +14,20 @@ span{
 .signup, .login{
     width: 100%; 
     font-family: 'Rubik', sans-serif;
+    display:flex;
+     
+    margin-top:5%; 
+
+
     
 
    
 
     
+}
+
+.login-photo img {
+    width:100%;
 }
 
 .inner-form{
@@ -31,25 +40,25 @@ span{
     display:flex;
 
     
-    // @media screen and (max-width: 1500px){
-    //     margin:1%;
-    //     margin-top:3%;
-    // }
+    @media screen and (max-width: 1500px){
+        margin:1%;
+        margin-top:3%;
+    }
 
-    // @media screen and (max-width: 1200px){
-    //     margin:0;
-    //     margin-top:4%;
-    // }
+    @media screen and (max-width: 1200px){
+        margin:0;
+        margin-top:4%;
+    }
 
-    // @media screen and (max-width: 950px){
-    //     flex-direction: column-reverse;
-    // }
+    @media screen and (max-width: 950px){
+        flex-direction: column-reverse;
+    }
 }
 
 .form{
-    width: 40%; 
-    padding: 1%; 
-    padding-top: 12%; 
+    width: 50%; 
+    padding: 5%; 
+    padding-top: 6%; 
     background:white;
     border-radius: 40px 0px 0px 40px;
 
@@ -226,9 +235,8 @@ span{
     }
 
     .login-photo{
-        background-image:url("../../assets/forms/sf_sign_in.png");
-        width: 60%;
-        border-radius: 0px 40px 40px 0px;
+        background-image:url("../../assets/forms/sf_sign_in.jpeg");
+        width: 50%;
         background-repeat: round;
 
         @media screen and (max-width:950px) {
@@ -262,14 +270,3 @@ span{
     }
 
 
-.login, .signup{
-   
-    padding: 10%; 
-    margin:0; 
-    
-
-    @media screen and (min-width:920px){
-        background: white;
-
-    }
-}

@@ -47,10 +47,11 @@
 .member-display{
     display:flex;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .member-photo{
-    width: 40%; 
+    width: 20%;
     padding: 2.5%;
     img{
         width: 100%; 

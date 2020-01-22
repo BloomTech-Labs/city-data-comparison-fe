@@ -35,7 +35,7 @@ const Member = props => {
                         {props.member.about}
                     </p>
 
-                    <div className="member-portfolio" onClick={() => goToLink(props.member.portfolio)}>
+                    <div className="member-portfolio" href={props.member.portfolio}>
                         View {props.member.name}'s Portfolio
                     </div>
                 </div>

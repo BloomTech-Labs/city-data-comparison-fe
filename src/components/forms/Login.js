@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'; 
 import { Link } from 'react-router-dom'
 
-import city from '../../assets/forms/sf_sign_in.png'
+import city from '../../assets/forms/sf_sign_in.jpeg'
 
 //butons
 import Facebook from './buttons/Facebook'
@@ -78,10 +78,10 @@ const Login = props => {
             
     }
     return(
-             <div className='login' style={{'background': 'linear-gradient(90deg, #FACE8F 43.2%, #F49D20 43.2%)'}}>
+             
                   
            
-           <div className="inner-form">
+           <div className="login">
                <div className="form">
                    <h2 className="form-title">Welcome Back!</h2>
 
@@ -111,13 +111,10 @@ const Login = props => {
                    </form>
                </div>
                <div className="login-photo">
-                   <img src={city}/>
+                   {/*photo*/}
                </div>
            </div>
-           
-    
-      
-   </div>
+        
 
 
         
