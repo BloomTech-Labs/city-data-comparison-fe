@@ -25,50 +25,24 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import "../../App.scss"
 
-function Dashboard(){
+function Dashboard({history}){
 
      AOS.init()
-     const { cityMarkers, selected, setSelected, viewport, setViewport } = useContext(CityContext)
+     const { cityMarkers, selected, setSelected, viewport, setViewport, getCity, getCities, getBestSuggestion } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
-     const [search, setSearch] = useState("")
-
-     const [suggestions, setSuggestions] = useState([]);
      const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
      const [cityTwoSuggestions, setCityTwoSuggestions] = useState([]);
-
-     const searchChange= e => {
-          const searchText = e.target.value;
-          searchText
-          ? setSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
-          : setSuggestions([]);
-          setSearch(searchText)
-      };
       
-      const chooseSuggestion = city => {
-          setSearch(city.name.replace(" city", ""));
-          selectSearch(city);
-          setSuggestions([]);
-          setViewport({
-              ...viewport,
-              longitude: city.lng,
-              latitude: city.lat
-            })  
-      }
-
    useEffect( _ => {
           ReactGA.event({ category: 'Selected', 
           action: 'selected a city using dashboard' });
      }, [selected])
       
-
-
-      
-      const selectSearch = cityMarker =>  {
-          console.log(cityMarker);
-          if (selected.find(item => item === cityMarker)) {
+     const selectSearch = async cityMarker =>  {
+          if (selected.find(item => item._id === cityMarker.ID)) {
               return;
           } else {
-              setSelected([...selected, cityMarker]);
+              getCity(cityMarker);
           }
         }
 
@@ -105,7 +79,7 @@ function Dashboard(){
                ...compare,
                cityOne:city.name.replace(" city", "")
           })
-          selectSearch(city);
+          // selectSearch(city);
           setCityOneSuggestions([]);
           setViewport({
               ...viewport,
@@ -118,7 +92,7 @@ function Dashboard(){
                ...compare,
                cityTwo:city.name.replace(" city", "")
           })
-          selectSearch(city);
+          // selectSearch(city);
           setCityTwoSuggestions([]);
           setViewport({
                ...viewport,
@@ -129,19 +103,39 @@ function Dashboard(){
 
 
      //* SUBMIT SEARCH */
-     const submitCity = (event) => {
-          event.preventDefault();
-          console.log(cityMarkers)
-          selectSearch(cityMarkers.filter(city => city.name.replace(" city", "").toLowerCase().includes(search.toLowerCase())))
-     }
-     
-     const submitCities = (event) => {
+     const submitCity = async (event) => {
           event.preventDefault();
           console.log(compare)
+               let found = cityMarkers.find(item => item.name.replace(" city", "") === compare.cityOne)
+               let found2 = cityMarkers.find(item => item.name.replace(" city", "") === compare.cityTwo)
+               if (found && found2) {
+                    getCities([found, found2]);
+                    
+                    
+                    // the viewport set below will require zoom handling based on population
+                    setViewport({
+                         ...viewport,
+                         longitude: found.lng,
+                         latitude: found.lat
+                    })
+               } else if (found) {
+                    selectSearch(found);
+               } else if (found2) {
+                    selectSearch(found2);
+               }
+               // suggestions need to search both i guess
+               else {
+                    ReactGA.event({ category: 'Data', 
+                    action: `used suggestion endpoint: ${compare.cityOne}` });
+                    await getBestSuggestion(compare.cityOne);
+               }   
+
+
+          
+          history.push("/map");
+          
      }
-
-
-
+     
      //* TOGGLING BUTTONS */
      const [buttonClass, setButtonClass] = useState("")
      const [toggleSearch, setToggleSearch] = useState(true)
@@ -155,6 +149,7 @@ function Dashboard(){
                setToggleSearch(!toggleSearch)
           }
      }
+
      const toggleStyle = {
           marginLeft: "15px",
           fontSize:"1.1rem",
@@ -185,17 +180,18 @@ function Dashboard(){
 
                               { toggleSearch ? 
                               <div className="dashboard-single-search-container">
-                                   <form onSubmit={submitCity}>
+                                   <form autoComplete="off" onSubmit={submitCity}>
                                         <div>
                                              <input 
                                              placeholder="Search for a city"
-                                             onChange={searchChange}
-                                             value={search}
+                                             onChange={handleCityOne}
+                                             value={compare.cityOne}
+                                             name="cityOne"
                                              />
-                                             <Link to="map/jobs/standards"><button type="submit" className="search-button">Go</button></Link>
+                                             <button type="submit" className="search-button">Go</button>
                                              
                                              <div>
-                                                  {suggestions.map( (suggestion) => {
+                                                  {cityOneSuggestions.map( (suggestion) => {
                                                        const style = {
                                                             backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
                                                             cursor: "pointer",
@@ -204,7 +200,7 @@ function Dashboard(){
                                                             padding:"10px",
                                                             boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
                                                        }                                                       
-                                                       return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                       return <div key={suggestion._id} name="cityOne" style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
                                                   })}
                                              </div>
                                         </div>
@@ -213,12 +209,13 @@ function Dashboard(){
 
                               :
                               <div className="dashboard-compare-search-container">
-                                   <form onSubmit={submitCities}>
+                                   <form autoComplete="off" onSubmit={submitCity}>
                                         <div>
                                              <input 
                                              placeholder="Search for a city"
                                              onChange={handleCityOne}
                                              value={compare.cityOne}
+                                             name="cityOne"
                                              />                 
                                              <div>
                                                   {cityOneSuggestions.map( (suggestion) => {
@@ -254,9 +251,9 @@ function Dashboard(){
                                                   })}
                                              </div>
                                         </div>
-                                             <Link to="map/jobs/standards">
+                                             {/* <Link to="map/jobs/standards"> */}
                                                   <button className="compare-button">Compare</button>
-                                             </Link>
+                                             {/* </Link> */}
                                    </form>
                               </div>
 

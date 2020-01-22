@@ -19,33 +19,12 @@ const MapWrapper = styled.div`
 
 export default function Map() {
 
-  const { cityMarkers, selected, setSelected, viewport, setViewport } = useContext(CityContext)
+  const { cityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion } = useContext(CityContext)
 
   
   const [search, setSearch] = useState("");
 
-  const getCity = cityMarker => {
-      Axios.get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
-      .then(res => {
-        console.log('DATA IS', res.data)
-        setSelected([...selected, res.data])
-      })
-      .catch(err => console.log("getCity error", err))
-  }
 
-  const getBestSuggestion = search => {
-    Axios.get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
-    .then(res => {
-      // if there's a suggestion
-      if (res.data) {
-        // get the best (first) suggestion and add it to state
-        let suggestionKey = Object.keys(res.data)[0]
-        getCity(res.data[suggestionKey])  
-      }
-      // maybe add an error message if nothing is found
-    })
-    .catch(err => console.log("suggestion error", err))
-  }
   
 
 
