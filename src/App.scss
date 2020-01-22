@@ -776,7 +776,7 @@ html,body{
   .kevin{
     margin-top:50px;
     padding-top:0px;
-    height:550px;
+    height:560px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -814,7 +814,7 @@ html,body{
 
   .dashboard-metrics{
     margin:0 auto;
-    margin-top:60px;
+    margin-top:100px;
     max-width:1000px;
     padding: 0 3%;
     width:100%;
@@ -825,7 +825,7 @@ html,body{
     width:30%;
     display:flex;
     flex-wrap:wrap;
-    align-content:space-between;
+    align-content:flex-end;
     height:250px;
   }
   .metrics-title{
@@ -836,7 +836,15 @@ html,body{
     margin-bottom:0;
   }
   .metrics-description{
+    text-align:center;
+    color:#596B77;
     line-height:1.5;
+  }
+  .metrics-description-title{
+    margin-bottom:5px;
+    margin-top:10px;
+    font-weight:500;
+    color:#2e2f38;
   }
 }
 @media screen and (max-width:1000px){
@@ -846,19 +854,19 @@ html,body{
 }
 @media screen and (max-width:500px){
   .dashboard-metrics-container{
-    height:900px;
-    margin-bottom:130px;
+    margin-bottom:0px;
 
     .dashboard-metrics{
         padding: 3% 5%;
+        margin-top:30px;
         flex-direction:column;
 
       .metrics-description-container{
         width:100%;
         display:flex;
-        flex-direction:column;
+        height:auto;
         justify-content:center;
-        margin-bottom:40px;        
+        margin-bottom:60px;
 
         p{
           width:100%;
@@ -867,7 +875,7 @@ html,body{
       }
     }
     .metrics-title{
-      margin-bottom:0;
+      margin-bottom:0 !important;
       margin-top:50px;
     }
   }

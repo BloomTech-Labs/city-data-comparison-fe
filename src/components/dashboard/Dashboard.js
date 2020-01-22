@@ -270,7 +270,6 @@ function Dashboard(){
                     </div>
                </div>
                
-
                
                {/* SIGN UP CALL TO ACTION */}
                <div className="kevinmotor">
@@ -374,7 +373,7 @@ function Dashboard(){
                               data-aos-once="true"
                          >
                               <LineGraph2 />
-                              <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
+                              <p className="metrics-description"><p className="metrics-description-title">Housing</p>Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
                               data-aos="fade-down"
@@ -386,7 +385,7 @@ function Dashboard(){
                               data-aos-once="true"
                          >
                               <LineGraph />
-                              <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
+                              <p className="metrics-description"><p className="metrics-description-title">Community</p>Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
                               data-aos="fade-down"
@@ -398,7 +397,7 @@ function Dashboard(){
                               data-aos-once="true"
                          >
                               <RadarGraph />
-                              <p className="metrics-description">Economic data includes health insurances, household income, major industries and etc.</p>
+                              <p className="metrics-description"><p className="metrics-description-title">Economy</p>Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
                     </div>
                </div>
