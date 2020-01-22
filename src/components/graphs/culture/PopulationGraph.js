@@ -52,7 +52,7 @@ export default function PopGrowthGraph({selected}) {
                   fontSize:25
                 },
                 legend:{
-                  display:true,
+                  display:false,
                   position:"top",
                 },
                 scales: {
