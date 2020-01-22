@@ -256,7 +256,7 @@ function Dashboard({history}){
                                              <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
                                    </div>
                                    
-                                        <button className="compare-button">Go</button>
+                                        <button onClick={submitCity} className="compare-button">Go</button>
                                    
                               </div>
                          </div>
