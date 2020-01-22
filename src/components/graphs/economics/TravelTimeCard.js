@@ -28,7 +28,7 @@ function TotalPopulation({ethData}) {
             {ethData.map(item => 
                 <div key={item._id}>
                     <CenterCard> {item["City"]}</CenterCard>
-                    <CenterCard> {item["Mean Travel Time"]}</CenterCard>
+                    <CenterCard> {item["Mean Travel Time"]}min.</CenterCard>
 
                </div>
             )}
