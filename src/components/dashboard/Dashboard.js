@@ -173,8 +173,7 @@ function Dashboard(){
                          <p className="dashboard-title">Make Your Move.</p>
                          {/* SEARCH CONTAINER */}
                          <div className="dashboard-function-container">
-                              
-                              
+                              {/* TOGGLE SEARCH VS. COMPARE FUNCTIONALITY */}
                               { toggleSearch ? 
                               <div className="dashboard-single-search-container">
                                    <form onSubmit={submitCity}>
@@ -248,6 +247,7 @@ function Dashboard(){
                                    </form>
                               </div>
                               }
+
                               {/* * TOGGLE DIV FOR SEARCH AND GO BUTTON */}
                               <div className="toggle-div">
                                    <div id="search-toggle">
@@ -257,14 +257,15 @@ function Dashboard(){
                                              />
                                              <span className="slider round"></span>
                                         </label>
-                                             <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
+                                        <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
                                    </div>
-                                   <Link to="map/jobs/standards">
-                                        <button className="compare-button">Go</button>
+                                   <Link to="/map/jobs/standards">
+                                        <button className="compare-button" onClick={submitCity}>Go</button>
                                    </Link>
                               </div>
                          </div>
                     </div>
+
                     {/* LANDING IMAGE */}
                     <div className="dashboard-image">
                          <img className="landing-image" src={landing} alt="environment" />
