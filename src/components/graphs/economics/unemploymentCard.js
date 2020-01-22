@@ -23,12 +23,12 @@ function TotalPopulation({ethData}) {
 	
 	return (
 		<div className="dataCards">
-            <h1>Total Population</h1>
+            <h1>Unemployment Rate</h1>
 
             {ethData.map(item => 
                 <div key={item._id}>
                     <CenterCard> {item["City"]}</CenterCard>
-                    <CenterCard> {item["Total Population"]}</CenterCard>
+                    <CenterCard> {item["Unemployment Rate"]}</CenterCard>
 
                </div>
             )}
