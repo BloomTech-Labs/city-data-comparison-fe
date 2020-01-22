@@ -429,11 +429,6 @@ html,body{
 
     input:checked + .slider {
       background-color: #00bfa5;
-
-    }
-
-    input:focus + .slider {
-      box-shadow: 0 0 1px #00bfa5;
     }
 
     input:checked + .slider:before {
@@ -461,7 +456,24 @@ html,body{
     -webkit-transition: width .35s ease-in-out;
     transition: width .35s ease-in-out;
     width:45%;
+    animation: DashboardCTA;
+    animation-duration: 1.5s;
+    animation-fill-mode:forwards;
+    animation-timing-function:cubic-bezier(0.2,0.8,0.2,1);
+    transition: .7s cubic-bezier(0.2,0.8,0.2,1);
     
+    @keyframes DashboardCTA {
+      0% {
+        opacity: 0;                
+        transform: translateY(30px);
+      }
+
+      100%{
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
 
     .dashboard-title{
       margin-top:30px;
