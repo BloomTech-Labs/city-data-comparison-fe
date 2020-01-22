@@ -1,48 +1,26 @@
-import React, { useState } from 'react'; 
+import React from 'react'; 
 
-//icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
-import { faGithubSquare, faTwitterSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons'; 
-//images
-
+//file that contains information for each user
 import members from './team.js'
-
 
 //styling
 import './aboutus.scss'; 
 
+//component that displays all the information for each users
 import Member from './Member'
-import team from './team.js';
+
 
 const AboutUs = props => {
     const [index, setIndex] =useState(0)
      
     return(
         <div className="aboutUs">
-          
-            <div className="left-arrow" onClick={() => {
-                
-                if(index <= 0){
-                    setIndex(0)
-                }else{
-                    setIndex(index - 1); 
-                }
-                }}>
-
-            </div>
+            
+            <div className="left-arrow" onClick={() => (index <= 0) ? setIndex(0) : setIndex(index - 1)}></div>
 
             <Member member={members[index]}/>
 
-
-            <div className='right-arrow' onClick={() =>{ 
-                if(index === (team.length - 1)){
-                    setIndex(0)
-                }else{
-                    setIndex(index + 1)
-                }
-                }}>
-
-            </div>
+            <div className='right-arrow' onClick={() => (index === (team.length - 1)) ? setIndex(0) : setIndex(index + 1)}></div>
         </div>
     )
 }

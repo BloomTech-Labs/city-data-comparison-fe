@@ -66,7 +66,7 @@ const team = [
             email: ''
         }, 
         about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
-        portfolio: ''
+        portfolio: 'http://matthewlsessions.com/'
     
     }, 
     {
@@ -95,7 +95,37 @@ const team = [
             email: ''
         }, 
         about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
-        portfolio: ''
+        portfolio: 'https://www.zecmailer.com'
+    
+    }, 
+
+    {
+        name: 'Muamer Kukic', 
+        image: muamer,
+        role: 'Web Developer', 
+        social: {
+            twitter: '', 
+            github: '', 
+            linkedin: '', 
+            email: ''
+        }, 
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'https://kukicako.github.io/portfolio-website/'
+    
+    }, 
+
+    {
+        name: 'Kevin Nyugen', 
+        image: kevin,
+        role: 'Web Developer', 
+        social: {
+            twitter: '', 
+            github: '', 
+            linkedin: '', 
+            email: ''
+        }, 
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'https://kevinn.net/Portfolio/'
     
     }
 ]
