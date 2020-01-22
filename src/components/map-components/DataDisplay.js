@@ -18,8 +18,9 @@ import VacancyGraph from "../graphs/housing/vacancy";
 import UnemploymentCard from "../graphs/economics/unemploymentCard";
 import deleteIcon from "./icons/close_red.png";
 import TotalPopulation from "../graphs/culture/TotalpopCard";
-import TravelTime from "../graphs/economics/TravelTimeCard"
-import HealthInsurance from "../graphs/economics/HealthInsuranceCard"
+import TravelTime from "../graphs/economics/TravelTimeCard";
+import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
+import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
 
