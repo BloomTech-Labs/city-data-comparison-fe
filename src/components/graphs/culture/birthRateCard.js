@@ -29,7 +29,7 @@ function TotalPopulation({ethData}) {
                 <div key={item._id}>
                     <CenterCard> {item["City"]}</CenterCard>
                     <CenterCard> Recent Mothers: {item['Recent Mothers']['Total']}</CenterCard>
-                    <CenterCard> Birth Rate Average per 1000 Females: {item['Recent Mothers']['Birth Rate']['Avg']}</CenterCard>
+                    <CenterCard> Birth Rate Average per 1000 Females: {item['Recent Mothers']['Birth Rate']['Avg']}%</CenterCard>
 
                </div>
             )}
