@@ -17,6 +17,7 @@ import RetirementGraph from "../graphs/economics/retirement";
 import VacancyGraph from "../graphs/housing/vacancy";
 
 import deleteIcon from "./icons/close_red.png";
+import TotalPopulation from "../graphs/culture/TotalpopCard";
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
 
@@ -126,6 +127,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("ethnicity")} activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} >Ethnicity</Link>
                                 <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} >Population</Link>
                                 <Link onClick={() => dataNavClicked("ageDistribution")} activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} >Age Distribution</Link>
+                                <Link onClick={() => dataNavClicked("totalPopulation")} activeClass="active" className="anchor-link" to="totalPopulation" spy={true} smooth={true} duration={500} >Total Population</Link>
                             </div>
                             : null}
                         </div>
@@ -169,6 +171,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
                     <Element name="population" className="element" ><Population selected = {selected} /></Element>
                     <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
+                    <Element name="totalPopulation" className="element" ><TotalPopulation selected = {selected} /></Element>
                 </div>
                 </>
                 : <h2 className="map-prompt">Select a city to begin browsing</h2>}
