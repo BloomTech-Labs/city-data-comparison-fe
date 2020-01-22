@@ -49,7 +49,7 @@ export default function RetirementGraph({ethData}) {
                   fontSize:25
                 },
                 legend:{
-                  display: true,
+                  display: false,
                 },
                 scales: {
                   xAxes: [ {
