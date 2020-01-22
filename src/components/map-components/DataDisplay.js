@@ -171,7 +171,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
                     <Element name="population" className="element" ><Population selected = {selected} /></Element>
                     <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
-                    <Element name="totalPopulation" className="element" ><TotalPopulation selected = {selected} /></Element>
+                    <Element name="totalPopulation" className="element" ><TotalPopulation ethData = {selected} /></Element>
                 </div>
                 </>
                 : <h2 className="map-prompt">Select a city to begin browsing</h2>}
