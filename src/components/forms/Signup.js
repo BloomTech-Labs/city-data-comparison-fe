@@ -5,7 +5,8 @@ import axios from 'axios'
 
 
 //styling
-import './forms.scss'; 
+import './forms.scss';
+ 
 
 //buttons
 import Facebook from './buttons/Facebook.js';
@@ -14,10 +15,12 @@ import Linkedin from './buttons/Linkedin';
 
 //modal
 //tos modals
-import Modal from "../modal/modal"
-import useModal from "../modal/useModal"
+import Modal from "../modal/modal";
+import useModal from "../modal/useModal";
 import './privacypolicyform.scss'; 
-import PrivacyPolicy from '../legal/PrivacyPolicy'
+import PrivacyPolicy from '../legal/PrivacyPolicy';
+
+import city from '../../assets/forms/nyc_signup_photo.png'; 
 
 const Signup = props => {
 
@@ -33,15 +36,15 @@ const Signup = props => {
         if (isLoading) {
             //axios call
             if(validated) {
-                console.log('axios call')
+                console.log(user)
                 axios
-                    .post('', user)
+                    .post('https://citrics-staging.herokuapp.com/api/auth/register', user)
                     .then(res => {
                         console.log(res)
                     })
                     .catch(error => {
                         console.log(error)
-                        setLoginError('Email and ')
+                       // setLoginError('Email and ')
                     }) 
                 } 
         }
@@ -96,7 +99,7 @@ const Signup = props => {
                 hide={toggle}
                 component={modalState}
                 />
-            <div className='signup'>
+            <div className='signup' style={{'background': 'linear-gradient(90deg, #C5CDFD 43.2%, #5D73FA 43.2%)'}}>
             
                     <div className="inner-form">
                         <div className="form">
@@ -128,7 +131,7 @@ const Signup = props => {
                             </form>
                         </div>
                         <div className="signup-photo">
-                            {/*photo*/}
+                            <img src={city}/>
                             
                         </div>
                     </div>

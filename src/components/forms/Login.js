@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom'
 import city from '../../assets/forms/sf_sign_in.png'
 
 //butons
-import Facebook from './buttons/Facebook.js'; 
-import Google from './buttons/Google.js'
+import Facebook from './buttons/Facebook'
+import Google from './buttons/Google'
 import Linkedin from './buttons/Linkedin'
+
 
 import axios from 'axios';
 
-
+import './forms.scss'
 
 
 const Login = props => {
@@ -27,10 +28,11 @@ const Login = props => {
         if (isLoading) {
             //axios call
             if(validated) {
-                console.log('axios call')
+                console.log(user)
                 axios
-                    .post('', user)
+                    .post('https://citrics-staging.herokuapp.com/api/auth/login', user)
                     .then(res => {
+                        
                         console.log(res)
                     })
                     .catch(error => {
@@ -76,7 +78,7 @@ const Login = props => {
             
     }
     return(
-             <div className='login'>
+             <div className='login' style={{'background': 'linear-gradient(90deg, #FACE8F 43.2%, #F49D20 43.2%)'}}>
                   
            
            <div className="inner-form">
@@ -103,12 +105,13 @@ const Login = props => {
                        <input className="password" type='password' name='password' placeholder="Password" value={user.password} onChange={onChange}/>
                        
                        
+                       
                        <button className="login-button" htmlType="submit" onClick={() => setIsLoading(true)}>Start exploring cities</button>
                        <p className='question'>Have an account? <Link className='link-signup' to='/signup'>Sign up</Link> to explore cities</p>
                    </form>
                </div>
                <div className="login-photo">
-                   {/*photo*/}
+                   <img src={city}/>
                </div>
            </div>
            
