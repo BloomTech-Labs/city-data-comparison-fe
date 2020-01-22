@@ -183,21 +183,6 @@ function Dashboard(){
                                              onChange={searchChange}
                                              value={search}
                                              />
-
-                                             {/* <div className="toggle-div">
-                                                  <div id="search-toggle">
-                                                       <label className="switch">
-                                                            <input type="checkbox"
-                                                            onClick={toggleClass}
-                                                            />
-                                                            <span className="slider round"></span>
-                                                       </label>
-                                                            <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
-                                                  </div>
-                                                  <Link to="map/jobs/standards"><button type="submit" className="search-button">Go</button></Link>    
-                                             </div> */}
-                                             
-                                             
                                              <div>
                                                   {suggestions.map( (suggestion) => {
                                                        const style = {
@@ -259,53 +244,24 @@ function Dashboard(){
                                                   })}
                                              </div>
                                         </div>
-                                       
-
-                                        
-                                        {/* <div className="toggle-div">
-                                             <div id="search-toggle">
-                                                  <label className="switch">
-                                                       <input type="checkbox"
-                                                       onClick={toggleClass}
-                                                       />
-                                                       <span className="slider round"></span>
-                                                  </label>
-                                                       <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
-                                             </div>
-                                             <Link to="map/jobs/standards">
-                                                  <button className="compare-button">Compare</button>
-                                             </Link>
-
-                                        </div> */}
-                                             
                                    </form>
                               </div>
                               }
-
+                              {/* * TOGGLE DIV FOR SEARCH AND GO BUTTON */}
                               <div className="toggle-div">
                                    <div id="search-toggle">
-                                   <label className="switch">
-                                        <input type="checkbox"
-                                         onClick={toggleClass}
-                                        />
-                                        <span className="slider round"></span>
-                                   </label>
-                                        <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
-                              </div>
+                                        <label className="switch">
+                                             <input type="checkbox"
+                                             onClick={toggleClass}
+                                             />
+                                             <span className="slider round"></span>
+                                        </label>
+                                             <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
+                                   </div>
                                    <Link to="map/jobs/standards">
                                         <button className="compare-button">Go</button>
                                    </Link>
                               </div>
-                              
-                              {/* <div id="search-toggle">
-                                   <label className="switch">
-                                        <input type="checkbox"
-                                         onClick={toggleClass}
-                                        />
-                                        <span className="slider round"></span>
-                                   </label>
-                                        <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
-                              </div> */}
                          </div>
                     </div>
                     {/* LANDING IMAGE */}
@@ -313,6 +269,8 @@ function Dashboard(){
                          <img className="landing-image" src={landing} alt="environment" />
                     </div>
                </div>
+               
+
                
                {/* SIGN UP CALL TO ACTION */}
                <div className="kevinmotor">

@@ -519,7 +519,7 @@ html,body{
 
     // * SINGLE SEARCH CONTAINER
     .dashboard-single-search-container{
-      margin-bottom:15px;
+      margin-bottom:10px;
       animation: DashboardCTR;
       animation-duration: 1s;
       animation-fill-mode:forwards;
@@ -558,7 +558,7 @@ html,body{
     
 
     .dashboard-compare-search-container{
-      margin-bottom:15px;
+      margin-bottom:10px;
       animation: DashboardCTA;
       animation-duration: 1s;
       animation-fill-mode:forwards;
@@ -759,8 +759,6 @@ html,body{
 @media screen and (max-width:900px){
   .kevin{
     height:350px;
-  //   border-bottom-left-radius: 40%;
-  // border-bottom-right-radius: 40%;
   }
   .dashboard-features-container{
     padding-left:5%;
@@ -825,10 +823,9 @@ html,body{
   }
   .metrics-description-container{
     width:30%;
-    // display:flex;
-    // flex-wrap:wrap;
-    // align-items:space-between;
-    // border:1px solid red;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:space-between;
     height:250px;
   }
   .metrics-title{
@@ -877,98 +874,9 @@ html,body{
 }
 
 
-// //* Dashboard Compare Function Styling
-// .dashboard-compare-container{
-//   display:flex;
-//   align-items:center;
-//   justify-content:center;
-//   margin:5% auto;
-//   max-width:900px;
-//   width:100%;
-  
-//   .dashboard-compare{
-//     margin:0 auto;
-//     max-width:800px;
-//     width:100%;
-//     padding:3% 5%;
-//     display:flex;
-//     flex-wrap:wrap;
-//     h2{
-//       margin-bottom:0;
-//     }
-//     p{
-//       max-width:550px;
-//       width:100%;
-//       font-size:1.1rem;
-//       line-height:1.5;
-//     }
-//   }
-//   .compare-search-function{
-//     display:flex;
-//     flex-wrap:wrap;
-//     flex-direction:column;
-//     margin:10px 0;
-//     width:100%;
-//   }
-//   input{
-//     background-color: #f7f9f9;
-//     padding:10px 65px;
-//     border-radius:5px;
-//     font-size:1rem;
-//     border:none;
-//     padding-left:20px;
-//     border:1px solid #efefef;
-//     transition:0.33s ease;
-//     &:focus{
-//       outline:0;
-//     }
-//   }
-//   button{
-//     font-size:1rem;
-//     padding:10px 35px;
-//     border-radius:5px;
-//     background-color:#F2994A;
-//     border:none;
-//     color:white;
-//     margin-top:18px;
-//     font-size:1.1rem;
-//     transition:0.33s ease;
-//     cursor:pointer;
-//     &:focus{
-//       outline:0;
-//     }
 
-//     &:hover{
-//       border:1px solid #F2994A;
-//       color:#F2994A;
-//       background-color:white;
-//     }
-//   }
-//   .compare-buttons{
-//     width:50%;
-//   }
-//   .versus{
-//     margin:0 15px;
-//   }
-// }
-// @media screen and (max-width:500px){
-//   .dashboard-compare-container{
 
-//     .dashboard-compare{
-//       padding:3% 8%;
-//     }
-//     .compare-search-function{
-//       margin-bottom:15px;
-//     }
-//     button{
-//       margin-top:10px;
-//       width:100%;
-//     }
-//     .compare-buttons{
-//       width:100%;
-//     }
-//   }
-// }
+
 /* dashboard animations styling */
 
 @media screen and (max-width: 500px) {
