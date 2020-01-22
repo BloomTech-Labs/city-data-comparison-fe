@@ -5,7 +5,7 @@
 // function TotalPopulation() {
 // 	const [ data, setData ] = useState({});
 // 	useEffect(() => {
-//         Axios.get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
+//         Axios.get(``)
 //         .then((res) =>
 // 			setData(res.data)
 // 		);
