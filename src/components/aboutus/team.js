@@ -80,7 +80,7 @@ const team = [
             email: ''
         }, 
         about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
-        portfolio: ''
+        portfolio: 'Scottmaxwellportfolio.com'
     
     }, 
 
@@ -126,6 +126,52 @@ const team = [
         }, 
         about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
         portfolio: 'https://kevinn.net/Portfolio/'
+    
+    }, 
+
+    {
+        name: 'John Watt', 
+        image: john,
+        role: 'Web Developer', 
+        social: {
+            twitter: '', 
+            github: '', 
+            linkedin: '', 
+            email: ''
+        }, 
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'https://kevinn.net/Portfolio/'
+    
+    }
+    , 
+
+    {
+        name: 'Daniel Brizksa', 
+        image: daniel,
+        role: 'Web Developer', 
+        social: {
+            twitter: '', 
+            github: '', 
+            linkedin: '', 
+            email: ''
+        }, 
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'https://kevinn.net/Portfolio/'
+    
+    }, 
+
+    {
+        name: 'Umeko Walker', 
+        image: umeko,
+        role: 'Web Developer', 
+        social: {
+            twitter: '', 
+            github: '', 
+            linkedin: '', 
+            email: ''
+        }, 
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'https://umekowalker.me'
     
     }
 ]

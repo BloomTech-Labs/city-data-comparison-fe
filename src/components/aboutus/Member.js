@@ -1,9 +1,17 @@
-import React from 'react'; 
+import React, {useEffect} from 'react'; 
 
 import './aboutus.scss'
 
+//icons
+//icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
+import { faGithubSquare, faTwitterSquare, faLinkedin} from '@fortawesome/free-brands-svg-icons'; 
+
 
 const Member = props => {
+
+    const goToLink = url => window.location.replace(url)
+
     return(
         <div className='member'>
           <h3 className="aboutus-title">The Masterminds Behind Citrics</h3>
@@ -17,14 +25,17 @@ const Member = props => {
                     <p className="member-name">{props.member.name}</p>
                     <p className="member-role">{props.member.role}</p>
                     <div className="member-social">
-                        {/*social media*/}
+                        
+                        <FontAwesomeIcon icon={faGithubSquare} size="2x" color="#3999fc" onClick={() => goToLink(`https://www.github.com/${props.github}`)} />
+                        <FontAwesomeIcon icon={faLinkedin} size="2x" color="#3999fc" onClick={() => goToLink(`https://www.Linkedin.com/in/${props.linkedin}`)}/>
+                        <FontAwesomeIcon icon={faTwitterSquare} size="2x" color="#3999fc" onClick={() => goToLink(`https://www.twitter.com/${props.twitter}`)}/>
                     </div>
 
                     <p className="member-about">
                         {props.member.about}
                     </p>
 
-                    <div className="member-portfolio" href={props.member.p}>
+                    <div className="member-portfolio" onClick={() => goToLink(props.member.portfolio)}>
                         View {props.member.name}'s Portfolio
                     </div>
                 </div>

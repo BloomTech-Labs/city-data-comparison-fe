@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, {useState} from 'react'; 
 
 //file that contains information for each user
 import members from './team.js'
@@ -20,7 +20,7 @@ const AboutUs = props => {
 
             <Member member={members[index]}/>
 
-            <div className='right-arrow' onClick={() => (index === (team.length - 1)) ? setIndex(0) : setIndex(index + 1)}></div>
+            <div className='right-arrow' onClick={() => (index === (members.length - 1)) ? setIndex(0) : setIndex(index + 1)}></div>
         </div>
     )
 }
