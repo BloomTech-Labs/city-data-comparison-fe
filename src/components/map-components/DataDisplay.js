@@ -15,7 +15,7 @@ import EducationGraph from "../graphs/culture/EducationGraph";
 import AgeDistributionGraph from "../graphs/culture/AgeDistrubution";
 import RetirementGraph from "../graphs/economics/retirement";
 import VacancyGraph from "../graphs/housing/vacancy";
-
+import UnemploymentCard from "../graphs/economics/unemploymentCard";
 import deleteIcon from "./icons/close_red.png";
 import TotalPopulation from "../graphs/culture/TotalpopCard";
 
@@ -122,6 +122,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("salary")} activeClass="active" className="anchor-link" to="salary" spy={true} smooth={true} duration={500} >Salary</Link>
                                 <Link onClick={() => dataNavClicked("commute")} activeClass="active" className="anchor-link" to="commute" spy={true} smooth={true} duration={500} >Commute</Link>
                                 <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} >retirement</Link>
+                                <Link onClick={() => dataNavClicked("unemploymentRate")} activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} >Unemployment Rate</Link>
                                 <h4 className="anchor-header">Culture</h4>
                                 <Link onClick={() => dataNavClicked("education")} activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} >Education</Link>
                                 <Link onClick={() => dataNavClicked("ethnicity")} activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} >Ethnicity</Link>
@@ -164,6 +165,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
                     <Element name="commute" className="element" ><Commute edData={selected} /></Element>
                     <Element name="retirement" className="element" ><RetirementGraph ethData={selected} /></Element>
+                    <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
                 </div>
                 <div className="culture-graphs data-category">
                     <h3>Cultural Statistics:</h3>     
