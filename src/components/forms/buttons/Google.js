@@ -13,7 +13,7 @@ const Google = props => {
         
         const login = () => {
             axios
-                .get("https://citrics-staging.herokuapp.com/api/auth/login/linkedin")
+                .get("https://citrics-staging.herokuapp.com/api/auth/login/google")
                 .then(res => {
                     setIsLoggingIn(false)
                     res.json()
