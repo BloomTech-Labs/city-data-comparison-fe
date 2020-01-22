@@ -30,6 +30,7 @@ export default function Map() {
         console.log('DATA IS', res.data)
         setSelected([...selected, res.data])
       })
+      .catch(err => console.log("getCity error", err))
   }
 
   const getBestSuggestion = search => {
@@ -43,6 +44,7 @@ export default function Map() {
       }
       // maybe add an error message if nothing is found
     })
+    .catch(err => console.log("suggestion error", err))
   }
   
 
