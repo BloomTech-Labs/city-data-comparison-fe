@@ -25,7 +25,7 @@ export default function Map() {
   const [search, setSearch] = useState("");
 
   const getCity = cityMarker => {
-      Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
+      Axios.get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
       .then(res => {
         console.log('DATA IS', res.data)
         setSelected([...selected, res.data])
@@ -34,7 +34,7 @@ export default function Map() {
   }
 
   const getBestSuggestion = search => {
-    Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
+    Axios.get(`http://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
     .then(res => {
       // if there's a suggestion
       if (res.data) {
