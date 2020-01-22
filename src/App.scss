@@ -383,6 +383,14 @@ html,body{
   }
 
   // * TOGGLE FUNCTION
+  .toggle-div{
+      width:80%;
+      // border:1px solid red;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:center;
+
   #search-toggle{
     display:inline;
     margin-top:5px;
@@ -447,10 +455,17 @@ html,body{
 
 
     .search-toggle-green{
-      color:#00bfa5;
+      color:#00bfa5 !important;
     }
   }
+  }
 
+
+
+
+
+  
+  
   // * SEARCH FUNCION
   .dashboard-search-function{
     -webkit-transition: width .35s ease-in-out;
@@ -473,6 +488,8 @@ html,body{
         transform: translateY(0px);
       }
     }
+
+    
 
 
     .dashboard-title{
@@ -515,19 +532,38 @@ html,body{
 
     // * SINGLE SEARCH CONTAINER
     .dashboard-single-search-container{
+      animation: DashboardCTR;
+      animation-duration: 1s;
+      animation-fill-mode:forwards;
+      animation-timing-function:cubic-bezier(0.2,0.8,0.2,1);
+      transition: .5s cubic-bezier(0.2,0.8,0.2,1);
+      
+      @keyframes DashboardCTR {
+        0% {
+          opacity: 0;                
+          transform: translateY(20px);
+        }
+
+        100%{
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
       font-size:1.1rem;
 
       .search-button{
         font-size:1.1rem;
-        padding:14px 15px;
-        border-top-right-radius:5px;
-        border-bottom-right-radius:5px;
+        padding:14px 55px;
+        // border-top-right-radius:5px;
+        // border-bottom-right-radius:5px;
         background-color:#2ca4fc;
-        border-top-left-radius:0px;
-        border-bottom-left-radius:0px;
-        border-left:none;
+        border-radius:5px;
+        // border-top-left-radius:0px;
+        // border-bottom-left-radius:0px;
+        // border-left:none;
         color:white;
-        width:16%;
+        width:100%;
+        // border:1px solid red;
         transition:0.22s ease;
         margin-left:0;
         box-shadow:0 1px 16px 0 rgba(0, 0, 0, 0.07);
@@ -564,7 +600,23 @@ html,body{
 
 
     .dashboard-compare-search-container{
+      animation: DashboardCTA;
+      animation-duration: 1s;
+      animation-fill-mode:forwards;
+      animation-timing-function:cubic-bezier(0.2,0.8,0.2,1);
+      transition: .5s cubic-bezier(0.2,0.8,0.2,1);
       
+      @keyframes DashboardCTA {
+        0% {
+          opacity: 0;                
+          transform: translateY(20px);
+        }
+
+        100%{
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
         input{
           border-radius:5px;
           border:1px solid #b8bec4;
@@ -574,10 +626,10 @@ html,body{
         .compare-button{
           margin-top:10px;
           font-size:1.1rem;
-          padding:14px 15px;
+          padding:14px 55px;
           background-color:#2ca4fc;
           color:white;
-          width:30%;
+          width:100%;
           transition:0.22s ease;
           box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.07);
 
@@ -592,6 +644,25 @@ html,body{
 
 
     }
+
+    .compare-button{
+          margin-top:10px;
+          font-size:1.1rem;
+          padding:14px 55px;
+          background-color:#2ca4fc;
+          color:white;
+          width:100%;
+          transition:0.22s ease;
+          box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.07);
+
+          cursor:pointer;
+          &:focus{
+            outline:0;
+          }
+          &:hover{
+            filter: brightness(115%);
+          }
+        }
   }
 }
 

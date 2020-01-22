@@ -183,7 +183,20 @@ function Dashboard(){
                                              onChange={searchChange}
                                              value={search}
                                              />
-                                             <Link to="map/jobs/standards"><button type="submit" className="search-button">Go</button></Link>
+
+                                             {/* <div className="toggle-div">
+                                                  <div id="search-toggle">
+                                                       <label className="switch">
+                                                            <input type="checkbox"
+                                                            onClick={toggleClass}
+                                                            />
+                                                            <span className="slider round"></span>
+                                                       </label>
+                                                            <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
+                                                  </div>
+                                                  <Link to="map/jobs/standards"><button type="submit" className="search-button">Go</button></Link>    
+                                             </div> */}
+                                             
                                              
                                              <div>
                                                   {suggestions.map( (suggestion) => {
@@ -203,11 +216,12 @@ function Dashboard(){
                               </div>
 
                               :
+
                               <div className="dashboard-compare-search-container">
                                    <form onSubmit={submitCities}>
                                         <div>
                                              <input 
-                                             placeholder="Search for a city"
+                                             placeholder="Enter city one"
                                              onChange={handleCityOne}
                                              value={compare.cityOne}
                                              />                 
@@ -227,7 +241,7 @@ function Dashboard(){
                                         </div>
                                         <div>
                                              <input 
-                                             placeholder="Search for a city"
+                                             placeholder="Enter city two"
                                              onChange={handleCityTwo}
                                              value={compare.cityTwo}
                                              />
@@ -245,14 +259,31 @@ function Dashboard(){
                                                   })}
                                              </div>
                                         </div>
+                                       
+
+                                        
+                                        {/* <div className="toggle-div">
+                                             <div id="search-toggle">
+                                                  <label className="switch">
+                                                       <input type="checkbox"
+                                                       onClick={toggleClass}
+                                                       />
+                                                       <span className="slider round"></span>
+                                                  </label>
+                                                       <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
+                                             </div>
                                              <Link to="map/jobs/standards">
                                                   <button className="compare-button">Compare</button>
                                              </Link>
+
+                                        </div> */}
+                                             
                                    </form>
                               </div>
                               }
 
-                              <div id="search-toggle">
+                              <div className="toggle-div">
+                                   <div id="search-toggle">
                                    <label className="switch">
                                         <input type="checkbox"
                                          onClick={toggleClass}
@@ -261,6 +292,20 @@ function Dashboard(){
                                    </label>
                                         <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
                               </div>
+                              <Link to="map/jobs/standards">
+                                                  <button className="compare-button">Compare</button>
+                                             </Link>
+                              </div>
+                              
+                              {/* <div id="search-toggle">
+                                   <label className="switch">
+                                        <input type="checkbox"
+                                         onClick={toggleClass}
+                                        />
+                                        <span className="slider round"></span>
+                                   </label>
+                                        <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
+                              </div> */}
                          </div>
                     </div>
                     {/* LANDING IMAGE */}
