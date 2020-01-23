@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react';
 
 /***media***/
 import heart_icon from './icons/heart.svg';
+import filled_heart from './icons/filled_heart.svg'
 
 
 import {CityContext} from '../../contexts/CityContext'; 
@@ -25,6 +26,7 @@ const FavoriteButton = props => {
                         
                         setHover(true)}} style={{
                         'display': 'flex',
+                        'cursor' : 'pointer',
                         'alignItems' : 'center',
                         'justifyContent' : 'spaceAround',
                         'background' : 'white',
@@ -35,7 +37,7 @@ const FavoriteButton = props => {
                         'marginLeft' : 'auto'
                     
                     }}>
-                        <img src={heart_icon} alt='add to favorites'/>
+                        <img src={(hover) ? filled_heart : heart_icon} alt='add to favorites'/>
                         <p>Favorites</p>
                 </div>
             </div>

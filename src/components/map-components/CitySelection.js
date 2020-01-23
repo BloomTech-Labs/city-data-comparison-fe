@@ -31,10 +31,11 @@ const CitySelection = (props) => {
             </div>
 
             <p style={{'width' : '60%'}}>{props.city.name_with_com}</p>
-
+            {/*
             <div className="favoritesIcon" style={{'width' : '4%'}} onClick={() => setAdd(!add)}>
                 <img style={{'width':'100%'}} src={(add) ? delete_icon : add_icon}/>
             </div>
+            */}
         </div>
     )
 }
