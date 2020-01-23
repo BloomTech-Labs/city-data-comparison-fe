@@ -127,12 +127,14 @@ function Dashboard({history}){
                          longitude: found.lng,
                          latitude: found.lat
                     })
-               } else if (found) {
+               } 
+               else if (found) {
                     selectSearch(found);
+                   
                } else if (found2) {
                     selectSearch(found2);
                }
-               // suggestions need to search both i guess
+               // if you don't enter the cities by name it goes to the sug
                else {
                     ReactGA.event({ category: 'Data', 
                     action: `used suggestion endpoint: ${compare.cityOne}` });
