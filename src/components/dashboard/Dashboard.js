@@ -117,11 +117,8 @@ function Dashboard({history}){
      //* SUBMIT SEARCH */
      const submitCity = async (event) => {
           event.preventDefault();
-          console.log(compare)
                let found = cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne)
-               console.log("found", found)
                let found2 = cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo)
-               console.log("found2", found2)
                if (found && found2) {
                     getCities([found, found2]);              
                     // the viewport set below will require zoom handling based on population
