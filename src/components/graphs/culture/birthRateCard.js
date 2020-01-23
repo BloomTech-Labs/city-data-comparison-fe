@@ -1,4 +1,3 @@
-
 import React from 'react';
 import styled from "styled-components";
 
@@ -24,12 +23,13 @@ function TotalPopulation({ethData}) {
 	
 	return (
 		<div className="dataCards">
-            <h1>Total Population</h1>
+            <h1>Recent Mothers</h1>
 
             {ethData.map(item => 
                 <div key={item._id}>
                     <CenterCard> {item["City"]}</CenterCard>
-                    <CenterCard> {item["Total Population"]}</CenterCard>
+                    <CenterCard> Recent Mothers: {item['Recent Mothers']['Total']}</CenterCard>
+                    <CenterCard> Birth Rate Average per 1000 Females: {item['Recent Mothers']['Birth Rate']['Avg']}%</CenterCard>
 
                </div>
             )}
@@ -39,4 +39,3 @@ function TotalPopulation({ethData}) {
 }
 
 export default TotalPopulation;
-

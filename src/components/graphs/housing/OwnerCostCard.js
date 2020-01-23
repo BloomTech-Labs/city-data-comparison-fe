@@ -1,4 +1,3 @@
-
 import React from 'react';
 import styled from "styled-components";
 
@@ -24,12 +23,13 @@ function TotalPopulation({ethData}) {
 	
 	return (
 		<div className="dataCards">
-            <h1>Total Population</h1>
+            <h1>Monthly Owner Costs</h1>
 
             {ethData.map(item => 
                 <div key={item._id}>
                     <CenterCard> {item["City"]}</CenterCard>
-                    <CenterCard> {item["Total Population"]}</CenterCard>
+                    <CenterCard> Median Selected Monthly Owner Costs with Mortgage: {item["Median Selected Monthly Owner Costs with Mortgage"]}$</CenterCard>
+                    <CenterCard> Median Selected Monthly Owner Costs without Mortgage: {item["Median Selected Monthly Owner Costs without Mortgage"]}$</CenterCard>
 
                </div>
             )}
@@ -39,4 +39,3 @@ function TotalPopulation({ethData}) {
 }
 
 export default TotalPopulation;
-

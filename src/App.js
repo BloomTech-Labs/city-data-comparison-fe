@@ -16,6 +16,7 @@ import Login from './components/forms/Login';
 import citiesIndex from './data/city_ids.json'
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
+import Axios from "axios"
 
 
 function initializeAnalytics() {
@@ -55,6 +56,42 @@ function App() {
 
 
   });
+  const getCity = cityMarker => {
+    Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
+    .then(res => {
+      setSelected([...selected, res.data])
+    })
+    .catch(err => console.log("getCity error", err))
+}
+
+const getCities = arr => {
+  let output = []
+  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[0].ID}`)
+  .then(res => {
+    output.push(res.data);
+    // setSelected([...selected, res.data])
+  }).then(res => Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[1].ID}`)
+  .then(res => {
+    output.push(res.data)
+    setSelected([...selected, ...output])
+  }))
+  .catch(err => console.log("getCity error", err))
+}
+
+const getBestSuggestion = search => {
+  Axios.get(`https://cors-anywhere.herokuapp.com/https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
+  .then(res => {
+    // if there's a suggestion
+    if (res.data) {
+      // get the best (first) suggestion and add it to state
+      let suggestionKey = Object.keys(res.data)[0]
+      getCity(res.data[suggestionKey])  
+    }
+    // maybe add an error message if nothing is found
+  })
+  .catch(err => console.log("suggestion error", err))
+}
+
 // this filters the map markers based on zoom - Closer zoom, lesser population cap
   useEffect( _ => {
     if (viewport.zoom < 4) {
@@ -82,7 +119,7 @@ function App() {
   return (
     <Router>
       <UserContext.Provider value={{user, setUser}}>
-        <CityContext.Provider value={{cityMarkers, setCityMarkers, selected, setSelected, viewport, setViewport}}>
+        <CityContext.Provider value={{cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion}}>
           <div className="App">
             <Navigation />
             <Route exact path='/' component={Dashboard} />
