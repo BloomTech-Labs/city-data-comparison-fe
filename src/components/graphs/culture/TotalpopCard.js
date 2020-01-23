@@ -6,7 +6,8 @@ const Center = styled.h2`
 display:block;
 justify-content:center;
 flex-wrap:wrap;
-margin:10px;
+margin-left:5%;
+padding-left:5%;
 
 
 `
@@ -59,6 +60,8 @@ function TotalPopulation({ethData}) {
             )}
 			</NewCard>
             </WholeCard>
+
+            
             <WholeCard>
             <h1>Median Rent</h1>
             <NewCard>

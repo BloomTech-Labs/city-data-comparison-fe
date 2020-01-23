@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pie} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
 export default function VacancyGraph (props) {
 
@@ -19,7 +19,7 @@ export default function VacancyGraph (props) {
       <div className="charts" >
         
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
-            <Pie
+            <Bar
               data={{
                 
                 labels: ["Homeowner vacancy rate", "Rental vacancy rate"],
