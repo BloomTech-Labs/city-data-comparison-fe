@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef, useCallback} from 'react'; 
+import React, { useState} from 'react'; 
 import axios from 'axios'; 
 
 //stylesheet
@@ -17,7 +17,7 @@ const Google = props => {
                     res.json()
                 })
                 .catch(error => console.log(error))
-                
+        }    
 
     return (
         <div className='google-button' onClick={() => {setIsLoggingIn(true); login()}}>
