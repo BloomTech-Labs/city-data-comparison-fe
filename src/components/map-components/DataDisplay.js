@@ -130,6 +130,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("commute")} activeClass="active" className="anchor-link" to="commute" spy={true} smooth={true} duration={500} >Commute</Link>
                                 <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} >retirement</Link>
                                 <Link onClick={() => dataNavClicked("unemploymentRate")} activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} >Unemployment Rate</Link>
+
                                 <h4 className="anchor-header">Culture</h4>
                                 <Link onClick={() => dataNavClicked("education")} activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} >Education</Link>
                                 <Link onClick={() => dataNavClicked("ethnicity")} activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} >Ethnicity</Link>
@@ -137,6 +138,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} >Population</Link>
                                 <Link onClick={() => dataNavClicked("ageDistribution")} activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} >Age Distribution</Link>
                                 <Link onClick={() => dataNavClicked("totalPopulation")} activeClass="active" className="anchor-link" to="totalPopulation" spy={true} smooth={true} duration={500} >Total Population</Link>
+
                             </div>
                             : null}
                         </div>
@@ -177,6 +179,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="commute" className="element" ><Commute edData={selected} /></Element>
                     <Element name="retirement" className="element" ><RetirementGraph ethData={selected} /></Element>
                     <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
+
                 </div>
                 <div className="culture-graphs data-category">
                     <h3>Cultural Statistics:</h3>     
@@ -186,6 +189,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="population" className="element" ><Population selected = {selected} /></Element>
                     <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
                     <Element name="totalPopulation" className="element" ><TotalPopulation ethData = {selected} /></Element>
+
                 </div>
                 </>
                 : <h2 className="map-prompt">Select a city to begin browsing</h2>}
