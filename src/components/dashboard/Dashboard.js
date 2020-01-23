@@ -28,7 +28,7 @@ import "../../App.scss"
 function Dashboard({history}){
 
      AOS.init()
-     const { cityMarkers, selected, setSelected, cityIndex, viewport, setViewport, getCity, getCities, getBestSuggestion } = useContext(CityContext)
+     const { cityMarkers, selected, setSelected, cityIndex, viewport, setViewport, getCity, getCities, getBestSuggestion, getBestSuggestions } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
      const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
      const [cityTwoSuggestions, setCityTwoSuggestions] = useState([]);
@@ -136,7 +136,7 @@ function Dashboard({history}){
                else {
                     ReactGA.event({ category: 'Data', 
                     action: `used suggestion endpoint: ${compare.cityOne}` });
-                    await getBestSuggestion(compare.cityOne);
+                    await getBestSuggestions([compare.cityOne, compare.cityTwo]);
                }
           history.push("/map");
      }
