@@ -346,6 +346,7 @@ html,body{
       width:250px;
     }
     .bonus-features-CTA{
+      margin-left:0;
       .fonus-features-title{
         font-size:1.2rem;
       }
@@ -354,6 +355,7 @@ html,body{
       }
       .sign-up-CTA{
         font-size:1rem;
+        width:100%;
       }
     }
   }
@@ -542,7 +544,6 @@ html,body{
     
 
     .dashboard-compare-search-container{
-      // margin-bottom:5px;
       animation: DashboardCTA;
       animation-duration: 1s;
       animation-fill-mode:forwards;
@@ -572,10 +573,10 @@ html,body{
       border-radius:5px;
       font-size:1.1rem;
       font-weight:500;
-      padding:14px 45px;
+      padding:14px 50px;
       background-color:#2ca4fc;
       color:white;
-      width:100%;
+      max-width:400px;
       transition:0.22s ease;
       box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.07);
 
@@ -590,6 +591,15 @@ html,body{
   }
 }
 
+@media screen and (max-width:800px){
+  .dashboard-search-container{
+    .dashboard-search-function{
+      .compare-button{
+        padding:14px 45px;
+      }
+    }
+  }
+}
 
 @media screen and (max-width:700px){
       .dashboard-search-container{
@@ -618,6 +628,9 @@ html,body{
           .dashboard-title{
             margin-top:0;
             text-align:center;
+          }
+          .compare-button{
+            padding:14px 50px;
           }
         }
       }
@@ -665,8 +678,8 @@ html,body{
 
 @media screen and (max-width:500px){
   .dashboard-features-title{
-    padding-top:10%;
-    padding-bottom:7%;
+    padding-top:30px;
+    padding-bottom:50px;
     margin-bottom:0;
     text-align:center;
     .features-title{
@@ -748,8 +761,9 @@ html,body{
 @media screen and (max-width:500px){
   .kevin{
     margin-top:50px;
-    padding-top:0px;
-    height:560px;
+    padding-top:0;
+    padding-bottom:30px;
+    height:auto;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -759,7 +773,8 @@ html,body{
     padding-right:0;
     
     .feature-descriptions-container{
-      margin: 5% auto;
+      margin: 0 auto;
+      margin-bottom:50px;
       margin-top:0;
       flex-direction:row;
       align-items:center;
