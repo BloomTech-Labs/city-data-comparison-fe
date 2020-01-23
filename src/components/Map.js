@@ -19,7 +19,7 @@ const MapWrapper = styled.div`
 
 export default function Map() {
 
-  const { cityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, cityIndex } = useContext(CityContext)
+  const { cityMarkers, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, cityIndex } = useContext(CityContext)
 
   
   const [search, setSearch] = useState("");
@@ -99,8 +99,10 @@ const selectSearch = cityMarker =>  {
                     
                     <Markers 
                       cityMarkers={cityMarkers}
+                      setCityMarkers={setCityMarkers}
                       selected={selected}
-                      toggleSelected={toggleSelected} />
+                      toggleSelected={toggleSelected} 
+                      cityIndex={cityIndex}/>
                 </ReactMapGL>
               </MapWrapper>
             </div>
