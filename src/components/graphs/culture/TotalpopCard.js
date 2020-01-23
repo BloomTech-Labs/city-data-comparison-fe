@@ -7,7 +7,7 @@ display:block;
 justify-content:center;
 flex-wrap:wrap;
 margin-left:5%;
-padding-left:5%;
+padding-left:1%;
 
 
 `
@@ -15,7 +15,7 @@ const Wrap = styled.div`
 display:block;
 justify-content:center;
 flex-wrap:wrap;
-width:20%;
+width:25%;
 
 `
 

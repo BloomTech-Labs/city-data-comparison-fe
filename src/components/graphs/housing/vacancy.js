@@ -56,18 +56,18 @@ export default function VacancyGraph (props) {
                 scales: {
                   xAxes: [ {
                     
-                    display: false,
+                    display: true,
                     gridLines: {
                       display:false,
                     },
                     scaleLabel: {
-                      display: true,
+                      display: false,
                       labelString: 'Rate'
                     },
                   } 
                   ],
                   yAxes: [ {
-                    display: false,
+                    display: true,
                     gridLines: {
                       display:false,
                     },
