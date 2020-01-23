@@ -28,7 +28,7 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
           {cityMarkers.map(cityMarker=> {
             // console.log(cityMarker, "CITYMARKER")
             return (
-              <Marker key={cityMarker.lat} latitude={cityMarker.lat} longitude={cityMarker.lng}>
+              <Marker key={cityMarker.ID} latitude={cityMarker.lat} longitude={cityMarker.lng}>
                     {/* <Link className='map-marker' to={`/map/${cityMarker.city}${cityMarker.state_id}`}> */}
                   <div
                     onClick={() => toggleSelected(cityMarker)} 

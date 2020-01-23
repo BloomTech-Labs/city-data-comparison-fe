@@ -103,8 +103,17 @@ const getBestSuggestion = search => {
     if (viewport.zoom >= 5 && viewport.zoom < 6) {
       setCityMarkers(cityIndex.filter(city => city.population > 100000))
     }
+    if (viewport.zoom >= 6 && viewport.zoom < 7) {
+      setCityMarkers(cityIndex.filter(city => city.population > 50000))
+    }
+    if (viewport.zoom >= 7 && viewport.zoom < 8) {
+      setCityMarkers(cityIndex.filter(city => city.population > 10000))
+    }
     // let selectedCityMarkers = selected.map(item => cityIndex.find(city => city.ID === item.id))
     // setCityMarkers([...cityMarkers, ...selectedCityMarkers])
+    console.log(viewport.zoom)
+    console.log("lat", viewport.latitude)
+    console.log("long", viewport.longitude)
   },[viewport.zoom])
 
 
