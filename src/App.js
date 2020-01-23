@@ -103,6 +103,8 @@ const getBestSuggestion = search => {
     if (viewport.zoom >= 5 && viewport.zoom < 6) {
       setCityMarkers(cityIndex.filter(city => city.population > 100000))
     }
+    // let selectedCityMarkers = selected.map(item => cityIndex.find(city => city.ID === item.id))
+    // setCityMarkers([...cityMarkers, ...selectedCityMarkers])
   },[viewport.zoom])
 
 
