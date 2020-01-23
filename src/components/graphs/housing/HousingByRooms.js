@@ -54,7 +54,7 @@ export default function EducationGraph (props) {
                   fontSize:25
                 },
                 legend:{
-                  display:true,
+                  display:false,
                   position:"top",
                 },
                 scales: {

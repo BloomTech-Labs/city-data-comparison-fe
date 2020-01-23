@@ -12,8 +12,16 @@ import BarGraph from "../graphs/economics/HouseIncome_BarGraph";
 import EthnicityGraph from "../graphs/culture/EthnicityGraph";
 import Population from "../graphs/culture/PopulationGraph";
 import EducationGraph from "../graphs/culture/EducationGraph";
-
+import AgeDistributionGraph from "../graphs/culture/AgeDistrubution";
+import RetirementGraph from "../graphs/economics/retirement";
+import VacancyGraph from "../graphs/housing/vacancy";
+import UnemploymentCard from "../graphs/economics/unemploymentCard";
 import deleteIcon from "./icons/close_red.png";
+import TotalPopulation from "../graphs/culture/TotalpopCard";
+import TravelTime from "../graphs/economics/TravelTimeCard";
+import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
+import OwnerCostCard from "../graphs/housing/OwnerCostCard"
+import BirthRateCard from "../graphs/culture/birthRateCard"
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
 
@@ -109,16 +117,28 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             ? <div className="anchor-nav">
                                 <h4 className="anchor-header">Housing</h4>
                                 <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
+                                <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} >Owner Costs</Link>
                                 <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} >Rent</Link>
                                 <Link onClick={() => dataNavClicked("rooms")} activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} >Rooms</Link>
+                                <Link onClick={() => dataNavClicked("vacancy")} activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} >Vacancy</Link>
+                                
                                 <h4 className="anchor-header">Jobs</h4>
                                 <Link onClick={() => dataNavClicked("industries")} activeClass="active" className="anchor-link" to="industries" spy={true} smooth={true} duration={500} >Industries</Link>
+                                <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} >Health Insurance</Link>
                                 <Link onClick={() => dataNavClicked("salary")} activeClass="active" className="anchor-link" to="salary" spy={true} smooth={true} duration={500} >Salary</Link>
+                                <Link onClick={() => dataNavClicked("travelTime")} activeClass="active" className="anchor-link" to="travelTime" spy={true} smooth={true} duration={500} >Travel Time to Work</Link>
                                 <Link onClick={() => dataNavClicked("commute")} activeClass="active" className="anchor-link" to="commute" spy={true} smooth={true} duration={500} >Commute</Link>
+                                <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} >retirement</Link>
+                                <Link onClick={() => dataNavClicked("unemploymentRate")} activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} >Unemployment Rate</Link>
+
                                 <h4 className="anchor-header">Culture</h4>
                                 <Link onClick={() => dataNavClicked("education")} activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} >Education</Link>
                                 <Link onClick={() => dataNavClicked("ethnicity")} activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} >Ethnicity</Link>
+                                <Link onClick={() => dataNavClicked("birthRate")} activeClass="active" className="anchor-link" to="birthRate" spy={true} smooth={true} duration={500} >Birth Rate</Link>
                                 <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} >Population</Link>
+                                <Link onClick={() => dataNavClicked("ageDistribution")} activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} >Age Distribution</Link>
+                                <Link onClick={() => dataNavClicked("totalPopulation")} activeClass="active" className="anchor-link" to="totalPopulation" spy={true} smooth={true} duration={500} >Total Population</Link>
+
                             </div>
                             : null}
                         </div>
@@ -143,22 +163,33 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 <div className="housing-graphs data-category">
                     <h3>Housing:</h3>
                     <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
+                    <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
                     <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
                     <Element name="rooms" className="element" ><RoomGraph edData={selected} /></Element>
+                    <Element name="vacancy" className="element" ><VacancyGraph edData={selected} /></Element>
                 </div> 
                 
 
                 <div className="jobs-graphs data-category">
                     <h3>Job Market:</h3>
                     <Element name="industries" className="element" ><Industry edData={selected} /></Element>
+                    <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
                     <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
+                    <Element name="travelTime" className="element" ><TravelTime ethData = {selected} /></Element>
                     <Element name="commute" className="element" ><Commute edData={selected} /></Element>
+                    <Element name="retirement" className="element" ><RetirementGraph ethData={selected} /></Element>
+                    <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
+
                 </div>
                 <div className="culture-graphs data-category">
                     <h3>Cultural Statistics:</h3>     
                     <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
                     <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
+                    <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
                     <Element name="population" className="element" ><Population selected = {selected} /></Element>
+                    <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
+                    <Element name="totalPopulation" className="element" ><TotalPopulation ethData = {selected} /></Element>
+
                 </div>
                 </>
                 : <h2 className="map-prompt">Select a city to begin browsing</h2>}

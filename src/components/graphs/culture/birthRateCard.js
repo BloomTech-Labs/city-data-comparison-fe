@@ -1,0 +1,41 @@
+import React from 'react';
+import styled from "styled-components";
+
+const CenterCard = styled.h2`
+display:flex;
+justify-content:center;
+
+`
+function TotalPopulation({ethData}) {
+    // console.log(ethData, "ETH")
+	// const colorifier = lat => {
+
+    //     let arr = String(lat).replace(".","").split("");
+    
+    //     let num1 = arr.pop();
+    //     let num2 = arr.pop();
+    //     let num3 = arr.pop();
+    
+    //     return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
+    //     }
+
+
+	
+	return (
+		<div className="dataCards">
+            <h1>Recent Mothers</h1>
+
+            {ethData.map(item => 
+                <div key={item._id}>
+                    <CenterCard> {item["City"]}</CenterCard>
+                    <CenterCard> Recent Mothers: {item['Recent Mothers']['Total']}</CenterCard>
+                    <CenterCard> Birth Rate Average per 1000 Females: {item['Recent Mothers']['Birth Rate']['Avg']}%</CenterCard>
+
+               </div>
+            )}
+			
+		</div>
+	);
+}
+
+export default TotalPopulation;

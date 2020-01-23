@@ -2,6 +2,7 @@ import React from "react";
 import EthnicityGraph from "../../graphs/culture/EthnicityGraph";
 import Population from "../../graphs/culture/PopulationGraph";
 import EducationGraph from "../../graphs/culture/EducationGraph";
+import AgeDistributionGraph from "../graphs/culture/AgeDistrubution"
 
 const Culture = ({selected}) => {
 
@@ -11,6 +12,7 @@ const Culture = ({selected}) => {
             <span id="education"><EducationGraph edData={selected} /></span>
             <span id="ethnicity"><EthnicityGraph ethData = {selected} /></span>
             <span id="population"><Population selected = {selected} /></span>
+            {/* <span id="population"><AgeDistributionGraph ethData = {selected} /></span> */}
         </div>
     )
 }
