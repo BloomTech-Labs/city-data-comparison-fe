@@ -22,12 +22,9 @@ const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, se
         return sorted;
       }
     
-    
     const chooseSuggestion = city => {
-
         ReactGA.event({ category: 'Search', 
         action: `used autofill` });
-
         setSearch(city.name.replace(" city", ""));
         selectSearch(city);
         setSuggestions([]);
@@ -37,6 +34,7 @@ const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, se
             latitude: city.lat
           })
     }
+    
     return(
         <form autoComplete="off" onSubmit={onSearch}>
             <input
