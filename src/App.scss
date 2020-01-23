@@ -339,6 +339,7 @@ html,body{
 @media screen and (max-width:600px){
   .bonus-features-container{
     flex-direction:column;
+
     .bonus-features-CTA{
       padding: 0 5%;
     }    
@@ -354,8 +355,8 @@ html,body{
         font-size:1rem;
       }
       .sign-up-CTA{
-        font-size:1rem;
-        width:100%;
+        font-size:1.15rem;
+        width:50%;
       }
     }
   }
@@ -591,7 +592,7 @@ html,body{
   }
 }
 
-@media screen and (max-width:800px){
+@media screen and (max-width:900px){
   .dashboard-search-container{
     .dashboard-search-function{
       .compare-button{
