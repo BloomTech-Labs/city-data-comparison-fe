@@ -1,12 +1,11 @@
 import React, {useState} from 'react'; 
 
-//media
+/***media***/
 import heart_icon from './icons/heart.svg';
 //delete icon
 import delete_icon from './icons/close_red.png'; 
-
 //add icon
-import add
+import add_icon from './icons/add_icon.svg';
 //city pointer icon
 import pointer from '../dashboard/assets/pointer.svg'
 
@@ -17,10 +16,16 @@ const citySelection = props => {
     const [add, setAdd] = useState(true); 
 
     return(
-        <div className='favoriteCitiesSelection'>
+        <div className='favoriteCitiesSelection' style={{
+            'display' : 'flex', 
+            'justifyContent' : 'space-between', 
+            'alignItems' : 'center'
+        }}>
             <img src={pointer} alt={props.city}/>
             <p>{props.city}</p>
-            <img src={(add) ? }
+            <div className="favoritesIcon" onClick={() => setAdd(!add)}>
+                <img src={(add) ? delete_icon : add_icon}/>
+            </div>
         </div>
     )
 }
