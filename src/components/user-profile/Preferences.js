@@ -80,7 +80,7 @@ const Preferences = ({selected, toggleSelected})=> {
                     </div>
                     <div className='head-bottom'>
                         <img src={infoIcon} alt='info icon'/>
-                        <p>As a default, all the categories are displayed. <span>Deselect</span> categories that you wish not to see or click the expand button (<span>=</span>) to view subcategories and make a change.</p>
+                        <p>As a default, all the categories are displayed. <span>Deselect</span> categories that you wish not to see or click the expand button <span>(=)</span> to view subcategories and make a change.</p>
                     </div>
                 </div>
                 <div className='pref-tabs'>
