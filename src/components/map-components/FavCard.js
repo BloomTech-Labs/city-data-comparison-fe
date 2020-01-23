@@ -7,15 +7,15 @@ const FavCard = props => {
     const {selected} = useContext(CityContext); 
 
     return (
-        <div className="favcard" style={{
+        <div className="favcard"style={{
             'width' : '30%',
             'position' : 'absolute',
             'left': '68%',
-            'z-index': '9999',
+            'zIndex': '9999',
             'bottom': '27%', 
             
         }}>
-            {selected.map( city => <CitySelection city={city}/>)}
+            {selected.map( city => <CitySelection  key={Math.random()}  city={city}/>)}
         </div>
     )
 }

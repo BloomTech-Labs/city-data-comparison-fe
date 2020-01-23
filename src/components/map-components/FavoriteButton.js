@@ -19,6 +19,7 @@ const FavoriteButton = props => {
         Axios
             .post(`https://citrics-staging.herokuapp.com/api/favs`, selected)
             .then(response => {
+                
                 console.log(response)
                 setSaving(false)
             })
@@ -49,8 +50,8 @@ const FavoriteButton = props => {
                         'background' : 'white',
                         'width': '10%',
                         'justifyContent': 'space-around', 
-                        'border-radius': '10px',
-                        'font-weight': '500',
+                        'borderRadius': '10px',
+                        'fontWeight': '500',
                         'marginLeft' : 'auto'
                     
                     }}>

@@ -20,7 +20,7 @@ const CitySelection = (props) => {
             'display' : 'flex', 
             'justifyContent' : 'space-between', 
             'alignItems' : 'center', 
-            'align-content': 'center',
+            'alignContent': 'center',
             'height': '2rem',
             'background':' white',
             'padding': '2%',
