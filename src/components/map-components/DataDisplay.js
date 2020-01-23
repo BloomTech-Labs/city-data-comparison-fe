@@ -18,7 +18,7 @@ import VacancyGraph from "../graphs/housing/vacancy";
 
 import deleteIcon from "./icons/close_red.png";
 
-const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
+const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
     const [menu, setMenu] = useState({status: 'closed'})
 
@@ -107,6 +107,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             viewport={viewport}
                             setViewport={setViewport}  
                             selectSearch={selectSearch}
+                            cityIndex={cityIndex}
                             />
                             {selected.length > 0 
                             ? <div className="anchor-nav">

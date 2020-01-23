@@ -19,7 +19,7 @@ const MapWrapper = styled.div`
 
 export default function Map() {
 
-  const { cityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion } = useContext(CityContext)
+  const { cityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, cityIndex } = useContext(CityContext)
 
   
   const [search, setSearch] = useState("");
@@ -116,6 +116,7 @@ const selectSearch = cityMarker =>  {
               search={search}
               viewport={viewport}
               setViewport={setViewport}
+              cityIndex={cityIndex}
             />
           <MapFooter />
           </div>

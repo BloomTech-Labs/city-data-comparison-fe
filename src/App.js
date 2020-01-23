@@ -95,13 +95,13 @@ const getBestSuggestion = search => {
 // this filters the map markers based on zoom - Closer zoom, lesser population cap
   useEffect( _ => {
     if (viewport.zoom < 4) {
-      setCityMarkers(index.filter(city => city.population > 500000))
+      setCityMarkers(cityIndex.filter(city => city.population > 500000))
     }
     if (viewport.zoom >= 4 && viewport.zoom < 5) {
-      setCityMarkers(index.filter(city => city.population > 300000))
+      setCityMarkers(cityIndex.filter(city => city.population > 300000))
     }
     if (viewport.zoom >= 5 && viewport.zoom < 6) {
-      setCityMarkers(index.filter(city => city.population > 100000))
+      setCityMarkers(cityIndex.filter(city => city.population > 100000))
     }
   },[viewport.zoom])
 

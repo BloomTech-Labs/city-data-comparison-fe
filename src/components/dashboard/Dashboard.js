@@ -28,7 +28,7 @@ import "../../App.scss"
 function Dashboard({history}){
 
      AOS.init()
-     const { cityMarkers, selected, setSelected, viewport, setViewport, getCity, getCities, getBestSuggestion } = useContext(CityContext)
+     const { cityMarkers, selected, setSelected, cityIndex, viewport, setViewport, getCity, getCities, getBestSuggestion } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
      const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
      const [cityTwoSuggestions, setCityTwoSuggestions] = useState([]);
@@ -52,10 +52,20 @@ function Dashboard({history}){
           cityTwo:""
      })
 
+     const topPopFilter = arr => {
+          let sorted = arr.sort((city1, city2) => city2.population - city1.population);
+          if (sorted.length > 5) {
+            sorted = sorted.slice(0,5)
+          }
+          return sorted;
+        }
+
      const handleCityOne = e => {
           const searchText = e.target.value
           searchText
-          ? setCityOneSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
+          ? setCityOneSuggestions(topPopFilter(cityIndex.filter(
+               city => 
+               city.name.toLowerCase().includes(searchText.toLowerCase()))))
           : setCityOneSuggestions([]);
           setCompare({
                ...compare,
@@ -66,7 +76,7 @@ function Dashboard({history}){
      const handleCityTwo = e => {
           const searchText = e.target.value
           searchText
-          ? setCityTwoSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
+          ? setCityTwoSuggestions(topPopFilter(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase()))))
           : setCityTwoSuggestions([]);
           setCompare({
                ...compare,
