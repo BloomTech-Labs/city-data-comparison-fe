@@ -32,18 +32,18 @@ function App() {
     action: 'Loaded app' });
   }, [])
 
-  let index = []
+  let cityIndex = []
   
   Object.keys(citiesIndex).forEach(item => {
       // console.log(citiesIndex[item])
       let city = citiesIndex[item]
       city.name = item
-      index.push(city)
+      cityIndex.push(city)
   })
 
 
   const [user, setUser] = useState({});
-  const [cityMarkers, setCityMarkers] = useState(index);
+  const [cityMarkers, setCityMarkers] = useState(cityIndex);
   const [selected, setSelected] = useState([]);
   const [viewport, setViewport] = useState({
     width: '100%',
@@ -119,7 +119,7 @@ const getBestSuggestion = search => {
   return (
     <Router>
       <UserContext.Provider value={{user, setUser}}>
-        <CityContext.Provider value={{cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion}}>
+        <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion}}>
           <div className="App">
             <Navigation />
             <Route exact path='/' component={Dashboard} />

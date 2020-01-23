@@ -109,8 +109,7 @@ function Dashboard({history}){
                let found = cityMarkers.find(item => item.name.replace(" city", "") === compare.cityOne)
                let found2 = cityMarkers.find(item => item.name.replace(" city", "") === compare.cityTwo)
                if (found && found2) {
-                    getCities([found, found2]);
-                         
+                    getCities([found, found2]);              
                     // the viewport set below will require zoom handling based on population
                     setViewport({
                          ...viewport,
@@ -127,12 +126,8 @@ function Dashboard({history}){
                     ReactGA.event({ category: 'Data', 
                     action: `used suggestion endpoint: ${compare.cityOne}` });
                     await getBestSuggestion(compare.cityOne);
-               }   
-
-
-          
+               }
           history.push("/map");
-          
      }
      
      //* TOGGLING BUTTONS */
