@@ -11,7 +11,7 @@ import pointer from '../dashboard/assets/pointer.svg'
 
 
 
-export default function citySelection (props) {
+const CitySelection = (props) => {
     //state is used to toggle between adding or removing a city to user's favorites
     const [add, setAdd] = useState(true); 
 
@@ -19,13 +19,24 @@ export default function citySelection (props) {
         <div className='favoriteCitiesSelection' style={{
             'display' : 'flex', 
             'justifyContent' : 'space-between', 
-            'alignItems' : 'center'
+            'alignItems' : 'center', 
+            'align-content': 'center',
+            'height': '2rem',
+            'background':' white',
+            'padding': '2%',
+            'width' : '100%'
         }}>
-            <img src={pointer} alt={props.city}/>
-            <p>{props.city}</p>
-            <div className="favoritesIcon" onClick={() => setAdd(!add)}>
-                <img src={(add) ? delete_icon : add_icon}/>
+            <div className='pointerIcon' style={{ 'width' : '4%'}}>
+                <img src={pointer} style={{'width' : '100%'}} alt={props.city.name_with_com}/>
+            </div>
+
+            <p style={{'width' : '60%'}}>{props.city.name_with_com}</p>
+
+            <div className="favoritesIcon" style={{'width' : '4%'}} onClick={() => setAdd(!add)}>
+                <img style={{'width':'100%'}} src={(add) ? delete_icon : add_icon}/>
             </div>
         </div>
     )
 }
+
+export default CitySelection
