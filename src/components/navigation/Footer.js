@@ -38,15 +38,15 @@ function Footer(){
                               </div>
                               <div className="footer-categories">
                                    <p className="footer-title">Company</p>
-                                   <a onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>Meet the Team</a>
-                                   <a onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>About Us</a>
-                                   <a onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>Contact Us</a>
+                                   <a href="#" onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>Meet the Team</a>
+                                   <a href="#" onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>About Us</a>
+                                   <a href="#" onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>Contact Us</a>
                               </div>
                               <div className="footer-categories">
-                                   <p className="footer-title">Resources</p>
+                                   <p href="#" className="footer-title">Resources</p>
                                    <a href="https://api.citrics.io/docs">Data Sources</a>
-                                   <a onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}>Private Policy</a>
-                                   <a onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}> Terms of Use</a>
+                                   <a href="#" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}>Private Policy</a>
+                                   <a href="#" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}> Terms of Use</a>
                               </div>
                          </div>
                          <div>
