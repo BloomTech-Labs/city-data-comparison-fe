@@ -28,7 +28,7 @@ import "../../App.scss"
 function Dashboard({history}){
 
      AOS.init()
-     const { cityMarkers, selected, setSelected, viewport, setViewport, getCity, getCities, getBestSuggestion } = useContext(CityContext)
+     const { cityMarkers, selected, setSelected, cityIndex, viewport, setViewport, getCity, getCities, getBestSuggestion } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
      const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
      const [cityTwoSuggestions, setCityTwoSuggestions] = useState([]);
@@ -52,10 +52,20 @@ function Dashboard({history}){
           cityTwo:""
      })
 
+     const topPopFilter = arr => {
+          let sorted = arr.sort((city1, city2) => city2.population - city1.population);
+          if (sorted.length > 5) {
+            sorted = sorted.slice(0,5)
+          }
+          return sorted;
+        }
+
      const handleCityOne = e => {
           const searchText = e.target.value
           searchText
-          ? setCityOneSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
+          ? setCityOneSuggestions(topPopFilter(cityIndex.filter(
+               city => 
+               city.name.toLowerCase().includes(searchText.toLowerCase()))))
           : setCityOneSuggestions([]);
           setCompare({
                ...compare,
@@ -66,7 +76,9 @@ function Dashboard({history}){
      const handleCityTwo = e => {
           const searchText = e.target.value
           searchText
-          ? setCityTwoSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
+          ? setCityTwoSuggestions(topPopFilter(cityIndex.filter(
+               city => 
+               city.name.toLowerCase().includes(searchText.toLowerCase()))))
           : setCityTwoSuggestions([]);
           setCompare({
                ...compare,
@@ -105,12 +117,10 @@ function Dashboard({history}){
      //* SUBMIT SEARCH */
      const submitCity = async (event) => {
           event.preventDefault();
-          console.log(compare)
-               let found = cityMarkers.find(item => item.name.replace(" city", "") === compare.cityOne)
-               let found2 = cityMarkers.find(item => item.name.replace(" city", "") === compare.cityTwo)
+               let found = cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne)
+               let found2 = cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo)
                if (found && found2) {
-                    getCities([found, found2]);
-                         
+                    getCities([found, found2]);              
                     // the viewport set below will require zoom handling based on population
                     setViewport({
                          ...viewport,
@@ -127,12 +137,8 @@ function Dashboard({history}){
                     ReactGA.event({ category: 'Data', 
                     action: `used suggestion endpoint: ${compare.cityOne}` });
                     await getBestSuggestion(compare.cityOne);
-               }   
-
-
-          
+               }
           history.push("/map");
-          
      }
      
      //* TOGGLING BUTTONS */
@@ -167,8 +173,7 @@ function Dashboard({history}){
                          <p className="dashboard-title">Make Your Move.</p>
                          {/* SEARCH CONTAINER */}
                          <div className="dashboard-function-container">
-                              
-                              
+                              {/* TOGGLE SEARCH VS. COMPARE FUNCTIONALITY */}
                               { toggleSearch ? 
                               <div className="dashboard-single-search-container">
                                    <form autoComplete="off" onSubmit={submitCity}>
@@ -244,6 +249,7 @@ function Dashboard({history}){
                                    </form>
                               </div>
                               }
+
                               {/* * TOGGLE DIV FOR SEARCH AND GO BUTTON */}
                               <div className="toggle-div">
                                    <div id="search-toggle">
@@ -253,14 +259,13 @@ function Dashboard({history}){
                                              />
                                              <span className="slider round"></span>
                                         </label>
-                                             <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
+                                        <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
                                    </div>
-                                   
                                         <button onClick={submitCity} className="compare-button">Go</button>
-                                   
                               </div>
                          </div>
                     </div>
+
                     {/* LANDING IMAGE */}
                     <div className="dashboard-image">
                          <img className="landing-image" src={landing} alt="environment" />

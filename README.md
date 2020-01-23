@@ -60,6 +60,7 @@ Cities with data are marked on a searchable, indexed map generated from the Mapb
 - Chart JS
 - Mapbox
 - Font Awesome
+- React-scroll
 
 #### React
 

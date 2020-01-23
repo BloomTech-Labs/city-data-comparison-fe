@@ -32,18 +32,18 @@ function App() {
     action: 'Loaded app' });
   }, [])
 
-  let index = []
+  let cityIndex = []
   
   Object.keys(citiesIndex).forEach(item => {
       // console.log(citiesIndex[item])
       let city = citiesIndex[item]
       city.name = item
-      index.push(city)
+      cityIndex.push(city)
   })
 
 
   const [user, setUser] = useState({});
-  const [cityMarkers, setCityMarkers] = useState(index);
+  const [cityMarkers, setCityMarkers] = useState(cityIndex);
   const [selected, setSelected] = useState([]);
   const [viewport, setViewport] = useState({
     width: '100%',
@@ -95,14 +95,25 @@ const getBestSuggestion = search => {
 // this filters the map markers based on zoom - Closer zoom, lesser population cap
   useEffect( _ => {
     if (viewport.zoom < 4) {
-      setCityMarkers(index.filter(city => city.population > 500000))
+      setCityMarkers(cityIndex.filter(city => city.population > 500000))
     }
     if (viewport.zoom >= 4 && viewport.zoom < 5) {
-      setCityMarkers(index.filter(city => city.population > 300000))
+      setCityMarkers(cityIndex.filter(city => city.population > 300000))
     }
     if (viewport.zoom >= 5 && viewport.zoom < 6) {
-      setCityMarkers(index.filter(city => city.population > 100000))
+      setCityMarkers(cityIndex.filter(city => city.population > 100000))
     }
+    if (viewport.zoom >= 6 && viewport.zoom < 7) {
+      setCityMarkers(cityIndex.filter(city => city.population > 50000))
+    }
+    if (viewport.zoom >= 7 && viewport.zoom < 8) {
+      setCityMarkers(cityIndex.filter(city => city.population > 10000))
+    }
+    // let selectedCityMarkers = selected.map(item => cityIndex.find(city => city.ID === item.id))
+    // setCityMarkers([...cityMarkers, ...selectedCityMarkers])
+    console.log(viewport.zoom)
+    console.log("lat", viewport.latitude)
+    console.log("long", viewport.longitude)
   },[viewport.zoom])
 
 
@@ -119,7 +130,7 @@ const getBestSuggestion = search => {
   return (
     <Router>
       <UserContext.Provider value={{user, setUser}}>
-        <CityContext.Provider value={{cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion}}>
+        <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion}}>
           <div className="App">
             <Navigation />
             <Route exact path='/' component={Dashboard} />
