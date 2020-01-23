@@ -76,7 +76,9 @@ function Dashboard({history}){
      const handleCityTwo = e => {
           const searchText = e.target.value
           searchText
-          ? setCityTwoSuggestions(topPopFilter(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase()))))
+          ? setCityTwoSuggestions(topPopFilter(cityIndex.filter(
+               city => 
+               city.name.toLowerCase().includes(searchText.toLowerCase()))))
           : setCityTwoSuggestions([]);
           setCompare({
                ...compare,
@@ -116,8 +118,10 @@ function Dashboard({history}){
      const submitCity = async (event) => {
           event.preventDefault();
           console.log(compare)
-               let found = cityMarkers.find(item => item.name.replace(" city", "") === compare.cityOne)
-               let found2 = cityMarkers.find(item => item.name.replace(" city", "") === compare.cityTwo)
+               let found = cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne)
+               console.log("found", found)
+               let found2 = cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo)
+               console.log("found2", found2)
                if (found && found2) {
                     getCities([found, found2]);              
                     // the viewport set below will require zoom handling based on population
