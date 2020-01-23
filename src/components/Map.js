@@ -23,9 +23,7 @@ export default function Map() {
 
   
   const [search, setSearch] = useState("");
-
-
-  
+ 
 
 
   // Google Analytics Events
