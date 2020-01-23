@@ -116,6 +116,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             {selected.length > 0 
                             ? <div className="anchor-nav">
                                 <h4 className="anchor-header">Housing</h4>
+                                <Link onClick={() => dataNavClicked("totalPopulation")} activeClass="active" className="anchor-link" to="totalPopulation" spy={true} smooth={true} duration={500} >Total Population</Link>
                                 <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
                                 <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} >Owner Costs</Link>
                                 <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} >Rent</Link>
@@ -137,7 +138,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("birthRate")} activeClass="active" className="anchor-link" to="birthRate" spy={true} smooth={true} duration={500} >Birth Rate</Link>
                                 <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} >Population</Link>
                                 <Link onClick={() => dataNavClicked("ageDistribution")} activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} >Age Distribution</Link>
-                                <Link onClick={() => dataNavClicked("totalPopulation")} activeClass="active" className="anchor-link" to="totalPopulation" spy={true} smooth={true} duration={500} >Total Population</Link>
 
                             </div>
                             : null}
@@ -162,6 +162,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 ? <> 
                 <div className="housing-graphs data-category">
                     <h3>Housing:</h3>
+                    <Element name="totalPopulation" className="element" ><TotalPopulation ethData = {selected} /></Element>
                     <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
                     <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
                     <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
@@ -188,7 +189,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
                     <Element name="population" className="element" ><Population selected = {selected} /></Element>
                     <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
-                    <Element name="totalPopulation" className="element" ><TotalPopulation ethData = {selected} /></Element>
 
                 </div>
                 </>
