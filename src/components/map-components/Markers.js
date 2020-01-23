@@ -18,6 +18,7 @@ const Markers = ({ cityMarkers, setCityMarkers, selected, toggleSelected, cityIn
 
   return (
         <div>
+          {/* this converts selected cities into markers, even if they're outside of the zoom scope */}
           {selected.map (city => 
               <Marker key={city._id} latitude={city.Latitude} longitude={city.Longitude}>
                 <div onClick={() => {
@@ -35,7 +36,6 @@ const Markers = ({ cityMarkers, setCityMarkers, selected, toggleSelected, cityIn
               </Marker>
             )}
           {cityMarkers.map(cityMarker=> {
-            // console.log(cityMarker, "CITYMARKER")
             return (
               <Marker key={cityMarker.ID} latitude={cityMarker.lat} longitude={cityMarker.lng}>
                     {/* <Link className='map-marker' to={`/map/${cityMarker.city}${cityMarker.state_id}`}> */}
