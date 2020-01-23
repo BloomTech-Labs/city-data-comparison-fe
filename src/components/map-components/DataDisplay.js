@@ -1,5 +1,5 @@
-import  React, {useState, useEffect} from "react";
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import  React, {useState} from "react";
+import { Link, Element } from 'react-scroll'
 import ReactGA from "react-ga";
 
 import MapSearch from "./MapSearch";
@@ -30,7 +30,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     // fixed sidebar handling
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
-    var height = document.body.scrollHeight;
     if (stickynav) {
         // This line handles the offset from the main nav bar - If we unfix the main nav bar
         // (i believe we will) - the subtraction will be unnecessary.
