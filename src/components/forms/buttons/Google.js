@@ -9,8 +9,6 @@ import google from '../../../assets/icons/google.svg';
 const Google = props => {
     const [isLoggingIn, setIsLoggingIn] = useState(false); 
 
-    useEffect(() => {
-        
         const login = () => {
             axios
                 .get("https://citrics-staging.herokuapp.com/api/auth/login/google")
@@ -20,13 +18,9 @@ const Google = props => {
                 })
                 .catch(error => console.log(error))
                 
-        }
 
-        if(isLoggingIn) {login()}
-
-    }, [isLoggingIn])
     return (
-        <div className='google-button' onClick={() => setIsLoggingIn(true)}>
+        <div className='google-button' onClick={() => {setIsLoggingIn(true); login()}}>
             <img className="google-icon" src={google} alt="google icon"/>
             <p className="google-name">{props.action} with Google</p>
         </div>

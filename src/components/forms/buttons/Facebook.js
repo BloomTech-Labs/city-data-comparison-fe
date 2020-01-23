@@ -9,8 +9,6 @@ import facebook from '../../../assets/icons/white-facebook.svg';
 const Facebook = props => {
     const [isLoggingIn, setIsLoggingIn] = useState(false); 
 
-    useEffect(() => {
-        
         const login = () => {
             axios
                 .get("https://citrics-staging.herokuapp.com/api/auth/login/facebook")
@@ -22,12 +20,11 @@ const Facebook = props => {
                 
         }
 
-        if(isLoggingIn) {login()}
 
-    }, [isLoggingIn])
+
 
     return (
-        <div className='facebook-button' onClick={() => setIsLoggingIn(true)}>
+        <div className='facebook-button' onClick={() => {setIsLoggingIn(true); login()}}>
             <img className="fb-icon" src={facebook} alt="facebook icon"/>
             <p className="facebook-name">{props.action} with Facebook</p>
         </div>
