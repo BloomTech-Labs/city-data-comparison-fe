@@ -19,7 +19,7 @@ const Markers = ({ cityMarkers, selected, toggleSelected }) => {
   return (
         <div>
           {selected.map (city => 
-              <Marker latitude={city.Latitude} longitude={city.Longitude}>
+              <Marker key={city._id} latitude={city.Latitude} longitude={city.Longitude}>
                 <div onClick={() => console.log("Needs deselect")} >
                   <img src={activepin} alt={`A map pin indicating ${city.name}`}  />
                 </div>
