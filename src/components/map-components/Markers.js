@@ -21,7 +21,6 @@ const Markers = ({ cityMarkers, setCityMarkers, selected, toggleSelected, cityIn
           {selected.map (city => 
               <Marker key={city._id} latitude={city.Latitude} longitude={city.Longitude}>
                 <div onClick={() => {
-                  console.log(city)
                   let foundCity = cityIndex.find(indexed => indexed.ID === city._id);
                   setCityMarkers([...cityMarkers, foundCity]);
                   toggleSelected(foundCity);
