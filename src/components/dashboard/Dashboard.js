@@ -167,8 +167,7 @@ function Dashboard({history}){
                          <p className="dashboard-title">Make Your Move.</p>
                          {/* SEARCH CONTAINER */}
                          <div className="dashboard-function-container">
-                              
-                              
+                              {/* TOGGLE SEARCH VS. COMPARE FUNCTIONALITY */}
                               { toggleSearch ? 
                               <div className="dashboard-single-search-container">
                                    <form autoComplete="off" onSubmit={submitCity}>
@@ -244,6 +243,7 @@ function Dashboard({history}){
                                    </form>
                               </div>
                               }
+
                               {/* * TOGGLE DIV FOR SEARCH AND GO BUTTON */}
                               <div className="toggle-div">
                                    <div id="search-toggle">
@@ -253,14 +253,13 @@ function Dashboard({history}){
                                              />
                                              <span className="slider round"></span>
                                         </label>
-                                             <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
+                                        <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
                                    </div>
-                                   
                                         <button onClick={submitCity} className="compare-button">Go</button>
-                                   
                               </div>
                          </div>
                     </div>
+
                     {/* LANDING IMAGE */}
                     <div className="dashboard-image">
                          <img className="landing-image" src={landing} alt="environment" />
