@@ -79,7 +79,7 @@ function TotalPopulation({ethData}) {
                 <tr style = {{ width:"100%"}}>
                     <th style = {{ width:"25%"}}>{item["City"]}</th>
                     <th style = {{ width:"25%"}}>{item["Total Population"]}</th> 
-                    <th style = {{ width:"25%"}}>{item["Median Rent"]}$</th>
+                    <th style = {{ width:"25%"}}>${item["Median Rent"]}</th>
                     <th style = {{ width:"25%"}}>{item["Median Age"]} years</th>
                 </tr>
             </Table>

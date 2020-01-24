@@ -17,7 +17,7 @@ import RetirementGraph from "../graphs/economics/retirement";
 import VacancyGraph from "../graphs/housing/vacancy";
 import UnemploymentCard from "../graphs/economics/unemploymentCard";
 import deleteIcon from "./icons/close_red.png";
-import TotalPopulation from "../graphs/culture/TotalpopCard";
+import GeneralStats from "../graphs/GeneralStats";
 import TravelTime from "../graphs/economics/TravelTimeCard";
 import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
@@ -115,8 +115,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             />
                             {selected.length > 0 
                             ? <div className="anchor-nav">
+                                <h4 className="anchor-header">General Statistics</h4>
+                                <Link onClick={() => dataNavClicked("generalStats")} activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} >General Statistics</Link>
                                 <h4 className="anchor-header">Housing</h4>
-                                <Link onClick={() => dataNavClicked("totalPopulation")} activeClass="active" className="anchor-link" to="totalPopulation" spy={true} smooth={true} duration={500} >Total Population</Link>
                                 <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
                                 <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} >Owner Costs</Link>
                                 <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} >Rent</Link>
@@ -161,8 +162,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 {selected.length > 0 
                 ? <> 
                 <div className="housing-graphs data-category">
+                    <h3>General Statistics:</h3>
+                    <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                     <h3>Housing:</h3>
-                    <Element name="totalPopulation" className="element" ><TotalPopulation ethData = {selected} /></Element>
                     <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
                     <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
                     <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
