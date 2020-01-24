@@ -21,7 +21,7 @@ export default function HousePriceGraph({selected}) {
         if (data["Historical Property Value Data"]["Average Home Value"]) {
             setLabels(Object.keys(data["Historical Property Value Data"]["Average Home Value"]))
         } else if (data["Historical Property Value Data"]["Four Bedroom Houses"]){ 
-            setLabels(Object.keys(data["Historical Property Value Data"]["Two Bedroom Houses"]))
+            setLabels(Object.keys(data["Historical Property Value Data"]["Four Bedroom Houses"]))
         }
     }, [selected])
   

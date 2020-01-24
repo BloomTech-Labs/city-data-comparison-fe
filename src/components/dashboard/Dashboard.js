@@ -117,6 +117,8 @@ function Dashboard({history}){
      //* SUBMIT SEARCH */
      const submitCity = async (event) => {
           event.preventDefault();
+
+          // all the below logic should be pulled into app.js and handle things on that end i think
                let found = cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne)
                let found2 = cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo)
                if (found && found2) {
