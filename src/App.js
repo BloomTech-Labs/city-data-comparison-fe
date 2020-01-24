@@ -50,7 +50,7 @@ function App() {
     height: '100%',
     longitude: -95,
     latitude: 39,
-    zoom: 10,
+    zoom: 3,
     minZoom: 3,
     trackResize: true,
 
