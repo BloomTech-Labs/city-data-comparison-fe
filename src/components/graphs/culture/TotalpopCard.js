@@ -2,79 +2,61 @@
 import React from 'react';
 import styled from "styled-components";
 
-const Center = styled.h2`
-display:block;
-justify-content:center;
+const CenterCard = styled.h3`
+display:flex;
 flex-wrap:wrap;
-margin-left:5%;
-padding-left:1%;
+
 
 
 `
 const Wrap = styled.div`
-display:block;
-justify-content:center;
-flex-wrap:wrap;
-width:25%;
-
-`
-
-const NewCard = styled.div`
 display:flex;
 flex-wrap:wrap;
-justify-content:center;
-
-`
-
-const WholeCard = styled.div`
-margin-bottom:5%;
 
 `
 
 function TotalPopulation({ethData}) {
     // console.log(ethData, "ETH")
-	const colorifier = lat => {
+	// const colorifier = lat => {
 
-        let arr = String(lat).replace(".","").split("");
+    //     let arr = String(lat).replace(".","").split("");
     
-        let num1 = arr.pop();
-        let num2 = arr.pop();
-        let num3 = arr.pop();
+    //     let num1 = arr.pop();
+    //     let num2 = arr.pop();
+    //     let num3 = arr.pop();
     
-        return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
-        }
+    //     return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
+    //     }
 
 
 	
 	return (
-        <div>
-		<WholeCard>
-            <h1>Total Population</h1>
-            <NewCard>
-            {ethData.map(item => 
-                <Wrap  key={item._id}>
-                    <Center  style={{ background: colorifier(item.Longitude)}} > {item["City"]}</Center>
-                    <Center> {item["Total Population"]}</Center>
-
-               </Wrap>
-            )}
-			</NewCard>
-            </WholeCard>
-
+        <div className="card">
+        <h1>General Statistics</h1>
             
-            <WholeCard>
-            <h1>Median Rent</h1>
-            <NewCard>
-            {ethData.map(item => 
-                <Wrap key={item._id}>
-                    <Center style={{ background: colorifier(item.Longitude)}}> {item["City"]}</Center>
-                    <Center> {item["Median Rent"]}$</Center>
+            <div>
+                <h2 style = {{ marginLeft: "15%"}}>Total Population</h2>
+                    {ethData.map(item => 
+                         <Wrap style = {{ textAlign: "left", width:"35%"}} key={item._id}>
+                            <CenterCard style = {{ textAlign: "left", width:"40%"}}> {item["City"]}</CenterCard>
+                            <CenterCard style = {{ textAlign: "left", width:"40%"}}> {item["Total Population"]}</CenterCard>
 
-               </Wrap>
+                         </Wrap>
             )}
-            </NewCard>
-		</WholeCard>
-        </div>
+			</div>
+            <div>
+                <h2 >Median Rent</h2>
+                    {ethData.map(item => 
+                         <Wrap style = {{ textAlign: "center", width:"35%"}} key={item._id}>
+                            
+                            <CenterCard style = {{ textAlign: "center", width:"40%"}}> {item["Median Rent"]}$</CenterCard>
+
+                         </Wrap>
+            )}
+			</div>
+            
+          
+		</div>
 	);
 }
 
