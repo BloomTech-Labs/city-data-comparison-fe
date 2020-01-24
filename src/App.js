@@ -122,16 +122,16 @@ cityIndex.sort(compare);
     
     const f1 = item => item.lng > viewport.longitude-(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
     const f2 = item => item.lng < viewport.longitude+(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
-    const f3 = item => item.lat > viewport.latitude-((1/viewport.zoom)*90/(viewport.zoom))
-    const f4 = item => item.lat < viewport.latitude+((1/viewport.zoom)*90/(viewport.zoom))
+    const f3 = item => item.lat > viewport.latitude-(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f4 = item => item.lat < viewport.latitude+(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
     
     const filters = [f1,f2,f3,f4]
 
     setCityMarkers(recursive_filter(cityIndex, filters).slice(0,30))
 
 
-    console.log(`greater than ${viewport.longitude-((1/viewport.zoom)*180/(viewport.zoom/2))} less than ${viewport.longitude+((1/viewport.zoom)*180/(viewport.zoom/2))}`)
-    console.log(`greater than ${viewport.latitude-((1/viewport.zoom)*90/(viewport.zoom))} less than ${viewport.latitude+((1/viewport.zoom)*90/(viewport.zoom))}`)
+    console.log(`greater than ${viewport.longitude-(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)} less than ${viewport.longitude+(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)}`)
+    console.log(`greater than ${viewport.latitude-(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)} less than ${viewport.latitude+(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)}`)
 
     // if (viewport.zoom > 4){
       // setCityMarkers(cityIndex.filter(city => 
