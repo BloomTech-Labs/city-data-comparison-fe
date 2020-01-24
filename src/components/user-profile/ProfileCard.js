@@ -87,6 +87,18 @@ const ProfileCard = ()=> {
             });
     }, []);
 
+    const handleSubmit =
+    useEffect(() => {
+        axios
+            .put('',userInfo.first_name, userInfo.last_name, userInfo.email, userInfo.city, userInfo.state)
+            .then(res => {
+                console.log('Response from user call',res)
+                setUser(res.data)
+            })
+            .catch(err => {
+                console.error('Unable to get user information', err);
+            });
+    }, []);
 
     return (
         <div className='profile-container'>
@@ -113,8 +125,8 @@ const ProfileCard = ()=> {
                         placeholder='Last Name'
                     />
                     </form>
-                    <button className={`edit-name-btn ${nameEdit.status}`}onClick={toggleName}>Edit Name</button>
-                    <button className={`save-name-btn ${nameEdit.status}`}onClick={toggleName}>Save</button>
+                    <button className={`edit-name-btn ${nameEdit.status}`} onClick={toggleName, handleSubmit}>Edit Name</button> 
+                    <button className={`save-name-btn ${nameEdit.status}`} onClick={toggleName, handleSubmit}>Save</button>
                 </div>
                 <div className='email-tab'>
                     <p>Email</p>
@@ -129,8 +141,8 @@ const ProfileCard = ()=> {
                         placeholder='Email'
                     />
                     </form>
-                    <button className={`edit-email-btn ${emailEdit.status}`}onClick={toggleEmail}>Edit Email</button>
-                    <button className={`save-email-btn ${emailEdit.status}`}onClick={toggleEmail}>Save</button>
+                    <button className={`edit-email-btn ${emailEdit.status}`} onClick={toggleEmail, handleSubmit}>Edit Email</button> 
+                    <button className={`save-email-btn ${emailEdit.status}`} onClick={toggleEmail, handleSubmit}>Save</button>
                 </div>
                 <div className='city-tab'>
                     <p>City State of Residence<span> (Optional)</span></p>
@@ -153,8 +165,8 @@ const ProfileCard = ()=> {
                         value={userInfo.state}
                     />
                     </form>
-                    <button className={`edit-location-btn ${locationEdit.status}`}onClick={toggleLocation}>Edit Location</button>
-                    <button className={`save-location-btn ${locationEdit.status}`}onClick={toggleLocation}>Save</button>
+                    <button className={`edit-location-btn ${locationEdit.status}`} onClick={toggleLocation, handleSubmit}>Edit Location</button> 
+                    <button className={`save-location-btn ${locationEdit.status}`} onClick={toggleLocation, handleSubmit}>Save</button>
                 </div>
             </div>
         </div>
