@@ -161,7 +161,6 @@
             background-repeat: no-repeat;
             padding:16px 33px;
             font-size:1.1rem;
-            // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.07);
             border-radius:5px;
             border:1px solid #b8bec4;
             &:focus{
@@ -274,25 +273,22 @@
         }
 
         .anchor-nav .anchor-link {
-            color: #84868C;
+            color: grey;
             text-decoration:none;
             justify-content:flex-start;
-            // border:1px solid red;
             cursor:pointer;
             // margin-left:20px;
             padding:5px 0;
         }
 
         .active {
-            // font-size:1.1rem;
-            // font-weight:500;
-            // color:#2ca4fc !important;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.08);
-            // color: black !important;
-            // font-weight:500;
         }
         #nav-spacing{
             margin-bottom:30px;
+        }
+        #general{
+            margin-bottom:20px;
         }
 
         
