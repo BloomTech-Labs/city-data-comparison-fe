@@ -50,7 +50,7 @@ function App() {
     height: '100%',
     longitude: -95,
     latitude: 39,
-    zoom: 3,
+    zoom: 10,
     minZoom: 3,
     trackResize: true,
 
@@ -92,8 +92,48 @@ const getBestSuggestion = search => {
   .catch(err => console.log("suggestion error", err))
 }
 
+// let itemMap = [];
+
 // this filters the map markers based on zoom - Closer zoom, lesser population cap
   useEffect( _ => {
+
+    // function recursive_filter (data, arrayFilters, index = 0) {
+    //   if (arrayFilters.length === 0) {
+    //     return data
+    //   }
+    //   if (index === arrayFilters.length - 1) {
+    //     return data.filter(arrayFilters[index])
+    //   }
+    //   return recursive_filter(data.filter(arrayFilters[index]), arrayFilters, (index + 1))
+    // }
+
+    // const f1 = item => item.longitude > viewport.longitude-((1/viewport.zoom)*180/(viewport.zoom-1)/2)
+    // const f2 = item => item.longitude < viewport.longitude+((1/viewport.zoom)*180/(viewport.zoom-1)/2)
+    // const f3 = item => item.latitude > viewport.latitude-((1/viewport.zoom)*360/(viewport.zoom-1)/2)
+    // const f4 = item => item.latitude < viewport.latitude+((1/viewport.zoom)*360/(viewport.zoom-1)/2)
+
+    // const filters = [f1,f2,f3,f4]
+
+
+    // setCityMarkers(recursive_filter(cityIndex, filters))
+    // console.log(`greater than ${viewport.longitude-((1/viewport.zoom)*180/(viewport.zoom-1)/2)} less than ${viewport.longitude+((1/viewport.zoom)*180/(viewport.zoom-1)/2)}`)
+    // console.log(`greater than ${viewport.latitude-((1/viewport.zoom)*360/(viewport.zoom-1)/2)} less than ${viewport.latitude+((1/viewport.zoom)*360/(viewport.zoom-1)/2)}`)
+    // setCityMarkers(cityIndex.filter(city => 
+    //   city.longitude > viewport.longitude-((1/viewport.zoom)*180/(viewport.zoom-1)/2) && 
+    //   city.longitude < viewport.longitude+((1/viewport.zoom)*180/(viewport.zoom-1)/2) &&
+    //   city.latitude > viewport.latitude-((1/viewport.zoom)*360/(viewport.zoom-1)/2) &&
+    //   city.latitude < viewport.latitude+((1/viewport.zoom)*360/(viewport.zoom-1)/2)))
+      
+
+    //   cityIndex.reduce((itemMap, item) => {
+    //     if (item.longitude > viewport.longitude-((1/viewport.zoom)*180/(viewport.zoom-1)/2) && 
+    //     item.longitude < viewport.longitude+((1/viewport.zoom)*180/(viewport.zoom-1)/2) &&
+    //     item.latitude > viewport.latitude-((1/viewport.zoom)*360/(viewport.zoom-1)/2) &&
+    //     item.latitude < viewport.latitude+((1/viewport.zoom)*360/(viewport.zoom-1)/2)) return itemMap;
+    //     return itemMap.push({item});
+    //   }, [])
+
+    // setCityMarkers(filteredData)
     if (viewport.zoom < 4) {
       setCityMarkers(cityIndex.filter(city => city.population > 500000))
     }
@@ -111,6 +151,7 @@ const getBestSuggestion = search => {
     }
     // let selectedCityMarkers = selected.map(item => cityIndex.find(city => city.ID === item.id))
     // setCityMarkers([...cityMarkers, ...selectedCityMarkers])
+    console.log(cityMarkers)
     console.log(viewport.zoom)
     console.log("lat", viewport.latitude)
     console.log("long", viewport.longitude)
