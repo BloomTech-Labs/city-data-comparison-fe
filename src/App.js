@@ -130,6 +130,9 @@ cityIndex.sort(compare);
 
     setCityMarkers(recursive_filter(cityIndex, filters).slice(0,30))
 
+    // let selectedCityMarkers = selected.map(item => cityIndex.find(city => city.ID === item.id))
+    // setCityMarkers([...cityMarkers, ...selectedCityMarkers])
+
   },[viewport.latitude])
 
 
