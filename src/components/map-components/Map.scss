@@ -48,11 +48,15 @@
     }
 
     .anchor-header {
-        margin: 1%;
-        margin-left:20px;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        font-weight:500;
         text-align:left;
         text-decoration:none;
+        // border:1px solid red;
+        margin:0;
+        margin-left:20px;
+        padding:0;
+        color:#00bfa5;
     }
 
     .nav-placeholder {
@@ -96,13 +100,16 @@
         .anchor-nav {
             display:flex;
             flex-direction:column;
+            // border:1px solid green;
             
             a {
                 text-decoration:none;
                 color:#2e2f38;
+                // border:1px solid blue;
+
                 .selected {
                     color :white;
-                    background:#041734;
+                    // background:#041734;
                     font-size:1.1rem;
                 }
             }
@@ -255,21 +262,19 @@
         .anchor-nav .anchor-link {
             color: #84868C;
             text-decoration:none;
-            padding:10px 0px;
+            padding:5px 0px;
             margin: 5px 0px;
             margin-left:30px;
             justify-content:flex-start;
             width:100%;
             cursor:pointer;
-            
-
-            
-
         }
 
         .active {
-            font-weight:bold;
-            font-size:1.2rem;
+            font-size:1.1rem;
+            // font-weight:500;
+            color:#2ca4fc !important;
+            // color:black !important;
         }
 
         
