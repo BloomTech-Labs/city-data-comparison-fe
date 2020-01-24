@@ -161,7 +161,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
             <div className="data-by-category">
                 {selected.length > 0 
                 ? <> 
-                <div className="housing-graphs data-category">
+                <div className="data-category">
                     <h3>General Statistics:</h3>
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                     <h3>Housing:</h3>
@@ -173,7 +173,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 </div> 
                 
 
-                <div className="jobs-graphs data-category">
+                <div className="data-category">
                     <h3>Job Market:</h3>
                     <Element name="industries" className="element" ><Industry edData={selected} /></Element>
                     <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
@@ -184,7 +184,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
 
                 </div>
-                <div className="culture-graphs data-category">
+                <div className="data-category">
                     <h3>Cultural Statistics:</h3>     
                     <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
                     <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
