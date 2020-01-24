@@ -23,7 +23,7 @@ import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 import BirthRateCard from "../graphs/culture/birthRateCard"
 
-const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
+const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
     const [menu, setMenu] = useState({status: 'closed'})
 
@@ -111,6 +111,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             viewport={viewport}
                             setViewport={setViewport}  
                             selectSearch={selectSearch}
+                            cityIndex={cityIndex}
                             />
                             {selected.length > 0 
                             ? <div className="anchor-nav">

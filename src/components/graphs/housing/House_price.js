@@ -26,6 +26,8 @@ export default function HousePriceGraph({selected}) {
           setLabels(Object.keys(data["Historical Property Value Data"]["Three Bedroom Houses"]))
         } else if (data["Historical Property Value Data"]["Two Bedroom Houses"]){ 
           setLabels(Object.keys(data["Historical Property Value Data"]["Two Bedroom Houses"]))
+        } else {
+          setLabels(["This data is currently unavailable."])
         }
     }, [selected])
   
