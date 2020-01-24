@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'; 
 import { Link } from 'react-router-dom'
 
-import city from '../../assets/forms/sf_sign_in.png'
+import city from '../../assets/forms/sf_sign_in.jpeg'
 
 //butons
 import Facebook from './buttons/Facebook'
@@ -24,26 +24,21 @@ const Login = props => {
    const [user, setUser] = useState({username: '', password: ''})
 
 
-    useEffect(() => {
-        if (isLoading) {
-            //axios call
-            if(validated) {
+            const login = () => {
                 console.log(user)
                 axios
                     .post('https://citrics-staging.herokuapp.com/api/auth/login', user)
                     .then(res => {
-                        
+                        setIsLoading(false)
+                        sessionStorage.setItem('userId', res.data.id)
                         console.log(res)
                     })
                     .catch(error => {
                         console.log(error)
                         setLoginError('Email and ')
                     }) 
-                } 
-        }
-        setIsLoading(false)
-        
-    }, [isLoading])
+                
+            }
     
     const validateLogin = () => {
             
@@ -78,10 +73,10 @@ const Login = props => {
             
     }
     return(
-             <div className='login' style={{'background': 'linear-gradient(90deg, #FACE8F 43.2%, #F49D20 43.2%)'}}>
+             
                   
            
-           <div className="inner-form">
+           <div className="login">
                <div className="form">
                    <h2 className="form-title">Welcome Back!</h2>
 
@@ -106,18 +101,15 @@ const Login = props => {
                        
                        
                        
-                       <button className="login-button" htmlType="submit" onClick={() => setIsLoading(true)}>Start exploring cities</button>
+                       <button className="login-button" htmlType="submit" onClick={() => {setIsLoading(true); login()}}>Start exploring cities</button>
                        <p className='question'>Have an account? <Link className='link-signup' to='/signup'>Sign up</Link> to explore cities</p>
                    </form>
                </div>
                <div className="login-photo">
-                   <img src={city}/>
+                   {/*photo*/}
                </div>
            </div>
-           
-    
-      
-   </div>
+        
 
 
         

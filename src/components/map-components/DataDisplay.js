@@ -17,13 +17,13 @@ import RetirementGraph from "../graphs/economics/retirement";
 import VacancyGraph from "../graphs/housing/vacancy";
 import UnemploymentCard from "../graphs/economics/unemploymentCard";
 import deleteIcon from "./icons/close_red.png";
-import TotalPopulation from "../graphs/culture/TotalpopCard";
+import GeneralStats from "../graphs/GeneralStats";
 import TravelTime from "../graphs/economics/TravelTimeCard";
 import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 import BirthRateCard from "../graphs/culture/birthRateCard"
 
-const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
+const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
 
     const [menu, setMenu] = useState({status: 'closed'})
 
@@ -111,10 +111,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             viewport={viewport}
                             setViewport={setViewport}  
                             selectSearch={selectSearch}
-                            cityIndex={cityIndex}
                             />
                             {selected.length > 0 
                             ? <div className="anchor-nav">
+                                <h4 className="anchor-header">General Statistics</h4>
+                                <Link onClick={() => dataNavClicked("generalStats")} activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} >General Statistics</Link>
                                 <h4 className="anchor-header">Housing</h4>
                                 <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
                                 <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} >Owner Costs</Link>
@@ -137,7 +138,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("birthRate")} activeClass="active" className="anchor-link" to="birthRate" spy={true} smooth={true} duration={500} >Birth Rate</Link>
                                 <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} >Population</Link>
                                 <Link onClick={() => dataNavClicked("ageDistribution")} activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} >Age Distribution</Link>
-                                <Link onClick={() => dataNavClicked("totalPopulation")} activeClass="active" className="anchor-link" to="totalPopulation" spy={true} smooth={true} duration={500} >Total Population</Link>
 
                             </div>
                             : null}
@@ -161,6 +161,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 {selected.length > 0 
                 ? <> 
                 <div className="housing-graphs data-category">
+                    <h3>General Statistics:</h3>
+                    <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                     <h3>Housing:</h3>
                     <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
                     <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
@@ -188,7 +190,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
                     <Element name="population" className="element" ><Population selected = {selected} /></Element>
                     <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
-                    <Element name="totalPopulation" className="element" ><TotalPopulation ethData = {selected} /></Element>
 
                 </div>
                 </>

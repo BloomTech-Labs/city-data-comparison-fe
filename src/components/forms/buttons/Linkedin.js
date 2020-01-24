@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback, useRef} from 'react'; 
+import React, {useState} from 'react'; 
 import axios from 'axios'; 
 
 //stylesheet
@@ -8,8 +8,6 @@ import linkedin from '../../../assets/icons/linkedin.svg';
 
 const Linkedin = props => {
     const [isLoggingIn, setIsLoggingIn] = useState(false); 
-
-    useEffect(() => {
         
         const login = () => {
             axios
@@ -20,14 +18,10 @@ const Linkedin = props => {
                 })
                 .catch(error => console.log(error))
                 
-        }
-
-        if(isLoggingIn) {login()}
-
-    }, [isLoggingIn])
+            }
 
     return (
-        <div className='linkedin-button' onClick={ () => {setIsLoggingIn(true)} }>
+        <div className='linkedin-button' onClick={ () =>{setIsLoggingIn(true); login()} }>
             <img className="linkedin-icon" src={linkedin} alt="linkedin icon"/>
             <p className="linkedin-name">{props.action} with Linkedin</p>
         </div>

@@ -19,11 +19,12 @@ const team = [
         role: 'Team Lead', 
         social: {
             twitter: '', 
-            github: '', 
+            github: 'annatownsend9916', 
             linkedin: '', 
             email: ''
         }, 
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. '
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: ''
     
     }, 
     {
@@ -36,7 +37,8 @@ const team = [
             linkedin: '', 
             email: ''
         }, 
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. '
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: ''
     
     }, 
     {
@@ -45,11 +47,12 @@ const team = [
         role: 'Data Scientist', 
         social: {
             twitter: '', 
-            github: '', 
+            github: 'ldtownsend', 
             linkedin: '', 
             email: ''
         }, 
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. '
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: ''
     
     }, 
     {
@@ -58,11 +61,12 @@ const team = [
         role: 'Data Scientist', 
         social: {
             twitter: '', 
-            github: '', 
+            github: 'matthew-sessions', 
             linkedin: '', 
             email: ''
         }, 
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. '
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'http://matthewlsessions.com/'
     
     }, 
     {
@@ -71,11 +75,12 @@ const team = [
         role: 'Data Scientist', 
         social: {
             twitter: '', 
-            github: '', 
+            github: 'scottwmwork', 
             linkedin: '', 
             email: ''
         }, 
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. '
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'Scottmaxwellportfolio.com'
     
     }, 
 
@@ -85,11 +90,88 @@ const team = [
         role: 'Web Developer', 
         social: {
             twitter: '', 
-            github: '', 
-            linkedin: '', 
+            github: 'michaelharms6010', 
+            linkedin: 'michael-harms-88aa49b4', 
             email: ''
         }, 
-        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. '
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'https://www.zecmailer.com'
+    
+    }, 
+
+    {
+        name: 'Muamer Kukic', 
+        image: muamer,
+        role: 'Web Developer', 
+        social: {
+            twitter: '', 
+            github: 'kukicako', 
+            linkedin: 'muamer-kukic-502419130', 
+            email: ''
+        }, 
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'https://kukicako.github.io/portfolio-website/'
+    
+    }, 
+
+    {
+        name: 'Kevin Nyugen', 
+        image: kevin,
+        role: 'Web Developer', 
+        social: {
+            twitter: 'kevinnguyen805', 
+            github: 'kevinnguyen805', 
+            linkedin: 'kevinnguyen805', 
+            email: ''
+        }, 
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'https://kevinn.net/Portfolio/'
+    
+    }, 
+
+    {
+        name: 'John Watt', 
+        image: john,
+        role: 'Web Developer', 
+        social: {
+            twitter: 'thejohnwatt', 
+            github: 'thejohnwatt', 
+            linkedin: 'thejohnwatt', 
+            email: ''
+        }, 
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'https://kevinn.net/Portfolio/'
+    
+    }
+    , 
+
+    {
+        name: 'Daniel Brizksa', 
+        image: daniel,
+        role: 'Web Developer', 
+        social: {
+            twitter: '', 
+            github: 'dbriksza', 
+            linkedin: 'daniel-briksza-23a331191/', 
+            email: ''
+        }, 
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'https://kevinn.net/Portfolio/'
+    
+    }, 
+
+    {
+        name: 'Umeko Walker', 
+        image: umeko,
+        role: 'Web Developer', 
+        social: {
+            twitter: 'umekow', 
+            github: 'umekolw', 
+            linkedin: 'umekowalker', 
+            email: ''
+        }, 
+        about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa interdum, dapibus dui sed, venenatis purus. In sit amet rhoncus urna, ac bibendum sem. Morbi faucibus laoreet elit, vel finibus dolor iaculis dignissim. Nullam mattis ex elit, sit amet pharetra tellus hendrerit sit amet. ',
+        portfolio: 'https://umekowalker.me'
     
     }
 ]

@@ -32,25 +32,19 @@ const Signup = props => {
    const [user, setUser] = useState({username: '', password: ''})
 
 
-    useEffect(() => {
-        if (isLoading) {
-            //axios call
-            if(validated) {
-                console.log(user)
+            const signup = () => {
                 axios
                     .post('https://citrics-staging.herokuapp.com/api/auth/register', user)
                     .then(res => {
+                        setIsLoading(false)
+                        sessionStorage.setItem('userId', res.data.id)
                         console.log(res)
                     })
                     .catch(error => {
                         console.log(error)
                        // setLoginError('Email and ')
                     }) 
-                } 
-        }
-        setIsLoading(false)
-        
-    }, [isLoading])
+                }
     
     const validateLogin = () => {
             
@@ -126,7 +120,7 @@ const Signup = props => {
                                         <a className="tos-text" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}> privacy policy</a>
                                     </p>
                                 </div>
-                                <button className="signup-button" htmlType="submit" onClick={() => setIsLoading(true)}>Start exploring cities</button>
+                                <button className="signup-button" htmlType="submit" onClick={() => {setIsLoading(true); signup()}}>Start exploring cities</button>
                                 <p class='question'>Have an account? <Link className="link-signup" to='/signin'>Sign in</Link> to explore cities</p>
                             </form>
                         </div>
