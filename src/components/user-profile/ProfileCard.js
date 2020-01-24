@@ -10,9 +10,9 @@ const ProfileCard = ()=> {
     //state for logged in user
 
     const [userInfo, setUserInfo] = useState({
-        first_name: 'John',
-        last_name: 'Doe',
-        email: 'johndoe@citrics.io',
+        first_name: '',
+        last_name: '',
+        email: '',
         city: '',
         state: ''
     })
