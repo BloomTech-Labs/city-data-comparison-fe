@@ -29,8 +29,8 @@ const ProfileCard = ()=> {
 
     // Edit state toggle
 
-    const [nameEdit, setNameEdit] = useState({status:'closed'})
-    const [emailEdit, setEmailEdit] = useState({status:'closed'})
+    const [nameEdit, setNameEdit] = useState({status:'open'})
+    const [emailEdit, setEmailEdit] = useState({status:'open'})
     const [locationEdit, setLocationEdit] = useState({status:'closed'})
 
     const toggleName = () => {
@@ -102,6 +102,7 @@ const ProfileCard = ()=> {
                         name='first_name'
                         type='first_name'
                         value={userInfo.first_name}
+                        placeholder='First Name'
                     />
                     <input
                         onChange={handleChange}
@@ -109,6 +110,7 @@ const ProfileCard = ()=> {
                         name='last_name'
                         type='last_name'
                         value={userInfo.last_name}
+                        placeholder='Last Name'
                     />
                     </form>
                     <button className={`edit-name-btn ${nameEdit.status}`}onClick={toggleName}>Edit Name</button>
@@ -116,7 +118,7 @@ const ProfileCard = ()=> {
                 </div>
                 <div className='email-tab'>
                     <p>Email</p>
-                    <h2 className={`user-email ${emailEdit.status}`}>johndoe@citrics.io</h2>
+                    <h2 className={`user-email ${emailEdit.status}`}>{userInfo.email}</h2>
                     <form className={`edit-email ${emailEdit.status}`}>
                     <input
                         onChange={handleChange}
@@ -124,6 +126,7 @@ const ProfileCard = ()=> {
                         name='email'
                         type='email'
                         value={userInfo.email} 
+                        placeholder='Email'
                     />
                     </form>
                     <button className={`edit-email-btn ${emailEdit.status}`}onClick={toggleEmail}>Edit Email</button>

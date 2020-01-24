@@ -53,7 +53,7 @@ h1 {
     
 
     .name-tab, .email-tab, .city-tab {
-        margin-bottom: 76px;
+        margin-bottom: 50px;
         display:flex;
         flex-direction: column;
 
@@ -82,10 +82,12 @@ h1 {
             color: #84868C;
             width: 100%;
             border: 0px;
+            text-align: right;
         }
         h2 {
             margin-bottom: 1px;
         }
+
     }
     .name-tab {
 
