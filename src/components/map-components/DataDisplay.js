@@ -162,9 +162,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 {selected.length > 0 
                 ? <> 
                 <div className="data-category">
-                    <h3>General Statistics:</h3>
+                    <p>General Statistics:</p>
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
-                    <h3>Housing:</h3>
+                    <p>Housing:</p>
                     <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
                     <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
                     <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
@@ -174,7 +174,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 
 
                 <div className="data-category">
-                    <h3>Job Market:</h3>
+                    <p>Job Market:</p>
                     <Element name="industries" className="element" ><Industry edData={selected} /></Element>
                     <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
                     <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
@@ -185,7 +185,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                 </div>
                 <div className="data-category">
-                    <h3>Cultural Statistics:</h3>     
+                    <p>Cultural Statistics:</p>     
                     <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
                     <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
                     <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
