@@ -164,6 +164,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 <div className="data-category">
                     <p>General Statistics:</p>
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
+                </div>
+                <div className="data-category">
                     <p>Housing:</p>
                     <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
                     <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
