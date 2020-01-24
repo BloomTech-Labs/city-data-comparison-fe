@@ -8,12 +8,14 @@ import styled from "styled-components";
 
 
 
-// `
-// const Wrap = styled.div`
-// display:flex;
-// flex-wrap:wrap;
 
-// `
+const Wrap = styled.div`
+display:flex;
+flex-direction:row;
+
+
+
+`
 
 const Table = styled.table`
 width:100%;
@@ -66,21 +68,20 @@ function TotalPopulation({ethData}) {
         
         <div>
             <h1>General Statistics</h1>
+            <Wrap>
+            <h2 style = {{ width:"25%", marginLeft:"10%"}}>Cities</h2>
+            <h2 style = {{ width:"25%", marginLeft:"5%"}}>Population</h2>
+            <h2 style = {{ width:"25%", marginLeft:"5%"}}>Median Rent</h2>
+            <h2 style = {{ width:"25%", marginLeft:"5%"}}>Median Age</h2>
+            </Wrap>
             {ethData.map(item => 
             <Table>
                 <tr style = {{ width:"100%"}}>
-                    <th style = {{ width:"25%"}}></th>
-                    <th style = {{ width:"25%"}}>Population</th> 
-                    <th style = {{ width:"25%"}}>Median Rent</th>
-                    <th style = {{ width:"25%"}}>Median Age</th>
+                    <th style = {{ width:"25%"}}>{item["City"]}</th>
+                    <th style = {{ width:"25%"}}>{item["Total Population"]}</th> 
+                    <th style = {{ width:"25%"}}>{item["Median Rent"]}$</th>
+                    <th style = {{ width:"25%"}}>{item["Median Age"]} years</th>
                 </tr>
-                <tr style = {{ width:"100%", textAlign:"center"}}>
-                    <td >{item["City"]}</td>
-                    <td>{item["Total Population"]}</td>
-                    <td>{item["Median Rent"]}$</td>
-                    <td  style = {{ right:"2rem"}} >{item["Median Age"]} years</td>
-                </tr>
-              
             </Table>
             )}
     </div>
