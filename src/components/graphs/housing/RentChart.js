@@ -48,7 +48,7 @@ export default function EducationGraph (props) {
               
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'Rent',
                   fontSize:25
                 },

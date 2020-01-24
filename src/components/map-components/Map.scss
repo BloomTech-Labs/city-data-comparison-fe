@@ -36,20 +36,109 @@
         text-align:center;
     }
 
-    .data-category h3 {
-        margin: 0 auto;
-        padding-top: 10px;
-    }
 
     .data-category {
         width:95%;
         margin: 0;
-        background:white;
+        // background:white;
+        // border:1px solid red;
+        // background-color:white;
+        margin-top:50px;
+        border-radius:5px;
     }
+
+    .housing-title{
+        color:#00bfa5;
+        font-size:1.4rem;
+        margin-left:2%;
+    }
+
+    .rent-container{
+        width:100%;
+        // border:1px solid purple;
+        background-color:white;
+        padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+    }
+    .homeprice-container{
+        // border:1px solid red;
+        padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+    }
+
+    .ownerMortgage{
+        background-color:white;
+        font-size:1rem;
+        width:100%;
+        padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+    }
+    .homeowner-container{
+        display:flex;
+        justify-content:space-around;
+    }
+
+    .mortgage{
+        text-align:left;
+    }
+
+    .rooms-vacancy-container{
+        // border:1px solid blue;
+        width:100%;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+
+
+        .room-container{
+            background-color:white;
+            width:60%;
+            padding:10px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            border-radius:5px;
+        }
+
+        .vacancy-owner-container{
+            // border:1px solid green;
+            background-color:white;
+            border-radius:5px;
+            width:38%;
+            padding:10px;
+            height:auto;     
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);       
+        }
+    }
+    @media screen and (max-width:1000px){
+        .rooms-vacancy-container{
+            display:inline;
+
+            .room-container{
+                width:100%;
+            }
+
+            .vacancy-owner-container{
+                width:100%;
+            }
+        }
+    }
+
+    
+
+
+
+
+
 
     .anchor-header {
         font-size: 1.3rem;
-        font-weight:500;
+        // font-weight:500;
         text-align:left;
         text-decoration:none;
         // border:1px solid red;

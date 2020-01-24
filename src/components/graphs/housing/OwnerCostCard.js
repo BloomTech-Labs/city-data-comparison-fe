@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
-const CenterCard = styled.h2`
+const CenterCard = styled.p`
 display:flex;
 justify-content:center;
 
@@ -22,15 +22,12 @@ function TotalPopulation({ethData}) {
 
 	
 	return (
-		<div className="dataCards">
-            <h1>Monthly Owner Costs</h1>
-
+		<div className="homeowner-container">
             {ethData.map(item => 
-                <div key={item._id}>
+                <div key={item._id} className="mortgage">
                     <CenterCard> {item["City"]}</CenterCard>
                     <CenterCard>Owner Costs with Mortgage: {item["Median Selected Monthly Owner Costs with Mortgage"]}$</CenterCard>
                     <CenterCard>Owner Costs without Mortgage: {item["Median Selected Monthly Owner Costs without Mortgage"]}$</CenterCard>
-
                </div>
             )}
 			

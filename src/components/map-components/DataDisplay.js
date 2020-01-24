@@ -165,13 +165,37 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <p>General Statistics:</p>
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                 </div>
+
+
+
+
                 <div className="data-category">
-                    <p>Housing:</p>
-                    <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
-                    <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
-                    <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
-                    <Element name="rooms" className="element" ><RoomGraph edData={selected} /></Element>
-                    <Element name="vacancy" className="element" ><VacancyGraph edData={selected} /></Element>
+                    <div className="rent-container">
+                        <p className="housing-title">Average rent</p>
+                        <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
+                    </div>
+
+                    <div className="homeprice-container">
+                        <p className="housing-title">Home prices</p>
+                        <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
+                    </div>
+
+                    <div className="ownerMortgage">
+                        <p className="housing-title">Homeowner costs</p>
+                        <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
+                    </div>
+
+                    <div className="rooms-vacancy-container">
+                        <div className="room-container">
+                            <p className="housing-title">Average rooms</p>
+                            <Element name="rooms" className="element" ><RoomGraph edData={selected} /></Element>
+                        </div>
+
+                        <div className="vacancy-owner-container">
+                            <p className="housing-title">Vacancy</p>
+                            <Element name="vacancy" className="element" ><VacancyGraph edData={selected} /></Element>
+                        </div>
+                    </div>
                 </div> 
                 
 
