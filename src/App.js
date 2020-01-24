@@ -120,6 +120,7 @@ cityIndex.sort(compare);
       return recursive_filter(data.filter(arrayFilters[index]), arrayFilters, (index + 1))
     }
     
+    //these 4 lines of code took too long to write, they determine the bounds of the map on screen
     const f1 = item => item.lng > viewport.longitude-(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
     const f2 = item => item.lng < viewport.longitude+(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
     const f3 = item => item.lat > viewport.latitude-(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
@@ -129,49 +130,6 @@ cityIndex.sort(compare);
 
     setCityMarkers(recursive_filter(cityIndex, filters).slice(0,30))
 
-
-    console.log(`greater than ${viewport.longitude-(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)} less than ${viewport.longitude+(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)}`)
-    console.log(`greater than ${viewport.latitude-(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)} less than ${viewport.latitude+(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)}`)
-
-    // if (viewport.zoom > 4){
-      // setCityMarkers(cityIndex.filter(city => 
-      //   city.longitude > viewport.longitude-((1/viewport.zoom)*180/(viewport.zoom-1)/2)).filter(city => 
-      //   city.longitude < viewport.longitude+((1/viewport.zoom)*180/(viewport.zoom-1)/2)).filter(city => 
-      //   city.latitude > viewport.latitude-((1/viewport.zoom)*360/(viewport.zoom-1)/2)).filter(city =>
-      //   city.latitude < viewport.latitude+((1/viewport.zoom)*360/(viewport.zoom-1)/2)))
-    // }
-      
-
-    //   cityIndex.reduce((itemMap, item) => {
-    //     if (item.longitude > viewport.longitude-((1/viewport.zoom)*180/(viewport.zoom-1)/2) && 
-    //     item.longitude < viewport.longitude+((1/viewport.zoom)*180/(viewport.zoom-1)/2) &&
-    //     item.latitude > viewport.latitude-((1/viewport.zoom)*360/(viewport.zoom-1)/2) &&
-    //     item.latitude < viewport.latitude+((1/viewport.zoom)*360/(viewport.zoom-1)/2)) return itemMap;
-    //     return itemMap.push({item});
-    //   }, [])
-
-    // setCityMarkers(filteredData)
-    // if (viewport.zoom < 4) {
-    //   setCityMarkers(cityIndex.filter(city => city.population > 500000))
-    // }
-    // if (viewport.zoom >= 4 && viewport.zoom < 5) {
-    //   setCityMarkers(cityIndex.filter(city => city.population > 300000))
-    // }
-    // if (viewport.zoom >= 5 && viewport.zoom < 6) {
-    //   setCityMarkers(cityIndex.filter(city => city.population > 100000))
-    // }
-    // if (viewport.zoom >= 6 && viewport.zoom < 7) {
-    //   setCityMarkers(cityIndex.filter(city => city.population > 50000))
-    // }
-    // if (viewport.zoom >= 7 && viewport.zoom < 8) {
-    //   setCityMarkers(cityIndex.filter(city => city.population > 10000))
-    // }
-    // let selectedCityMarkers = selected.map(item => cityIndex.find(city => city.ID === item.id))
-    // setCityMarkers([...cityMarkers, ...selectedCityMarkers])
-    console.log(cityMarkers)
-    console.log(viewport.zoom)
-    console.log("lat", viewport.latitude)
-    console.log("long", viewport.longitude)
   },[viewport.latitude])
 
 
