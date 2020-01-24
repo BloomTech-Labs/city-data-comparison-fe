@@ -1,5 +1,5 @@
-import  React, {useState, useEffect} from "react";
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import  React, {useState} from "react";
+import { Link, Element } from 'react-scroll'
 import ReactGA from "react-ga";
 
 import MapSearch from "./MapSearch";
@@ -23,7 +23,7 @@ import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 import BirthRateCard from "../graphs/culture/birthRateCard"
 
-const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
+const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
     const [menu, setMenu] = useState({status: 'closed'})
 
@@ -35,7 +35,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     // fixed sidebar handling
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
-    var height = document.body.scrollHeight;
     if (stickynav) {
         // This line handles the offset from the main nav bar - If we unfix the main nav bar
         // (i believe we will) - the subtraction will be unnecessary.
@@ -112,6 +111,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             viewport={viewport}
                             setViewport={setViewport}  
                             selectSearch={selectSearch}
+                            cityIndex={cityIndex}
                             />
                             {selected.length > 0 
                             ? <div className="anchor-nav">

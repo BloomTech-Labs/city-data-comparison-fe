@@ -21,7 +21,7 @@ export default function AgeDistributionGraph({ethData}) {
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
             <Bar
               data={{
-                labels:  ["Under 5", "5 to 9", "10 to 14", "15 to 19", "20 to 24", "25 to 34", "35 to 44", "45 to 54","55 to 59", "60 to 64","65 to 74", "75 to 84", "85 years and over" ],
+                labels:  ["Under 5", "5 to 9", "10 to 14", "15 to 19", "20 to 24", "25 to 34", "35 to 44", "45 to 54","55 to 59", "60 to 64","65 to 74", "75 to 84", "85 years+" ],
                 datasets: ethData.map( item => {
                   
                   return {
@@ -39,7 +39,7 @@ export default function AgeDistributionGraph({ethData}) {
                       item["Age Distribution"]["60 to 64"],
                       item["Age Distribution"]["65 to 74"],
                       item["Age Distribution"]["75 to 84"],
-                      item["Age Distribution"]["85 years and over"]                   
+                      item["Age Distribution"]["85 years+"]                   
                       
                     ],
                     backgroundColor:

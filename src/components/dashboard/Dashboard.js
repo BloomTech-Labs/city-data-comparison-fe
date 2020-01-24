@@ -28,7 +28,7 @@ import "../../App.scss"
 function Dashboard({history}){
 
      AOS.init()
-     const { cityMarkers, selected, setSelected, cityIndex, viewport, setViewport, getCity, getCities, getBestSuggestion } = useContext(CityContext)
+     const { cityMarkers, selected, setSelected, cityIndex, viewport, setViewport, getCity, getCities, getBestSuggestion, getBestSuggestions } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
      const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
      const [cityTwoSuggestions, setCityTwoSuggestions] = useState([]);
@@ -117,6 +117,8 @@ function Dashboard({history}){
      //* SUBMIT SEARCH */
      const submitCity = async (event) => {
           event.preventDefault();
+
+          // all the below logic should be pulled into app.js and handle things on that end i think
                let found = cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne)
                let found2 = cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo)
                if (found && found2) {
@@ -127,16 +129,18 @@ function Dashboard({history}){
                          longitude: found.lng,
                          latitude: found.lat
                     })
-               } else if (found) {
+               } 
+               else if (found) {
                     selectSearch(found);
+                   
                } else if (found2) {
                     selectSearch(found2);
                }
-               // suggestions need to search both i guess
+               // if you don't enter the cities by name it goes to the sug
                else {
                     ReactGA.event({ category: 'Data', 
                     action: `used suggestion endpoint: ${compare.cityOne}` });
-                    await getBestSuggestion(compare.cityOne);
+                    await getBestSuggestions([compare.cityOne, compare.cityTwo]);
                }
           history.push("/map");
      }

@@ -50,7 +50,7 @@ function App() {
     height: '100%',
     longitude: -95,
     latitude: 39,
-    zoom: 3,
+    zoom: 10,
     minZoom: 3,
     trackResize: true,
 
@@ -79,7 +79,7 @@ const getCities = arr => {
 }
 
 const getBestSuggestion = search => {
-  Axios.get(`https://cors-anywhere.herokuapp.com/https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
+  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
   .then(res => {
     // if there's a suggestion
     if (res.data) {
@@ -92,29 +92,73 @@ const getBestSuggestion = search => {
   .catch(err => console.log("suggestion error", err))
 }
 
+const getBestSuggestions = arr => {
+  const output = [];
+  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[0]}`)
+  .then(res => {
+    // if there's a suggestion
+    if (res.data) {
+      // get the best (first) suggestion and add it to state
+      let suggestionKey = Object.keys(res.data)[0]
+      output.push(res.data[suggestionKey]) 
+    }
+    // maybe add an error message if nothing is found
+  }).then(res =>  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[1]}`)
+  .then(res => {
+    // if there's a suggestion
+    if (res.data) {
+      // get the best (first) suggestion and add it to state
+      let suggestionKey = Object.keys(res.data)[0]
+      output.push(res.data[suggestionKey]) 
+    }
+    // maybe add an error message if nothing is found
+  }))
+  .then(res => getCities(output))
+  .catch(err => console.log("suggestion error", err))
+}
+
+function compare(a, b) {
+  const popA = a.population;
+  const popB = b.population;
+
+  let comparison = 0;
+  if (popA < popB) {
+    comparison = 1;
+  } else if (popA > popB) {
+    comparison = -1;
+  }
+  return comparison;
+}
+
+cityIndex.sort(compare);
+
 // this filters the map markers based on zoom - Closer zoom, lesser population cap
   useEffect( _ => {
-    if (viewport.zoom < 4) {
-      setCityMarkers(cityIndex.filter(city => city.population > 500000))
+
+    function recursive_filter (data, arrayFilters, index = 0) {
+      if (arrayFilters.length === 0) {
+        return data
+      }
+      if (index === arrayFilters.length - 1) {
+        return data.filter(arrayFilters[index])
+      }
+      return recursive_filter(data.filter(arrayFilters[index]), arrayFilters, (index + 1))
     }
-    if (viewport.zoom >= 4 && viewport.zoom < 5) {
-      setCityMarkers(cityIndex.filter(city => city.population > 300000))
-    }
-    if (viewport.zoom >= 5 && viewport.zoom < 6) {
-      setCityMarkers(cityIndex.filter(city => city.population > 100000))
-    }
-    if (viewport.zoom >= 6 && viewport.zoom < 7) {
-      setCityMarkers(cityIndex.filter(city => city.population > 50000))
-    }
-    if (viewport.zoom >= 7 && viewport.zoom < 8) {
-      setCityMarkers(cityIndex.filter(city => city.population > 10000))
-    }
+    
+    //these 4 lines of code took too long to write, they determine the bounds of the map on screen
+    const f1 = item => item.lng > viewport.longitude-(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f2 = item => item.lng < viewport.longitude+(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f3 = item => item.lat > viewport.latitude-(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f4 = item => item.lat < viewport.latitude+(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
+    
+    const filters = [f1,f2,f3,f4]
+
+    setCityMarkers(recursive_filter(cityIndex, filters).slice(0,30))
+
     // let selectedCityMarkers = selected.map(item => cityIndex.find(city => city.ID === item.id))
     // setCityMarkers([...cityMarkers, ...selectedCityMarkers])
-    console.log(viewport.zoom)
-    console.log("lat", viewport.latitude)
-    console.log("long", viewport.longitude)
-  },[viewport.zoom])
+
+  },[viewport.latitude])
 
 
   //Analytics Events
@@ -130,7 +174,7 @@ const getBestSuggestion = search => {
   return (
     <Router>
       <UserContext.Provider value={{user, setUser}}>
-        <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion}}>
+        <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, getBestSuggestions}}>
           <div className="App">
             <Navigation />
             <Route exact path='/' component={Dashboard} />
