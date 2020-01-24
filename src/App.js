@@ -79,7 +79,7 @@ const getCities = arr => {
 }
 
 const getBestSuggestion = search => {
-  Axios.get(`https://cors-anywhere.herokuapp.com/https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
+  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
   .then(res => {
     // if there's a suggestion
     if (res.data) {
@@ -94,7 +94,7 @@ const getBestSuggestion = search => {
 
 const getBestSuggestions = arr => {
   const output = [];
-  Axios.get(`https://cors-anywhere.herokuapp.com/https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[0]}`)
+  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[0]}`)
   .then(res => {
     // if there's a suggestion
     if (res.data) {
@@ -103,7 +103,7 @@ const getBestSuggestions = arr => {
       output.push(res.data[suggestionKey]) 
     }
     // maybe add an error message if nothing is found
-  }).then(res =>  Axios.get(`https://cors-anywhere.herokuapp.com/https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[1]}`)
+  }).then(res =>  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[1]}`)
   .then(res => {
     // if there's a suggestion
     if (res.data) {
