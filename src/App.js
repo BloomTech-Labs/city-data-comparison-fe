@@ -79,7 +79,7 @@ const getCities = arr => {
 }
 
 const getBestSuggestion = search => {
-  Axios.get(`https://cors-anywhere.herokuapp.com/https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
+  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${search}`)
   .then(res => {
     // if there's a suggestion
     if (res.data) {
@@ -89,6 +89,31 @@ const getBestSuggestion = search => {
     }
     // maybe add an error message if nothing is found
   })
+  .catch(err => console.log("suggestion error", err))
+}
+
+const getBestSuggestions = arr => {
+  const output = [];
+  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[0]}`)
+  .then(res => {
+    // if there's a suggestion
+    if (res.data) {
+      // get the best (first) suggestion and add it to state
+      let suggestionKey = Object.keys(res.data)[0]
+      output.push(res.data[suggestionKey]) 
+    }
+    // maybe add an error message if nothing is found
+  }).then(res =>  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[1]}`)
+  .then(res => {
+    // if there's a suggestion
+    if (res.data) {
+      // get the best (first) suggestion and add it to state
+      let suggestionKey = Object.keys(res.data)[0]
+      output.push(res.data[suggestionKey]) 
+    }
+    // maybe add an error message if nothing is found
+  }))
+  .then(res => getCities(output))
   .catch(err => console.log("suggestion error", err))
 }
 
@@ -149,7 +174,7 @@ cityIndex.sort(compare);
   return (
     <Router>
       <UserContext.Provider value={{user, setUser}}>
-        <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion}}>
+        <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, getBestSuggestions}}>
           <div className="App">
             <Navigation />
             <Route exact path='/' component={Dashboard} />
