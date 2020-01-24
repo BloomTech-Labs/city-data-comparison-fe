@@ -97,9 +97,9 @@ function compare(a, b) {
   const popB = b.population;
 
   let comparison = 0;
-  if (popA > popB) {
+  if (popA < popB) {
     comparison = 1;
-  } else if (popA < popB) {
+  } else if (popA > popB) {
     comparison = -1;
   }
   return comparison;
@@ -120,18 +120,18 @@ cityIndex.sort(compare);
       return recursive_filter(data.filter(arrayFilters[index]), arrayFilters, (index + 1))
     }
     
-    const f1 = item => item.lng > viewport.longitude-((1/viewport.zoom)*180/(viewport.zoom/2))
-    const f2 = item => item.lng < viewport.longitude+((1/viewport.zoom)*180/(viewport.zoom/2))
-    const f3 = item => item.lat > viewport.latitude-((1/viewport.zoom)*360/(viewport.zoom)/2)
-    const f4 = item => item.lat < viewport.latitude+((1/viewport.zoom)*360/(viewport.zoom)/2)
+    const f1 = item => item.lng > viewport.longitude-(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f2 = item => item.lng < viewport.longitude+(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f3 = item => item.lat > viewport.latitude-((1/viewport.zoom)*90/(viewport.zoom))
+    const f4 = item => item.lat < viewport.latitude+((1/viewport.zoom)*90/(viewport.zoom))
     
     const filters = [f1,f2,f3,f4]
 
     setCityMarkers(recursive_filter(cityIndex, filters).slice(0,30))
 
 
-    console.log(`greater than ${viewport.longitude-((1/viewport.zoom)*180/(viewport.zoom)+(viewport.zoom/2))} less than ${viewport.longitude+((1/viewport.zoom)*180/(viewport.zoom)+(viewport.zoom/2))}`)
-    console.log(`greater than ${viewport.latitude-((1/viewport.zoom)*360/(viewport.zoom)/2)} less than ${viewport.latitude+((1/viewport.zoom)*360/(viewport.zoom)/2)}`)
+    console.log(`greater than ${viewport.longitude-((1/viewport.zoom)*180/(viewport.zoom/2))} less than ${viewport.longitude+((1/viewport.zoom)*180/(viewport.zoom/2))}`)
+    console.log(`greater than ${viewport.latitude-((1/viewport.zoom)*90/(viewport.zoom))} less than ${viewport.latitude+((1/viewport.zoom)*90/(viewport.zoom))}`)
 
     // if (viewport.zoom > 4){
       // setCityMarkers(cityIndex.filter(city => 
