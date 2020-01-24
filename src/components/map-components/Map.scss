@@ -49,7 +49,8 @@
 
     .housing-title{
         color:#00bfa5;
-        font-size:1.4rem;
+        margin-top:10px;
+        font-size:1.3rem;
         margin-left:2%;
     }
 
@@ -243,7 +244,6 @@
             }
         }
         .search-bar{
-            margin-top:20px;
             background-image:url('../dashboard/assets/search.svg');
             background-position:6px 5.5px;
             background-repeat: no-repeat;
@@ -324,8 +324,8 @@
 
         li {
             list-style-type: none;
-            margin: 2% 0;
-            font-weight:bold;
+            margin: 5px 0;
+            // font-weight:bold;
             display:flex;
             justify-content:space-between;
             width:100%;
@@ -370,6 +370,7 @@
 
         .active {
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.08);
+            font-size:1.1rem;
             // background-color:#f6fbff;
             // color:black !important; 
             // font-weight:500;
