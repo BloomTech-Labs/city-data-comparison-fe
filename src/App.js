@@ -123,7 +123,9 @@ const getBestSuggestions = arr => {
     if (res.data) {
       // get the best (first) suggestion and add it to state
       let suggestionKey = Object.keys(res.data)[0]
-      output.push(res.data[suggestionKey]) 
+      let newCity = res.data[suggestionKey];
+      newCity.color = getCityColor();
+      output.push(newCity);
     }
     // maybe add an error message if nothing is found
   }).then(res =>  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[1]}`)
@@ -132,7 +134,9 @@ const getBestSuggestions = arr => {
     if (res.data) {
       // get the best (first) suggestion and add it to state
       let suggestionKey = Object.keys(res.data)[0]
-      output.push(res.data[suggestionKey]) 
+      let newCity2 = res.data[suggestionKey];
+      newCity2.color = getCityColor();
+      output.push(newCity2);
     }
     // maybe add an error message if nothing is found
   }))
