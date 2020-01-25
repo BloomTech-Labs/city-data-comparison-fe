@@ -56,10 +56,28 @@ function App() {
 
 
   });
+
+  const getCityColor = _ => {
+    let activeColors = selected.map(item => item.color)
+      if (!activeColors.includes("red")) {
+        return "red"
+      } else if (!activeColors.includes("blue")) {
+        return "blue"
+      } else if (!activeColors.includes("green")) {
+        return "green"
+      }   
+  }
+
   const getCity = cityMarker => {
+    if (selected.length >=3) {
+      return;
+    }
     Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
     .then(res => {
-      setSelected([...selected, res.data])
+      let newCity = res.data;
+      newCity.color = getCityColor();
+      setSelected([...selected, newCity])
+      console.log(newCity)
     })
     .catch(err => console.log("getCity error", err))
 }
@@ -68,11 +86,16 @@ const getCities = arr => {
   let output = []
   Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[0].ID}`)
   .then(res => {
-    output.push(res.data);
+    let newCity = res.data;
+    newCity.color = getCityColor();
+    output.push(newCity);
     // setSelected([...selected, res.data])
   }).then(res => Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[1].ID}`)
   .then(res => {
-    output.push(res.data)
+    let newCity = res.data;
+    newCity.color = getCityColor();
+    output.push(newCity);
+    console.log(output);
     setSelected([...selected, ...output])
   }))
   .catch(err => console.log("getCity error", err))
