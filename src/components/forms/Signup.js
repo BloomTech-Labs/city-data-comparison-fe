@@ -10,7 +10,7 @@ import './forms.scss';
 
 //buttons
 import Facebook from './buttons/Facebook.js';
-import Google from './buttons/Google.js'
+import Google from './buttons/OauthButton.js/index.js'
 import Linkedin from './buttons/Linkedin';
 
 //modal
@@ -120,7 +120,7 @@ const Signup = props => {
                                         <a className="tos-text" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}> privacy policy</a>
                                     </p>
                                 </div>
-                                <button className="signup-button" htmlType="submit" onClick={() => {setIsLoading(true); signup()}}>Start exploring cities</button>
+                                <button className="signup-button" type="submit" onClick={() => {setIsLoading(true); signup()}}>Start exploring cities</button>
                                 <p class='question'>Have an account? <Link className="link-signup" to='/signin'>Sign in</Link> to explore cities</p>
                             </form>
                         </div>
