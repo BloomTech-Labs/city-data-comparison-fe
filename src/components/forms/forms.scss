@@ -17,49 +17,119 @@ span{
     display:flex;
     margin-top:2.5%; 
 
+    //container for right side of screen
+    .inner-form{
+        margin: auto ;
+        width: 85%;
+        background: none;
+        display:flex;
+    
+        
+        @media screen and (max-width: 1500px){
+            margin:1%;
+            margin-top:3%;
+        }
+    
+        @media screen and (max-width: 1200px){
+            margin:0;
+            margin-top:4%;
+        }
+    
+    }
+
+    .form{
+        width: 50%; 
+        padding: 1%; 
+        margin-top:1%;
+        padding-top:1%;
+        background:white;
+        border-radius: 40px 0px 0px 40px;
+    
+        @media screen and (max-width: 950px) {
+            width: 86%;
+            padding: 1%;
+            padding-top: 0%;
+            margin: auto
+        }
+    }
+
+
+    //media queries for page
+
+    @media screen and (max-width: 950px){
+        .inner-form{
+            flex-direction: column-reverse;
+        }
+    }
+
+    @media screen and (min-width: 320px){
+        background: white; 
+
+        .inner-form{
+            margin:auto;
+            margin-top:22%;
+
+            .form{
+
+                .form-title{
+                    font-size: 1.1rem;
+                    padding-left: .9rem;
+                }
+
+                .auth{
+                    width:100%;
+                    margin-top: 6%; 
+
+                    .google-button{
+                        width: 92%;
+                        height: 2.875rem;
+
+                        .google-name{
+                            font-size: .6rem; 
+                            padding: 0 6%; 
+                        }
+                    }
+
+                    .fb-button{
+                        .facebook-icon{
+                            width:17%;
+                        }
+
+                        .facebook-name{
+                            font-size: .6rem;
+                            padding-right: .5rem;
+                        }
+                    }
+
+                    .linkedin-button{
+                        
+                        .linkedin-icon{
+                            width:22%;
+                            border:none;
+                        }
+
+                        .linkedin-name{
+                            font-size: .6rem;
+                            padding-right: .5rem;
+                        }
+                    }
+
+
+                }
+            }
+             
+        }
+    }
+
 }
 
 .login-photo img {
     width:100%;
 }
 
-.inner-form{
-    margin: auto ;
-    width: 85%;
-    background: none;
-    display:flex;
 
-    
-    @media screen and (max-width: 1500px){
-        margin:1%;
-        margin-top:3%;
-    }
 
-    @media screen and (max-width: 1200px){
-        margin:0;
-        margin-top:4%;
-    }
 
-    @media screen and (max-width: 950px){
-        flex-direction: column-reverse;
-    }
-}
-
-.form{
-    width: 50%; 
-    padding: 1%; 
-    margin-top:1%;
-    padding-top:1%;
-    background:white;
-    border-radius: 40px 0px 0px 40px;
-
-    @media screen and (max-width: 950px) {
-        width: 86%;
-        padding: 1%;
-        padding-top: 0%;
-        margin: auto
-    }
-}
 
     .auth{
         display:flex; 
