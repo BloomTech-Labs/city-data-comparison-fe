@@ -21,7 +21,7 @@ export default function EducationGraph (props) {
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
             <Bar
               data={{
-                labels: ["Drives Alone",  "Carpools", "Public Transport",  "Other transport", "Walks", "Works at home"],
+                labels: ["Drives Alone",  "Carpools", "Works at home",  "Public Transport", "Walks", "Other transport"],
                 datasets: props.edData.map( item => {
                   
                   return {
@@ -29,12 +29,10 @@ export default function EducationGraph (props) {
                     data: [
                       item["Commuting to Work"]["Drives Alone"],
                       item["Commuting to Work"]["Carpools"],
-                      item["Commuting to Work"]["Public Transport"],
-                      item["Commuting to Work"]["Other transport"],
-                      item["Commuting to Work"]["Walks"],
                       item["Commuting to Work"]["Works at home"],
-                                         
-                      
+                      item["Commuting to Work"]["Public Transport"],
+                      item["Commuting to Work"]["Walks"],
+                      item["Commuting to Work"]["Other transport"]
                     ],
                     backgroundColor:
                       colorifier(item.Longitude)
