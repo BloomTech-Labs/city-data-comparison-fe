@@ -52,7 +52,7 @@ export default function EducationGraph (props) {
               }}
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'Industry',
                   fontSize:25
                 },
@@ -62,14 +62,7 @@ export default function EducationGraph (props) {
                 },
                 scales: {
                   xAxes: [ {
-                    
-                    display: true,
-                    gridLines: {
-                      display:false,
-                    },
-                  } 
-                  ],
-                  yAxes: [ {
+                    labelString:'Percent',
                     display: true,
                     gridLines: {
                       display:false,
@@ -80,8 +73,21 @@ export default function EducationGraph (props) {
                       ticks: {
                         beginAtZero: true
                       }
+                    }
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: true,
+                    gridLines: {
+                      display:false,
                     },
-
+                    scaleLabel: {
+                      display: false,
+                      labelString: 'Percent',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }
                   } ]
                 }
               }}

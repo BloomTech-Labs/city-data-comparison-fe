@@ -21,7 +21,7 @@ export default function EducationGraph (props) {
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
             <HorizontalBar
               data={{
-                labels: ["1 room",  "2 rooms", "3 rooms",  "4 rooms", "5 rooms", "6 rooms", "7 rooms", "8 rooms", "9 rooms or more"],
+                labels: ["1 room",  "2 rooms", "3 rooms",  "4 rooms", "5 rooms", "6 rooms", "7 rooms", "8 rooms", "9 rooms+"],
                 datasets: props.edData.map( item => {
                   
                   return {

@@ -65,7 +65,7 @@ export default function EducationGraph (props) {
                     },
                     scaleLabel: {
                       display: true,
-                      labelString: 'Cost'
+                      labelString: 'Average rent'
                     },
                   } 
                   ],

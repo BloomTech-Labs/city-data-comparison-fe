@@ -50,7 +50,7 @@ export default function EducationGraph (props) {
               }}
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'Household Income',
                   fontSize:25
                 },
@@ -67,7 +67,7 @@ export default function EducationGraph (props) {
                     },
                     scaleLabel: {
                       display: true,
-                      labelString: 'Income'
+                      labelString: 'Percent'
                     },
                   } 
                   ],
@@ -77,8 +77,8 @@ export default function EducationGraph (props) {
                       display:false,
                     },
                     scaleLabel: {
-                      display: true,
-                      labelString: 'Percent',
+                      display: false,
+                      labelString: 'Household income',
                       ticks: {
                         beginAtZero: true
                       }
