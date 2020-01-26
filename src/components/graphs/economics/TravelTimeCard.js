@@ -27,6 +27,7 @@ function TotalPopulation({ethData}) {
                 <div key={item._id} className="commute-time-container">
                     <span className="commute-city-title">{item["City"]}</span>
                     <span className="commute-time-num">{item["Mean Travel Time"]} min.</span>
+                    <p id="commute-label">Average commute time</p>
                </div>
             )}
 			

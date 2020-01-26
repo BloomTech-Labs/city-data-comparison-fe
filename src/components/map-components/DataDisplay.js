@@ -215,7 +215,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             <Element name="commute" className="element" ><Commute edData={selected} /></Element>
                         </div>
                         <div className="travel-container">
-                            <p className="chart-title">Travel time to work</p>
+                            {/* <p className="chart-title">Travel time to work</p> */}
                             <Element name="travelTime" className="element" ><TravelTime ethData = {selected} /></Element>
                         </div>
                     </div>

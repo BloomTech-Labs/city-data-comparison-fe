@@ -215,7 +215,7 @@
 
             .commute-time-container{
                 // border:1px solid blue;
-                padding:15px 10px;
+                padding:20px 13px;
                 border-radius:5px;
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 background-color:white;
@@ -230,7 +230,7 @@
                     color:#00bfa5;
                     font-size:1rem;
                     width:100%;
-                    margin-bottom:10px;
+                    margin-bottom:25px;
                 }
 
                 .commute-time-num{
@@ -241,6 +241,14 @@
                     color:black;
                     text-align:center;
                     width:100%;
+                }
+                #commute-label{
+                    color:grey;
+                    font-size:14px;
+                    width:100%;
+                    margin-top:3px;
+                    text-align:center;
+                    margin-bottom:5px;
                 }
             }
 
