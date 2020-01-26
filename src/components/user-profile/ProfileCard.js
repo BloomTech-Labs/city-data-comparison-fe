@@ -17,6 +17,15 @@ const ProfileCard = ()=> {
         state: ''
     })
 
+    const getLoggedInUser = () => {
+        const user = localStorage.getItem('user');
+
+        if(user){
+            console.log(JSON.parse(user));
+            setUserInfo(JSON.parse(user))
+        } 
+    }
+
     const handleChange = e => {
         setUserInfo({
             ...userInfo,
@@ -76,6 +85,7 @@ const ProfileCard = ()=> {
 
     //User information axios call
     useEffect(() => {
+        /*
         axios
             .get('')
             .then(res => {
@@ -85,6 +95,8 @@ const ProfileCard = ()=> {
             .catch(err => {
                 console.error('Unable to get user information', err);
             });
+        */
+        getLoggedInUser();
     }, []);
 
 
