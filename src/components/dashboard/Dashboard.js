@@ -117,7 +117,6 @@ function Dashboard({history}){
      //* SUBMIT SEARCH */
      const submitCity = async (event) => {
           event.preventDefault();
-
           // all the below logic should be pulled into app.js and handle things on that end i think
                let found = cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne)
                let found2 = cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo)
@@ -130,11 +129,11 @@ function Dashboard({history}){
                          latitude: found.lat
                     })
                } 
-               else if (found) {
-                    selectSearch(found);
+               else if (found && !found2) {
+                    getCities([found, compare.cityTwo]);
                    
-               } else if (found2) {
-                    selectSearch(found2);
+               } else if (!found && found2) {
+                    getCities([compare.cityOne, found2]);
                }
                // if you don't enter the cities by name it goes to the sug
                else {

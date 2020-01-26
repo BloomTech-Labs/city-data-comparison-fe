@@ -84,21 +84,59 @@ function App() {
 
 const getCities = arr => {
   let output = []
-  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[0].ID}`)
-  .then(res => {
-    let newCity = res.data;
-    newCity.color = getCityColor();
-    output.push(newCity);
-    // setSelected([...selected, res.data])
-  }).then(res => Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[1].ID}`)
-  .then(res => {
-    let newCity = res.data;
-    newCity.color = getCityColor();
-    output.push(newCity);
-    console.log(output);
-    setSelected([...selected, ...output])
-  }))
-  .catch(err => console.log("getCity error", err))
+
+  // if both objects
+  if (typeof arr[0] === "object" && typeof arr[1] === "object")
+    Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[0].ID}`)
+    .then(res => {
+      let newCity = res.data;
+      newCity.color = getCityColor();
+      output.push(newCity);
+    }).then(res => Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[1].ID}`)
+    .then(res => {
+      let newCity = res.data;
+      newCity.color = getCityColor();
+      output.push(newCity);
+      console.log(output);
+      setSelected([...selected, ...output])
+    }))
+    .catch(err => console.log("getCity error", err))
+
+    if (typeof arr[0] === "object" && typeof arr[1] === "string") {
+     Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[1]}`)
+    .then(res => {
+      if (res.data) {
+        // get the best (first) suggestion and add it to state
+        let suggestionKey = Object.keys(res.data)[0];
+        let foundIndex = res.data[suggestionKey];
+        getCities([arr[0], foundIndex]);
+      } else {
+        getCity(arr[0])
+      }
+    })
+    .catch(err => console.log("getCity error", err))
+    }
+
+    if (typeof arr[0] === "string" && typeof arr[1] === "object") {
+      Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[0]}`)
+      .then(res => {
+        if (res.data) {
+          // get the best (first) suggestion and add it to state
+          let suggestionKey = Object.keys(res.data)[0];
+          let foundIndex = res.data[suggestionKey];
+          getCities([arr[1], foundIndex]);
+        } else {
+          getCity(arr[1])
+        }
+      })
+      .catch(err => console.log("getCity error", err))
+      }
+    
+  // if both strings
+  if (typeof arr[0] === "string" && typeof arr[1] === "string") {
+    getBestSuggestions(arr)
+  }
+
 }
 
 const getBestSuggestion = search => {
@@ -124,7 +162,6 @@ const getBestSuggestions = arr => {
       // get the best (first) suggestion and add it to state
       let suggestionKey = Object.keys(res.data)[0]
       let newCity = res.data[suggestionKey];
-      newCity.color = getCityColor();
       output.push(newCity);
     }
     // maybe add an error message if nothing is found
@@ -135,7 +172,6 @@ const getBestSuggestions = arr => {
       // get the best (first) suggestion and add it to state
       let suggestionKey = Object.keys(res.data)[0]
       let newCity2 = res.data[suggestionKey];
-      newCity2.color = getCityColor();
       output.push(newCity2);
     }
     // maybe add an error message if nothing is found
