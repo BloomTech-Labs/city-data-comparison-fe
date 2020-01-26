@@ -123,11 +123,103 @@
     }
 
 
-    // Industry styling
+    // ** Industry styling
     .industries-container{
-
+padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+    }
+    .salary-container{
+padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+    }
+    .commute-travel-container{
+        .commute-container{
+padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+        }
+        .travel-container{
+padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+        }
+    }
+    .other-industries-container{
+        .unemployment-container{
+padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+        }
+        .retirement-container{
+padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+        }
+        .insurance-container{
+padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+        }
     }
 
+    //** Culture styling
+    .ethnicity-container{
+        padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+    }
+    .age-container{
+        padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+
+    }
+    .education-container{
+        padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+
+    }
+    .population-birth-container{
+        .population-container{
+            padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+
+        }
+        .birth-container{
+            padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
+
+        }
+    }
     
 
 
