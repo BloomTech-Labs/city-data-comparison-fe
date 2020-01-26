@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 import PrivacySection from './PrivacySection'
 
 //oauth button
 import './buttons/OauthButton'
-
-
-import axios from 'axios'
 
 //styling
 import './forms.scss'
@@ -23,33 +21,39 @@ const AuthForm = props => {
    const [passwordError, setPasswordError] = useState('');
    const [loginError, setLoginError] = useState(''); 
    const [isLoading, setIsLoading] = useState(false); 
+   const [validated, validate] = useState(false)
    const [user, setUser] = useState({username: '', password: ''})
 
 
-        const login = () => {
+    useEffect(() => {
+        if(validated){
             axios
                 .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action}`, user)
                 .then(res => {
-                        setIsLoading(false)
-                        sessionStorage.setItem('userId', res.data.id)
-                        console.log(res)
+                    setIsLoading(false)
+                    sessionStorage.setItem('userId', res.data.id)
+                    console.log(res)
+
+                    //redirect user to home
                 }).catch(error => console.log(error)) 
-                
         }
+    },[validated])
+            
     
-    const validateForm = () => {
-            
-            if (user.username === '') {
-                setUsernameError('Please enter your username'); 
-            }
-            if (user.password === '') {
-                setPasswordError("Please enter your password")
-            
-            } else{
-                validate(true)
-            }
+    const validateForm = _ => {
+        if (user.username === '') {
+            setUsernameError('Please enter your username'); 
+        }
+        if (user.password === '') {
+            setPasswordError("Please enter your password")
+        } 
+        else{
+            validate(true)
+        }
     }
 
+    //wonder will this work without being a child of a form element
+    //need to create 
     const onChange = e => {
         setUser({...user, [e.target.name] : e.target.value})
         
@@ -60,11 +64,11 @@ const AuthForm = props => {
             validateForm();
             setIsLoading(true)
 
-            //reset values after user successfully logins or signs up
             setUsernameError('')
             setPasswordError('')
             setLoginError('');
     }
+
     return(
            
            <div className={props.action}>
@@ -88,7 +92,7 @@ const AuthForm = props => {
                        <div className="line"></div>
                    </div>
 
-                   <form className="fields">
+                   <div className="fields">
                        <p className='error'>{usernameError}</p>
                        <input 
                             className="email" 
@@ -115,12 +119,19 @@ const AuthForm = props => {
 
                        <button className={`form-button ${props.action}Button`} onClick={() => onSubmit()}>Start exploring cities </button>
 
-                       <p className='question'> Have an account? <Link className='link-signup' to='/signup'>Sign up</Link> to explore cities </p>
+                       <p className='question'>
+                            {
+                                (props.action === 'Login') ? 
+                                `Have an account? ${<Link className='link-signup' to='/signup'>Sign up</Link>} to explore cities`
+                                :
+                                `Have an account? ${<Link className="link-signup" to='/signin'>Sign in</Link>} to explore cities`
+                            }
+                        </p>
                    </div>
                </div>
                 
                 {/*Container for photo to be displayed right of form */}
-               <div className="login-photo">
+               <div className={`authFormPhoto ${props.action}Photo`}>
                    {/*photo*/}
                </div>
 
@@ -129,4 +140,4 @@ const AuthForm = props => {
     )
 }
 
-export default Login; 
+export default AuthForm; 
