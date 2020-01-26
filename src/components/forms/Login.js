@@ -1,16 +1,15 @@
-import React, {useState, useEffect} from 'react'; 
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
 import city from '../../assets/forms/sf_sign_in.jpeg'
 
-//butons
-import Facebook from './buttons/Facebook'
-import Google from './buttons/Google'
-import Linkedin from './buttons/Linkedin'
+//oauth button
+import './buttons/OauthButton'
 
 
-import axios from 'axios';
+import axios from 'axios'
 
+//styling
 import './forms.scss'
 
 
@@ -82,9 +81,7 @@ const Login = props => {
 
                    <div className="auth">
                        
-                       <Google action='Sign in '/>
-                       <Facebook action="Sign in"/>
-                       <Linkedin action="Sign in" />
+                       
                        
                    </div>
                    
