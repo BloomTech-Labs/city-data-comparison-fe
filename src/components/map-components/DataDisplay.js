@@ -203,6 +203,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
                     <Element name="travelTime" className="element" ><TravelTime ethData = {selected} /></Element>
                     <Element name="commute" className="element" ><Commute edData={selected} /></Element>
+                    <p>Retirement income source</p>
                     <Element name="retirement" className="element" ><RetirementGraph ethData={selected} /></Element>
                     <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
                 </div>
