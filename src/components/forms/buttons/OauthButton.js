@@ -1,7 +1,6 @@
 import React from 'react';  
 
 /*
-    I named each icon 'company'.svg because I am a monster
     props.company: used to create classes if additional styling is need for a specific instance of this 
     props.action: whether user is logging in or registering a new account
 */

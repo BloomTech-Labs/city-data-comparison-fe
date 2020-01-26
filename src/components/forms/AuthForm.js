@@ -11,6 +11,11 @@ import './buttons/OauthButton'
 import './forms.scss'
 import OauthButton from './buttons/OauthButton'
 
+//icons
+import Google from '../../assets/icons/Google.svg'
+import Facebook from '../../assets/icons/Facebook.svg'
+import Linkedin from '../../assets/icons/Linkedin.svg'
+
 
 const AuthForm = props => {
 
