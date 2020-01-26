@@ -25,7 +25,6 @@ function initializeAnalytics() {
 }
 
 function App() {
-
   useEffect( _ => {
     initializeAnalytics();
     ReactGA.event({ category: 'App', 
@@ -67,6 +66,17 @@ function App() {
         return "green"
       }   
   }
+  const getSecondCityColor = arr => {
+    let activeColors = selected.map(item => item.color)
+    activeColors.push(arr.map(item => item.color))
+      if (!activeColors.includes("red")) {
+        return "red"
+      } else if (!activeColors.includes("blue")) {
+        return "blue"
+      } else if (!activeColors.includes("green")) {
+        return "green"
+      }   
+  }
 
   const getCity = cityMarker => {
     if (selected.length >=3) {
@@ -95,7 +105,7 @@ const getCities = arr => {
     }).then(res => Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[1].ID}`)
     .then(res => {
       let newCity = res.data;
-      newCity.color = getCityColor();
+      newCity.color = getSecondCityColor(output);
       output.push(newCity);
       console.log(output);
       setSelected([...selected, ...output])
