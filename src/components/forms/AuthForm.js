@@ -20,7 +20,7 @@ import Linkedin from '../../assets/icons/Linkedin.svg'
 const AuthForm = props => {
 
    //list of companies 
-   const companies = ['Google', 'Facebook', 'Linkedin']
+   const companies = [{name:'Google', icon: Google}, {name:'Facebook', icon:Facebook}, {name:'Linkedin', icon:Linkedin}]
 
    const [usernameError, setUsernameError] = useState(''); 
    const [passwordError, setPasswordError] = useState('');
@@ -57,15 +57,13 @@ const AuthForm = props => {
         }
     }
 
-    //wonder will this work without being a child of a form element
-    //need to create 
     const onChange = e => {
         setUser({...user, [e.target.name] : e.target.value})
         
     }
 
     const onSubmit = e => {
-            e.preventDefault();
+            console.log(user)
             validateForm();
             setIsLoading(true)
 
@@ -81,13 +79,13 @@ const AuthForm = props => {
                {/*Container for left side of forms */}
                <div className="form">
 
-                   <h2 className="form-title">{(action === 'login') ? 'Welcome Back!' : 'Create Your Account'}</h2>
+                   <h2 className="form-title">{(props.action === 'login') ? 'Welcome Back!' : 'Create Your Account'}</h2>
 
                     {/*container for auth buttons */}
                    <div className="auth">
                     {
                         //mapping over list of companies defined on line 20
-                        companies.map(company => (<OauthButton action={props.action} company={company} />))
+                        companies.map(company => (<OauthButton action={props.action} company={company.name} icon={company.icon} />))
                     }  
                    </div>
                    
