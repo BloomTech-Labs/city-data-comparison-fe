@@ -1,7 +1,4 @@
-import React from 'react'; 
-
-//assets
-import icon from `../../../assets/icons/${props.company}.svg`; 
+import React from 'react';  
 
 /*
     I named each icon 'company'.svg because I am a monster
@@ -17,7 +14,7 @@ const OauthButton = props => {
     return (
         <div className={`oauthButton ${props.company}Button`} onClick={() => {connectAccount()}}>
             <div className='iconContainer'>
-                <img className={`oauthIcon ${props.company}.icon`}src={icon} alt={`${props.company} icon`}/>
+                <img className={`oauthIcon ${props.company}.icon`}src={props.icon} alt={`${props.company} icon`}/>
             </div>
             <p className={`oauthName ${props.company}Name`}>{props.action} with {props.company}</p>
         </div>
