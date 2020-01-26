@@ -238,19 +238,21 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
 
                 <div className="data-category">
-                    <div className="ethnicity-container">
-                        <p className="chart-title">Diversity</p>
-                        <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
-                    </div>
 
                     <div className="age-container">
                         <p className="chart-title">Age distribution</p>
                         <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
                     </div>
 
-                    <div className="education-container">
-                        <p className="chart-title">Education</p>
-                        <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
+                    <div>
+                        <div className="ethnicity-container">
+                            <p className="chart-title">Diversity</p>
+                            <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
+                        </div>
+                        <div className="education-container">
+                            <p className="chart-title">Education</p>
+                            <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
+                        </div>
                     </div>
 
                     <div className="population-birth-container">

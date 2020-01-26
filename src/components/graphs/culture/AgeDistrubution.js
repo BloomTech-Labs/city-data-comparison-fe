@@ -52,7 +52,7 @@ export default function AgeDistributionGraph({ethData}) {
               }}
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'Age Distribution',
                   fontSize:25
                 },
@@ -68,8 +68,8 @@ export default function AgeDistributionGraph({ethData}) {
                       display:false,
                     },
                     scaleLabel: {
-                      display: false,
-                      labelString: 'Age Distribution'
+                      display: true,
+                      labelString: 'Percent'
                     },
                   } 
                   ],
@@ -79,7 +79,7 @@ export default function AgeDistributionGraph({ethData}) {
                       display:false,
                     },
                     scaleLabel: {
-                      display: true,
+                      display: false,
                       labelString: 'Percent',
                       ticks: {
                         beginAtZero: true

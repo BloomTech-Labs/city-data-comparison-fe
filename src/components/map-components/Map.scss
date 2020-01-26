@@ -125,14 +125,14 @@
 
     // ** Industry styling
     .industries-container{
-padding:10px;
+        padding:10px;
         border-radius:5px;
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         margin-bottom:30px;
         background-color:white;
     }
     .salary-container{
-padding:10px;
+        padding:10px;
         border-radius:5px;
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         margin-bottom:30px;
@@ -140,46 +140,47 @@ padding:10px;
     }
     .commute-travel-container{
         .commute-container{
-padding:10px;
-        border-radius:5px;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        margin-bottom:30px;
-        background-color:white;
+            padding:10px;
+            border-radius:5px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            margin-bottom:30px;
+            background-color:white;
         }
         .travel-container{
-padding:10px;
-        border-radius:5px;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        margin-bottom:30px;
-        background-color:white;
+            padding:10px;
+            border-radius:5px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            margin-bottom:30px;
+            background-color:white;
         }
     }
     .other-industries-container{
         .unemployment-container{
-padding:10px;
-        border-radius:5px;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        margin-bottom:30px;
-        background-color:white;
+            padding:10px;
+            border-radius:5px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            margin-bottom:30px;
+            background-color:white;
         }
         .retirement-container{
-padding:10px;
-        border-radius:5px;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        margin-bottom:30px;
-        background-color:white;
+            padding:10px;
+            border-radius:5px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            margin-bottom:30px;
+            background-color:white;
         }
         .insurance-container{
-padding:10px;
-        border-radius:5px;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        margin-bottom:30px;
-        background-color:white;
+            padding:10px;
+            border-radius:5px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            margin-bottom:30px;
+            background-color:white;
         }
     }
 
     //** Culture styling
     .ethnicity-container{
+        width:50%;
         padding:10px;
         border-radius:5px;
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
@@ -192,10 +193,10 @@ padding:10px;
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         margin-bottom:30px;
         background-color:white;
-
     }
     .education-container{
         padding:10px;
+        width:50%;
         border-radius:5px;
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         margin-bottom:30px;
