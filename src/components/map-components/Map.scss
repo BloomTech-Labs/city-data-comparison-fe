@@ -203,7 +203,7 @@
 
 
         .commute-container{
-            width:78%;
+            width:77%;
             padding:10px;
             border-radius:5px;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
@@ -211,11 +211,11 @@
             background-color:white;
         }
         .travel-container{
-            width:20%;
+            width:21%;
 
             .commute-time-container{
-                // border:1px solid blue;
                 padding:20px 13px;
+                padding-top:15px;
                 border-radius:5px;
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 background-color:white;
@@ -225,53 +225,88 @@
                 
 
                 .commute-city-title{
-                    color:black;
                     color:#00bfa5;
                     font-size:1rem;
                     width:100%;
                     margin-bottom:25px;
-                    // border:1px solid green;
                     display:flex;
-                    align-items:center;
+                    align-items:flex-end;
                     justify-content:space-between;
-
-                    .commute-clock{
-                        // border:1px solid red;
-                        height:23px;
-                    }
                 }
 
                 .commute-time-num{
-                    // border:1px solid orange;
                     font-size:1.9rem;
                     font-weight:400;
-                    // color:#00bfa5;
                     color:black;
                     text-align:center;
                     width:100%;
+                    .commute-clock{
+                        height:18px;
+                        margin-right:10px;
+                    }
                 }
                 #commute-label{
                     color:grey;
-                    font-size:14px;
+                    font-size:1rem;
                     width:100%;
                     margin-top:3px;
                     text-align:center;
                     margin-bottom:5px;
                 }
             }
-
-            
         }
     }
+
+
     .other-industries-container{
+        border:1px solid red;
+        display:flex;
+        justify-content:space-between;
+
+
         .unemployment-container{
-            padding:10px;
-            border-radius:5px;
-            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-            margin-bottom:30px;
-            background-color:white;
+            width:22%;
+
+            .unemployment-card-container{
+                padding:10px;
+                border-radius:5px;
+                box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+                margin-bottom:30px;
+                background-color:white;
+
+                .unemployment-title{
+                    color:black;
+                    color:#00bfa5;
+                    font-size:1rem;
+                    width:100%;
+                    margin-bottom:25px;
+                    display:flex;
+                    align-items:flex-end;
+                    justify-content:space-between;
+                }
+
+                .unemployment-num{
+                    font-size:1.9rem;
+                    font-weight:400;
+                    color:black;
+                    text-align:center;
+                    width:100%;
+                    .archive{
+                        width:19px;
+                    }
+                }
+                .unemployment-label{
+                    color:grey;
+                    font-size:1rem;
+                    width:100%;
+                    margin-top:3px;
+                    text-align:center;
+                    margin-bottom:5px;
+                }
+            }
         }
         .retirement-container{
+            width:52%;
             padding:10px;
             border-radius:5px;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
@@ -279,6 +314,7 @@
             background-color:white;
         }
         .insurance-container{
+            width:22%;
             padding:10px;
             border-radius:5px;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);

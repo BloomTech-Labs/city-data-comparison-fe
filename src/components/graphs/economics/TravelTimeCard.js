@@ -26,9 +26,9 @@ function TotalPopulation({ethData}) {
 		<div>
             {ethData.map(item => 
                 <div key={item._id} className="commute-time-container">
-                    <span className="commute-city-title">{item["City"]} <img className="commute-clock" src={clock} alt="clock"/></span>
-                    <span className="commute-time-num">{item["Mean Travel Time"]} min.</span>
-                    <p id="commute-label">Average commute time</p>
+                    <span className="commute-city-title">Average commute time</span>
+                    <span className="commute-time-num"><img className="commute-clock" src={clock} alt="clock"/>{item["Mean Travel Time"]} min.</span>
+                    <p id="commute-label">{item["City"]}</p>
                </div>
             )}
 			

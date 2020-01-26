@@ -222,7 +222,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                     <div className="other-industries-container">
                         <div className="unemployment-container">
-                            <p className="chart-title">Unemployment</p>
+                            {/* <p className="chart-title">Unemployment</p> */}
                             <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
                         </div>
                         <div className="retirement-container">

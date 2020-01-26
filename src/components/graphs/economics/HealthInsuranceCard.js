@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
-const CenterCard = styled.h2`
-display:flex;
-justify-content:center;
 
-`
 function TotalPopulation({ethData}) {
     // console.log(ethData, "ETH")
 	// const colorifier = lat => {
