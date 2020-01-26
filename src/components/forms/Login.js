@@ -30,7 +30,7 @@ const Login = props => {
                     .post('https://citrics-staging.herokuapp.com/api/auth/login', user)
                     .then(res => {
                         setIsLoading(false)
-                        sessionStorage.setItem('userId', res.data.id)
+                        sessionStorage.setItem('token', res.data.token)
                         console.log(res)
                     })
                     .catch(error => {
@@ -39,6 +39,7 @@ const Login = props => {
                     }) 
                 
             }
+            console.log(sessionStorage)
     
     const validateLogin = () => {
             
@@ -69,7 +70,8 @@ const Login = props => {
             setPasswordError('')
             setLoginError('');
             validateLogin();
-            setIsLoading(true)
+            setIsLoading(true);
+            props.history.push("/");
             
     }
     return(

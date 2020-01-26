@@ -30,7 +30,7 @@ const Signup = props => {
    const [loginError, setLoginError] = useState(''); 
    const [isLoading, setIsLoading] = useState(false); 
    const [user, setUser] = useState({username: '', password: ''})
-
+    console.log(user)
 
             const signup = () => {
                 axios

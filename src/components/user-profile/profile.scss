@@ -52,10 +52,17 @@ h1 {
 
     
 
-    .name-tab, .email-tab, .city-tab {
+    .name-tab, .email-tab, .city-tab, .avatar-tab {
         margin-bottom: 50px;
         display:flex;
         flex-direction: column;
+
+        img {
+         width: 200px;
+         border: 3px solid rgba(68, 68, 68, 0.075);
+         border-radius: 100%;
+     
+        }
 
         input {
             width: 200px;

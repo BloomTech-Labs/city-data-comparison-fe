@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import { CityContext } from "../../contexts/CityContext"
+import ProfileImage from './icons/profileimage.png'
 import './profile.scss'
 
 
@@ -14,7 +15,8 @@ const ProfileCard = ()=> {
         last_name: '',
         email: '',
         city: '',
-        state: ''
+        state: '',
+        userimage: null
     })
 
     const handleChange = e => {
@@ -56,23 +58,7 @@ const ProfileCard = ()=> {
             setLocationEdit({...locationEdit, status:'closed'})
         }
     }
-
     
-    // Edit user
-
-    const [userEdit, setUserEdit] = useState({
-        password: '',
-        email: '',
-        first_name: '',
-        last_name: ''
-    })
-
-    // const handleChange = e => {
-    //     setUserEdit({
-    //         ...userEdit,
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
 
     //User information axios call
     useEffect(() => {
@@ -100,10 +86,21 @@ const ProfileCard = ()=> {
             });
     }, []);
 
+    // const img = () => {
+    //     if(user.userimage === null) {
+    //         img.attr('src', `${ProfileImage}`)
+    //     } else {
+    //         img.attr('src', `${userInfo.userimage}`)
+    //     }
+
     return (
         <div className='profile-container'>
             <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
+                <div className='avatar-tab'>
+                    <img src={userInfo.userimage === null ? `${ProfileImage}` : `${userInfo.userimage}`} />
+                    <button className='edit-avatar-btn'>Edit Picture</button>
+                </div>
                 <div className='name-tab'>
                     <p>Name</p>
                     <h2 className={`user-name ${nameEdit.status}`}>{userInfo.first_name} {userInfo.last_name}</h2>
@@ -145,7 +142,7 @@ const ProfileCard = ()=> {
                     <button className={`save-email-btn ${emailEdit.status}`} onClick={toggleEmail, handleSubmit}>Save</button>
                 </div>
                 <div className='city-tab'>
-                    <p>City State of Residence<span> (Optional)</span></p>
+                    <p>City, State of Residence</p>
                     <h2 className={`user-location ${locationEdit.status}`}>{userInfo.city}, {userInfo.state}</h2>
                     <form className={`edit-location ${locationEdit.status}`}>
                     <input
