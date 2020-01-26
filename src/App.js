@@ -16,6 +16,7 @@ import citiesIndex from './data/city_ids.json'
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
 import Axios from "axios"
+import Callback from './components/Callback';
 
 
 function initializeAnalytics() {
@@ -184,6 +185,7 @@ cityIndex.sort(compare);
             <Route path="/aboutus" component={AboutUs} />
             <Route path='/signin'render={props => <AuthForm {...props} action="Login"/>} />
             <Route path="/signup" render={props => <AuthForm {...props} action="Register"/>} />
+            <Route path="/callback" component={Callback} />
           </div>
           </CityContext.Provider>
       </UserContext.Provider>
