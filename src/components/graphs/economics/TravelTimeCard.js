@@ -22,14 +22,11 @@ function TotalPopulation({ethData}) {
 
 	
 	return (
-		<div className="dataCards">
-            <h1>Mean Travel Time To Work</h1>
-
+		<div>
             {ethData.map(item => 
-                <div key={item._id}>
-                    <CenterCard> {item["City"]}</CenterCard>
-                    <CenterCard> {item["Mean Travel Time"]}min.</CenterCard>
-
+                <div key={item._id} className="commute-time-container">
+                    <span className="commute-city-title">{item["City"]}</span>
+                    <span className="commute-time-num">{item["Mean Travel Time"]} min.</span>
                </div>
             )}
 			

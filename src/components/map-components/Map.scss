@@ -38,7 +38,7 @@
 
 
     .data-category {
-        width:95%;
+        width:98%;
         margin: 0;
         margin-top:50px;
         border-radius:5px;
@@ -66,6 +66,7 @@
         justify-content:space-between;
         align-items:flex-start;
         width:100%;
+        margin-bottom:30px;
         // border:1px solid grey;
 
         .ownerMortgage{
@@ -79,7 +80,6 @@
             padding:10px;
             border-radius:5px;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-            margin-bottom:30px;
             background-color:white;
         }
         .homeowner-container{
@@ -105,6 +105,7 @@
                 margin-bottom:20px;
                 text-align:center;
                 margin-left:0;
+                margin-top:0;
                 // border:1px solid red;
             }
             .mortgage-price{
@@ -179,7 +180,7 @@
 
 
 
-    
+
     // ** Industry styling
     .industries-container{
         padding:10px;
@@ -196,7 +197,13 @@
         background-color:white;
     }
     .commute-travel-container{
+        // border:1px solid red;
+        display:flex;
+        justify-content:space-between;
+
+
         .commute-container{
+            width:78%;
             padding:10px;
             border-radius:5px;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
@@ -204,11 +211,40 @@
             background-color:white;
         }
         .travel-container{
-            padding:10px;
-            border-radius:5px;
-            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-            margin-bottom:30px;
-            background-color:white;
+            width:20%;
+
+            .commute-time-container{
+                // border:1px solid blue;
+                padding:15px 10px;
+                border-radius:5px;
+                box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+                background-color:white;
+                margin-bottom:20px;
+                display:flex;
+                flex-wrap:wrap;
+                
+
+                .commute-city-title{
+                    // border:1px solid green;
+                    color:black;
+                    color:#00bfa5;
+                    font-size:1rem;
+                    width:100%;
+                    margin-bottom:10px;
+                }
+
+                .commute-time-num{
+                    // border:1px solid orange;
+                    font-size:1.9rem;
+                    font-weight:400;
+                    // color:#00bfa5;
+                    color:black;
+                    text-align:center;
+                    width:100%;
+                }
+            }
+
+            
         }
     }
     .other-industries-container{
@@ -589,7 +625,7 @@
 
     .data-by-category {
         width: 73%;
-        margin-left:4%;
+        margin-left:3%;
         
 
         @media only screen and (max-width: 600px) {

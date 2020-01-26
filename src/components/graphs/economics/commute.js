@@ -61,7 +61,7 @@ export default function EducationGraph (props) {
                     },
                     scaleLabel: {
                       display: true,
-                      labelString: 'Commute'
+                      labelString: 'Methods of transportation'
                     },
                   } 
                   ],
