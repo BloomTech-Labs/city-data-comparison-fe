@@ -59,37 +59,88 @@
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         margin-bottom:30px;
     }
-    .homeprice-container{
-        padding:10px;
-        border-radius:5px;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        margin-bottom:30px;
-        background-color:white;
-    }
-
-    .ownerMortgage{
-        background-color:white;
-        font-size:1rem;
-        width:100%;
-        padding:10px;
-        border-radius:5px;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        margin-bottom:30px;
-    }
-    .homeowner-container{
+    
+    .home-container{
         display:flex;
-        justify-content:space-around;
-    }
+        flex-wrap:wrap;
+        justify-content:space-between;
+        align-items:flex-start;
+        width:100%;
+        // border:1px solid grey;
 
-    .mortgage{
-        text-align:left;
+        .ownerMortgage{
+            // border:1px solid red;
+            width:21%;
+            padding:0;
+        }
     }
+        .homeprice-container{
+            width:77%;
+            padding:10px;
+            border-radius:5px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            margin-bottom:30px;
+            background-color:white;
+        }
+        .homeowner-container{
+            // display:flex;
+            // flex-wrap:wrap;
+            // border:1px solid red;
+            // padding:0;
+            // border:1px solid blue;
+
+            .mortgage{
+                background-color:white;
+                border-radius:5px;
+                box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+                margin-bottom:15px;
+                padding: 20px 5px;
+                // border:1px solid green;
+            }
+            .home-title{
+                background-color:white;
+                padding:12px 10px;
+                border-radius:5px;
+                box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+                margin-bottom:20px;
+                text-align:center;
+                margin-left:0;
+                // border:1px solid red;
+            }
+            .mortgage-price{
+                font-size:1.15rem;
+                color:#00bfa5;
+                margin-left:5px;
+            }
+            .mortgage-label-container{
+                // border:1px solid black;
+                text-align:center;
+                margin-top:5px;
+            }
+            .city-mortgage-title{
+                color:#2e2f38;
+                font-size:1.1rem;
+                text-align:center;
+                padding-bottom:5px;
+                // border:1px solid orange;
+            }
+            .mortgage-label{
+                color:grey;
+                text-align:center;
+            }
+            .month-label{
+                font-size:13px;
+                color:darkgrey;
+            }
+        }
+    
+    
 
     .rooms-vacancy-container{
         width:100%;
         display:flex;
         justify-content:space-between;
-        align-items:center;
+        align-items:flex-start;
 
         .room-container{
             background-color:white;
@@ -123,6 +174,12 @@
     }
 
 
+
+
+
+
+
+    
     // ** Industry styling
     .industries-container{
         padding:10px;
@@ -201,24 +258,23 @@
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         margin-bottom:30px;
         background-color:white;
-
     }
     .population-birth-container{
         .population-container{
             padding:10px;
-        border-radius:5px;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        margin-bottom:30px;
-        background-color:white;
-
+            border-radius:5px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            margin-bottom:30px;
+            background-color:white;
+            width:75%;
         }
         .birth-container{
             padding:10px;
-        border-radius:5px;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        margin-bottom:30px;
-        background-color:white;
-
+            border-radius:5px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            margin-bottom:30px;
+            background-color:white;
+            width:20%;
         }
     }
     

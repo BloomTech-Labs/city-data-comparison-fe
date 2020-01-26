@@ -173,19 +173,20 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
                     </div>
 
-                    <div className="homeprice-container">
-                        <p className="chart-title">Home prices</p>
-                        <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
-                    </div>
+                    <div className="home-container">
+                        <div className="homeprice-container">
+                            <p className="chart-title">Home prices</p>
+                            <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
+                        </div>
 
-                    <div className="ownerMortgage">
-                        <p className="chart-title">Homeowner costs</p>
-                        <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
+                        <div className="ownerMortgage">
+                            <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
+                        </div>
                     </div>
 
                     <div className="rooms-vacancy-container">
                         <div className="room-container">
-                            <p className="chart-title">Average rooms</p>
+                            <p className="chart-title">Average rooms per household</p>
                             <Element name="rooms" className="element" ><RoomGraph edData={selected} /></Element>
                         </div>
 
