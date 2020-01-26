@@ -198,14 +198,35 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 
 
                 <div className="data-category">
-                    <Element name="industries" className="element" ><Industry edData={selected} /></Element>
-                    <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
-                    <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
-                    <Element name="travelTime" className="element" ><TravelTime ethData = {selected} /></Element>
-                    <Element name="commute" className="element" ><Commute edData={selected} /></Element>
-                    <p>Retirement income source</p>
-                    <Element name="retirement" className="element" ><RetirementGraph ethData={selected} /></Element>
-                    <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
+                    <div className="industries-container">
+                        <Element name="industries" className="element" ><Industry edData={selected} /></Element>
+                    </div>
+
+                    <div className="salary-container">
+                        <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
+                    </div>
+
+                    <div className="commute-travel-container">
+                        <div className="commute-container">
+                            <Element name="commute" className="element" ><Commute edData={selected} /></Element>
+                        </div>
+                        <div className="travel-container">
+                            <Element name="travelTime" className="element" ><TravelTime ethData = {selected} /></Element>
+                        </div>
+                    </div>
+
+                    <div className="other-industries-container">
+                        <div className="unemployment-container">
+                            <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
+                        </div>
+                        <div className="retirement-container">
+                            <p>Retirement income source</p>
+                            <Element name="retirement" className="element" ><RetirementGraph ethData={selected} /></Element>
+                        </div>
+                        <div className="insurance-container">
+                            <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
+                        </div>
+                    </div>
                 </div>
 
 
