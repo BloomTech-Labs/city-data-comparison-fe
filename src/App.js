@@ -58,23 +58,23 @@ function App() {
 
   const getCityColor = _ => {
     let activeColors = selected.map(item => item.color)
-      if (!activeColors.includes("red")) {
-        return "red"
-      } else if (!activeColors.includes("blue")) {
-        return "blue"
-      } else if (!activeColors.includes("green")) {
-        return "green"
+      if (!activeColors.includes("#e0fa3d")) {
+        return "#e0fa3d"
+      } else if (!activeColors.includes("#fa728e")) {
+        return "#fa728e"
+      } else if (!activeColors.includes("#a88ff9")) {
+        return "#a88ff9"
       }   
   }
   const getSecondCityColor = arr => {
     let activeColors = selected.map(item => item.color)
-    activeColors.push(arr.map(item => item.color))
-      if (!activeColors.includes("red")) {
-        return "red"
-      } else if (!activeColors.includes("blue")) {
-        return "blue"
-      } else if (!activeColors.includes("green")) {
-        return "green"
+    activeColors.push(arr[0].color)
+      if (!activeColors.includes("#e0fa3d")) {
+        return "#e0fa3d"
+      } else if (!activeColors.includes("#fa728e")) {
+        return "#fa728e"
+      } else if (!activeColors.includes("#a88ff9")) {
+        return "#a88ff9"
       }   
   }
 
