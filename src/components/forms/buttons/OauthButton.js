@@ -1,19 +1,24 @@
 import React from 'react'; 
-import axios from 'axios'; 
 
 //assets
-import google from `../../../assets/icons/${props.party}.svg`; 
+import icon from `../../../assets/icons/${props.company}.svg`; 
+
+/*
+    I named each icon 'company'.svg 
+    company = ( or third party) you would like to create a button for
+*/
 
 const OauthButton = props => {
 
-        const connectAccount = url => window.location.replace(url);  
+
+    const connectAccount = _ => window.location.replace(`https://citrics-staging.herokuapp.com/api/auth/login/${props.company}`);  
 
     return (
-        <div className={`${props.party}Button`} onClick={() => {connectAccount()}}>
+        <div className={`${props.company}Button`} onClick={() => {connectAccount()}}>
             <div className='iconContainer'>
-                <img className={`${props.party}.icon`}src={google} alt={`${props.party} icon`}/>
+                <img className={`${props.company}.icon`}src={icon} alt={`${props.company} icon`}/>
             </div>
-            <p className={`${props.party}Name`}>{props.action} with {props.party}</p>
+            <p className={`${props.company}Name`}>{props.action} with {props.company}</p>
         </div>
     )
 }
