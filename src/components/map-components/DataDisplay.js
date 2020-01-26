@@ -169,28 +169,28 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                 <div className="data-category">
                     <div className="rent-container">
-                        <p className="housing-title">Average rent</p>
+                        <p className="chart-title">Average rent</p>
                         <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
                     </div>
 
                     <div className="homeprice-container">
-                        <p className="housing-title">Home prices</p>
+                        <p className="chart-title">Home prices</p>
                         <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
                     </div>
 
                     <div className="ownerMortgage">
-                        <p className="housing-title">Homeowner costs</p>
+                        <p className="chart-title">Homeowner costs</p>
                         <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
                     </div>
 
                     <div className="rooms-vacancy-container">
                         <div className="room-container">
-                            <p className="housing-title">Average rooms</p>
+                            <p className="chart-title">Average rooms</p>
                             <Element name="rooms" className="element" ><RoomGraph edData={selected} /></Element>
                         </div>
 
                         <div className="vacancy-owner-container">
-                            <p className="housing-title">Vacancy</p>
+                            <p className="chart-title">Vacancy</p>
                             <Element name="vacancy" className="element" ><VacancyGraph edData={selected} /></Element>
                         </div>
                     </div>
@@ -199,37 +199,37 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                 <div className="data-category">
                     <div className="industries-container">
-                        <p>Job industry</p>
+                        <p className="chart-title">Job industry</p>
                         <Element name="industries" className="element" ><Industry edData={selected} /></Element>
                     </div>
 
                     <div className="salary-container">
-                        <p>Average salary</p>
+                        <p className="chart-title">Average salary</p>
                         <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
                     </div>
 
                     <div className="commute-travel-container">
                         <div className="commute-container">
-                            <p>Ways to commute</p>
+                            <p className="chart-title">Ways to commute</p>
                             <Element name="commute" className="element" ><Commute edData={selected} /></Element>
                         </div>
                         <div className="travel-container">
-                            <p>Travel time to work</p>
+                            <p className="chart-title">Travel time to work</p>
                             <Element name="travelTime" className="element" ><TravelTime ethData = {selected} /></Element>
                         </div>
                     </div>
 
                     <div className="other-industries-container">
                         <div className="unemployment-container">
-                            <p>Unemployment</p>
+                            <p className="chart-title">Unemployment</p>
                             <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
                         </div>
                         <div className="retirement-container">
-                            <p>Retirement income source</p>
+                            <p className="chart-title">Retirement income source</p>
                             <Element name="retirement" className="element" ><RetirementGraph ethData={selected} /></Element>
                         </div>
                         <div className="insurance-container">
-                            <p>Health insurance</p>
+                            <p className="chart-title">Health insurance</p>
                             <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
                         </div>
                     </div>
@@ -239,27 +239,27 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                 <div className="data-category">
                     <div className="ethnicity-container">
-                        <p>Diversity</p>
+                        <p className="chart-title">Diversity</p>
                         <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
                     </div>
 
                     <div className="age-container">
-                        <p>Age distribution</p>
+                        <p className="chart-title">Age distribution</p>
                         <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
                     </div>
 
                     <div className="education-container">
-                        <p>Education</p>
+                        <p className="chart-title">Education</p>
                         <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
                     </div>
 
                     <div className="population-birth-container">
                         <div className="population-container">
-                            <p>Population growth</p>
+                            <p className="chart-title">Population growth</p>
                             <Element name="population" className="element" ><Population selected = {selected} /></Element>
                         </div>
                         <div className="birth-container">
-                            <p>Birth rate</p>
+                            <p className="chart-title">Birth rate</p>
                             <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
                         </div>
                     </div>
