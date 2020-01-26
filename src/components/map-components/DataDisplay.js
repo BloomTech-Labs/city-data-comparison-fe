@@ -199,24 +199,29 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                 <div className="data-category">
                     <div className="industries-container">
+                        <p>Job industry</p>
                         <Element name="industries" className="element" ><Industry edData={selected} /></Element>
                     </div>
 
                     <div className="salary-container">
+                        <p>Average salary</p>
                         <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
                     </div>
 
                     <div className="commute-travel-container">
                         <div className="commute-container">
+                            <p>Ways to commute</p>
                             <Element name="commute" className="element" ><Commute edData={selected} /></Element>
                         </div>
                         <div className="travel-container">
+                            <p>Travel time to work</p>
                             <Element name="travelTime" className="element" ><TravelTime ethData = {selected} /></Element>
                         </div>
                     </div>
 
                     <div className="other-industries-container">
                         <div className="unemployment-container">
+                            <p>Unemployment</p>
                             <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
                         </div>
                         <div className="retirement-container">
@@ -224,6 +229,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             <Element name="retirement" className="element" ><RetirementGraph ethData={selected} /></Element>
                         </div>
                         <div className="insurance-container">
+                            <p>Health insurance</p>
                             <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
                         </div>
                     </div>
@@ -232,12 +238,31 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
 
                 <div className="data-category">
-                    <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
-                    <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
-                    <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
-                    <Element name="population" className="element" ><Population selected = {selected} /></Element>
-                    <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
+                    <div className="ethnicity-container">
+                        <p>Diversity</p>
+                        <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
+                    </div>
 
+                    <div className="age-container">
+                        <p>Age distribution</p>
+                        <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
+                    </div>
+
+                    <div className="education-container">
+                        <p>Education</p>
+                        <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
+                    </div>
+
+                    <div className="population-birth-container">
+                        <div className="population-container">
+                            <p>Population growth</p>
+                            <Element name="population" className="element" ><Population selected = {selected} /></Element>
+                        </div>
+                        <div className="birth-container">
+                            <p>Birth rate</p>
+                            <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
+                        </div>
+                    </div>
                 </div>
                 </>
                 : <h2 className="map-prompt">Select a city to begin browsing</h2>}
