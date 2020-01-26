@@ -1,21 +1,12 @@
 //signup form
 
-
-.form-title{
-    font-size: 2rem;
-    text-align: center;
-    letter-spacing: .1rem;
-    font-weight: 600;
-}
-
-span{
-    color: #3999fc; 
-}
 .signup, .login{
     width: 100%; 
     font-family: 'Rubik', sans-serif;
     display:flex;
     margin-top:2.5%; 
+    background: white; 
+
 
     //container for right side of screen
     .inner-form{
@@ -38,8 +29,7 @@ span{
     }
 
     .form{
-        width: 50%; 
-        padding: 1%; 
+       
         margin-top:1%;
         padding-top:1%;
         background:white;
@@ -50,6 +40,13 @@ span{
             padding: 1%;
             padding-top: 0%;
             margin: auto
+        }
+
+        .form-title{
+            font-size: 2rem;
+            text-align: center;
+            letter-spacing: .1rem;
+            font-weight: 600;
         }
     }
 
@@ -63,7 +60,6 @@ span{
     }
 
     @media screen and (min-width: 320px){
-        background: white; 
 
         .inner-form{
             margin:auto;
@@ -237,6 +233,10 @@ span{
             cursor: pointer;
         }
         
+    }
+
+    span{
+        color: #3999fc; 
     }
 
 
