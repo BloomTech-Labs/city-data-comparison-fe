@@ -44,7 +44,7 @@ export default function EducationGraph (props) {
               }}
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'Ways to Commute',
                   fontSize:25
                 },

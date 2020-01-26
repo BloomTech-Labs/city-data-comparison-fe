@@ -47,7 +47,7 @@ export default function EthnicityGraph({ethData}) {
               }}
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'Ethnicity',
                   fontSize:25
                 },
@@ -63,8 +63,8 @@ export default function EthnicityGraph({ethData}) {
                       display:false,
                     },
                     scaleLabel: {
-                      display: false,
-                      labelString: 'Ethnicity'
+                      display: true,
+                      labelString: 'Percent'
                     },
                   } 
                   ],
@@ -74,7 +74,7 @@ export default function EthnicityGraph({ethData}) {
                       display:false,
                     },
                     scaleLabel: {
-                      display: true,
+                      display: false,
                       labelString: 'Percent',
                       ticks: {
                         beginAtZero: true

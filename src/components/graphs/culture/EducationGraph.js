@@ -63,7 +63,7 @@ export default function EducationGraph (props) {
                     },
                     scaleLabel: {
                       display: true,
-                      
+                      labelString:'Percent'
                     },
                   } 
                   ],
@@ -73,7 +73,7 @@ export default function EducationGraph (props) {
                       display:false,
                     },
                     scaleLabel: {
-                      display: true,
+                      display: false,
                       labelString: 'Percent',
                       ticks: {
                         beginAtZero: true

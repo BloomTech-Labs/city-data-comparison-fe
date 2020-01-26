@@ -69,7 +69,7 @@ export default function AgeDistributionGraph({ethData}) {
                     },
                     scaleLabel: {
                       display: true,
-                      labelString: 'Percent'
+                      labelString: 'Age'
                     },
                   } 
                   ],
@@ -79,7 +79,7 @@ export default function AgeDistributionGraph({ethData}) {
                       display:false,
                     },
                     scaleLabel: {
-                      display: false,
+                      display: true,
                       labelString: 'Percent',
                       ticks: {
                         beginAtZero: true
