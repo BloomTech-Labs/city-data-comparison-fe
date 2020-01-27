@@ -2,6 +2,11 @@
     //container for left side of form
     display:flex; 
     margin: 10%; 
+    margin-top: 28%;
+
+    @media screen and (min-width: 1000px) {
+        margin-top:10%;
+    }
 
     .form{
         margin-top: 18vh;
