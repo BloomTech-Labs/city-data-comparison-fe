@@ -28,13 +28,14 @@ function initializeAnalytics() {
 function App() {
 
   useEffect(_ => {
+    if(user){
     Axios
     .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
     .then(res => {
       console.log(res, 'res from app')
       const image = res.data[0]
       if(image) setUser({...user, userimage: image.userimage})
-    })
+    })}
   },[])
   
 

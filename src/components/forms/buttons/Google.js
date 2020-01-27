@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import axios from 'axios'; 
 
 //stylesheet
-import './styles/google.scss'
+// import './styles/google.scss'
 //assets
 import google from '../../../assets/icons/google.svg'; 
 

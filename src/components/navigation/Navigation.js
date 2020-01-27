@@ -42,9 +42,10 @@ function Navigation(){
                          <Link id="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
                          <Link id="signup-link" to="/signup">Get Started</Link>
                     </> :
+                    <>
                          <Link to="/profile">Profile</Link>
 
-                         {user.avatar && <img src={user.avatar} alt="user's avatar"/>}
+                         {user.userimage && <img src={`https://citrics-staging.herokuapp.com/${user.userimage}`} alt="user's avatar"/>}
                     </>
                     }
 
