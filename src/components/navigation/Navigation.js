@@ -50,7 +50,7 @@ function Navigation(){
                          <Link id="signup-link" to="/signup">Get Started</Link>
                     </> : <>
                          <Link to="/profile">Profile</Link>
-                         <img src={user.avatar} alt="user's avatar"/>
+                         {/* <img src={user.avatar} alt="user's avatar"/> */}
                     </>
                     }
 
