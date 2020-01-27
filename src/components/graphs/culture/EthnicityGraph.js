@@ -1,5 +1,5 @@
 import React from 'react';
-import {Bar} from 'react-chartjs-2';
+import {HorizontalBar} from 'react-chartjs-2';
 
 export default function EthnicityGraph({ethData}) {
 
@@ -19,21 +19,21 @@ export default function EthnicityGraph({ethData}) {
       <div className="charts" >
         
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
-            <Bar
+            <HorizontalBar
               data={{
-                labels:  ["African American", "American Indian", "Asian", "Hispanic or Latino", "Pacific Islander", "Two or more races", "White", "other race"],
+                labels:  ["White", "Hispanic or Latino", "African American", "Asian", "American Indian", "Pacific Islander", "Two or more races", "Other"],
                 datasets: ethData.map( item => {
                   
                   return {
                     label: item.name_with_com,
                     data: [
-                      item["Ethnicity"]["African American"],
-                      item["Ethnicity"]["American Indian"],
-                      item["Ethnicity"]["Asian"],
+                      item["Ethnicity"]["White"],
                       item["Ethnicity"]["Hispanic or Latino"],
+                      item["Ethnicity"]["African American"],
+                      item["Ethnicity"]["Asian"],
+                      item["Ethnicity"]["American Indian"],
                       item["Ethnicity"]["Pacific Islander"],
                       item["Ethnicity"]["Two or more races"],
-                      item["Ethnicity"]["White"],
                       item["Ethnicity"]["other race"]                   
                       
                     ],
@@ -47,7 +47,7 @@ export default function EthnicityGraph({ethData}) {
               }}
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'Ethnicity',
                   fontSize:25
                 },
@@ -63,8 +63,8 @@ export default function EthnicityGraph({ethData}) {
                       display:false,
                     },
                     scaleLabel: {
-                      display: false,
-                      labelString: 'Ethnicity'
+                      display: true,
+                      labelString: 'Percent'
                     },
                   } 
                   ],
@@ -74,7 +74,7 @@ export default function EthnicityGraph({ethData}) {
                       display:false,
                     },
                     scaleLabel: {
-                      display: true,
+                      display: false,
                       labelString: 'Percent',
                       ticks: {
                         beginAtZero: true

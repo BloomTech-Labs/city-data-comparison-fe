@@ -41,7 +41,7 @@ function App() {
   })
 
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [cityMarkers, setCityMarkers] = useState(cityIndex);
   const [selected, setSelected] = useState([]);
   const [viewport, setViewport] = useState({
@@ -55,6 +55,7 @@ function App() {
 
 
   });
+  
 
   const getCityColor = _ => {
     let activeColors = selected.map(item => item.color)

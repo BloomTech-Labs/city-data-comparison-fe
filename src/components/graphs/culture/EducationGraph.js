@@ -1,5 +1,5 @@
 import React from 'react';
-import {Bar} from 'react-chartjs-2';
+import {HorizontalBar} from 'react-chartjs-2';
 
 export default function EducationGraph (props) {
 
@@ -19,7 +19,7 @@ export default function EducationGraph (props) {
       <div className="charts" >
         
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
-            <Bar
+            <HorizontalBar
               data={{
                 labels: ["Less than 9th grade",  "Some High School", "High school",  "Some College", "Associate's Degree", "Bachelor's Degree", "Graduate Degree"],
                 datasets: props.edData.map( item => {
@@ -46,7 +46,7 @@ export default function EducationGraph (props) {
               }}
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'Educational Attainment',
                   fontSize:25
                 },
@@ -63,7 +63,7 @@ export default function EducationGraph (props) {
                     },
                     scaleLabel: {
                       display: true,
-                      
+                      labelString:'Percent'
                     },
                   } 
                   ],
@@ -73,7 +73,7 @@ export default function EducationGraph (props) {
                       display:false,
                     },
                     scaleLabel: {
-                      display: true,
+                      display: false,
                       labelString: 'Percent',
                       ticks: {
                         beginAtZero: true

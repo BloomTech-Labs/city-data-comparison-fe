@@ -1,11 +1,6 @@
 import React from 'react';
-import styled from "styled-components";
+import archive from '../../map-components/assets/archive.svg'
 
-const CenterCard = styled.h2`
-display:flex;
-justify-content:center;
-
-`
 function TotalPopulation({ethData}) {
     // console.log(ethData, "ETH")
 	// const colorifier = lat => {
@@ -22,14 +17,12 @@ function TotalPopulation({ethData}) {
 
 	
 	return (
-		<div className="dataCards">
-            <h1>Unemployment Rate</h1>
-
+		<div>
             {ethData.map(item => 
-                <div key={item._id}>
-                    <CenterCard> {item["City"]}</CenterCard>
-                    <CenterCard> {item["Unemployment Rate"]}%</CenterCard>
-
+                <div key={item._id} className="unemployment-card-container">
+                    <span className="unemployment-title">Unemployment rate</span>
+                    <span className="unemployment-num"><img className="archive" src={archive} alt="archive"/> {item["Unemployment Rate"]}%</span>
+                    <p className="unemployment-label">are unemployed in {item["City"]}</p>
                </div>
             )}
 			
