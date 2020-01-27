@@ -80,6 +80,7 @@ const ProfileCard = (props)=> {
         } else if (imageUpload.status === 'open') {
             setImageUpload({...imageUpload, status: 'closed'}) 
         }
+        console.log(userImage)
     }
 
     const id = userInfo.id;
@@ -92,7 +93,7 @@ const ProfileCard = (props)=> {
             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
             .then(res => {
                 const image = res.data[0].userimage
-                setUserImage(image)
+                setUserImage({usersimage: image})
             })
             .catch(err => {
                 console.log('Unable to get image', err)
@@ -161,6 +162,8 @@ const ProfileCard = (props)=> {
                 .then(res => {
                     const image = res.data[0].userimage
                     setUserImage({usersimage: image})
+                    console.log(image)
+                    
                 
             })
         })
@@ -181,7 +184,7 @@ const ProfileCard = (props)=> {
             <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
-                    <img src={userImage.userimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage}`} />
+                    <img src={userImage.userimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage.usersimage}`} />
                     <form className={`edit-image ${imageUpload.status}`} action='/uploads' enctype="multipart/form-data" onSubmit={onSubmit}>
                         <input 
                         type='file'
