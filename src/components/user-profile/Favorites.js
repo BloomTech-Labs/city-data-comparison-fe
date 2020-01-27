@@ -15,7 +15,7 @@ const Favorites = ()=> {
         //Users saved cities axios call
         useEffect(() => {
             axios
-                .get(`http://localhost:5000/api/users/favs/${user.id}`)
+                .get(`https://citrics-staging.herokuapp.com/api/api/users/favs/${user.id}`)
                 .then(res => {
                     console.log('Response to get users saved cities urls',res.data)
                     const favArray = [];
@@ -44,7 +44,7 @@ const Favorites = ()=> {
     const handleDelete = id => {
         // id.preventDefault();
         axios
-            .delete(`http://localhost:5000/api/users/favs`, id)
+            .delete(`https://citrics-staging.herokuapp.com/api/api/users/favs`, id)
             .then(res => {
                 console.log(res);
             })
