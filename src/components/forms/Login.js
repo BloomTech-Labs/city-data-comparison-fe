@@ -31,6 +31,7 @@ const Login = props => {
                     .then(res => {
                         setIsLoading(false)
                         sessionStorage.setItem('token', res.data.token)
+                        sessionStorage.setItem('id', res.data.id)
                         console.log(res)
                     })
                     .catch(error => {

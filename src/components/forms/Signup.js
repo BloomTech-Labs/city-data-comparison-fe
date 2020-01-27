@@ -76,7 +76,7 @@ const Signup = props => {
             setLoginError('');
             validateLogin();
             setIsLoading(true)
-            
+            props.history.push("/signin");
     }
 
     //modal
