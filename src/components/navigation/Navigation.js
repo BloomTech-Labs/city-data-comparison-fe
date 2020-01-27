@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { Link } from "react-router-dom";
 import citrics from './citrics-mock.png'
 import lock from './lock.svg'
-import { UserContext } from './contexts/UserContext';
+import { UserContext } from '../../contexts/UserContext';
 
 
 

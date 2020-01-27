@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import {UserContext} from "../../contexts/UserContext"
 import GeneralStats from "../graphs/GeneralStats";
@@ -9,7 +9,7 @@ const Favorites = ()=> {
     //state for saved cities for specific user
     const [savedCitiesId, setSavedCitiesId] = useState();
     const [savedCities, setSavedCities] = useState([]);
-    console.log('Saved cities url',savedCitiesUrl)
+    console.log('Saved cities url',savedCitiesId)
     console.log('Saved cities array state',savedCities)
 
         //Users saved cities axios call
@@ -40,7 +40,7 @@ const Favorites = ()=> {
         
     //delete saved city handler
     const handleDelete = id => {
-        e.preventDefault();
+        // id.preventDefault();
         axios
             .delete(`https://citrics-staging.herokuapp.com/api/favs`, id)
             .then(res => {
@@ -54,12 +54,12 @@ const Favorites = ()=> {
     return (
         <div>
             <h2>Favorites Page</h2>
-            {savedCities.forEach(city => {
-                <>
+            {savedCities.map(city => 
+                <div key={city.id}>
                     <GeneralStats ethData={city}/>
                     <button onClick={handleDelete(city.id)}>Remove</button>
-                </>
-            })}
+                </div>
+            )}
         </div>
     )
 }
