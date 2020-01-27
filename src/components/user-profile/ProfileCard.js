@@ -28,6 +28,7 @@ const ProfileCard = (props)=> {
     const [nameEdit, setNameEdit] = useState({status:'closed'})
     const [emailEdit, setEmailEdit] = useState({status:'closed'})
     const [locationEdit, setLocationEdit] = useState({status:'open'})
+    const [imageUpload, setImageUpload] = useState({status:'closed'})
 
     const toggleName = () => {
         if (nameEdit.status === 'closed') {
@@ -50,6 +51,14 @@ const ProfileCard = (props)=> {
             setLocationEdit({...locationEdit, status:'open'}) 
         } else if (locationEdit.status === 'open') {
             setLocationEdit({...locationEdit, status:'closed'})
+        }
+    }
+
+    const toggleImage = () => {
+        if (imageUpload.status === 'closed') {
+            setImageUpload({...imageUpload, status: 'open'}) 
+        } else if (imageUpload.status === 'open') {
+            setImageUpload({...imageUpload, status: 'closed'}) 
         }
     }
 
@@ -82,13 +91,19 @@ const ProfileCard = (props)=> {
             });
     }
 
+    
+
     return (
         <div className='profile-container'>
             <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
                     <img src={userImage.userimage === null ? `${ProfileImage}` : `${userImage.userimage}`} />
-                    <NavLink className='edit-image' to='profile/uploadimage'>Edit Picture</NavLink>
+                    <form className={`edit-image ${imageUpload.status}`}>
+                        <input type='file'></input>
+                    </form>
+                    <button className={`edit-image-btn ${imageUpload.status}`} onClick={toggleImage}>Upload Image</button>
+                    <button className={`save-image-btn ${imageUpload.status}`} onClick={toggleImage}>Save</button>
                 </div>
                 <div className='name-tab'>
                     <p>Name</p>
