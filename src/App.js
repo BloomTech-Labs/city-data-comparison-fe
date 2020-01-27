@@ -11,7 +11,8 @@ import Map from "./components/Map";
 import Profile from './components/user-profile/Profile'
 import PrivacyPolicy from "./components/legal/PrivacyPolicy"
 import AboutUs from './components/aboutus/AboutUs'; 
-import AuthForm from './components/forms/AuthForm'
+import Signup from './components/forms/Signup'; 
+import Login from './components/forms/Login'; 
 import citiesIndex from './data/city_ids.json'
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
@@ -26,6 +27,16 @@ function initializeAnalytics() {
 
 function App() {
 
+  useEffect(_ => {
+    if(user){
+    Axios
+    .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
+    .then(res => {
+      console.log(res, 'res from app')
+      const image = res.data[0]
+      if(image) setUser({...user, userimage: image.userimage})
+    })}
+  },[])
   
 
   useEffect( _ => {
@@ -44,8 +55,12 @@ function App() {
   })
 
 
+<<<<<<< HEAD
   const [user, setUser] = useState(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null);
   const [favorites, setFavorites] = useState([]);
+=======
+  const [user, setUserValue] = useState(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null);
+>>>>>>> dbb579c6702df17873f1f321a552a05f7ac7ee87
   const [cityMarkers, setCityMarkers] = useState(cityIndex);
   const [selected, setSelected] = useState([]);
   const [viewport, setViewport] = useState({
@@ -59,27 +74,31 @@ function App() {
 
 
   });
-  
+
+  const setUser = (info) => {
+    setUserValue(info)
+    localStorage.setItem('user', JSON.stringify(info))
+  }
 
   const getCityColor = _ => {
     let activeColors = selected.map(item => item.color)
-      if (!activeColors.includes("#8DD3C7")) {
-        return "#8DD3C7"
-      } else if (!activeColors.includes("#FB7F72")) {
-        return "#FB7F72"
-      } else if (!activeColors.includes("#80B1D3")) {
-        return "#80B1D3"
+      if (!activeColors.includes("#e0fa3d")) {
+        return "#e0fa3d"
+      } else if (!activeColors.includes("#fa728e")) {
+        return "#fa728e"
+      } else if (!activeColors.includes("#a88ff9")) {
+        return "#a88ff9"
       }   
   }
   const getSecondCityColor = arr => {
     let activeColors = selected.map(item => item.color)
     activeColors.push(arr[0].color)
-      if (!activeColors.includes("#8DD3C7")) {
-        return "#8DD3C7"
-      } else if (!activeColors.includes("#FB7F72")) {
-        return "#FB7F72"
-      } else if (!activeColors.includes("#80B1D3")) {
-        return "#80B1D3"
+      if (!activeColors.includes("#e0fa3d")) {
+        return "#e0fa3d"
+      } else if (!activeColors.includes("#fa728e")) {
+        return "#fa728e"
+      } else if (!activeColors.includes("#a88ff9")) {
+        return "#a88ff9"
       }   
   }
 
@@ -224,8 +243,8 @@ cityIndex.sort(compare);
     }
     
     //these 4 lines of code took too long to write, they determine the bounds of the map on screen
-    const f1 = item => item.lng > viewport.longitude-(0.00007813428*(Math.pow(2,(24-viewport.zoom)))/2)
-    const f2 = item => item.lng < viewport.longitude+(0.00007813428*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f1 = item => item.lng > viewport.longitude-(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f2 = item => item.lng < viewport.longitude+(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
     const f3 = item => item.lat > viewport.latitude-(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
     const f4 = item => item.lat < viewport.latitude+(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
     
@@ -262,8 +281,8 @@ cityIndex.sort(compare);
             <Route path='/profile' component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/aboutus" component={AboutUs} />
-            <Route path='/signin'render={props => <AuthForm {...props} action="Login"/>} />
-            <Route path="/signup" render={props => <AuthForm {...props} action="Register"/>} />
+            <Route path='/signin' component={Login} />
+            <Route path="/signup" component={Signup} />
             <Route path="/callback" component={Callback} />
           </div>
           </CityContext.Provider>

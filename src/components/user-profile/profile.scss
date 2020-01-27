@@ -4,6 +4,106 @@ h1 {
 
 .profile-page {
     display: flex;
+    .favorites{
+        width: 80%;
+        margin: auto;
+        margin-left: 100px;
+        margin-right: 100px;
+        .city-overview-container{
+            width:98%;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            background-color:white;
+            padding: 0 10px;
+            
+            .city-overview-border{
+                // border-top-left-radius:5px;
+                // border-top-right-radius:5px;
+                // background-color:#9bd1f7;
+                // background-color:#89CCF7;
+                // background-color:#ff9f97;
+
+                // background-color:#C2E9FC;
+                // background-color:#FFE0A0;
+                // background-color:#ffb9af;
+                margin-bottom:0 !important;
+                padding-left:2%;
+                font-size:1.3rem;
+                color:#00bfa5;
+                width:100%;
+                display:flex;
+            }
+
+            .city-info-container{
+                margin-bottom:2%;
+                padding:15px 7%;
+                padding-top:0;
+                display:flex;
+                justify-content:space-between;
+                img{
+                    height:20px;
+                    margin-right:15px;
+                }
+
+                .city-overview-container-one{
+                    width:45%;
+                    display:flex;
+                    align-items:center;
+                    // border:1px solid red;
+
+                    .overview-title-container-one{
+                        width:60%;
+                        display:flex;
+                        flex-direction:column;
+
+                        .overview-title{
+                            margin:10px 0;
+                            color:grey;
+                            display:flex;
+                            font-size:1.1rem;
+                        }
+
+                    }
+                    .overview-stats-container-one{
+                        width:45%;
+                        font-size:1.1rem;
+                        display:flex;
+                        flex-direction:column;
+
+                        .overview-stats{
+                            width:100%;
+                            margin:10px 0;
+                        }
+                    }
+                }
+                .city-overview-container-two{
+                    width:40%;
+                    display:flex;
+                    .overview-title-container-two{
+                        width:70%;
+                        display:flex;
+                        flex-direction:column;
+
+                        .overview-title{
+                            margin:10px 0;
+                            color:grey;
+                            display:flex;
+                            font-size:1.1rem;
+                        }
+                    }
+                    .overview-stats-container-two{
+                        width:27%;
+                        font-size:1.1rem;
+                        display:flex;
+                        flex-direction:column;
+                        .overview-stats{
+                            width:100%;
+                            margin:10px 0;    
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .side-nav {
