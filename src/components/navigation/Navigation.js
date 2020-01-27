@@ -45,7 +45,10 @@ function Navigation(){
                     <>
                          <Link to="/profile">Profile</Link>
 
-                         {user.userimage && <img src={`https://citrics-staging.herokuapp.com/${user.userimage}`} alt="user's avatar"/>}
+                         {user.userimage === null ? 
+                         <img src={ProfileImage} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar"/>
+                         :
+                         <img src={`https://citrics-staging.herokuapp.com/${user.userimage}`} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar"/>}
                     </>
                     }
 
