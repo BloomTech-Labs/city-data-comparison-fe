@@ -15,9 +15,9 @@ const ProfileCard = (props)=> {
     //state for logged in user
     const { user, setUser } = useContext(UserContext)
     const [userInfo, setUserInfo] = useState(user)
-    const [userImage, setUserImage] = useState({usersimage:null, users_id: sessionStorage.getItem('id')})
-    const [imagetest, setTest] = useState({usersimage:null, users_id: sessionStorage.getItem('id')})
-    console.log(userImage)
+    const [userImage, setUserImage] = useState({usersimage:null, users_id: userInfo.id})
+    const [imagetest, setTest] = useState({usersimage:null, users_id: userInfo.id})
+    console.log(userImage, 'image')
 
     const getLoggedInUser = () => {
         const user = localStorage.getItem('user');
@@ -38,8 +38,8 @@ const ProfileCard = (props)=> {
 
     const handleFile = e => {
         let file = e.target.files[0]
-        setTest({
-            ...imagetest,
+        setUserImage({
+            ...userImage,
             usersimage: file
         })
     }
@@ -82,7 +82,7 @@ const ProfileCard = (props)=> {
         }
     }
 
-    const id = user.id;
+    const id = userInfo.id;
     
 
     //User information axios call
@@ -115,19 +115,22 @@ const ProfileCard = (props)=> {
 
     
 
-    console.log(userImage, 'user image')
+   
 
     const updateUser = () => {
         
         axios
             .put(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`,userInfo)
             .then(res => {
-                console.log(res);
+                
+                setUser(userInfo)
+                
             })
             .catch(err => {
                 console.log('Unable to get user information', err);
             });
     }
+    
 
 
     const postImage = () => {
@@ -147,13 +150,21 @@ const ProfileCard = (props)=> {
     const test = () => {
         
         const formData = new FormData()
-        formData.append('usersimage', imagetest.usersimage)
-        formData.append('users_id', imagetest.users_id)
+        formData.append('usersimage', userImage.usersimage)
+        formData.append('users_id', userImage.users_id)
         axios
             .post('https://citrics-staging.herokuapp.com/api/users/', formData)
             .then(res => {
                 console.log('image uploaded', res)
+                console.log(formData)
+                return
+                axios.get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
+                .then(res => {
+                    const image = res.data[0].userimage
+                    setUserImage(image)
+                
             })
+        })
             .catch(err => {
                 console.log('Unable to upload', err)
             })
@@ -164,14 +175,14 @@ const ProfileCard = (props)=> {
         window.location.reload();
     }
     
-    console.log(props)
+    
 
     return (
         <div className='profile-container'>
             <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
-                    <img src={userImage.usersimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${imagetest.usersimage}`} />
+                    <img src={user.userimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage}`} />
                     <form className={`edit-image ${imageUpload.status}`} action='/uploads' enctype="multipart/form-data" onSubmit={onSubmit}>
                         <input 
                         type='file'

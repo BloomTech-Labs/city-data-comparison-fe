@@ -4,6 +4,8 @@ import citrics from './citrics-mock.png'
 import lock from './lock.svg'
 import { UserContext } from '../../contexts/UserContext';
 
+import ProfileImage from '../user-profile/icons/profileimage.png'
+
 
 
 function Navigation(){
@@ -66,6 +68,7 @@ function Navigation(){
                                    {user === null ? 
                                    <>
                                    <Link to="/signin">Log In</Link> <Link to="/signup">Get Started</Link>
+
                                    </> :
                                    <>
                                    <Link to="/profile">Profile</Link> 

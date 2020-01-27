@@ -27,6 +27,7 @@ function initializeAnalytics() {
 function App() {
 
   
+  
 
   useEffect( _ => {
     initializeAnalytics();
@@ -44,7 +45,7 @@ function App() {
   })
 
 
-  const [user, setUser] = useState(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null);
+  const [user, setUserValue] = useState(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null);
   const [cityMarkers, setCityMarkers] = useState(cityIndex);
   const [selected, setSelected] = useState([]);
   const [viewport, setViewport] = useState({
@@ -59,6 +60,12 @@ function App() {
 
   });
   
+
+  const setUser = (info) => {
+    setUserValue(info)
+    localStorage.setItem('user', JSON.stringify(info))
+    
+  }
 
   const getCityColor = _ => {
     let activeColors = selected.map(item => item.color)
