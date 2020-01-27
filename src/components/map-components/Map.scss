@@ -30,7 +30,7 @@
 .data-browser {
     background: #F2F9FD;
     display:flex;
-    padding-top: 5%;
+    padding-top: 1%;
 
     .map-prompt {
         text-align:center;
@@ -380,5 +380,14 @@
                 width: 100%;
             }   
         }
+    }
+}
+
+.favoriteCitiesSelection{
+
+    &:hover{
+        
+        color: white;
+
     }
 }
