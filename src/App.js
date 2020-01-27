@@ -42,7 +42,7 @@ function App() {
   })
 
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [cityMarkers, setCityMarkers] = useState(cityIndex);
   const [selected, setSelected] = useState([]);
   const [viewport, setViewport] = useState({
