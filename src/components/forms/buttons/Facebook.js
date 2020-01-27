@@ -24,10 +24,10 @@ const Facebook = props => {
 
 
     return (
-        <div className='facebook-button' onClick={() => {setIsLoggingIn(true); login()}}>
+        <a href="https://citrics-staging.herokuapp.com/api/auth/login/facebook" className='facebook-button' onClick={() => {setIsLoggingIn(true); login()}}>
             <img className="fb-icon" src={facebook} alt="facebook icon"/>
             <p className="facebook-name">{props.action} with Facebook</p>
-        </div>
+        </a>
     )
 }
 
