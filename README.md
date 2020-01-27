@@ -1,6 +1,6 @@
 # Citrics
 
-Application deployed at [https://citrics.io/).
+Application deployed at https://citrics.io/.
 
 ## 4️⃣ Contributors
 
