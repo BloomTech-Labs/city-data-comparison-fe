@@ -87,7 +87,6 @@ const ProfileCard = (props)=> {
     //User information axios call
     
     useEffect(() => {
-        /*
         axios
             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
             .then(res => {
