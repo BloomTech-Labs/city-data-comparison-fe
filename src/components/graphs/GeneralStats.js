@@ -134,7 +134,7 @@ function TotalPopulation({ethData}) {
 
                     <div className="overview-stats-container-two">
                         <div className="overview-stats">${item["Median Rent"]}</div>
-                        <div className="overview-stats">$70000</div>
+                        <div className="overview-stats">${item["Median Per Capita Income"]}</div>
                     </div>
 
 
