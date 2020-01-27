@@ -197,7 +197,6 @@
         background-color:white;
     }
     .commute-travel-container{
-        // border:1px solid red;
         display:flex;
         justify-content:space-between;
 
@@ -259,8 +258,9 @@
 
 
     .other-industries-container{
-        border:1px solid red;
+        // border:1px solid red;
         display:flex;
+        align-items:flex-start;
         justify-content:space-between;
 
 
@@ -281,30 +281,38 @@
                     width:100%;
                     margin-bottom:25px;
                     display:flex;
-                    align-items:flex-end;
                     justify-content:space-between;
+                    // border:1px solid blue;
                 }
 
                 .unemployment-num{
-                    font-size:1.9rem;
+                    font-size:2rem;
                     font-weight:400;
                     color:black;
-                    text-align:center;
-                    width:100%;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    // border:1px solid red;
                     .archive{
-                        width:19px;
+                        width:20px;
+                        margin-right:10px;
+                        // border:1px solid green;
                     }
                 }
                 .unemployment-label{
                     color:grey;
                     font-size:1rem;
                     width:100%;
-                    margin-top:3px;
+                    margin-top:10px;
                     text-align:center;
                     margin-bottom:5px;
+                    // border:1px solid red;
                 }
             }
         }
+
+
+
         .retirement-container{
             width:52%;
             padding:10px;
@@ -312,14 +320,51 @@
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             margin-bottom:30px;
             background-color:white;
+
+            
         }
         .insurance-container{
             width:22%;
-            padding:10px;
-            border-radius:5px;
-            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-            margin-bottom:30px;
-            background-color:white;
+
+            .healthinsurance-card-container{
+                padding:10px;
+                border-radius:5px;
+                box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+                margin-bottom:30px;
+                background-color:white;
+
+                .healthinsurance-title{
+                    color:black;
+                    color:#00bfa5;
+                    font-size:1rem;
+                    width:100%;
+                    margin-bottom:25px;
+                    display:flex;
+                    justify-content:space-between;
+                }
+
+                .healthinsurance-num{
+                    font-size:2rem;
+                    font-weight:400;
+                    color:black;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    .activity{
+                        width:20px;
+                        margin-right:5px;
+                        // margin-right:10px;
+                    }
+                }
+                .healthinsurance-label{
+                    color:grey;
+                    font-size:1rem;
+                    width:100%;
+                    margin-top:10px;
+                    text-align:center;
+                    margin-bottom:5px;
+                }
+            }
         }
     }
 

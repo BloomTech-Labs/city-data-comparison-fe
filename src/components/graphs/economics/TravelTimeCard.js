@@ -2,11 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import clock from '../../map-components/assets/clock.svg'
 
-const CenterCard = styled.h2`
-display:flex;
-justify-content:center;
 
-`
 function TotalPopulation({ethData}) {
     // console.log(ethData, "ETH")
 	// const colorifier = lat => {

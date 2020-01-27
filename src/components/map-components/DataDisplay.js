@@ -225,13 +225,13 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             {/* <p className="chart-title">Unemployment</p> */}
                             <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
                         </div>
+                        <div className="insurance-container">
+                            {/* <p className="chart-title">Health insurance</p> */}
+                            <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
+                        </div>
                         <div className="retirement-container">
                             <p className="chart-title">Retirement income source</p>
                             <Element name="retirement" className="element" ><RetirementGraph ethData={selected} /></Element>
-                        </div>
-                        <div className="insurance-container">
-                            <p className="chart-title">Health insurance</p>
-                            <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
                         </div>
                     </div>
                 </div>
