@@ -262,7 +262,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             <Element name="population" className="element" ><Population selected = {selected} /></Element>
                         </div>
                         <div className="birth-container">
-                            <p className="chart-title">Birth rate</p>
+                            {/* <p className="chart-title">Birth rate</p> */}
                             <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
                         </div>
                     </div>
