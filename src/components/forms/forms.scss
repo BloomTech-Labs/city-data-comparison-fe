@@ -1,28 +1,68 @@
 .authForm{
     //container for left side of form
     .form{
-        margin-top: 15vh;
+        margin-top: 18vh;
         .formTitle{
             text-align: center;
         }
         
 
         //container for oauth buttons
-        .auth{
-            border: 1px solid pink; 
+        .auth{ 
+
             width: 85vw;
             margin: auto;
-
+            margin-top: 15%;
 
             //styles that apply to all oauth buttons
             .oauthButton{
-                border: 1px solid green; 
+                
                 border-radius: 5px; 
                 display: flex;
                 margin: 1vh 0;
                 height: 7vh;
+                align-items: center;
+
+                
             }
 
+            //styles for each button
+
+            .GoogleButton{
+                border-left: 1px solid #d8d8d8; 
+                border-bottom: 1px solid #d8d8d8;
+
+                .GoogleName{
+                    margin-left:4vw;
+                }
+            }
+
+            .FacebookButton{
+                background: #4368B2;
+
+                .iconContainer{
+                    margin-left: 1vw;
+                    margin-top: .5vh;
+                }
+
+                .FacebookName{
+                    margin-left:4vw;
+                    color:white;
+                }
+            }
+
+            .LinkedinButton{
+                background: #0077B5;
+                color: white;
+
+                .iconContainer{
+                    margin-top: .5vh;
+                    margin-left: 1vw;
+                }
+                .LinkedinName{
+                    margin-left:4vw;
+                }
+            }
 
         }//end of auth container
 
@@ -48,11 +88,38 @@
                 //gray lines
                 .line{
                 height: .5px;
-                border: .4px solid gray;
+                border: .4px solid  rgb(201, 201, 201);
                 width: 28%;
                 }
             }//end of centertext
 
+            .fields{
+                width: 90vw;
+                margin: auto;
+
+                .email, .password{
+                    border-radius: 10px;
+                    border: 1px solid rgb(201, 201, 201); 
+                    padding: 3.5% 2%; 
+                    width:100%;
+                }
+
+                .formButton{
+                    width: 100%;
+                    margin:auto;
+                    border: 1px solid #3999FC;
+                    border-radius:10px; 
+                    background: #3999FC;
+                    color:white; 
+                    padding: 3% 2%;
+                    margin-top: 3%;
+
+                    &:hover{
+                        color: #3999FC;
+                        background:white;
+                    }
+                }
+            }
 
         }
 

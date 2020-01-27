@@ -13,7 +13,7 @@ import OauthButton from './OauthButton'
 
 //icons
 import Google from '../../assets/icons/Google.svg'
-import Facebook from '../../assets/icons/Facebook.svg'
+import Facebook from '../../assets/icons/white-facebook.svg'
 import Linkedin from '../../assets/icons/Linkedin.svg'
 
 
@@ -124,7 +124,7 @@ const AuthForm = props => {
                             (props.action === 'register') ? <PrivacySection/> : <div></div>
                         }
 
-                       <button className={`form-button ${props.action}Button`} onClick={() => onSubmit()}>Start exploring cities </button>
+                       <button className={`formButton ${props.action}Button`} onClick={() => onSubmit()}>Start exploring cities </button>
 
                        <p className='question'>
                             {
