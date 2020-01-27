@@ -13,9 +13,9 @@ import './forms.scss'
 import OauthButton from './OauthButton'
 
 //icons
-import Google from '../../assets/icons/Google.svg'
+import Google from '../../assets/icons/google.svg'
 import Facebook from '../../assets/icons/white-facebook.svg'
-import Linkedin from '../../assets/icons/Linkedin.svg'
+import Linkedin from '../../assets/icons/linkedin.svg'
 
 
 const AuthForm = props => {
