@@ -75,13 +75,12 @@ const FavoriteButton = props => {
                         'borderRadius': '10px',
                         'fontWeight': '500',
                         'marginLeft' : 'auto', 
-                        'marginRight' : '4%',
+                        
                         
                     
                     }}
                     >
-                        <img style={{'width' : '15%'}} src={(hover) ? filled_heart : heart_icon} alt='add to favorites'/>
-                        <p className="favtext" style={{'fontSize': '.7rem','color': 'black'}}>Add to Favorites</p>
+                        <img style={{'width' : '23%'}} src={(hover) ? filled_heart : heart_icon} alt='add to favorites'/>
                 </div>
         
     )
