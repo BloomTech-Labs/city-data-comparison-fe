@@ -16,7 +16,7 @@ function Profile({selected}) {
     
     const {user, setUser} = useContext(CityContext);
     console.log('Current user state',user)
-
+    
     
     
     return (

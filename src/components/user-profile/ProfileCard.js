@@ -10,14 +10,8 @@ const ProfileCard = ()=> {
 
     //state for logged in user
 
-    const [userInfo, setUserInfo] = useState({
-        first_name: '',
-        last_name: '',
-        email: '',
-        city: '',
-        state: '',
-        userimage: null
-    })
+    const [userInfo, setUserInfo] = useState({})
+    console.log(userInfo)
 
     const handleChange = e => {
         setUserInfo({
@@ -27,7 +21,7 @@ const ProfileCard = ()=> {
     }
     
     const {user, setUser} = useContext(CityContext);
-    console.log('Current user state',user)
+    
 
     // Edit state toggle
 
@@ -58,15 +52,18 @@ const ProfileCard = ()=> {
             setLocationEdit({...locationEdit, status:'closed'})
         }
     }
+
+    const id = sessionStorage.getItem('id');
     
 
     //User information axios call
     useEffect(() => {
         axios
-            .get('')
+            .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`)
             .then(res => {
-                console.log('Response from user call',res)
-                setUser(res.data)
+                console.log('Response from user .get call',res.data)
+                const information = res.data[0]
+                setUserInfo(information)
             })
             .catch(err => {
                 console.error('Unable to get user information', err);
@@ -76,15 +73,16 @@ const ProfileCard = ()=> {
     const handleSubmit =
     useEffect(() => {
         axios
-            .put('',userInfo.first_name, userInfo.last_name, userInfo.email, userInfo.city, userInfo.state)
+            .put(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`,userInfo)
             .then(res => {
-                console.log('Response from user call',res)
-                setUser(res.data)
+                console.log('Response from user .put call',res)
+                
             })
             .catch(err => {
                 console.error('Unable to get user information', err);
             });
-    }, []);
+    }, );
+    
 
     // const img = () => {
     //     if(user.userimage === null) {
@@ -104,7 +102,7 @@ const ProfileCard = ()=> {
                 <div className='name-tab'>
                     <p>Name</p>
                     <h2 className={`user-name ${nameEdit.status}`}>{userInfo.first_name} {userInfo.last_name}</h2>
-                    <form className={`edit-name ${nameEdit.status}`}>
+                    <form className={userInfo.first_name === null ? `edit-name ${nameEdit.status = 'open'}` : `edit-name ${nameEdit.status = 'closed'}`} >
                     <input
                         onChange={handleChange}
                         className='edit-first-name'
@@ -122,8 +120,8 @@ const ProfileCard = ()=> {
                         placeholder='Last Name'
                     />
                     </form>
-                    <button className={`edit-name-btn ${nameEdit.status}`} onClick={toggleName, handleSubmit}>Edit Name</button> 
-                    <button className={`save-name-btn ${nameEdit.status}`} onClick={toggleName, handleSubmit}>Save</button>
+                    <button className={`edit-name-btn ${nameEdit.status}`} onClick={toggleName}>Edit Name</button> 
+                    <button className={`save-name-btn ${nameEdit.status}`} onClick={toggleName} onSubmit={handleSubmit}>Save</button>
                 </div>
                 <div className='email-tab'>
                     <p>Email</p>
