@@ -1,5 +1,5 @@
 h1 {
-    margin-top: 84px;
+    margin-top: 150px;
 }
 
 .profile-page {
@@ -7,7 +7,7 @@ h1 {
 }
 
 .side-nav {
-    margin-top: 10%;
+    margin-top: 12%;
     width: 10%;
     padding-left: 2%;
     
@@ -37,7 +37,7 @@ h1 {
         line-height: 126%;
         padding-left: 127px;
         border-left: 1px solid #B8BABF;
-        padding-bottom: 100px;
+        padding-bottom: 50px;
         
     }
 
@@ -52,10 +52,17 @@ h1 {
 
     
 
-    .name-tab, .email-tab, .city-tab {
-        margin-bottom: 76px;
+    .name-tab, .email-tab, .city-tab, .avatar-tab {
+        margin-bottom: 50px;
         display:flex;
         flex-direction: column;
+
+        img {
+         width: 100px;
+         border: 3px solid rgba(68, 68, 68, 0.075);
+         border-radius: 100%;
+     
+        }
 
         input {
             width: 200px;
@@ -67,6 +74,7 @@ h1 {
             font-size: 16px;
             color: #84868C;
             padding: 14px;
+            margin-top: 5px;
             
         }
 
@@ -75,16 +83,20 @@ h1 {
             font-weight: 500;
         }
 
-        button {
+        button, .edit-image {
             background-color: rgba(255, 255, 255, 0);
-            font-size: 16px;
+            font-size: .90rem;
             font-weight: 100;
             color: #84868C;
             width: 100%;
+            border: 0px;
+            text-align: right;
+            text-decoration: none;
         }
         h2 {
             margin-bottom: 1px;
         }
+
     }
     .name-tab {
 
@@ -130,7 +142,7 @@ h1 {
         }
     }
 
-    .edit-name.closed, .save-name-btn.closed,.edit-name-btn.open,   .edit-email.closed,.save-email-btn.closed,  .edit-email-btn.open,     .edit-location.open,.save-location-btn.open,    .edit-location-btn.closed, .user-name.open, .user-email.open,     .user-location.closed {
+    .edit-name.closed, .save-name-btn.closed,.edit-name-btn.open,   .edit-email.closed,.save-email-btn.closed,  .edit-email-btn.open,     .edit-location.open,.save-location-btn.open,    .edit-location-btn.closed, .user-name.open, .user-email.open,     .user-location.closed, .edit-image.closed, .save-image-btn.closed, .edit-image-btn.open {
         display: none;
     }
 }
@@ -155,7 +167,7 @@ h1 {
         line-height: 126%;
         padding-left: 127px;
         border-left: 1px solid #B8BABF;
-        padding-bottom: 100px;
+        padding-bottom: 245px;
 
         .head-top {
             width: 363px;
