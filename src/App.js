@@ -26,6 +26,9 @@ function initializeAnalytics() {
 }
 
 function App() {
+
+  
+
   useEffect( _ => {
     initializeAnalytics();
     ReactGA.event({ category: 'App', 
@@ -42,7 +45,7 @@ function App() {
   })
 
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null);
   const [cityMarkers, setCityMarkers] = useState(cityIndex);
   const [selected, setSelected] = useState([]);
   const [viewport, setViewport] = useState({
@@ -243,6 +246,7 @@ cityIndex.sort(compare);
   useEffect( _ => {
     ReactGA.event({ category: 'Map', 
     action: 'Changed map zoom' });
+    console.log(user);
   }, [viewport.zoom])
 
   return (
