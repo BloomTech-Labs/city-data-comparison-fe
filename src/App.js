@@ -17,6 +17,7 @@ import citiesIndex from './data/city_ids.json'
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
 import Axios from "axios"
+import Callback from './components/Callback';
 
 
 function initializeAnalytics() {
@@ -25,6 +26,9 @@ function initializeAnalytics() {
 }
 
 function App() {
+
+  
+
   useEffect( _ => {
     initializeAnalytics();
     ReactGA.event({ category: 'App', 
@@ -41,7 +45,7 @@ function App() {
   })
 
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null);
   const [cityMarkers, setCityMarkers] = useState(cityIndex);
   const [selected, setSelected] = useState([]);
   const [viewport, setViewport] = useState({
@@ -242,6 +246,7 @@ cityIndex.sort(compare);
   useEffect( _ => {
     ReactGA.event({ category: 'Map', 
     action: 'Changed map zoom' });
+    console.log(user);
   }, [viewport.zoom])
 
   return (
@@ -258,6 +263,7 @@ cityIndex.sort(compare);
             <Route path="/aboutus" component={AboutUs} />
             <Route path='/signin' component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route path="/callback" component={Callback} />
           </div>
           </CityContext.Provider>
       </UserContext.Provider>

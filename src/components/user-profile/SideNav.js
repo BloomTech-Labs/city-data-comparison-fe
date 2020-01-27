@@ -12,7 +12,6 @@ const SideNav = () => {
                     <NavLink activeClassName='selected' to='/profile/'>Profile</NavLink>
                     <NavLink activeClassName='selected' to='/profile/preferences'>Preferences</NavLink>
                     <NavLink activeClassName='selected' to='/profile/favorites'>Favorites</NavLink>        
-                    <NavLink activeClassName='selected' to='/profile/settings'>Settings</NavLink>
                 </nav>
             </div>
         </div>

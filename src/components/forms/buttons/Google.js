@@ -23,6 +23,7 @@ const Google = props => {
         <div className='google-button' onClick={() => {setIsLoggingIn(true); login()}}>
             <img className="google-icon" src={google} alt="google icon"/>
             <p className="google-name">{props.action} with Google</p>
+            <a href='https://citrics-staging.herokuapp.com/api/auth/login/google'>button</a>
         </div>
     )
 }
