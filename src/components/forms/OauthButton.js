@@ -8,7 +8,7 @@ import React from 'react';
 const OauthButton = props => {
 
 
-    const connectAccount = _ => window.location.replace(`https://citrics-staging.herokuapp.com/api/auth/${props.action}/${props.company}`);  
+    const connectAccount = _ => window.location.replace(`https://citrics-staging.herokuapp.com/api/auth/login/${props.company}`);  
 
     return (
         <div className={`oauthButton ${props.company}Button`} onClick={() => {connectAccount()}}>
