@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios'; 
 
 //stylesheet
-import './styles/facebook.scss'
+// import './styles/facebook.scss'
 //assets
 import facebook from '../../../assets/icons/white-facebook.svg'; 
 
