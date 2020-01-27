@@ -22,7 +22,7 @@ export default function VacancyGraph (props) {
             <Bar
               data={{
                 
-                labels: ["Homeowner vacancy rate", "Rental vacancy rate"],
+                labels: ["Homeowner", "Rental"],
                 datasets: props.edData.map( item => {
                   
                   return {
@@ -45,8 +45,8 @@ export default function VacancyGraph (props) {
               
               options={{
                 title:{
-                  display:true,
-                  text:'Vacancy Rate',
+                  display:false,
+                  text:'Vacancy',
                   fontSize:25
                 },
                 legend:{

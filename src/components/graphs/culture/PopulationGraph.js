@@ -47,7 +47,7 @@ export default function PopGrowthGraph({selected}) {
               }}
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'Population Growth',
                   fontSize:25
                 },
@@ -75,7 +75,7 @@ export default function PopGrowthGraph({selected}) {
                     },
                     scaleLabel: {
                       display: true,
-                      labelString: 'amount',
+                      labelString: 'Population',
                       ticks: {
                         beginAtZero: true
                       }

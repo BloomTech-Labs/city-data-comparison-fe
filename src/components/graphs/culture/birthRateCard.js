@@ -22,18 +22,14 @@ function TotalPopulation({ethData}) {
 
 	
 	return (
-		<div className="dataCards">
-            <h1>Recent Mothers</h1>
-
+		<div>
             {ethData.map(item => 
-                <div key={item._id}>
-                    <CenterCard> {item["City"]}</CenterCard>
-                    <CenterCard> Recent Mothers: {item['Recent Mothers']['Total']}</CenterCard>
-                    <CenterCard> Birth Rate Average per 1000 Females: {item['Recent Mothers']['Birth Rate']['Avg']}%</CenterCard>
-
+                <div key={item._id} className="birth-card-container">
+                    <span className="birth-title">Birth rate</span>
+                    <div className="birth-num"><span className="mothers-num">{item['Recent Mothers']['Birth Rate']['Avg']}</span><span className="birth-rate-label">births per 1000 women</span></div>    
+                    <p className="birth-label">{item["City"]}</p>
                </div>
             )}
-			
 		</div>
 	);
 }

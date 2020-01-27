@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pie} from 'react-chartjs-2';
+import {HorizontalBar} from 'react-chartjs-2';
 
 export default function RetirementGraph({ethData}) {
 
@@ -21,18 +21,17 @@ export default function RetirementGraph({ethData}) {
       <div className="charts" >
         
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
-            <Pie
+            <HorizontalBar
               data={{
-                labels:  ["With Social Security", "With retirement income", "With Supplemental Security Income"],
+                labels:  ["SSI","Retirement income", "Social Security"],
                 datasets: ethData.map( item => {
                   
                   return {
                     label: item.name_with_com,
                     data: [
-                      item["Retirement Percent"]["With Social Security"],
-                      item["Retirement Percent"]["With retirement income"],
                       item["Retirement Percent"]["With Supplemental Security Income"],
-                                
+                      item["Retirement Percent"]["With retirement income"],
+                      item["Retirement Percent"]["With Social Security"],
                     ],
                     backgroundColor:
                       colorifier(item.Longitude)
@@ -44,7 +43,7 @@ export default function RetirementGraph({ethData}) {
               }}
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'Retirement Percent',
                   fontSize:25
                 },
@@ -53,25 +52,24 @@ export default function RetirementGraph({ethData}) {
                 },
                 scales: {
                   xAxes: [ {
-                    
-                    display: false,
+                    display: true,
                     gridLines: {
                       display:false,
                     },
                     scaleLabel: {
-                      display: false,
-                      labelString: 'Retirement Percent'
+                      display: true,
+                      labelString: 'Percent of retirees using income source'
                     },
                   } 
                   ],
                   yAxes: [ {
-                    display: false,
+                    display: true,
                     gridLines: {
                       display:false,
                     },
                     scaleLabel: {
                       display: false,
-                      labelString: 'Percent',
+                      labelString: 'Types of retirement income source',
                       ticks: {
                         beginAtZero: true
                       }

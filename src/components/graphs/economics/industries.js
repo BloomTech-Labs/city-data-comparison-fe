@@ -1,5 +1,5 @@
 import React from 'react';
-import {Bar} from 'react-chartjs-2';
+import {HorizontalBar} from 'react-chartjs-2';
 
 export default function EducationGraph (props) {
 
@@ -19,7 +19,7 @@ export default function EducationGraph (props) {
       <div className="charts" >
         
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
-            <Bar
+            <HorizontalBar
               data={{
                 labels: ["Agriculture/Mining",  "Entertainment", "Construction","Education/Health Care", "Finance/Real Estate", "Information", "Manufacturing", "Non-Governmental Services" , "Science" , "Public Administration", "Retail Trade", "Transportation", "Wholesale Trade"],
                 datasets: props.edData.map( item => {
@@ -52,7 +52,7 @@ export default function EducationGraph (props) {
               }}
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'Industry',
                   fontSize:25
                 },
@@ -62,14 +62,7 @@ export default function EducationGraph (props) {
                 },
                 scales: {
                   xAxes: [ {
-                    
-                    display: true,
-                    gridLines: {
-                      display:false,
-                    },
-                  } 
-                  ],
-                  yAxes: [ {
+                    labelString:'Percent',
                     display: true,
                     gridLines: {
                       display:false,
@@ -80,8 +73,21 @@ export default function EducationGraph (props) {
                       ticks: {
                         beginAtZero: true
                       }
+                    }
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: true,
+                    gridLines: {
+                      display:false,
                     },
-
+                    scaleLabel: {
+                      display: false,
+                      labelString: 'Percent',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }
                   } ]
                 }
               }}

@@ -54,8 +54,9 @@ export default function HousePriceGraph({selected}) {
 
                       ,
                       borderColor:
-                      item.color
-                      
+
+                      colorifier(item.Longitude)
+
 
                   }
                 })
@@ -63,7 +64,7 @@ export default function HousePriceGraph({selected}) {
               }}
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'house price',
                   fontSize:25
                 },
@@ -91,7 +92,7 @@ export default function HousePriceGraph({selected}) {
                     },
                     scaleLabel: {
                       display: true,
-                      labelString: 'amount',
+                      labelString: 'Amount',
                       ticks: {
                         beginAtZero: true
                       }
