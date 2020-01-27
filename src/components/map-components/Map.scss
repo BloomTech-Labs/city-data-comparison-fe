@@ -39,9 +39,79 @@
 
     .data-category {
         width:98%;
-        margin: 15% 0;
+        margin: 10% 0;
         border-radius:5px;
     }
+
+    .city-overview-container{
+        width:98%;
+
+        .city-overview-border{
+            padding:10px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            border-top-left-radius:5px;
+            border-top-right-radius:5px;
+            background-color:#2CA2FA;
+        }
+
+        .city-info-container{
+            margin-bottom:5%;
+            padding:25px 40px;
+            border-radius:5px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            background-color:white;
+            border-top-left-radius:0;
+            border-top-right-radius:0;
+            display:flex;
+            justify-content:space-evenly;
+            img{
+                height:22px;
+                margin-right:10px;
+            }
+
+            .city-overview-container-one{
+                width:45%;
+                display:flex;
+                align-items:center;
+
+                .overview-title-container-one{
+                    width:50%;
+                    display:flex;
+                    flex-direction:column;
+
+                    .overview-title{
+                        margin:10px 0;
+                        color:grey;
+                        display:flex;
+                        font-size:1.2rem;
+                    }
+
+                }
+                .overview-stats-container-one{
+                    width:50%;
+                    font-size:1.2rem;
+                    display:flex;
+                    flex-direction:column;
+
+                    .overview-stats{
+                        width:100%;
+                        margin:10px 0;
+                    }
+                }
+            }
+
+            .city-overview-container-two{
+                width:45%;
+                border:1px solid red;
+
+            }
+
+
+        }
+
+    }
+
+
 
     .data-category-titles{
         text-align:center;

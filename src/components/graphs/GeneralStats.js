@@ -100,24 +100,24 @@ function TotalPopulation({ethData}) {
     //         </Table>
     //         )}
     // </div>
-        <div>
+        <div className="city-overview-container">
             {ethData.map(item => 
             <> 
             <div className="city-overview-border">
 
             </div>
-            <div className="city-overview-container">
+            <div className="city-info-container">
                 <div className="city-overview-container-one">
-                    <div>
-                        <div> <img alt="world" src={world} /> City</div>
-                        <div> <img alt="people" src={pop} /> Population</div>
-                        <div> <img alt="age" src={users} /> Median age</div>
+                    <div className="overview-title-container-one">
+                        <div className="overview-title"> <img alt="world" src={world} /> City</div>
+                        <div className="overview-title"> <img alt="people" src={pop} /> Population</div>
+                        <div className="overview-title"> <img alt="age" src={users} /> Median age</div>
                     </div>
 
-                    <div>
-                        <div>{item["City"]}</div>
-                        <div>{item["Total Population"]}</div>
-                        <div>{item["Median Age"]} years old</div>
+                    <div className="overview-stats-container-one">
+                        <div className="overview-stats">{item["City"]}</div>
+                        <div className="overview-stats">{item["Total Population"]}</div>
+                        <div className="overview-stats">{item["Median Age"]} years old</div>
                     </div>
                 </div>
 
@@ -126,15 +126,15 @@ function TotalPopulation({ethData}) {
 
 
                 <div className="city-overview-container-two">
-                    <div>
-                        <div><img alt="" src={} />Median rent</div>
-                        <div><img alt="" src={} />Median income</div>
+                    <div className="overview-title-container-two">
+                        <div className="overview-title"><img alt="briefcase" src={briefcase} />Median rent</div>
+                        <div className="overview-title"><img alt="income" src={income} />Median income</div>
                     </div>
 
 
-                    <div>
-                        <div>${item["Median Rent"]}</div>
-                        <div>$70000</div>
+                    <div className="overview-stats-container-two">
+                        <div className="overview-stats">${item["Median Rent"]}</div>
+                        <div className="overview-stats">$70000</div>
                     </div>
 
 
