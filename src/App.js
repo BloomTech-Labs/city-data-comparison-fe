@@ -17,6 +17,7 @@ import citiesIndex from './data/city_ids.json'
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
 import Axios from "axios"
+import Callback from './components/Callback';
 
 
 function initializeAnalytics() {
@@ -25,7 +26,6 @@ function initializeAnalytics() {
 }
 
 function App() {
-
   useEffect( _ => {
     initializeAnalytics();
     ReactGA.event({ category: 'App', 
@@ -50,32 +50,104 @@ function App() {
     height: '100%',
     longitude: -95,
     latitude: 39,
-    zoom: 10,
+    zoom: 3,
     minZoom: 3,
     trackResize: true,
 
 
   });
+
+  const getCityColor = _ => {
+    let activeColors = selected.map(item => item.color)
+      if (!activeColors.includes("#e0fa3d")) {
+        return "#e0fa3d"
+      } else if (!activeColors.includes("#fa728e")) {
+        return "#fa728e"
+      } else if (!activeColors.includes("#a88ff9")) {
+        return "#a88ff9"
+      }   
+  }
+  const getSecondCityColor = arr => {
+    let activeColors = selected.map(item => item.color)
+    activeColors.push(arr[0].color)
+      if (!activeColors.includes("#e0fa3d")) {
+        return "#e0fa3d"
+      } else if (!activeColors.includes("#fa728e")) {
+        return "#fa728e"
+      } else if (!activeColors.includes("#a88ff9")) {
+        return "#a88ff9"
+      }   
+  }
+
   const getCity = cityMarker => {
+    if (selected.length >=3) {
+      return;
+    }
     Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
     .then(res => {
-      setSelected([...selected, res.data])
+      let newCity = res.data;
+      newCity.color = getCityColor();
+      setSelected([...selected, newCity])
+      console.log(newCity)
     })
     .catch(err => console.log("getCity error", err))
 }
 
 const getCities = arr => {
   let output = []
-  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[0].ID}`)
-  .then(res => {
-    output.push(res.data);
-    // setSelected([...selected, res.data])
-  }).then(res => Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[1].ID}`)
-  .then(res => {
-    output.push(res.data)
-    setSelected([...selected, ...output])
-  }))
-  .catch(err => console.log("getCity error", err))
+
+  // if both objects
+  if (typeof arr[0] === "object" && typeof arr[1] === "object")
+    Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[0].ID}`)
+    .then(res => {
+      let newCity = res.data;
+      newCity.color = getCityColor();
+      output.push(newCity);
+    }).then(res => Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[1].ID}`)
+    .then(res => {
+      let newCity = res.data;
+      newCity.color = getSecondCityColor(output);
+      output.push(newCity);
+      console.log(output);
+      setSelected([...selected, ...output])
+    }))
+    .catch(err => console.log("getCity error", err))
+
+    if (typeof arr[0] === "object" && typeof arr[1] === "string") {
+     Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[1]}`)
+    .then(res => {
+      if (res.data) {
+        // get the best (first) suggestion and add it to state
+        let suggestionKey = Object.keys(res.data)[0];
+        let foundIndex = res.data[suggestionKey];
+        getCities([arr[0], foundIndex]);
+      } else {
+        getCity(arr[0])
+      }
+    })
+    .catch(err => console.log("getCity error", err))
+    }
+
+    if (typeof arr[0] === "string" && typeof arr[1] === "object") {
+      Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[0]}`)
+      .then(res => {
+        if (res.data) {
+          // get the best (first) suggestion and add it to state
+          let suggestionKey = Object.keys(res.data)[0];
+          let foundIndex = res.data[suggestionKey];
+          getCities([arr[1], foundIndex]);
+        } else {
+          getCity(arr[1])
+        }
+      })
+      .catch(err => console.log("getCity error", err))
+      }
+    
+  // if both strings
+  if (typeof arr[0] === "string" && typeof arr[1] === "string") {
+    getBestSuggestions(arr)
+  }
+
 }
 
 const getBestSuggestion = search => {
@@ -100,7 +172,8 @@ const getBestSuggestions = arr => {
     if (res.data) {
       // get the best (first) suggestion and add it to state
       let suggestionKey = Object.keys(res.data)[0]
-      output.push(res.data[suggestionKey]) 
+      let newCity = res.data[suggestionKey];
+      output.push(newCity);
     }
     // maybe add an error message if nothing is found
   }).then(res =>  Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[1]}`)
@@ -109,7 +182,8 @@ const getBestSuggestions = arr => {
     if (res.data) {
       // get the best (first) suggestion and add it to state
       let suggestionKey = Object.keys(res.data)[0]
-      output.push(res.data[suggestionKey]) 
+      let newCity2 = res.data[suggestionKey];
+      output.push(newCity2);
     }
     // maybe add an error message if nothing is found
   }))
@@ -185,6 +259,7 @@ cityIndex.sort(compare);
             <Route path="/aboutus" component={AboutUs} />
             <Route path='/signin' component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route path="/callback" component={Callback} />
           </div>
           </CityContext.Provider>
       </UserContext.Provider>

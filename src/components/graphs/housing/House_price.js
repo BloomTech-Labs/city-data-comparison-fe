@@ -54,7 +54,9 @@ export default function HousePriceGraph({selected}) {
 
                       ,
                       borderColor:
+
                       colorifier(item.Longitude)
+
 
                   }
                 })

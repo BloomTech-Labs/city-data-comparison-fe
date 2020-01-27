@@ -1,6 +1,6 @@
 # Citrics
 
-Application deployed at [https://master.d1td9ufw3xylcx.amplifyapp.com/](https://master.d1td9ufw3xylcx.amplifyapp.com/).
+Application deployed at [https://citrics.io/).
 
 ## 4️⃣ Contributors
 
