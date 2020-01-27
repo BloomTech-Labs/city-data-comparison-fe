@@ -21,7 +21,7 @@ import Linkedin from '../../assets/icons/linkedin.svg'
 const AuthForm = props => {
 
    //list of companies 
-   const companies = [{name:'Google', icon: Google}, {name:'Facebook', icon:Facebook}, {name:'Linkedin', icon:Linkedin}]
+   const companies = [{name:'Google', icon: Google}, /*{name:'Facebook', icon:Facebook}, */{name:'Linkedin', icon:Linkedin}]
 
    //state used for validating form
    const [usernameError, setUsernameError] = useState('');

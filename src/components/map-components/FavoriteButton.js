@@ -1,67 +1,55 @@
 import React, {useState, useContext, useEffect} from 'react'
-
-/***media***/
+import {UserContext} from '../../contexts/UserContext'; 
+//assets
 import heart_icon from './icons/heart.svg';
 import filled_heart from './icons/filled_heart.svg'
 
 import Axios from 'axios'
 
-//import FavCard from './FavCard'
-// import Drop from 'tether-drop'
-// import { Portal } from 'react-portal'
 
-// import CitySelection from './CitySelection'
-// import {UserContext } from '../../contexts/UserContext'; 
+const FavoriteButton = ({city}) => {
 
-// import pointer from '../dashboard/assets/pointer.svg'
-// import delete_icon from './icons/close_red.png'; 
-// //add icon
-// import add_icon from './icons/add_icon.svg';
-//city pointer icon
+    const { favorites, setFavorites } = useContext(UserContext)
 
-
-
-const FavoriteButton = props => {
-
-    //const {selected} = useContext(CityContext)
-    //const newSelection = selected; 
     const [hover, setHover] = useState(false)
     const [saving, setSaving] = useState(false)
-    const [remove, setRemove] = useState(false); 
+    const [saved, setSaved] = useState(false)
     const id = localStorage.getItem('id')
-
     
-        // window.onload = () => {
-        // const popup = new Drop({
-        // target: favRef.current,
-        // content: favCard.current,
-        // position: 'top center',
-        // openOn: 'hover', 
-        // hoverCloseDelay: 0, 
-        // remove: true
-        // })
+    useEffect(() => {
 
+        (saved) ? saveToFavorites(city) : removeFromFavorites(city)
         
+    }, [saved])
     
-     
-    
-    
-    const saveFavorites = () => {
+    const saveToFavorites = city => {
         Axios
-            .post(`https://citrics-staging.herokuapp.com/api/favs/${id}`, props.city)
+            .post(`https://citrics-staging.herokuapp.com/api/favs/${id}`, city)
             .then(response => {
                 
                 console.log(response)
+                setFavorites([...favorites, city])
                 setSaving(false)
             })
             .catch(error => console.log(error))
     }
 
+    const removeFromFavorites = city => {
+        Axios
+            .delete(`https://citrics-staging.herokuapp.com/api/favs/${id}`, city)
+            .then(response => {
+                console.log(response)
+                setFavorites(favorites.filter(item =>  item !== city))
+            })
+    }
+
+
     return(
           
             
                 <div className="heart-button" 
-                    onClick={saveFavorites}
+                    onClick={() => setSaved(!saved)}
+
                     onMouseEnter={() => setHover(true)}
                      onMouseLeave={() => setHover(false)}
                     style={{
@@ -80,7 +68,8 @@ const FavoriteButton = props => {
                     
                     }}
                     >
-                        <img style={{'width' : '23%'}} src={(hover) ? filled_heart : heart_icon} alt='add to favorites'/>
+                        <img style={{'width' : '23%'}} 
+                        src={(saved) ? heart_icon : heart_icon} alt='add to favorites'/>
                 </div>
         
     )
