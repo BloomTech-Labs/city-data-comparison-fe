@@ -8,7 +8,6 @@ import Footer from './navigation/Footer'
 import Markers from "./map-components/Markers";
 import DataDisplay from "./map-components/DataDisplay";
 import PopupMap from "./map-components/PopupMap"
-import FavoriteButton from './map-components/FavoriteButton'; 
 
 import { CityContext } from '../contexts/CityContext';
 import Axios from 'axios';
@@ -107,7 +106,6 @@ const selectSearch = cityMarker =>  {
                 </ReactMapGL>
               </MapWrapper>
             </div>
-            <FavoriteButton selected={selected}/>
             <DataDisplay 
               selectSearch={selectSearch}
               toggleSelected={toggleSelected}
