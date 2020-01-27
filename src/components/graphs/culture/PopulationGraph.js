@@ -5,17 +5,6 @@ export default function PopGrowthGraph({selected}) {
     const [labels, setLabels] = useState([])
 
 
-    const colorifier = lat => {
-
-        let arr = String(lat).replace(".","").split("");
-
-        let num1 = arr.pop();
-        let num2 = arr.pop();
-        let num3 = arr.pop();
-
-        return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
-    }
-
     useEffect(() => {
         let data = selected[0]
         if (data) {
@@ -37,8 +26,7 @@ export default function PopGrowthGraph({selected}) {
                     label: item.name_with_com,
                     fill: false,
                     data: labels.map(label => item["Population Growth"][label]),
-                    borderColor:
-                      colorifier(item.Longitude)
+                    borderColor: item.color
                       
 
                   }
