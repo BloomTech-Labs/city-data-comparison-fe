@@ -11,8 +11,7 @@ import Map from "./components/Map";
 import Profile from './components/user-profile/Profile'
 import PrivacyPolicy from "./components/legal/PrivacyPolicy"
 import AboutUs from './components/aboutus/AboutUs'; 
-import Signup from './components/forms/Signup'; 
-import Login from './components/forms/Login'; 
+import AuthForm from './components/forms/AuthForm'
 import citiesIndex from './data/city_ids.json'
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
@@ -59,6 +58,7 @@ function App() {
 
 
   });
+  
 
   const getCityColor = _ => {
     let activeColors = selected.map(item => item.color)
@@ -261,8 +261,8 @@ cityIndex.sort(compare);
             <Route path='/profile' component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/aboutus" component={AboutUs} />
-            <Route path='/signin' component={Login} />
-            <Route path="/signup" component={Signup} />
+            <Route path='/signin'render={props => <AuthForm {...props} action="Login"/>} />
+            <Route path="/signup" render={props => <AuthForm {...props} action="Register"/>} />
             <Route path="/callback" component={Callback} />
           </div>
           </CityContext.Provider>

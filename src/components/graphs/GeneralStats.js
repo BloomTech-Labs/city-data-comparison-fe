@@ -11,11 +11,13 @@ import pop from '../map-components/assets/population.svg'
 import users from '../map-components/assets/users.svg'
 import briefcase from '../map-components/assets/briefcase.svg'
 import income from '../map-components/assets/dollar.svg'
-
+import FavoriteButton from '../map-components/FavoriteButton'
 
 // const CenterCard = styled.h3`
 // display:flex;
 // flex-wrap:wrap;
+
+
 
 
 
@@ -41,6 +43,7 @@ function TotalPopulation({ethData}) {
             <div className="city-overview-container"> 
             <div className="city-overview-border">
                 <p>City overview</p>
+                <FavoriteButton city={item}/>
             </div>
             <div className="city-info-container">
                 <div className="city-overview-container-one">

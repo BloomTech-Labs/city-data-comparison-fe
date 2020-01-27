@@ -16,26 +16,28 @@ const CitySelection = (props) => {
     const [add, setAdd] = useState(true); 
 
     return(
-        <div className='favoriteCitiesSelection' style={{
+        <div className='favoriteCitiesSelection'style={{
             'display' : 'flex', 
             'justifyContent' : 'space-between', 
             'alignItems' : 'center', 
             'alignContent': 'center',
             'height': '2rem',
-            'background':' white',
+            'background':'white',
             'padding': '2%',
             'width' : '100%'
+
+            
         }}>
             <div className='pointerIcon' style={{ 'width' : '4%'}}>
                 <img src={pointer} style={{'width' : '100%'}} alt={props.city.name_with_com}/>
             </div>
 
             <p style={{'width' : '60%'}}>{props.city.name_with_com}</p>
-            {/*
+            
             <div className="favoritesIcon" style={{'width' : '4%'}} onClick={() => setAdd(!add)}>
-                <img style={{'width':'100%'}} src={(add) ? delete_icon : add_icon}/>
+                <img style={{'width':'100%', 'cursor':'pointer'}} src={(add) ? delete_icon : add_icon}/>
             </div>
-            */}
+            
         </div>
     )
 }
