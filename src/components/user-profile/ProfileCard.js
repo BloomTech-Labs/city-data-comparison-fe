@@ -14,13 +14,9 @@ const ProfileCard = (props)=> {
     //state for logged in user
 
     const [userInfo, setUserInfo] = useState({})
-    const [userImage, setUserImage] = useState({userimage:null})
-
-    const [imagePost, setImagePost] = useState({
-        usersimage: null,
-        users_id: sessionStorage.getItem('id')
-    })
-    
+    const [userImage, setUserImage] = useState({usersimage:null, users_id: sessionStorage.getItem('id')})
+    const [imagetest, setTest] = useState({usersimage:null, users_id: sessionStorage.getItem('id')})
+    console.log(userImage)
 
     const handleChange = e => {
         setUserInfo({
@@ -32,8 +28,8 @@ const ProfileCard = (props)=> {
 
     const handleFile = e => {
         let file = e.target.files[0]
-        setImagePost({
-            ...imagePost,
+        setTest({
+            ...imagetest,
             usersimage: file
         })
     }
@@ -118,7 +114,7 @@ const ProfileCard = (props)=> {
                 console.log(res);
             })
             .catch(err => {
-                console.error('Unable to get user information', err);
+                console.log('Unable to get user information', err);
             });
     }
 
@@ -137,18 +133,34 @@ const ProfileCard = (props)=> {
     }
 
     const test = () => {
+        
+        const formData = new FormData()
+        formData.append('usersimage', imagetest.usersimage)
+        formData.append('users_id', imagetest.users_id)
         axios
-            .post('https://citrics-staging.herokuapp.com/api/users/')
+            .post('https://citrics-staging.herokuapp.com/api/users/', formData)
+            .then(res => {
+                console.log('image uploaded', res)
+            })
+            .catch(err => {
+                console.log('Unable to upload', err)
+            })
+    }
+
+    const onSubmit = e => {
+        e.preventDefault();
+        window.location.reload();
     }
     
+    console.log(props)
 
     return (
         <div className='profile-container'>
             <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
-                    <img src={userImage.userimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage}`} />
-                    <form className={`edit-image ${imageUpload.status}`} action='/uploads' enctype="multipart/form-data">
+                    <img src={userImage.usersimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage}`} />
+                    <form className={`edit-image ${imageUpload.status}`} action='/uploads' enctype="multipart/form-data" onSubmit={onSubmit}>
                         <input 
                         type='file'
                         name='usersimage'
@@ -156,7 +168,7 @@ const ProfileCard = (props)=> {
                         />
                     </form>
                     <button className={`edit-image-btn ${imageUpload.status}`} onClick={toggleImage}>Upload Image</button>
-                    <button className={`save-image-btn ${imageUpload.status}`} onClick={toggleImage}>Save</button>
+                    <button className={`save-image-btn ${imageUpload.status}`} onClick={() => {toggleImage(); test()}} >Save</button>
                 </div>
                 <div className='name-tab'>
                     <p>Name</p>
