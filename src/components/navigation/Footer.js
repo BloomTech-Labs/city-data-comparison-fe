@@ -22,7 +22,7 @@ function Footer(){
                     <div className="footer">
                          <div className="footer-CTA">
                               <div className="footer-CTA-description">
-                                   <p>Find your best place to live</p>
+                                   <p>Optimized city stats, just for you</p>
                                    <Link to="/signup"><button className="footer-CTA-button">Start Now</button></Link>
                               </div>
                               <div>
