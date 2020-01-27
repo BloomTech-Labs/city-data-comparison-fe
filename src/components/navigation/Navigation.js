@@ -39,8 +39,10 @@ function Navigation(){
                     <>
                          <Link id="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
                          <Link id="signup-link" to="/signup">Get Started</Link>
-                    </> :
+                    </> : <>
                          <Link to="/profile">Profile</Link>
+                         <img src={user.avatar} alt="user's avatar"/>
+                    </>
                     }
 
                </nav> 
@@ -55,11 +57,11 @@ function Navigation(){
                                    {user === null ? 
                                    <>
                                    <Link to="/signin">Log In</Link> <Link to="/signup">Get Started</Link>
-                                   </>
-                                    : <Link to="/profile">Profile</Link> }
-                                   {/* Uncomment when we have the user's avatar */}
-                                   {/* {user != null && 
-                                   <img src={user.avatar} alt="user's avatar"/>} */}
+                                   </> :
+                                   <>
+                                   <Link to="/profile">Profile</Link> 
+                                   <img src={user.avatar} alt="user's avatar"/>
+                                   </>}
                               </div>
                     </div>
                </div>

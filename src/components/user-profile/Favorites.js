@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import axiosAuth from '../axiosAuth'
-import axios from "axios"
+import axios from 'axios'
 import {UserContext} from "../../contexts/UserContext"
 import GeneralStats from "../graphs/GeneralStats";
 
@@ -15,8 +14,8 @@ const Favorites = ()=> {
 
         //Users saved cities axios call
         useEffect(() => {
-            axiosAuth
-                .get(`https://citrics-staging.herokuapp.com/api/favs/${user.id}`)
+            axios
+                .get(`https://citrics-staging.herokuapp.com/api/users/favs/${user.id}`)
                 .then(res => {
                     console.log('Response to get users saved cities urls',res)
                     setSavedCitiesId(res.data)
@@ -42,8 +41,8 @@ const Favorites = ()=> {
     //delete saved city handler
     const handleDelete = id => {
         // id.preventDefault();
-        axiosAuth
-            .delete(`https://citrics-staging.herokuapp.com/api/favs`, id)
+        axios
+            .delete(`https://citrics-staging.herokuapp.com/api/users/favs`, id)
             .then(res => {
                 console.log(res);
             })
