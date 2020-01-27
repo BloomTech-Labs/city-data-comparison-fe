@@ -4,6 +4,7 @@ import axios from 'axios'
 import ProfileImage from './icons/profileimage.png'
 import './profile.scss'
 
+import {UserContext} from "../../contexts/UserContext"
 
 import AvatarUpload from './AvatarUpload'
 
@@ -12,8 +13,8 @@ import AvatarUpload from './AvatarUpload'
 const ProfileCard = (props)=> {
 
     //state for logged in user
-
-    const [userInfo, setUserInfo] = useState({})
+    const { user, setUser } = useContext(UserContext)
+    const [userInfo, setUserInfo] = useState(user)
     const [userImage, setUserImage] = useState({usersimage:null, users_id: sessionStorage.getItem('id')})
     const [imagetest, setTest] = useState({usersimage:null, users_id: sessionStorage.getItem('id')})
     console.log(userImage)
@@ -81,13 +82,12 @@ const ProfileCard = (props)=> {
         }
     }
 
-    const id = sessionStorage.getItem('id');
+    const id = user.id;
     
 
     //User information axios call
     
     useEffect(() => {
-        /*
         axios
             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
             .then(res => {
@@ -99,19 +99,19 @@ const ProfileCard = (props)=> {
             })
     },[]);
     
-    useEffect(() => {
-        axios
-            .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`)
-            .then(res => {
+    // useEffect(() => {
+    //     axios
+    //         .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`)
+    //         .then(res => {
                 
-                const information = res.data[0]
-                setUserInfo(information)
-            })
-            .catch(err => {
-                console.error('Unable to get user information', err);
-            });
+    //             const information = res.data[0]
+    //             setUserInfo(information)
+    //         })
+    //         .catch(err => {
+    //             console.error('Unable to get user information', err);
+    //         });
 
-    },[]);
+    // },[]);
 
     
 
@@ -171,7 +171,7 @@ const ProfileCard = (props)=> {
             <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
-                    <img src={userImage.usersimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage}`} />
+                    <img src={userImage.usersimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${imagetest.usersimage}`} />
                     <form className={`edit-image ${imageUpload.status}`} action='/uploads' enctype="multipart/form-data" onSubmit={onSubmit}>
                         <input 
                         type='file'
