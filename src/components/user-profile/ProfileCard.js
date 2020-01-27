@@ -15,6 +15,7 @@ const ProfileCard = (props)=> {
 
     const [userInfo, setUserInfo] = useState({})
     const [userImage, setUserImage] = useState({userimage:null})
+    
 
     const handleChange = e => {
         setUserInfo({
@@ -66,6 +67,19 @@ const ProfileCard = (props)=> {
     
 
     //User information axios call
+    
+    useEffect(() => {
+        axios
+            .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
+            .then(res => {
+                const image = res.data[0].userimage
+                setUserImage(image)
+            })
+            .catch(err => {
+                console.log('Unable to get image', err)
+            })
+    },[]);
+    
     useEffect(() => {
         axios
             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`)
@@ -79,6 +93,10 @@ const ProfileCard = (props)=> {
             });
     },[]);
 
+    
+
+    console.log(userImage, 'user image')
+
     const updateUser = () => {
         
         axios
@@ -91,6 +109,19 @@ const ProfileCard = (props)=> {
             });
     }
 
+    const postImage = () => {
+
+        if()
+
+        axios
+            .delete(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
+            .then(res => {
+               return 
+                axios
+                .post('https://citrics-staging.herokuapp.com/api/users/')
+            })
+
+    }
     
 
     return (
@@ -98,9 +129,10 @@ const ProfileCard = (props)=> {
             <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
-                    <img src={userImage.userimage === null ? `${ProfileImage}` : `${userImage.userimage}`} />
+                    <img src={userImage.userimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage}`} />
                     <form className={`edit-image ${imageUpload.status}`}>
-                        <input type='file'></input>
+                        <input 
+                        type='file'/>
                     </form>
                     <button className={`edit-image-btn ${imageUpload.status}`} onClick={toggleImage}>Upload Image</button>
                     <button className={`save-image-btn ${imageUpload.status}`} onClick={toggleImage}>Save</button>
