@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Link } from "react-router-dom";
 import citrics from './citrics-mock.png'
 import lock from './lock.svg'
@@ -11,6 +11,7 @@ function Navigation(){
      const [offset, setOffset] = useState(0);
      const [displayNav, setDisplayNav] = useState('show-nav')
      const [bgColor, setBgColor] = useState('default-color')
+     const [fixedClass, setFixedClass] = useState("")
      const defaultNavigation = () => {
           setBgColor('default-color')
           if (offset === 0 ){
@@ -22,12 +23,20 @@ function Navigation(){
           }
      }
 
+     useEffect( _ => {
+          if (window.location.href.includes("map")) {
+               setFixedClass("unfixed")
+          } else {
+               setFixedClass("")
+          }
+     },[window.location])
+
      let styles={
           float:"right"
      }
 
      return(
-          <div className={"navigation-container " + bgColor + `main-nav ${displayNav}`} onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
+          <div className={"navigation-container " + bgColor + `main-nav ${displayNav} + ${fixedClass}`} onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
                <nav className="main-nav">
