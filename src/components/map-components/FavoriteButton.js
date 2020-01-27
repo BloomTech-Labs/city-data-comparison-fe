@@ -23,8 +23,8 @@ import Axios from 'axios'
 
 const FavoriteButton = props => {
 
-    const {selected} = useContext(CityContext)
-    const newSelection = selected; 
+    //const {selected} = useContext(CityContext)
+    //const newSelection = selected; 
     const [hover, setHover] = useState(false)
     const [saving, setSaving] = useState(false)
     const [remove, setRemove] = useState(false); 
@@ -80,8 +80,8 @@ const FavoriteButton = props => {
                     
                     }}
                     >
-                        <img src={(hover) ? filled_heart : heart_icon} alt='add to favorites'/>
-                        <p>Add to Favorites</p>
+                        <img style={{'width' : '15%'}} src={(hover) ? filled_heart : heart_icon} alt='add to favorites'/>
+                        <p className="favtext" style={{'fontSize': '.7rem','color': 'black'}}>Add to Favorites</p>
                 </div>
         
     )
