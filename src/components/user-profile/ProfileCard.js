@@ -15,7 +15,7 @@ const ProfileCard = (props)=> {
     //state for logged in user
     const { user, setUser } = useContext(UserContext)
     const [userInfo, setUserInfo] = useState(user)
-    const [userImage, setUserImage] = useState({usersimage:null, users_id: userInfo.id})
+    const [userImage, setUserImage] = useState({userimage:null, users_id: userInfo.id})
     const [imagetest, setTest] = useState({usersimage:null, users_id: userInfo.id})
     console.log(userImage, 'image')
 
@@ -40,7 +40,7 @@ const ProfileCard = (props)=> {
         let file = e.target.files[0]
         setUserImage({
             ...userImage,
-            usersimage: file
+            userimage: file
         })
     }
     // Edit state toggle
@@ -150,18 +150,17 @@ const ProfileCard = (props)=> {
     const test = () => {
         
         const formData = new FormData()
-        formData.append('usersimage', userImage.usersimage)
+        formData.append('userimage', userImage.userimage)
         formData.append('users_id', userImage.users_id)
         axios
             .post('https://citrics-staging.herokuapp.com/api/users/', formData)
             .then(res => {
                 console.log('image uploaded', res)
                 console.log(formData)
-                return
                 axios.get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
                 .then(res => {
                     const image = res.data[0].userimage
-                    setUserImage(image)
+                    setUserImage({usersimage: image})
                 
             })
         })
@@ -182,7 +181,7 @@ const ProfileCard = (props)=> {
             <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
-                    <img src={user.userimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage}`} />
+                    <img src={userImage.userimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage}`} />
                     <form className={`edit-image ${imageUpload.status}`} action='/uploads' enctype="multipart/form-data" onSubmit={onSubmit}>
                         <input 
                         type='file'
