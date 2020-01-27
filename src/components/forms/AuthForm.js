@@ -5,11 +5,11 @@ import axios from 'axios'
 import PrivacySection from './PrivacySection'
 
 //oauth button
-import './buttons/OauthButton'
+import './OauthButton'
 
 //styling
 import './forms.scss'
-import OauthButton from './buttons/OauthButton'
+import OauthButton from './OauthButton'
 
 //icons
 import Google from '../../assets/icons/Google.svg'
@@ -22,11 +22,13 @@ const AuthForm = props => {
    //list of companies 
    const companies = [{name:'Google', icon: Google}, {name:'Facebook', icon:Facebook}, {name:'Linkedin', icon:Linkedin}]
 
-   const [usernameError, setUsernameError] = useState(''); 
-   const [passwordError, setPasswordError] = useState('');
-   const [loginError, setLoginError] = useState(''); 
-   const [isLoading, setIsLoading] = useState(false); 
+   //state used for validating form
+   const [usernameError, setUsernameError] = useState('');
+   const [passwordError, setPasswordError] = useState('')
+   const [loginError, setLoginError] = useState('')
+   const [isLoading, setIsLoading] = useState(false)
    const [validated, validate] = useState(false)
+
    const [user, setUser] = useState({username: '', password: ''})
 
 
@@ -88,56 +90,57 @@ const AuthForm = props => {
                         companies.map(company => (<OauthButton action={props.action} company={company.name} icon={company.icon} />))
                     }  
                    </div>
-                   
-                   <div className="centerText">
-                       <div className="line"></div>
-                       <p className="center">or with email</p>
-                       <div className="line"></div>
-                   </div>
 
-                   <div className="fields">
-                       <p className='error'>{usernameError}</p>
-                       <input 
-                            className="email" 
-                            type='text' name='username' 
-                            placeholder="Username" 
-                            value={user.username} 
-                            onChange={onChange}
-                        />
-                       <p className='error'>{passwordError}</p>
-                       <input 
-                            className="password"
-                            type='password'
-                            name='password'
-                            placeholder="Password"
-                            value={user.password}
-                            onChange={onChange}
-                        />
-                       
+                   <div className="bottom-portion">
+                        <div className="centerText">
+                            <div className="line"></div>
+                            <p className="center">or with email</p>
+                            <div className="line"></div>
+                        </div>
 
-                       {    
-                            //if user is signing in display privacy policy checkbox
-                            (props.action === 'register') ? <PrivacySection/> : <div></div>
-                        }
+                        <div className="fields">
+                            <p className='error'>{usernameError}</p>
+                            <input 
+                                    className="email" 
+                                    type='text' name='username' 
+                                    placeholder="Username" 
+                                    value={user.username} 
+                                    onChange={onChange}
+                                />
+                            <p className='error'>{passwordError}</p>
+                            <input 
+                                    className="password"
+                                    type='password'
+                                    name='password'
+                                    placeholder="Password"
+                                    value={user.password}
+                                    onChange={onChange}
+                                />
+                            
 
-                       <button className={`form-button ${props.action}Button`} onClick={() => onSubmit()}>Start exploring cities </button>
+                            {    
+                                    //if user is signing in display privacy policy checkbox
+                                    (props.action === 'register') ? <PrivacySection/> : <div></div>
+                                }
 
-                       <p className='question'>
-                            {
-                                (props.action === 'Login') ? 
-                                `Have an account? ${<Link className='link-signup' to='/signup'>Sign up</Link>} to explore cities`
-                                :
-                                `Have an account? ${<Link className="link-signup" to='/signin'>Sign in</Link>} to explore cities`
-                            }
-                        </p>
-                   </div>
-               </div>
-                
+                            <button className={`form-button ${props.action}Button`} onClick={() => onSubmit()}>Start exploring cities </button>
+
+                            <p className='question'>
+                                    {
+                                        (props.action === 'Login') ? 
+                                        `Have an account? ${<Link className='link-signup' to='/signup'>Sign up</Link>} to explore cities`
+                                        :
+                                        `Have an account? ${<Link className="link-signup" to='/signin'>Sign in</Link>} to explore cities`
+                                    }
+                                </p>
+                        </div>
+                    </div>
+                </div>    
                 {/*Container for photo to be displayed right of form */}
-               <div className={`authFormPhoto ${props.action}Photo`}>
-                   {/*photo*/}
-               </div>
-
+                <div className={`authFormPhoto ${props.action}Photo`}>
+                        {/*photo*/}
+                </div>
+                
            </div>
         
     )

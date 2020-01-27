@@ -10,7 +10,7 @@ import './forms.scss';
 
 //buttons
 import Facebook from './buttons/Facebook.js';
-import Google from './buttons/OauthButton.js/index.js'
+import Google from './OauthButton.js/index.js.js'
 import Linkedin from './buttons/Linkedin';
 
 //modal
