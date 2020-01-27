@@ -1,7 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react'
+import {NavLink}  from "react-router-dom";
 import axios from 'axios'
 import ProfileImage from './icons/profileimage.png'
 import './profile.scss'
+
+
+import AvatarUpload from './AvatarUpload'
 
 
 
@@ -84,7 +88,7 @@ const ProfileCard = (props)=> {
             <div className='profile-contents'>
                 <div className='avatar-tab'>
                     <img src={userImage.userimage === null ? `${ProfileImage}` : `${userImage.userimage}`} />
-                    <button className='edit-avatar-btn'>Edit Picture</button>
+                    <NavLink className='edit-image' to='profile/uploadimage'>Edit Picture</NavLink>
                 </div>
                 <div className='name-tab'>
                     <p>Name</p>

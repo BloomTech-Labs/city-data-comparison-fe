@@ -83,7 +83,7 @@ h1 {
             font-weight: 500;
         }
 
-        button {
+        button, .edit-image {
             background-color: rgba(255, 255, 255, 0);
             font-size: .90rem;
             font-weight: 100;
@@ -91,6 +91,7 @@ h1 {
             width: 100%;
             border: 0px;
             text-align: right;
+            text-decoration: none;
         }
         h2 {
             margin-bottom: 1px;
