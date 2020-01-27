@@ -44,6 +44,15 @@
         border-radius:5px;
     }
 
+    .data-category-titles{
+        color:#2ca4fc;
+        // border:1px solid red;
+        width:100%;
+        font-size:3vw;
+        line-height:0;
+        // background-color:#F4F5FF;
+    }
+
     .chart-title{
         color:#00bfa5;
         margin-top:10px;
@@ -352,7 +361,7 @@
                 }
                 .healthinsurance-label{
                     color:grey;
-                    font-size:14px;
+                    font-size:1.1vw;
                     width:100%;
                     margin-top:10px;
                     text-align:center;
@@ -416,31 +425,33 @@
                     color:#00bfa5;
                     font-size:1.1rem;
                     width:100%;
-                    margin-bottom:25px;
+                    margin-bottom:20px;
                     display:flex;
                     justify-content:space-between;
                 }
 
                 .birth-num{
-                    font-size:2rem;
+                    font-size:2.1rem;
                     display:flex;
                     text-align:center;
                     justify-content:center;
                     align-items:center;
                     padding:0 10px;
-                    margin-left:5px;
 
                     .mothers-num{
                        width:40%;
                         color:black;
+                        text-align:right;
+                        // border:1px solid red;
                     }
 
                     .birth-rate-label{
                         width:60%;
                         color:black;
                         text-align:left;
-                        font-size:.9rem;
-                        margin-left:5px;
+                        font-size:1vw;
+                        margin-left:15px;
+                        // border:1px solid red;
                     }
                 }
                 .birth-label{

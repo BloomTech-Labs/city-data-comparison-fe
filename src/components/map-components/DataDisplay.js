@@ -168,6 +168,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
 
                 <div className="data-category">
+                    <div className="data-category-titles">
+                        <p>Home</p>
+                    </div>
                     <div className="rent-container">
                         <p className="chart-title">Average rent</p>
                         <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
@@ -199,6 +202,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 
 
                 <div className="data-category">
+                    <div className="data-category-titles">
+                        <p>Industry</p>
+                    </div>
                     <div className="industries-container">
                         <p className="chart-title">Job industry</p>
                         <Element name="industries" className="element" ><Industry edData={selected} /></Element>
@@ -239,7 +245,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
 
                 <div className="data-category">
-
+                    <div className="data-category-titles">
+                        <p>Culture</p>
+                    </div>
                     <div className="age-container">
                         <p className="chart-title">Age distribution</p>
                         <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
