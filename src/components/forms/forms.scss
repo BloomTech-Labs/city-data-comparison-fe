@@ -1,5 +1,7 @@
 .authForm{
     //container for left side of form
+    display:flex; 
+    
     .form{
         margin-top: 18vh;
         .formTitle{
@@ -43,12 +45,21 @@
                 .iconContainer{
                     margin-left: 1vw;
                     margin-top: .5vh;
+
+                    @media screen and (min-width: 1040px) {
+                   
+                        margin-left: .4vw;
+                        margin-top: .7vh;
+                
+                }
                 }
 
                 .FacebookName{
                     margin-left:4vw;
                     color:white;
                 }
+
+               
             }
 
             .LinkedinButton{
@@ -58,10 +69,35 @@
                 .iconContainer{
                     margin-top: .5vh;
                     margin-left: 1vw;
+
+                    @media screen and (min-width: 1040px){
+                        margin-top: .6vh;
+                        margin-left: .5vw;
+                    }
                 }
                 .LinkedinName{
                     margin-left:4vw;
                 }
+            }
+
+            //media queries
+
+            @media screen and (min-width:400px) {
+                margin-top:7%;
+                width:70vw;
+            }
+
+            @media screen and (min-width:600px){
+                width:46vw;
+
+            }
+
+            @media screen and (min-width:850px){
+                width: 31vw;
+            }
+
+            @media screen and (min-width:950px){
+                width: 29vw;
             }
 
         }//end of auth container
@@ -97,6 +133,18 @@
                 width: 90vw;
                 margin: auto;
 
+                @media screen and (min-width:600px){
+                    width:65vw;
+                }
+
+                @media screen and (min-width:850px){
+                    width:49vw;
+                }
+
+                @media screen and (min-width:950px){
+                    width:40vw;
+                }
+
                 .email, .password{
                     border-radius: 10px;
                     border: 1px solid rgb(201, 201, 201); 
@@ -120,6 +168,8 @@
                     }
                 }
             }
+
+           
 
         }
 

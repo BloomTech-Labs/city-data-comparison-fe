@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import PrivacySection from './PrivacySection'
+import city from '../../assets/illustrations/city_illustration.jpg'
 
 //oauth button
 import './OauthButton'
@@ -81,7 +82,7 @@ const AuthForm = props => {
                {/*Container for left side of forms */}
                <div className="form">
 
-                   <h2 className="formTitle">{(props.action === 'login') ? 'Welcome Back!' : 'Create Your Account'}</h2>
+                   <h2 className="formTitle">{(props.action === 'Login') ? 'Welcome Back!' : 'Create Your Account'}</h2>
 
                     {/*container for auth buttons */}
                    <div className="auth">
@@ -121,7 +122,7 @@ const AuthForm = props => {
 
                        {    
                             //if user is signing in display privacy policy checkbox
-                            (props.action === 'register') ? <PrivacySection/> : <div></div>
+                            (props.action === 'Register') ? <PrivacySection/> : <div></div>
                         }
 
                        <button className={`formButton ${props.action}Button`} onClick={() => onSubmit()}>Start exploring cities </button>
@@ -140,7 +141,7 @@ const AuthForm = props => {
                 
                 {/*Container for photo to be displayed right of form */}
                <div className={`authFormPhoto ${props.action}Photo`}>
-                   {/*photo*/}
+                   <img className="loginPhoto" src={city}/>
                </div>
 
            </div>
