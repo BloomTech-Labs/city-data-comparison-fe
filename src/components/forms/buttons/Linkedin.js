@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios'; 
 
 //stylesheet
-import './styles/linkedin.scss'
+// import './styles/linkedin.scss'
 //assets
 import linkedin from '../../../assets/icons/linkedin.svg'; 
 
