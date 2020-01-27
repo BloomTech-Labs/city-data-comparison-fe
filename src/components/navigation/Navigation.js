@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Link } from "react-router-dom";
 import citrics from './citrics-mock.png'
 import lock from './lock.svg'
@@ -13,6 +13,7 @@ function Navigation(){
      const [offset, setOffset] = useState(0);
      const [displayNav, setDisplayNav] = useState('show-nav')
      const [bgColor, setBgColor] = useState('default-color')
+     const [fixedClass, setFixedClass] = useState("")
      const defaultNavigation = () => {
           setBgColor('default-color')
           if (offset === 0 ){
@@ -23,6 +24,14 @@ function Navigation(){
                }
           }
      }
+
+     useEffect( _ => {
+          if (window.location.href.includes("map")) {
+               setFixedClass("unfixed")
+          } else {
+               setFixedClass("")
+          }
+     },[window.location])
 
      let styles={
           float:"right"
