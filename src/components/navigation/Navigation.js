@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Link } from "react-router-dom";
 import citrics from './citrics-mock.png'
 import lock from './lock.svg'
@@ -23,6 +23,14 @@ function Navigation(){
                }
           }
      }
+
+     useEffect( _ => {
+          if (window.location.href.includes("map")) {
+               setFixedClass("unfixed")
+          } else {
+               setFixedClass("")
+          }
+     },[window.location])
 
      let styles={
           float:"right"
