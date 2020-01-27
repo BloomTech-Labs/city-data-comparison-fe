@@ -3,6 +3,7 @@ import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 import './map-components/Map.scss';
 import ReactGA from "react-ga"
+import Footer from './navigation/Footer'
 
 import Markers from "./map-components/Markers";
 import MapFooter from "./map-components/MapFooter";
@@ -120,7 +121,7 @@ const selectSearch = cityMarker =>  {
               setViewport={setViewport}
               cityIndex={cityIndex}
             />
-          <MapFooter />
+          <Footer />
           </div>
       );
     }

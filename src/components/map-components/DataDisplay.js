@@ -1,6 +1,7 @@
 import  React, {useState} from "react";
 import { Link, Element } from 'react-scroll'
 import ReactGA from "react-ga";
+import Footer from '../navigation/Footer'
 
 import MapSearch from "./MapSearch";
 import LineGraph from "../graphs/housing/House_price";
@@ -116,7 +117,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             {selected.length > 0 
                             ? <div className="anchor-nav">
                                 {/* <p className="anchor-header">General Statistics</p> */}
-                                <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} >First impressions</Link>
+                                <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} >City overview</Link>
                                 <p className="anchor-header">Housing</p>
                                 <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
                                 <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} >Owner Costs</Link>
@@ -168,7 +169,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 </div>
 
 
-                <div className="data-category">
+                <div className="data-category special-margins">
                     {/* <div className="data-category-titles">
                         <p className="data-category-header">Housing</p>
                         <p className="data-category-subtitle">View the comprehensive picture of housing in American cities.</p>
