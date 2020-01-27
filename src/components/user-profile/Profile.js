@@ -5,6 +5,7 @@ import { CityContext } from "../../contexts/CityContext"
 
 import './profile.scss'
 
+import AvatarUpload from './AvatarUpload'
 import Favorites from './Favorites'
 import Preferences from './Preferences'
 import Settings from './Settings'
@@ -16,7 +17,8 @@ function Profile({selected}) {
     
     const {user, setUser} = useContext(CityContext);
     console.log('Current user state',user)
-
+    
+    
     
     
     return (
@@ -26,6 +28,7 @@ function Profile({selected}) {
             <Route path='/profile/favorites' render={_ => <Favorites selected={selected} />} />
             <Route path='/profile/preferences' render={_ => <Preferences selected={selected} />} />
             <Route path='/profile/settings' render={_ => <Settings selected={selected} />} />
+            <Route exact path='/profile/uploadimage' render={_ => <AvatarUpload/>} />
         </div>
     )
 }

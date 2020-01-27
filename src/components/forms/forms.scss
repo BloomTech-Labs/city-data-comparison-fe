@@ -1,9 +1,12 @@
 .authForm{
     //container for left side of form
     display:flex; 
+    margin: 10%; 
 
     .form{
         margin-top: 18vh;
+        margin: auto;
+
         .formTitle{
             text-align: center;
         }
@@ -100,6 +103,33 @@
                 width: 29vw;
             }
 
+            @media screen and (min-width: 1500px){
+                width:40vh;
+            }
+
+            @media screen and (min-width: 2000px){
+                width: 35vh; 
+                font-size: 1.4rem;
+
+                .GoogleButton{
+                    .GoogleName{
+                        margin-left: 3vw;
+                    }
+                }
+
+                .LinkedinButton{
+                    .LinkedinName{
+                        margin-left: 3vw;
+                    }
+                }
+
+                .FacebookButton{
+                    .FacebookName{
+                        margin-left:3vw;
+                    }
+                }
+            }
+
         }//end of auth container
 
         //container for every thing below the oauth buttons
@@ -145,6 +175,10 @@
                     width:40vw;
                 }
 
+                @media screen and (min-width:1500px){
+                    width:30vw;
+                }
+
                 .email, .password{
                     border-radius: 10px;
                     border: 1px solid rgb(201, 201, 201); 
@@ -165,7 +199,8 @@
                     background: #3999FC;
                     color:white; 
                     padding: 3% 2%;
-                    margin-top: 3%;
+                    margin-top: 3%;        
+                    font-size: 1.2rem;
 
                     &:hover{
                         color: #3999FC;
@@ -185,7 +220,19 @@
         width: 50%; 
         display:none;
 
-            
+            img{
+                width:100%;
+            }
+
+            @media screen and (min-width:1000px){
+                display:block;
+                
+                img{
+                    margin-top: 12vh;
+                    margin-left: 5vw;
+                }
+                
+            }
         }
 }
 
