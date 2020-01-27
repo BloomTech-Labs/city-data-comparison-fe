@@ -39,7 +39,7 @@ const AuthForm = props => {
                 .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action}`, user)
                 .then(res => {
                     setIsLoading(false)
-                    sessionStorage.setItem('userId', res.data.id)
+                    localStorage.getItem('userId', res.data.id)
                     console.log(res)
 
                     //redirect user to home
@@ -127,14 +127,14 @@ const AuthForm = props => {
 
                        <button className={`formButton ${props.action}Button`} onClick={() => onSubmit()}>Start exploring cities </button>
 
-                       <p className='question'>
+                       <div className='question'>
                             {
                                 (props.action === 'Login') ? 
-                                `Have an account? ${<Link className='link-signup' to='/signup'>Sign up</Link>} to explore cities`
+                                <div><p>Have an account?  </p> <Link className='link-signup' to='/signup'> Sign up </Link> <p>  to explore cities</p></div>
                                 :
-                                `Have an account? ${<Link className="link-signup" to='/signin'>Sign in</Link>} to explore cities`
+                               <div> <p>Have an account?  </p> <Link className="link-signup" to='/signin'> Login </Link> <p>  to explore cities</p> </div>
                             }
-                        </p>
+                        </div>
                    </div>
                    </div>
                </div>

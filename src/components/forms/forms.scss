@@ -1,7 +1,7 @@
 .authForm{
     //container for left side of form
     display:flex; 
-    
+
     .form{
         margin-top: 18vh;
         .formTitle{
@@ -104,7 +104,7 @@
 
         //container for every thing below the oauth buttons
         .bottomPortion{
-            width:95vw;
+            width:100%;
             margin:auto;
             
 
@@ -130,7 +130,7 @@
             }//end of centertext
 
             .fields{
-                width: 90vw;
+                width: 90%;
                 margin: auto;
 
                 @media screen and (min-width:600px){
@@ -150,6 +150,11 @@
                     border: 1px solid rgb(201, 201, 201); 
                     padding: 3.5% 2%; 
                     width:100%;
+                }
+
+                .question div{
+                    display:flex;
+                    align-items: center;
                 }
 
                 .formButton{
@@ -174,6 +179,14 @@
         }
 
     }//end of form container
+
+    
+    .authFormPhoto{
+        width: 50%; 
+        display:none;
+
+            
+        }
 }
 
 
