@@ -124,13 +124,13 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("rooms")} activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} >Rooms</Link>
                                 <Link onClick={() => dataNavClicked("vacancy")} id="nav-spacing" activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} >Vacancy</Link>
                                 
-                                <p className="anchor-header">Jobs</p>
-                                <Link onClick={() => dataNavClicked("industries")} activeClass="active" className="anchor-link" to="industries" spy={true} smooth={true} duration={500} >Industries</Link>
+                                <p className="anchor-header">Industry</p>
+                                <Link onClick={() => dataNavClicked("industries")} activeClass="active" className="anchor-link" to="industries" spy={true} smooth={true} duration={500} >Job industry</Link>
                                 <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} >Health Insurance</Link>
                                 <Link onClick={() => dataNavClicked("salary")} activeClass="active" className="anchor-link" to="salary" spy={true} smooth={true} duration={500} >Salary</Link>
                                 <Link onClick={() => dataNavClicked("travelTime")} activeClass="active" className="anchor-link" to="travelTime" spy={true} smooth={true} duration={500} >Travel Time to Work</Link>
                                 <Link onClick={() => dataNavClicked("commute")} activeClass="active" className="anchor-link" to="commute" spy={true} smooth={true} duration={500} >Commute</Link>
-                                <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} >retirement</Link>
+                                <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} >Retirement</Link>
                                 <Link onClick={() => dataNavClicked("unemploymentRate")} id="nav-spacing" activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} >Unemployment Rate</Link>
 
                                 <p className="anchor-header">Culture</p>
@@ -169,7 +169,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                 <div className="data-category">
                     <div className="data-category-titles">
-                        <p>Home</p>
+                        <p className="data-category-header">Housing</p>
+                        <p className="data-category-subtitle">View the comprehensive picture of housing in American cities.</p>
                     </div>
                     <div className="rent-container">
                         <p className="chart-title">Average rent</p>
@@ -203,7 +204,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                 <div className="data-category">
                     <div className="data-category-titles">
-                        <p>Industry</p>
+                        <p className="data-category-header">Industry</p>
+                        <p className="data-category-subtitle">Explore optimized industry metrics.</p>
                     </div>
                     <div className="industries-container">
                         <p className="chart-title">Job industry</p>
@@ -246,7 +248,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                 <div className="data-category">
                     <div className="data-category-titles">
-                        <p>Culture</p>
+                        <p className="data-category-header">Culture</p>
+                        <p className="data-category-subtitle">Get a bird's eye view of your selected city's community.</p>
                     </div>
                     <div className="age-container">
                         <p className="chart-title">Age distribution</p>

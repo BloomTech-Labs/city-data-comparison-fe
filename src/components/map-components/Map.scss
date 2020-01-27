@@ -39,18 +39,35 @@
 
     .data-category {
         width:98%;
-        margin: 0;
-        margin-top:50px;
+        margin: 15% 0;
         border-radius:5px;
     }
 
     .data-category-titles{
-        color:#2ca4fc;
-        // border:1px solid red;
+        text-align:center;
+        background-color:white;
+        padding:15px;
+        padding-top:0px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         width:100%;
-        font-size:3vw;
-        line-height:0;
-        // background-color:#F4F5FF;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+
+        .data-category-header{
+            font-size:3rem;
+            margin-top:20px;
+            margin-bottom:0;
+            color:#00bfa5;
+        }
+
+        .data-category-subtitle{
+            font-size:14px;
+            width:80%;
+            color:grey;
+            margin-top:0;
+        }
     }
 
     .chart-title{
