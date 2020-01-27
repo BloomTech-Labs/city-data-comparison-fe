@@ -1,5 +1,5 @@
-import  React, {useState, useEffect} from "react";
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import  React, {useState} from "react";
+import { Link, Element } from 'react-scroll'
 import ReactGA from "react-ga";
 
 import MapSearch from "./MapSearch";
@@ -23,7 +23,7 @@ import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 import BirthRateCard from "../graphs/culture/birthRateCard"
 
-const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch}) => {
+const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
     const [menu, setMenu] = useState({status: 'closed'})
 
@@ -35,7 +35,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     // fixed sidebar handling
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
-    var height = document.body.scrollHeight;
     if (stickynav) {
         // This line handles the offset from the main nav bar - If we unfix the main nav bar
         // (i believe we will) - the subtraction will be unnecessary.
@@ -112,33 +111,34 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             viewport={viewport}
                             setViewport={setViewport}  
                             selectSearch={selectSearch}
+                            cityIndex={cityIndex}
                             />
                             {selected.length > 0 
                             ? <div className="anchor-nav">
-                                <h4 className="anchor-header">General Statistics</h4>
-                                <Link onClick={() => dataNavClicked("generalStats")} activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} >General Statistics</Link>
-                                <h4 className="anchor-header">Housing</h4>
+                                {/* <p className="anchor-header">General Statistics</p> */}
+                                <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} >First impressions</Link>
+                                <p className="anchor-header">Housing</p>
                                 <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
                                 <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} >Owner Costs</Link>
                                 <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} >Rent</Link>
                                 <Link onClick={() => dataNavClicked("rooms")} activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} >Rooms</Link>
-                                <Link onClick={() => dataNavClicked("vacancy")} activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} >Vacancy</Link>
+                                <Link onClick={() => dataNavClicked("vacancy")} id="nav-spacing" activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} >Vacancy</Link>
                                 
-                                <h4 className="anchor-header">Jobs</h4>
+                                <p className="anchor-header">Jobs</p>
                                 <Link onClick={() => dataNavClicked("industries")} activeClass="active" className="anchor-link" to="industries" spy={true} smooth={true} duration={500} >Industries</Link>
                                 <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} >Health Insurance</Link>
                                 <Link onClick={() => dataNavClicked("salary")} activeClass="active" className="anchor-link" to="salary" spy={true} smooth={true} duration={500} >Salary</Link>
                                 <Link onClick={() => dataNavClicked("travelTime")} activeClass="active" className="anchor-link" to="travelTime" spy={true} smooth={true} duration={500} >Travel Time to Work</Link>
                                 <Link onClick={() => dataNavClicked("commute")} activeClass="active" className="anchor-link" to="commute" spy={true} smooth={true} duration={500} >Commute</Link>
                                 <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} >retirement</Link>
-                                <Link onClick={() => dataNavClicked("unemploymentRate")} activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} >Unemployment Rate</Link>
+                                <Link onClick={() => dataNavClicked("unemploymentRate")} id="nav-spacing" activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} >Unemployment Rate</Link>
 
-                                <h4 className="anchor-header">Culture</h4>
+                                <p className="anchor-header">Culture</p>
                                 <Link onClick={() => dataNavClicked("education")} activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} >Education</Link>
                                 <Link onClick={() => dataNavClicked("ethnicity")} activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} >Ethnicity</Link>
                                 <Link onClick={() => dataNavClicked("birthRate")} activeClass="active" className="anchor-link" to="birthRate" spy={true} smooth={true} duration={500} >Birth Rate</Link>
                                 <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} >Population</Link>
-                                <Link onClick={() => dataNavClicked("ageDistribution")} activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} >Age Distribution</Link>
+                                <Link onClick={() => dataNavClicked("ageDistribution")} id="nav-spacing" activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} >Age Distribution</Link>
 
                             </div>
                             : null}
@@ -161,7 +161,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
             <div className="data-by-category">
                 {selected.length > 0 
                 ? <> 
-                <div className="housing-graphs data-category">
+                <div className="data-category">
                     <h3>General Statistics:</h3>
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                     <h3>Housing:</h3>
@@ -173,7 +173,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 </div> 
                 
 
-                <div className="jobs-graphs data-category">
+                <div className="data-category">
                     <h3>Job Market:</h3>
                     <Element name="industries" className="element" ><Industry edData={selected} /></Element>
                     <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
@@ -184,7 +184,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
 
                 </div>
-                <div className="culture-graphs data-category">
+                <div className="data-category">
                     <h3>Cultural Statistics:</h3>     
                     <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
                     <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>

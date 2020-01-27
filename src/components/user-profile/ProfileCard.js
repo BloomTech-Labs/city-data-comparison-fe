@@ -18,6 +18,15 @@ const ProfileCard = (props)=> {
     const [imagetest, setTest] = useState({usersimage:null, users_id: sessionStorage.getItem('id')})
     console.log(userImage)
 
+    const getLoggedInUser = () => {
+        const user = localStorage.getItem('user');
+
+        if(user){
+            console.log(JSON.parse(user));
+            setUserInfo(JSON.parse(user))
+        } 
+    }
+
     const handleChange = e => {
         setUserInfo({
             ...userInfo,
@@ -78,6 +87,7 @@ const ProfileCard = (props)=> {
     //User information axios call
     
     useEffect(() => {
+        /*
         axios
             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
             .then(res => {
@@ -100,6 +110,7 @@ const ProfileCard = (props)=> {
             .catch(err => {
                 console.error('Unable to get user information', err);
             });
+
     },[]);
 
     
@@ -117,6 +128,7 @@ const ProfileCard = (props)=> {
                 console.log('Unable to get user information', err);
             });
     }
+
 
     const postImage = () => {
         axios
