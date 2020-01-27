@@ -31,6 +31,7 @@
     "react-scripts": "3.3.0",
     "react-scroll": "^1.7.16",
     "styled-components": "^4.4.1",
+    "tether-drop": "^1.4.2",
     "yup": "^0.28.0"
   },
   "scripts": {

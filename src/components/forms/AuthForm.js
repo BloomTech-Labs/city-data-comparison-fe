@@ -76,12 +76,12 @@ const AuthForm = props => {
 
     return(
            
-           <div className={props.action}>
+           <div className='authForm'>
 
                {/*Container for left side of forms */}
                <div className="form">
 
-                   <h2 className="form-title">{(props.action === 'login') ? 'Welcome Back!' : 'Create Your Account'}</h2>
+                   <h2 className="formTitle">{(props.action === 'login') ? 'Welcome Back!' : 'Create Your Account'}</h2>
 
                     {/*container for auth buttons */}
                    <div className="auth">
@@ -91,56 +91,58 @@ const AuthForm = props => {
                     }  
                    </div>
 
-                   <div className="bottom-portion">
-                        <div className="centerText">
-                            <div className="line"></div>
-                            <p className="center">or with email</p>
-                            <div className="line"></div>
-                        </div>
+                   <div className="bottomPortion">
+                   
+                   <div className="centerText">
+                       <div className="line"></div>
+                       <p className="center">or with email</p>
+                       <div className="line"></div>
+                   </div>
 
-                        <div className="fields">
-                            <p className='error'>{usernameError}</p>
-                            <input 
-                                    className="email" 
-                                    type='text' name='username' 
-                                    placeholder="Username" 
-                                    value={user.username} 
-                                    onChange={onChange}
-                                />
-                            <p className='error'>{passwordError}</p>
-                            <input 
-                                    className="password"
-                                    type='password'
-                                    name='password'
-                                    placeholder="Password"
-                                    value={user.password}
-                                    onChange={onChange}
-                                />
-                            
+                   <div className="fields">
+                       <p className='error'>{usernameError}</p>
+                       <input 
+                            className="email" 
+                            type='text' name='username' 
+                            placeholder="Username" 
+                            value={user.username} 
+                            onChange={onChange}
+                        />
+                       <p className='error'>{passwordError}</p>
+                       <input 
+                            className="password"
+                            type='password'
+                            name='password'
+                            placeholder="Password"
+                            value={user.password}
+                            onChange={onChange}
+                        />
+                       
 
-                            {    
-                                    //if user is signing in display privacy policy checkbox
-                                    (props.action === 'register') ? <PrivacySection/> : <div></div>
-                                }
+                       {    
+                            //if user is signing in display privacy policy checkbox
+                            (props.action === 'register') ? <PrivacySection/> : <div></div>
+                        }
 
-                            <button className={`form-button ${props.action}Button`} onClick={() => onSubmit()}>Start exploring cities </button>
+                       <button className={`form-button ${props.action}Button`} onClick={() => onSubmit()}>Start exploring cities </button>
 
-                            <p className='question'>
-                                    {
-                                        (props.action === 'Login') ? 
-                                        `Have an account? ${<Link className='link-signup' to='/signup'>Sign up</Link>} to explore cities`
-                                        :
-                                        `Have an account? ${<Link className="link-signup" to='/signin'>Sign in</Link>} to explore cities`
-                                    }
-                                </p>
-                        </div>
-                    </div>
-                </div>    
-                {/*Container for photo to be displayed right of form */}
-                <div className={`authFormPhoto ${props.action}Photo`}>
-                        {/*photo*/}
-                </div>
+                       <p className='question'>
+                            {
+                                (props.action === 'Login') ? 
+                                `Have an account? ${<Link className='link-signup' to='/signup'>Sign up</Link>} to explore cities`
+                                :
+                                `Have an account? ${<Link className="link-signup" to='/signin'>Sign in</Link>} to explore cities`
+                            }
+                        </p>
+                   </div>
+                   </div>
+               </div>
                 
+                {/*Container for photo to be displayed right of form */}
+               <div className={`authFormPhoto ${props.action}Photo`}>
+                   {/*photo*/}
+               </div>
+
            </div>
         
     )

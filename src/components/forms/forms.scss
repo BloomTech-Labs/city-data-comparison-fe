@@ -1,10 +1,63 @@
-.auth{
-    border: 1px solid pink; 
+.authForm{
+    //container for left side of form
+    .form{
+        margin-top: 15vh;
+        .formTitle{
+            text-align: center;
+        }
+        
+
+        //container for oauth buttons
+        .auth{
+            border: 1px solid pink; 
+            width: 85vw;
+            margin: auto;
+
+
+            //styles that apply to all oauth buttons
+            .oauthButton{
+                border: 1px solid green; 
+                border-radius: 5px; 
+                display: flex;
+                margin: 1vh 0;
+                height: 7vh;
+            }
+
+
+        }//end of auth container
+
+        //container for every thing below the oauth buttons
+        .bottomPortion{
+            width:95vw;
+            margin:auto;
+            
+
+            //container for lines with text 
+            .centerText{
+                display:flex;
+                align-items: center;
+                width:100%;
+                justify-content: center;
+
+                //text "or with email"
+                .center{
+                    margin: 0 4vw; 
+                    font-size:.8rem;
+                }
+
+                //gray lines
+                .line{
+                height: .5px;
+                border: .4px solid gray;
+                width: 28%;
+                }
+            }//end of centertext
+
+
+        }
+
+    }//end of form container
 }
 
 
-.oauthButton{
-    border: 1px solid green; 
-    display: flex;
-    height: 7vh;
-}
+

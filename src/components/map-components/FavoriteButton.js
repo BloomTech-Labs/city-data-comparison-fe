@@ -9,16 +9,31 @@ import {CityContext} from '../../contexts/CityContext';
 import FavCard from './FavCard';
 import Axios from 'axios';
 
+import Drop from 'tether-drop';
+
+
 const FavoriteButton = props => {
 
     const {selected} = useContext(CityContext)
     const [hover, setHover] = useState(false)
     const [saving, setSaving] = useState(false)
-    const id = sessionStorage.getItem('userId')
+
+    const favRef = React.createRef();
+
+    window.onload = () => {
+        const popup = new Drop({
+        target: favRef.current,
+        content: 'hello world!',
+        position: 'top center',
+        openOn: 'hover'
+        })
+    }
+     
+    
     
     const saveFavorites = () => {
         Axios
-            .post(`https://citrics-staging.herokuapp.com/api/favs/${id}`, selected)
+            .post(`https://citrics-staging.herokuapp.com/api/favs/`, selected)
             .then(response => {
                 
                 console.log(response)
@@ -28,7 +43,7 @@ const FavoriteButton = props => {
     }
 
     return(
-        <div className="favContainer">
+        <div className="favContainer" >
            {(hover ) ? <FavCard/> : <div></div> } 
             <div className="heartButtonContainer" 
                 style={{
@@ -37,13 +52,8 @@ const FavoriteButton = props => {
                 }}>
             
                 <div className="heart-button" 
-                    onMouseLeave={ () => setHover(false) } 
-                    onClick={ () => {
-                        setSaving(true)
-                        saveFavorites()
-                    }}
-                    onMouseEnter={() =>{ 
-                        setHover(true)}} style={{
+                    ref={favRef}
+                    style={{
                         'display': 'flex',
                         'cursor' : 'pointer',
                         'alignItems' : 'center',
@@ -55,7 +65,8 @@ const FavoriteButton = props => {
                         'fontWeight': '500',
                         'marginLeft' : 'auto'
                     
-                    }}>
+                    }}
+                    >
                         <img src={(hover) ? filled_heart : heart_icon} alt='add to favorites'/>
                         <p>Favorites</p>
                 </div>
@@ -65,3 +76,14 @@ const FavoriteButton = props => {
 }
 
 export default FavoriteButton; 
+
+/*
+
+onMouseLeave={ () => setHover(false) } 
+                    onClick={ () => {
+                        setSaving(true)
+                        saveFavorites()
+                    }}
+                    onMouseEnter={() =>{ 
+                        setHover(true)}} 
+*/
