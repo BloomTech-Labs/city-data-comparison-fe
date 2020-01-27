@@ -162,15 +162,15 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 {selected.length > 0 
                 ? <> 
                 <div className="data-category">
-                    <p>General Statistics:</p>
+                    {/* <p>General Statistics:</p> */}
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                 </div>
 
 
                 <div className="data-category">
                     <div className="data-category-titles">
-                        <p className="data-category-header">Housing</p>
-                        <p className="data-category-subtitle">View the comprehensive picture of housing in American cities.</p>
+                        {/* <p className="data-category-header">Housing</p>
+                        <p className="data-category-subtitle">View the comprehensive picture of housing in American cities.</p> */}
                     </div>
                     <div className="rent-container">
                         <p className="chart-title">Average rent</p>
