@@ -54,7 +54,7 @@ const Favorites = ()=> {
     };
 
     return (
-        <div className="element">
+        <div className="favorites">
             <h2>Favorites Page</h2>
                     <GeneralStats ethData={savedCities}/>
         </div>
