@@ -1,56 +1,48 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {Link} from "react-router-dom"
+import LineGraph from '../graphs/PieGraph'
+import LineGraph2 from '../graphs/TwoGraph'
+import RadarGraph from '../graphs/RadarGraph'
+import ReactGA from "react-ga";
 
-import graph from './assets/graph.svg'
 import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
 import data from './assets/data_visual.svg'
 import control from './assets/control_data.svg'
+
+import landing from './assets/landing2.jpg'
+
+import backwheel from "./assets/motorbike_back_wheel.png"
+import edgeblur from "./assets/edge_blur.png"
+import driver from "./assets/motorbike_driver.png"
+import frontwheel from "./assets/motorbike_front_wheel.png"
+import plant from "./assets/motorbike_plant.png"
 
 
 import { CityContext } from '../../contexts/CityContext';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import "../../App.scss"
 
-function Dashboard(){
+function Dashboard({history}){
 
      AOS.init()
-     const { cityMarkers, selected, setSelected, viewport, setViewport } = useContext(CityContext)
+     const { cityMarkers, selected, setSelected, cityIndex, viewport, setViewport, getCity, getCities, getBestSuggestion, getBestSuggestions } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
-     const [search, setSearch] = useState("")
-
-     const [suggestions, setSuggestions] = useState([]);
      const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
      const [cityTwoSuggestions, setCityTwoSuggestions] = useState([]);
-
-     const searchChange= e => {
-          const searchText = e.target.value;
-          searchText
-          ? setSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
-          : setSuggestions([]);
-          setSearch(searchText)
-      };
       
-      const chooseSuggestion = city => {
-          setSearch(city.name.replace(" city", ""));
-          selectSearch(city);
-          setSuggestions([]);
-          setViewport({
-              ...viewport,
-              longitude: city.lng,
-              latitude: city.lat
-            })  
-      }
-
-
+   useEffect( _ => {
+          ReactGA.event({ category: 'Selected', 
+          action: 'selected a city using dashboard' });
+     }, [selected])
       
-      const selectSearch = cityMarker =>  {
-          console.log(cityMarker);
-          if (selected.find(item => item === cityMarker)) {
+     const selectSearch = async cityMarker =>  {
+          if (selected.find(item => item._id === cityMarker.ID)) {
               return;
           } else {
-              setSelected([...selected, cityMarker]);
+              getCity(cityMarker);
           }
         }
 
@@ -60,10 +52,20 @@ function Dashboard(){
           cityTwo:""
      })
 
+     const topPopFilter = arr => {
+          let sorted = arr.sort((city1, city2) => city2.population - city1.population);
+          if (sorted.length > 5) {
+            sorted = sorted.slice(0,5)
+          }
+          return sorted;
+        }
+
      const handleCityOne = e => {
           const searchText = e.target.value
           searchText
-          ? setCityOneSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
+          ? setCityOneSuggestions(topPopFilter(cityIndex.filter(
+               city => 
+               city.name.toLowerCase().includes(searchText.toLowerCase()))))
           : setCityOneSuggestions([]);
           setCompare({
                ...compare,
@@ -74,7 +76,9 @@ function Dashboard(){
      const handleCityTwo = e => {
           const searchText = e.target.value
           searchText
-          ? setCityTwoSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
+          ? setCityTwoSuggestions(topPopFilter(cityIndex.filter(
+               city => 
+               city.name.toLowerCase().includes(searchText.toLowerCase()))))
           : setCityTwoSuggestions([]);
           setCompare({
                ...compare,
@@ -87,7 +91,7 @@ function Dashboard(){
                ...compare,
                cityOne:city.name.replace(" city", "")
           })
-          selectSearch(city);
+          // selectSearch(city);
           setCityOneSuggestions([]);
           setViewport({
               ...viewport,
@@ -100,7 +104,7 @@ function Dashboard(){
                ...compare,
                cityTwo:city.name.replace(" city", "")
           })
-          selectSearch(city);
+          // selectSearch(city);
           setCityTwoSuggestions([]);
           setViewport({
                ...viewport,
@@ -111,82 +115,225 @@ function Dashboard(){
 
 
      //* SUBMIT SEARCH */
-     const submitCity = (event) => {
+     const submitCity = async (event) => {
           event.preventDefault();
-          console.log(cityMarkers)
-          selectSearch(cityMarkers.filter(city => city.name.replace(" city", "").toLowerCase().includes(search.toLowerCase())))
+          // all the below logic should be pulled into app.js and handle things on that end i think
+               if ( compare.cityTwo === "") {
+                    getCity(cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne));
+                    history.push("/map");
+                    return;
+               }
+               if ( compare.cityOne === "") {
+                    getCity(cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo));
+                    history.push("/map");
+                    return;
+               }
+               let found = cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne)
+               let found2 = cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo)
+               if (found && found2) {
+                    getCities([found, found2]);              
+                    // the viewport set below will require zoom handling based on population
+                    setViewport({
+                         ...viewport,
+                         longitude: found.lng,
+                         latitude: found.lat
+                    })
+               } 
+               else if (found && !found2) {
+                    getCities([found, compare.cityTwo]);
+                   
+               } else if (!found && found2) {
+                    getCities([compare.cityOne, found2]);
+               }
+               // if you don't enter the cities by name it goes to the sug
+               else {
+                    ReactGA.event({ category: 'Data', 
+                    action: `used suggestion endpoint: ${compare.cityOne}` });
+                    await getBestSuggestions([compare.cityOne, compare.cityTwo]);
+               }
+          history.push("/map");
      }
      
-     const submitCities = (event) => {
-          event.preventDefault();
-          console.log(compare)
+     //* TOGGLING BUTTONS */
+     const [buttonClass, setButtonClass] = useState("")
+     const [toggleSearch, setToggleSearch] = useState(true)
+
+     const toggleClass = () => {
+          if(buttonClass === "search-toggle-green"){
+               setButtonClass("")
+               setToggleSearch(true)
+          } else {
+               setButtonClass("search-toggle-green")
+               setToggleSearch(!toggleSearch)
+          }
      }
 
-
+     const toggleStyle = {
+          marginLeft: "15px",
+          fontSize:"1.1rem",
+          color:"grey",
+          color: buttonClass === "search-toggle-green" ? "" : "search-toggle-green"
+     }
 
 
      return(
           <div className="dashboard-container">
-               {/* SEARCH FUNCTION */}
+
+               {/* * LANDING PAGE AND SEARCH FUNCTION */}
                <div className="dashboard-search-container">
-                    <div className="slanted-san-francisco"></div>
-                    {/* <div className="slanted-blue-one"></div> */}
-                    <div className="search-function"
-                         data-aos="fade-down"
-                         data-aos-offset="200"
-                         data-aos-delay="50"
-                         data-aos-duration="1000"
-                         data-aos-easing="ease-in-out"
-                         data-aos-mirror="true"
-                         data-aos-once="true"
-                    >
-                         <h1>Choice is YOURS</h1>
-                         <p className="cities-description">Search for a city:</p>
-
-
-                         
-                         <form onSubmit={submitCity}>
-
-                                   <div>
-                                        <input 
-                                        placeholder="San Francisco, CA"
-                                        onChange={searchChange}
-                                        value={search}
-                                        />
-                                        <Link to="map/jobs/standards"><button type="submit" className="search-city-button">Go</button></Link>
+                    <div className="dashboard-search-function">
+                         {/* TITLE */}
+                         <p className="dashboard-title">Make Your Move.</p>
+                         {/* SEARCH CONTAINER */}
+                         <div className="dashboard-function-container">
+                              {/* TOGGLE SEARCH VS. COMPARE FUNCTIONALITY */}
+                              { toggleSearch ? 
+                              <div className="dashboard-single-search-container">
+                                   <form autoComplete="off" onSubmit={submitCity}>
                                         <div>
-                                             
-
-                                             {suggestions.map( (suggestion) => {
-                                                  const style = {
-                                                       backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                       cursor: "pointer",
-                                                       fontSize:"1rem",
-                                                       textAlign:"left",
-                                                       padding:"10px",
-                                                       boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
-                                                  }
-                                                  return <div key={suggestion._id} style={style} onClick={() => chooseSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
-                                             })}
+                                             <input 
+                                             placeholder="Search for a city"
+                                             onChange={handleCityOne}
+                                             value={compare.cityOne}
+                                             name="cityOne"
+                                             />
+                                             <div>
+                                                  {cityOneSuggestions.map( (suggestion) => {
+                                                       const style = {
+                                                            backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                            cursor: "pointer",
+                                                            fontSize:"1rem",
+                                                            textAlign:"left",
+                                                            padding:"10px",
+                                                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
+                                                       }                                                       
+                                                       return <div key={suggestion._id} name="cityOne" style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                  })}
+                                             </div>
                                         </div>
+                                   </form>
+                              </div>
+
+                              :
+
+                              <div className="dashboard-compare-search-container">
+                                   <form autoComplete="off" onSubmit={submitCity}>
+                                        <div>
+                                             <input 
+                                             placeholder="Enter city one"
+                                             onChange={handleCityOne}
+                                             value={compare.cityOne}
+                                             name="cityOne"
+                                             />                 
+                                             <div>
+                                                  {cityOneSuggestions.map( (suggestion) => {
+                                                       const style = {
+                                                            backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                            cursor: "pointer",
+                                                            fontSize:"1rem",
+                                                            textAlign:"left",
+                                                            padding:"10px",
+                                                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
+                                                       }
+                                                       return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                  })}
+                                             </div>
+                                        </div>
+                                        <div>
+                                             <input 
+                                             placeholder="Enter city two"
+                                             onChange={handleCityTwo}
+                                             value={compare.cityTwo}
+                                             />
+                                             <div>
+                                                  {cityTwoSuggestions.map( (suggestion) => {
+                                                       const style = {
+                                                            backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                            cursor: "pointer",
+                                                            fontSize:"1rem",
+                                                            textAlign:"left",
+                                                            padding:"10px",
+                                                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
+                                                       }
+                                                       return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                  })}
+                                             </div>
+                                        </div>
+                                   </form>
+                              </div>
+                              }
+
+                              {/* * TOGGLE DIV FOR SEARCH AND GO BUTTON */}
+                              <div className="toggle-div">
+                                   <div id="search-toggle">
+                                        <label className="switch">
+                                             <input type="checkbox"
+                                             onClick={toggleClass}
+                                             />
+                                             <span className="slider round"></span>
+                                        </label>
+                                        <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
                                    </div>
-                              </form> 
-                         <p className="cities-description-two">Want to learn about more cities? Click the button below to compare multiple cities.</p>
-                         <button className="compare-cities-button">Compare cities</button>
+                                        <button onClick={submitCity} className="compare-button">Go</button>
+                              </div>
+                         </div>
                     </div>
+
+                    {/* LANDING IMAGE */}
+                    <div className="dashboard-image">
+                         <img className="landing-image" src={landing} alt="environment" />
+                    </div>
+               </div>
+               
+               
+               {/* SIGN UP CALL TO ACTION */}
+               <div className="kevinmotor">
+               <div className="bonus-features-container"
+                    data-aos="fade-right"
+                    data-aos-offset="100"
+                    // data-aos-delay="50"
+                    data-aos-duration="800"
+                    data-aos-easing="ease-in-out"
+                    data-aos-mirror="true"
+                    data-aos-once="true"
+               >
+                    <div className="motoranimationcontainer">
+                         <div className="motoranimbackground">
+                              <img className="edgeblurleft" src={edgeblur}/>
+                              <img className="edgeblurright" src={edgeblur}/>
+                         </div>
+                         <div className="moving">
+                              <img className="motoranim wheel" src={backwheel} alt="backwheel" style={{top:"90px", right:"55px"}}/>
+                              <img className="motoranim wheel" src={frontwheel} alt="frontwheel" style={{top:"90px", left:"67px"}}/>
+                              <img className="motoranim driver" src={driver} alt="driver" style={{top:"20px"}}/>
+                              <img className="motoranim plant" src={plant} alt="plant" style={{top:"27px", right:"60px"}} />
+                         </div>
+                    </div>    
+                    <div className="bonus-features-CTA">
+                         <p className="bonus-features-title">Unlock bonus features</p>
+                         <p className="bonus-features-description">Sign up for free to unlock additional features to export data, review and comment on cities, and view favorited cities. </p>
+                         
+                         <Link to="/signup"><button className="sign-up-CTA">Sign Up Free</button></Link>
+                    </div>
+               </div>
                </div>
 
 
+
                {/* PRODUCT FEATURES */}
+               <div className="kevin">
                <div className="dashboard-features-container">
+                    <div className="dashboard-features-title">
+                    <p className="features-title">Features</p>
+               </div>
                     <div className="feature-descriptions-container"
-                         // data-aos="fade-right"
-                         // data-aos-offset="200"
+                         data-aos="fade-up"
+                         data-aos-offset="100"
                          // data-aos-delay="50"
-                         // data-aos-duration="1000"
-                         // data-aos-easing="ease-in-out"
-                         // data-aos-mirror="true"
-                         // data-aos-once="true"
+                         data-aos-duration="500"
+                         data-aos-easing="ease-in-out"
+                         data-aos-mirror="true"
+                         data-aos-once="true"
                     >
                          <img className="feature-images" src={control} alt="money" />
                          <div className="feature-descriptions">
@@ -195,13 +342,13 @@ function Dashboard(){
                          </div>
                     </div>
                     <div className="feature-descriptions-container"
-                         // data-aos="fade-up"
-                         // data-aos-offset="200"
+                         data-aos="fade-up"
+                         data-aos-offset="100"
                          // data-aos-delay="50"
-                         // data-aos-duration="1000"
-                         // data-aos-easing="ease-in-out"
-                         // data-aos-mirror="true"
-                         // data-aos-once="true"
+                         data-aos-duration="500"
+                         data-aos-easing="ease-in-out"
+                         data-aos-mirror="true"
+                         data-aos-once="true"
                     >
                          <img className="feature-images" src={data} alt="map"/>
                          <div className="feature-descriptions">
@@ -210,139 +357,62 @@ function Dashboard(){
                          </div>
                     </div>
                     <div className="feature-descriptions-container"
-                         // data-aos="fade-left"
-                         // data-aos-offset="200"
+                         data-aos="fade-up"
+                         data-aos-offset="100"
                          // data-aos-delay="50"
-                         // data-aos-duration="1000"
-                         // data-aos-easing="ease-in-out"
-                         // data-aos-mirror="true"
-                         // data-aos-once="true"
+                         data-aos-duration="500"
+                         data-aos-easing="ease-in-out"
+                         data-aos-mirror="true"
+                         data-aos-once="true"
                     >
                          <img className="feature-images" src={location} alt="data visual"/>
                          <div className="feature-descriptions">
                               <p className="feature-title">Visualize Data</p>
-                              <p>Data visuals help to easily understand in cost of living in multiple cities and provide data from a bird’s eye view.</p>
+                              <p>Data visuals help to easily understand cost of living in multiple cities and provide data from a bird’s eye view.</p>
                          </div>
                     </div>
                </div>
+               </div>
 
-               {/* TOP CITY METRICS */}
+               {/* VISUALIZING DATA CONTAINER */}
                <div className="dashboard-metrics-container">
-                    <h2 className="metrics-title">Visualizing data made easier</h2>
+                    <p className="metrics-title">Visualizing data made easier</p>
                     <div className="dashboard-metrics">
                          <div className="metrics-description-container"
-                              // data-aos="fade-up"
-                              // data-aos-delay="150"
-                              // data-aos-duration="1000"
-                              // data-aos-easing="ease-in-out"
-                              // data-aos-mirror="true"
-                              // data-aos-once="true"
+                              data-aos="fade-down"
+                              data-aos-offset="100"
+                              data-aos-delay="100"
+                              data-aos-duration="600"
+                              data-aos-easing="ease-in-out"
+                              data-aos-mirror="true"
+                              data-aos-once="true"
                          >
-                              <img src={graph} alt="living cost graph" />
-                              <p className="metrics-description">Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
+                              <LineGraph2 />
+                              <p className="metrics-description"><p className="metrics-description-title">Housing</p>Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
-                              // data-aos="fade-up"
-                              // data-aos-delay="350"
-                              // data-aos-duration="1000"
-                              // data-aos-easing="ease-in-out"
-                              // data-aos-mirror="true"
-                              // data-aos-once="true"
+                              data-aos="fade-down"
+                              data-aos-offset="100"
+                              data-aos-delay="100"
+                              data-aos-duration="600"
+                              data-aos-easing="ease-in-out"
+                              data-aos-mirror="true"
+                              data-aos-once="true"
                          >
-                              <img src={graph} alt="living cost graph" />
-                              <p className="metrics-description">Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
+                              <LineGraph />
+                              <p className="metrics-description"><p className="metrics-description-title">Community</p>Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
-                              // data-aos="fade-up"
-                              // data-aos-delay="550"
-                              // data-aos-duration="1000"
-                              // data-aos-easing="ease-in-out"
-                              // data-aos-mirror="true"
-                              // data-aos-once="true"
+                              data-aos="fade-down"
+                              data-aos-offset="100"
+                              data-aos-delay="100"
+                              data-aos-duration="600"
+                              data-aos-easing="ease-in-out"
+                              data-aos-mirror="true"
+                              data-aos-once="true"
                          >
-
-                              <img src={graph} alt="living cost graph" />
-                              <p className="metrics-description">Economic data includes health insurances, household income, major industries and etc.</p>
-                         </div>
-                    </div>
-               </div>
-
-
-
-               {/* COMPARE CITIES FUNCTION */}
-               <div className="dashboard-compare-container"
-                    // data-aos="fade-right"
-                    // data-aos-delay="50"
-                    // data-aos-duration="1000"
-                    // data-aos-easing="ease-in-out"
-                    // data-aos-mirror="true"
-                    // data-aos-once="true"
-               >
-                    <div className="dashboard-compare">
-                         <h2>Don’t settle for less</h2>
-                         <p>Moving to a new city, job hunting or choosing vacation spots? Compare cities to find out differences in cost of living, jobs, and safety.</p>
-                         <div className="compare-buttons">
-                              <form onSubmit={submitCities}>
-                              <div>
-                                   <input 
-                                   placeholder="San Francisco, CA"
-                                   onChange={handleCityOne}
-                                   value={compare.cityOne}
-                                   />
-                                   
-                                   <div>
-                                        
-
-                                        {cityOneSuggestions.map( (suggestion) => {
-                                             const style = {
-                                                  backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                  cursor: "pointer",
-                                                  fontSize:"1rem",
-                                                  textAlign:"left",
-                                                  padding:"10px",
-                                                  boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
-                                             }
-                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
-                                        })}
-                                   </div>
-                              </div>
-
-                                   {/* <span className="versus">vs.</span> */}
-
-                              <div>
-                                   <input 
-                                   placeholder="San Francisco, CA"
-                                   onChange={handleCityTwo}
-                                   value={compare.cityTwo}
-                                   />
-                                   <div>
-                                        
-
-                                        {cityTwoSuggestions.map( (suggestion) => {
-                                             const style = {
-                                                  backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                  cursor: "pointer",
-                                                  fontSize:"1rem",
-                                                  textAlign:"left",
-                                                  padding:"10px",
-                                                  boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
-                                             }
-                                             return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
-                                        })}
-                                   </div>
-                              </div>
-                                   <Link to="map/jobs/standards"><button
-                                        // data-aos="zoom-in"
-                                        // data-aos-offset="200"
-                                        // data-aos-delay="50"
-                                        // data-aos-duration="1000"
-                                        // data-aos-easing="ease-in-out"
-                                        // data-aos-mirror="true"
-                                        // data-aos-once="true"
-                                   >
-                                        Compare
-                                   </button></Link>
-                              </form>
+                              <RadarGraph />
+                              <p className="metrics-description"><p className="metrics-description-title">Economy</p>Economic data includes health insurances, household income, major industries and etc.</p>
                          </div>
                     </div>
                </div>
@@ -354,27 +424,3 @@ export default Dashboard;
 
 
 
-
-
-// PROTOTYPE AUTOFILL FUNCTION
- {/* <div>
-                    <PlacesAutocomplete value={search} onChange={setSearch} onSelect={handleSelect}>
-                         {
-                              ({ getInputProps, suggestions, getSuggestionItemProps, loading })=>(
-                              <div>
-                                   <input {...getInputProps({placeholder: "Type address"})}/>
-                                   <div>
-                                        {loading ? <div>...loading</div> : null}
-
-                                        {suggestions.map( (suggestion) => {
-                                             const style = {
-                                                  backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
-                                             }
-
-                                             return <div {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
-                                        })}
-                                   </div>
-                              </div>)
-                         }
-                    </PlacesAutocomplete>
-               </div> */}

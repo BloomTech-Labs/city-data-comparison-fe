@@ -1,81 +1,96 @@
 import React, {useState, useEffect} from 'react';
 import {Line} from 'react-chartjs-2';
-import {markerDummyData} from "../../map-components/data";
 
+export default function HousePriceGraph({selected}) {
+    const [labels, setLabels] = useState([])
 
-export default function BarGraph ({selected}){
-    const [data, setData] = useState({})
-  // console.log(selected, 'selected')
-    useEffect( () => {
-      let data = selected[0]
-      let labels = []
-      let amount = []
-      let backgroundColors = []
-      if (data){
-        let house_price = data["house_price"];
-        
-        
-        Object.keys(house_price).forEach(function (label) {
-          let value = house_price[label];
-          if ( value != null){
-           labels.push(label) 
-           amount.push(value);
-           backgroundColors.push(  '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6))
-          }
-        });
-        
-        // console.log(labels);
-        // console.log(amount);
-        var newState = {
-          labels: [],
-          datasets:[
-            {
-              fill: false,
-              label:'Population',
-              data: [],
-              backgroundColor:[
-             
-              ]
-            }
-          ]
-      }
-        // console.log(newState, 'new State')
-        newState.labels = labels
-        newState.datasets[0].data = amount
-        newState.datasets[0].backgroundColor = backgroundColors;
-        setData({chartData: newState})
-
-      }
-
-    },[selected])
+    useEffect(() => {
+        let data = selected[0];
+        if (data["Historical Property Value Data"]["Average Home Value"]) {
+            setLabels(Object.keys(data["Historical Property Value Data"]["Average Home Value"]))
+        } else if (data["Historical Property Value Data"]["Four Bedroom Houses"]){ 
+            setLabels(Object.keys(data["Historical Property Value Data"]["Four Bedroom Houses"]))
+        } else if (data["Historical Property Value Data"]["Three Bedroom Houses"]){ 
+          setLabels(Object.keys(data["Historical Property Value Data"]["Three Bedroom Houses"]))
+        } else if (data["Historical Property Value Data"]["Two Bedroom Houses"]){ 
+          setLabels(Object.keys(data["Historical Property Value Data"]["Two Bedroom Houses"]))
+        } else {
+          setLabels(["This data is currently unavailable."])
+        }
+    }, [selected])
   
-  
-  
-  const defaultProps = {
-    displayTitle:true,
-    displayLegend: false,
-    legendPosition:'top',
-    location:'Population'
-  }
+
     return (
-      <div className="chart">
+      <div className="charts" >
         
-        <Line
-          data={data.chartData}
-          options={{
-            maintainAspectRatio:true,
-            title:{
-              display:defaultProps.displayTitle,
-              text:' House Prices Per Year ',
-              fontSize:25
-            },
-            legend:{
-              display:defaultProps.displayLegend,
-              position:defaultProps.legendPosition
-            }
-          }}
-        />
-      </div>
+          <div className="chart-container" style={{position: "relative", width: `100%`}}>
+            <Line
+              data={{
+                labels:  labels,
+                datasets: selected.map( item => {
+                  
+                  return {
+                    label: item.name_with_com,
+                    fill: false,
+                    data:  item["Historical Property Value Data"]["Average Home Value"]
+                      ? labels.map(label => item["Historical Property Value Data"]["Average Home Value"][label])
+                      : item["Historical Property Value Data"]["Four Bedroom Houses"]
+                        ? labels.map(label => item["Historical Property Value Data"]["Four Bedroom Houses"][label]) 
+                        : item["Historical Property Value Data"]["Three Bedroom Houses"]
+                          ? labels.map(label => item["Historical Property Value Data"]["Three Bedroom Houses"][label])
+                          : item["Historical Property Value Data"]["Two Bedroom Houses"]
+
+                      ,
+                      borderColor: item.color
+
+
+                  }
+                })
+
+              }}
+              options={{
+                title:{
+                  display:false,
+                  text:'house price',
+                  fontSize:25
+                },
+                legend:{
+                  display:false,
+                  position:"top",
+                },
+                scales: {
+                  xAxes: [ {
+                    
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Year'
+                    },
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Amount',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    },
+
+                  } ]
+                }
+              }}
+            /> 
+          </div>
+        
+        </div>
     )
   }
   

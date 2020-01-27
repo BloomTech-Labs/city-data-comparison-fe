@@ -1,14 +1,13 @@
 import React from "react";
-import {NavLink} from"react-router-dom";
 
-const CostNav = _ => {
+const HousingNav = _ => {
 
     return (
-        <>
-            <NavLink activeClassName="selected" to="/map/housing/costs">Housing Costs</NavLink>
-            <NavLink activeClassName="selected" to="/map/housing/homeinfo">Home Info</NavLink>
-            <NavLink activeClassName="selected" to="/map/housing/quality">Quality of Living</NavLink>
-        </>
+        <div className="subnav">
+            <a className="anchor-link" href="#homeprice">Housing Costs</a>
+            <a className="anchor-link" href="#rent">Rent</a>
+            <a className="anchor-link" href="#rooms">Rooms per House</a>
+        </div>
     )
 }
-export default CostNav;
+export default HousingNav;

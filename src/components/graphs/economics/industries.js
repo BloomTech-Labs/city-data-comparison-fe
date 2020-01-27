@@ -1,31 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import {Bar} from 'react-chartjs-2';
+import React from 'react';
+import {HorizontalBar} from 'react-chartjs-2';
 
 export default function EducationGraph (props) {
 
-  const colorifier = lat => {
-
-    let arr = String(lat).replace(".","").split("");
-
-    let num1 = arr.pop();
-    let num2 = arr.pop();
-    let num3 = arr.pop();
-
-    return `rgb(${num1 * 28}, ${num2 * 28}, ${num3 * 28})`
-  }
-  
-
     return (
       <div className="charts" >
-        
           <div className="chart-container" style={{position: "relative", width: `100%`}}>
-            <Bar
+            <HorizontalBar
               data={{
-                labels: ["Agriculture forestry fishing and hunting and mining",  "Arts entertainment and recreation and accommodation and food services", "Construction","Educational services and health care and social assistance", "Finance and insurance and real estate and rental and leasing", "Information", "Manufacturing", "Other services except public administration" , "Professional scientific and management and administrative and waste management services" , "Public administration", "Retail trade", "Transportation and warehousing and utilities", "Wholesale trade"],
+                labels: ["Agriculture/Mining",  "Entertainment", "Construction","Education/Health Care", "Finance/Real Estate", "Information", "Manufacturing", "Non-Governmental Services" , "Science" , "Public Administration", "Retail Trade", "Transportation", "Wholesale Trade"],
                 datasets: props.edData.map( item => {
                   
                   return {
-                    label: item.name.replace(" city" , ""),
+                    label: item.name_with_com,
                     data: [
                       item["Industry"]["Agriculture forestry fishing and hunting and mining"],
                       item["Industry"]["Arts entertainment and recreation and accommodation and food services"],
@@ -42,8 +29,7 @@ export default function EducationGraph (props) {
                       item["Industry"]["Wholesale trade"],  
                       
                     ],
-                    backgroundColor:
-                      colorifier(item.lat)
+                    backgroundColor: item.color
                       
 
                   }
@@ -52,13 +38,43 @@ export default function EducationGraph (props) {
               }}
               options={{
                 title:{
-                  display:true,
+                  display:false,
                   text:'Industry',
                   fontSize:25
                 },
                 legend:{
-                  display:true,
+                  display:false,
                   position:"top",
+                },
+                scales: {
+                  xAxes: [ {
+                    labelString:'Percent',
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Percent',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: false,
+                      labelString: 'Percent',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }
+                  } ]
                 }
               }}
             /> 

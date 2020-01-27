@@ -1,14 +1,13 @@
 import React from "react";
-import {NavLink} from"react-router-dom";
 
-const CostNav = _ => {
+const JobsNav = _ => {
 
     return (
-        <>
-            <NavLink activeClassName="selected" to="/map/jobs/jobs">Jobs</NavLink>
-            <NavLink activeClassName="selected" to="/map/jobs/standards">Salary/Benefit Standards</NavLink>
-            <NavLink activeClassName="selected" to="/map/jobs/commute">Commute</NavLink>
-        </>
+        <div className="subnav">
+            <a className="anchor-link" href="#industries">Industries</a>
+            <a className="anchor-link" href="#salary">Salary</a>
+            <a className="anchor-link" href="#commute">Commute</a>
+        </div>
     )
 }
-export default CostNav;
+export default JobsNav;

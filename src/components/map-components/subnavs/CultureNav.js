@@ -1,14 +1,13 @@
 import React from "react";
-import {NavLink} from"react-router-dom";
 
-const SafetyNav = _ => {
+const CultureNav = _ => {
 
     return (
-        <>
-            <NavLink activeClassName="selected" to="/map/culture/demographics">Demographics</NavLink>
-            <NavLink activeClassName="selected" to="/map/culture/populationgrowth">Population Growth</NavLink>
-            <NavLink activeClassName="selected" to="/map/culture/education">Education</NavLink>
-        </>
+        <div className="subnav">
+            <a className="anchor-link" href="#education">Education</a>
+            <a className="anchor-link" href="#ethnicity">Ethnicity</a>
+            <a className="anchor-link" href="#population">Population</a>
+        </div>
     )
 }
-export default SafetyNav;
+export default CultureNav;

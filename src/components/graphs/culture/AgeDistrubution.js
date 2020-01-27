@@ -1,78 +1,87 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Bar} from 'react-chartjs-2';
-import {markerDummyData} from "../../map-components/data";
 
+export default function AgeDistributionGraph({ethData}) {
 
-export default function BarGraph ({selected}){
-    const [data, setData] = useState({})
-  // console.log(selected, 'selected')
-    useEffect( () => {
-      let data = selected[0]
-      let labels = []
-      let amount = []
-      let backgroundColors = []
-      if (data){
-        let age = data["Age Distribution"];
-        
-        
-        Object.keys(age).forEach(function (label) {
-          labels.push(label)
-          let value = age[label];
-          amount.push(value);
-          backgroundColors.push(  '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6))
-        });
-        
-        // console.log(labels);
-        // console.log(amount);
-        var newState = {
-          labels: [],
-          datasets:[
-            {
-              label:'Population',
-              data: [],
-              backgroundColor:[
-             
-              ]
-            }
-          ]
-      }
-        // console.log(newState, 'new State')
-        newState.labels = labels
-        newState.datasets[0].data = amount
-        newState.datasets[0].backgroundColor = backgroundColors;
-        setData({chartData: newState})
-
-      }
-
-    },[selected])
   
-  
-  
-  const defaultProps = {
-    displayTitle:true,
-    displayLegend: false,
-    legendPosition:'top',
-    location:'Population'
-  }
+
     return (
-      <div className="chart">
+      <div className="charts" >
+        
+          <div className="chart-container" style={{position: "relative", width: `100%`}}>
+            <Bar
+              data={{
+                labels:  ["Under 5", "5 to 9", "10 to 14", "15 to 19", "20 to 24", "25 to 34", "35 to 44", "45 to 54","55 to 59", "60 to 64","65 to 74", "75 to 84", "85 years+" ],
+                datasets: ethData.map( item => {
+                  
+                  return {
+                    label: item.name_with_com,
+                    data: [
+                      item["Age Distribution"]["Under 5"],
+                      item["Age Distribution"]["5 to 9"],
+                      item["Age Distribution"]["10 to 14"],
+                      item["Age Distribution"]["15 to 19"],
+                      item["Age Distribution"]["20 to 24"],
+                      item["Age Distribution"]["25 to 34"],
+                      item["Age Distribution"]["35 to 44"],
+                      item["Age Distribution"]["45 to 54"],
+                      item["Age Distribution"]["55 to 59"],
+                      item["Age Distribution"]["60 to 64"],
+                      item["Age Distribution"]["65 to 74"],
+                      item["Age Distribution"]["75 to 84"],
+                      item["Age Distribution"]["85 years+"]                   
+                      
+                    ],
+                    backgroundColor:item.color
+                      
 
-        <Bar
-          data={data.chartData}
-          options={{
-            maintainAspectRatio:true,
-            title:{
-              display:defaultProps.displayTitle,
-              text:' Age Distribution ',
-              fontSize:25
-            },
-            legend:{
-              display:defaultProps.displayLegend,
-              position:defaultProps.legendPosition
-            }
-          }}
-        />
-      </div>
+                  }
+                })
+
+              }}
+              options={{
+                title:{
+                  display:false,
+                  text:'Age Distribution',
+                  fontSize:25
+                },
+                legend:{
+                  display:false,
+                  position:"top",
+                },
+                scales: {
+                  xAxes: [ {
+                    
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Age'
+                    },
+                  } 
+                  ],
+                  yAxes: [ {
+                    display: true,
+                    gridLines: {
+                      display:false,
+                    },
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Percent',
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    },
+
+                  } ]
+                }
+              }}
+            /> 
+          </div>
+        
+        </div>
     )
   }
   

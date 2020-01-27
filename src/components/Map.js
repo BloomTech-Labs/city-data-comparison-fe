@@ -2,13 +2,15 @@ import React, { useState, useEffect, useContext } from 'react';
 import ReactMapGL from 'react-map-gl';
 import styled from "styled-components";
 import './map-components/Map.scss';
+import ReactGA from "react-ga"
+import Footer from './navigation/Footer'
 
 import Markers from "./map-components/Markers";
-import MapFooter from "./map-components/MapFooter";
 import DataDisplay from "./map-components/DataDisplay";
 import PopupMap from "./map-components/PopupMap"
 
 import { CityContext } from '../contexts/CityContext';
+import Axios from 'axios';
 
 const MapWrapper = styled.div`
   width:100vw;
@@ -17,57 +19,62 @@ const MapWrapper = styled.div`
 
 export default function Map() {
 
-  const { cityMarkers, selected, setSelected, viewport, setViewport } = useContext(CityContext)
+  const { cityMarkers, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, cityIndex } = useContext(CityContext)
 
   
   const [search, setSearch] = useState("");
+ 
 
 
-  // useEffect( _ => {
-  //     const geo = navigator.geolocation;
-  //     console.log(cityMarkers);
-  //     if (!geo) {
-  //       console.log('Geolocation is not supported by this browser');
-  //       return;
-  //     }    
-  //     geo.getCurrentPosition(pos => 
-  //         setViewport({
-  //           ...viewport,
-  //           latitude: pos.coords.latitude,
-  //           longitude: pos.coords.longitude
-  //         })      
-  //       );
-  // }, [viewport])
+  // Google Analytics Events
+  useEffect( _ => {
+    ReactGA.event({ category: 'Map', 
+    action: 'loaded map' });
+  }, [])
+
+  useEffect( _ => {
+    ReactGA.event({ category: 'Selected', 
+    action: 'selected a new city using map' });
+  }, [selected])
 
   const toggleSelected = cityMarker =>  {
-    console.log(cityMarker);
-    if (selected.find(item => item === cityMarker)) {
-        setSelected(selected.filter(item => item !== cityMarker));
-    } else {
-        setSelected([...selected, cityMarker]);
+    // if the City is alraedy selected, deselect it
+    if (selected.find(item => item._id === cityMarker.ID)) {
+        setSelected(selected.filter(item => item._id !== cityMarker.ID));
+    } 
+    // Outerwise get the city's data and add it to selected array
+    else {
+      getCity(cityMarker);
     }
 }
 
 const selectSearch = cityMarker =>  {
-  console.log(cityMarker);
-  if (selected.find(item => item === cityMarker)) {
+  // Stop function and return if the city is already selected
+  if (selected.find(item => item._id === cityMarker.ID)) {
       return;
   } else {
-      setSelected([...selected, cityMarker]);
+      getCity(cityMarker);
   }
 }
 
-
     const onSearch = e => {
+      // TODO - More nimble handling on this autofill (use includes, remove commas,
+      // handle state abbreviations)
       e.preventDefault();
       const found = cityMarkers.find(item => item.name.replace(" city", "") === search)
-      selectSearch(found);
-      setViewport({
-        ...viewport,
-        longitude: found.lng,
-        latitude: found.lat
+      if (found) {
+        selectSearch(found);
+        // the viewport set below will require zoom handling based on population
+        setViewport({
+          ...viewport,
+          longitude: found.lng,
+          latitude: found.lat
       })
-      
+      } else {
+        ReactGA.event({ category: 'Data', 
+        action: `used suggestion endpoint: ${search}` });
+        getBestSuggestion(search);
+      }   
     }
 
     const onViewportChange = viewport => {
@@ -81,16 +88,21 @@ const selectSearch = cityMarker =>  {
           <div className="map">
               <MapWrapper className="main-map">
                 <ReactMapGL
-                    mapStyle='mapbox://styles/mapbox/light-v9'
+                  // mapStyle='mapbox://styles/mapbox/light-v10'
+                    mapStyle='mapbox://styles/brunchtime/ck5miuybu2in21ipq7j47ey29'
                     {...viewport}
                     mapboxApiAccessToken={
                     'pk.eyJ1IjoiYnJ1bmNodGltZSIsImEiOiJjazIwdG80MGkxN3lmM25vaWZ5cThkZDU1In0.uYqrXjiEyUL1mTEO_N5-0w'
                     }
-                    onViewportChange={onViewportChange}>
+                    onViewportChange={onViewportChange}
+                    >
+                    
                     <Markers 
                       cityMarkers={cityMarkers}
+                      setCityMarkers={setCityMarkers}
                       selected={selected}
-                      toggleSelected={toggleSelected} />
+                      toggleSelected={toggleSelected} 
+                      cityIndex={cityIndex}/>
                 </ReactMapGL>
               </MapWrapper>
             </div>
@@ -104,8 +116,9 @@ const selectSearch = cityMarker =>  {
               search={search}
               viewport={viewport}
               setViewport={setViewport}
+              cityIndex={cityIndex}
             />
-          <MapFooter />
+          <Footer />
           </div>
       );
     }

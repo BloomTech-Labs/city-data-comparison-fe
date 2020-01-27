@@ -1,157 +1,245 @@
-//signup form
+.authForm{
+    //container for left side of form
+    display:flex; 
+    margin: 10%; 
+    margin-top: 28%;
 
-
-h2{
-    font-size: 2rem;
-    text-align: center;
-    letter-spacing: .1rem;
-    font-weight: 500;
-}
-
-span{
-    color: #3999fc; 
-}
-.signup, .login{
-    width: 100%; 
-    font-family: 'Rubik', sans-serif;
-    
-
-    .inner-form{
-        margin: 5%;
-        padding: 5%; 
-        
-        background: white;
-        border-radius: 20px;
-        display:flex; 
+    @media screen and (min-width: 1000px) {
+        margin-top:10%;
     }
 
-    
-}
-
-.form{
-    width: 50%; 
-    padding: 1%; 
-    padding-top:5%; 
-}
-
-    .auth{
-        display:flex; 
-        flex-direction: column;
-        width: 75%; 
-        margin:auto; 
-        margin-top:13%; 
-    }
-    .google{
-        width: 20%;
-        padding: .5% 3%;
-
-
-        p{
-            margin-left: 3%;
-            font-size: .8rem;
-        }
-    }
-
-    .fb{
-        width: 11%;
-        margin: 0 4% 0% 9%;
-    }
-
-    #auth-button{
-        display: flex; 
-        width: 90%; 
-        margin:auto; 
-        border-radius: 20px; 
-        background: white; 
-        border: 1px solid #3999fc;
-        text-align: center;
-        margin-top: 2%; 
-        align-items: center;
-    }
-
-    .facebook{
-        padding: 2%; 
-        p{
-            
-            font-size: .8rem;
-        }
-    }
-
-
-
-    .centerText{
-        display:flex; 
-        align-items: center;
-        width: 66%;
-        margin: 5% auto;
-        
-    
-    }
-
-    .center{
-        font-size: .7rem;
-        color: #7c7d80; 
-        width: 41%; 
-        text-align: center;
-        
-    }
-
-    .line{
-        border:.25px solid #d4d6d7; 
-        height: 1px;
-        width: 64%;
-         
-    }
-
-
-
-    .fields{
-        width: 68%;
+    .form{
+        margin-top: 18vh;
         margin: auto;
-    }
 
-    .question{
-        font-size: .7rem;
-        color: #7c7d80; 
-        text-align: center;
-    }
-
-    .email, .password{
-        border: 1px solid #84868C; 
-        border-radius: 10px; 
-        width: 100%;
-        padding: 4% 2%; 
-        margin-top: 3%; 
-        font-size: 1rem;
-    }
-
-    .tos{
-        display:flex; 
-        font-size: .7rem;
-        color: #7c7d80; 
-        align-items: center;
-
-        .checkbox{
-            width: 10%;
+        .formTitle{
+            text-align: center;
         }
         
-    }
+
+        //container for oauth buttons
+        .auth{ 
+
+            width: 85vw;
+            margin: auto;
+            margin-top: 15%;
+
+            //styles that apply to all oauth buttons
+            .oauthButton{
+                
+                border-radius: 5px; 
+                display: flex;
+                margin: 1vh 0;
+                height: 7vh;
+                align-items: center;
+
+                
+            }
+
+            //styles for each button
+
+            .GoogleButton{
+                border-left: 1px solid #d8d8d8; 
+                border-bottom: 1px solid #d8d8d8;
+
+                .GoogleName{
+                    margin-left:4vw;
+                }
+            }
+
+            .FacebookButton{
+                background: #4368B2;
+
+                .iconContainer{
+                    margin-left: 1vw;
+                    margin-top: .5vh;
+
+                    @media screen and (min-width: 1040px) {
+                   
+                        margin-left: .4vw;
+                        margin-top: .7vh;
+                
+                }
+                }
+
+                .FacebookName{
+                    margin-left:4vw;
+                    color:white;
+                }
+
+               
+            }
+
+            .LinkedinButton{
+                background: #0077B5;
+                color: white;
+
+                .iconContainer{
+                    margin-top: .5vh;
+                    margin-left: 1vw;
+
+                    @media screen and (min-width: 1040px){
+                        margin-top: .6vh;
+                        margin-left: .5vw;
+                    }
+                }
+                .LinkedinName{
+                    margin-left:4vw;
+                }
+            }
+
+            //media queries
+
+            @media screen and (min-width:400px) {
+                margin-top:7%;
+                width:70vw;
+            }
+
+            @media screen and (min-width:600px){
+                width:46vw;
+
+            }
+
+            @media screen and (min-width:850px){
+                width: 31vw;
+            }
+
+            @media screen and (min-width:950px){
+                width: 29vw;
+            }
+
+            @media screen and (min-width: 1500px){
+                width:40vh;
+            }
+
+            @media screen and (min-width: 2000px){
+                width: 35vh; 
+                font-size: 1.4rem;
+
+                .GoogleButton{
+                    .GoogleName{
+                        margin-left: 3vw;
+                    }
+                }
+
+                .LinkedinButton{
+                    .LinkedinName{
+                        margin-left: 3vw;
+                    }
+                }
+
+                .FacebookButton{
+                    .FacebookName{
+                        margin-left:3vw;
+                    }
+                }
+            }
+
+        }//end of auth container
+
+        //container for every thing below the oauth buttons
+        .bottomPortion{
+            width:100%;
+            margin:auto;
+            
+
+            //container for lines with text 
+            .centerText{
+                display:flex;
+                align-items: center;
+                width:100%;
+                justify-content: center;
+
+                //text "or with email"
+                .center{
+                    margin: 0 4vw; 
+                    font-size:.8rem;
+                }
+
+                //gray lines
+                .line{
+                height: .5px;
+                border: .4px solid  rgb(201, 201, 201);
+                width: 28%;
+                }
+            }//end of centertext
+
+            .fields{
+                width: 90%;
+                margin: auto;
+
+                @media screen and (min-width:600px){
+                    width:65vw;
+                }
+
+                @media screen and (min-width:850px){
+                    width:49vw;
+                }
+
+                @media screen and (min-width:950px){
+                    width:40vw;
+                }
+
+                @media screen and (min-width:1500px){
+                    width:30vw;
+                }
+
+                .email, .password{
+                    border-radius: 10px;
+                    border: 1px solid rgb(201, 201, 201); 
+                    padding: 3.5% 2%; 
+                    width:100%;
+                }
+
+                .question div{
+                    display:flex;
+                    align-items: center;
+                }
+
+                .formButton{
+                    width: 100%;
+                    margin:auto;
+                    border: 1px solid #3999FC;
+                    border-radius:10px; 
+                    background: #3999FC;
+                    color:white; 
+                    padding: 3% 2%;
+                    margin-top: 3%;        
+                    font-size: 1.2rem;
+
+                    &:hover{
+                        color: #3999FC;
+                        background:white;
+                    }
+                }
+            }
+
+           
+
+        }
+
+    }//end of form container
+
+    
+    .authFormPhoto{
+        width: 50%; 
+        display:none;
+
+            img{
+                width:100%;
+            }
+
+            @media screen and (min-width:1000px){
+                display:block;
+                
+                img{
+                    margin-top: 12vh;
+                    margin-left: 5vw;
+                }
+                
+            }
+        }
+}
 
 
-    .signup-button{
-        border-radius: 20px; 
-        background: #3999FC; 
-        color: white; 
-        font-weight: 500; 
-        padding: 4% 2.5%;
-        text-align: center;
-        font-size: 1.2rem; 
 
-
-    }
-
-    //login
-
-    .login-button{
-        border:1px solid #F99539;
-    }

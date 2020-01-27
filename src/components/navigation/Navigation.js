@@ -1,62 +1,64 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Link } from "react-router-dom";
 import citrics from './citrics-mock.png'
 import lock from './lock.svg'
+import { UserContext } from '../../contexts/UserContext';
+
+import ProfileImage from '../user-profile/icons/profileimage.png'
 
 
 
 function Navigation(){
+     const { user, setUser } = useContext(UserContext)
      const [offset, setOffset] = useState(0);
      const [displayNav, setDisplayNav] = useState('show-nav')
      const [bgColor, setBgColor] = useState('default-color')
+     const [fixedClass, setFixedClass] = useState("")
      const defaultNavigation = () => {
-          // console.log('called')
           setBgColor('default-color')
           if (offset === 0 ){
-               // console.log('calledOffset')
                setDisplayNav('show-nav')
           }else {
                if (displayNav === 'hide-nav'){
-                    // console.log('calledAgain')
                     setDisplayNav('show-nav')
                }
           }
      }
-     window.addEventListener('scroll', (e) => {
-          // console.log(e)
-          // console.log(window.pageYOffset)
-          // setOffset(window.pageYOffset)
-          
-          // if (window.pageYOffset < 100){
-          //      setBgColor('no-color')
-          // } else 
-          
-          if (window.pageYOffset > offset ){
-               // console.log('hi')
-               setDisplayNav('hide-nav')
-               setBgColor('no-color')
-          }else{
-               // console.log('show')
-               setDisplayNav('show-nav')
-               setBgColor('default-color')
-          }
-          setOffset(window.pageYOffset)
 
-     })
+     useEffect( _ => {
+          if (window.location.href.includes("map")) {
+               setFixedClass("unfixed")
+          } else {
+               setFixedClass("")
+          }
+     },[window.location])
+
      let styles={
           float:"right"
      }
-     
 
      return(
-          <div className={"navigation-container " + bgColor } onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
+          <div className={"navigation-container " + bgColor + `main-nav ${displayNav}`} onMouseEnter = {() => {defaultNavigation()} } onMouseLeave = {() => {defaultNavigation()} }>
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
-               <nav className = {displayNav}>
-                    {/* <a href="google.com">Link A</a> */}
-                    <Link to="/map">Map</Link>
-                    <Link className="login-link" to="/login"><img alt="lock" src={lock}/>Log In</Link>
-                    <Link className="signup-link" to="/signup">Get Started</Link>
+               <nav className="main-nav">
+                    <Link to="/map">Explore</Link>
+                    <Link to="/map">Compare</Link>
+
+
+                    {user === null ? 
+                    <>
+                         <Link id="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
+                         <Link id="signup-link" to="/signup">Get Started</Link>
+                    </> :
+                    <>
+                         <Link to="/profile">Profile</Link>
+
+                         {user.userimage && <img src={`https://citrics-staging.herokuapp.com/${user.userimage}`} alt="user's avatar"/>}
+                    </>
+                    }
+
+                    
                </nav> 
 
                {/* <!-- Dropdown Menu  --> */}
@@ -64,9 +66,16 @@ function Navigation(){
                     <div className="dropdown" style={styles}>
                          <button className="dropbtn">Menu</button>
                               <div className="dropdown-content">
-                                   <Link to="/map">Map</Link>
-                                   <Link to="/login">Log In</Link>
-                                   <Link to="/signup">Get Started</Link>
+                                   <Link to="/map">Explore</Link>
+                                   <Link to="/map">Compare</Link>
+                                   {user === null ? 
+                                   <>
+                                   <Link to="/signin">Log In</Link> <Link to="/signup">Get Started</Link>
+                                   </>
+                                    : <Link to="/profile">Profile</Link> }
+                                   {/* Uncomment when we have the user's avatar */}
+                                   {/* {user != null && 
+                                   <img src={user.avatar} alt="user's avatar"/>} */}
                               </div>
                     </div>
                </div>

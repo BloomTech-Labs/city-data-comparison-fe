@@ -1,20 +1,30 @@
 import React, {useState} from "react";
+import ReactGA from "react-ga";
 
 
-const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, setViewport,selectSearch}) => {
+const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, setViewport,selectSearch, cityIndex}) => {
 
 
     const [suggestions, setSuggestions] = useState([]);
     const handleChange= e => {
         const searchText = e.target.value;
         searchText
-        ? setSuggestions(cityMarkers.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase())))
+        ? setSuggestions(topPopFilter(cityIndex.filter(city => city.name.toLowerCase().includes(searchText.toLowerCase()))))
         : setSuggestions([]);
         setSearch(searchText)
     };
-    
+
+    const topPopFilter = arr => {
+        let sorted = arr.sort((city1, city2) => city2.population - city1.population);
+        if (sorted.length > 5) {
+          sorted = sorted.slice(0,8)
+        }
+        return sorted;
+      }
     
     const chooseSuggestion = city => {
+        ReactGA.event({ category: 'Search', 
+        action: `used autofill` });
         setSearch(city.name.replace(" city", ""));
         selectSearch(city);
         setSuggestions([]);
@@ -24,7 +34,7 @@ const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, se
             latitude: city.lat
           })
     }
-    console.log(menu);
+    
     return(
         <form autoComplete="off" onSubmit={onSearch}>
             <input
