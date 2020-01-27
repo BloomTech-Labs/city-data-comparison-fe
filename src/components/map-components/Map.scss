@@ -405,12 +405,18 @@
         display:flex;
         align-items:flex-start;
         justify-content:space-between;
+        // border:1px solid black;
 
 
         .unemployment-container{
+            // border:1px solid red;
+            display:flex;
+            flex-direction:column;
             width:22%;
 
             .unemployment-card-container{
+                // font-size:1.1vw;
+                height:150px;
                 padding:15px;
                 padding-bottom:10px;
                 border-radius:5px;
@@ -463,9 +469,11 @@
             
         }
         .insurance-container{
+            // border:1px solid green;
             width:22%;
 
             .healthinsurance-card-container{
+                height:150px;
                 padding:15px;
                 padding-bottom:10px;
                 border-radius:5px;
@@ -496,8 +504,9 @@
                 }
                 .healthinsurance-label{
                     color:grey;
-                    font-size:1.1vw;
+                    // font-size:1.1vw;
                     width:100%;
+                    font-size:14px;
                     margin-top:10px;
                     text-align:center;
                     margin-bottom:5px;
