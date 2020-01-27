@@ -6,7 +6,6 @@ import ReactGA from "react-ga"
 import Footer from './navigation/Footer'
 
 import Markers from "./map-components/Markers";
-import MapFooter from "./map-components/MapFooter";
 import DataDisplay from "./map-components/DataDisplay";
 import PopupMap from "./map-components/PopupMap"
 import FavoriteButton from './map-components/FavoriteButton'; 
