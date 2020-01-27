@@ -17,7 +17,7 @@ const ProfileCard = (props)=> {
     const [userInfo, setUserInfo] = useState(user)
     const [userImage, setUserImage] = useState({usersimage:null, users_id: sessionStorage.getItem('id')})
     const [imagetest, setTest] = useState({usersimage:null, users_id: sessionStorage.getItem('id')})
-    console.log(userImage)
+    console.log(userInfo)
 
     const getLoggedInUser = () => {
         const user = localStorage.getItem('user');
@@ -115,7 +115,7 @@ const ProfileCard = (props)=> {
 
     
 
-    console.log(userImage, 'user image')
+   
 
     const updateUser = () => {
         
@@ -123,11 +123,15 @@ const ProfileCard = (props)=> {
             .put(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`,userInfo)
             .then(res => {
                 console.log(res);
+                console.log(userInfo, 'from call')
+                setUser(userInfo)
+                
             })
             .catch(err => {
                 console.log('Unable to get user information', err);
             });
     }
+    
 
 
     const postImage = () => {
@@ -164,7 +168,7 @@ const ProfileCard = (props)=> {
         window.location.reload();
     }
     
-    console.log(props)
+    
 
     return (
         <div className='profile-container'>
