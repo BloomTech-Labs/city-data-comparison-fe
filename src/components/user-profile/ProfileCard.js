@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
-import { CityContext } from "../../contexts/CityContext"
 import ProfileImage from './icons/profileimage.png'
 import './profile.scss'
 
@@ -11,6 +10,7 @@ const ProfileCard = (props)=> {
     //state for logged in user
 
     const [userInfo, setUserInfo] = useState({})
+    const [userImage, setUserImage] = useState({userimage:null})
 
     const handleChange = e => {
         setUserInfo({
@@ -67,6 +67,7 @@ const ProfileCard = (props)=> {
     },[]);
 
     const updateUser = () => {
+        
         axios
             .put(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`,userInfo)
             .then(res => {
@@ -82,7 +83,7 @@ const ProfileCard = (props)=> {
             <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
-                    {/* <img src={userInfo.userimage === null ? `${ProfileImage}` : `${userInfo.userimage}`} /> */}
+                    <img src={userImage.userimage === null ? `${ProfileImage}` : `${userImage.userimage}`} />
                     <button className='edit-avatar-btn'>Edit Picture</button>
                 </div>
                 <div className='name-tab'>
@@ -127,7 +128,7 @@ const ProfileCard = (props)=> {
                 </div>
                 <div className='city-tab'>
                     <p>City, State of Residence</p>
-                    <h2 className={`user-location ${locationEdit.status}`}>{userInfo.city}{userInfo.state}</h2>
+                    <h2 className={`user-location ${locationEdit.status}`}>{userInfo.city} {userInfo.state}</h2>
                     <form className={`edit-location ${locationEdit.status}`} onSubmit={updateUser()}>
                     <input
                         onChange={handleChange}
