@@ -15,9 +15,7 @@ const ProfileCard = (props)=> {
     //state for logged in user
     const { user, setUser } = useContext(UserContext)
     const [userInfo, setUserInfo] = useState(user)
-    const [userImage, setUserImage] = useState({userimage:null, users_id: userInfo.id})
-    const [imagetest, setTest] = useState({usersimage:null, users_id: userInfo.id})
-    console.log(userImage, 'image')
+    const [userImage, setUserImage] = useState({usersimage:null, users_id: userInfo.id})
 
     const getLoggedInUser = () => {
         const user = localStorage.getItem('user');
@@ -80,7 +78,6 @@ const ProfileCard = (props)=> {
         } else if (imageUpload.status === 'open') {
             setImageUpload({...imageUpload, status: 'closed'}) 
         }
-        console.log(userImage)
     }
 
     const id = userInfo.id;
@@ -93,7 +90,7 @@ const ProfileCard = (props)=> {
             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
             .then(res => {
                 const image = res.data[0].userimage
-                setUserImage({usersimage: image})
+                setUserImage({...userImage, usersimage: image})
             })
             .catch(err => {
                 console.log('Unable to get image', err)
@@ -161,7 +158,7 @@ const ProfileCard = (props)=> {
                 axios.get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
                 .then(res => {
                     const image = res.data[0].userimage
-                    setUserImage({usersimage: image})
+                    setUserImage({...userImage, usersimage: image})
                     console.log(image)
                     
                 
