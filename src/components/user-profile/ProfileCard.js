@@ -6,11 +6,12 @@ import './profile.scss'
 
 
 
-const ProfileCard = ()=> {
+const ProfileCard = (props)=> {
 
     //state for logged in user
 
     const [userInfo, setUserInfo] = useState({})
+    const [editInfo, setEditInfo] = useState({})
     console.log(userInfo)
 
     const handleChange = e => {
@@ -25,8 +26,8 @@ const ProfileCard = ()=> {
 
     // Edit state toggle
 
-    const [nameEdit, setNameEdit] = useState({status:'open'})
-    const [emailEdit, setEmailEdit] = useState({status:'open'})
+    const [nameEdit, setNameEdit] = useState({status:'closed'})
+    const [emailEdit, setEmailEdit] = useState({status:'closed'})
     const [locationEdit, setLocationEdit] = useState({status:'closed'})
 
     const toggleName = () => {
@@ -36,6 +37,8 @@ const ProfileCard = ()=> {
             setNameEdit({...nameEdit, status:'closed'})
         }
     }
+
+    console.log(nameEdit)
 
     const toggleEmail = () => {
         if (emailEdit.status === 'closed') {
@@ -68,21 +71,32 @@ const ProfileCard = ()=> {
             .catch(err => {
                 console.error('Unable to get user information', err);
             });
-    }, []);
+    },[]);
+    // const currentUser = () => {
+    //     axios
+    //             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`)
+    //             .then(res => {
+    //                 console.log('Response from user .get call',res.data)
+    //                 const information = res.data[0]
+    //                 setUserInfo(information)
+    //             })
+    //             .catch(err => {
+    //                 console.error('Unable to get user information', err);
+    //             });
+    // }
 
-    const handleSubmit =
-    useEffect(() => {
+    const updateUser = () => {
         axios
             .put(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`,userInfo)
             .then(res => {
-                console.log('Response from user .put call',res)
-                
+                console.log(res);
             })
             .catch(err => {
                 console.error('Unable to get user information', err);
             });
-    }, );
-    
+    }
+
+
 
     // const img = () => {
     //     if(user.userimage === null) {
@@ -96,13 +110,13 @@ const ProfileCard = ()=> {
             <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
-                    <img src={userInfo.userimage === null ? `${ProfileImage}` : `${userInfo.userimage}`} />
+                    {/* <img src={userInfo.userimage === null ? `${ProfileImage}` : `${userInfo.userimage}`} /> */}
                     <button className='edit-avatar-btn'>Edit Picture</button>
                 </div>
                 <div className='name-tab'>
                     <p>Name</p>
-                    <h2 className={`user-name ${nameEdit.status}`}>{userInfo.first_name} {userInfo.last_name}</h2>
-                    <form className={userInfo.first_name === null ? `edit-name ${nameEdit.status = 'open'}` : `edit-name ${nameEdit.status = 'closed'}`} >
+                    <h2 className={`user-name`}>{userInfo.first_name} {userInfo.last_name}</h2>
+                    <form className={`edit-name ${nameEdit.status}`}>
                     <input
                         onChange={handleChange}
                         className='edit-first-name'
@@ -121,7 +135,7 @@ const ProfileCard = ()=> {
                     />
                     </form>
                     <button className={`edit-name-btn ${nameEdit.status}`} onClick={toggleName}>Edit Name</button> 
-                    <button className={`save-name-btn ${nameEdit.status}`} onClick={toggleName} onSubmit={handleSubmit}>Save</button>
+                    <button className={`save-name-btn ${nameEdit.status}`} onClick={toggleName}>Save</button>
                 </div>
                 <div className='email-tab'>
                     <p>Email</p>
@@ -136,8 +150,8 @@ const ProfileCard = ()=> {
                         placeholder='Email'
                     />
                     </form>
-                    <button className={`edit-email-btn ${emailEdit.status}`} onClick={toggleEmail, handleSubmit}>Edit Email</button> 
-                    <button className={`save-email-btn ${emailEdit.status}`} onClick={toggleEmail, handleSubmit}>Save</button>
+                    <button className={`edit-email-btn ${emailEdit.status}`} onClick={toggleEmail}>Edit Email</button> 
+                    <button className={`save-email-btn ${emailEdit.status}`} onClick={toggleEmail}>Save</button>
                 </div>
                 <div className='city-tab'>
                     <p>City, State of Residence</p>
@@ -160,8 +174,8 @@ const ProfileCard = ()=> {
                         value={userInfo.state}
                     />
                     </form>
-                    <button className={`edit-location-btn ${locationEdit.status}`} onClick={toggleLocation, handleSubmit}>Edit Location</button> 
-                    <button className={`save-location-btn ${locationEdit.status}`} onClick={toggleLocation, handleSubmit}>Save</button>
+                    <button className={`edit-location-btn ${locationEdit.status}`} onClick={toggleLocation}>Edit Location</button> 
+                    <button className={`save-location-btn ${locationEdit.status}`} onClick={toggleLocation}>Save</button>
                 </div>
             </div>
         </div>

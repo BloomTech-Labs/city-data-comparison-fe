@@ -19,6 +19,7 @@ function Profile({selected}) {
     
     
     
+    
     return (
         <div className='profile-page'>
             <SideNav />
