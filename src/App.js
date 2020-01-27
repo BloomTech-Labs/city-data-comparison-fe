@@ -28,6 +28,7 @@ function initializeAnalytics() {
 function App() {
 
   
+  
 
   useEffect( _ => {
     initializeAnalytics();
@@ -63,6 +64,7 @@ function App() {
   const setUser = (info) => {
     setUserValue(info)
     localStorage.setItem('user', JSON.stringify(info))
+    
   }
 
   const getCityColor = _ => {

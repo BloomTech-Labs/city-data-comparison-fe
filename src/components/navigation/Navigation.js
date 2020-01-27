@@ -4,6 +4,8 @@ import citrics from './citrics-mock.png'
 import lock from './lock.svg'
 import { UserContext } from '../../contexts/UserContext';
 
+import ProfileImage from '../user-profile/icons/profileimage.png'
+
 
 
 function Navigation(){
@@ -58,8 +60,8 @@ function Navigation(){
                                    </>
                                     : <Link to="/profile">Profile</Link> }
                                    {/* Uncomment when we have the user's avatar */}
-                                   {/* {user != null && 
-                                   <img src={user.avatar} alt="user's avatar"/>} */}
+                                   
+                                   {/* <img src={user.userimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${user.userimage}`} alt="user's avatar"/>} */}
                               </div>
                     </div>
                </div>
