@@ -223,8 +223,8 @@ cityIndex.sort(compare);
     }
     
     //these 4 lines of code took too long to write, they determine the bounds of the map on screen
-    const f1 = item => item.lng > viewport.longitude-(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
-    const f2 = item => item.lng < viewport.longitude+(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f1 = item => item.lng > viewport.longitude-(0.00007813428*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f2 = item => item.lng < viewport.longitude+(0.00007813428*(Math.pow(2,(24-viewport.zoom)))/2)
     const f3 = item => item.lat > viewport.latitude-(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
     const f4 = item => item.lat < viewport.latitude+(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
     
