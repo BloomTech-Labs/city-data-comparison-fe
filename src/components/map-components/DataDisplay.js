@@ -161,6 +161,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
             <div className="data-by-category">
                 {selected.length > 0 
                 ? <> 
+                
                 <div>
                     {/* <p>General Statistics:</p> */}
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
@@ -168,10 +169,10 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
 
                 <div className="data-category">
-                    <div className="data-category-titles">
-                        {/* <p className="data-category-header">Housing</p>
-                        <p className="data-category-subtitle">View the comprehensive picture of housing in American cities.</p> */}
-                    </div>
+                    {/* <div className="data-category-titles">
+                        <p className="data-category-header">Housing</p>
+                        <p className="data-category-subtitle">View the comprehensive picture of housing in American cities.</p>
+                    </div> */}
                     <div className="rent-container">
                         <p className="chart-title">Average rent</p>
                         <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
@@ -203,10 +204,10 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 
 
                 <div className="data-category">
-                    <div className="data-category-titles">
+                    {/* <div className="data-category-titles">
                         <p className="data-category-header">Industry</p>
                         <p className="data-category-subtitle">Explore optimized industry metrics.</p>
-                    </div>
+                    </div> */}
                     <div className="industries-container">
                         <p className="chart-title">Job industry</p>
                         <Element name="industries" className="element" ><Industry edData={selected} /></Element>
@@ -247,10 +248,10 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
 
                 <div className="data-category">
-                    <div className="data-category-titles">
+                    {/* <div className="data-category-titles">
                         <p className="data-category-header">Culture</p>
                         <p className="data-category-subtitle">Get a bird's eye view of your selected city's community.</p>
-                    </div>
+                    </div> */}
                     <div className="age-container">
                         <p className="chart-title">Age distribution</p>
                         <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>

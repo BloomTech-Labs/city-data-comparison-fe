@@ -100,11 +100,11 @@ function TotalPopulation({ethData}) {
     //         </Table>
     //         )}
     // </div>
-        <div className="city-overview-container">
+        <div>
             {ethData.map(item => 
-            <> 
+            <div className="city-overview-container"> 
             <div className="city-overview-border">
-
+                <p>City overview</p>
             </div>
             <div className="city-info-container">
                 <div className="city-overview-container-one">
@@ -140,7 +140,7 @@ function TotalPopulation({ethData}) {
 
                 </div>
             </div>
-            </>
+            </div>
             )}
             
         </div>
