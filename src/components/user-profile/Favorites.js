@@ -39,10 +39,10 @@ const Favorites = ()=> {
 
         
     //delete saved city handler
-    const handleDelete = e => {
+    const handleDelete = id => {
         e.preventDefault();
         axios
-            .delete(``)
+            .delete(`https://citrics-staging.herokuapp.com/api/favs`, id)
             .then(res => {
                 console.log(res);
             })
@@ -55,7 +55,10 @@ const Favorites = ()=> {
         <div>
             <h2>Favorites Page</h2>
             {savedCities.forEach(city => {
-                <GeneralStats ethData={city}/>
+                <>
+                    <GeneralStats ethData={city}/>
+                    <button onClick={handleDelete(city.id)}>Remove</button>
+                </>
             })}
         </div>
     )
