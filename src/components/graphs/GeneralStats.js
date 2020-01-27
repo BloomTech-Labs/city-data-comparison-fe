@@ -17,6 +17,8 @@ import income from '../map-components/assets/dollar.svg'
 // display:flex;
 // flex-wrap:wrap;
 
+import FavoriteButton from '../map-components/FavoriteButton'
+
 
 
 
