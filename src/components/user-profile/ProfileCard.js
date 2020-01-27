@@ -11,8 +11,6 @@ const ProfileCard = (props)=> {
     //state for logged in user
 
     const [userInfo, setUserInfo] = useState({})
-    const [editInfo, setEditInfo] = useState({})
-    console.log(userInfo)
 
     const handleChange = e => {
         setUserInfo({
@@ -21,14 +19,11 @@ const ProfileCard = (props)=> {
         })
     }
     
-    const {user, setUser} = useContext(CityContext);
-    
-
     // Edit state toggle
 
     const [nameEdit, setNameEdit] = useState({status:'closed'})
     const [emailEdit, setEmailEdit] = useState({status:'closed'})
-    const [locationEdit, setLocationEdit] = useState({status:'closed'})
+    const [locationEdit, setLocationEdit] = useState({status:'open'})
 
     const toggleName = () => {
         if (nameEdit.status === 'closed') {
@@ -37,8 +32,6 @@ const ProfileCard = (props)=> {
             setNameEdit({...nameEdit, status:'closed'})
         }
     }
-
-    console.log(nameEdit)
 
     const toggleEmail = () => {
         if (emailEdit.status === 'closed') {
@@ -64,7 +57,7 @@ const ProfileCard = (props)=> {
         axios
             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`)
             .then(res => {
-                console.log('Response from user .get call',res.data)
+                
                 const information = res.data[0]
                 setUserInfo(information)
             })
@@ -72,18 +65,6 @@ const ProfileCard = (props)=> {
                 console.error('Unable to get user information', err);
             });
     },[]);
-    // const currentUser = () => {
-    //     axios
-    //             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`)
-    //             .then(res => {
-    //                 console.log('Response from user .get call',res.data)
-    //                 const information = res.data[0]
-    //                 setUserInfo(information)
-    //             })
-    //             .catch(err => {
-    //                 console.error('Unable to get user information', err);
-    //             });
-    // }
 
     const updateUser = () => {
         axios
@@ -96,15 +77,6 @@ const ProfileCard = (props)=> {
             });
     }
 
-
-
-    // const img = () => {
-    //     if(user.userimage === null) {
-    //         img.attr('src', `${ProfileImage}`)
-    //     } else {
-    //         img.attr('src', `${userInfo.userimage}`)
-    //     }
-
     return (
         <div className='profile-container'>
             <h1 className='header'>Profile</h1>
@@ -116,7 +88,7 @@ const ProfileCard = (props)=> {
                 <div className='name-tab'>
                     <p>Name</p>
                     <h2 className={`user-name`}>{userInfo.first_name} {userInfo.last_name}</h2>
-                    <form className={`edit-name ${nameEdit.status}`}>
+                    <form className={`edit-name ${nameEdit.status}`} onSubmit={updateUser()}>
                     <input
                         onChange={handleChange}
                         className='edit-first-name'
@@ -135,12 +107,12 @@ const ProfileCard = (props)=> {
                     />
                     </form>
                     <button className={`edit-name-btn ${nameEdit.status}`} onClick={toggleName}>Edit Name</button> 
-                    <button className={`save-name-btn ${nameEdit.status}`} onClick={toggleName}>Save</button>
+                    <button className={`save-name-btn ${nameEdit.status}`} onClick={toggleName} >Save</button>
                 </div>
                 <div className='email-tab'>
                     <p>Email</p>
                     <h2 className={`user-email ${emailEdit.status}`}>{userInfo.email}</h2>
-                    <form className={`edit-email ${emailEdit.status}`}>
+                    <form className={`edit-email ${emailEdit.status}`} onSubmit={updateUser()}>
                     <input
                         onChange={handleChange}
                         className='edit-email'
@@ -151,12 +123,12 @@ const ProfileCard = (props)=> {
                     />
                     </form>
                     <button className={`edit-email-btn ${emailEdit.status}`} onClick={toggleEmail}>Edit Email</button> 
-                    <button className={`save-email-btn ${emailEdit.status}`} onClick={toggleEmail}>Save</button>
+                    <button className={`save-email-btn ${emailEdit.status}`} onClick={toggleEmail} onSubmit={updateUser}>Save</button>
                 </div>
                 <div className='city-tab'>
                     <p>City, State of Residence</p>
-                    <h2 className={`user-location ${locationEdit.status}`}>{userInfo.city}, {userInfo.state}</h2>
-                    <form className={`edit-location ${locationEdit.status}`}>
+                    <h2 className={`user-location ${locationEdit.status}`}>{userInfo.city}{userInfo.state}</h2>
+                    <form className={`edit-location ${locationEdit.status}`} onSubmit={updateUser()}>
                     <input
                         onChange={handleChange}
                         className='edit-city'
