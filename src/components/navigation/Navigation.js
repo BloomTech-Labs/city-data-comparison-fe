@@ -13,6 +13,7 @@ function Navigation(){
      const [offset, setOffset] = useState(0);
      const [displayNav, setDisplayNav] = useState('show-nav')
      const [bgColor, setBgColor] = useState('default-color')
+     const [fixedClass, setFixedClass] = useState("")
      const defaultNavigation = () => {
           setBgColor('default-color')
           if (offset === 0 ){
