@@ -13,14 +13,37 @@ const FavoriteButton = ({city}) => {
 
     const [hover, setHover] = useState(false)
     const [saving, setSaving] = useState(false)
-    const [saved, setSaved] = useState(false)
-    const id = user.id;
+    // const [saved, setSaved] = useState(false)
+    const favcities = [{}];
+    let id = null;
+
+    if(user != null){
+        id = user.id;
+    } else {
+        id = null;
+    }
     
     useEffect(() => {
 
-        (saved) ? saveToFavorites(city) : removeFromFavorites(city)
-        
-    }, [saved])
+        Axios
+            .get(`https://citrics-staging.herokuapp.com/api/users/favs/${id}`)
+            .then(response => {
+                console.log(response)
+                response.data.forEach(cityid => {favcities.push(cityid.city_id)
+                setFavorites([...favorites, ...favcities])})
+                console.log(favorites)
+            })
+            .catch(error => console.log(error))
+
+    }, [])  
+
+    const toggle = () => {
+        if(favorites.includes(city._id)){
+            removeFromFavorites(city)
+        }else{
+            saveToFavorites(city)
+        }
+    }
     
     const saveToFavorites = city => {
         if (!id) return;
@@ -30,7 +53,8 @@ const FavoriteButton = ({city}) => {
             .then(response => {
                 
                 console.log(response)
-                setFavorites([...favorites, city])
+                setFavorites([...favorites, (city._id)])
+                console.log(favorites)
                 setSaving(false)
             })
             .catch(error => console.log(error))
@@ -44,19 +68,18 @@ const FavoriteButton = ({city}) => {
             .delete(`https://citrics-staging.herokuapp.com/api/users/favs/${id}`, { data: cityReq})
             .then(response => {
                 console.log(response)
-                setFavorites(favorites.filter(item =>  item !== city))
+                setFavorites(favorites.filter(item =>  item !== city._id))
             })
     }
 
 
     return(
-          
-            
+            <>
                 <div className="heart-button" 
-                    onClick={() => setSaved(!saved)}
+                    onClick={() => toggle()}
 
                     onMouseEnter={() => setHover(true)}
-                     onMouseLeave={() => setHover(false)}
+                    onMouseLeave={() => setHover(false)}
                     style={{
                         'display': 'flex',
                         'cursor' : 'pointer',
@@ -67,16 +90,23 @@ const FavoriteButton = ({city}) => {
                         'justifyContent': 'space-around', 
                         'borderRadius': '10px',
                         'fontWeight': '500',
-                        'marginLeft' : 'auto', 
-                        
-                        
-                    
+                        'marginLeft' : 'auto',
                     }}
                     >
                         <img style={{'width' : '23%'}} 
-                        src={(saved) ? heart_icon : heart_icon} alt='add to favorites'/>
+                        src={favorites.includes(city._id) ? filled_heart : heart_icon} alt='add to favorites'/>
+
+                        {hover === true && id === null && <div style={{
+                            position: "absolute", 
+                            backgroundColor: "white",
+                            boxShadow: "5px 10px 8px #888888",
+                            borderRadius: "5px",
+                            padding: "0px 10px",
+                            textAlign: "center"}}>
+                                <p>Sign up or Log in to favorite cities!</p>
+                        </div>}
                 </div>
-        
+            </>
     )
 }
 
