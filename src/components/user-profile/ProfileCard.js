@@ -6,7 +6,7 @@ import './profile.scss'
 
 import {UserContext} from "../../contexts/UserContext"
 
-import AvatarUpload from './AvatarUpload'
+
 
 
 
@@ -15,18 +15,9 @@ const ProfileCard = (props)=> {
     //state for logged in user
     const { user, setUser } = useContext(UserContext)
     const [userInfo, setUserInfo] = useState(user)
-    const [userImage, setUserImage] = useState({userimage:null, users_id: userInfo.id})
-    const [imagetest, setTest] = useState({usersimage:null, users_id: userInfo.id})
-    console.log(userImage, 'image')
+    const [userImage, setUserImage] = useState({usersimage:null, users_id: userInfo.id})
 
-    const getLoggedInUser = () => {
-        const user = localStorage.getItem('user');
 
-        if(user){
-            console.log(JSON.parse(user));
-            setUserInfo(JSON.parse(user))
-        } 
-    }
 
     const handleChange = e => {
         setUserInfo({
@@ -55,6 +46,8 @@ const ProfileCard = (props)=> {
             setNameEdit({...nameEdit, status:'open'}) 
         } else if (nameEdit.status === 'open') {
             setNameEdit({...nameEdit, status:'closed'})
+        } else if (user.first_name === null) {
+            setNameEdit({...nameEdit, status:'open'})
         }
     }
 
@@ -63,6 +56,8 @@ const ProfileCard = (props)=> {
             setEmailEdit({...emailEdit, status:'open'}) 
         } else if (emailEdit.status === 'open') {
             setEmailEdit({...emailEdit, status:'closed'})
+        } else if (user.first_name === null) {
+            setEmailEdit({...emailEdit, status:'open'})
         }
     }
 
@@ -71,6 +66,8 @@ const ProfileCard = (props)=> {
             setLocationEdit({...locationEdit, status:'open'}) 
         } else if (locationEdit.status === 'open') {
             setLocationEdit({...locationEdit, status:'closed'})
+        } else if (user.first_name === null) {
+            setLocationEdit({...locationEdit, status:'open'})
         }
     }
 
@@ -79,7 +76,7 @@ const ProfileCard = (props)=> {
             setImageUpload({...imageUpload, status: 'open'}) 
         } else if (imageUpload.status === 'open') {
             setImageUpload({...imageUpload, status: 'closed'}) 
-        }
+        } 
     }
 
     const id = userInfo.id;
@@ -92,7 +89,7 @@ const ProfileCard = (props)=> {
             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
             .then(res => {
                 const image = res.data[0].userimage
-                setUserImage(image)
+                setUserImage({...userImage, usersimage: image})
             })
             .catch(err => {
                 console.log('Unable to get image', err)
@@ -131,27 +128,31 @@ const ProfileCard = (props)=> {
             });
     }
     
-
-
     const postImage = () => {
-        axios
-            .delete(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
-            .then(res => {
-               return 
-                axios
-                .post('https://citrics-staging.herokuapp.com/api/users/', userImage)
-                .then(res => {
-                    console.log(res, 'Image Posted')
-                })
-            })
-
-    }
-
-    const test = () => {
+        
         
         const formData = new FormData()
         formData.append('userimage', userImage.userimage)
         formData.append('users_id', userImage.users_id)
+
+        if (user.userimage !== null) {
+            axios
+                .delete(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
+                .then(res => {
+                    axios
+                        .post('https://citrics-staging.herokuapp.com/api/users/', formData)
+                        .then(res => {
+                            axios
+                                .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
+                                .then(res => {
+                                    const image = res.data[0].userimage
+                                     setUserImage({...userImage, usersimage: image})
+                                })
+                        })
+                })
+
+        } else {
+            
         axios
             .post('https://citrics-staging.herokuapp.com/api/users/', formData)
             .then(res => {
@@ -160,13 +161,14 @@ const ProfileCard = (props)=> {
                 axios.get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
                 .then(res => {
                     const image = res.data[0].userimage
-                    setUserImage({usersimage: image})
-                
+                    setUserImage({...userImage, usersimage: image})
+                    console.log(image) 
             })
         })
             .catch(err => {
                 console.log('Unable to upload', err)
             })
+        }
     }
 
     const onSubmit = e => {
@@ -181,16 +183,17 @@ const ProfileCard = (props)=> {
             <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
-                    <img src={userImage.userimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage}`} />
+                    <img src={userImage.usersimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage.usersimage}`} />
                     <form className={`edit-image ${imageUpload.status}`} action='/uploads' enctype="multipart/form-data" onSubmit={onSubmit}>
                         <input 
+                        className='image-input'
                         type='file'
                         name='usersimage'
                         onChange={(e) => handleFile(e)}
                         />
                     </form>
                     <button className={`edit-image-btn ${imageUpload.status}`} onClick={toggleImage}>Upload Image</button>
-                    <button className={`save-image-btn ${imageUpload.status}`} onClick={() => {toggleImage(); test()}} >Save</button>
+                    <button className={`save-image-btn ${imageUpload.status}`} onClick={() => {toggleImage(); postImage()}} >Save</button>
                 </div>
                 <div className='name-tab'>
                     <p>Name</p>
@@ -213,8 +216,6 @@ const ProfileCard = (props)=> {
                         placeholder='Last Name'
                     />
                     </form>
-                    <button className={`edit-name-btn ${nameEdit.status}`} onClick={toggleName}>Edit Name</button> 
-                    <button className={`save-name-btn ${nameEdit.status}`} onClick={toggleName} >Save</button>
                 </div>
                 <div className='email-tab'>
                     <p>Email</p>
@@ -229,8 +230,6 @@ const ProfileCard = (props)=> {
                         placeholder='Email'
                     />
                     </form>
-                    <button className={`edit-email-btn ${emailEdit.status}`} onClick={toggleEmail}>Edit Email</button> 
-                    <button className={`save-email-btn ${emailEdit.status}`} onClick={toggleEmail} onSubmit={updateUser}>Save</button>
                 </div>
                 <div className='city-tab'>
                     <p>City, State of Residence</p>
@@ -253,8 +252,8 @@ const ProfileCard = (props)=> {
                         value={userInfo.state}
                     />
                     </form>
-                    <button className={`edit-location-btn ${locationEdit.status}`} onClick={toggleLocation}>Edit Location</button> 
-                    <button className={`save-location-btn ${locationEdit.status}`} onClick={toggleLocation}>Save</button>
+                    <button className={`edit-location-btn ${locationEdit.status}`} onClick={() => {toggleLocation(); toggleEmail(); toggleName()}}>Edit Profile</button> 
+                    <button className={`save-location-btn ${locationEdit.status}`} onClick={() => {toggleLocation(); toggleEmail(); toggleName()}}>Save</button>
                 </div>
             </div>
         </div>

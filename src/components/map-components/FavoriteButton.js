@@ -9,12 +9,12 @@ import Axios from 'axios'
 
 const FavoriteButton = ({city}) => {
 
-    const { favorites, setFavorites } = useContext(UserContext)
+    const { favorites, setFavorites, user } = useContext(UserContext)
 
     const [hover, setHover] = useState(false)
     const [saving, setSaving] = useState(false)
     const [saved, setSaved] = useState(false)
-    const id = localStorage.getItem('id')
+    const id = user.id;
     
     useEffect(() => {
 
@@ -23,8 +23,10 @@ const FavoriteButton = ({city}) => {
     }, [saved])
     
     const saveToFavorites = city => {
+        if (!id) return;
+        let cityReq = {city_id: city._id};
         Axios
-            .post(`https://citrics-staging.herokuapp.com/api/favs/${id}`, city)
+            .post(`https://citrics-staging.herokuapp.com/api/users/favs/${id}`, cityReq)
             .then(response => {
                 
                 console.log(response)
@@ -35,8 +37,11 @@ const FavoriteButton = ({city}) => {
     }
 
     const removeFromFavorites = city => {
+        if (!id) return;
+        let cityReq = {city_id: city._id}
+        console.log(cityReq)
         Axios
-            .delete(`https://citrics-staging.herokuapp.com/api/favs/${id}`, city)
+            .delete(`https://citrics-staging.herokuapp.com/api/users/favs/${id}`, { data: cityReq})
             .then(response => {
                 console.log(response)
                 setFavorites(favorites.filter(item =>  item !== city))

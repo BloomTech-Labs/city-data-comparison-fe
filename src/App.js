@@ -11,12 +11,12 @@ import Map from "./components/Map";
 import Profile from './components/user-profile/Profile'
 import PrivacyPolicy from "./components/legal/PrivacyPolicy"
 import AboutUs from './components/aboutus/AboutUs'; 
-import AuthForm from "./components/forms/AuthForm"
 import citiesIndex from './data/city_ids.json'
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
 import Axios from "axios"
 import Callback from './components/Callback';
+import AuthForm from './components/forms/AuthForm';
 
 
 function initializeAnalytics() {
@@ -276,7 +276,10 @@ cityIndex.sort(compare);
             <Route path='/profile' component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/aboutus" component={AboutUs} />
-            <Route path='/signin' component={AuthForm} />
+
+            <Route path='/signin' render={props => <AuthForm {...props} action="Login"/>} />
+            <Route path="/signup" render={props => <AuthForm {...props} action="Register"/>} />
+
             <Route path="/callback" component={Callback} />
           </div>
           </CityContext.Provider>
