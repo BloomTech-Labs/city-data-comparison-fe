@@ -184,12 +184,18 @@ h1 {
         p {
             font-size: 18px;
             font-weight: 500;
+            text-decoration: underline;
+        }
+
+        .image-input{
+            padding: 5px;
+            width: 80%;
         }
 
         button{
             border: none;
             margin-top: 5px;
-            width: 80%;
+            width: 130px;
             border-radius: 5px;
             font-size: 1.1rem;
             font-weight: 500;
@@ -251,7 +257,7 @@ h1 {
             width: 64px;
             padding: 12px;
         }
-        
+              
     }
 
     .edit-name.closed, .save-name-btn.closed,.edit-name-btn.open,   .edit-email.closed,.save-email-btn.closed,  .edit-email-btn.open,     .edit-location.open,.save-location-btn.open,    .edit-location-btn.closed, .user-name.open, .user-email.open,     .user-location.closed, .edit-image.closed, .save-image-btn.closed, .edit-image-btn.open {

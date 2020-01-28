@@ -167,6 +167,7 @@ const ProfileCard = (props)=> {
                     <img src={userImage.usersimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage.usersimage}`} />
                     <form className={`edit-image ${imageUpload.status}`} action='/uploads' enctype="multipart/form-data" onSubmit={onSubmit}>
                         <input 
+                        className='image-input'
                         type='file'
                         name='usersimage'
                         onChange={(e) => handleFile(e)}
