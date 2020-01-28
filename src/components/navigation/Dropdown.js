@@ -10,28 +10,29 @@ const DropMenu = (props) => {
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
     const Logout = () => {
-        setUserValue(null)
+        setUserValue(null);
         localStorage.setItem('user', null)
+        localStorage.setItem('jwt', null)
         // props.history.push("/")
     }
     return(
-        <div isOpen={dropdownOpen} toggle={toggle}>
-            <div>
+        <div>
+            <div onMouseEnter={() => toggle()} onMouseLeave={() => toggle()}>
                 {user.userimage === null ? 
                 <img src={ProfileImage} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar" />
                 :
                 <img src={`https://citrics-staging.herokuapp.com/${user.userimage}`} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar"/>}
-            </div>
-            <div>
-                <div>Welcome!</div>
-                <div>
-                    <Link to="/profile">Profile</Link>
-                </div>
-                <div>
-                    <div onClick={() => Logout()}>
-                        <h4>Logout</h4>
+                {dropdownOpen && <div style={{position: "absolute", right: "3vh"}}>
+                    <div style={{padding: "5px"}}>Welcome!</div>
+                    <div style={{padding: "5px", backgroundColor: "#FB7F72", borderRadius: "5px"}}>
+                        <Link to="/profile">Profile</Link>
                     </div>
-                </div>
+                    <div style={{padding: "5px", backgroundColor: "#80B1D3", borderRadius: "5px"}}> 
+                        <div onClick={() => Logout()}>
+                            <Link to="/">Logout</Link>
+                        </div>
+                    </div>
+                </div>}
             </div>
         </div>
     )

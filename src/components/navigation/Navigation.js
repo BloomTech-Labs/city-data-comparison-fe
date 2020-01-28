@@ -59,7 +59,7 @@ function Navigation(){
                </nav> 
 
                {/* <!-- Dropdown Menu  --> */}
-                 <div className="dropdownContainer">
+                 {/* <div className="dropdownContainer">
                     <div className="dropdown" style={styles}>
                          <button className="dropbtn">Menu</button>
                               <div className="dropdown-content">
@@ -69,13 +69,13 @@ function Navigation(){
                                    <>
                                    <Link to="/signin">Log In</Link> <Link to="/signup">Get Started</Link>
                                    </>
-                                    : <Link to="/profile">Profile</Link> }
-                                   {/* Uncomment when we have the user's avatar */}
-                                   {/* {user != null && 
-                                   <img src={user.avatar} alt="user's avatar"/>} */}
+                                   : 
+                                   <>
+                                   <Link to="/profile">Profile</Link> <DropMenu/>
+                                   </>}
                               </div>
                     </div>
-               </div>
+               </div> */}
           </div>
      )
 }
