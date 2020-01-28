@@ -6,8 +6,9 @@ import {UserContext} from "../contexts/UserContext"
 const Callback = (props) => {
     const {setUser} = useContext(UserContext)
     const values = queryString.parse(props.location.search)
+    console.log(values, "values")
     localStorage.setItem('jwt', values.jwt);
-    setUser(JSON.parse(values.user));
+    setUser(values.user);
     return (
         <>
             {Redirect("/")}
