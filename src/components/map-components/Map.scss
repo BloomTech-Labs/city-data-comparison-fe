@@ -25,6 +25,39 @@
 
 /* The data-broswer is the component below the map */
 
+.save-container-big{
+    background-color: white;
+    box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+    width:300px;
+    padding:12px 30px;
+    padding-right:none;
+    border-radius:5px;
+    margin-left:-20px;
+    margin-top:-10px;
+    border:1px solid #ECF1F5;
+
+    .save-container{
+        color:#2ba4fc;
+
+        .save-title{
+            font-size:1.2rem;
+            margin-bottom:5px;
+        }
+        .save-desc{
+            font-size:.9rem;
+            filter:brightness(105%);
+            display:flex;
+            align-items:center;            
+            a{
+                color: #69C3FF;
+            }
+            .save-img{
+                margin-left:7px;
+                height:20px;
+            }
+        }
+    }
+}
 
 
 

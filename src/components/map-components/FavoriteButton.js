@@ -3,6 +3,7 @@ import {UserContext} from '../../contexts/UserContext';
 //assets
 import heart_icon from './icons/heart.svg';
 import filled_heart from './icons/filled_heart.svg'
+import signupArrow from './assets/signupArrow.svg'
 
 import Axios from 'axios'
 
@@ -86,24 +87,38 @@ const FavoriteButton = ({city}) => {
                         'alignItems' : 'center',
                         'justifyContent' : 'spaceAround',
                         'background' : 'white',
-                        'width': '10%',
+                        'width': '100px',
                         'justifyContent': 'space-around', 
-                        'borderRadius': '10px',
-                        'fontWeight': '500',
+                        'borderRadius': '5px',
                         'marginLeft' : 'auto',
                     }}
                     >
                         <img style={{'width' : '23%'}} 
                         src={favorites.includes(city._id) ? filled_heart : heart_icon} alt='add to favorites'/>
 
-                        {hover === true && id === null && <div style={{
+                        {hover === true && id === null && <div className="save-container-big" style={{
                             position: "absolute", 
-                            backgroundColor: "white",
-                            boxShadow: "5px 10px 8px #888888",
-                            borderRadius: "5px",
-                            padding: "0px 10px",
-                            textAlign: "center"}}>
-                                <p>Sign up or Log in to favorite cities!</p>
+                            // backgroundColor: "white",
+                            // border:"1px solid #F8F8F9",
+                            // // boxShadow: "1px 1px 1px #888888",
+                            // borderRadius: "5px",
+                            // padding: "0px 15px",
+                            // width:'170px',
+                            // fontSize:'1.7vh',
+                            // textAlign: "center",
+                            
+                            // backgroundColor:"#2ca4fc",
+                            // width:"200px",
+                            // padding:"0px 15px",
+                            // color:"white",
+                            // // border:"1px solid red"
+                            
+                            }}>
+                                <div className="save-container">
+                                    <div className="save-title">Save your favorite cities.</div>
+                                    <div className="save-desc"><a href="https://www.citrics.io/signup">Click here to get started </a><img className="save-img" src={signupArrow} alt="arrow"/></div>
+                                </div>
+                                {/* <p>Always have your cities on the go. <br /> Sign up to favorite cities for free.</p> */}
                         </div>}
                 </div>
             </>

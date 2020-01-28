@@ -25,7 +25,6 @@ const CitySelection = (props) => {
             'background':'white',
             'padding': '2%',
             'width' : '100%'
-
             
         }}>
             <div className='pointerIcon' style={{ 'width' : '4%'}}>
