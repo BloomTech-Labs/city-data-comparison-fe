@@ -148,6 +148,7 @@ const ProfileCard = (props)=> {
                                     const image = res.data[0].userimage
                                      setUserImage({...userImage, usersimage: image})
                                      setUser({...user, userimage : image})
+                                     window.location.reload()
                                 })
                         })
                 })

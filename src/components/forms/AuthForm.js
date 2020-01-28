@@ -40,16 +40,16 @@ const AuthForm = props => {
                 .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action.toLowerCase()}`, login)
                 .then(res => {
                     setIsLoading(false)
-                    setUser( res.data.user)
+                    setUser({...user, ...res.data.user})
                     
                     
                     localStorage.setItem('jwt', res.data.token)
                     console.log(user, "USERER")
                     
                     //redirect user to home
-                    
+                    return res.data.user}).then(user => {
                     axios
-                    .get(`https://citrics-staging.herokuapp.com/api/users/profile/${res.data.user.id}/image`)
+                    .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
                     .then(res => {
                         console.log(res, "LOLG")
                         if (
@@ -58,6 +58,7 @@ const AuthForm = props => {
                                 setUser({...user, ...res.data[0]})
                             }
                             props.history.push('/')
+                            // window.location.reload()
                         })
                         
                  })

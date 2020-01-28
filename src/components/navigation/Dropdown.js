@@ -1,17 +1,20 @@
 import React, {useState, useContext} from "react";
 import { Link } from "react-router-dom";
+import {CityContext} from "../../contexts/CityContext"
 import {UserContext} from "../../contexts/UserContext"
 import ProfileImage from '../user-profile/icons/profileimage.png'
 
 
 const DropMenu = (props) => {
     const {user, setUserValue, setFavorites} = useContext(UserContext)
+    const {setSelected} = useContext(CityContext)
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
     const Logout = () => {
         setUserValue(null);
-        setFavorites(null);
+        setFavorites([])
+        setSelected([])
         localStorage.setItem('user', null)
         localStorage.setItem('jwt', null)
         // props.history.push("/")
