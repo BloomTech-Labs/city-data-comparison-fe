@@ -74,13 +74,12 @@ const FavoriteButton = ({city}) => {
 
 
     return(
-          
-            
+            <>
                 <div className="heart-button" 
                     onClick={() => toggle()}
 
                     onMouseEnter={() => setHover(true)}
-                     onMouseLeave={() => setHover(false)}
+                    onMouseLeave={() => setHover(false)}
                     style={{
                         'display': 'flex',
                         'cursor' : 'pointer',
@@ -96,8 +95,17 @@ const FavoriteButton = ({city}) => {
                     >
                         <img style={{'width' : '23%'}} 
                         src={favorites.includes(city._id) ? filled_heart : heart_icon} alt='add to favorites'/>
+                        {hover === true && id === null && <div style={{
+                            position: "absolute", 
+                            backgroundColor: "white",
+                            boxShadow: "5px 10px 8px #888888",
+                            borderRadius: "5px",
+                            padding: "0px 10px",
+                            textAlign: "center"}}>
+                                <p>Sign up or Log in to favorite cities!</p>
+                        </div>}
                 </div>
-        
+            </>
     )
 }
 
