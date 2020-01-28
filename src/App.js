@@ -35,7 +35,7 @@ function App() {
       const image = res.data[0]
       if(image) setUser({...user, userimage: image.userimage})
     })}
-  },[])
+  },[window.location])
   
 
   useEffect( _ => {
@@ -238,8 +238,8 @@ cityIndex.sort(compare);
     }
     
     //these 4 lines of code took too long to write, they determine the bounds of the map on screen
-    const f1 = item => item.lng > viewport.longitude-(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
-    const f2 = item => item.lng < viewport.longitude+(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f1 = item => item.lng > viewport.longitude-(0.00007810743*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f2 = item => item.lng < viewport.longitude+(0.00007810743*(Math.pow(2,(24-viewport.zoom)))/2)
     const f3 = item => item.lat > viewport.latitude-(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
     const f4 = item => item.lat < viewport.latitude+(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
     
@@ -266,7 +266,7 @@ cityIndex.sort(compare);
 
   return (
     <Router>
-      <UserContext.Provider value={{user, setUser, favorites, setFavorites}}>
+      <UserContext.Provider value={{user, setUserValue, setUser, favorites, setFavorites}}>
         <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, getBestSuggestions}}>
           <div className="App">
             <Navigation />
