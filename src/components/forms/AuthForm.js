@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import PrivacySection from './PrivacySection'
 import city from '../../assets/illustrations/city_illustration.jpg'
-
+import {UserContext} from "../../contexts/UserContext"
 //oauth button
 import './OauthButton'
 
@@ -29,19 +29,21 @@ const AuthForm = props => {
    const [loginError, setLoginError] = useState('')
    const [isLoading, setIsLoading] = useState(false)
    const [validated, validate] = useState(false)
+   const {user, setUser} = useContext(UserContext)
 
-   const [user, setUser] = useState({username: '', password: ''})
+   const [login, setLogin] = useState({username: '', password: ''})
 
 
     useEffect(() => {
         if(validated){
             axios
-                .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action}`, user)
+                .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action.toLowerCase()}`, login)
                 .then(res => {
                     setIsLoading(false)
-                    localStorage.getItem('userId', res.data.id)
+                    setUser( res.data.user)
+                    localStorage.setItem('jtw', res.data.token)
                     console.log(res)
-
+                    props.history.push('/')
                     //redirect user to home
                 }).catch(error => console.log(error)) 
         }
@@ -49,10 +51,10 @@ const AuthForm = props => {
             
     
     const validateForm = _ => {
-        if (user.username === '') {
+        if (login.username === '') {
             setUsernameError('Please enter your username'); 
         }
-        if (user.password === '') {
+        if (login.password === '') {
             setPasswordError("Please enter your password")
         } 
         else{
@@ -61,12 +63,12 @@ const AuthForm = props => {
     }
 
     const onChange = e => {
-        setUser({...user, [e.target.name] : e.target.value})
+        setLogin({...login, [e.target.name] : e.target.value})
         
     }
 
     const onSubmit = e => {
-            console.log(user)
+            console.log(login)
             validateForm();
             setIsLoading(true)
 
@@ -106,7 +108,7 @@ const AuthForm = props => {
                             className="email" 
                             type='text' name='username' 
                             placeholder="Username" 
-                            value={user.username} 
+                            value={login.username} 
                             onChange={onChange}
                         />
                        <p className='error'>{passwordError}</p>
@@ -115,7 +117,7 @@ const AuthForm = props => {
                             type='password'
                             name='password'
                             placeholder="Password"
-                            value={user.password}
+                            value={login.password}
                             onChange={onChange}
                         />
                        
