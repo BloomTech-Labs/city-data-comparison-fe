@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import citrics from './citrics-mock.png'
 import lock from './lock.svg'
 import { UserContext } from '../../contexts/UserContext';
-
-import ProfileImage from '../user-profile/icons/profileimage.png'
-
+import DropMenu from "./Dropdown"
 
 
 function Navigation(){
@@ -53,11 +51,7 @@ function Navigation(){
                     </> :
                     <>
                          <Link to="/profile">Profile</Link>
-
-                         {user.userimage === null ? 
-                         <img src={ProfileImage} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar"/>
-                         :
-                         <img src={`https://citrics-staging.herokuapp.com/${user.userimage}`} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar"/>}
+                         <DropMenu/>
                     </>
                     }
 
