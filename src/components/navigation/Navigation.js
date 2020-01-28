@@ -25,6 +25,8 @@ function Navigation(){
           }
      }
 
+
+
      useEffect( _ => {
           if (window.location.href.includes("map")) {
                setFixedClass("unfixed")
