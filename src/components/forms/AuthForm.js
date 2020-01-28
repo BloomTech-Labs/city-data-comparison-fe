@@ -41,11 +41,28 @@ const AuthForm = props => {
                 .then(res => {
                     setIsLoading(false)
                     setUser( res.data.user)
-                    localStorage.setItem('jtw', res.data.token)
-                    console.log(res)
-                    props.history.push('/')
+                    
+                    
+                    localStorage.setItem('jwt', res.data.token)
+                    console.log(user, "USERER")
+                    
                     //redirect user to home
-                }).catch(error => console.log(error)) 
+                    
+                    axios
+                    .get(`https://citrics-staging.herokuapp.com/api/users/profile/${res.data.user.id}/image`)
+                    .then(res => {
+                        console.log(res, "LOLG")
+                        if (
+                            res.data.length > 0
+                            ){
+                                setUser({...user, ...res.data[0]})
+                            }
+                            props.history.push('/')
+                        })
+                        
+                 })
+                .catch(error => console.log(error)) 
+                
         }
     },[validated])
             

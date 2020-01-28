@@ -35,7 +35,7 @@ function App() {
       const image = res.data[0]
       if(image) setUser({...user, userimage: image.userimage})
     })}
-  },[])
+  },[window.location])
   
 
   useEffect( _ => {
