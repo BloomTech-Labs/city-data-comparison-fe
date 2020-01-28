@@ -117,17 +117,23 @@ function Dashboard({history}){
      //* SUBMIT SEARCH */
      const submitCity = async (event) => {
           event.preventDefault();
+          console.log("searching", compare)
           // all the below logic should be pulled into app.js and handle things on that end i think
-               if ( compare.cityTwo === "") {
+               if (!compare.cityTwo && !compare.cityOne) {
+                    history.push("/map")
+                    return;
+               }     
+               if ( !compare.cityTwo && compare.cityOne) {
                     getCity(cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne));
                     history.push("/map");
                     return;
                }
-               if ( compare.cityOne === "") {
+               if ( compare.cityTwo && !compare.cityOne) {
                     getCity(cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo));
                     history.push("/map");
                     return;
                }
+
                let found = cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne)
                let found2 = cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo)
                if (found && found2) {
@@ -162,10 +168,14 @@ function Dashboard({history}){
           if(buttonClass === "search-toggle-green"){
                setButtonClass("")
                setToggleSearch(true)
+               setCompare({
+                    ...compare,
+                    cityTwo: ""
+               })
           } else {
                setButtonClass("search-toggle-green")
                setToggleSearch(!toggleSearch)
-          }
+          } 
      }
 
      const toggleStyle = {
