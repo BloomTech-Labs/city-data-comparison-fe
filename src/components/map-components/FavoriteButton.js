@@ -90,11 +90,12 @@ const FavoriteButton = ({city}) => {
                         'justifyContent': 'space-around', 
                         'borderRadius': '10px',
                         'fontWeight': '500',
-                        'marginLeft' : 'auto', 
+                        'marginLeft' : 'auto',
                     }}
                     >
                         <img style={{'width' : '23%'}} 
                         src={favorites.includes(city._id) ? filled_heart : heart_icon} alt='add to favorites'/>
+
                         {hover === true && id === null && <div style={{
                             position: "absolute", 
                             backgroundColor: "white",

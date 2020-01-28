@@ -5,12 +5,13 @@ import ProfileImage from '../user-profile/icons/profileimage.png'
 
 
 const DropMenu = (props) => {
-    const {user, setUserValue} = useContext(UserContext)
+    const {user, setUserValue, setFavorites} = useContext(UserContext)
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
     const Logout = () => {
         setUserValue(null);
+        setFavorites(null);
         localStorage.setItem('user', null)
         localStorage.setItem('jwt', null)
         // props.history.push("/")
