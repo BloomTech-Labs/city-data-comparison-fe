@@ -62,12 +62,15 @@
 
 
 .data-browser {
+    // border:1px solid red;
     background: #F2F9FD;
     display:flex;
-    padding-top: 1%;
+    padding-top: 5%;
 
     .map-prompt {
         text-align:center;
+        font-size:1.3rem;
+        color:#2ba4fc;
     }
 
 
@@ -653,10 +656,8 @@
 // **** Styling prior to Kevin's
     .anchor-header {
         font-size: 1.3rem;
-        // font-weight:500;
         text-align:left;
         text-decoration:none;
-        // border:1px solid red;
         margin:0;
         margin-left:20px;
         color:#00bfa5;
@@ -758,6 +759,7 @@
             }
         }
         .search-bar{
+            margin-top:-30px;
             background-image:url('../dashboard/assets/search.svg');
             background-position:6px 5.5px;
             background-repeat: no-repeat;
@@ -987,3 +989,8 @@
     }
 }
 
+.loader-animation{
+    display:flex;
+    justify-content:center;
+    margin-bottom:-30px;
+}
