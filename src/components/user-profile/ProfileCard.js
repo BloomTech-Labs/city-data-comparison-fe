@@ -130,9 +130,29 @@ const ProfileCard = (props)=> {
     
     const postImage = () => {
         
+        
         const formData = new FormData()
         formData.append('userimage', userImage.userimage)
         formData.append('users_id', userImage.users_id)
+
+        if (user.userimage !== null) {
+            axios
+                .delete(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
+                .then(res => {
+                    axios
+                        .post('https://citrics-staging.herokuapp.com/api/users/', formData)
+                        .then(res => {
+                            axios
+                                .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
+                                .then(res => {
+                                    const image = res.data[0].userimage
+                                     setUserImage({...userImage, usersimage: image})
+                                })
+                        })
+                })
+
+        } else {
+            
         axios
             .post('https://citrics-staging.herokuapp.com/api/users/', formData)
             .then(res => {
@@ -142,14 +162,13 @@ const ProfileCard = (props)=> {
                 .then(res => {
                     const image = res.data[0].userimage
                     setUserImage({...userImage, usersimage: image})
-                    console.log(image)
-                    
-                
+                    console.log(image) 
             })
         })
             .catch(err => {
                 console.log('Unable to upload', err)
             })
+        }
     }
 
     const onSubmit = e => {
