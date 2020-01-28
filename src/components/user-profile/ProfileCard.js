@@ -46,6 +46,8 @@ const ProfileCard = (props)=> {
             setNameEdit({...nameEdit, status:'open'}) 
         } else if (nameEdit.status === 'open') {
             setNameEdit({...nameEdit, status:'closed'})
+        } else if (user.first_name === null) {
+            setNameEdit({...nameEdit, status:'open'})
         }
     }
 
@@ -54,6 +56,8 @@ const ProfileCard = (props)=> {
             setEmailEdit({...emailEdit, status:'open'}) 
         } else if (emailEdit.status === 'open') {
             setEmailEdit({...emailEdit, status:'closed'})
+        } else if (user.first_name === null) {
+            setEmailEdit({...emailEdit, status:'open'})
         }
     }
 
@@ -62,6 +66,8 @@ const ProfileCard = (props)=> {
             setLocationEdit({...locationEdit, status:'open'}) 
         } else if (locationEdit.status === 'open') {
             setLocationEdit({...locationEdit, status:'closed'})
+        } else if (user.first_name === null) {
+            setLocationEdit({...locationEdit, status:'open'})
         }
     }
 
@@ -70,7 +76,7 @@ const ProfileCard = (props)=> {
             setImageUpload({...imageUpload, status: 'open'}) 
         } else if (imageUpload.status === 'open') {
             setImageUpload({...imageUpload, status: 'closed'}) 
-        }
+        } 
     }
 
     const id = userInfo.id;
@@ -122,23 +128,7 @@ const ProfileCard = (props)=> {
             });
     }
     
-
-
     const postImage = () => {
-        axios
-            .delete(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
-            .then(res => {
-               return 
-                axios
-                .post('https://citrics-staging.herokuapp.com/api/users/', userImage)
-                .then(res => {
-                    console.log(res, 'Image Posted')
-                })
-            })
-
-    }
-
-    const test = () => {
         
         const formData = new FormData()
         formData.append('userimage', userImage.userimage)
@@ -183,7 +173,7 @@ const ProfileCard = (props)=> {
                         />
                     </form>
                     <button className={`edit-image-btn ${imageUpload.status}`} onClick={toggleImage}>Upload Image</button>
-                    <button className={`save-image-btn ${imageUpload.status}`} onClick={() => {toggleImage(); test()}} >Save</button>
+                    <button className={`save-image-btn ${imageUpload.status}`} onClick={() => {toggleImage(); postImage()}} >Save</button>
                 </div>
                 <div className='name-tab'>
                     <p>Name</p>
@@ -206,8 +196,6 @@ const ProfileCard = (props)=> {
                         placeholder='Last Name'
                     />
                     </form>
-                    <button className={`edit-name-btn ${nameEdit.status}`} onClick={toggleName}>Edit Name</button> 
-                    <button className={`save-name-btn ${nameEdit.status}`} onClick={toggleName} >Save</button>
                 </div>
                 <div className='email-tab'>
                     <p>Email</p>
@@ -222,8 +210,6 @@ const ProfileCard = (props)=> {
                         placeholder='Email'
                     />
                     </form>
-                    <button className={`edit-email-btn ${emailEdit.status}`} onClick={toggleEmail}>Edit Email</button> 
-                    <button className={`save-email-btn ${emailEdit.status}`} onClick={toggleEmail} onSubmit={updateUser}>Save</button>
                 </div>
                 <div className='city-tab'>
                     <p>City, State of Residence</p>
@@ -246,8 +232,8 @@ const ProfileCard = (props)=> {
                         value={userInfo.state}
                     />
                     </form>
-                    <button className={`edit-location-btn ${locationEdit.status}`} onClick={toggleLocation}>Edit Location</button> 
-                    <button className={`save-location-btn ${locationEdit.status}`} onClick={toggleLocation}>Save</button>
+                    <button className={`edit-location-btn ${locationEdit.status}`} onClick={() => {toggleLocation(); toggleEmail(); toggleName()}}>Edit Profile</button> 
+                    <button className={`save-location-btn ${locationEdit.status}`} onClick={() => {toggleLocation(); toggleEmail(); toggleName()}}>Save</button>
                 </div>
             </div>
         </div>

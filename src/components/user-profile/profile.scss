@@ -186,15 +186,27 @@ h1 {
             font-weight: 500;
         }
 
-        button, .edit-image {
-            background-color: rgba(255, 255, 255, 0);
-            font-size: .90rem;
-            font-weight: 100;
-            color: #84868C;
-            width: 100%;
-            border: 0px;
-            text-align: right;
-            text-decoration: none;
+        button{
+            border: none;
+            margin-top: 5px;
+            width: 80%;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 5px;
+            background-color: #2ca4fc;
+            color: white;
+            max-width: 400px;
+            transition: 0.22s ease;
+            box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.07);
+            cursor:pointer;
+                 &:focus{
+                   outline:0;
+                 }
+                 &:hover{
+                   filter: brightness(115%);
+                 }
+    cursor: pointer;
         }
         h2 {
             margin-bottom: 1px;
@@ -239,10 +251,7 @@ h1 {
             width: 64px;
             padding: 12px;
         }
-        button {
-            width: 100%;
-            text-align: end;
-        }
+        
     }
 
     .edit-name.closed, .save-name-btn.closed,.edit-name-btn.open,   .edit-email.closed,.save-email-btn.closed,  .edit-email-btn.open,     .edit-location.open,.save-location-btn.open,    .edit-location-btn.closed, .user-name.open, .user-email.open,     .user-location.closed, .edit-image.closed, .save-image-btn.closed, .edit-image-btn.open {
