@@ -94,7 +94,7 @@ const FavoriteButton = ({city}) => {
                     }}
                     >
                         <img style={{'width' : '23%'}} 
-                        src={favorites.includes(city._id) ? filled_heart : heart_icon} alt='add to favorites'/>
+                        src={favorites && favorites.includes(city._id) ? filled_heart : heart_icon} alt='add to favorites'/>
 
                         {hover === true && id === null && <div style={{
                             position: "absolute", 

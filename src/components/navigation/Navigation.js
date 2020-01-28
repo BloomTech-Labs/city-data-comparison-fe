@@ -44,7 +44,7 @@ function Navigation(){
                     <Link to="/map">Compare</Link>
 
 
-                    {user === null ? 
+                    {user == null ? 
                     <>
                          <Link id="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
                          <Link id="signup-link" to="/signup">Get Started</Link>

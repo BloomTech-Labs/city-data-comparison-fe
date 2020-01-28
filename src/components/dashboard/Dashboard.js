@@ -123,19 +123,27 @@ function Dashboard({history}){
                     history.push("/map")
                     return;
                }     
+              
+
+               let found = cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne)
+               let found2 = cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo)
                if ( !compare.cityTwo && compare.cityOne) {
-                    getCity(cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne));
+                    if(found){
+                    getCity(found);
+               }else{ getBestSuggestion(compare.cityOne)
+
+               }
                     history.push("/map");
                     return;
                }
                if ( compare.cityTwo && !compare.cityOne) {
-                    getCity(cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo));
+                    if(found2){
+                         getCity(found2)
+                    }else{getBestSuggestion(compare.cityTwo)}
+                    
                     history.push("/map");
                     return;
                }
-
-               let found = cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne)
-               let found2 = cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo)
                if (found && found2) {
                     getCities([found, found2]);              
                     // the viewport set below will require zoom handling based on population
