@@ -270,7 +270,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     </div>
                 </div>
                 </>
-                : <h2 className="map-prompt">Select a city to begin browsing</h2>}
+                : <p className="map-prompt">
+                    Select a city to begin browsing
+                </p>}
             </div>
 
         </div>
