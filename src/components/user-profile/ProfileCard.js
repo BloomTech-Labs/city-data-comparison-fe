@@ -6,7 +6,7 @@ import './profile.scss'
 
 import {UserContext} from "../../contexts/UserContext"
 
-import AvatarUpload from './AvatarUpload'
+
 
 
 
@@ -17,14 +17,7 @@ const ProfileCard = (props)=> {
     const [userInfo, setUserInfo] = useState(user)
     const [userImage, setUserImage] = useState({usersimage:null, users_id: userInfo.id})
 
-    const getLoggedInUser = () => {
-        const user = localStorage.getItem('user');
 
-        if(user){
-            console.log(JSON.parse(user));
-            setUserInfo(JSON.parse(user))
-        } 
-    }
 
     const handleChange = e => {
         setUserInfo({

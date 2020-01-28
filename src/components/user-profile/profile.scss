@@ -132,6 +132,9 @@ h1 {
     flex-direction: column;
     justify-content: flex-start;
     
+    .edit-profile-closed {
+        display: none;
+    }
 
     .profile-contents {
         line-height: 126%;
