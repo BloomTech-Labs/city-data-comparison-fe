@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -32,13 +32,13 @@ const AuthForm = props => {
    const companies = [{name:'Google', icon: Google}, {name:'Facebook', icon:Facebook}, {name:'Linkedin', icon:Linkedin}]
 
    //state used for react-hook-form
-   const {register, handleSubmit, watch, errors} = useForm()
+   const {register, handleSubmit, errors} = useForm()
 
     //state for modal
    const {isShowing, toggle} = useModal();
    const [modalState, setModalState] = useState();
 
-   const [isLoading, setIsLoading] = useState(false)
+   //const [isLoading, setIsLoading] = useState(false)
    const [validated, setValidated] = useState(false)
    
    const {user, setUser} = useContext(UserContext)
@@ -58,7 +58,6 @@ const AuthForm = props => {
         axios
         .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action.toLowerCase()}`, login)
         .then(res => {
-            setIsLoading(false)
             setUser({...user, ...res.data.user})
             
             
@@ -160,7 +159,7 @@ const AuthForm = props => {
                                 <input className="checkbox" type="checkbox" name="pp" ref={register({required: true})}></input>
                                 <p>
                                     Please accept our 
-                                    <span className="pp-text" onClick={() => (setModalState(<PrivacyPolicy register={props.register}/>), toggle())} style={{cursor: "pointer"}}> 
+                                    <span className="ppText" onClick={() => (setModalState(<PrivacyPolicy register={props.register}/>), toggle())} style={{cursor: "pointer"}}> 
                                         privacy policy
                                     </span>
                                 </p>
@@ -185,7 +184,7 @@ const AuthForm = props => {
                 
                 {/*Container for photo to be displayed right of form */}
                <div className={`authFormPhoto ${props.action}Photo`}>
-                   <img className="loginPhoto" src={city}/>
+                   <img className="loginPhoto" src={city} alt={`{props.action} photo`}/>
                </div>
 
            </div>
