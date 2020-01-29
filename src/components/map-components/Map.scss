@@ -18,6 +18,7 @@
 .map-page {
     background: white;
     background: #F2F9FD;
+    height:100%;
     .footer-container {
         margin-top:0;
     }
@@ -695,33 +696,22 @@
         //styling for menu slide out
         .slider.closed * {
             @media only screen and (max-width: 600px) {
-            display:flex;
-            flex-direction: column;
-            background:#041734;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            -webkit-transform: translateX(-610px) translate(-6px, -6px);
-            transform: translateX(-610px) translate(-6px, -6px);
-            transition: 1s;
+            display:none
             }
             
         }
 
         .slider.open {
             @media only screen and (max-width: 600px) {
-            display:flex;
-            flex-direction: column;
-            background:#041734;
-            width: 100%;
-            transition: 1s;
+            display:none;
+            
             }
         }
 
         .top-menu{
             width:100%;
             @media only screen and (max-width: 600px) {
-                display:flex;
+                display:none;
             }
         }
         .search-bar{
@@ -735,33 +725,33 @@
             &:focus{
                 outline:none;
             }
+            @media only screen and (max-width: 600px) {
+                display:none;
+            }
         }
 
         .search-bar.open{
+            @media only screen and (max-width: 600px) {
+                display:none;
+            }
             transition: 1s;
         }
 
         .menu-items.closed{
             @media only screen and (max-width: 600px) {
-                -webkit-transform: translateX(-610px) translate(-6px, -6px);
-                transform: translateX(-610px) translate(-6px, -6px); 
-                padding: 0;
-                margin: 0; 
-                transition: transform 1s, margin 1s, padding 1s;
+                display:none;
             }
         }
 
         .menu-items.open{
             @media only screen and (max-width: 600px) {
+                display:none;
             }
         }
 
         .search-bar.closed{
             @media only screen and (max-width: 600px) {
-                -webkit-transform: translateX(-610px) translate(-6px, -6px);
-                transform: translateX(-610px) translate(-6px, -6px);
-                padding: 0;
-                margin: 0;
+                display:none;
                 }
                 transition: transform 1s, margin 1s, padding 1s;
         }
@@ -786,10 +776,7 @@
         .burger-menu.open {
             display:none; 
             @media only screen and (max-width: 600px) {
-                display: inline-block;
-                cursor: pointer;
-                z-index: 9999;
-                padding: 10px;
+                display: none;
             }
         }
 
@@ -877,14 +864,16 @@
             flex-direction:column;
             height:100%;
             width:100%; 
-            
-        }
+             @media only screen and (max-width: 600px) {
+                display:none;
+              }
+            }
 
         .autofill-container {
             position:absolute;
             width:19%;
             @media only screen and (max-width: 600px) {
-                width:95%;
+                display:none;
             }
         }
 
