@@ -39,44 +39,11 @@ const AuthForm = props => {
    const [modalState, setModalState] = useState();
 
    const [isLoading, setIsLoading] = useState(false)
+   const [validated, setValidated] = useState(false)
    
    const {user, setUser} = useContext(UserContext)
 
-   const [login, setLogin] = useState({email: '', password: ''})
-
-
-    // useEffect(() => {
-    //     if(validated){
-    //         axios
-    //             .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action.toLowerCase()}`, login)
-    //             .then(res => {
-    //                 setIsLoading(false)
-    //                 setUser({...user, ...res.data.user})
-                    
-                    
-    //                 localStorage.setItem('jwt', res.data.token)
-    //                 console.log(user, "USERER")
-                    
-    //                 //redirect user to home
-    //                 return res.data.user}).then(user => {
-    //                 axios
-    //                 .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
-    //                 .then(res => {
-    //                     console.log(res, "LOLG")
-    //                     if (
-    //                         res.data.length > 0
-    //                         ){
-    //                             setUser({...user, ...res.data[0]})
-    //                         }
-    //                         props.history.push('/')
-    //                         // window.location.reload()
-    //                     })
-                        
-    //              })
-    //             .catch(error => console.log(error)) 
-                
-    //     }
-    // },[validated])
+   const [login, setLogin] = useState({username: '', password: ''})
             
 
 
@@ -86,8 +53,37 @@ const AuthForm = props => {
     }
 
     const onSubmit = e => {
-        console.log('logged in')
-    }
+        console.log('user', login)
+    
+        axios
+        .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action.toLowerCase()}`, login)
+        .then(res => {
+            setIsLoading(false)
+            setUser({...user, ...res.data.user})
+            
+            
+            localStorage.setItem('jwt', res.data.token)
+            console.log(user, "USERER")
+            
+            //redirect user to home
+            return res.data.user}).then(user => {
+            axios
+            .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
+            .then(res => {
+                console.log(res, "LOLG")
+                if (
+                    res.data.length > 0
+                    ){
+                        setUser({...user, ...res.data[0]})
+                    }
+                    props.history.push('/')
+                    // window.location.reload()
+                })
+                
+         })
+        .catch(error => console.log(error)) 
+        
+}
 
     return(
             <>
@@ -107,7 +103,7 @@ const AuthForm = props => {
                    <div className="auth">
                     {
                         //mapping over list of companies defined on line 20
-                        companies.map(company => (<OauthButton action={props.action} company={company.name} icon={company.icon} />))
+                        companies.map(company => (<OauthButton key={Math.random()} action={props.action} company={company.name} icon={company.icon} />))
                     }  
                    </div>
 
@@ -115,26 +111,22 @@ const AuthForm = props => {
                    
                    <div className="centerText">
                        <div className="line"></div>
-                       <p className="center">or with email</p>
+                       <p className="center">or with username</p>
                        <div className="line"></div>
                    </div>
 
                    <form className="fields" onSubmit={handleSubmit(onSubmit)}>
                    
-                        {errors.email && errors.email.type === "required" && <p className='formError'>Your email is required</p>} 
-                        {errors.email && errors.email.type === 'pattern' && <p className='formError'>Please enter a valid email</p>}   
+                        {errors.username && errors.username.type === "required" && <p className='formError'>Your username is required</p>} 
+                   
                        <input 
-                            className="email" 
-                            type='text' name='email' 
-                            placeholder='email' 
-                            value={login.email} 
+                            className="username" 
+                            type='text' name='username' 
+                            placeholder='username' 
+                            value={login.username} 
                             onChange={onChange}
                             ref={register({
                                 required:true, 
-                                pattern: {
-                                    value: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/, 
-                                    message: "A valid email is required"
-                                }
                                
                             })}
                         />
@@ -177,7 +169,7 @@ const AuthForm = props => {
                         }
 
                         {/* <input type="submit"/> */}
-                       <button className={`formButton ${props.action}Button`} type="submit">Start exploring cities </button>
+                       <input className={`formButton ${props.action}Button`} type="submit"/>
 
                        <div className='question'>
                             {
