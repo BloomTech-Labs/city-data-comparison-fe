@@ -41,7 +41,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     if (stickynav) {
         // This line handles the offset from the main nav bar - If we unfix the main nav bar
         // (i believe we will) - the subtraction will be unnecessary.
-        var sticky = placeholder.offsetTop - 83;
+        var sticky = placeholder.offsetTop - 105;
     }
 
     var isScrolledToFooter = _ => 
