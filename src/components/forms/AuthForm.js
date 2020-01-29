@@ -150,9 +150,9 @@ const AuthForm = props => {
                        <div className='question'>
                             {
                                 (props.action === 'Login') ? 
-                                <div><p>Don't have an account?  </p> <Link className='link-signup' to='/signup'>{` Sign up `}</Link> <p>to explore cities</p></div>
+                                <div><p>Don't have an account?  </p> <Link className='link-authform' to='/signup'>{` Sign up `}</Link> <p>to explore cities</p></div>
                                 :
-                               <div> <p>Have an account?  </p> <Link className="link-signup" to='/signin'> Login </Link> <p>  to explore cities</p> </div>
+                               <div> <p>Have an account?  </p> <Link className="link-authform" to='/signin'> Login </Link> <p>  to explore cities</p> </div>
                             }
                         </div>
                    </div>
