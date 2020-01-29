@@ -134,6 +134,7 @@ const AuthForm = props => {
                             placeholder="Username" 
                             value={login.username} 
                             onChange={onChange}
+                            ref={register}
                         />
                        <p className='error'>{passwordError}</p>
                        <input 
@@ -142,6 +143,7 @@ const AuthForm = props => {
                             name='password'
                             placeholder="Password"
                             value={login.password}
+                            ref={register}
                             onChange={onChange}
                         />
                        
