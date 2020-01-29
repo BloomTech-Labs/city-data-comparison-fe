@@ -18,6 +18,9 @@
 .map-page {
     background: white;
     background: #F2F9FD;
+    height:100%;
+    // border:1px solid red;
+    // height:100vh;
     .footer-container {
         margin-top:0;
     }
@@ -25,16 +28,59 @@
 
 /* The data-broswer is the component below the map */
 
+.save-container-big{
+    background-color: white;
+    box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+    width:300px;
+    padding:12px 30px;
+    padding-right:none;
+    border-radius:5px;
+    margin-left:-20px;
+    margin-top:-10px;
+    border:1px solid #ECF1F5;
+
+    .save-container{
+        color:#2ba4fc;
+
+        .save-title{
+            font-size:1.2rem;
+            margin-bottom:5px;
+        }
+        .save-desc{
+            font-size:.9rem;
+            filter:brightness(105%);
+            display:flex;
+            align-items:center;            
+            a{
+                color: #69C3FF;
+            }
+            .save-img{
+                margin-left:7px;
+                height:20px;
+            }
+        }
+    }
+}
 
 
 
 .data-browser {
+    // border:1px solid red;
     background: #F2F9FD;
     display:flex;
-    padding-top: 1%;
+    padding-top: 5%;
+    @media screen and (max-width:600px){
+        background:white;
+        padding-top:0;
+    }
+    
+    
+
 
     .map-prompt {
         text-align:center;
+        font-size:1.3rem;
+        color:#2ba4fc;
     }
 
 
@@ -42,6 +88,25 @@
         width:98%;
         margin: 10% 0;
         border-radius:5px;
+
+        @media screen and (max-width:600px){
+            width:100%;
+            padding:5%;
+            margin:5%;
+            border-top:1px solid #ecf1f5;
+            border-bottom:1px solid #ecf1f5;
+            border-radius:0;
+            background: #F2F9FD;
+        }
+    }
+
+    @media screen and (max-width:600px){
+        .general-stats-container{
+            width:100%;
+            padding:0 5%;
+            padding-top:5%;
+            background: #F2F9FD;
+        }
     }
     .special-margins{
         // margin-top:7%;
@@ -52,17 +117,13 @@
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         background-color:white;
         padding: 0 10px;
+
+        @media screen and (max-width:600px){
+            width:100%;
+            margin-bottom:30px;
+        }
         
         .city-overview-border{
-            // border-top-left-radius:5px;
-            // border-top-right-radius:5px;
-            // background-color:#9bd1f7;
-            // background-color:#89CCF7;
-            // background-color:#ff9f97;
-
-            // background-color:#C2E9FC;
-            // background-color:#FFE0A0;
-            // background-color:#ffb9af;
             margin-bottom:0 !important;
             padding-left:2%;
             font-size:1.3rem;
@@ -81,12 +142,19 @@
                 height:20px;
                 margin-right:15px;
             }
+            @media screen and (max-width:600px){
+                flex-wrap:wrap;
+                padding:15px 3%;
+            }   
 
             .city-overview-container-one{
                 width:45%;
                 display:flex;
                 align-items:center;
-                // border:1px solid red;
+
+                @media screen and (max-width:600px){
+                    width:100%;
+                }
 
                 .overview-title-container-one{
                     width:60%;
@@ -99,10 +167,9 @@
                         display:flex;
                         font-size:1.1rem;
                     }
-
                 }
                 .overview-stats-container-one{
-                    width:45%;
+                    width:40%;
                     font-size:1.1rem;
                     display:flex;
                     flex-direction:column;
@@ -116,6 +183,11 @@
             .city-overview-container-two{
                 width:40%;
                 display:flex;
+                @media screen and (max-width:600px){
+                    width:100%;
+                    justify-content:space-between;
+                }   
+
                 .overview-title-container-two{
                     width:70%;
                     display:flex;
@@ -127,6 +199,9 @@
                         display:flex;
                         font-size:1.1rem;
                     }
+                    @media screen and (max-width:600px){
+                        width:60%;        
+                    }  
                 }
                 .overview-stats-container-two{
                     width:27%;
@@ -137,6 +212,9 @@
                         width:100%;
                         margin:10px 0;    
                     }
+                    @media screen and (max-width:600px){
+                        width:40%;           
+                    }   
                 }
             }
         }
@@ -146,37 +224,16 @@
 
     .data-category-titles{
         text-align:center;
-        // background-color:white;
-        // padding:5px;
-        // border-radius:5px;
-        // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        // border-bottom-left-radius:0;
-        // border-bottom-right-radius:0;
         width:100%;
         display:flex;
         flex-direction:column;
         align-items:center;
-        // background-color:#FFBD71;
-        // background-color:#FFDCA2;
-        // background-color:#ffdd94;
-        // background-color:#2ca4fc;
-        // border:1px solid red;
-        
-        
-        
-        // padding:5px;
-        // border-top-left-radius:5px;
-        // border-top-right-radius:5px;
-        // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        // background-color:#FFBC79;
-        // background-color:#2CA2FA;
 
         .data-category-header{
             font-size:2rem;
             margin-top:5px;
             margin-bottom:0;
             color:#00bfa5;
-            // color:white;
         }
 
         .data-category-subtitle{
@@ -184,7 +241,6 @@
             width:80%;
             color:grey;
             margin-top:0;
-            // color:white;
         }
     }
 
@@ -215,69 +271,126 @@
 
         .ownerMortgage{
             // border:1px solid red;
-            width:21%;
+            width:20%;
             padding:0;
         }
     }
         .homeprice-container{
-            width:77%;
+            width:78%;
             padding:10px;
             border-radius:5px;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             background-color:white;
+            
         }
         .homeowner-container{
-            // display:flex;
-            // flex-wrap:wrap;
-            // border:1px solid red;
-            // padding:0;
-            // border:1px solid blue;
 
             .mortgage{
                 background-color:white;
                 border-radius:5px;
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 margin-bottom:15px;
-                padding: 20px 5px;
-                // border:1px solid green;
+                padding: 10px 10px;
+            }
+            .smoc{
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+                font-size:1.2rem;
+                color:#00bfa5;
+                margin-bottom:13px;
+                
+                .smoc-img{
+                    // border:1px solid blue;
+                }
             }
             .home-title{
-                background-color:white;
-                padding:12px 10px;
-                border-radius:5px;
-                box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-                margin-bottom:20px;
-                text-align:center;
-                margin-left:0;
-                margin-top:0;
-                // border:1px solid red;
+                // background-color:white;
+                // padding:12px 10px;
+                // border-radius:5px;
+                // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+                // margin-bottom:20px;
+                // text-align:center;
+                // margin-left:0;
+                // margin-top:0;
+                display:none;
             }
             .mortgage-price{
                 font-size:1.15rem;
                 color:#00bfa5;
-                margin-left:5px;
+                margin-left:3px;
             }
             .mortgage-label-container{
-                // border:1px solid black;
                 text-align:center;
+                display:flex;
+                justify-content:center;
                 margin-top:5px;
+                // width:100%;
             }
             .city-mortgage-title{
                 color:#2e2f38;
-                font-size:1.1rem;
+                font-size:1rem;
                 text-align:center;
-                padding-bottom:5px;
-                // border:1px solid orange;
+                margin-top:8px;
+                color:grey;
             }
             .mortgage-label{
+                // width:100%;
                 color:grey;
-                text-align:center;
+                font-size:1rem;
             }
             .month-label{
                 font-size:13px;
                 color:darkgrey;
             }
         }
+    @media screen and (max-width:1300px){
+        .mortgage-label-container{
+            // border:1px solid red;
+        }
+        .mortgage-label{
+            // border:1px solid blue;
+            // width:100%;
+        }
+        .home-container{
+            .ownerMortgage{
+                // display:flex;
+            }
+        }
+    }
+    @media screen and (max-width:1000px){
+        .home-container{
+            .homeprice-container{
+                width:100%;
+                margin-bottom:20px;
+            }
+            .ownerMortgage{
+                width:100%;
+
+                .homeowner-container{
+                display:flex;
+                justify-content:space-evenly;
+
+                .mortgage{
+                    width:30%;
+                }
+                    .mortgage-label{
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width:600px){
+       .home-container{
+            .ownerMortgage{
+                .homeowner-container{
+                    .mortgage{
+                        width:100%;
+                    }
+                }
+            }
+        }
+    }
     
     
 
@@ -293,6 +406,11 @@
             padding:10px;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             border-radius:5px;
+
+            @media screen and (max-width:600px){
+                width:100%;
+                margin-bottom:30px;          
+            }  
         }
 
         .vacancy-owner-container{
@@ -301,7 +419,11 @@
             width:38%;
             padding:10px;
             height:auto;     
-            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);       
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            
+            @media screen and (max-width:600px){
+                width:100%;
+            }  
         }
     }
     @media screen and (max-width:1000px){
@@ -344,6 +466,10 @@
         display:flex;
         justify-content:space-between;
 
+        @media screen and (max-width:600px){
+            flex-wrap:wrap;
+        }  
+
 
         .commute-container{
             width:76%;
@@ -352,9 +478,16 @@
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             margin-bottom:30px;
             background-color:white;
+            @media screen and (max-width:600px){
+                width:100%;
+            }  
         }
         .travel-container{
             width:22%;
+            @media screen and (max-width:600px){
+                display:flex;        
+                width:100%;
+            }  
 
             .commute-time-container{
                 padding:15px;
@@ -365,7 +498,9 @@
                 margin-bottom:20px;
                 display:flex;
                 flex-wrap:wrap;
-                
+                @media screen and (max-width:600px){
+                    margin-bottom:30px;
+                }
 
                 .commute-city-title{
                     color:#00bfa5;
@@ -405,7 +540,9 @@
         display:flex;
         align-items:flex-start;
         justify-content:space-between;
-        // border:1px solid black;
+        @media screen and (max-width:600px){
+            flex-wrap:wrap;
+        }  
 
 
         .unemployment-container{
@@ -413,6 +550,12 @@
             display:flex;
             flex-direction:column;
             width:22%;
+            @media screen and (max-width:600px){
+                width:100%;
+                flex-direction:row;  
+                flex-wrap:wrap;
+                justify-content:center;
+            }  
 
             .unemployment-card-container{
                 // font-size:1.1vw;
@@ -423,6 +566,10 @@
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 margin-bottom:15px;
                 background-color:white;
+                 @media screen and (max-width:600px){
+                    height:auto;
+                    margin-bottom:30px;           
+                }
 
                 .unemployment-title{
                     color:#00bfa5;
@@ -466,11 +613,17 @@
             margin-bottom:30px;
             background-color:white;
 
-            
+            @media screen and (max-width:600px){
+                width:100%;
+            }
         }
         .insurance-container{
-            // border:1px solid green;
             width:22%;
+            @media screen and (max-width:600px){
+                width:100%;   
+                display:flex;
+                justify-content:center;      
+            }
 
             .healthinsurance-card-container{
                 height:150px;
@@ -480,6 +633,12 @@
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 margin-bottom:15px;
                 background-color:white;
+
+                @media screen and (max-width:600px){
+                    height:auto;
+                    width:100%;
+                    margin-bottom:30px;
+                }
 
                 .healthinsurance-title{
                     color:#00bfa5;
@@ -545,6 +704,10 @@
         align-items:flex-start;
         justify-content:space-between;
 
+        @media screen and (max-width:600px){
+            flex-wrap:wrap;   
+        }
+
         .population-container{
             padding:10px;
             border-radius:5px;
@@ -552,10 +715,16 @@
             margin-bottom:30px;
             background-color:white;
             width:75%;
+            @media screen and (max-width:600px){
+                width:100%;     
+            }
         }
 
         .birth-container{
             width:22%;
+                @media screen and (max-width:600px){
+                    width:100%;
+                }
 
             .birth-card-container{
                 padding:15px;
@@ -596,6 +765,9 @@
                         font-size:1vw;
                         margin-left:15px;
                         // border:1px solid red;
+                        @media screen and (max-width:600px){
+                            font-size:1rem;   
+                        }
                     }
                 }
                 .birth-label{
@@ -620,10 +792,8 @@
 // **** Styling prior to Kevin's
     .anchor-header {
         font-size: 1.3rem;
-        // font-weight:500;
         text-align:left;
         text-decoration:none;
-        // border:1px solid red;
         margin:0;
         margin-left:20px;
         color:#00bfa5;
@@ -646,6 +816,7 @@
             width: 100%;
             margin-top: 82px;
             min-height:0px;
+            display:none;
         }
     }
 
@@ -695,36 +866,26 @@
         //styling for menu slide out
         .slider.closed * {
             @media only screen and (max-width: 600px) {
-            display:flex;
-            flex-direction: column;
-            background:#041734;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            -webkit-transform: translateX(-610px) translate(-6px, -6px);
-            transform: translateX(-610px) translate(-6px, -6px);
-            transition: 1s;
+            display:none
             }
             
         }
 
         .slider.open {
             @media only screen and (max-width: 600px) {
-            display:flex;
-            flex-direction: column;
-            background:#041734;
-            width: 100%;
-            transition: 1s;
+            display:none;
+            
             }
         }
 
         .top-menu{
             width:100%;
             @media only screen and (max-width: 600px) {
-                display:flex;
+                display:none;
             }
         }
         .search-bar{
+            margin-top:-30px;
             background-image:url('../dashboard/assets/search.svg');
             background-position:6px 5.5px;
             background-repeat: no-repeat;
@@ -735,33 +896,33 @@
             &:focus{
                 outline:none;
             }
+            @media only screen and (max-width: 600px) {
+                display:none;
+            }
         }
 
         .search-bar.open{
+            @media only screen and (max-width: 600px) {
+                display:none;
+            }
             transition: 1s;
         }
 
         .menu-items.closed{
             @media only screen and (max-width: 600px) {
-                -webkit-transform: translateX(-610px) translate(-6px, -6px);
-                transform: translateX(-610px) translate(-6px, -6px); 
-                padding: 0;
-                margin: 0; 
-                transition: transform 1s, margin 1s, padding 1s;
+                display:none;
             }
         }
 
         .menu-items.open{
             @media only screen and (max-width: 600px) {
+                display:none;
             }
         }
 
         .search-bar.closed{
             @media only screen and (max-width: 600px) {
-                -webkit-transform: translateX(-610px) translate(-6px, -6px);
-                transform: translateX(-610px) translate(-6px, -6px);
-                padding: 0;
-                margin: 0;
+                display:none;
                 }
                 transition: transform 1s, margin 1s, padding 1s;
         }
@@ -786,10 +947,7 @@
         .burger-menu.open {
             display:none; 
             @media only screen and (max-width: 600px) {
-                display: inline-block;
-                cursor: pointer;
-                z-index: 9999;
-                padding: 10px;
+                display: none;
             }
         }
 
@@ -877,14 +1035,16 @@
             flex-direction:column;
             height:100%;
             width:100%; 
-            
-        }
+             @media only screen and (max-width: 600px) {
+                display:none;
+              }
+            }
 
         .autofill-container {
             position:absolute;
             width:19%;
             @media only screen and (max-width: 600px) {
-                width:95%;
+                display:none;
             }
         }
 
@@ -925,17 +1085,18 @@
         
 
         @media only screen and (max-width: 600px) {
-            position: absolute;
+            // position: absolute;
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
             z-index: 4;
+            margin-left:0;
         }
         
-        @media only screen and (max-width: 600px) {
-            width:100%;           
-        }
+        // @media only screen and (max-width: 600px) {
+        //     width:100%;           
+        // }
 
 
         h1{
@@ -954,3 +1115,8 @@
     }
 }
 
+.loader-animation{
+    display:flex;
+    justify-content:center;
+    margin-bottom:-30px;
+}

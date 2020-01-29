@@ -21,7 +21,7 @@ import Linkedin from '../../assets/icons/linkedin.svg'
 const AuthForm = props => {
 
    //list of companies 
-   const companies = [{name:'Google', icon: Google}, /*{name:'Facebook', icon:Facebook}, */{name:'Linkedin', icon:Linkedin}]
+   const companies = [{name:'Google', icon: Google}, {name:'Facebook', icon:Facebook}, {name:'Linkedin', icon:Linkedin}]
 
    //state used for validating form
    const [usernameError, setUsernameError] = useState('');
@@ -150,7 +150,7 @@ const AuthForm = props => {
                        <div className='question'>
                             {
                                 (props.action === 'Login') ? 
-                                <div><p>Have an account?  </p> <Link className='link-signup' to='/signup'> Sign up </Link> <p>  to explore cities</p></div>
+                                <div><p>Don't have an account?  </p> <Link className='link-signup' to='/signup'>{` Sign up `}</Link> <p>to explore cities</p></div>
                                 :
                                <div> <p>Have an account?  </p> <Link className="link-signup" to='/signin'> Login </Link> <p>  to explore cities</p> </div>
                             }

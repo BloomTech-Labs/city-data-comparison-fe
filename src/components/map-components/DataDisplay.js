@@ -1,4 +1,4 @@
-import  React, {useState} from "react";
+import  React, {useState, useEffect} from "react";
 import { Link, Element } from 'react-scroll'
 import ReactGA from "react-ga";
 import Footer from '../navigation/Footer'
@@ -36,10 +36,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     // fixed sidebar handling
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
+    var placeholder = document.getElementsByClassName("nav-placeholder")[0]
     if (stickynav) {
         // This line handles the offset from the main nav bar - If we unfix the main nav bar
         // (i believe we will) - the subtraction will be unnecessary.
-        var sticky = stickynav.offsetTop - 83;
+        var sticky = placeholder.offsetTop - 83;
     }
 
     var isScrolledToFooter = _ => 
@@ -48,6 +49,10 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
 
     const scrollAnchor = _ => {
+ 
+        console.log("sticky", sticky)
+        console.log("y offset" , window.pageYOffset)
+        console.log("Is scrolled to footer",isScrolledToFooter())
         if (window.pageYOffset > sticky && !isScrolledToFooter()) {
             stickynav.classList.add("sticky");
         } else {
@@ -138,7 +143,10 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         {selected.map(item => 
                         <div key={item._id} className={`menu-items ${menu.status}`}>
                             <li key={item._id}><span className="color-legend-text"><div className="color-legend" style={{display: "inline-block", background: item.color, height: "1rem", width: "1rem", marginRight: ".5rem"}}></div>{item.name_with_com}</span> 
-                                <span onClick={ _ => toggleSelected(item)}>
+                                <span onClick={ _ => {
+                                    let foundCity = cityIndex.find(indexed => indexed.ID === item._id);
+                                    toggleSelected(foundCity);
+                                    }}>
                                     <img className="delete-icon" src={deleteIcon} alt="delete icon" />
                                 </span>
                             </li>
@@ -152,7 +160,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 {selected.length > 0 
                 ? <> 
                 
-                <div>
+                <div className="general-stats-container">
                     {/* <p>General Statistics:</p> */}
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                 </div>
@@ -270,7 +278,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     </div>
                 </div>
                 </>
-                : <h2 className="map-prompt">Select a city to begin browsing</h2>}
+                : <p className="map-prompt">
+                    Select a city to begin browsing
+                </p>}
             </div>
 
         </div>

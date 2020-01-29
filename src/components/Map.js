@@ -4,6 +4,8 @@ import styled from "styled-components";
 import './map-components/Map.scss';
 import ReactGA from "react-ga"
 import Footer from './navigation/Footer'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 
 import Markers from "./map-components/Markers";
 import DataDisplay from "./map-components/DataDisplay";
@@ -84,6 +86,9 @@ const selectSearch = cityMarker =>  {
       return (
 
         <div className="map-page">
+          <div className="loader-animation" timeout={800}>
+              <Loader type="Plane" color="#2ba4fc" height={350} width={350} timeout={700} style={{'padding':'400px 300px'}}/>                
+          </div>
           <PopupMap/>
           <div className="map">
               <MapWrapper className="main-map">

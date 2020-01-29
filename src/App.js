@@ -26,17 +26,6 @@ function initializeAnalytics() {
 
 function App() {
 
-  useEffect(_ => {
-    if(user){
-    Axios
-    .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
-    .then(res => {
-      console.log(res, 'res from app')
-      const image = res.data[0]
-      if(image) setUser({...user, userimage: image.userimage})
-    })}
-  },[window.location])
-  
 
   useEffect( _ => {
     initializeAnalytics();
@@ -61,18 +50,19 @@ function App() {
   const [viewport, setViewport] = useState({
     width: '100%',
     height: '100%',
-    longitude: -95,
-    latitude: 39,
-    zoom: 3,
-    minZoom: 3,
+    longitude: -96.7,
+    latitude: 38.55,
+    zoom: 3.55,
+    minZoom: 3.5,
     trackResize: true,
 
 
   });
 
   const setUser = (info) => {
-    setUserValue(info)
     localStorage.setItem('user', JSON.stringify(info))
+    setUserValue(info)
+    
   }
 
   const getCityColor = _ => {
@@ -254,15 +244,6 @@ cityIndex.sort(compare);
 
 
   //Analytics Events
-  useEffect( _ => {
-    ReactGA.event({ category: 'Map', 
-    action: 'Changed map location' });
-  }, [viewport.latitude])
-  useEffect( _ => {
-    ReactGA.event({ category: 'Map', 
-    action: 'Changed map zoom' });
-    console.log(user);
-  }, [viewport.zoom])
 
   return (
     <Router>

@@ -11,21 +11,26 @@ const DropMenu = (props) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
+    //This logout function should probably be abstracted to the userContext
+    //Logout function clears localstorage and resets the userContext
+    //could probably be more comprehensive
     const Logout = () => {
         setUserValue(null);
         setFavorites([])
         setSelected([])
         localStorage.setItem('user', null)
         localStorage.setItem('jwt', null)
-        // props.history.push("/")
     }
+    //this is what's rendered in the top right corner when the user is logged in
     return(
         <div>
+            {/* conditionally renders a user's profile img if it exists or a default img */}
             <div onMouseEnter={() => toggle()} onMouseLeave={() => toggle()}>
                 {user.userimage == null ? 
                 <img src={ProfileImage} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar" />
                 :
                 <img src={`https://citrics-staging.herokuapp.com/${user.userimage}`} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar"/>}
+                {/* this is the dropdown that appears when the avatar in the top right corner is hovered */}
                 {dropdownOpen && <div style={{position: "absolute", right: "3vh"}}>
                     <div style={{padding: "5px"}}>Welcome!</div>
                     <div style={{padding: "5px", backgroundColor: "#80B1D3", borderRadius: "5px"}}>
