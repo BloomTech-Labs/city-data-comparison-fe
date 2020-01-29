@@ -23,16 +23,6 @@ function Navigation(){
           }
      }
 
-
-
-     useEffect( _ => {
-          if (window.location.href.includes("map")) {
-               setFixedClass("unfixed")
-          } else {
-               setFixedClass("")
-          }
-     },[window.location])
-
      let styles={
           float:"right"
      }
@@ -59,25 +49,6 @@ function Navigation(){
 
                     
                </nav> 
-
-               {/* <!-- Dropdown Menu  --> */}
-                 {/* <div className="dropdownContainer">
-                    <div className="dropdown" style={styles}>
-                         <button className="dropbtn">Menu</button>
-                              <div className="dropdown-content">
-                                   <Link to="/map">Explore</Link>
-                                   <Link to="/map">Compare</Link>
-                                   {user === null ? 
-                                   <>
-                                   <Link to="/signin">Log In</Link> <Link to="/signup">Get Started</Link>
-                                   </>
-                                   : 
-                                   <>
-                                   <Link to="/profile">Profile</Link> <DropMenu/>
-                                   </>}
-                              </div>
-                    </div>
-               </div> */}
           </div>
      )
 }
