@@ -5,7 +5,12 @@ import axios from 'axios'
 //react hook form is used for validation instead of formik
 import { useForm } from 'react-hook-form'
 
-import PrivacySection from './PrivacySection'
+import PrivacyPolicy from '../legal/PrivacyPolicy';
+
+//modal
+import Modal from "../modal/modal";
+import useModal from "../modal/useModal";
+
 import city from '../../assets/illustrations/city_illustration.jpg'
 import {UserContext} from "../../contexts/UserContext"
 //oauth button
@@ -29,46 +34,49 @@ const AuthForm = props => {
    //state used for react-hook-form
    const {register, handleSubmit, watch, errors} = useForm()
 
+    //state for modal
+   const {isShowing, toggle} = useModal();
+   const [modalState, setModalState] = useState();
 
- 
    const [isLoading, setIsLoading] = useState(false)
+   
    const {user, setUser} = useContext(UserContext)
 
    const [login, setLogin] = useState({email: '', password: ''})
 
 
-    useEffect(() => {
-        if(validated){
-            axios
-                .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action.toLowerCase()}`, login)
-                .then(res => {
-                    setIsLoading(false)
-                    setUser({...user, ...res.data.user})
+    // useEffect(() => {
+    //     if(validated){
+    //         axios
+    //             .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action.toLowerCase()}`, login)
+    //             .then(res => {
+    //                 setIsLoading(false)
+    //                 setUser({...user, ...res.data.user})
                     
                     
-                    localStorage.setItem('jwt', res.data.token)
-                    console.log(user, "USERER")
+    //                 localStorage.setItem('jwt', res.data.token)
+    //                 console.log(user, "USERER")
                     
-                    //redirect user to home
-                    return res.data.user}).then(user => {
-                    axios
-                    .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
-                    .then(res => {
-                        console.log(res, "LOLG")
-                        if (
-                            res.data.length > 0
-                            ){
-                                setUser({...user, ...res.data[0]})
-                            }
-                            props.history.push('/')
-                            // window.location.reload()
-                        })
+    //                 //redirect user to home
+    //                 return res.data.user}).then(user => {
+    //                 axios
+    //                 .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
+    //                 .then(res => {
+    //                     console.log(res, "LOLG")
+    //                     if (
+    //                         res.data.length > 0
+    //                         ){
+    //                             setUser({...user, ...res.data[0]})
+    //                         }
+    //                         props.history.push('/')
+    //                         // window.location.reload()
+    //                     })
                         
-                 })
-                .catch(error => console.log(error)) 
+    //              })
+    //             .catch(error => console.log(error)) 
                 
-        }
-    },[validated])
+    //     }
+    // },[validated])
             
 
 
@@ -155,7 +163,7 @@ const AuthForm = props => {
                             //if user is signing in display privacy policy checkbox
                             
                             (props.action === 'Register') ?  <div className="pp">
-                            <input className="checkbox" type="checkbox" name="tos" ref={props.register({required: true})}></input>
+                            <input className="checkbox" type="checkbox" name="tos" ref={register({required: true})}></input>
                             <p>
                                 Please accept our 
                                 <span className="pp-text" onClick={() => (setModalState(<PrivacyPolicy register={props.register}/>), toggle())} style={{cursor: "pointer"}}> 
