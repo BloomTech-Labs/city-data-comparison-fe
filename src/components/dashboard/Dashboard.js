@@ -4,6 +4,7 @@ import LineGraph from '../graphs/PieGraph'
 import LineGraph2 from '../graphs/TwoGraph'
 import RadarGraph from '../graphs/RadarGraph'
 import ReactGA from "react-ga";
+import Axios from "axios";
 
 import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
@@ -20,6 +21,7 @@ import plant from "./assets/motorbike_plant.png"
 
 
 import { CityContext } from '../../contexts/CityContext';
+import { UserContext } from "../../contexts/UserContext"
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -28,10 +30,27 @@ import "../../App.scss"
 function Dashboard({history}){
 
      AOS.init()
+     const { user, setUser} = useContext(UserContext);
      const { cityMarkers, selected, setSelected, cityIndex, viewport, setViewport, getCity, getCities, getBestSuggestion, getBestSuggestions } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
      const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
      const [cityTwoSuggestions, setCityTwoSuggestions] = useState([]);
+
+       useEffect(_ => {
+          console.log(user, "user in dashboard useeffect")
+          if(user){
+          Axios
+          .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
+          .then(res => {
+               
+               const image = res.data[0]
+               
+               if(image){ 
+               setUser({...user, userimage: image.userimage})
+               }
+
+          })}
+          },[])
       
    useEffect( _ => {
           ReactGA.event({ category: 'Selected', 
@@ -123,19 +142,27 @@ function Dashboard({history}){
                     history.push("/map")
                     return;
                }     
+              
+
+               let found = cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne)
+               let found2 = cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo)
                if ( !compare.cityTwo && compare.cityOne) {
-                    getCity(cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne));
+                    if(found){
+                    getCity(found);
+               }else{ getBestSuggestion(compare.cityOne)
+
+               }
                     history.push("/map");
                     return;
                }
                if ( compare.cityTwo && !compare.cityOne) {
-                    getCity(cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo));
+                    if(found2){
+                         getCity(found2)
+                    }else{getBestSuggestion(compare.cityTwo)}
+                    
                     history.push("/map");
                     return;
                }
-
-               let found = cityIndex.find(item => item.name.replace(" city", "") === compare.cityOne)
-               let found2 = cityIndex.find(item => item.name.replace(" city", "") === compare.cityTwo)
                if (found && found2) {
                     getCities([found, found2]);              
                     // the viewport set below will require zoom handling based on population

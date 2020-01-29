@@ -26,17 +26,6 @@ function initializeAnalytics() {
 
 function App() {
 
-  useEffect(_ => {
-    if(user){
-    Axios
-    .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
-    .then(res => {
-      console.log(res, 'res from app')
-      const image = res.data[0]
-      if(image) setUser({...user, userimage: image.userimage})
-    })}
-  },[])
-  
 
   useEffect( _ => {
     initializeAnalytics();
@@ -61,18 +50,19 @@ function App() {
   const [viewport, setViewport] = useState({
     width: '100%',
     height: '100%',
-    longitude: -95,
-    latitude: 39,
-    zoom: 3,
-    minZoom: 3,
+    longitude: -96.7,
+    latitude: 38.55,
+    zoom: 3.55,
+    minZoom: 3.5,
     trackResize: true,
 
 
   });
 
   const setUser = (info) => {
-    setUserValue(info)
     localStorage.setItem('user', JSON.stringify(info))
+    setUserValue(info)
+    
   }
 
   const getCityColor = _ => {
@@ -238,8 +228,8 @@ cityIndex.sort(compare);
     }
     
     //these 4 lines of code took too long to write, they determine the bounds of the map on screen
-    const f1 = item => item.lng > viewport.longitude-(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
-    const f2 = item => item.lng < viewport.longitude+(0.00004410743*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f1 = item => item.lng > viewport.longitude-(0.00007810743*(Math.pow(2,(24-viewport.zoom)))/2)
+    const f2 = item => item.lng < viewport.longitude+(0.00007810743*(Math.pow(2,(24-viewport.zoom)))/2)
     const f3 = item => item.lat > viewport.latitude-(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
     const f4 = item => item.lat < viewport.latitude+(0.00001907348*(Math.pow(2,(24-viewport.zoom)))/2)
     
@@ -254,19 +244,10 @@ cityIndex.sort(compare);
 
 
   //Analytics Events
-  useEffect( _ => {
-    ReactGA.event({ category: 'Map', 
-    action: 'Changed map location' });
-  }, [viewport.latitude])
-  useEffect( _ => {
-    ReactGA.event({ category: 'Map', 
-    action: 'Changed map zoom' });
-    console.log(user);
-  }, [viewport.zoom])
 
   return (
     <Router>
-      <UserContext.Provider value={{user, setUser, favorites, setFavorites}}>
+      <UserContext.Provider value={{user, setUserValue, setUser, favorites, setFavorites}}>
         <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, getBestSuggestions}}>
           <div className="App">
             <Navigation />
