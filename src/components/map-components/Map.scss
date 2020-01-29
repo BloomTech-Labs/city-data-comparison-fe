@@ -19,6 +19,8 @@
     background: white;
     background: #F2F9FD;
     height:100%;
+    // border:1px solid red;
+    // height:100vh;
     .footer-container {
         margin-top:0;
     }
@@ -306,6 +308,7 @@
                 display:flex;
                 justify-content:center;
                 margin-top:5px;
+                // width:100%;
             }
             .city-mortgage-title{
                 color:#2e2f38;
@@ -315,6 +318,7 @@
                 color:grey;
             }
             .mortgage-label{
+                width:100%;
                 color:grey;
                 font-size:1rem;
             }
@@ -323,7 +327,21 @@
                 color:darkgrey;
             }
         }
-    @media screen and (max-width:1250px){
+    @media screen and (max-width:1300px){
+        .mortgage-label-container{
+            // border:1px solid red;
+        }
+        .mortgage-label{
+            // border:1px solid blue;
+            width:100%;
+        }
+        .home-container{
+            .ownerMortgage{
+                // display:flex;
+            }
+        }
+    }
+    @media screen and (max-width:1000px){
         .home-container{
             .homeprice-container{
                 width:100%;
@@ -334,7 +352,7 @@
 
                 .homeowner-container{
                 display:flex;
-                justify-content:space-between;
+                justify-content:space-evenly;
 
                 .mortgage{
                     width:30%;
@@ -980,7 +998,7 @@
         
 
         @media only screen and (max-width: 600px) {
-            position: absolute;
+            // position: absolute;
             display: flex;
             flex-direction: column;
             align-items: center;
