@@ -69,6 +69,12 @@
     background: #F2F9FD;
     display:flex;
     padding-top: 5%;
+    @media screen and (max-width:600px){
+        background:white;
+        padding-top:0;
+    }
+    
+    
 
 
     .map-prompt {
@@ -85,7 +91,12 @@
 
         @media screen and (max-width:600px){
             width:100%;
-            padding:0 5%;
+            padding:5%;
+            margin:5%;
+            border-top:1px solid #ecf1f5;
+            border-bottom:1px solid #ecf1f5;
+            border-radius:0;
+            background: #F2F9FD;
         }
     }
 
@@ -93,6 +104,8 @@
         .general-stats-container{
             width:100%;
             padding:0 5%;
+            padding-top:5%;
+            background: #F2F9FD;
         }
     }
     .special-margins{
@@ -131,6 +144,7 @@
             }
             @media screen and (max-width:600px){
                 flex-wrap:wrap;
+                padding:15px 3%;
             }   
 
             .city-overview-container-one{
@@ -267,6 +281,7 @@
             border-radius:5px;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             background-color:white;
+            
         }
         .homeowner-container{
 
@@ -321,7 +336,7 @@
                 color:grey;
             }
             .mortgage-label{
-                width:100%;
+                // width:100%;
                 color:grey;
                 font-size:1rem;
             }
@@ -336,7 +351,7 @@
         }
         .mortgage-label{
             // border:1px solid blue;
-            width:100%;
+            // width:100%;
         }
         .home-container{
             .ownerMortgage{
@@ -360,12 +375,22 @@
                 .mortgage{
                     width:30%;
                 }
+                    .mortgage-label{
+                    }
                 }
             }
         }
     }
-    @media screen and (max-width:800px){
-        
+    @media screen and (max-width:600px){
+       .home-container{
+            .ownerMortgage{
+                .homeowner-container{
+                    .mortgage{
+                        width:100%;
+                    }
+                }
+            }
+        }
     }
     
     
@@ -474,7 +499,9 @@
                 margin-bottom:20px;
                 display:flex;
                 flex-wrap:wrap;
-                
+                @media screen and (max-width:600px){
+                    margin-bottom:30px;
+                }
 
                 .commute-city-title{
                     color:#00bfa5;
@@ -541,7 +568,8 @@
                 margin-bottom:15px;
                 background-color:white;
                  @media screen and (max-width:600px){
-                    height:auto;           
+                    height:auto;
+                    margin-bottom:30px;           
                 }
 
                 .unemployment-title{
@@ -610,6 +638,7 @@
                 @media screen and (max-width:600px){
                     height:auto;
                     width:100%;
+                    margin-bottom:30px;
                 }
 
                 .healthinsurance-title{
@@ -677,7 +706,6 @@
         justify-content:space-between;
 
         @media screen and (max-width:600px){
-            border:1px solid red;     
             flex-wrap:wrap;   
         }
 
