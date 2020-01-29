@@ -382,6 +382,11 @@
             padding:10px;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             border-radius:5px;
+
+            @media screen and (max-width:600px){
+                width:100%;
+                margin-bottom:30px;          
+            }  
         }
 
         .vacancy-owner-container{
@@ -390,7 +395,11 @@
             width:38%;
             padding:10px;
             height:auto;     
-            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);       
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            
+            @media screen and (max-width:600px){
+                width:100%;
+            }  
         }
     }
     @media screen and (max-width:1000px){
@@ -433,6 +442,10 @@
         display:flex;
         justify-content:space-between;
 
+        @media screen and (max-width:600px){
+            flex-wrap:wrap;
+        }  
+
 
         .commute-container{
             width:76%;
@@ -441,9 +454,16 @@
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             margin-bottom:30px;
             background-color:white;
+            @media screen and (max-width:600px){
+                width:100%;
+            }  
         }
         .travel-container{
             width:22%;
+            @media screen and (max-width:600px){
+                display:flex;        
+                width:100%;
+            }  
 
             .commute-time-container{
                 padding:15px;
@@ -494,7 +514,9 @@
         display:flex;
         align-items:flex-start;
         justify-content:space-between;
-        // border:1px solid black;
+        @media screen and (max-width:600px){
+            flex-wrap:wrap;
+        }  
 
 
         .unemployment-container{
@@ -502,6 +524,12 @@
             display:flex;
             flex-direction:column;
             width:22%;
+            @media screen and (max-width:600px){
+                width:100%;
+                flex-direction:row;  
+                flex-wrap:wrap;
+                justify-content:center;
+            }  
 
             .unemployment-card-container{
                 // font-size:1.1vw;
@@ -512,6 +540,9 @@
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 margin-bottom:15px;
                 background-color:white;
+                 @media screen and (max-width:600px){
+                    height:auto;           
+                }
 
                 .unemployment-title{
                     color:#00bfa5;
@@ -555,11 +586,17 @@
             margin-bottom:30px;
             background-color:white;
 
-            
+            @media screen and (max-width:600px){
+                width:100%;
+            }
         }
         .insurance-container{
-            // border:1px solid green;
             width:22%;
+            @media screen and (max-width:600px){
+                width:100%;   
+                display:flex;
+                justify-content:center;      
+            }
 
             .healthinsurance-card-container{
                 height:150px;
@@ -569,6 +606,11 @@
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 margin-bottom:15px;
                 background-color:white;
+
+                @media screen and (max-width:600px){
+                    height:auto;
+                    width:100%;
+                }
 
                 .healthinsurance-title{
                     color:#00bfa5;
@@ -634,6 +676,11 @@
         align-items:flex-start;
         justify-content:space-between;
 
+        @media screen and (max-width:600px){
+            border:1px solid red;     
+            flex-wrap:wrap;   
+        }
+
         .population-container{
             padding:10px;
             border-radius:5px;
@@ -641,10 +688,16 @@
             margin-bottom:30px;
             background-color:white;
             width:75%;
+            @media screen and (max-width:600px){
+                width:100%;     
+            }
         }
 
         .birth-container{
             width:22%;
+                @media screen and (max-width:600px){
+                    width:100%;
+                }
 
             .birth-card-container{
                 padding:15px;
@@ -685,6 +738,9 @@
                         font-size:1vw;
                         margin-left:15px;
                         // border:1px solid red;
+                        @media screen and (max-width:600px){
+                            font-size:1rem;   
+                        }
                     }
                 }
                 .birth-label{
