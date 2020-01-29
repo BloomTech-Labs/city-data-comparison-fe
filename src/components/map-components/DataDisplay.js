@@ -1,4 +1,4 @@
-import  React, {useState} from "react";
+import  React, {useState, useEffect} from "react";
 import { Link, Element } from 'react-scroll'
 import ReactGA from "react-ga";
 import Footer from '../navigation/Footer'
@@ -36,10 +36,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     // fixed sidebar handling
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
+    var placeholder = document.getElementsByClassName("nav-placeholder")[0]
     if (stickynav) {
         // This line handles the offset from the main nav bar - If we unfix the main nav bar
         // (i believe we will) - the subtraction will be unnecessary.
-        var sticky = stickynav.offsetTop - 83;
+        var sticky = placeholder.offsetTop - 83;
     }
 
     var isScrolledToFooter = _ => 
@@ -48,6 +49,10 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
 
     const scrollAnchor = _ => {
+ 
+        console.log("sticky", sticky)
+        console.log("y offset" , window.pageYOffset)
+        console.log("Is scrolled to footer",isScrolledToFooter())
         if (window.pageYOffset > sticky && !isScrolledToFooter()) {
             stickynav.classList.add("sticky");
         } else {
