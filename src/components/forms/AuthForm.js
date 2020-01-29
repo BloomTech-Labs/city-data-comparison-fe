@@ -37,7 +37,7 @@ const AuthForm = props => {
    const [validated, validate] = useState(false)
    const {user, setUser} = useContext(UserContext)
 
-   const [login, setLogin] = useState({username: '', password: ''})
+   const [login, setLogin] = useState({email: '', password: ''})
 
 
     useEffect(() => {
@@ -73,18 +73,7 @@ const AuthForm = props => {
         }
     },[validated])
             
-    
-    const validateForm = _ => {
-        if (login.username === '') {
-            setUsernameError('Please enter your username'); 
-        }
-        if (login.password === '') {
-            setPasswordError("Please enter your password")
-        } 
-        else{
-            validate(true)
-        }
-    }
+
 
     const onChange = e => {
         setLogin({...login, [e.target.name] : e.target.value})
@@ -92,13 +81,7 @@ const AuthForm = props => {
     }
 
     const onSubmit = e => {
-            console.log(login)
-            validateForm();
-            setIsLoading(true)
-
-            setUsernameError('')
-            setPasswordError('')
-            setLoginError('');
+        console.log('logged in')
     }
 
     return(
@@ -127,33 +110,52 @@ const AuthForm = props => {
                    </div>
 
                    <form className="fields" onSubmit={handleSubmit(onSubmit)}>
-                       <p className='error'>{usernameError}</p>
+                   
+                        {errors.email && errors.email.type === "required" && `Your email is required to ${props.action.toLowerCase()} `} 
+                        {errors.email && errors.email.type === 'pattern' && 'Please enter a valid email'}   
                        <input 
                             className="email" 
-                            type='text' name='username' 
-                            placeholder="Username" 
-                            value={login.username} 
+                            type='text' name='email' 
+                            placeholder='email' 
+                            value={login.email} 
                             onChange={onChange}
-                            ref={register}
+                            ref={register({
+                                required:true, 
+                                pattern: {
+                                    value: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/, 
+                                    message: "A valid email is required"
+                                }
+                               
+                            })}
                         />
-                       <p className='error'>{passwordError}</p>
+
+                        
+                       {errors.password && errors.password.type === 'required' && `Your password is required to ${props.action.toLowerCase()}`}
+                       {errors.password && errors.password.type === 'minLength' && `Passwords must be at least 8 characters long`}
                        <input 
                             className="password"
                             type='password'
                             name='password'
                             placeholder="Password"
                             value={login.password}
-                            ref={register}
+                            ref={register({
+                                required: true, 
+                                minLength : {
+                                    value: 8,
+                                    message: 'password must be at least 8 characters long'
+                                  }
+                                })}
                             onChange={onChange}
                         />
                        
 
                        {    
                             //if user is signing in display privacy policy checkbox
-                            (props.action === 'Register') ? <PrivacySection/> : <div></div>
+                            (props.action === 'Register') ? <PrivacySection ref={register}/> : <div></div>
                         }
 
-                       <button className={`formButton ${props.action}Button`} onClick={() => onSubmit()}>Start exploring cities </button>
+                        {/* <input type="submit"/> */}
+                       <button className={`formButton ${props.action}Button`} type="submit">Start exploring cities </button>
 
                        <div className='question'>
                             {
