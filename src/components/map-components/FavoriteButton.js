@@ -4,6 +4,7 @@ import {UserContext} from '../../contexts/UserContext';
 import heart_icon from './icons/heart.svg';
 import filled_heart from './icons/filled_heart.svg'
 import signupArrow from './assets/signupArrow.svg'
+import ReactGA from "react-ga";
 
 import Axios from 'axios'
 
@@ -40,8 +41,12 @@ const FavoriteButton = ({city}) => {
 
     const toggle = () => {
         if(favorites.includes(city._id)){
+            ReactGA.event({ category: 'User', 
+            action: 'Added Favorite' });
             removeFromFavorites(city)
         }else{
+            ReactGA.event({ category: 'User', 
+            action: 'Removed Favorite' });
             saveToFavorites(city)
         }
     }
