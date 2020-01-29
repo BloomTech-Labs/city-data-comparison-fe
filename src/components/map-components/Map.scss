@@ -264,11 +264,6 @@
             background-color:white;
         }
         .homeowner-container{
-            // display:flex;
-            // flex-wrap:wrap;
-            // border:1px solid red;
-            // padding:0;
-            // border:1px solid blue;
 
             .mortgage{
                 background-color:white;
@@ -328,6 +323,29 @@
                 color:darkgrey;
             }
         }
+    @media screen and (max-width:1250px){
+        .home-container{
+            .homeprice-container{
+                width:100%;
+                margin-bottom:20px;
+            }
+            .ownerMortgage{
+                width:100%;
+
+                .homeowner-container{
+                display:flex;
+                justify-content:space-between;
+
+                .mortgage{
+                    width:30%;
+                }
+                }
+            }
+        }
+    }
+    @media screen and (max-width:800px){
+        
+    }
     
     
 
