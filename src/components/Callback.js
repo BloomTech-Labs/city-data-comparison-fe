@@ -8,7 +8,7 @@ const Callback = (props) => {
     const values = queryString.parse(props.location.search)
     console.log(values, "values")
     localStorage.setItem('jwt', values.jwt);
-    setUser(values.user);
+    setUser(JSON.parse(values.user));
     return (
         <>
             {Redirect("/")}
