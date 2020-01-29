@@ -42,7 +42,6 @@ function Navigation(){
                          <Link id="signup-link" to="/signup">Get Started</Link>
                     </> :
                     <>
-                         <Link to="/profile">Profile</Link>
                          <DropMenu/>
                     </>
                     }
