@@ -145,6 +145,8 @@ const ProfileCard = (props)=> {
                                 .then(res => {
                                     const image = res.data[0].userimage
                                      setUserImage({...userImage, usersimage: image})
+                                     setUser({...user, userimage : image})
+                                     window.location.reload()
                                 })
                         })
                 })
@@ -160,6 +162,7 @@ const ProfileCard = (props)=> {
                 .then(res => {
                     const image = res.data[0].userimage
                     setUserImage({...userImage, usersimage: image})
+                    window.location.reload();
                     console.log(image) 
             })
         })
@@ -171,7 +174,6 @@ const ProfileCard = (props)=> {
 
     const onSubmit = e => {
         e.preventDefault();
-        window.location.reload();
     }
     
     
@@ -196,7 +198,8 @@ const ProfileCard = (props)=> {
                 <div className='name-tab'>
                     <p>Name</p>
                     <h2 className={`user-name`}>{userInfo.first_name} {userInfo.last_name}</h2>
-                    <form className={`edit-name ${nameEdit.status}`} onSubmit={updateUser()}>
+                    {/* Added function where onSubmit is to make the update user so that it does not execute everytime when the page loads */}
+                    <form className={`edit-name ${nameEdit.status}`} onSubmit={() => updateUser()}>
                     <input
                         onChange={handleChange}
                         className='edit-first-name'
@@ -218,7 +221,7 @@ const ProfileCard = (props)=> {
                 <div className='email-tab'>
                     <p>Email</p>
                     <h2 className={`user-email ${emailEdit.status}`}>{userInfo.email}</h2>
-                    <form className={`edit-email ${emailEdit.status}`} onSubmit={updateUser()}>
+                    <form className={`edit-email ${emailEdit.status}`} onSubmit={ () => updateUser()}>
                     <input
                         onChange={handleChange}
                         className='edit-email'
@@ -232,7 +235,7 @@ const ProfileCard = (props)=> {
                 <div className='city-tab'>
                     <p>City, State of Residence</p>
                     <h2 className={`user-location ${locationEdit.status}`}>{userInfo.city} {userInfo.state}</h2>
-                    <form className={`edit-location ${locationEdit.status}`} onSubmit={updateUser()}>
+                    <form className={`edit-location ${locationEdit.status}`} onSubmit={ () => updateUser()}>
                     <input
                         onChange={handleChange}
                         className='edit-city'

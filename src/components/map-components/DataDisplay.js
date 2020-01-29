@@ -1,4 +1,4 @@
-import  React, {useState} from "react";
+import  React, {useState, useEffect} from "react";
 import { Link, Element } from 'react-scroll'
 import ReactGA from "react-ga";
 import Footer from '../navigation/Footer'
@@ -36,10 +36,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     // fixed sidebar handling
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
+    var placeholder = document.getElementsByClassName("nav-placeholder")[0]
     if (stickynav) {
         // This line handles the offset from the main nav bar - If we unfix the main nav bar
         // (i believe we will) - the subtraction will be unnecessary.
-        var sticky = stickynav.offsetTop - 83;
+        var sticky = placeholder.offsetTop - 83;
     }
 
     var isScrolledToFooter = _ => 
@@ -48,6 +49,10 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
 
     const scrollAnchor = _ => {
+ 
+        console.log("sticky", sticky)
+        console.log("y offset" , window.pageYOffset)
+        console.log("Is scrolled to footer",isScrolledToFooter())
         if (window.pageYOffset > sticky && !isScrolledToFooter()) {
             stickynav.classList.add("sticky");
         } else {
@@ -105,29 +110,30 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             {selected.length > 0 
                             ? <div className="anchor-nav">
                                 {/* <p className="anchor-header">General Statistics</p> */}
-                                <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} >City overview</Link>
+                                <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} offset={-150}>City overview</Link>
                                 <p className="anchor-header">Housing</p>
-                                <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} >Housing Costs</Link>
-                                <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} >Owner Costs</Link>
-                                <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} >Rent</Link>
-                                <Link onClick={() => dataNavClicked("rooms")} activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} >Rooms</Link>
-                                <Link onClick={() => dataNavClicked("vacancy")} id="nav-spacing" activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} >Vacancy</Link>
+                                <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} offset={-150}>Rent</Link>
+                                <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} offset={-150}>Housing Costs</Link>
+                                <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} offset={-150}>Owner Costs</Link>
+                                <Link onClick={() => dataNavClicked("rooms")} activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} offset={-150}>Rooms</Link>
+                                <Link onClick={() => dataNavClicked("vacancy")} activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} offset={-150}>Vacancy</Link>
                                 
                                 <p className="anchor-header">Industry</p>
-                                <Link onClick={() => dataNavClicked("industries")} activeClass="active" className="anchor-link" to="industries" spy={true} smooth={true} duration={500} >Job industry</Link>
-                                <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} >Health Insurance</Link>
-                                <Link onClick={() => dataNavClicked("salary")} activeClass="active" className="anchor-link" to="salary" spy={true} smooth={true} duration={500} >Salary</Link>
-                                <Link onClick={() => dataNavClicked("travelTime")} activeClass="active" className="anchor-link" to="travelTime" spy={true} smooth={true} duration={500} >Travel Time to Work</Link>
-                                <Link onClick={() => dataNavClicked("commute")} activeClass="active" className="anchor-link" to="commute" spy={true} smooth={true} duration={500} >Commute</Link>
-                                <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} >Retirement</Link>
-                                <Link onClick={() => dataNavClicked("unemploymentRate")} id="nav-spacing" activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} >Unemployment Rate</Link>
+                                <Link onClick={() => dataNavClicked("industries")} activeClass="active" className="anchor-link" to="industries" spy={true} smooth={true} duration={500} offset={-150}>Job industry</Link>
+                                <Link onClick={() => dataNavClicked("salary")} activeClass="active" className="anchor-link" to="salary" spy={true} smooth={true} duration={500} offset={-150}>Salary</Link>
+                                <Link onClick={() => dataNavClicked("commute")} activeClass="active" className="anchor-link" to="commute" spy={true} smooth={true} duration={500} offset={-150}>Commute</Link>
+                                <Link onClick={() => dataNavClicked("travelTime")} activeClass="active" className="anchor-link" to="travelTime" spy={true} smooth={true} duration={500} offset={-150} >Travel Time to Work</Link>
+                                <Link onClick={() => dataNavClicked("unemploymentRate")} activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} offset={-150}>Unemployment Rate</Link>
+                                <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} offset={-150}>Health Insurance</Link>
+                                <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} offset={-150}>Retirement</Link>
+                                
 
                                 <p className="anchor-header">Culture</p>
-                                <Link onClick={() => dataNavClicked("education")} activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} >Education</Link>
-                                <Link onClick={() => dataNavClicked("ethnicity")} activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} >Ethnicity</Link>
-                                <Link onClick={() => dataNavClicked("birthRate")} activeClass="active" className="anchor-link" to="birthRate" spy={true} smooth={true} duration={500} >Birth Rate</Link>
-                                <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} >Population</Link>
-                                <Link onClick={() => dataNavClicked("ageDistribution")} id="nav-spacing" activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} >Age Distribution</Link>
+                                <Link onClick={() => dataNavClicked("ageDistribution")} activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} offset={-150}>Age Distribution</Link>
+                                <Link onClick={() => dataNavClicked("ethnicity")} activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} offset={-150}>Diversity</Link>
+                                <Link onClick={() => dataNavClicked("education")} activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} offset={-150}>Education</Link>
+                                <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} offset={-150}>Population</Link>
+                                <Link onClick={() => dataNavClicked("birthRate")} activeClass="active" className="anchor-link" to="birthRate" spy={true} smooth={true} duration={500} offset={-150}>Birth Rate</Link>
 
                             </div>
                             : null}
@@ -137,7 +143,10 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         {selected.map(item => 
                         <div key={item._id} className={`menu-items ${menu.status}`}>
                             <li key={item._id}><span className="color-legend-text"><div className="color-legend" style={{display: "inline-block", background: item.color, height: "1rem", width: "1rem", marginRight: ".5rem"}}></div>{item.name_with_com}</span> 
-                                <span onClick={ _ => toggleSelected(item)}>
+                                <span onClick={ _ => {
+                                    let foundCity = cityIndex.find(indexed => indexed.ID === item._id);
+                                    toggleSelected(foundCity);
+                                    }}>
                                     <img className="delete-icon" src={deleteIcon} alt="delete icon" />
                                 </span>
                             </li>
@@ -151,7 +160,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 {selected.length > 0 
                 ? <> 
                 
-                <div>
+                <div className="general-stats-container">
                     {/* <p>General Statistics:</p> */}
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                 </div>
@@ -269,7 +278,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     </div>
                 </div>
                 </>
-                : <h2 className="map-prompt">Select a city to begin browsing</h2>}
+                : <p className="map-prompt">
+                    Select a city to begin browsing
+                </p>}
             </div>
 
         </div>

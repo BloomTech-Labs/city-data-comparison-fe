@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import citrics from './citrics-mock.png'
 import lock from './lock.svg'
 import { UserContext } from '../../contexts/UserContext';
-
-import ProfileImage from '../user-profile/icons/profileimage.png'
-
+import DropMenu from "./Dropdown"
 
 
 function Navigation(){
@@ -25,14 +23,6 @@ function Navigation(){
           }
      }
 
-     useEffect( _ => {
-          if (window.location.href.includes("map")) {
-               setFixedClass("unfixed")
-          } else {
-               setFixedClass("")
-          }
-     },[window.location])
-
      let styles={
           float:"right"
      }
@@ -46,39 +36,19 @@ function Navigation(){
                     <Link to="/map">Compare</Link>
 
 
-                    {user === null ? 
+                    {user == null ? 
                     <>
                          <Link id="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
                          <Link id="signup-link" to="/signup">Get Started</Link>
                     </> :
                     <>
                          <Link to="/profile">Profile</Link>
-
-                         {user.userimage && <img src={`https://citrics-staging.herokuapp.com/${user.userimage}`} alt="user's avatar"/>}
+                         <DropMenu/>
                     </>
                     }
 
                     
                </nav> 
-
-               {/* <!-- Dropdown Menu  --> */}
-                 <div className="dropdownContainer">
-                    <div className="dropdown" style={styles}>
-                         <button className="dropbtn">Menu</button>
-                              <div className="dropdown-content">
-                                   <Link to="/map">Explore</Link>
-                                   <Link to="/map">Compare</Link>
-                                   {user === null ? 
-                                   <>
-                                   <Link to="/signin">Log In</Link> <Link to="/signup">Get Started</Link>
-                                   </>
-                                    : <Link to="/profile">Profile</Link> }
-                                   {/* Uncomment when we have the user's avatar */}
-                                   {/* {user != null && 
-                                   <img src={user.avatar} alt="user's avatar"/>} */}
-                              </div>
-                    </div>
-               </div>
           </div>
      )
 }
