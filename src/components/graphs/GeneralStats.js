@@ -1,10 +1,10 @@
 
 import React from 'react';
 import styled from "styled-components";
-import cities from "../../assets/icons/City.svg"
+import cities from "../../assets/icons/city.svg"
 import population from "../../assets/icons/population.svg"
 import money from "../../assets/icons/money.svg"
-import baby from "../../assets/icons/Baby.svg"
+import baby from "../../assets/icons/baby.svg"
 
 import world from '../map-components/assets/world.svg'
 import pop from '../map-components/assets/population.svg'
