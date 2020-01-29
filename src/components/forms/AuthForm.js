@@ -158,19 +158,22 @@ const AuthForm = props => {
                             onChange={onChange}
                         />
                        
-                       
+                       {errors.pp && <p className="formError">Accepting our privacy policy is required</p>}
                        {    
                             //if user is signing in display privacy policy checkbox
                             
-                            (props.action === 'Register') ?  <div className="pp">
-                            <input className="checkbox" type="checkbox" name="tos" ref={register({required: true})}></input>
-                            <p>
-                                Please accept our 
-                                <span className="pp-text" onClick={() => (setModalState(<PrivacyPolicy register={props.register}/>), toggle())} style={{cursor: "pointer"}}> 
-                                    privacy policy
-                                </span>
-                            </p>
-                        </div> : <div></div>
+                            (props.action === 'Register') ?  
+                            <div className="pp">
+                                
+                                <input className="checkbox" type="checkbox" name="pp" ref={register({required: true})}></input>
+                                <p>
+                                    Please accept our 
+                                    <span className="pp-text" onClick={() => (setModalState(<PrivacyPolicy register={props.register}/>), toggle())} style={{cursor: "pointer"}}> 
+                                        privacy policy
+                                    </span>
+                                </p>
+                            </div> 
+                        : <div></div>
                         }
 
                         {/* <input type="submit"/> */}
