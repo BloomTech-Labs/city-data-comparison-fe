@@ -17,7 +17,7 @@ const ProfileCard = (props)=> {
     const [userInfo, setUserInfo] = useState(user)
     const [userImage, setUserImage] = useState({usersimage:null, users_id: userInfo.id})
 
-
+    console.log(userInfo, 'user state')
 
     const handleChange = e => {
         setUserInfo({
@@ -42,13 +42,11 @@ const ProfileCard = (props)=> {
     const [imageUpload, setImageUpload] = useState({status:'closed'})
 
     const toggleName = () => {
-        if (nameEdit.status === 'closed') {
-            setNameEdit({...nameEdit, status:'open'}) 
-        } else if (nameEdit.status === 'open') {
-            setNameEdit({...nameEdit, status:'closed'})
-        } else if (user.first_name === null) {
+        if (nameEdit.status === 'open') {
+            setNameEdit({...nameEdit, status:'closed'}) 
+        } else if (nameEdit.status === 'closed') {
             setNameEdit({...nameEdit, status:'open'})
-        }
+        } 
     }
 
     const toggleEmail = () => {
@@ -56,8 +54,8 @@ const ProfileCard = (props)=> {
             setEmailEdit({...emailEdit, status:'open'}) 
         } else if (emailEdit.status === 'open') {
             setEmailEdit({...emailEdit, status:'closed'})
-        } else if (user.first_name === null) {
-            setEmailEdit({...emailEdit, status:'open'})
+        } else if (userInfo.first_name === null) {
+            setEmailEdit({...emailEdit, status:'closed'})
         }
     }
 
@@ -66,8 +64,8 @@ const ProfileCard = (props)=> {
             setLocationEdit({...locationEdit, status:'open'}) 
         } else if (locationEdit.status === 'open') {
             setLocationEdit({...locationEdit, status:'closed'})
-        } else if (user.first_name === null) {
-            setLocationEdit({...locationEdit, status:'open'})
+        } else if (userInfo.first_name === null) {
+            setLocationEdit({...locationEdit, status:'closed'})
         }
     }
 
@@ -152,7 +150,7 @@ const ProfileCard = (props)=> {
                 })
 
         } else {
-            
+
         axios
             .post('https://citrics-staging.herokuapp.com/api/users/', formData)
             .then(res => {
