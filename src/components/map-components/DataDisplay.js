@@ -236,9 +236,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             {/* <p className="chart-title">Travel time to work</p> */}
                             <Element name="travelTime" className="element" ><TravelTime ethData = {selected} /></Element>
                         </div>
-                        <div className="travel-scores">
+                        {/* <div className="travel-scores">
                             <Element name="transportation" className="element" ><Transportaion ethData = {selected} /></Element>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="other-industries-container">
@@ -289,10 +289,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             {/* <p className="chart-title">Birth rate</p> */}
                             <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
                         </div>
-                        <div className="avg-temp">
-                            {/* <p className="chart-title">Birth rate</p> */}
+                        {/* <div className="avg-temp">
                             <Element name="avgTemp" className="element" ><AvgTemp edData = {selected} /></Element>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 </>

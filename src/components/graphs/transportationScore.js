@@ -5,8 +5,6 @@ function Score({ethData}) {
 
 	return (
 		<div className="dataCards">
-            <h1>Transportation Score</h1>
-
             {ethData.map(item => 
                 <div key={item._id}>
                     <div> City: {item['City']}</div>
