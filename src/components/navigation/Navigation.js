@@ -32,8 +32,8 @@ function Navigation(){
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
                <nav className="main-nav">
-                    <Link to="/map">Explore</Link>
-                    <Link to="/map">Compare</Link>
+                    <Link to="/map" className="nav-button">Explore</Link>
+                    <Link to="/map" className="nav-button">Compare</Link>
 
 
                     {user == null ? 
@@ -42,7 +42,6 @@ function Navigation(){
                          <Link id="signup-link" to="/signup">Get Started</Link>
                     </> :
                     <>
-                         <Link to="/profile">Profile</Link>
                          <DropMenu/>
                     </>
                     }
