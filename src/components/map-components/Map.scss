@@ -61,12 +61,6 @@
         }
     }
 }
-@media screen and (max-width:600px){
-    .general-stats-container{
-        width:100%;
-        padding:0 5%;
-    }
-}
 
 
 
@@ -94,6 +88,13 @@
             padding:0 5%;
         }
     }
+
+    @media screen and (max-width:600px){
+        .general-stats-container{
+            width:100%;
+            padding:0 5%;
+        }
+    }
     .special-margins{
         // margin-top:7%;
     }
@@ -105,19 +106,11 @@
         padding: 0 10px;
 
         @media screen and (max-width:600px){
-            
+            width:100%;
+            margin-bottom:30px;
         }
         
         .city-overview-border{
-            // border-top-left-radius:5px;
-            // border-top-right-radius:5px;
-            // background-color:#9bd1f7;
-            // background-color:#89CCF7;
-            // background-color:#ff9f97;
-
-            // background-color:#C2E9FC;
-            // background-color:#FFE0A0;
-            // background-color:#ffb9af;
             margin-bottom:0 !important;
             padding-left:2%;
             font-size:1.3rem;
@@ -136,12 +129,18 @@
                 height:20px;
                 margin-right:15px;
             }
+            @media screen and (max-width:600px){
+                flex-wrap:wrap;
+            }   
 
             .city-overview-container-one{
                 width:45%;
                 display:flex;
                 align-items:center;
-                // border:1px solid red;
+
+                @media screen and (max-width:600px){
+                    width:100%;
+                }
 
                 .overview-title-container-one{
                     width:60%;
@@ -154,10 +153,9 @@
                         display:flex;
                         font-size:1.1rem;
                     }
-
                 }
                 .overview-stats-container-one{
-                    width:45%;
+                    width:40%;
                     font-size:1.1rem;
                     display:flex;
                     flex-direction:column;
@@ -171,6 +169,11 @@
             .city-overview-container-two{
                 width:40%;
                 display:flex;
+                @media screen and (max-width:600px){
+                    width:100%;
+                    justify-content:space-between;
+                }   
+
                 .overview-title-container-two{
                     width:70%;
                     display:flex;
@@ -182,6 +185,9 @@
                         display:flex;
                         font-size:1.1rem;
                     }
+                    @media screen and (max-width:600px){
+                        width:60%;        
+                    }  
                 }
                 .overview-stats-container-two{
                     width:27%;
@@ -192,6 +198,9 @@
                         width:100%;
                         margin:10px 0;    
                     }
+                    @media screen and (max-width:600px){
+                        width:40%;           
+                    }   
                 }
             }
         }
@@ -201,37 +210,16 @@
 
     .data-category-titles{
         text-align:center;
-        // background-color:white;
-        // padding:5px;
-        // border-radius:5px;
-        // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        // border-bottom-left-radius:0;
-        // border-bottom-right-radius:0;
         width:100%;
         display:flex;
         flex-direction:column;
         align-items:center;
-        // background-color:#FFBD71;
-        // background-color:#FFDCA2;
-        // background-color:#ffdd94;
-        // background-color:#2ca4fc;
-        // border:1px solid red;
-        
-        
-        
-        // padding:5px;
-        // border-top-left-radius:5px;
-        // border-top-right-radius:5px;
-        // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        // background-color:#FFBC79;
-        // background-color:#2CA2FA;
 
         .data-category-header{
             font-size:2rem;
             margin-top:5px;
             margin-bottom:0;
             color:#00bfa5;
-            // color:white;
         }
 
         .data-category-subtitle{
@@ -239,7 +227,6 @@
             width:80%;
             color:grey;
             margin-top:0;
-            // color:white;
         }
     }
 
