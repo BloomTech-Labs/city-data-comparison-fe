@@ -8,20 +8,20 @@ function Score({ethData}) {
   
 
 	return (
-		<div className="travel-scores-container-two">
+		<div className="travel-scores-container-one">
             {ethData.map(item => 
-                <div key={item._id}>
-                    <div>
-                        <p>Score breakdown</p>
-                        <div>
-                            <div>
+                <div key={item._id} className="travel-scores-container-two">
+                    <div className="score-breakdown-container">
+                        <p className="chart-title scores">Score breakdown</p>
+                        <div className="score-metric">
+                            <div className="score-rate-nums">
                                 <p>90 - 100</p>
                                 <p>70 - 89</p>
                                 <p>50 - 69</p>
                                 <p>25 - 49</p>
                                 <p>0 - 24</p>
                             </div>
-                            <div>
+                            <div className="score-rate-titles">
                                 <p>Optimal</p>
                                 <p>Excellent</p>
                                 <p>Good</p>
@@ -31,38 +31,38 @@ function Score({ethData}) {
                         </div>
                     </div>
 
-                    <div> 
-                        <p>Walk score</p>
-                        <p>Pedestrian friendliness</p>
-                        <div>
-                            <p>{item['Walk Score']}</p>
-                            <img src={walkingThick} alt="walking person" />
+                    <div className="walk-score-container"> 
+                        <p className="chart-title scores">Walk score</p>
+                        <p className="score-subtitle">Pedestrian friendliness</p>
+                        <div className="score-num">
+                            
+                            <p className="score"><img className="walk" src={walkingThin} alt="walking person" />{item['Walk Score']}</p>
                         </div>
-                        <p>{item['City']}</p>
+                        <p className="score-city">{item['City']}</p>
                     </div>
 
 
-                    <div> 
-                        <p>Transit score</p>
-                        <p>Public transport accessibility</p>
-                        <div>
-                            <p>{item['Transit Score']}</p>
-                            <img src={bus} alt="bus" />
+                    <div className="transit-score-container"> 
+                        <p className="chart-title scores">Transit score</p>
+                        <p className="score-subtitle">Public transportation</p>
+                        <div className="score-num">
+                            <img className="bus" src={bus} alt="bus" />
+                            <p className="score">{item['Transit Score']}</p>
                         </div>
-                        <p>{item['City']}</p>
+                        <p className="score-city">{item['City']}</p>
                     </div>
 
 
-                    <div> 
-                        <p>Bike score</p>
-                        <p>Biking infrastructure</p>
-                        <div>
-                            <p>{item['Bike Score']}</p>
-                            <img src={bicycle} alt="bike" />
+                    <div className="bike-score-container"> 
+                        <p className="chart-title scores">Bike score</p>
+                        <p className="score-subtitle">Biking infrastructure</p>
+                        <div className="score-num">
+                            <img className="bike" src={bicycle} alt="bike" />
+                            <p className="score">{item['Bike Score']}</p>
                         </div>
-                        <p>{item['City']}</p>
+                        <p className="score-city">{item['City']}</p>
                     </div>
-                    
+
                </div>
             )}
 		</div>

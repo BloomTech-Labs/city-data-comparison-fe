@@ -536,7 +536,118 @@
     }
 
     .travel-scores-container{
-        border:1px solid red;
+
+        .travel-scores-container-one{
+            // border:1px solid blue;
+        }
+
+        .travel-scores-container-two{
+            // border:1px solid red;
+            padding:10px;
+            border-radius:5px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            margin-bottom:30px;
+            background-color:white;
+            display:flex;
+            justify-content:space-between;
+
+            .scores{
+                // border:1px solid blue;
+                margin-left:0;
+                margin-bottom:0;
+            }
+            .score-subtitle{
+                margin-top:0;
+                // border:1px solid yellow;
+                color:grey;
+                font-size:0.9rem;
+                margin-bottom:0;
+            }
+            .score-city{
+                // border:1px solid red;
+                text-align:center;
+                color:grey;
+                margin-top:0;
+                margin-bottom:0;
+            }
+            .score-num{
+                // border:1px solid red;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+
+                .score{
+                    // border:1px solid black;
+                    font-size:2.5rem;
+                    margin-top:10px;
+                    margin-bottom:10px;
+                    margin:20px auto;
+                }
+
+                img{
+                    // border:1px solid blue;
+                    height:30px;
+                    margin-right:4px;
+                }
+            }
+        }
+
+        .score-breakdown-container{
+            width:25%;
+            border:1px solid green;
+            
+            
+            .score-metric{
+                // border:1px solid red;
+                display:flex;
+
+                .score-rate-nums{
+                    border:1px solid blue;
+                    width:50%;
+                    text-align:center;
+
+                    p{
+                        border:1px solid blue;
+                        margin-bottom:0;
+                        margin-top:5px;
+                    }
+                }
+
+                .score-rate-titles{
+                    border:1px solid green;
+                    width:50%;
+
+                    p{
+                        border:1px solid red;
+                        margin-bottom:0;
+                        margin-top:5px;
+                    }
+                }
+            }
+        }
+
+        .walk-score-container{
+            width:20%;
+            border:1px solid green;
+        }
+
+        
+        .transit-score-container{
+            width:20%;
+            border:1px solid green;
+
+        }
+        
+        
+        .bike-score-container{
+            width:20%;
+            border:1px solid green;
+            
+            .score-num{
+                padding:0;
+
+            }
+        }
     }
 
     .other-industries-container{
@@ -562,7 +673,7 @@
 
             .unemployment-card-container{
                 // font-size:1.1vw;
-                height:150px;
+                height:170px;
                 padding:15px;
                 padding-bottom:10px;
                 border-radius:5px;
@@ -629,7 +740,7 @@
             }
 
             .healthinsurance-card-container{
-                height:150px;
+                height:170px;
                 padding:15px;
                 padding-bottom:10px;
                 border-radius:5px;
