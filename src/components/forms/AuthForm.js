@@ -2,6 +2,9 @@ import React, {useState, useEffect, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+//react hook form is used for validation instead of formik
+import { useForm } from 'react-hook-form'
+
 import PrivacySection from './PrivacySection'
 import city from '../../assets/illustrations/city_illustration.jpg'
 import {UserContext} from "../../contexts/UserContext"
@@ -23,7 +26,10 @@ const AuthForm = props => {
    //list of companies 
    const companies = [{name:'Google', icon: Google}, {name:'Facebook', icon:Facebook}, {name:'Linkedin', icon:Linkedin}]
 
-   //state used for validating form
+   //state used for react-hook-form
+   const {register, handleSubmit, watch, errors} = useForm()
+
+
    const [usernameError, setUsernameError] = useState('');
    const [passwordError, setPasswordError] = useState('')
    const [loginError, setLoginError] = useState('')
@@ -120,7 +126,7 @@ const AuthForm = props => {
                        <div className="line"></div>
                    </div>
 
-                   <div className="fields">
+                   <form className="fields" onSubmit={handleSubmit(onSubmit)}>
                        <p className='error'>{usernameError}</p>
                        <input 
                             className="email" 
@@ -155,7 +161,7 @@ const AuthForm = props => {
                                <div> <p>Have an account?  </p> <Link className="link-authform" to='/signin'> Login </Link> <p>  to explore cities</p> </div>
                             }
                         </div>
-                   </div>
+                   </form>
                    </div>
                </div>
                 
