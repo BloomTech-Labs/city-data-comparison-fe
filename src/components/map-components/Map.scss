@@ -252,12 +252,12 @@
 
         .ownerMortgage{
             // border:1px solid red;
-            width:21%;
+            width:20%;
             padding:0;
         }
     }
         .homeprice-container{
-            width:77%;
+            width:78%;
             padding:10px;
             border-radius:5px;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
@@ -275,8 +275,20 @@
                 border-radius:5px;
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 margin-bottom:15px;
-                padding: 20px 5px;
+                padding: 8px 10px;
                 // border:1px solid green;
+            }
+            .smoc{
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+                font-size:1.2rem;
+                color:#00bfa5;
+                margin-bottom:13px;
+                
+                .smoc-img{
+                    // border:1px solid blue;
+                }
             }
             .home-title{
                 background-color:white;
@@ -287,28 +299,29 @@
                 text-align:center;
                 margin-left:0;
                 margin-top:0;
-                // border:1px solid red;
+                display:none;
             }
             .mortgage-price{
                 font-size:1.15rem;
                 color:#00bfa5;
-                margin-left:5px;
+                margin-left:3px;
             }
             .mortgage-label-container{
-                // border:1px solid black;
                 text-align:center;
+                display:flex;
+                justify-content:center;
                 margin-top:5px;
             }
             .city-mortgage-title{
                 color:#2e2f38;
-                font-size:1.1rem;
+                font-size:1rem;
                 text-align:center;
-                padding-bottom:5px;
-                // border:1px solid orange;
+                margin-top:8px;
+                color:grey;
             }
             .mortgage-label{
                 color:grey;
-                text-align:center;
+                font-size:1rem;
             }
             .month-label{
                 font-size:13px;
