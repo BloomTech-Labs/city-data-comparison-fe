@@ -72,3 +72,15 @@
       padding: 0; 
       margin:0; 
   }
+
+
+  .pp{
+    display: flex;
+    align-items: center;
+    color:#665858;
+
+    .pp-text{
+      margin: .4vw;
+      color:#3999FC;
+    }
+  }

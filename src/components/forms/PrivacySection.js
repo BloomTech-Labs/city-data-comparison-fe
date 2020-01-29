@@ -22,11 +22,11 @@ const PrivacySection = props => {
                 component={modalState}
             />
 
-            <div className="tos">
+            <div className="pp">
                 <input className="checkbox" type="checkbox" name="tos"></input>
                 <p>
                     Please accept our 
-                    <span className="tos-text" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}> 
+                    <span className="pp-text" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}> 
                         privacy policy
                     </span>
                 </p>
