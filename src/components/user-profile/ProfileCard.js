@@ -16,8 +16,19 @@ const ProfileCard = (props)=> {
     const { user, setUser } = useContext(UserContext)
     const [userInfo, setUserInfo] = useState(user)
     const [userImage, setUserImage] = useState({usersimage:null, users_id: userInfo.id})
+    
+    const userPost = {
+        first_name: userInfo.first_name,
+        last_name: userInfo.last_name,
+        email: userInfo.email,
+        city: userInfo.city,
+        state: userInfo.state
+    }
+
+    console.log(userPost)
 
 
+    console.log(userInfo, 'user state')
 
     const handleChange = e => {
         setUserInfo({
@@ -42,13 +53,11 @@ const ProfileCard = (props)=> {
     const [imageUpload, setImageUpload] = useState({status:'closed'})
 
     const toggleName = () => {
-        if (nameEdit.status === 'closed') {
-            setNameEdit({...nameEdit, status:'open'}) 
-        } else if (nameEdit.status === 'open') {
-            setNameEdit({...nameEdit, status:'closed'})
-        } else if (user.first_name === null) {
+        if (nameEdit.status === 'open') {
+            setNameEdit({...nameEdit, status:'closed'}) 
+        } else if (nameEdit.status === 'closed') {
             setNameEdit({...nameEdit, status:'open'})
-        }
+        } 
     }
 
     const toggleEmail = () => {
@@ -56,9 +65,7 @@ const ProfileCard = (props)=> {
             setEmailEdit({...emailEdit, status:'open'}) 
         } else if (emailEdit.status === 'open') {
             setEmailEdit({...emailEdit, status:'closed'})
-        } else if (user.first_name === null) {
-            setEmailEdit({...emailEdit, status:'open'})
-        }
+        } 
     }
 
     const toggleLocation = () => {
@@ -66,9 +73,7 @@ const ProfileCard = (props)=> {
             setLocationEdit({...locationEdit, status:'open'}) 
         } else if (locationEdit.status === 'open') {
             setLocationEdit({...locationEdit, status:'closed'})
-        } else if (user.first_name === null) {
-            setLocationEdit({...locationEdit, status:'open'})
-        }
+        } 
     }
 
     const toggleImage = () => {
@@ -117,14 +122,15 @@ const ProfileCard = (props)=> {
     const updateUser = () => {
         
         axios
-            .put(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`,userInfo)
+            .put(`https://citrics-staging.herokuapp.com/api/users/${id}/profile`, userPost)
             .then(res => {
                 
                 setUser(userInfo)
                 
             })
             .catch(err => {
-                console.log('Unable to get user information', err);
+
+                console.log('Unable to get user information', user);
             });
     }
     
@@ -148,13 +154,13 @@ const ProfileCard = (props)=> {
                                     const image = res.data[0].userimage
                                      setUserImage({...userImage, usersimage: image})
                                      setUser({...user, userimage : image})
-                                     window.location.reload()
+                                     
                                 })
                         })
                 })
 
         } else {
-            
+
         axios
             .post('https://citrics-staging.herokuapp.com/api/users/', formData)
             .then(res => {
@@ -164,7 +170,6 @@ const ProfileCard = (props)=> {
                 .then(res => {
                     const image = res.data[0].userimage
                     setUserImage({...userImage, usersimage: image})
-                    window.location.reload();
                     console.log(image) 
             })
         })
@@ -201,7 +206,7 @@ const ProfileCard = (props)=> {
                     <p>Name</p>
                     <h2 className={`user-name`}>{userInfo.first_name} {userInfo.last_name}</h2>
                     {/* Added function where onSubmit is to make the update user so that it does not execute everytime when the page loads */}
-                    <form className={`edit-name ${nameEdit.status}`} onSubmit={() => updateUser()}>
+                    <form className={`edit-name ${nameEdit.status}`} onSubmit={updateUser}>
                     <input
                         onChange={handleChange}
                         className='edit-first-name'
@@ -223,7 +228,7 @@ const ProfileCard = (props)=> {
                 <div className='email-tab'>
                     <p>Email</p>
                     <h2 className={`user-email ${emailEdit.status}`}>{userInfo.email}</h2>
-                    <form className={`edit-email ${emailEdit.status}`} onSubmit={ () => updateUser()}>
+                    <form className={`edit-email ${emailEdit.status}`} onSubmit={updateUser}>
                     <input
                         onChange={handleChange}
                         className='edit-email'
@@ -237,7 +242,7 @@ const ProfileCard = (props)=> {
                 <div className='city-tab'>
                     <p>City, State of Residence</p>
                     <h2 className={`user-location ${locationEdit.status}`}>{userInfo.city} {userInfo.state}</h2>
-                    <form className={`edit-location ${locationEdit.status}`} onSubmit={ () => updateUser()}>
+                    <form className={`edit-location ${locationEdit.status}`}>
                     <input
                         onChange={handleChange}
                         className='edit-city'
@@ -256,7 +261,7 @@ const ProfileCard = (props)=> {
                     />
                     </form>
                     <button className={`edit-location-btn ${locationEdit.status}`} onClick={() => {toggleLocation(); toggleEmail(); toggleName()}}>Edit Profile</button> 
-                    <button className={`save-location-btn ${locationEdit.status}`} onClick={() => {toggleLocation(); toggleEmail(); toggleName()}}>Save</button>
+                    <button className={`save-location-btn ${locationEdit.status}`} onClick={() => {toggleLocation(); toggleEmail(); toggleName(); updateUser()}}  >Save</button>
                 </div>
             </div>
         </div>
