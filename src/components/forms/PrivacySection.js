@@ -23,7 +23,7 @@ const PrivacySection = props => {
             />
 
             <div className="pp">
-                <input className="checkbox" type="checkbox" name="tos" ref={props.register}></input>
+                <input className="checkbox" type="checkbox" name="tos" ref={props.register({required: true})}></input>
                 <p>
                     Please accept our 
                     <span className="pp-text" onClick={() => (setModalState(<PrivacyPolicy register={props.register}/>), toggle())} style={{cursor: "pointer"}}> 

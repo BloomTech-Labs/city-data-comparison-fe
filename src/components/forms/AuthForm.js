@@ -30,11 +30,8 @@ const AuthForm = props => {
    const {register, handleSubmit, watch, errors} = useForm()
 
 
-   const [usernameError, setUsernameError] = useState('');
-   const [passwordError, setPasswordError] = useState('')
-   const [loginError, setLoginError] = useState('')
+ 
    const [isLoading, setIsLoading] = useState(false)
-   const [validated, validate] = useState(false)
    const {user, setUser} = useContext(UserContext)
 
    const [login, setLogin] = useState({email: '', password: ''})
@@ -85,7 +82,12 @@ const AuthForm = props => {
     }
 
     return(
-           
+            <>
+                <Modal
+                    isShowing={isShowing}
+                    hide={toggle}
+                    component={modalState}
+                />
            <div className='authForm'>
 
                {/*Container for left side of forms */}
@@ -111,8 +113,8 @@ const AuthForm = props => {
 
                    <form className="fields" onSubmit={handleSubmit(onSubmit)}>
                    
-                        {errors.email && errors.email.type === "required" && `Your email is required to ${props.action.toLowerCase()} `} 
-                        {errors.email && errors.email.type === 'pattern' && 'Please enter a valid email'}   
+                        {errors.email && errors.email.type === "required" && <p className='formError'>Your email is required</p>} 
+                        {errors.email && errors.email.type === 'pattern' && <p className='formError'>Please enter a valid email</p>}   
                        <input 
                             className="email" 
                             type='text' name='email' 
@@ -130,8 +132,8 @@ const AuthForm = props => {
                         />
 
                         
-                       {errors.password && errors.password.type === 'required' && `Your password is required to ${props.action.toLowerCase()}`}
-                       {errors.password && errors.password.type === 'minLength' && `Passwords must be at least 8 characters long`}
+                       {errors.password && errors.password.type === 'required' && <p className='formError'>Your password is required</p>}
+                       {errors.password && errors.password.type === 'minLength' && <p className='formError'>Passwords must be at least 8</p>}
                        <input 
                             className="password"
                             type='password'
@@ -148,10 +150,19 @@ const AuthForm = props => {
                             onChange={onChange}
                         />
                        
-
+                       
                        {    
                             //if user is signing in display privacy policy checkbox
-                            (props.action === 'Register') ? <PrivacySection ref={register}/> : <div></div>
+                            
+                            (props.action === 'Register') ?  <div className="pp">
+                            <input className="checkbox" type="checkbox" name="tos" ref={props.register({required: true})}></input>
+                            <p>
+                                Please accept our 
+                                <span className="pp-text" onClick={() => (setModalState(<PrivacyPolicy register={props.register}/>), toggle())} style={{cursor: "pointer"}}> 
+                                    privacy policy
+                                </span>
+                            </p>
+                        </div> : <div></div>
                         }
 
                         {/* <input type="submit"/> */}
@@ -175,6 +186,7 @@ const AuthForm = props => {
                </div>
 
            </div>
+        </>
         
     )
 }

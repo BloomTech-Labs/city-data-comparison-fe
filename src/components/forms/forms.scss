@@ -169,6 +169,12 @@
                 width: 90%;
                 margin: auto;
 
+                //error messages
+                .formError{
+                    font-size: .8rem;
+                    color: #3999FC;
+                }
+
                 @media screen and (min-width:600px){
                     width:65vw;
                 }
