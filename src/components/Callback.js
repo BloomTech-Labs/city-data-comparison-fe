@@ -6,9 +6,9 @@ import {UserContext} from "../contexts/UserContext"
 const Callback = (props) => {
     const {setUser} = useContext(UserContext)
     const values = queryString.parse(props.location.search)
+    console.log(values, "values")
     localStorage.setItem('jwt', values.jwt);
     let newUser = JSON.parse(values.user)
-    console.log(newUser, "newuser in callback")
     setUser( newUser);
     return (
         <>
