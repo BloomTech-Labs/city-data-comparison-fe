@@ -2,7 +2,7 @@ import  React, {useState, useEffect} from "react";
 import { Link, Element } from 'react-scroll'
 import ReactGA from "react-ga";
 import Footer from '../navigation/Footer'
-
+import AvgTemp from "../graphs/culture/tempAvg"
 import MapSearch from "./MapSearch";
 import LineGraph from "../graphs/housing/House_price";
 import RoomGraph from "../graphs/housing/HousingByRooms";
@@ -23,6 +23,7 @@ import TravelTime from "../graphs/economics/TravelTimeCard";
 import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 import BirthRateCard from "../graphs/culture/birthRateCard"
+import Transportaion from "../graphs/transportationScore"
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
@@ -50,9 +51,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
     const scrollAnchor = _ => {
  
-        console.log("sticky", sticky)
-        console.log("y offset" , window.pageYOffset)
-        console.log("Is scrolled to footer",isScrolledToFooter())
+        // console.log("sticky", sticky)
+        // console.log("y offset" , window.pageYOffset)
+        // console.log("Is scrolled to footer",isScrolledToFooter())
         if (window.pageYOffset > sticky && !isScrolledToFooter()) {
             stickynav.classList.add("sticky");
         } else {
@@ -126,6 +127,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("unemploymentRate")} activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} offset={-150}>Unemployment Rate</Link>
                                 <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} offset={-150}>Health Insurance</Link>
                                 <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} offset={-150}>Retirement</Link>
+                                <Link onClick={() => dataNavClicked("transportation")} activeClass="active" className="anchor-link" to="transportation" spy={true} smooth={true} duration={500} offset={-150}>Transportaion</Link>
                                 
 
                                 <p className="anchor-header">Culture</p>
@@ -134,6 +136,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("education")} activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} offset={-150}>Education</Link>
                                 <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} offset={-150}>Population</Link>
                                 <Link onClick={() => dataNavClicked("birthRate")} activeClass="active" className="anchor-link" to="birthRate" spy={true} smooth={true} duration={500} offset={-150}>Birth Rate</Link>
+                                <Link onClick={() => dataNavClicked("avgTemp")} activeClass="active" className="anchor-link" to="avgTemp" spy={true} smooth={true} duration={500} offset={-150}>Average Temperature</Link>
 
                             </div>
                             : null}
@@ -225,6 +228,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             {/* <p className="chart-title">Travel time to work</p> */}
                             <Element name="travelTime" className="element" ><TravelTime ethData = {selected} /></Element>
                         </div>
+                        <div className="travel-scores">
+                            <Element name="transportation" className="element" ><Transportaion ethData = {selected} /></Element>
+                        </div>
                     </div>
 
                     <div className="other-industries-container">
@@ -274,6 +280,10 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         <div className="birth-container">
                             {/* <p className="chart-title">Birth rate</p> */}
                             <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
+                        </div>
+                        <div className="avg-temp">
+                            {/* <p className="chart-title">Birth rate</p> */}
+                            <Element name="avgTemp" className="element" ><AvgTemp edData = {selected} /></Element>
                         </div>
                     </div>
                 </div>
