@@ -143,7 +143,10 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         {selected.map(item => 
                         <div key={item._id} className={`menu-items ${menu.status}`}>
                             <li key={item._id}><span className="color-legend-text"><div className="color-legend" style={{display: "inline-block", background: item.color, height: "1rem", width: "1rem", marginRight: ".5rem"}}></div>{item.name_with_com}</span> 
-                                <span onClick={ _ => toggleSelected(item)}>
+                                <span onClick={ _ => {
+                                    let foundCity = cityIndex.find(indexed => indexed.ID === item._id);
+                                    toggleSelected(foundCity);
+                                    }}>
                                     <img className="delete-icon" src={deleteIcon} alt="delete icon" />
                                 </span>
                             </li>
