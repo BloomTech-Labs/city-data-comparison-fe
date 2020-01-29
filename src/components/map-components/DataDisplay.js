@@ -36,11 +36,12 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     // fixed sidebar handling
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
+    var autofillContainer = document.getElementsByClassName("autofill-container")[0]
     var placeholder = document.getElementsByClassName("nav-placeholder")[0]
     if (stickynav) {
         // This line handles the offset from the main nav bar - If we unfix the main nav bar
         // (i believe we will) - the subtraction will be unnecessary.
-        var sticky = placeholder.offsetTop - 83;
+        var sticky = placeholder.offsetTop - 105;
     }
 
     var isScrolledToFooter = _ => 
@@ -49,14 +50,15 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
 
     const scrollAnchor = _ => {
- 
-        console.log("sticky", sticky)
-        console.log("y offset" , window.pageYOffset)
-        console.log("Is scrolled to footer",isScrolledToFooter())
+
         if (window.pageYOffset > sticky && !isScrolledToFooter()) {
             stickynav.classList.add("sticky");
+            autofillContainer.classList.add("abso-width")
+
+
         } else {
             stickynav.classList.remove("sticky");
+            autofillContainer.classList.remove("abso-width")
         }
         if (isScrolledToFooter() && selected.length > 0) {
             stickynav.classList.add("nav-bottom-anchor")
