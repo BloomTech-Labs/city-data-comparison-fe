@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { Link } from "react-router-dom";
-import citrics from './citrics-mock.png'
+import citrics from './citrics_logo_new_full_plus.png'
 import lock from './lock.svg'
 import { UserContext } from '../../contexts/UserContext';
 import DropMenu from "./Dropdown"
