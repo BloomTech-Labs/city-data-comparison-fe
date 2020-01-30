@@ -202,6 +202,7 @@ const ProfileCard = (props)=> {
                     <button className={`edit-image-btn ${imageUpload.status}`} onClick={toggleImage}>Upload Image</button>
                     <button className={`save-image-btn ${imageUpload.status}`} onClick={() => {toggleImage(); postImage()}} >Save</button>
                 </div>
+                <div className= ' info'>
                 <div className='name-tab'>
                     <p>Name</p>
                     <h2 className={`user-name`}>{userInfo.first_name} {userInfo.last_name}</h2>
@@ -262,6 +263,7 @@ const ProfileCard = (props)=> {
                     </form>
                     <button className={`edit-location-btn ${locationEdit.status}`} onClick={() => {toggleLocation(); toggleEmail(); toggleName()}}>Edit Profile</button> 
                     <button className={`save-location-btn ${locationEdit.status}`} onClick={() => {toggleLocation(); toggleEmail(); toggleName(); updateUser()}}  >Save</button>
+                </div>
                 </div>
             </div>
         </div>
