@@ -219,6 +219,9 @@ html,body{
      .dropdown-content a{
           display:none;
      }
+     .dropdownContainer-loggedin .dropdown-content-loggedin .redundant{
+       display:none;
+     }
 }
 @media screen and (max-width:1440px){
      .dropdownContainer{
@@ -227,6 +230,9 @@ html,body{
      .dropdown-content a{
           display:none;
      }
+     .dropdownContainer-loggedin .dropdown-content-loggedin .redundant{
+      display:none;
+    }
 }
 @media screen and (max-width:800px){
      .dropdownContainer{
@@ -235,6 +241,9 @@ html,body{
      .dropdown-content a{
           display:none;
      }
+     .dropdownContainer-loggedin .dropdown-content-loggedin .redundant{
+      display:none;
+    }
 }
 
 @media screen and (max-width:500px){
@@ -289,6 +298,9 @@ html,body{
       text-decoration: none;
       display: block;
       font-size:1.1rem;
+    }
+    .dropdownContainer-loggedin .dropdown-content-loggedin .redundant{
+      display:block;
     }
 
     .dropdown-content a:hover {
