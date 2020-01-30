@@ -121,7 +121,7 @@ html,body{
      display: flex;
      justify-content: space-between;
      align-items: center;
-     padding-left: 4%;
+     padding-left: 14%;
      padding-right:2%;
    }
    
@@ -139,6 +139,7 @@ html,body{
 
   .main-nav a:hover{
     text-decoration: underline;
+    color:#2ca4fc;
   }
   #login-link{
     color:#2ca4fc;
