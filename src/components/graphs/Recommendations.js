@@ -14,13 +14,18 @@ const Recommendations = ({city}) => {
 
     const randomKey = obj => {
         const keys = Object.keys(obj)
-        return keys[ keys.length * Math.random() << 0];
+        const randomIndex = keys.length * Math.random() << 0;
+        console.log("object", obj)
+        console.log("id", obj[keys[randomIndex]].id)
+    
+        return obj[keys[randomIndex]].id !== city._id ? keys[randomIndex] : randomKey(obj);
     };
 
     useEffect( _ => {
             Axios.get(`${housingURL}${city._id}`)
             .then(res=> {
                 let recName = randomKey(res.data);
+                
                 setHousingRec({city: recName, ID: res.data[recName].id})
             })
             Axios.get(`${cultureURL}${city._id}`)
