@@ -11,20 +11,26 @@ const Recommendations = ({city}) => {
     let cultureURL = "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/recommend/culture/"
     let industryURL = "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/recommend/industry/"
     //get recommendations when component mounts
+
+    const randomKey = obj => {
+        const keys = Object.keys(obj)
+        return keys[ keys.length * Math.random() << 0];
+    };
+
     useEffect( _ => {
             Axios.get(`${housingURL}${city._id}`)
             .then(res=> {
-                let recName = Object.keys(res.data)[0];
+                let recName = randomKey(res.data);
                 setHousingRec({city: recName, ID: res.data[recName].id})
             })
             Axios.get(`${cultureURL}${city._id}`)
             .then(res=> {
-                let recName = Object.keys(res.data)[0];
+                let recName = randomKey(res.data);
                 setCultureRec({city: recName, ID: res.data[recName].id})
             })
             Axios.get(`${industryURL}${city._id}`)
             .then(res=> {
-                let recName = Object.keys(res.data)[0];
+                let recName = randomKey(res.data);
                 setIndustryRec({city: recName, ID: res.data[recName].id})
             })
             
@@ -34,9 +40,14 @@ const Recommendations = ({city}) => {
 
     return (
         <div className="recommendation-grid">
-            <span onClick={_ => getCity(housingRec)}>Similar Housing: {housingRec.city}</span>
-            <span onClick={_ => getCity(cultureRec)}>Similar Culture: {cultureRec.city}</span>
-            <span onClick={_ => getCity(industryRec)}>Similar Industries: {industryRec.city}</span>
+            {housingRec.city && cultureRec.city && industryRec.city 
+            ?
+            <>
+                <span onClick={_ => getCity(housingRec)}>Similar Housing: {housingRec.city}</span>
+                <span onClick={_ => getCity(cultureRec)}>Similar Culture: {cultureRec.city}</span>
+                <span onClick={_ => getCity(industryRec)}>Similar Industries: {industryRec.city}</span>
+            </>
+            : null}
         </div>
     )
 
