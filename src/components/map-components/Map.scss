@@ -869,6 +869,11 @@
         .birth-container{
             width:22%;
                 @media screen and (max-width:800px){
+                    .birth-card-container-mobile{
+                        // border:1px solid red;
+                        display:flex;
+                        justify-content:space-between;
+                    }
                     width:100%;
                 }
 
@@ -879,6 +884,10 @@
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 margin-bottom:30px;
                 background-color:white;
+
+                @media screen and (max-width:800px){
+                    width:45%;
+                }  
 
                 .birth-title{
                     color:#00bfa5;

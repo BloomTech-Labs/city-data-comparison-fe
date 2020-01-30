@@ -9,7 +9,7 @@ justify-content:center;
 function TotalPopulation({ethData}) {
 	
 	return (
-		<div>
+		<div className="birth-card-container-mobile">
             {ethData.map(item => 
                 <div key={item._id} className="birth-card-container">
                     <span className="birth-title">Birth rate</span>
