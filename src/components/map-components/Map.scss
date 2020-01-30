@@ -166,6 +166,7 @@
                 align-items:center;
                 @media screen and (max-width:800px){
                     width:50%;
+                    padding:10px;
                 }
 
 
@@ -202,9 +203,6 @@
     }
 
     .city-overview-container{
-        // border:1px solid black;
-        // width:98%;
-        // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         background-color:white;
         border-top-left-radius:5px;
         border-top-right-radius:5px;
@@ -363,7 +361,6 @@
         // border:1px solid grey;
 
         .ownerMortgage{
-            // border:1px solid red;
             width:20%;
             padding:0;
         }
@@ -398,14 +395,6 @@
                 }
             }
             .home-title{
-                // background-color:white;
-                // padding:12px 10px;
-                // border-radius:5px;
-                // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-                // margin-bottom:20px;
-                // text-align:center;
-                // margin-left:0;
-                // margin-top:0;
                 display:none;
             }
             .mortgage-price{
@@ -477,8 +466,17 @@
        .home-container{
             .ownerMortgage{
                 .homeowner-container{
+                    justify-content:space-between;
+
                     .mortgage{
                         width:45%;
+                        .mortgage-label-container{
+                            flex-wrap:wrap;
+
+                            .mortgage-label{
+                                width:100%;
+                            }
+                        }
                     }
                 }
             }

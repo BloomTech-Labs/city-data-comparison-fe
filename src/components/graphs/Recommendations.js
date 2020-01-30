@@ -46,7 +46,7 @@ const Recommendations = ({city}) => {
             {housingRec.city && cultureRec.city && industryRec.city 
             ?
             <div className="recommendation-container">
-                <div className="recommendation-title">Here are some recommendations based on your search</div>
+                <div className="recommendation-title">Here are some recommendations based on your search.</div>
                 <div className="recommendation" onClick={_ => getCity(housingRec)}><p className="recommendation-subtitle">Similar housing</p> <br /> <p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{housingRec.city}</p> </div>
                 <div className="recommendation" onClick={_ => getCity(cultureRec)}><p className="recommendation-subtitle">Similar culture</p><br /> <p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{cultureRec.city}</p></div>
                 <div className="recommendation" onClick={_ => getCity(industryRec)}><p className="recommendation-subtitle">Similar industries</p> <br /><p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{industryRec.city}</p></div>
