@@ -12,7 +12,7 @@ function Score({ethData}) {
             {ethData.map(item => 
                 <div key={item._id} className="travel-scores-container-two">
                     <div className="score-breakdown-container">
-                        <p className="chart-title scores">Score breakdown</p>
+                        <p className="chart-title scores-title">Score breakdown</p>
                         <div className="score-metric">
                             <div className="score-rate-nums">
                                 <p>90 - 100</p>
@@ -22,16 +22,16 @@ function Score({ethData}) {
                                 <p>0 - 24</p>
                             </div>
                             <div className="score-rate-titles">
-                                <p>Optimal</p>
-                                <p>Excellent</p>
-                                <p>Good</p>
-                                <p>Minimal</p>
-                                <p>Inadequate</p>
+                                <p className="one">Optimal</p>
+                                <p className="two">Excellent</p>
+                                <p className="three">Good</p>
+                                <p className="four">Minimal</p>
+                                <p className="five">Inadequate</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="walk-score-container"> 
+                    <div className="transportation-score-container"> 
                         <p className="chart-title scores">Walk score</p>
                         <p className="score-subtitle">Pedestrian friendliness</p>
                         <div className="score-num">
@@ -42,23 +42,21 @@ function Score({ethData}) {
                     </div>
 
 
-                    <div className="transit-score-container"> 
+                    <div className="transportation-score-container"> 
                         <p className="chart-title scores">Transit score</p>
                         <p className="score-subtitle">Public transportation</p>
                         <div className="score-num">
-                            <img className="bus" src={bus} alt="bus" />
-                            <p className="score">{item['Transit Score']}</p>
+                            <p className="score"><img className="bus" src={bus} alt="bus" />{item['Transit Score']}</p>
                         </div>
                         <p className="score-city">{item['City']}</p>
                     </div>
 
 
-                    <div className="bike-score-container"> 
+                    <div className="transportation-score-container"> 
                         <p className="chart-title scores">Bike score</p>
                         <p className="score-subtitle">Biking infrastructure</p>
                         <div className="score-num">
-                            <img className="bike" src={bicycle} alt="bike" />
-                            <p className="score">{item['Bike Score']}</p>
+                            <p className="score"><img className="bike" src={bicycle} alt="bike" />{item['Bike Score']}</p>
                         </div>
                         <p className="score-city">{item['City']}</p>
                     </div>

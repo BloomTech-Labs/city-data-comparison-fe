@@ -540,17 +540,18 @@
         .travel-scores-container-one{
             // border:1px solid blue;
         }
-
         .travel-scores-container-two{
-            // border:1px solid red;
             padding:10px;
             border-radius:5px;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             margin-bottom:30px;
             background-color:white;
             display:flex;
-            justify-content:space-between;
+            justify-content:space-around;
 
+            .scores-title{
+                margin-bottom:0;
+            }
             .scores{
                 // border:1px solid blue;
                 margin-left:0;
@@ -568,7 +569,6 @@
                 text-align:center;
                 color:grey;
                 margin-top:0;
-                margin-bottom:0;
             }
             .score-num{
                 // border:1px solid red;
@@ -577,75 +577,68 @@
                 align-items:center;
 
                 .score{
-                    // border:1px solid black;
                     font-size:2.5rem;
-                    margin-top:10px;
-                    margin-bottom:10px;
+                    display:flex;
+                    align-items:center;
                     margin:20px auto;
                 }
-
                 img{
-                    // border:1px solid blue;
                     height:30px;
-                    margin-right:4px;
+                    margin-right:8px;
+                }
+                .bus{
+                    height:26px;
+                }
+                .bike{
+                    height:33px;
                 }
             }
+        }
+        .transportation-score-container{
+            // width:23%;
+            // border:1px solid red;
         }
 
         .score-breakdown-container{
-            width:25%;
-            border:1px solid green;
-            
-            
+            width:25%;            
             .score-metric{
-                // border:1px solid red;
                 display:flex;
+                margin-bottom:0;
+                justify-content:space-between;
 
                 .score-rate-nums{
-                    border:1px solid blue;
-                    width:50%;
+                    width:40%;
                     text-align:center;
 
                     p{
-                        border:1px solid blue;
                         margin-bottom:0;
-                        margin-top:5px;
+                        color:grey;
+                        margin-top:7px;
                     }
                 }
-
                 .score-rate-titles{
-                    border:1px solid green;
                     width:50%;
-
                     p{
-                        border:1px solid red;
                         margin-bottom:0;
-                        margin-top:5px;
+                        margin-top:7px;
+                        color:grey;
+                    }
+                    .one{
+                        color:#02bfa5;
+                    }
+                    .two{
+                        color:#C3A6FF;
+                    }
+                    .three{
+                        color:#2ca4fc;
+                    }
+                    .four{
+                        color:#FDB461;
+                    }
+                    .five{
+                        color:#FB8072;
                     }
                 }
-            }
-        }
-
-        .walk-score-container{
-            width:20%;
-            border:1px solid green;
-        }
-
-        
-        .transit-score-container{
-            width:20%;
-            border:1px solid green;
-
-        }
-        
-        
-        .bike-score-container{
-            width:20%;
-            border:1px solid green;
-            
-            .score-num{
-                padding:0;
-
             }
         }
     }
@@ -894,6 +887,14 @@
                 }
             }
         }
+    }
+    .avg-temp-container{
+        // border:1px solid red;
+        padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
     }
     
 

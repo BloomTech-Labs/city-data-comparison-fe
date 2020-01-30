@@ -31,7 +31,8 @@ export default function AvgTempGraph (props) {
                       item["weather"]["tavg"]["TAVG-AVG-12"],
                       
                     ],
-                    backgroundColor: item.color
+                    backgroundColor: item.color,
+                    borderColor: item.color
                       
 
                   }
@@ -57,7 +58,7 @@ export default function AvgTempGraph (props) {
                       display:false,
                     },
                     scaleLabel: {
-                      display: true,
+                      display: false,
                       labelString: 'Average weather'
                     },
                   } 
@@ -69,7 +70,7 @@ export default function AvgTempGraph (props) {
                     },
                     scaleLabel: {
                       display: true,
-                      labelString: 'fahrenheit',
+                      labelString: 'Temperature (°F)',
                       ticks: {
                         beginAtZero: true
                       }
