@@ -26,7 +26,7 @@ const FavoriteButton = ({city}) => {
     }
     
     useEffect(() => {
-
+        if (id) {
         Axios
             .get(`https://citrics-staging.herokuapp.com/api/users/favs/${id}`)
             .then(response => {
@@ -36,7 +36,7 @@ const FavoriteButton = ({city}) => {
                 console.log(favorites)
             })
             .catch(error => console.log(error))
-
+        }
     }, [])  
 
     const toggle = () => {

@@ -131,7 +131,7 @@ html,body{
     justify-content: center;
     text-decoration:none;
     text-align:center;
-    color:#2e2f38;
+    // color:#2e2f38;
     font-size:1rem;
     transition: .3s cubic-bezier(0.2,0.8,0.2,1);
     transition:0.33s ease;
@@ -163,6 +163,21 @@ html,body{
     transition:0.22s ease;
     &:hover{
       color:white;
+      filter:brightness(110%);
+    }
+  }
+  .nav-button{
+    border:none;
+    // background-color:#2da4fc;
+    border-radius:5px;
+    padding:5px 8px;
+    // color:white;
+    color: #2e2f38;
+    text-decoration:none;
+    transition:0.22s ease;
+    &:hover{
+      // color:white;
+      text-decoration:underline;
       filter:brightness(110%);
     }
   }
