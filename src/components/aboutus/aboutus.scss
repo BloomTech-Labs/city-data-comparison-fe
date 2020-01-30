@@ -89,7 +89,7 @@
         flex-direction: column;
 
         .member-photo{
-            width:60%;
+            width:50%;
         }
 
         .member-info{
@@ -111,7 +111,7 @@
             }
 
             .member-social{
-                width: 48%;
+                width: 30%;
                 margin: auto;
 
                 svg{
@@ -130,13 +130,11 @@
                 padding: 1.5% 1%;
             }
         }
+
+       
     }
 
-    @media screen and (max-width: 800px){
-        .member-social{
-            width:25%; 
-        }
-    }
+    
 }
 
 .member-photo{
