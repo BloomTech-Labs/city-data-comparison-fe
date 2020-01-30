@@ -168,15 +168,17 @@ html,body{
   }
   .nav-button{
     border:none;
-    background-color:#2da4fc;
+    // background-color:#2da4fc;
     border-radius:5px;
     padding:5px 8px;
-    color:white;
+    // color:white;
+    color: #2e2f38;
     text-decoration:none;
     transition:0.22s ease;
     &:hover{
-      color:white;
-      filter:brightness(110%);
+      // color:white;
+      text-decoration:underline;
+//       filter:brightness(110%);
     }
   }
 @media screen and (max-width:800px){

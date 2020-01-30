@@ -112,15 +112,105 @@
         // margin-top:7%;
     }
 
-    .city-overview-container{
-        width:98%;
+    .city-overview-container-medium{
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        width:98%;
+        margin-bottom:30px;
+    }
+
+    .city-overview-container-small{
+
+        .recommendation-grid {
+            background-color:white;
+            border-radius:10px;
+            border-top-left-radius:0;
+            border-top-right-radius:0;
+
+            @media screen and (max-width:800px){
+                width:100%;
+            }
+
+            .recommendation-container{
+                width:100%;
+                display:flex;
+
+                @media screen and (max-width:800px){
+                flex-wrap:wrap;
+                }
+            }
+            .recommendation-title{
+                display:flex;
+                align-items:center;
+                width:31%;
+                color:grey;
+                font-size:14px;
+                margin:0 auto;
+                padding:5px 10px;
+                border:1px solid #ECF1F5;
+
+                @media screen and (max-width:800px){
+                    width:50%;
+                    justify-content:center;
+                    text-align:center;
+                    padding:10px;
+                }
+            }
+            .recommendation{
+                cursor:pointer;
+                width:23%;
+                padding:10px 5px;
+                border:1px solid #ECF1F5;
+                display:flex;
+                flex-wrap:wrap;
+                justify-content:center;
+                align-items:center;
+                @media screen and (max-width:800px){
+                    width:50%;
+                    padding:10px;
+                }
+
+
+                .recommendation-subtitle{
+                    color:grey;
+                    width:100%;
+                    font-size:14px;
+                    text-align:center;
+                    margin-bottom:3px;
+                    margin-top:0;
+                }
+
+                img{
+                    height:20px;
+                    margin-right:5px;
+
+                    @media screen and (max-width:800px){
+                        height:17px;
+                    }
+                }
+                .recommendation-cities{
+                    width:100%;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    margin:0;
+                }
+                &:hover{
+                    background-color:#F6F9FC;
+                    border:1px solid #F2F9FD;
+                }
+            }
+        }
+    }
+
+    .city-overview-container{
         background-color:white;
+        border-top-left-radius:5px;
+        border-top-right-radius:5px;
         padding: 0 10px;
+        margin-bottom:0;
 
         @media screen and (max-width:800px){
             width:100%;
-            margin-bottom:30px;
         }
         
         .city-overview-border{
@@ -133,11 +223,11 @@
         }
 
         .city-info-container{
-            margin-bottom:2%;
             padding:15px 7%;
             padding-top:0;
             display:flex;
             justify-content:space-between;
+
             img{
                 height:20px;
                 margin-right:15px;
@@ -145,6 +235,7 @@
             @media screen and (max-width:800px){
                 flex-wrap:wrap;
                 padding:15px 3%;
+                margin-bottom:0;
             }   
 
             .city-overview-container-one{
@@ -270,7 +361,6 @@
         // border:1px solid grey;
 
         .ownerMortgage{
-            // border:1px solid red;
             width:20%;
             padding:0;
         }
@@ -305,14 +395,6 @@
                 }
             }
             .home-title{
-                // background-color:white;
-                // padding:12px 10px;
-                // border-radius:5px;
-                // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-                // margin-bottom:20px;
-                // text-align:center;
-                // margin-left:0;
-                // margin-top:0;
                 display:none;
             }
             .mortgage-price{
@@ -384,8 +466,17 @@
        .home-container{
             .ownerMortgage{
                 .homeowner-container{
+                    justify-content:space-between;
+
                     .mortgage{
                         width:45%;
+                        .mortgage-label-container{
+                            flex-wrap:wrap;
+
+                            .mortgage-label{
+                                width:100%;
+                            }
+                        }
                     }
                 }
             }
@@ -708,6 +799,7 @@
                 }
                  @media screen and (max-width:500px){
                     height:200px;
+                    height:auto;
                     margin-bottom:30px;           
                 }
 
@@ -784,7 +876,8 @@
                     margin-bottom:30px;
                 }
                 @media screen and (max-width:500px){
-                    height:200px
+                    height:200px;
+                    height:auto;
                 }
 
                 .healthinsurance-title{
@@ -1288,3 +1381,4 @@
     justify-content:center;
     margin-bottom:-30px;
 }
+
