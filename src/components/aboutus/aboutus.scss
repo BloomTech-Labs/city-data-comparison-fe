@@ -4,7 +4,7 @@
     justify-content: center;
     padding: 1%;
 
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 800px) {
         .aboutus-title{
             font-size: .9rem;
             margin: .5%;
@@ -84,12 +84,12 @@
     align-items: center;
     justify-content: space-evenly;
 
-    @media screen and (max-width: 900px){
+    @media screen and (max-width: 800px){
         display: flex;
         flex-direction: column;
 
         .member-photo{
-            width:50%;
+            width:40%;
         }
 
         .member-info{
@@ -113,6 +113,10 @@
             .member-social{
                 width: 30%;
                 margin: auto;
+
+                @media screen and (min-width: 500px){
+                    width:20%;
+                }
 
                 svg{
                     width: 0.575em;
@@ -152,6 +156,10 @@
     justify-content: space-between;
     width: 20%;
 
+    @media screen and (min-width: 700px){
+        width:15%;
+    }
+
 }
 
 .member-social svg{
@@ -180,7 +188,7 @@
     
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 800px){
     .modal{
         padding:.5rem;
     }
