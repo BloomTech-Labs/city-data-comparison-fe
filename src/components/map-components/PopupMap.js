@@ -36,7 +36,7 @@ const PopupMap = (props) => {
 
     return(    
         <div className="popupmapparent">
-            <SelectedMapWrapper className="popupmap" id="popupmap"
+            <SelectedMapWrapper className="popupmap"
                 style={{
                     display:`block`,
                     // this long ternary is to ensure the popupmap doesn't go offscreen
