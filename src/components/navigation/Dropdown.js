@@ -23,29 +23,25 @@ const DropMenu = (props) => {
     }
     //this is what's rendered in the top right corner when the user is logged in
     return(
-        <div>
+        <div className="dropdownContainer">
             {/* conditionally renders a user's profile img if it exists or a default img */}
-            <div onMouseEnter={() => toggle()} onMouseLeave={() => toggle()} style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                {user.userimage == null ? 
-                <img src={ProfileImage} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar" />
-                :
-                <img src={`https://citrics-staging.herokuapp.com/${user.userimage}`} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar"/>}
-                {/* this is the dropdown that appears when the avatar in the top right corner is hovered */}
-                {/* styling should be abstracted to app.scss or a new scss */}
-                {/* the transparent border top is so you don't leave the div and trigger the toggle */}
-                <div style={{position: "absolute", borderTop: "75px solid transparent", top: "0%", transform: dropdownOpen ? "scaleY(1)" : "scaleY(0)", transformOrigin: "50% 75px", transition: "transform .3s"}}>
-                    <div style={{backgroundColor: "white", border: "1px solid #2ca4fc"}}>
-                        <div style={{padding: "5px"}}>Welcome!</div>
-                        <div style={{padding: "5px", backgroundColor: "#73c595", borderRadius: "5px", margin: "5px"}}>
-                            <Link to="/profile" style={{color: "white"}}>Profile</Link>
-                        </div>
-                        <div style={{padding: "5px", backgroundColor: "#5666fa", borderRadius: "5px", margin: "5px"}}> 
-                            <div onClick={() => Logout()}>
-                                <Link to="/"style={{color: "white"}}>Logout</Link>
-                            </div>
-                        </div>
-                    </div>
+            <div className="dropdown" style={{float: "right"}}>
+                <div className="dropbtn-loggedin">
+                    {user.userimage == null ? 
+                    <img src={ProfileImage} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar" />
+                    :
+                    <img src={`https://citrics-staging.herokuapp.com/${user.userimage}`} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar"/>}
+                    {/* this is the dropdown that appears when the avatar in the top right corner is hovered */}
+                    {/* styling should be abstracted to app.scss or a new scss */}
+                    {/* the transparent border top is so you don't leave the div and trigger the toggle */}
                 </div>
+                    <div className="dropdown-content">
+                        <div>Welcome!</div>
+                        <Link to="/profile">Profile</Link>
+                        <Link to="/map">Explore</Link>
+                        <Link to="/map">Compare</Link>
+                        <Link onClick={() => Logout()} to="/">Logout</Link>
+                    </div>
             </div>
         </div>
     )

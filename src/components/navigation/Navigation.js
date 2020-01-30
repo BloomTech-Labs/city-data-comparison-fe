@@ -44,23 +44,24 @@ function Navigation(){
                     </>
                     }
                </nav> 
+               {user == null ? 
+               <>
                <div className="dropdownContainer">
                     <div className="dropdown" style={styles}>
-                         {user == null ? 
-                         <>
-                              <button className="dropbtn">Menu</button>
-                              <div className="dropdown-content">
-                                   <Link to="/map">Explore</Link>
-                                   <Link to="/map">Compare</Link>
-                                   <Link to="/signin">Log In</Link>
-                                   <Link to="/signup">Get Started</Link>
-                              </div>
-                         </>
-                         :
-                              <DropMenu/>
-                         }
+                         <button className="dropbtn">Menu</button>
+                         <div className="dropdown-content">
+                              <Link to="/map">Explore</Link>
+                              <Link to="/map">Compare</Link>
+                              <Link to="/signin">Log In</Link>
+                              <Link to="/signup">Get Started</Link>
+                         </div>
                     </div>
-               </div>
+                    </div>
+               </>
+               :
+                    <DropMenu/>
+               }
+
           </div>
      )
 }
