@@ -43,7 +43,7 @@ function TotalPopulation({ethData}) {
 
         <div className="city-overview-container-small">
             {ethData.map(item => 
-            <>
+            <div className="city-overview-container-medium">
             <div className="city-overview-container"> 
             <div className="city-overview-border">
                 <p>City overview</p>
@@ -79,13 +79,13 @@ function TotalPopulation({ethData}) {
                         <div className="overview-stats">${numberCommas(item["Median Rent"])}</div>
                         <div className="overview-stats">${numberCommas(item["Median Per Capita Income"])}</div>
                     </div>
-
-
                 </div>
             </div>
             </div>
-            <Recommendations city={item}/>
-            </>
+            <div>
+                    <Recommendations city={item}/>
+                </div>
+            </div>
             )}
             
         </div>
