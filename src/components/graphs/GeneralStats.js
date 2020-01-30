@@ -12,6 +12,7 @@ import users from '../map-components/assets/users.svg'
 import briefcase from '../map-components/assets/briefcase.svg'
 import income from '../map-components/assets/dollar.svg'
 import FavoriteButton from '../map-components/FavoriteButton'
+import Recommendations from "./Recommendations"
 
 // const CenterCard = styled.h3`
 // display:flex;
@@ -35,11 +36,12 @@ width:100%;
 `
 
 function TotalPopulation({ethData}) {
-	
-	return (
+
+    return (
 
         <div className="city-overview-container-small">
             {ethData.map(item => 
+            <>
             <div className="city-overview-container"> 
             <div className="city-overview-border">
                 <p>City overview</p>
@@ -80,6 +82,8 @@ function TotalPopulation({ethData}) {
                 </div>
             </div>
             </div>
+            <Recommendations city={item}/>
+            </>
             )}
             
         </div>
