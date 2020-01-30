@@ -36,7 +36,9 @@ width:100%;
 `
 
 function TotalPopulation({ethData}) {
-
+    function numberCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     return (
 
         <div className="city-overview-container-small">
@@ -57,7 +59,7 @@ function TotalPopulation({ethData}) {
 
                     <div className="overview-stats-container-one">
                         <div className="overview-stats">{item["City"]}</div>
-                        <div className="overview-stats">{item["Total Population"]}</div>
+                        <div className="overview-stats">{numberCommas(item["Total Population"])}</div>
                         <div className="overview-stats">{item["Median Age"]} years old</div>
                     </div>
                 </div>
@@ -74,8 +76,8 @@ function TotalPopulation({ethData}) {
 
 
                     <div className="overview-stats-container-two">
-                        <div className="overview-stats">${item["Median Rent"]}</div>
-                        <div className="overview-stats">${item["Median Per Capita Income"]}</div>
+                        <div className="overview-stats">${numberCommas(item["Median Rent"])}</div>
+                        <div className="overview-stats">${numberCommas(item["Median Per Capita Income"])}</div>
                     </div>
 
 
