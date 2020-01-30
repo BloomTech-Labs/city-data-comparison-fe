@@ -100,7 +100,7 @@
         }
     }
 
-    @media screen and (max-width:600px){
+    @media screen and (max-width:800px){
         .general-stats-container{
             width:100%;
             padding:0 5%;
@@ -118,7 +118,7 @@
         background-color:white;
         padding: 0 10px;
 
-        @media screen and (max-width:600px){
+        @media screen and (max-width:800px){
             width:100%;
             margin-bottom:30px;
         }
@@ -142,7 +142,7 @@
                 height:20px;
                 margin-right:15px;
             }
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 flex-wrap:wrap;
                 padding:15px 3%;
             }   
@@ -152,7 +152,7 @@
                 display:flex;
                 align-items:center;
 
-                @media screen and (max-width:600px){
+                @media screen and (max-width:800px){
                     width:100%;
                 }
 
@@ -183,7 +183,7 @@
             .city-overview-container-two{
                 width:40%;
                 display:flex;
-                @media screen and (max-width:600px){
+                @media screen and (max-width:800px){
                     width:100%;
                     justify-content:space-between;
                 }   
@@ -199,7 +199,7 @@
                         display:flex;
                         font-size:1.1rem;
                     }
-                    @media screen and (max-width:600px){
+                    @media screen and (max-width:800px){
                         width:60%;        
                     }  
                 }
@@ -212,7 +212,7 @@
                         width:100%;
                         margin:10px 0;    
                     }
-                    @media screen and (max-width:600px){
+                    @media screen and (max-width:800px){
                         width:40%;           
                     }   
                 }
@@ -380,12 +380,12 @@
             }
         }
     }
-    @media screen and (max-width:600px){
+    @media screen and (max-width:800px){
        .home-container{
             .ownerMortgage{
                 .homeowner-container{
                     .mortgage{
-                        width:100%;
+                        width:45%;
                     }
                 }
             }
@@ -407,7 +407,7 @@
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             border-radius:5px;
 
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;
                 margin-bottom:30px;          
             }  
@@ -421,7 +421,7 @@
             height:auto;     
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;
             }  
         }
@@ -466,7 +466,7 @@
         display:flex;
         justify-content:space-between;
 
-        @media screen and (max-width:600px){
+        @media screen and (max-width:800px){
             flex-wrap:wrap;
         }  
 
@@ -478,15 +478,25 @@
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             margin-bottom:30px;
             background-color:white;
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;
             }  
         }
+
         .travel-container{
             width:22%;
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 display:flex;        
                 width:100%;
+
+            }  
+
+            @media screen and (max-width:800px){
+                .commute-time-container-big{
+                    width:100%;
+                    display:flex;
+                    justify-content:space-between;
+                }
             }  
 
             .commute-time-container{
@@ -498,8 +508,9 @@
                 margin-bottom:20px;
                 display:flex;
                 flex-wrap:wrap;
-                @media screen and (max-width:600px){
+                @media screen and (max-width:800px){
                     margin-bottom:30px;
+                    width:45%;
                 }
 
                 .commute-city-title{
@@ -816,7 +827,7 @@
         align-items:flex-start;
         justify-content:space-between;
 
-        @media screen and (max-width:600px){
+        @media screen and (max-width:800px){
             flex-wrap:wrap;   
         }
 
@@ -827,14 +838,14 @@
             margin-bottom:30px;
             background-color:white;
             width:75%;
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;     
             }
         }
 
         .birth-container{
             width:22%;
-                @media screen and (max-width:600px){
+                @media screen and (max-width:800px){
                     width:100%;
                 }
 
@@ -877,7 +888,7 @@
                         font-size:1vw;
                         margin-left:15px;
                         // border:1px solid red;
-                        @media screen and (max-width:600px){
+                        @media screen and (max-width:800px){
                             font-size:1rem;   
                         }
                     }

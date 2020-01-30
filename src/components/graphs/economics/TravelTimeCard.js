@@ -9,7 +9,7 @@ function TotalPopulation({ethData}) {
 
 	
 	return (
-		<div>
+		<div className="commute-time-container-big">
             {ethData.map(item => 
                 <div key={item._id} className="commute-time-container">
                     <span className="commute-city-title">Average commute time</span>
