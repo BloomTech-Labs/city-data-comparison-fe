@@ -100,7 +100,7 @@
         }
     }
 
-    @media screen and (max-width:600px){
+    @media screen and (max-width:800px){
         .general-stats-container{
             width:100%;
             padding:0 5%;
@@ -118,7 +118,7 @@
         background-color:white;
         padding: 0 10px;
 
-        @media screen and (max-width:600px){
+        @media screen and (max-width:800px){
             width:100%;
             margin-bottom:30px;
         }
@@ -142,7 +142,7 @@
                 height:20px;
                 margin-right:15px;
             }
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 flex-wrap:wrap;
                 padding:15px 3%;
             }   
@@ -152,7 +152,7 @@
                 display:flex;
                 align-items:center;
 
-                @media screen and (max-width:600px){
+                @media screen and (max-width:800px){
                     width:100%;
                 }
 
@@ -183,7 +183,7 @@
             .city-overview-container-two{
                 width:40%;
                 display:flex;
-                @media screen and (max-width:600px){
+                @media screen and (max-width:800px){
                     width:100%;
                     justify-content:space-between;
                 }   
@@ -199,7 +199,7 @@
                         display:flex;
                         font-size:1.1rem;
                     }
-                    @media screen and (max-width:600px){
+                    @media screen and (max-width:800px){
                         width:60%;        
                     }  
                 }
@@ -212,7 +212,7 @@
                         width:100%;
                         margin:10px 0;    
                     }
-                    @media screen and (max-width:600px){
+                    @media screen and (max-width:800px){
                         width:40%;           
                     }   
                 }
@@ -380,12 +380,12 @@
             }
         }
     }
-    @media screen and (max-width:600px){
+    @media screen and (max-width:800px){
        .home-container{
             .ownerMortgage{
                 .homeowner-container{
                     .mortgage{
-                        width:100%;
+                        width:45%;
                     }
                 }
             }
@@ -407,9 +407,8 @@
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             border-radius:5px;
 
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;
-                margin-bottom:30px;          
             }  
         }
 
@@ -421,7 +420,7 @@
             height:auto;     
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;
             }  
         }
@@ -432,6 +431,7 @@
 
             .room-container{
                 width:100%;
+                margin-bottom:30px;
             }
 
             .vacancy-owner-container{
@@ -464,9 +464,10 @@
     }
     .commute-travel-container{
         display:flex;
+        align-items:flex-start;
         justify-content:space-between;
 
-        @media screen and (max-width:600px){
+        @media screen and (max-width:800px){
             flex-wrap:wrap;
         }  
 
@@ -478,15 +479,25 @@
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             margin-bottom:30px;
             background-color:white;
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;
             }  
         }
+
         .travel-container{
             width:22%;
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 display:flex;        
                 width:100%;
+
+            }  
+
+            @media screen and (max-width:800px){
+                .commute-time-container-big{
+                    width:100%;
+                    display:flex;
+                    justify-content:space-between;
+                }
             }  
 
             .commute-time-container{
@@ -498,8 +509,9 @@
                 margin-bottom:20px;
                 display:flex;
                 flex-wrap:wrap;
-                @media screen and (max-width:600px){
+                @media screen and (max-width:800px){
                     margin-bottom:30px;
+                    width:45%;
                 }
 
                 .commute-city-title{
@@ -535,13 +547,136 @@
         }
     }
 
+    .travel-scores-container{
+
+        .travel-scores-container-one{
+        }
+        .travel-scores-container-two{
+            padding:10px;
+            border-radius:5px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            margin-bottom:30px;
+            background-color:white;
+            display:flex;
+            justify-content:space-around;
+            // border:1px solid blue;
+
+            @media screen and (max-width:800px){
+            flex-wrap:wrap;
+            }  
+
+            .scores-title{
+                margin-bottom:0;
+            }
+            .scores{
+                // border:1px solid blue;
+                margin-left:0;
+                margin-bottom:0;
+            }
+            .score-subtitle{
+                margin-top:0;
+                // border:1px solid yellow;
+                color:grey;
+                font-size:0.9rem;
+                margin-bottom:0;
+            }
+            .score-city{
+                // border:1px solid red;
+                text-align:center;
+                color:grey;
+                margin-top:0;
+            }
+            .score-num{
+                // border:1px solid red;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+
+                .score{
+                    font-size:2.5rem;
+                    display:flex;
+                    align-items:center;
+                    margin:20px auto;
+                }
+                img{
+                    height:30px;
+                    margin-right:8px;
+                }
+                .bus{
+                    height:26px;
+                }
+                .bike{
+                    height:33px;
+                }
+            }
+        }
+        .transportation-score-container{
+            // width:23%;
+            // border:1px solid red;
+            @media screen and (max-width:800px){
+                width:40%;
+                text-align:center;
+            }  
+        }
+
+        .score-breakdown-container{
+            width:25%;            
+            // border:1px solid orange;
+
+            @media screen and (max-width:800px){
+                width:70%;
+                text-align:center;
+                margin-bottom:20px;
+            }  
+            .score-metric{
+                display:flex;
+                margin-bottom:0;
+                justify-content:space-between;
+
+                .score-rate-nums{
+                    width:45%;
+                    text-align:center;
+
+                    p{
+                        margin-bottom:0;
+                        color:grey;
+                        margin-top:7px;
+                    }
+                }
+                .score-rate-titles{
+                    width:50%;
+                    p{
+                        margin-bottom:0;
+                        margin-top:7px;
+                        color:grey;
+                    }
+                    .one{
+                        color:#02bfa5;
+                    }
+                    .two{
+                        color:#C3A6FF;
+                    }
+                    .three{
+                        color:#2ca4fc;
+                    }
+                    .four{
+                        color:#FDB461;
+                    }
+                    .five{
+                        color:#FB8072;
+                    }
+                }
+            }
+        }
+    }
 
     .other-industries-container{
         display:flex;
         align-items:flex-start;
         justify-content:space-between;
-        @media screen and (max-width:600px){
+        @media screen and (max-width:800px){
             flex-wrap:wrap;
+            // border:1px solid red;
         }  
 
 
@@ -550,24 +685,29 @@
             display:flex;
             flex-direction:column;
             width:22%;
-            @media screen and (max-width:600px){
-                width:100%;
+            @media screen and (max-width:800px){
+                width:47%;
                 flex-direction:row;  
                 flex-wrap:wrap;
                 justify-content:center;
+                // border:1px solid red;
             }  
 
             .unemployment-card-container{
                 // font-size:1.1vw;
-                height:150px;
+                // height:170px;
                 padding:15px;
                 padding-bottom:10px;
                 border-radius:5px;
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 margin-bottom:15px;
                 background-color:white;
-                 @media screen and (max-width:600px){
-                    height:auto;
+                 @media screen and (max-width:800px){
+                    height:170px;
+                    margin-bottom:30px;           
+                }
+                 @media screen and (max-width:500px){
+                    height:200px;
                     margin-bottom:30px;           
                 }
 
@@ -578,6 +718,9 @@
                     margin-bottom:25px;
                     display:flex;
                     justify-content:space-between;
+                    @media screen and (max-width:800px){
+                        font-size:1rem;
+                    }  
                 }
 
                 .unemployment-num{
@@ -613,20 +756,21 @@
             margin-bottom:30px;
             background-color:white;
 
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;
             }
         }
         .insurance-container{
             width:22%;
-            @media screen and (max-width:600px){
-                width:100%;   
+            @media screen and (max-width:800px){
+                width:47%;   
                 display:flex;
                 justify-content:center;      
             }
 
             .healthinsurance-card-container{
-                height:150px;
+                // height:170px;
+                // height:200px;
                 padding:15px;
                 padding-bottom:10px;
                 border-radius:5px;
@@ -634,10 +778,13 @@
                 margin-bottom:15px;
                 background-color:white;
 
-                @media screen and (max-width:600px){
-                    height:auto;
+                @media screen and (max-width:800px){
+                    height:170px;
                     width:100%;
                     margin-bottom:30px;
+                }
+                @media screen and (max-width:500px){
+                    height:200px
                 }
 
                 .healthinsurance-title{
@@ -704,7 +851,7 @@
         align-items:flex-start;
         justify-content:space-between;
 
-        @media screen and (max-width:600px){
+        @media screen and (max-width:800px){
             flex-wrap:wrap;   
         }
 
@@ -715,14 +862,19 @@
             margin-bottom:30px;
             background-color:white;
             width:75%;
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;     
             }
         }
 
         .birth-container{
             width:22%;
-                @media screen and (max-width:600px){
+                @media screen and (max-width:800px){
+                    .birth-card-container-mobile{
+                        // border:1px solid red;
+                        display:flex;
+                        justify-content:space-between;
+                    }
                     width:100%;
                 }
 
@@ -733,6 +885,10 @@
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 margin-bottom:30px;
                 background-color:white;
+
+                @media screen and (max-width:800px){
+                    width:45%;
+                }  
 
                 .birth-title{
                     color:#00bfa5;
@@ -765,7 +921,7 @@
                         font-size:1vw;
                         margin-left:15px;
                         // border:1px solid red;
-                        @media screen and (max-width:600px){
+                        @media screen and (max-width:800px){
                             font-size:1rem;   
                         }
                     }
@@ -780,6 +936,14 @@
                 }
             }
         }
+    }
+    .avg-temp-container{
+        // border:1px solid red;
+        padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
     }
     
 
