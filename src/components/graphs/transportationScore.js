@@ -36,7 +36,7 @@ function Score({ethData}) {
                         <p className="score-subtitle">Pedestrian friendliness</p>
                         <div className="score-num">
                             
-                            <p className="score"><img className="walk" src={walkingThin} alt="walking person" />{item['Walk Score']}</p>
+                            <p className="score"><img className="walk" src={walkingThin} alt="walking person" />{item['Walk Score'] ? item['Walk Score'] : `N/A`}</p>
                         </div>
                         <p className="score-city">{item['City']}</p>
                     </div>
@@ -46,7 +46,7 @@ function Score({ethData}) {
                         <p className="chart-title scores">Transit score</p>
                         <p className="score-subtitle">Public transportation</p>
                         <div className="score-num">
-                            <p className="score"><img className="bus" src={bus} alt="bus" />{item['Transit Score']}</p>
+                            <p className="score"><img className="bus" src={bus} alt="bus" />{item['Transit Score'] ? item['Transit Score'] : `N/A`}</p>
                         </div>
                         <p className="score-city">{item['City']}</p>
                     </div>
@@ -56,7 +56,7 @@ function Score({ethData}) {
                         <p className="chart-title scores">Bike score</p>
                         <p className="score-subtitle">Biking infrastructure</p>
                         <div className="score-num">
-                            <p className="score"><img className="bike" src={bicycle} alt="bike" />{item['Bike Score']}</p>
+                            <p className="score"><img className="bike" src={bicycle} alt="bike" />{item['Bike Score'] ? item['Bike Score'] : `N/A`}</p>
                         </div>
                         <p className="score-city">{item['City']}</p>
                     </div>
