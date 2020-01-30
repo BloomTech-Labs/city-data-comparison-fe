@@ -242,9 +242,6 @@ cityIndex.sort(compare);
 
   },[viewport.latitude])
 
-
-  //Analytics Events
-
   return (
     <Router>
       <UserContext.Provider value={{user, setUserValue, setUser, favorites, setFavorites}}>
