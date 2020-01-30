@@ -261,6 +261,14 @@ html,body{
           transition:0.33s ease;
       }
     }
+    .dropbtn-loggedin {
+      padding: 10px 20px;
+      margin-right:30px;
+
+      &:hover{
+          transition:0.33s ease;
+      }
+    }
 
     .dropdown {
       position: relative;

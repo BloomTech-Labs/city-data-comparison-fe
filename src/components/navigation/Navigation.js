@@ -34,8 +34,6 @@ function Navigation(){
                <nav className="main-nav">
                     <Link to="/map" className="nav-button">Explore</Link>
                     <Link to="/map" className="nav-button">Compare</Link>
-
-
                     {user == null ? 
                     <>
                          <Link id="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
@@ -45,9 +43,25 @@ function Navigation(){
                          <DropMenu/>
                     </>
                     }
-
-                    
                </nav> 
+               {user == null ? 
+               <>
+               <div className="dropdownContainer">
+                    <div className="dropdown" style={styles}>
+                         <button className="dropbtn">Menu</button>
+                         <div className="dropdown-content">
+                              <Link to="/map">Explore</Link>
+                              <Link to="/map">Compare</Link>
+                              <Link to="/signin">Log In</Link>
+                              <Link to="/signup">Get Started</Link>
+                         </div>
+                    </div>
+                    </div>
+               </>
+               :
+                    <DropMenu/>
+               }
+
           </div>
      )
 }
