@@ -3,6 +3,10 @@ import {Line} from 'react-chartjs-2';
 
 export default function HousePriceGraph({selected}) {
     const [labels, setLabels] = useState([])
+    function numberCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    
 
     useEffect(() => {
         let data = selected[0];
@@ -73,6 +77,11 @@ export default function HousePriceGraph({selected}) {
                   ],
                   yAxes: [ {
                     display: true,
+                    ticks: {
+                      userCallback: (value, index, values) => {
+                        return `$${numberCommas(value)}`
+                      }
+                    },
                     gridLines: {
                       display:false,
                     },
