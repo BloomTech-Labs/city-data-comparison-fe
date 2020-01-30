@@ -3,11 +3,27 @@
     align-items: center;
     justify-content: center;
     padding: 1%;
+
+    @media screen and (min-width: 200px) {
+        .aboutus-title{
+            font-size: .9rem;
+        }
+
+        .left-arrow {
+            border-width: 10px 10px 10px 0px;
+        }
+        .right-arrow{
+            border-width: 10px 0px 10px 10px; 
+        }
+    }
 }
+
 
 .aboutus-title{
     text-align:center;
     font-size: 1.8rem;
+
+    
 }
 
 .member-info{
@@ -66,6 +82,42 @@
     display:flex;
     align-items: center;
     justify-content: space-evenly;
+
+    @media screen and (min-width: 200px){
+        display: flex;
+        flex-direction: column;
+
+        .member-photo{
+            width:100%;
+        }
+
+        .member-info{
+            width:100%;
+            border-left: none;
+
+            .member-role{
+                font-size: 1rem; 
+                margin:1%;
+            }
+            .member-name{
+                font-size: .9rem;
+            }
+
+            .member-social{
+                width: 48%;
+                margin: auto;
+                svg{
+                    width: 0.575em;
+                }
+            }
+
+            .member-portfolio{
+                border-radius: 5px;
+                font-size: .7rem;
+                padding: 1.5% 1%;
+            }
+        }
+    }
 }
 
 .member-photo{
@@ -110,3 +162,19 @@
     cursor:pointer;
     
 }
+
+@media screen and (min-width: 200px){
+    .modal{
+        padding:.5rem;
+    }
+    .modal-overlay{
+        width:98vw;
+    }
+    .modal-wrapper{
+        height:90%;; 
+        .modal{
+            max-width: 90vw
+        }
+    }
+}
+
