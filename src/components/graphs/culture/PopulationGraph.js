@@ -3,7 +3,9 @@ import {Line} from 'react-chartjs-2';
 
 export default function PopGrowthGraph({selected}) {
     const [labels, setLabels] = useState([])
-
+    function numberCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 
     useEffect(() => {
         let data = selected[0]
@@ -60,6 +62,11 @@ export default function PopGrowthGraph({selected}) {
                     display: true,
                     gridLines: {
                       display:false,
+                    },
+                    ticks: {
+                      userCallback: (value, index, values) => {
+                        return numberCommas(value)
+                      }
                     },
                     scaleLabel: {
                       display: true,
