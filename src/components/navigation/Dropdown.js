@@ -23,9 +23,9 @@ const DropMenu = (props) => {
     }
     //this is what's rendered in the top right corner when the user is logged in
     return(
-        <div className="dropdownContainer">
+        <div className="dropdownContainer-loggedin">
             {/* conditionally renders a user's profile img if it exists or a default img */}
-            <div className="dropdown" style={{float: "right"}}>
+            <div className="dropdown-loggedin" style={{float: "right"}}>
                 <div className="dropbtn-loggedin">
                     {user.userimage == null ? 
                     <img src={ProfileImage} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar" />
@@ -35,11 +35,11 @@ const DropMenu = (props) => {
                     {/* styling should be abstracted to app.scss or a new scss */}
                     {/* the transparent border top is so you don't leave the div and trigger the toggle */}
                 </div>
-                    <div className="dropdown-content">
+                    <div className="dropdown-content-loggedin">
                         {/* <div>Welcome!</div> */}
                         <Link to="/profile">Profile</Link>
-                        <Link to="/map">Explore</Link>
-                        <Link to="/map">Compare</Link>
+                        <Link to="/map" className="redundant">Explore</Link>
+                        <Link to="/map" className="redundant">Compare</Link>
                         <Link onClick={() => Logout()} to="/">Logout</Link>
                     </div>
             </div>
