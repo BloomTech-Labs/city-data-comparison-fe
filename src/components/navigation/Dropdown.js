@@ -36,7 +36,7 @@ const DropMenu = (props) => {
                     {/* the transparent border top is so you don't leave the div and trigger the toggle */}
                 </div>
                     <div className="dropdown-content">
-                        <div>Welcome!</div>
+                        {/* <div>Welcome!</div> */}
                         <Link to="/profile">Profile</Link>
                         <Link to="/map">Explore</Link>
                         <Link to="/map">Compare</Link>
