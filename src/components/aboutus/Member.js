@@ -22,8 +22,10 @@ const Member = props => {
                 </div>
 
                 <div className="member-info">
-                    <p className="member-name">{props.member.name}</p>
-                    <p className="member-role">{props.member.role}</p>
+                    <div className="name-role">
+                        <p className="member-name">{props.member.name}</p>
+                        <p className="member-role">{props.member.role}</p>
+                    </div>
                     <div className="member-social">
                         
                         <FontAwesomeIcon icon={faGithubSquare} size="2x" color="#3999fc" onClick={() => goToLink(`https://www.github.com/${props.member.social.github}`)} />

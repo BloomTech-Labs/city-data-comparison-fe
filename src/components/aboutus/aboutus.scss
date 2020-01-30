@@ -7,6 +7,7 @@
     @media screen and (min-width: 200px) {
         .aboutus-title{
             font-size: .9rem;
+            margin: .5%;
         }
 
         .left-arrow {
@@ -88,16 +89,22 @@
         flex-direction: column;
 
         .member-photo{
-            width:100%;
+            width:70%;
         }
 
         .member-info{
             width:100%;
             border-left: none;
-
+            .name-role{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
             .member-role{
-                font-size: 1rem; 
+                font-size: .9rem; 
                 margin:1%;
+                border-left: 1px solid #3999fc;
+                padding-left: 1.5%;
             }
             .member-name{
                 font-size: .9rem;
@@ -109,6 +116,11 @@
                 svg{
                     width: 0.575em;
                 }
+            }
+
+            .member-about{
+                font-size: .8rem;
+                margin: 2%;
             }
 
             .member-portfolio{
