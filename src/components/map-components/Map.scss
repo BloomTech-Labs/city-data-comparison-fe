@@ -409,7 +409,6 @@
 
             @media screen and (max-width:800px){
                 width:100%;
-                margin-bottom:30px;          
             }  
         }
 
@@ -432,6 +431,7 @@
 
             .room-container{
                 width:100%;
+                margin-bottom:30px;
             }
 
             .vacancy-owner-container{
@@ -464,6 +464,7 @@
     }
     .commute-travel-container{
         display:flex;
+        align-items:flex-start;
         justify-content:space-between;
 
         @media screen and (max-width:800px){
