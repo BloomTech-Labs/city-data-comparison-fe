@@ -1,10 +1,14 @@
-
+body {
+    background-color:#F2F9FD;
+}
 .recommendation-grid {
     background-color:white;
     border-radius:10px;
     border-top-left-radius:0;
     border-top-right-radius:0;
-    margin-bottom: 30px;
+    width: 80%;
+    margin: 30px auto;
+    
 
     @media screen and (max-width:800px){
         width:100%;
@@ -105,10 +109,11 @@
         }
 
         .city-overview-container{
-            width:100%;
+            width:80%;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             background-color:white;
             padding: 0 10px;
+            margin: 0 auto;
             
             .city-overview-border{
                 // border-top-left-radius:5px;
@@ -202,10 +207,8 @@
 }
 
 .side-nav {
-    margin-top: 12%;
-    
+    margin-top: 100px;
     position: fixed;
-    height: 120px;
     width: 150px;
     padding: 10px;
     background-color: white;
@@ -215,7 +218,14 @@
     .nav-items {
         display: flex;
         flex-direction: column;
+
+        img {
+            width: 20px;
+            margin-right: 5px;
+        }
+
         a {
+            display: flex;
             margin:10px auto;
             text-decoration: none;
             color: #84868C;
@@ -236,8 +246,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 50%;    
-    margin: 50px auto;
+    width: 60%;    
+    margin: 100px auto;
 
 
     
@@ -259,11 +269,11 @@
     
     .avatar-tab {
         background-color: white;
-        padding: 10px;
+        padding: 30px;
     }
 
     .info {
-        padding: 10px;
+        padding: 30px;
     }
 
     h1{
@@ -283,6 +293,7 @@
 
         img {
          width: 200px;
+         border-radius: 100%;
          box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         }
 
@@ -559,10 +570,6 @@
     display: none;
 }
 
-.footer-container {
-    top: 69%;  
-}
-
 .footer-container{
-    margin-top:50px;
+    margin-top: 150px;
 }

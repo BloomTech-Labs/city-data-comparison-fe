@@ -187,7 +187,6 @@ const ProfileCard = (props)=> {
 
     return (
         <div className='profile-container'>
-            <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
                     <img src={userImage.usersimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage.usersimage}`} />

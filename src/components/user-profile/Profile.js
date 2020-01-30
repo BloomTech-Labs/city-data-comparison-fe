@@ -22,6 +22,7 @@ function Profile({selected}) {
     
     
     return (
+        <div>
         <div className='profile-page'>
             <SideNav />
             <div className='profile-slides'>
@@ -29,8 +30,10 @@ function Profile({selected}) {
             <Route path='/profile/favorites' render={_ => <Favorites selected={selected} />} />
             <Route path='/profile/preferences' render={_ => <Preferences selected={selected} />} />
             <Route path='/profile/settings' render={_ => <Settings selected={selected} />} />
-            <Footer />
+            
             </div>  
+        </div>
+        <Footer />
         </div>
     )
 }
