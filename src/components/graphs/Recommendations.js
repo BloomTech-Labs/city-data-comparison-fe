@@ -15,9 +15,6 @@ const Recommendations = ({city}) => {
     const randomKey = obj => {
         const keys = Object.keys(obj)
         const randomIndex = keys.length * Math.random() << 0;
-        console.log("object", obj)
-        console.log("id", obj[keys[randomIndex]].id)
-    
         return obj[keys[randomIndex]].id !== city._id ? keys[randomIndex] : randomKey(obj);
     };
 
