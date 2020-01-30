@@ -86,11 +86,13 @@ h1 {
 
 .profile-page {
     display: flex;
-    background-color: #F2F9FD;
+    background-color:#F2F9FD;
 
+    .profile-slides{
+        margin: 0 auto;
+    }
     
     .favorites{
-        width: 40%;
         margin: 0 auto;
         margin-top: 120px;
         
@@ -203,17 +205,25 @@ h1 {
 
 .side-nav {
     margin-top: 12%;
-    width: 10%;
-    padding-left: 2%;
+    
+    position: fixed;
+    height: 120px;
+    width: 150px;
+    padding: 10px;
+    background-color: white;
+    box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+
     
     .nav-items {
         display: flex;
         flex-direction: column;
         a {
-            margin-bottom: 24px;
+            margin:10px auto;
             text-decoration: none;
             color: #84868C;
             font-size: 18px;
+            text-align: center;
+            
         }
         .selected {
             color: #5E6066;
@@ -222,10 +232,12 @@ h1 {
     }
 }
 
+
+
 .profile-container{
     display: flex;
     flex-direction: column;
-    width: 150%;
+    width: 1158px;
     align-items: flex-start;
     
 
@@ -236,11 +248,12 @@ h1 {
 
     .profile-contents {
         line-height: 126%;
-        border-left: 1px solid #B8BABF;
-        padding-bottom: 50px;
         display: flex;
         justify-content: center;
+        align-items: center;
         width: 100%;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        background-color: white;
     }
     
     .info {
@@ -249,13 +262,8 @@ h1 {
 
     
     .avatar-tab {
-        border-right: 1px solid #B8BABF;
-        
-        padding: 60px;
-
-        button {
-            align-items: left;
-        }
+        background-color: white;
+        padding: 60px; 
     }
 
     h1{

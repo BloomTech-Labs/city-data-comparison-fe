@@ -24,7 +24,7 @@ function Profile({selected}) {
     return (
         <div className='profile-page'>
             <SideNav />
-            <div className='profile-slies'>
+            <div className='profile-slides'>
             <Route path='/profile/' render={_ => <ProfileCard selected={selected} />} />
             <Route path='/profile/favorites' render={_ => <Favorites selected={selected} />} />
             <Route path='/profile/preferences' render={_ => <Preferences selected={selected} />} />
