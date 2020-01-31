@@ -83,13 +83,13 @@
     display:flex;
     align-items: center;
     justify-content: space-evenly;
-
-    @media screen and (max-width: 800px){
-        display: flex;
-        flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
         .member-photo{
-            width:40%;
+            width:90%;
+
+            
         }
 
         .member-info{
@@ -101,17 +101,17 @@
                 align-items: center;
             }
             .member-role{
-                font-size: .7rem; 
+                font-size: .6rem; 
                 margin:1%;
                 border-left: 1px solid #3999fc;
                 padding-left: 1.5%;
             }
             .member-name{
-                font-size: .7rem;
+                font-size: .6rem;
             }
 
             .member-social{
-                width: 30%;
+                width: 60%;
                 margin: auto;
 
                 @media screen and (min-width: 500px){
@@ -124,7 +124,7 @@
             }
 
             .member-about{
-                font-size: .8rem;
+                font-size: .7rem;
                 margin: 2%;
             }
 
@@ -139,7 +139,7 @@
     }
 
     
-}
+
 
 .member-photo{
     width: 40%;
