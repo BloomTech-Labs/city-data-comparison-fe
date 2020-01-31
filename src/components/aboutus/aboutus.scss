@@ -24,12 +24,23 @@
                 font-size: 1rem; 
             }
 
+            @media screen and (min-width: 1200px){
+                font-size: 1.9rem; 
+            }
+
             @media screen and (min-width: 600px){
                 font-size: .8rem; 
             }
 
             @media screen and (min-width: 900px){
                 font-size: 1.2rem; 
+            }
+            @media screen and (min-width: 1200px){
+                font-size: 1.3rem; 
+            }
+
+            @media screen and (min-width: 2000px){
+                font-size: 1.8rem; 
             }
             
         }
@@ -80,6 +91,10 @@
                     width: 50%; 
                 }
 
+                @media screen and (min-width: 1200px){
+                    width: 42%; 
+                }
+
             
 
                 .name-role{
@@ -93,6 +108,10 @@
                     }
                     @media screen and (min-width: 1000px){
                         font-size: .9rem;
+                    }
+
+                    @media screen and (min-width: 1200px){ 
+                        font-size: 2rem; 
                     }
 
                     .member-name{
@@ -122,6 +141,17 @@
                         @media screen and (min-width: 1000px){
                             height: 1.7rem; 
                         }
+
+                        @media screen and (min-width: 2000px){
+                            height: 2.4rem; 
+                        }
+                    }
+
+                    @media screen and (min-width: 1200px){
+                        justify-content: space-evenly;
+                        align-items: center;
+                        width: 43%;
+                        margin: auto;
                     }
                 }
 
@@ -131,6 +161,14 @@
 
                     @media screen and (min-width: 900px){
                         font-size: .9rem;
+                    }
+
+                    @media screen and (min-width: 1200px){ 
+                        font-size: 1.2rem; 
+                    }
+
+                    @media screen and (min-width: 2000px){
+                        font-size: 1.5rem;
                     }
                 }
             
@@ -176,6 +214,13 @@
                         width: 75%; 
                     }
                     
+                    @media screen and (min-width: 1200px){
+                        font-size: 1rem; 
+                    }
+                    
+                    @media screen and (min-width: 2000px){
+                        font-size: 1.5rem;
+                    }
                 }
             
                 
