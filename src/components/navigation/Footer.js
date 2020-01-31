@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
-import {Link} from 'react-router-dom'
-import Modal from "../modal/modal"
-import useModal from "../modal/useModal"
+import React, { useState, useContext } from 'react';
+import {Link} from 'react-router-dom';
+import Modal from "../modal/modal";
+import useModal from "../modal/useModal";
 import "../modal/modal.scss";
-import AboutUs from "../aboutus/AboutUs"
-import PrivacyPolicy from "../legal/PrivacyPolicy"
+import AboutUs from "../aboutus/AboutUs";
+import PrivacyPolicy from "../legal/PrivacyPolicy";
+
+import {UserContext} from "../../contexts/UserContext";
 
 function Footer(){
 
+     const {user} = useContext(UserContext)
      const {isShowing, toggle} = useModal();
      const [modalState, setModalState] = useState();
 
@@ -23,7 +26,9 @@ function Footer(){
                          <div className="footer-CTA">
                               <div className="footer-CTA-description">
                                    <p>Optimized city stats, just for you</p>
-                                   <Link to="/signup"><button className="footer-CTA-button">Start Now</button></Link>
+                                   { user 
+                                        ? null 
+                                        : <Link to="/signup"><button className="footer-CTA-button">Start Now</button></Link> }
                               </div>
                               <div>
                                    <p className="copyright">© Citrics 2019</p>

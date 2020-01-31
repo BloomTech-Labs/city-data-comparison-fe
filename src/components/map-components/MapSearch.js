@@ -39,7 +39,7 @@ const MapSearch = ({menu, search, onSearch, setSearch, cityMarkers, viewport, se
         <form autoComplete="off" onSubmit={onSearch}>
             <input
                         className={`search-bar ${menu}`}
-                        placeholder="Search" 
+                        placeholder="Search up to 3 cities" 
                         onChange={handleChange} 
                         value={search}
             />
