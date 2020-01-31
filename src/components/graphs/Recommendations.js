@@ -5,9 +5,9 @@ import recommend from './recommend-pin.svg'
 
 const Recommendations = ({city}) => {
     const {getCity} = useContext(CityContext)
-    let [cultureRec, setCultureRec] = useState("");
-    let [housingRec, setHousingRec] = useState("");
-    let [industryRec, setIndustryRec] = useState({city: "", id: ""});
+    let [cultureRec, setCultureRec] = useState({city: "", ID: ""});
+    let [housingRec, setHousingRec] = useState({city: "", ID: ""});
+    let [industryRec, setIndustryRec] = useState({city: "", ID: ""});
     let housingURL = "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/recommend/housing/"
     let cultureURL = "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/recommend/culture/"
     let industryURL = "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/recommend/industry/"
@@ -39,7 +39,7 @@ const Recommendations = ({city}) => {
             
         
         
-    },[])
+    },[city])
 
     return (
         <div className="recommendation-grid">
