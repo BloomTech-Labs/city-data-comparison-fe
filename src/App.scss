@@ -335,6 +335,10 @@ html,body{
 padding: 10px 20px;
 margin-right:30px;
 
+img {
+  border-radius: 100%;
+}
+
 &:hover{
    transition:0.33s ease;
 }
