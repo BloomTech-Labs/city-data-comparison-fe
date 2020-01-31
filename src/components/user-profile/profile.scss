@@ -244,17 +244,18 @@
 //styling for menu slide out
 .slider.closed * {
     @media only screen and (max-width: 900px) {
-    display:none
+        -webkit-transform: translate(-100px, 0);
+        transform: translate(-100px, 0);
+        transition: .5s;
+        width: 10px;
+        height: 5px;
+        
     }
     
 }
 
-.slider.open {
-    @media only screen and (max-width: 900px) {
-    
-    
-    }
-}
+
+
 
 
 
@@ -292,6 +293,10 @@
     }
 }
 
+
+
+
+
 .side-nav {
     margin-top: 130px;
     position: fixed;
@@ -299,35 +304,27 @@
     background-color: white;
     box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
 
-    
-
     .side-nav.closed{
         @media only screen and (max-width: 900px) {
-            width: 10px;
+            -webkit-transform: translate(-100px, 0);
+            transform: translate(-100px, 0);
+            transition: .0s;
         }
     }
     
     .side-nav.open{
         @media only screen and (max-width: 900px) {
-            width: 1000px;
+           transition: .5s;
+           -webkit-transform: translate(0, 0);
+           transform: translate(0, 0);
         }
     }
+    
+    
     
     .nav-items {
         display: flex;
         flex-direction: column;
-
-        .nav-items.closed{
-            @media only screen and (max-width: 900px) {
-               display: none;
-            }
-        }
-        
-        .nav-items.open{
-            @media only screen and (max-width: 900px) {
-                width: 10000px;
-            }
-        }
 
         
 
