@@ -92,7 +92,7 @@
         @media screen and (max-width:600px){
             width:100%;
             padding:5%;
-            margin:5%;
+            margin: 0% 5%;
             border-top:1px solid #ecf1f5;
             border-bottom:1px solid #ecf1f5;
             border-radius:0;
@@ -850,6 +850,7 @@
 
             @media screen and (max-width:800px){
                 width:100%;
+                margin-bottom:0px;
             }
         }
         .insurance-container{
