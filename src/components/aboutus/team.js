@@ -32,13 +32,13 @@ const team = [
         image: ruth,
         role: 'UI/UX Designer', 
         social: {
-            twitter: '', 
+            twitter: 'Ruthmatt3', 
             github: '', 
-            linkedin: '', 
-            email: ''
+            linkedin: 'ruth-philips', 
+            email: 'rphilips0816@gmail.com <rphilips0816@gmail.com'
         }, 
         about: 'I love designing fresh, vibrant, and original user experiences that are unique and strike a conversation. My goal is to create a simple and straightforward user experience that captures the heart and mind of individuals interacting with the product at every stage of the product experience. When I am not designing, I love to explore new cuisines and watch stand-up with my spouse.',
-        portfolio: ''
+        portfolio: 'https://www.ruthphilips.com/'
     
     }, 
     {
