@@ -15,6 +15,18 @@ const Markers = ({ cityMarkers, setCityMarkers, selected, toggleSelected, cityIn
     city: 'none',
     animate: false
   })
+  const [cursorState, setCursorState] = useState('pointer')
+  const getCursorStyle = () =>{
+    // console.log("this is it")
+    // console.log(selected, "selected")
+    if(selected.length >2){
+      // console.log("THIS TOOOO")
+      setCursorState("not-allowed")
+    } else{
+      setCursorState("pointer")
+  }}
+
+  
 
   return (
         <div>
@@ -40,15 +52,17 @@ const Markers = ({ cityMarkers, setCityMarkers, selected, toggleSelected, cityIn
               <Marker key={cityMarker.ID} latitude={cityMarker.lat} longitude={cityMarker.lng}>
                     {/* <Link className='map-marker' to={`/map/${cityMarker.city}${cityMarker.state_id}`}> */}
                   <div
-                    onClick={() => toggleSelected(cityMarker)} 
+                    onClick={() => {
+                      toggleSelected(cityMarker);
+                    }} 
                     // these events are to control state when a marker is hovered over
-                    onMouseOver={(e) => (Number.isNaN(parseFloat(e.target.getAttribute("latitude"))) || setPopState({...popState, lat:parseFloat(e.target.getAttribute("latitude")), lng:parseFloat(e.target.getAttribute("longitude")),
-                    posleft:e.target.getBoundingClientRect().left, postop:e.target.getBoundingClientRect().top, display:'block', city:`${cityMarker.name}`, animate:true}))}
+                    onMouseOver={(e) => { (Number.isNaN(parseFloat(e.target.getAttribute("latitude"))) || setPopState({...popState, lat:parseFloat(e.target.getAttribute("latitude")), lng:parseFloat(e.target.getAttribute("longitude")),
+                    posleft:e.target.getBoundingClientRect().left, postop:e.target.getBoundingClientRect().top, display:'block', city:`${cityMarker.name}`, animate:true})); getCursorStyle()}}
                     onMouseLeave={(e) => (setPopState({...popState, display:'none', animate:false}))}
                   >
                       {selected.find(item => item._id === cityMarker.ID) 
-                      ? <img src={activepin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />
-                      : <img src={pin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}/>}
+                      ? <img  style={{cursor: "pointer"}} src={activepin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng}  />
+                      : <img style={{cursor: cursorState}} src={pin} alt={`A map pin indicating ${cityMarker.city}`} latitude={cityMarker.lat} longitude={cityMarker.lng} />}
                   </div>
                   {/* </Link> */}
               </Marker>
