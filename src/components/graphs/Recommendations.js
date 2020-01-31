@@ -20,6 +20,9 @@ const Recommendations = ({city}) => {
     };
 
     useEffect( _ => {
+        // setHousingRec({city: "", ID: ""});
+        // setIndustryRec({city: "", ID: ""});
+        // setCultureRec({city: "", ID: ""});
             Axios.get(`${housingURL}${city._id}`)
             .then(res=> {
                 let recName = randomKey(res.data);
