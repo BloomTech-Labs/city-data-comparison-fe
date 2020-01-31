@@ -5,9 +5,9 @@ import recommend from './recommend-pin.svg'
 
 const Recommendations = ({city}) => {
     const {getCity} = useContext(CityContext)
-    let [cultureRec, setCultureRec] = useState("");
-    let [housingRec, setHousingRec] = useState("");
-    let [industryRec, setIndustryRec] = useState({city: "", id: ""});
+    let [cultureRec, setCultureRec] = useState({city: "", ID: ""});
+    let [housingRec, setHousingRec] = useState({city: "", ID: ""});
+    let [industryRec, setIndustryRec] = useState({city: "", ID: ""});
     let housingURL = "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/recommend/housing/"
     let cultureURL = "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/recommend/culture/"
     let industryURL = "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/recommend/industry/"
@@ -20,6 +20,9 @@ const Recommendations = ({city}) => {
     };
 
     useEffect( _ => {
+        setHousingRec({city: "", ID: ""});
+        setIndustryRec({city: "", ID: ""});
+        setCultureRec({city: "", ID: ""});
             Axios.get(`${housingURL}${city._id}`)
             .then(res=> {
                 let recName = randomKey(res.data);
@@ -39,7 +42,7 @@ const Recommendations = ({city}) => {
             
         
         
-    },[])
+    },[city])
 
     return (
         <div className="recommendation-grid">
@@ -51,7 +54,12 @@ const Recommendations = ({city}) => {
                 <div className="recommendation" onClick={_ => getCity(cultureRec)}><p className="recommendation-subtitle">Similar culture</p><br /> <p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{cultureRec.city}</p></div>
                 <div className="recommendation" onClick={_ => getCity(industryRec)}><p className="recommendation-subtitle">Similar industries</p> <br /><p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{industryRec.city}</p></div>
             </div>
-            : null}
+            : <div className="recommendation-container">
+            <div className="recommendation-title">Here are some recommendations based on your search.</div>
+            <div className="recommendation" ><p className="recommendation-subtitle">Similar housing</p> <br /> <p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{housingRec.city}</p> </div>
+            <div className="recommendation" ><p className="recommendation-subtitle">Similar culture</p><br /> <p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{cultureRec.city}</p></div>
+            <div className="recommendation" ><p className="recommendation-subtitle">Similar industries</p> <br /><p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{industryRec.city}</p></div>
+        </div>}
         </div>
     )
 

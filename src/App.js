@@ -165,6 +165,9 @@ const getBestSuggestion = search => {
     if (res.data) {
       // get the best (first) suggestion and add it to state
       let suggestionKey = Object.keys(res.data)[0]
+      if (selected.find(item => item._id === res.data[suggestionKey].ID)) {
+        return;
+      }
       getCity(res.data[suggestionKey])  
     }
     // maybe add an error message if nothing is found

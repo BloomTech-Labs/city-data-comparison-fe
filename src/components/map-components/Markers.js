@@ -37,6 +37,7 @@ const Markers = ({ cityMarkers, setCityMarkers, selected, toggleSelected, cityIn
                   let foundCity = cityIndex.find(indexed => indexed.ID === city._id);
                   setCityMarkers([...cityMarkers, foundCity]);
                   toggleSelected(foundCity);
+                  getCursorStyle();
                 }
               }
                 onMouseOver={(e) => (Number.isNaN(parseFloat(e.target.getAttribute("latitude"))) || setPopState({...popState, lat:parseFloat(e.target.getAttribute("latitude")), lng:parseFloat(e.target.getAttribute("longitude")),
@@ -54,6 +55,7 @@ const Markers = ({ cityMarkers, setCityMarkers, selected, toggleSelected, cityIn
                   <div
                     onClick={() => {
                       toggleSelected(cityMarker);
+                      setCursorState("pointer");
                     }} 
                     // these events are to control state when a marker is hovered over
                     onMouseOver={(e) => { (Number.isNaN(parseFloat(e.target.getAttribute("latitude"))) || setPopState({...popState, lat:parseFloat(e.target.getAttribute("latitude")), lng:parseFloat(e.target.getAttribute("longitude")),
