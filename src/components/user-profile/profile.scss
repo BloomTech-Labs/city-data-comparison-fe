@@ -107,7 +107,7 @@
         h2{
             font-size: 32px;
             margin-bottom: 32px;
-            text-align: left;
+            text-align: center;
             padding-left: 127px;
             font-weight: 400;
             color: #32373D;
@@ -385,6 +385,9 @@
     .avatar-tab {
         background-color: white;
         padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         @media screen and (max-width:1400px){
            padding: 15px;
@@ -412,6 +415,7 @@
         @media screen and (max-width:1400px){
             padding: 15px;
         }
+        
     }
 
     h1{
