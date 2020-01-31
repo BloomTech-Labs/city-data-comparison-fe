@@ -4,7 +4,7 @@
     //container for left side of form
     display:flex; 
     margin: 10%; 
-    margin-top: 28%;
+ 
 
     @media screen and (min-width: 1000px) {
         margin-top:10%;
@@ -266,8 +266,8 @@
                 display:block;
                 
                 img{
-                    margin-top: 12vh;
-                    margin-left: 5vw;
+                    // margin-top: 12vh;
+                    // margin-left: 5vw;
                 }
                 
             }

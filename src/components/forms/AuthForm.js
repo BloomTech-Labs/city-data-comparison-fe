@@ -171,7 +171,7 @@ const AuthForm = props => {
                         }
 
                         {/* <input type="submit"/> */}
-                       <input className={`formButton ${props.action}Button`} type="submit"/>
+                       <input className={`formButton ${props.action}Button`} value="Start Exploring Cities" type="submit"/>
 
                        <div className='question'>
                             {
