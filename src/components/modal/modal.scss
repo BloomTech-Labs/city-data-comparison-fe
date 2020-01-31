@@ -59,3 +59,61 @@
     background: #247BA0;
     color: #fff;
   }
+
+   // Smoc Module
+
+   .smoc-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: .5;
+  }
+  
+  .smoc-modal-wrapper {
+    @media screen and (max-width:800px){
+      padding-left:10%;
+      padding-right:10%
+    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+    padding-left:30%;
+    padding-right:30%
+    
+  }
+  
+  .smoc-modal {
+    background: white;
+    position: relative;
+    margin: 10vh auto;
+    border-radius: 3px;
+    max-width: 80vw;
+    padding: 1rem;
+    margin-top: 10rem;
+    
+  }
+  
+  .smoc-modal-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .smocTitle{
+    margin-top:0.5%;
+  }
+  .smocText{
+    margin-left:5%;
+    margin-right:5%
+  }
+  .smoc-link{
+    text-align: center;
+  }

@@ -17,25 +17,27 @@ export default function AvgTempGraph (props) {
                     label: item.name_with_com,
                     fill: false,
                     data: [
-                      item["weather"]["tavg"]["TAVG-AVG-1"],
-                      item["weather"]["tavg"]["TAVG-AVG-2"],
-                      item["weather"]["tavg"]["TAVG-AVG-3"],
-                      item["weather"]["tavg"]["TAVG-AVG-4"],
-                      item["weather"]["tavg"]["TAVG-AVG-5"],
-                      item["weather"]["tavg"]["TAVG-AVG-6"],
-                      item["weather"]["tavg"]["TAVG-AVG-7"],
-                      item["weather"]["tavg"]["TAVG-AVG-8"],
-                      item["weather"]["tavg"]["TAVG-AVG-9"],
-                      item["weather"]["tavg"]["TAVG-AVG-10"],
-                      item["weather"]["tavg"]["TAVG-AVG-11"],
-                      item["weather"]["tavg"]["TAVG-AVG-12"],
+                      item["weather"]["tmax"]["TMAX-AVG-1"],
+                      item["weather"]["tmax"]["TMAX-AVG-2"],
+                      item["weather"]["tmax"]["TMAX-AVG-3"],
+                      item["weather"]["tmax"]["TMAX-AVG-4"],
+                      item["weather"]["tmax"]["TMAX-AVG-5"],
+                      item["weather"]["tmax"]["TMAX-AVG-6"],
+                      item["weather"]["tmax"]["TMAX-AVG-7"],
+                      item["weather"]["tmax"]["TMAX-AVG-8"],
+                      item["weather"]["tmax"]["TMAX-AVG-9"],
+                      item["weather"]["tmax"]["TMAX-AVG-10"],
+                      item["weather"]["tmax"]["TMAX-AVG-11"],
+                      item["weather"]["tmax"]["TMAX-AVG-12"],
                       
                     ],
+                    
                     backgroundColor: item.color,
                     borderColor: item.color
                       
 
                   }
+                  
                 })
 
               }}
