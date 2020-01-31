@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 const Modal = ({ isShowing, hide, component }) => isShowing ? ReactDOM.createPortal(
   <React.Fragment>
-      {console.log('modal is modaling')}
+      {/*console.log('modal is modaling')*/}
     <div className="modal-overlay"/>
     <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
       <div className="modal">

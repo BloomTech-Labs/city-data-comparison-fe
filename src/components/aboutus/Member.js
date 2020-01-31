@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'; 
+import React, {useState} from 'react'; 
 
 import './aboutus.scss'
 
@@ -7,9 +7,11 @@ import './aboutus.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { faGithubSquare, faTwitterSquare, faLinkedin} from '@fortawesome/free-brands-svg-icons'; 
 
+import ReactMapGL from 'react-map-gl'
+
 
 const Member = props => {
-
+    
     const goToLink = url => window.location.replace(url)
 
     return(
@@ -20,10 +22,12 @@ const Member = props => {
                 <div className="member-photo">
                     <img src={props.member.image} alt={props.member.name}/>
                 </div>
-
+                
                 <div className="member-info">
-                    <p className="member-name">{props.member.name}</p>
-                    <p className="member-role">{props.member.role}</p>
+                    <div className="name-role">
+                        <p className="member-name">{props.member.name}</p>
+                        <p className="member-role">{props.member.role}</p>
+                    </div>
                     <div className="member-social">
                         
                         <FontAwesomeIcon icon={faGithubSquare} size="2x" color="#3999fc" onClick={() => goToLink(`https://www.github.com/${props.member.social.github}`)} />

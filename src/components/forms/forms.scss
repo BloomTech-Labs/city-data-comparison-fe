@@ -1,3 +1,5 @@
+//mobile first 
+
 .authForm{
     //container for left side of form
     display:flex; 
@@ -32,8 +34,7 @@
                 margin: 1vh 0;
                 height: 7vh;
                 align-items: center;
-
-                
+                cursor:pointer; 
             }
 
             //styles for each button
@@ -168,6 +169,25 @@
                 width: 90%;
                 margin: auto;
 
+                //error messages
+                .formError{
+                    font-size: .8rem;
+                    color: #3999FC;
+                }
+
+                .pp{
+                    display: flex;
+                    align-items: center;
+                    color:#665858;
+                    justify-content: center;
+                    font-size: .9rem;
+                
+                    .pp-text{
+                      margin: .4vw;
+                      color:#3999FC;
+                    }
+                  }
+
                 @media screen and (min-width:600px){
                     width:65vw;
                 }
@@ -184,7 +204,7 @@
                     width:30vw;
                 }
 
-                .email, .password{
+                .username, .password{
                     border-radius: 10px;
                     border: 1px solid rgb(201, 201, 201); 
                     padding: 3.5% 2%; 
@@ -210,6 +230,18 @@
                     &:hover{
                         color: #3999FC;
                         background:white;
+                    }
+                }
+
+                .question{
+                    font-size: .9rem;
+                    color: #665858;
+                    .link-authform{
+                        margin: .4vw;
+                        text-decoration: none;
+                        color: #3999FC;
+                        cursor: pointer;
+
                     }
                 }
             }
