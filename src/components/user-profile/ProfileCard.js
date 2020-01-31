@@ -187,7 +187,6 @@ const ProfileCard = (props)=> {
 
     return (
         <div className='profile-container'>
-            <h1 className='header'>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
                     <img src={userImage.usersimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage.usersimage}`} />
@@ -202,9 +201,10 @@ const ProfileCard = (props)=> {
                     <button className={`edit-image-btn ${imageUpload.status}`} onClick={toggleImage}>Upload Image</button>
                     <button className={`save-image-btn ${imageUpload.status}`} onClick={() => {toggleImage(); postImage()}} >Save</button>
                 </div>
+                <div className= ' info'>
                 <div className='name-tab'>
                     <p>Name</p>
-                    <h2 className={`user-name`}>{userInfo.first_name} {userInfo.last_name}</h2>
+                    <h2 className={`user-name ${nameEdit.status}`}>{userInfo.first_name} {userInfo.last_name}</h2>
                     {/* Added function where onSubmit is to make the update user so that it does not execute everytime when the page loads */}
                     <form className={`edit-name ${nameEdit.status}`} onSubmit={updateUser}>
                     <input
@@ -262,6 +262,7 @@ const ProfileCard = (props)=> {
                     </form>
                     <button className={`edit-location-btn ${locationEdit.status}`} onClick={() => {toggleLocation(); toggleEmail(); toggleName()}}>Edit Profile</button> 
                     <button className={`save-location-btn ${locationEdit.status}`} onClick={() => {toggleLocation(); toggleEmail(); toggleName(); updateUser()}}  >Save</button>
+                </div>
                 </div>
             </div>
         </div>
