@@ -238,6 +238,9 @@ html,body{
     }
 }
 @media screen and (max-width:800px){
+    #popupmap{
+      display:none;
+    }
      .dropdownContainer{
           display:none;
      }
@@ -250,6 +253,9 @@ html,body{
 }
 
 @media screen and (max-width:500px){
+  #popupmap{
+    display:none;
+  }
     .navigation-container nav {
          display:none;
     }

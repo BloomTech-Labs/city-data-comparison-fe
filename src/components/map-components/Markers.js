@@ -55,7 +55,9 @@ const Markers = ({ cityMarkers, setCityMarkers, selected, toggleSelected, cityIn
               );
         })}
         {/* passing state to PopupMap.js */}
-        <PopupMap lat={popState.lat} lng={popState.lng} posleft={popState.posleft} postop={popState.postop} display={popState.display} city={popState.city} animate={popState.animate}/>
+        <div id="popupmap">
+          <PopupMap lat={popState.lat} lng={popState.lng} posleft={popState.posleft} postop={popState.postop} display={popState.display} city={popState.city} animate={popState.animate}/>
+        </div>
       </div>
   );
 };
