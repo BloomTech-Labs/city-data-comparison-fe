@@ -162,7 +162,7 @@ const AuthForm = props => {
                                 <input className="checkbox" type="checkbox" name="pp" ref={register({required: true})}></input>
                                 <p>
                                     Please accept our 
-                                    <span className="ppText" onClick={() => (setModalState(<PrivacyPolicy register={props.register}/>), toggle())} style={{cursor: "pointer"}}> 
+                                    <span className="ppText" style={{'margin' : '2vw'}} onClick={() => (setModalState(<PrivacyPolicy register={props.register}/>), toggle())} style={{cursor: "pointer"}}> 
                                         privacy policy
                                     </span>
                                 </p>
