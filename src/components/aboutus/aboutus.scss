@@ -91,6 +91,9 @@
                     @media screen and (min-width: 600px){
                         font-size: 1rem; 
                     }
+                    @media screen and (min-width: 1000px){
+                        font-size: .9rem;
+                    }
 
                     .member-name{
                         
@@ -115,12 +118,20 @@
                     justify-content: center;
                     svg{
                         height: 1.3rem;
+
+                        @media screen and (min-width: 1000px){
+                            height: 1.7rem; 
+                        }
                     }
                 }
 
                 .member-about{
                     font-size: .7rem;
                     margin: 2%;
+
+                    @media screen and (min-width: 900px){
+                        font-size: .9rem;
+                    }
                 }
             
                 .member-portfolio{
