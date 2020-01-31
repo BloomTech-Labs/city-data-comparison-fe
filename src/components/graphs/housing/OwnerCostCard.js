@@ -4,6 +4,8 @@ import helpCircle from '../../map-components/assets/helpcircle.svg'
 import SmocModal from "../../modal/smocModule";
 import useModal from "../../modal/useModal";
 import Smoc from "../../modal/SmocCard";
+import { Link, Element } from 'react-scroll'
+import ReactGA from "react-ga";
 
 function TotalPopulation({ethData}) {
     const {isShowing, toggle} = useModal();
@@ -12,6 +14,12 @@ function TotalPopulation({ethData}) {
     function numberCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+
+    const SmocClicked = link => {
+        ReactGA.event({ category: 'Data', 
+        action: `clicked ${link} link` });
+    }
+
 	return (
         <>
                <SmocModal
@@ -24,8 +32,8 @@ function TotalPopulation({ethData}) {
             {ethData.map(item => 
                 <div key={item._id} className="mortgage">
                     <div className="smoc">SMOC 
-                    <a href="#" onClick={() => (setModalState(<Smoc/>), toggle())} style={{cursor: "pointer"}}>
-                        <img className="smoc-img"src={helpCircle} alt='smoc reroute'/></a>
+                    <Link onClick={() => SmocClicked (setModalState(<Smoc/>), toggle())}  style={{cursor: "pointer"}}>
+                        <img className="smoc-img"src={helpCircle} alt='smoc reroute'/></Link>
                     
                     </div>
 
