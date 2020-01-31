@@ -20,9 +20,9 @@ const Recommendations = ({city}) => {
     };
 
     useEffect( _ => {
-        // setHousingRec({city: "", ID: ""});
-        // setIndustryRec({city: "", ID: ""});
-        // setCultureRec({city: "", ID: ""});
+        setHousingRec({city: "", ID: ""});
+        setIndustryRec({city: "", ID: ""});
+        setCultureRec({city: "", ID: ""});
             Axios.get(`${housingURL}${city._id}`)
             .then(res=> {
                 let recName = randomKey(res.data);
@@ -54,7 +54,12 @@ const Recommendations = ({city}) => {
                 <div className="recommendation" onClick={_ => getCity(cultureRec)}><p className="recommendation-subtitle">Similar culture</p><br /> <p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{cultureRec.city}</p></div>
                 <div className="recommendation" onClick={_ => getCity(industryRec)}><p className="recommendation-subtitle">Similar industries</p> <br /><p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{industryRec.city}</p></div>
             </div>
-            : null}
+            : <div className="recommendation-container">
+            <div className="recommendation-title">Here are some recommendations based on your search.</div>
+            <div className="recommendation" ><p className="recommendation-subtitle">Similar housing</p> <br /> <p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{housingRec.city}</p> </div>
+            <div className="recommendation" ><p className="recommendation-subtitle">Similar culture</p><br /> <p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{cultureRec.city}</p></div>
+            <div className="recommendation" ><p className="recommendation-subtitle">Similar industries</p> <br /><p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{industryRec.city}</p></div>
+        </div>}
         </div>
     )
 
