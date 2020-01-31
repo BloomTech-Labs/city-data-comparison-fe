@@ -25,11 +25,14 @@ import Google from '../../assets/icons/google.svg'
 import Facebook from '../../assets/icons/white-facebook.svg'
 import Linkedin from '../../assets/icons/linkedin.svg'
 
+import green_globe from '../../assets/forms/globe_green.svg'
+import green_world from '../../assets/forms/world_map.svg'
+
 
 const AuthForm = props => {
 
    //list of companies 
-   const companies = [{name:'Google', icon: Google}, {name:'Facebook', icon:Facebook}, {name:'Linkedin', icon:Linkedin}]
+   const companies = [{name:'Google', icon: Google},/* {name:'Facebook', icon:Facebook}, */{name:'Linkedin', icon:Linkedin}]
 
    //state used for react-hook-form
    const {register, handleSubmit, errors} = useForm()
@@ -159,7 +162,7 @@ const AuthForm = props => {
                                 <input className="checkbox" type="checkbox" name="pp" ref={register({required: true})}></input>
                                 <p>
                                     Please accept our 
-                                    <span className="ppText" onClick={() => (setModalState(<PrivacyPolicy register={props.register}/>), toggle())} style={{cursor: "pointer"}}> 
+                                    <span className="ppText" style={{'margin' : '2vw'}} onClick={() => (setModalState(<PrivacyPolicy register={props.register}/>), toggle())} style={{cursor: "pointer"}}> 
                                         privacy policy
                                     </span>
                                 </p>
@@ -168,7 +171,7 @@ const AuthForm = props => {
                         }
 
                         {/* <input type="submit"/> */}
-                       <input className={`formButton ${props.action}Button`} type="submit"/>
+                       <input className={`formButton ${props.action}Button`} value="Start Exploring Cities" type="submit"/>
 
                        <div className='question'>
                             {
@@ -184,7 +187,7 @@ const AuthForm = props => {
                 
                 {/*Container for photo to be displayed right of form */}
                <div className={`authFormPhoto ${props.action}Photo`}>
-                   <img className="loginPhoto" src={city} alt={`{props.action} photo`}/>
+                   <img className="loginPhoto" src={(props.action === 'Register') ? green_globe : green_world} alt={`{props.action} photo`}/>
                </div>
 
            </div>

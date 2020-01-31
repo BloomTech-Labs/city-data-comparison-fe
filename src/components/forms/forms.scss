@@ -4,7 +4,7 @@
     //container for left side of form
     display:flex; 
     margin: 10%; 
-    margin-top: 28%;
+ 
 
     @media screen and (min-width: 1000px) {
         margin-top:10%;
@@ -182,9 +182,10 @@
                     justify-content: center;
                     font-size: .9rem;
                 
-                    .pp-text{
-                      margin: .4vw;
-                      color:#3999FC;
+                    .ppText{
+                        margin: .4vw;
+                        cursor: pointer;
+                        color: #3999fc
                     }
                   }
 
@@ -265,8 +266,8 @@
                 display:block;
                 
                 img{
-                    margin-top: 12vh;
-                    margin-left: 5vw;
+                    // margin-top: 12vh;
+                    // margin-left: 5vw;
                 }
                 
             }
