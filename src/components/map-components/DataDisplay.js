@@ -298,7 +298,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                 </div>
                 </>
                 : <p className="map-prompt">
-                    Select a city to begin browsing
+                    Select up to 3 cities to compare
                 </p>}
             </div>
 
