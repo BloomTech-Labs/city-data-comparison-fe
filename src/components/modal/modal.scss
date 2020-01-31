@@ -74,6 +74,10 @@
   }
   
   .smoc-modal-wrapper {
+    @media screen and (max-width:800px){
+      padding-left:10%;
+      padding-right:10%
+    }
     position: fixed;
     top: 0;
     left: 0;
@@ -83,6 +87,9 @@
     overflow-x: hidden;
     overflow-y: auto;
     outline: 0;
+    padding-left:30%;
+    padding-right:30%
+    
   }
   
   .smoc-modal {
@@ -91,7 +98,7 @@
     margin: 10vh auto;
     border-radius: 3px;
     max-width: 80vw;
-    padding: 2rem;
+    padding: 1rem;
     margin-top: 10rem;
     
   }
@@ -100,13 +107,13 @@
     display: flex;
     justify-content: flex-end;
   }
-.smocTitle{
-  margin-top:0.5%;
-}
-.smocText{
-  margin-left:5%;
-  margin-right:5%
-}
-.smoc-link{
-  text-align: center;
-}
+  .smocTitle{
+    margin-top:0.5%;
+  }
+  .smocText{
+    margin-left:5%;
+    margin-right:5%
+  }
+  .smoc-link{
+    text-align: center;
+  }
