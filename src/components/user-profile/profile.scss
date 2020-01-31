@@ -1,98 +1,103 @@
-body {
-    background-color:#F2F9FD;
+.profile-body {
+   background-color: #F2F9FD;
 }
-.recommendation-grid {
-    background-color:white;
-    border-radius:10px;
-    border-top-left-radius:0;
-    border-top-right-radius:0;
-    width: 80%;
-    margin: 30px auto;
-    
-
-    @media screen and (max-width:800px){
-        width:100%;
-    }
-
-    .recommendation-container{
-        width:100%;
-        display:flex;
-
-        @media screen and (max-width:800px){
-        flex-wrap:wrap;
-        }
-    }
-    .recommendation-title{
-        display:flex;
-        align-items:center;
-        width:31%;
-        color:grey;
-        font-size:14px;
-        margin:0 auto;
-        padding:5px 10px;
-        border:1px solid #ECF1F5;
-
-        @media screen and (max-width:800px){
-            width:50%;
-            justify-content:center;
-            text-align:center;
-            padding:10px;
-        }
-    }
-    .recommendation{
-        cursor:pointer;
-        width:23%;
-        padding:10px 5px;
-        border:1px solid #ECF1F5;
-        display:flex;
-        flex-wrap:wrap;
-        justify-content:center;
-        align-items:center;
-        @media screen and (max-width:800px){
-            width:50%;
-            padding:10px;
-        }
-
-
-        .recommendation-subtitle{
-            color:grey;
-            width:100%;
-            font-size:14px;
-            text-align:center;
-            margin-bottom:3px;
-            margin-top:0;
-        }
-
-        img{
-            height:20px;
-            margin-right:5px;
-
-            @media screen and (max-width:800px){
-                height:17px;
-            }
-        }
-        .recommendation-cities{
-            width:100%;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            margin:0;
-        }
-        &:hover{
-            background-color:#F6F9FC;
-            border:1px solid #F2F9FD;
-        }
-    }
-}    
 
 .profile-page {
     display: flex;
     background-color:#F2F9FD;
 
     .profile-slides{
-        margin: 0 auto;
+        margin: 10px auto;
+        margin-bottom: 5px;
         width: 80%;
     }
+
+    .recommendation-grid {
+        background-color:white;
+        border-radius:10px;
+        border-top-left-radius:0;
+        border-top-right-radius:0;
+        width: 80%;
+        margin-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        
+    
+        @media screen and (max-width:800px){
+            width:100%;
+        }
+    
+        .recommendation-container{
+            width:100%;
+            display:flex;
+    
+            @media screen and (max-width:800px){
+            flex-wrap:wrap;
+            }
+        }
+        .recommendation-title{
+            display:flex;
+            align-items:center;
+            width:31%;
+            color:grey;
+            font-size:14px;
+            margin:0 auto;
+            padding:5px 10px;
+            border:1px solid #ECF1F5;
+    
+            @media screen and (max-width:800px){
+                width:50%;
+                justify-content:center;
+                text-align:center;
+                padding:10px;
+            }
+        }
+        .recommendation{
+            cursor:pointer;
+            width:23%;
+            padding:10px 5px;
+            border:1px solid #ECF1F5;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            align-items:center;
+            @media screen and (max-width:800px){
+                width:50%;
+                padding:10px;
+            }
+    
+    
+            .recommendation-subtitle{
+                color:grey;
+                width:100%;
+                font-size:14px;
+                text-align:center;
+                margin-bottom:3px;
+                margin-top:0;
+            }
+    
+            img{
+                height:20px;
+                margin-right:5px;
+    
+                @media screen and (max-width:800px){
+                    height:17px;
+                }
+            }
+            .recommendation-cities{
+                width:100%;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                margin:0;
+            }
+            &:hover{
+                background-color:#F6F9FC;
+                border:1px solid #F2F9FD;
+            }
+        }
+    }    
+    
     
     .favorites{
         margin: 0 auto;
@@ -115,6 +120,11 @@ body {
             padding: 0 10px;
             margin: 0 auto;
             
+            @media screen and (max-width:800px){
+                width:100%;
+            }
+            
+
             .city-overview-border{
                 // border-top-left-radius:5px;
                 // border-top-right-radius:5px;
@@ -143,12 +153,20 @@ body {
                     height:20px;
                     margin-right:15px;
                 }
+                @media screen and (max-width:800px){
+                    flex-wrap:wrap;
+                    padding:15px 3%;
+                    margin-bottom:0;
+                }
 
                 .city-overview-container-one{
                     width:45%;
                     display:flex;
                     align-items:center;
                     // border:1px solid red;
+                    @media screen and (max-width:800px){
+                        width:100%;
+                    }
 
                     .overview-title-container-one{
                         width:60%;
@@ -178,6 +196,11 @@ body {
                 .city-overview-container-two{
                     width:40%;
                     display:flex;
+                    @media screen and (max-width:800px){
+                        width:100%;
+                        justify-content:space-between;
+                    }
+
                     .overview-title-container-two{
                         width:70%;
                         display:flex;
@@ -189,6 +212,10 @@ body {
                             display:flex;
                             font-size:1.1rem;
                         }
+                        @media screen and (max-width:800px){
+                            width:60%;        
+                        }
+
                     }
                     .overview-stats-container-two{
                         width:27%;
@@ -199,6 +226,9 @@ body {
                             width:100%;
                             margin:10px 0;    
                         }
+                        @media screen and (max-width:800px){
+                            width:40%;           
+                        }
                     }
                 }
             }
@@ -207,7 +237,7 @@ body {
 }
 
 .side-nav {
-    margin-top: 100px;
+    margin-top: 130px;
     position: fixed;
     width: 150px;
     padding: 10px;
@@ -247,10 +277,15 @@ body {
     flex-direction: column;
     align-items: flex-start;
     width: 60%;    
-    margin: 100px auto;
+    margin: 130px auto;
 
+    @media screen and (max-width:1400px){
+        width:80%;
+    }
+    @media screen and (max-width:900px){
+        width: 100%;
+    }
 
-    
     .edit-profile-closed {
         display: none;
     }
@@ -264,16 +299,40 @@ body {
         width: 100%;
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         background-color: white;
+        
     }
 
     
     .avatar-tab {
         background-color: white;
         padding: 30px;
+
+        @media screen and (max-width:1400px){
+           padding: 15px;
+        }
+
+        @media screen and (max-width:900px){
+            padding: 10px;
+        }
+
+
+        img {
+            width: 200px;
+            border-radius: 100%;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+
+            @media screen and (max-width:900px){
+                width: 130px;
+            }
+           }
+           
     }
 
     .info {
         padding: 30px;
+        @media screen and (max-width:1400px){
+            padding: 15px;
+        }
     }
 
     h1{
@@ -291,12 +350,6 @@ body {
         display:flex;
         flex-direction: column;
 
-        img {
-         width: 200px;
-         border-radius: 100%;
-         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        }
-
         input {
             width: 200px;
             margin-right: 16px;
@@ -308,6 +361,17 @@ body {
             color: #84868C;
             padding: 14px;
             margin-top: 5px;
+
+            @media screen and (max-width:1400px){
+                width:200px;
+                font-size: 1rem;
+                padding: 5px;
+                height: 30px;
+            }
+            @media screen and (max-width:900px){
+                width: 170px;
+                margin-right: 5px;
+            }
             
         }
 
@@ -315,6 +379,10 @@ body {
             font-size: 18px;
             font-weight: 500;
             text-decoration: underline;
+            @media screen and (max-width:900px){
+                margin-bottom: 5px;
+                font-size: 1rem;
+            }
         }
 
         .image-input{
@@ -343,9 +411,17 @@ body {
                    filter: brightness(115%);
                  }
     cursor: pointer;
+    @media screen and (max-width:900px){
+        width: 120px;
+        font-size: 1rem;
+    }
         }
         h2 {
             margin-bottom: 1px;
+            @media screen and (max-width:900px){
+                margin-bottom: 5px;
+                margin-top: 1px;
+            }
         }
 
     }
@@ -354,10 +430,19 @@ body {
         h2 {
             font-size: 24px;
             font-weight: 400;
+            @media screen and (max-width:900px){
+                font-size: 1.2rem
+            }
         }
 
         input {
             width: 150px;
+            @media screen and (max-width:1400px){
+                width:100px;
+            }
+            @media screen and (max-width:900px){
+                width: 80px;
+            }
         }
     }
 
@@ -366,6 +451,9 @@ body {
         h2 {
             font-size: 20px;
             font-weight: 400;
+            @media screen and (max-width:900px){
+                font-size: 1.2rem
+            }
         }
     }
 
@@ -374,14 +462,10 @@ body {
         h2 {
             font-size: 20px;
             font-weight: 400;
+            @media screen and (max-width:900px){
+                font-size: 1.2rem
+            }
         }
-
-        span{
-            font-size: 16px;
-            color: #84868C;
-            font-weight: 100;
-        }
-
         
         .edit-state {
             width: 64px;

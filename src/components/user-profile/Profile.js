@@ -22,7 +22,7 @@ function Profile({selected}) {
     
     
     return (
-        <div>
+        <div className='profile-body'>
         <div className='profile-page'>
             <SideNav />
             <div className='profile-slides'>

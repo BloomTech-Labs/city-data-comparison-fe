@@ -204,7 +204,7 @@ const ProfileCard = (props)=> {
                 <div className= ' info'>
                 <div className='name-tab'>
                     <p>Name</p>
-                    <h2 className={`user-name`}>{userInfo.first_name} {userInfo.last_name}</h2>
+                    <h2 className={`user-name ${nameEdit.status}`}>{userInfo.first_name} {userInfo.last_name}</h2>
                     {/* Added function where onSubmit is to make the update user so that it does not execute everytime when the page loads */}
                     <form className={`edit-name ${nameEdit.status}`} onSubmit={updateUser}>
                     <input
