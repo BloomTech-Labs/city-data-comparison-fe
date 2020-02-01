@@ -2,6 +2,10 @@ import React, {useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+import styled from 'styled-components'
+import {User} from 'styled-icons/boxicons-regular/User'
+//import {LockAlt} from 'styled-icons/boxicons-regular/LockAlt'
+
 //react hook form is used for validation instead of formik
 import { useForm } from 'react-hook-form'
 
@@ -127,18 +131,19 @@ const AuthForm = props => {
                    <form className="fields" onSubmit={handleSubmit(onSubmit)}>
                    
                         {errors.username && errors.username.type === "required" && <p className='formError'>Your username is required</p>} 
-                   
-                       <input 
-                            className="username" 
-                            type='text' name='username' 
-                            placeholder='username' 
-                            value={login.username} 
-                            onChange={onChange}
-                            ref={register({
-                                required:true, 
-                               
-                            })}
-                        />
+                        <div className="username">
+                            <User/>
+                            <input 
+                                    type='text' name='username' 
+                                    placeholder='username' 
+                                    value={login.username} 
+                                    onChange={onChange}
+                                    ref={register({
+                                        required:true, 
+                                    
+                                    })}
+                                />
+                        </div>
 
                         
                        {errors.password && errors.password.type === 'required' && <p className='formError'>Your password is required</p>}
