@@ -1,10 +1,6 @@
 
 import React from 'react';
 import styled from "styled-components";
-import cities from "../../assets/icons/city.svg"
-import population from "../../assets/icons/population.svg"
-import money from "../../assets/icons/money.svg"
-import baby from "../../assets/icons/baby.svg"
 
 import world from '../map-components/assets/world.svg'
 import pop from '../map-components/assets/population.svg'
@@ -12,6 +8,7 @@ import users from '../map-components/assets/users.svg'
 import briefcase from '../map-components/assets/briefcase.svg'
 import income from '../map-components/assets/dollar.svg'
 import FavoriteButton from '../map-components/FavoriteButton'
+import Recommendations from "./Recommendations"
 
 // const CenterCard = styled.h3`
 // display:flex;
@@ -35,11 +32,14 @@ width:100%;
 `
 
 function TotalPopulation({ethData}) {
-	
-	return (
+    function numberCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    return (
 
         <div className="city-overview-container-small">
             {ethData.map(item => 
+            <div className="city-overview-container-medium">
             <div className="city-overview-container"> 
             <div className="city-overview-border">
                 <p>City overview</p>
@@ -55,7 +55,7 @@ function TotalPopulation({ethData}) {
 
                     <div className="overview-stats-container-one">
                         <div className="overview-stats">{item["City"]}</div>
-                        <div className="overview-stats">{item["Total Population"]}</div>
+                        <div className="overview-stats">{numberCommas(item["Total Population"])}</div>
                         <div className="overview-stats">{item["Median Age"]} years old</div>
                     </div>
                 </div>
@@ -72,13 +72,15 @@ function TotalPopulation({ethData}) {
 
 
                     <div className="overview-stats-container-two">
-                        <div className="overview-stats">${item["Median Rent"]}</div>
-                        <div className="overview-stats">${item["Median Per Capita Income"]}</div>
+                        <div className="overview-stats">${numberCommas(item["Median Rent"])}</div>
+                        <div className="overview-stats">${numberCommas(item["Median Per Capita Income"])}</div>
                     </div>
-
-
                 </div>
             </div>
+            </div>
+            <div>
+                    <Recommendations city={item}/>
+                </div>
             </div>
             )}
             

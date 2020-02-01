@@ -92,7 +92,7 @@
         @media screen and (max-width:600px){
             width:100%;
             padding:5%;
-            margin:5%;
+            margin: 0% 5%;
             border-top:1px solid #ecf1f5;
             border-bottom:1px solid #ecf1f5;
             border-radius:0;
@@ -100,7 +100,7 @@
         }
     }
 
-    @media screen and (max-width:600px){
+    @media screen and (max-width:800px){
         .general-stats-container{
             width:100%;
             padding:0 5%;
@@ -112,15 +112,106 @@
         // margin-top:7%;
     }
 
-    .city-overview-container{
-        width:98%;
+    .city-overview-container-medium{
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        background-color:white;
-        padding: 0 10px;
+        width:98%;
+        margin-bottom:30px;
+    }
 
-        @media screen and (max-width:600px){
+    .city-overview-container-small{
+
+        .recommendation-grid {
+            background-color:white;
+            border-radius:10px;
+            border-top-left-radius:0;
+            border-top-right-radius:0;
+
+            @media screen and (max-width:800px){
+                width:100%;
+            }
+
+            .recommendation-container{
+                width:100%;
+                display:flex;
+
+                @media screen and (max-width:800px){
+                flex-wrap:wrap;
+                }
+            }
+            .recommendation-title{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                width:31%;
+                color:grey;
+                font-size:14px;
+                margin:0 auto;
+                padding:5px 10px;
+                border:1px solid #ECF1F5;
+
+                @media screen and (max-width:800px){
+                    width:50%;
+                    justify-content:center;
+                    text-align:center;
+                    padding:10px;
+                }
+            }
+            .recommendation{
+                cursor:pointer;
+                width:23%;
+                padding:10px 5px;
+                border:1px solid #ECF1F5;
+                display:flex;
+                flex-wrap:wrap;
+                justify-content:center;
+                align-items:center;
+                @media screen and (max-width:800px){
+                    width:50%;
+                    padding:10px;
+                }
+
+
+                .recommendation-subtitle{
+                    color:grey;
+                    width:100%;
+                    font-size:14px;
+                    text-align:center;
+                    margin-bottom:3px;
+                    margin-top:0;
+                }
+
+                img{
+                    height:20px;
+                    margin-right:5px;
+
+                    @media screen and (max-width:800px){
+                        height:17px;
+                    }
+                }
+                .recommendation-cities{
+                    width:100%;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    margin:0;
+                }
+                &:hover{
+                    background-color:#F6F9FC;
+                    border:1px solid #F2F9FD;
+                }
+            }
+        }
+    }
+
+    .city-overview-container{
+        background-color:white;
+        border-top-left-radius:5px;
+        border-top-right-radius:5px;
+        padding: 0 10px;
+        margin-bottom:0;
+
+        @media screen and (max-width:800px){
             width:100%;
-            margin-bottom:30px;
         }
         
         .city-overview-border{
@@ -133,18 +224,19 @@
         }
 
         .city-info-container{
-            margin-bottom:2%;
             padding:15px 7%;
             padding-top:0;
             display:flex;
             justify-content:space-between;
+
             img{
                 height:20px;
                 margin-right:15px;
             }
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 flex-wrap:wrap;
                 padding:15px 3%;
+                margin-bottom:0;
             }   
 
             .city-overview-container-one{
@@ -152,7 +244,7 @@
                 display:flex;
                 align-items:center;
 
-                @media screen and (max-width:600px){
+                @media screen and (max-width:800px){
                     width:100%;
                 }
 
@@ -183,7 +275,7 @@
             .city-overview-container-two{
                 width:40%;
                 display:flex;
-                @media screen and (max-width:600px){
+                @media screen and (max-width:800px){
                     width:100%;
                     justify-content:space-between;
                 }   
@@ -199,7 +291,7 @@
                         display:flex;
                         font-size:1.1rem;
                     }
-                    @media screen and (max-width:600px){
+                    @media screen and (max-width:800px){
                         width:60%;        
                     }  
                 }
@@ -212,7 +304,7 @@
                         width:100%;
                         margin:10px 0;    
                     }
-                    @media screen and (max-width:600px){
+                    @media screen and (max-width:800px){
                         width:40%;           
                     }   
                 }
@@ -270,7 +362,6 @@
         // border:1px solid grey;
 
         .ownerMortgage{
-            // border:1px solid red;
             width:20%;
             padding:0;
         }
@@ -305,14 +396,6 @@
                 }
             }
             .home-title{
-                // background-color:white;
-                // padding:12px 10px;
-                // border-radius:5px;
-                // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-                // margin-bottom:20px;
-                // text-align:center;
-                // margin-left:0;
-                // margin-top:0;
                 display:none;
             }
             .mortgage-price{
@@ -380,12 +463,21 @@
             }
         }
     }
-    @media screen and (max-width:600px){
+    @media screen and (max-width:800px){
        .home-container{
             .ownerMortgage{
                 .homeowner-container{
+                    justify-content:space-between;
+
                     .mortgage{
-                        width:100%;
+                        width:45%;
+                        .mortgage-label-container{
+                            flex-wrap:wrap;
+
+                            .mortgage-label{
+                                width:100%;
+                            }
+                        }
                     }
                 }
             }
@@ -407,9 +499,8 @@
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             border-radius:5px;
 
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;
-                margin-bottom:30px;          
             }  
         }
 
@@ -421,7 +512,7 @@
             height:auto;     
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;
             }  
         }
@@ -432,6 +523,7 @@
 
             .room-container{
                 width:100%;
+                margin-bottom:30px;
             }
 
             .vacancy-owner-container{
@@ -464,9 +556,10 @@
     }
     .commute-travel-container{
         display:flex;
+        align-items:flex-start;
         justify-content:space-between;
 
-        @media screen and (max-width:600px){
+        @media screen and (max-width:800px){
             flex-wrap:wrap;
         }  
 
@@ -478,15 +571,25 @@
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             margin-bottom:30px;
             background-color:white;
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;
             }  
         }
+
         .travel-container{
             width:22%;
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 display:flex;        
                 width:100%;
+
+            }  
+
+            @media screen and (max-width:800px){
+                .commute-time-container-big{
+                    width:100%;
+                    display:flex;
+                    justify-content:space-between;
+                }
             }  
 
             .commute-time-container{
@@ -498,8 +601,9 @@
                 margin-bottom:20px;
                 display:flex;
                 flex-wrap:wrap;
-                @media screen and (max-width:600px){
+                @media screen and (max-width:800px){
                     margin-bottom:30px;
+                    width:45%;
                 }
 
                 .commute-city-title{
@@ -535,13 +639,136 @@
         }
     }
 
+    .travel-scores-container{
+
+        .travel-scores-container-one{
+        }
+        .travel-scores-container-two{
+            padding:10px;
+            border-radius:5px;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+            margin-bottom:30px;
+            background-color:white;
+            display:flex;
+            justify-content:space-around;
+            // border:1px solid blue;
+
+            @media screen and (max-width:800px){
+            flex-wrap:wrap;
+            }  
+
+            .scores-title{
+                margin-bottom:0;
+            }
+            .scores{
+                // border:1px solid blue;
+                margin-left:0;
+                margin-bottom:0;
+            }
+            .score-subtitle{
+                margin-top:0;
+                // border:1px solid yellow;
+                color:grey;
+                font-size:0.9rem;
+                margin-bottom:0;
+            }
+            .score-city{
+                // border:1px solid red;
+                text-align:center;
+                color:grey;
+                margin-top:0;
+            }
+            .score-num{
+                // border:1px solid red;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+
+                .score{
+                    font-size:2.5rem;
+                    display:flex;
+                    align-items:center;
+                    margin:20px auto;
+                }
+                img{
+                    height:30px;
+                    margin-right:8px;
+                }
+                .bus{
+                    height:26px;
+                }
+                .bike{
+                    height:33px;
+                }
+            }
+        }
+        .transportation-score-container{
+            // width:23%;
+            // border:1px solid red;
+            @media screen and (max-width:800px){
+                width:40%;
+                text-align:center;
+            }  
+        }
+
+        .score-breakdown-container{
+            width:25%;            
+            // border:1px solid orange;
+
+            @media screen and (max-width:800px){
+                width:70%;
+                text-align:center;
+                margin-bottom:20px;
+            }  
+            .score-metric{
+                display:flex;
+                margin-bottom:0;
+                justify-content:space-between;
+
+                .score-rate-nums{
+                    width:45%;
+                    text-align:center;
+
+                    p{
+                        margin-bottom:0;
+                        color:grey;
+                        margin-top:7px;
+                    }
+                }
+                .score-rate-titles{
+                    width:50%;
+                    p{
+                        margin-bottom:0;
+                        margin-top:7px;
+                        color:grey;
+                    }
+                    .one{
+                        color:#02bfa5;
+                    }
+                    .two{
+                        color:#C3A6FF;
+                    }
+                    .three{
+                        color:#2ca4fc;
+                    }
+                    .four{
+                        color:#FDB461;
+                    }
+                    .five{
+                        color:#FB8072;
+                    }
+                }
+            }
+        }
+    }
 
     .other-industries-container{
         display:flex;
         align-items:flex-start;
         justify-content:space-between;
-        @media screen and (max-width:600px){
+        @media screen and (max-width:800px){
             flex-wrap:wrap;
+            // border:1px solid red;
         }  
 
 
@@ -550,23 +777,29 @@
             display:flex;
             flex-direction:column;
             width:22%;
-            @media screen and (max-width:600px){
-                width:100%;
+            @media screen and (max-width:800px){
+                width:47%;
                 flex-direction:row;  
                 flex-wrap:wrap;
                 justify-content:center;
+                // border:1px solid red;
             }  
 
             .unemployment-card-container{
                 // font-size:1.1vw;
-                height:150px;
+                // height:170px;
                 padding:15px;
                 padding-bottom:10px;
                 border-radius:5px;
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 margin-bottom:15px;
                 background-color:white;
-                 @media screen and (max-width:600px){
+                 @media screen and (max-width:800px){
+                    height:170px;
+                    margin-bottom:30px;           
+                }
+                 @media screen and (max-width:500px){
+                    height:200px;
                     height:auto;
                     margin-bottom:30px;           
                 }
@@ -578,6 +811,9 @@
                     margin-bottom:25px;
                     display:flex;
                     justify-content:space-between;
+                    @media screen and (max-width:800px){
+                        font-size:1rem;
+                    }  
                 }
 
                 .unemployment-num{
@@ -613,20 +849,22 @@
             margin-bottom:30px;
             background-color:white;
 
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;
+                margin-bottom:0px;
             }
         }
         .insurance-container{
             width:22%;
-            @media screen and (max-width:600px){
-                width:100%;   
+            @media screen and (max-width:800px){
+                width:47%;   
                 display:flex;
                 justify-content:center;      
             }
 
             .healthinsurance-card-container{
-                height:150px;
+                // height:170px;
+                // height:200px;
                 padding:15px;
                 padding-bottom:10px;
                 border-radius:5px;
@@ -634,10 +872,14 @@
                 margin-bottom:15px;
                 background-color:white;
 
-                @media screen and (max-width:600px){
-                    height:auto;
+                @media screen and (max-width:800px){
+                    height:170px;
                     width:100%;
                     margin-bottom:30px;
+                }
+                @media screen and (max-width:500px){
+                    height:200px;
+                    height:auto;
                 }
 
                 .healthinsurance-title{
@@ -704,7 +946,7 @@
         align-items:flex-start;
         justify-content:space-between;
 
-        @media screen and (max-width:600px){
+        @media screen and (max-width:800px){
             flex-wrap:wrap;   
         }
 
@@ -715,14 +957,19 @@
             margin-bottom:30px;
             background-color:white;
             width:75%;
-            @media screen and (max-width:600px){
+            @media screen and (max-width:800px){
                 width:100%;     
             }
         }
 
         .birth-container{
             width:22%;
-                @media screen and (max-width:600px){
+                @media screen and (max-width:800px){
+                    .birth-card-container-mobile{
+                        // border:1px solid red;
+                        display:flex;
+                        justify-content:space-between;
+                    }
                     width:100%;
                 }
 
@@ -733,6 +980,10 @@
                 box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
                 margin-bottom:30px;
                 background-color:white;
+
+                @media screen and (max-width:800px){
+                    width:45%;
+                }  
 
                 .birth-title{
                     color:#00bfa5;
@@ -765,7 +1016,7 @@
                         font-size:1vw;
                         margin-left:15px;
                         // border:1px solid red;
-                        @media screen and (max-width:600px){
+                        @media screen and (max-width:800px){
                             font-size:1rem;   
                         }
                     }
@@ -780,6 +1031,14 @@
                 }
             }
         }
+    }
+    .avg-temp-container{
+        // border:1px solid red;
+        padding:10px;
+        border-radius:5px;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        margin-bottom:30px;
+        background-color:white;
     }
     
 
@@ -1033,6 +1292,7 @@
         .data-nav-top {
             display:flex;
             flex-direction:column;
+            padding-top:15px;
             height:100%;
             width:100%; 
              @media only screen and (max-width: 600px) {
@@ -1046,6 +1306,9 @@
             @media only screen and (max-width: 600px) {
                 display:none;
             }
+        }
+        .autofill-container.abso-width {
+            width:95%;
         }
 
         .autofill-option {
@@ -1069,7 +1332,7 @@
 
     .sticky {
         position:fixed;
-        top:78px;
+        top:100px;
         width: 20%;
     }
 
@@ -1120,3 +1383,4 @@
     justify-content:center;
     margin-bottom:-30px;
 }
+

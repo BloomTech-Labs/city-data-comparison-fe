@@ -32,23 +32,38 @@ function Navigation(){
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
                <nav className="main-nav">
-                    <Link to="/map">Explore</Link>
-                    <Link to="/map">Compare</Link>
-
-
+                    <Link to="/map" className="nav-button">Explore</Link>
+                    <Link to="/map" className="nav-button">Compare</Link>
                     {user == null ? 
                     <>
                          <Link id="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
                          <Link id="signup-link" to="/signup">Get Started</Link>
                     </> :
                     <>
-                         <Link to="/profile">Profile</Link>
                          <DropMenu/>
                     </>
                     }
-
-                    
                </nav> 
+                         {user == null ? 
+                         <>
+                              <div className="dropdownContainer">
+                                   <div className="dropdown" style={styles}>
+                                        <button className="dropbtn">Menu</button>
+                                        <div className="dropdown-content">
+                                             <Link to="/map">Explore</Link>
+                                             <Link to="/map">Compare</Link>
+                                             <Link to="/signin">Log In</Link>
+                                             <Link to="/signup">Get Started</Link>
+                                        </div>
+                                   </div>
+                              </div>
+                         </>
+                         :
+                         <div className="dropdownContainer">
+                              <DropMenu/>
+                         </div>
+                    }
+
           </div>
      )
 }

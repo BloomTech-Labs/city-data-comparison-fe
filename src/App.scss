@@ -121,7 +121,7 @@ html,body{
      display: flex;
      justify-content: space-between;
      align-items: center;
-     padding-left: 4%;
+     padding-left: 14%;
      padding-right:2%;
    }
    
@@ -131,7 +131,7 @@ html,body{
     justify-content: center;
     text-decoration:none;
     text-align:center;
-    color:#2e2f38;
+    // color:#2e2f38;
     font-size:1rem;
     transition: .3s cubic-bezier(0.2,0.8,0.2,1);
     transition:0.33s ease;
@@ -139,6 +139,7 @@ html,body{
 
   .main-nav a:hover{
     text-decoration: underline;
+    // color:#2ca4fc;
   }
   #login-link{
     color:#2ca4fc;
@@ -164,6 +165,21 @@ html,body{
     &:hover{
       color:white;
       filter:brightness(110%);
+    }
+  }
+  .nav-button{
+    border:none;
+    // background-color:#2da4fc;
+    border-radius:5px;
+    padding:5px 8px;
+    // color:white;
+    color: #2e2f38;
+    text-decoration:none;
+    transition:0.22s ease;
+    &:hover{
+      // color:white;
+      text-decoration:underline;
+//       filter:brightness(110%);
     }
   }
 @media screen and (max-width:800px){
@@ -206,6 +222,9 @@ html,body{
      .dropdown-content a{
           display:none;
      }
+     .dropdownContainer-loggedin .dropdown-content-loggedin .redundant{
+       display:none;
+     }
 }
 @media screen and (max-width:1440px){
      .dropdownContainer{
@@ -214,17 +233,29 @@ html,body{
      .dropdown-content a{
           display:none;
      }
+     .dropdownContainer-loggedin .dropdown-content-loggedin .redundant{
+      display:none;
+    }
 }
 @media screen and (max-width:800px){
+    #popupmap{
+      display:none;
+    }
      .dropdownContainer{
           display:none;
      }
      .dropdown-content a{
           display:none;
      }
+     .dropdownContainer-loggedin .dropdown-content-loggedin .redundant{
+      display:none;
+    }
 }
 
 @media screen and (max-width:500px){
+  #popupmap{
+    display:none;
+  }
     .navigation-container nav {
          display:none;
     }
@@ -240,6 +271,14 @@ html,body{
       font-size: 16px;
       border: 1.4px solid #2ca4fc;
       border-radius:5px;
+      margin-right:30px;
+
+      &:hover{
+          transition:0.33s ease;
+      }
+    }
+    .dropbtn-loggedin {
+      padding: 10px 20px;
       margin-right:30px;
 
       &:hover{
@@ -269,6 +308,9 @@ html,body{
       display: block;
       font-size:1.1rem;
     }
+    .dropdownContainer-loggedin .dropdown-content-loggedin .redundant{
+      display:block;
+    }
 
     .dropdown-content a:hover {
         color:#fcfcfb;
@@ -284,6 +326,59 @@ html,body{
       background-color: #2ca4fc;
     }
 
+}
+//dropdown menu logged-in
+.dropdownContainer-loggedin{
+   display:flex;
+}
+.dropbtn-loggedin {
+padding: 10px 20px;
+margin-right:30px;
+
+img {
+  border-radius: 100%;
+}
+
+&:hover{
+   transition:0.33s ease;
+}
+}
+
+.dropdown-loggedin {
+position: relative;
+// display: inline-block;
+float:right;
+}
+
+.dropdown-content-loggedin {
+display: none;
+position: absolute;
+right: 0;
+background-color: #f9f9f9;
+min-width: 150px;
+z-index: 1;
+}
+
+.dropdown-content-loggedin a {
+color: #2e2f38;
+padding: 15px 15px;
+text-decoration: none;
+display: block;
+font-size:1.1rem;
+}
+
+.dropdown-content-loggedin a:hover {
+ color:#fcfcfb;
+ background-color: #2ca4fc;
+}
+
+.dropdown-loggedin:hover .dropdown-content-loggedin {
+display: block;
+}
+
+.dropdown-loggedin:hover .dropbtn-loggedin {
+ color:#fcfcfb;
+background-color: #2ca4fc;
 }
 
 //* Dashboard Bonus Features CTA
@@ -905,7 +1000,7 @@ html,body{
 
 // * Footer Styling
 .footer-container{
-  border-top:1px solid #ECF1F5;
+  border-top:1px solid rgba(203, 230, 252, 0.562);
   background-color:#F4F5FF;
   height:300px;
   display:flex;

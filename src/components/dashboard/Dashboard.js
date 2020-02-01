@@ -215,7 +215,6 @@ function Dashboard({history}){
 
      return(
           <div className="dashboard-container">
-
                {/* * LANDING PAGE AND SEARCH FUNCTION */}
                <div className="dashboard-search-container">
                     <div className="dashboard-search-function">

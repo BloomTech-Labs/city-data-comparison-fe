@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import styled from 'styled-components'
 import {User} from 'styled-icons/boxicons-regular/User'
-//import {LockAlt} from 'styled-icons/boxicons-regular/LockAlt'
+import {LockAlt} from 'styled-icons/boxicons-regular/LockAlt'
 
 //react hook form is used for validation instead of formik
 import { useForm } from 'react-hook-form'

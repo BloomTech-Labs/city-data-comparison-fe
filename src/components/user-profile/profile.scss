@@ -1,20 +1,130 @@
-h1 {
-    margin-top: 150px;
+.profile-body {
+   background-color: #F2F9FD;
 }
 
 .profile-page {
     display: flex;
-    .favorites{
+    background-color:#F2F9FD;
+
+    .profile-slides{
+        margin: 10px auto;
+        margin-bottom: 5px;
         width: 80%;
-        margin: auto;
-        margin-left: 100px;
-        margin-right: 100px;
+    }
+
+    .recommendation-grid {
+        background-color:white;
+        border-radius:10px;
+        border-top-left-radius:0;
+        border-top-right-radius:0;
+        width: 80%;
+        margin-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        
+    
+        @media screen and (max-width:800px){
+            width:100%;
+        }
+    
+        .recommendation-container{
+            width:100%;
+            display:flex;
+    
+            @media screen and (max-width:800px){
+            flex-wrap:wrap;
+            }
+        }
+        .recommendation-title{
+            display:flex;
+            align-items:center;
+            width:31%;
+            color:grey;
+            font-size:14px;
+            margin:0 auto;
+            padding:5px 10px;
+            border:1px solid #ECF1F5;
+    
+            @media screen and (max-width:800px){
+                width:50%;
+                justify-content:center;
+                text-align:center;
+                padding:10px;
+            }
+        }
+        .recommendation{
+            cursor:pointer;
+            width:23%;
+            padding:10px 5px;
+            border:1px solid #ECF1F5;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            align-items:center;
+            @media screen and (max-width:800px){
+                width:50%;
+                padding:10px;
+            }
+    
+    
+            .recommendation-subtitle{
+                color:grey;
+                width:100%;
+                font-size:14px;
+                text-align:center;
+                margin-bottom:3px;
+                margin-top:0;
+            }
+    
+            img{
+                height:20px;
+                margin-right:5px;
+    
+                @media screen and (max-width:800px){
+                    height:17px;
+                }
+            }
+            .recommendation-cities{
+                width:100%;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                margin:0;
+            }
+            &:hover{
+                background-color:#F6F9FC;
+                border:1px solid #F2F9FD;
+            }
+        }
+    }    
+    
+    
+    .favorites{
+        margin: 0 auto;
+        margin-top: 50px;
+        
+
+        h2{
+            font-size: 32px;
+            margin-bottom: 32px;
+            text-align: center;
+            padding-left: 127px;
+            font-weight: 400;
+            color: #32373D;
+        }
+
         .city-overview-container{
-            width:98%;
+            width:80%;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             background-color:white;
             padding: 0 10px;
+            margin: 0 auto;
             
+            @media screen and (max-width:800px){
+                width:100%;
+            }
+            
+
             .city-overview-border{
                 // border-top-left-radius:5px;
                 // border-top-right-radius:5px;
@@ -34,7 +144,7 @@ h1 {
             }
 
             .city-info-container{
-                margin-bottom:2%;
+                margin-bottom:0;
                 padding:15px 7%;
                 padding-top:0;
                 display:flex;
@@ -43,12 +153,20 @@ h1 {
                     height:20px;
                     margin-right:15px;
                 }
+                @media screen and (max-width:800px){
+                    flex-wrap:wrap;
+                    padding:15px 3%;
+                    margin-bottom:0;
+                }
 
                 .city-overview-container-one{
                     width:45%;
                     display:flex;
                     align-items:center;
                     // border:1px solid red;
+                    @media screen and (max-width:800px){
+                        width:100%;
+                    }
 
                     .overview-title-container-one{
                         width:60%;
@@ -78,6 +196,11 @@ h1 {
                 .city-overview-container-two{
                     width:40%;
                     display:flex;
+                    @media screen and (max-width:800px){
+                        width:100%;
+                        justify-content:space-between;
+                    }
+
                     .overview-title-container-two{
                         width:70%;
                         display:flex;
@@ -89,6 +212,10 @@ h1 {
                             display:flex;
                             font-size:1.1rem;
                         }
+                        @media screen and (max-width:800px){
+                            width:60%;        
+                        }
+
                     }
                     .overview-stats-container-two{
                         width:27%;
@@ -99,6 +226,9 @@ h1 {
                             width:100%;
                             margin:10px 0;    
                         }
+                        @media screen and (max-width:800px){
+                            width:40%;           
+                        }
                     }
                 }
             }
@@ -106,19 +236,111 @@ h1 {
     }
 }
 
+.slider {
+    width: 100%;
+}
+//Side Nav Styling setup for mobile
+
+//styling for menu slide out
+.slider.closed * {
+    @media only screen and (max-width: 900px) {
+        -webkit-transform: translate(-100px, 0);
+        transform: translate(-100px, 0);
+        transition: .5s;
+        width: 10px;
+        height: 5px;
+        
+    }
+    
+}
+
+
+
+
+
+
+
+//Styling for burger stack
+
+.burger-menu.open .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-4px, 4px);
+    transform: rotate(-45deg) translate(-4px, 4px);
+}
+
+.burger-menu.open .bar2 {
+    opacity: 0;
+}
+
+.burger-menu.open .bar3 {
+    -webkit-transform: rotate(45deg) translate(-6px, -6px);
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+
+.burger-menu.closed .slide.closed .menu-items.closed {
+    width: 10px;
+}
+
+.burger-menu .bar1,
+.bar2,
+.bar3 {
+    width: 25px;
+    height: 3px;
+    background-color:rgb(48, 48, 48);
+    margin: 4px 0;
+    transition: 0.5s;
+    @media only screen and (min-width: 900px) {
+        display: none;
+    }
+}
+
+
+
+
+
 .side-nav {
-    margin-top: 12%;
-    width: 10%;
-    padding-left: 2%;
+    margin-top: 130px;
+    position: fixed;
+    padding: 10px;
+    background-color: white;
+    box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+
+    .side-nav.closed{
+        @media only screen and (max-width: 900px) {
+            -webkit-transform: translate(-100px, 0);
+            transform: translate(-100px, 0);
+            transition: .0s;
+        }
+    }
+    
+    .side-nav.open{
+        @media only screen and (max-width: 900px) {
+           transition: .5s;
+           -webkit-transform: translate(0, 0);
+           transform: translate(0, 0);
+        }
+    }
+    
+    
     
     .nav-items {
         display: flex;
         flex-direction: column;
+
+        
+
+        img {
+            width: 20px;
+            margin-right: 5px;
+        }
+
         a {
-            margin-bottom: 24px;
+            display: flex;
+            margin:10px auto;
             text-decoration: none;
             color: #84868C;
             font-size: 18px;
+            text-align: center;
+            
         }
         .selected {
             color: #5E6066;
@@ -127,20 +349,72 @@ h1 {
     }
 }
 
+
+
 .profile-container{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    
+    align-items: flex-start;
+    width: 60%;    
+    margin: 130px auto;
+
+    @media screen and (max-width:1400px){
+        width:80%;
+    }
+    @media screen and (max-width:900px){
+        width: 100%;
+    }
+
     .edit-profile-closed {
         display: none;
     }
 
     .profile-contents {
         line-height: 126%;
-        padding-left: 127px;
-        border-left: 1px solid #B8BABF;
-        padding-bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        background-color: white;
+        
+    }
+
+    
+    .avatar-tab {
+        background-color: white;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media screen and (max-width:1400px){
+           padding: 15px;
+        }
+
+        @media screen and (max-width:900px){
+            padding: 10px;
+        }
+
+
+        img {
+            width: 200px;
+            border-radius: 100%;
+            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+
+            @media screen and (max-width:900px){
+                width: 130px;
+            }
+           }
+           
+    }
+
+    .info {
+        padding: 30px;
+        @media screen and (max-width:1400px){
+            padding: 15px;
+        }
         
     }
 
@@ -156,16 +430,8 @@ h1 {
     
 
     .name-tab, .email-tab, .city-tab, .avatar-tab {
-        margin-bottom: 50px;
         display:flex;
         flex-direction: column;
-
-        img {
-         width: 100px;
-         border: 3px solid rgba(68, 68, 68, 0.075);
-         border-radius: 100%;
-     
-        }
 
         input {
             width: 200px;
@@ -178,6 +444,17 @@ h1 {
             color: #84868C;
             padding: 14px;
             margin-top: 5px;
+
+            @media screen and (max-width:1400px){
+                width:200px;
+                font-size: 1rem;
+                padding: 5px;
+                height: 30px;
+            }
+            @media screen and (max-width:900px){
+                width: 170px;
+                margin-right: 5px;
+            }
             
         }
 
@@ -185,6 +462,10 @@ h1 {
             font-size: 18px;
             font-weight: 500;
             text-decoration: underline;
+            @media screen and (max-width:900px){
+                margin-bottom: 5px;
+                font-size: 1rem;
+            }
         }
 
         .image-input{
@@ -213,9 +494,17 @@ h1 {
                    filter: brightness(115%);
                  }
     cursor: pointer;
+    @media screen and (max-width:900px){
+        width: 120px;
+        font-size: 1rem;
+    }
         }
         h2 {
             margin-bottom: 1px;
+            @media screen and (max-width:900px){
+                margin-bottom: 5px;
+                margin-top: 1px;
+            }
         }
 
     }
@@ -224,10 +513,19 @@ h1 {
         h2 {
             font-size: 24px;
             font-weight: 400;
+            @media screen and (max-width:900px){
+                font-size: 1.2rem
+            }
         }
 
         input {
             width: 150px;
+            @media screen and (max-width:1400px){
+                width:100px;
+            }
+            @media screen and (max-width:900px){
+                width: 80px;
+            }
         }
     }
 
@@ -236,6 +534,9 @@ h1 {
         h2 {
             font-size: 20px;
             font-weight: 400;
+            @media screen and (max-width:900px){
+                font-size: 1.2rem
+            }
         }
     }
 
@@ -244,14 +545,10 @@ h1 {
         h2 {
             font-size: 20px;
             font-weight: 400;
+            @media screen and (max-width:900px){
+                font-size: 1.2rem
+            }
         }
-
-        span{
-            font-size: 16px;
-            color: #84868C;
-            font-weight: 100;
-        }
-
         
         .edit-state {
             width: 64px;
@@ -263,6 +560,7 @@ h1 {
     .edit-name.closed, .save-name-btn.closed,.edit-name-btn.open,   .edit-email.closed,.save-email-btn.closed,  .edit-email-btn.open,     .edit-location.open,.save-location-btn.open,    .edit-location-btn.closed, .user-name.open, .user-email.open,     .user-location.closed, .edit-image.closed, .save-image-btn.closed, .edit-image-btn.open {
         display: none;
     }
+
 }
 
 .pref-container {
@@ -437,4 +735,8 @@ h1 {
 
 .housing-pref.closed, .econ-contents.closed, .social-contents.closed {
     display: none;
+}
+
+.footer-container{
+    margin-top: 150px;
 }
