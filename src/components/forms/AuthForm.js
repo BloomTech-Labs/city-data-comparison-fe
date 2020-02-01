@@ -132,7 +132,7 @@ const AuthForm = props => {
                             className="username" 
                             type='text' name='username' 
                             placeholder='username' 
-                            value={login.username} 
+                            // value={login.username} 
                             onChange={onChange}
                             ref={register({
                                 required:true, 
@@ -148,7 +148,7 @@ const AuthForm = props => {
                             type='password'
                             name='password'
                             placeholder="Password"
-                            value={login.password}
+                            // value={login.password}
                             ref={register({
                                 required: true, 
                                 minLength : {
