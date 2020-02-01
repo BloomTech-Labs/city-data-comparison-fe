@@ -38,8 +38,8 @@ function Footer(){
                          <div className="footer-categories-container">
                               <div className="footer-categories">
                                    <p className="footer-title">Services</p>
-                                   <a href="#" onClick={() => {window.scrollTo(0,0); setToggleSearch(true)}}>Search a City</a>
-                                   <a href="#" onClick={() => {window.scrollTo(0,0); setToggleSearch(false)}}>Compare Cities</a>
+                                   <Link to="/" onClick={() => {window.scrollTo(0,0); setToggleSearch(true)}}>Search a City</Link>
+                                   <Link to="/" onClick={() => {window.scrollTo(0,0); setToggleSearch(false)}}>Compare Cities</Link>
                               </div>
                               <div className="footer-categories">
                                    <p className="footer-title">Company</p>
