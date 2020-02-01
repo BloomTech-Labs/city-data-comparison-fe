@@ -4,6 +4,8 @@
     //container for left side of form
     display:flex; 
     margin-top: 19%; 
+
+
     
 
     @media screen and (min-width: 1000px) {
@@ -11,8 +13,14 @@
     }
 
     @media screen and (min-height: 640px) {
-        margin-top: 31%; 
+        margin-top: 22%; 
 
+    }
+
+    .mobileFormImage{
+        img{
+            width:100%; 
+        }
     }
 
     .form{
@@ -22,17 +30,35 @@
         .formTitle{
             text-align: center;
             font-weight: 500;
+
+            @media screen and (min-height: 640px) {
+                font-weight: 500;
+                 font-size: 1rem; 
+                 letter-spacing: .1rem;
+        
+            }
+
+            //samsung:     font-weight: 500 font-size: 1rem; letter-spacing: .1rem;
         }
         
 
         //container for oauth buttons
         .auth{ 
 
-            width: 85vw;
+            width: 85%;
             margin: auto;
             margin-top: 5%;
 
+            // samsung : 
+            // margin: auto;
+            // margin-top: 2%;
             //styles that apply to all oauth buttons
+
+            @media screen and (min-height: 640px) {
+                margin: auto;
+                margin-top: 2%;
+        
+            }
             .oauthButton{
                 
                 border-radius: 3px; 
@@ -188,10 +214,19 @@
                 justify-content: center;
                 margin-top:6%;
 
+                @media screen and (min-height: 640px) {
+                    margin-top: 2%;
+                }
+            
                 //text "or with email"
                 .center{
                     margin: 0 2%;
                     font-size: .8rem;
+
+                    
+                    
+                    // samsung: 
+                    // margin-top: 2%;
                 }
 
                 //gray lines
@@ -220,7 +255,7 @@
                     font-size: .9rem;
                 
                     .ppText{
-                        margin: .4vw;
+                        margin: 1.5vw;
                         cursor: pointer;
                         color: #3999fc
                     }
@@ -248,6 +283,19 @@
                     padding: 3.5% 2%; 
                     width:100%;
                     margin-top:6%;
+
+                    @media screen and (min-height: 640px) {
+                        padding: 2.5% 2%;
+                        width: 100%;
+                        margin-top: 2%;
+                
+                    }
+
+                    // samsung: 
+                    // padding: 2.5% 2%;
+                    // width: 100%;
+                    // margin-top: 2%;
+                   
                 }
 
                 
@@ -267,6 +315,17 @@
                         color: #3999FC;
                         background:white;
                     }
+
+                    @media screen and (min-height: 640px) {
+                        margin-top: 3%;
+                        font-size: .9rem;
+                
+                    }
+
+                     // //samsung {
+                    //     margin-top: 3%;
+                    //     font-size: .9rem;
+                    // //}
                 }
 
                 .question{
