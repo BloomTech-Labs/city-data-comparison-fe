@@ -30,6 +30,7 @@
         .formTitle{
             text-align: center;
             font-weight: 500;
+            margin:1% 0; 
 
             @media screen and (min-height: 640px) {
                 font-weight: 500;
@@ -243,8 +244,10 @@
 
                 //error messages
                 .formError{
-                    font-size: .8rem;
-                    color: #3999FC;
+                    font-size: .7rem;
+                    color: #fc3966;
+                    text-align: center;
+                    margin: 1%;
                 }
 
                 .pp{
@@ -253,11 +256,15 @@
                     color:#665858;
                     justify-content: center;
                     font-size: .9rem;
-                
-                    .ppText{
-                        margin: 1.5vw;
-                        cursor: pointer;
-                        color: #3999fc
+                    margin-top:2%;
+                    p{
+                        margin:0;
+                        .ppText{
+                            margin: 1.5vw;
+                            cursor: pointer;
+                            color: #3999fc
+                        }
+
                     }
                   }
 
@@ -276,20 +283,51 @@
                 @media screen and (min-width:1500px){
                     width:30vw;
                 }
+                .field{
 
-                .username, .password{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    width: 100%;
+                    border: 1px solid #d6d6d6;
                     border-radius: 5px;
-                    border: 1px solid rgb(201, 201, 201); 
-                    padding: 3.5% 2%; 
-                    width:100%;
-                    margin-top:6%;
+                    padding: 0% 3%;
+                    margin-top:2%;
 
-                    @media screen and (min-height: 640px) {
-                        padding: 2.5% 2%;
-                        width: 100%;
-                        margin-top: 2%;
-                
+                    &:focus-within{
+                        outline-style: none;
+                        border-color: dodgerBlue;
+                        box-shadow: 0 0 8px 0 dodgerblue;
                     }
+                    .fieldIcon{
+                        width:7%;
+
+
+                        svg{
+                            width:100%;
+                        }
+                    }
+                    .username, .password{
+                        // border-radius: 5px;
+                        // border: 1px solid rgb(201, 201, 201); 
+                        padding: 3.5% 2%; 
+                        width:100%;
+                        margin-top:6%;
+                        border:none;
+
+                        &:focus{
+                            outline-style: none;
+                        }
+    
+                        @media screen and (min-height: 640px) {
+                            padding: 2.5% 2%;
+                            width: 100%;
+                            margin-top: 1%;
+                    
+                        }
+                }
+                
 
                     // samsung: 
                     // padding: 2.5% 2%;

@@ -33,7 +33,13 @@ import green_globe from '../../assets/forms/globe_green.svg'
 import green_world from '../../assets/forms/world_map.svg'
 import mobile_blue from '../../assets/forms/best_place.svg'
 
-
+//styled icons
+const Username_icon = styled(User)`
+    color: #d6d6d6;
+`
+const Lock_icon = styled(LockAlt)`
+    color: #d6d6d6;
+`
 const AuthForm = props => {
 
    //list of companies 
@@ -131,9 +137,10 @@ const AuthForm = props => {
                    <form className="fields" onSubmit={handleSubmit(onSubmit)}>
                    
                         {errors.username && errors.username.type === "required" && <p className='formError'>Your username is required</p>} 
-                        <div className="username">
-                            <User/>
+                        <div className="field">
+                            <div className="fieldIcon"> <Username_icon/> </div>
                             <input 
+                                    className='username'
                                     type='text' name='username' 
                                     placeholder='username' 
                                     value={login.username} 
@@ -148,21 +155,27 @@ const AuthForm = props => {
                         
                        {errors.password && errors.password.type === 'required' && <p className='formError'>Your password is required</p>}
                        {errors.password && errors.password.type === 'minLength' && <p className='formError'>Passwords must be at least 8</p>}
-                       <input 
-                            className="password"
-                            type='password'
-                            name='password'
-                            placeholder="Password"
-                            value={login.password}
-                            ref={register({
-                                required: true, 
-                                minLength : {
-                                    value: 8,
-                                    message: 'password must be at least 8 characters long'
-                                  }
-                                })}
-                            onChange={onChange}
-                        />
+                       
+                       <div className="field">
+                           <div className="fieldIcon">
+                               <Lock_icon/>
+                           </div>
+                        <input 
+                                className="password"
+                                type='password'
+                                name='password'
+                                placeholder="Password"
+                                value={login.password}
+                                ref={register({
+                                    required: true, 
+                                    minLength : {
+                                        value: 8,
+                                        message: 'password must be at least 8 characters long'
+                                    }
+                                    })}
+                                onChange={onChange}
+                            />
+                        </div>
                        
                        {errors.pp && <p className="formError">Accepting our privacy policy is required</p>}
                        {    

@@ -109,7 +109,7 @@ const team = [
             linkedin: 'muamer-kukic-502419130', 
             email: ''
         }, 
-        about:'Muamer Kukic is a software engineer currently living in Las Vegas, Nevada. He inspires to be apart of the next big project that furthers education in growth of individuals and mental health. He is also a big basketball fan so feel free to contact his social media and talk trash about his favorite teams.',
+        about:'Muamer Kukic is a software engineer currently living in Las Vegas, Nevada. He aspires to be apart of the next big project that furthers education in growth of individuals and mental health. He is also a big basketball fan so feel free to contact his social media and talk trash about his favorite teams.',
         portfolio: 'https://kukicako.github.io/portfolio-website/'
     
     }, 
