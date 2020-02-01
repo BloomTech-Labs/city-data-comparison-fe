@@ -50,7 +50,7 @@ function Footer(){
                               <div className="footer-categories">
                                    <p href="#" className="footer-title">Resources</p>
                                    <a href="https://api.citrics.io/docs">Data Sources</a>
-                                   <a href="#" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}>Private Policy</a>
+                                   <a href="#" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}>Privacy Policy</a>
                                    <a href="#" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}> Terms of Use</a>
                               </div>
                          </div>
