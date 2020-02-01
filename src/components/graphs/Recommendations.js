@@ -42,7 +42,7 @@ const Recommendations = ({city}) => {
             
         
         
-    },[city])
+    },[])
 
     return (
         <div className="recommendation-grid">
