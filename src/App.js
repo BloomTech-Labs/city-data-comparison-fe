@@ -42,7 +42,7 @@ function App() {
       cityIndex.push(city)
   })
 
-
+  const [toggleSearch, setToggleSearch] = useState(true);
   const [user, setUserValue] = useState(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null);
   const [favorites, setFavorites] = useState([]);
   const [cityMarkers, setCityMarkers] = useState(cityIndex);
@@ -247,7 +247,7 @@ cityIndex.sort(compare);
 
   return (
     <Router>
-      <UserContext.Provider value={{user, setUserValue, setUser, favorites, setFavorites}}>
+      <UserContext.Provider value={{user, setUserValue, setUser, favorites, setFavorites, toggleSearch, setToggleSearch}}>
         <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, getBestSuggestions}}>
           <div className="App">
             <Navigation />

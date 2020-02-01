@@ -10,7 +10,7 @@ import {UserContext} from "../../contexts/UserContext";
 
 function Footer(){
 
-     const {user} = useContext(UserContext)
+     const {user, setToggleSearch} = useContext(UserContext)
      const {isShowing, toggle} = useModal();
      const [modalState, setModalState] = useState();
 
@@ -38,8 +38,8 @@ function Footer(){
                          <div className="footer-categories-container">
                               <div className="footer-categories">
                                    <p className="footer-title">Services</p>
-                                   <a href="/">Search a City</a>
-                                   <a href="/">Compare Cities</a>
+                                   <a href="#" onClick={() => {window.scrollTo(0,0); setToggleSearch(true)}}>Search a City</a>
+                                   <a href="#" onClick={() => {window.scrollTo(0,0); setToggleSearch(false)}}>Compare Cities</a>
                               </div>
                               <div className="footer-categories">
                                    <p className="footer-title">Company</p>
