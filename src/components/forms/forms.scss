@@ -3,19 +3,20 @@
 .authForm{
     //container for left side of form
     display:flex; 
-    margin: 10%; 
- 
+    margin-top: 19%; 
+    
 
     @media screen and (min-width: 1000px) {
         margin-top:10%;
     }
 
     .form{
-        margin-top: 18vh;
+        width: 100%;
         margin: auto;
 
         .formTitle{
             text-align: center;
+            font-weight: 500;
         }
         
 
@@ -24,27 +25,44 @@
 
             width: 85vw;
             margin: auto;
-            margin-top: 15%;
+            margin-top: 5%;
 
             //styles that apply to all oauth buttons
             .oauthButton{
                 
-                border-radius: 5px; 
+                border-radius: 3px; 
                 display: flex;
                 margin: 1vh 0;
                 height: 7vh;
                 align-items: center;
                 cursor:pointer; 
+                font-size: .9rem;
             }
 
             //styles for each button
 
             .GoogleButton{
+                background-color: #4285F4;
                 border-left: 1px solid #d8d8d8; 
                 border-bottom: 1px solid #d8d8d8;
 
+                .iconContainer{
+                    background: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 1%;
+                    font-weight: 600;
+                    width: 12%;
+                }
+                    img{
+                        width:100%; 
+                    }
+                }
+
                 .GoogleName{
-                    margin-left:4vw;
+                    margin-left:7%;
+                    color:white;
                 }
             }
 
@@ -52,8 +70,12 @@
                 background: #4368B2;
 
                 .iconContainer{
-                    margin-left: 1vw;
-                    margin-top: .5vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 2%;
+                    width: 13%;
+                    margin-left: 1%;
 
                     @media screen and (min-width: 1040px) {
                    
@@ -64,7 +86,7 @@
                 }
 
                 .FacebookName{
-                    margin-left:4vw;
+                    margin-left:5.5%;
                     color:white;
                 }
 
@@ -76,8 +98,16 @@
                 color: white;
 
                 .iconContainer{
-                    margin-top: .5vh;
-                    margin-left: 1vw;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 2%;
+                    width: 13%;
+                    margin-left: 2%;
+
+                    img{
+                        width:100%; 
+                    }
 
                     @media screen and (min-width: 1040px){
                         margin-top: .6vh;
@@ -85,7 +115,8 @@
                     }
                 }
                 .LinkedinName{
-                    margin-left:4vw;
+                    margin-left:3.5%;
+                    color:white;
                 }
             }
 
@@ -150,18 +181,19 @@
                 align-items: center;
                 width:100%;
                 justify-content: center;
+                margin-top:6%;
 
                 //text "or with email"
                 .center{
-                    margin: 0 4vw; 
-                    font-size:.8rem;
+                    margin: 0 2%;
+                    font-size: .8rem;
                 }
 
                 //gray lines
                 .line{
                 height: .5px;
                 border: .4px solid  rgb(201, 201, 201);
-                width: 28%;
+                width: 16%;
                 }
             }//end of centertext
 
@@ -206,10 +238,11 @@
                 }
 
                 .username, .password{
-                    border-radius: 10px;
+                    border-radius: 5px;
                     border: 1px solid rgb(201, 201, 201); 
                     padding: 3.5% 2%; 
                     width:100%;
+                    margin-top:6%;
                 }
 
                 .question div{
@@ -219,14 +252,14 @@
 
                 .formButton{
                     width: 100%;
-                    margin:auto;
+                    /* margin: auto; */
                     border: 1px solid #3999FC;
-                    border-radius:10px; 
+                    border-radius: 4px;
                     background: #3999FC;
-                    color:white; 
+                    color: white;
                     padding: 3% 2%;
-                    margin-top: 3%;        
-                    font-size: 1.2rem;
+                    margin-top: 5%;
+                    font-size: .8rem;
 
                     &:hover{
                         color: #3999FC;
@@ -235,8 +268,9 @@
                 }
 
                 .question{
-                    font-size: .9rem;
+                    font-size: 0.55rem;
                     color: #665858;
+                    margin: 1%;
                     .link-authform{
                         margin: .4vw;
                         text-decoration: none;
@@ -272,7 +306,7 @@
                 
             }
         }
-}
+
 
 
 
