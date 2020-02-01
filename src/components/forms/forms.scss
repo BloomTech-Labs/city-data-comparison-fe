@@ -10,6 +10,11 @@
         margin-top:10%;
     }
 
+    @media screen and (min-height: 640px) {
+        margin-top: 31%; 
+
+    }
+
     .form{
         width: 100%;
         margin: auto;
@@ -245,10 +250,7 @@
                     margin-top:6%;
                 }
 
-                .question div{
-                    display:flex;
-                    align-items: center;
-                }
+                
 
                 .formButton{
                     width: 100%;
@@ -271,13 +273,32 @@
                     font-size: 0.55rem;
                     color: #665858;
                     margin: 1%;
-                    .link-authform{
-                        margin: .4vw;
-                        text-decoration: none;
-                        color: #3999FC;
-                        cursor: pointer;
 
+                    @media screen and (min-width: 360px){
+                        font-size: 0.8rem;
                     }
+
+                    div{
+                        display: flex;
+                        text-align: center;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+
+                    
+                    }
+
+                        .link-authform{
+                            margin: 1%;
+                            text-decoration: none;
+                            color: #3999FC;
+                            cursor: pointer;
+                        }
+                
+                    
+
+
+                    
                 }
             }
 

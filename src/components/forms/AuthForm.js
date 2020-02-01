@@ -27,6 +27,7 @@ import Linkedin from '../../assets/icons/linkedin.svg'
 
 import green_globe from '../../assets/forms/globe_green.svg'
 import green_world from '../../assets/forms/world_map.svg'
+import mobile_blue from '../../assets/forms/best_place.svg'
 
 
 const AuthForm = props => {
@@ -96,8 +97,14 @@ const AuthForm = props => {
                 />
            <div className='authForm'>
 
+
+
                {/*Container for left side of forms */}
                <div className="form">
+
+                   <div className='mobileFormImage'>
+                       <img src={mobile_blue} alt="citrics"/>
+                   </div>
 
                    <h2 className="formTitle">{(props.action === 'Login') ? 'Welcome Back!' : 'Create Your Account'}</h2>
 
