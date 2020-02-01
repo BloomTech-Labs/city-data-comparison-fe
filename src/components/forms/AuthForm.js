@@ -76,7 +76,7 @@ const AuthForm = props => {
                 if (
                     res.data.length > 0
                     ){
-                        setUser({...user, ...res.data[0]})
+                        setUser({...user, userimage: res.data[0].userimage})
                     }
                     props.history.push('/')
                     // window.location.reload()
