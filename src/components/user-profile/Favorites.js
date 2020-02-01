@@ -5,7 +5,7 @@ import GeneralStats from "../graphs/GeneralStats";
 
 const Favorites = ()=> {
 
-    const { user, setUser } = useContext(UserContext);
+    const { user, setUser, axiosAuth } = useContext(UserContext);
     //state for saved cities for specific user
     const [savedCitiesId, setSavedCitiesId] = useState();
     const [savedCities, setSavedCities] = useState([]);
@@ -14,7 +14,7 @@ const Favorites = ()=> {
 
         //Users saved cities axios call
         useEffect(() => {
-            axios
+            axiosAuth()
                 .get(`https://citrics-staging.herokuapp.com/api/users/favs/${user.id}`)
                 .then(res => {
                     console.log('Response to get users saved cities urls', res.data)
@@ -43,7 +43,7 @@ const Favorites = ()=> {
     //delete saved city handler
     const handleDelete = id => {
         // id.preventDefault();
-        axios
+        axiosAuth()
             .delete(`https://citrics-staging.herokuapp.com/api/users/favs`, id)
             .then(res => {
                 console.log(res);

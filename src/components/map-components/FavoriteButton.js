@@ -11,7 +11,7 @@ import Axios from 'axios'
 
 const FavoriteButton = ({city}) => {
 
-    const { favorites, setFavorites, user } = useContext(UserContext)
+    const { favorites, setFavorites, user, axiosAuth } = useContext(UserContext)
 
     const [hover, setHover] = useState(false)
     const [saving, setSaving] = useState(false)
@@ -27,7 +27,7 @@ const FavoriteButton = ({city}) => {
     
     useEffect(() => {
         if (id) {
-        Axios
+        axiosAuth()
             .get(`https://citrics-staging.herokuapp.com/api/users/favs/${id}`)
             .then(response => {
                 console.log(response)
@@ -54,7 +54,7 @@ const FavoriteButton = ({city}) => {
     const saveToFavorites = city => {
         if (!id) return;
         let cityReq = {city_id: city._id};
-        Axios
+        axiosAuth()
             .post(`https://citrics-staging.herokuapp.com/api/users/favs/${id}`, cityReq)
             .then(response => {
                 
@@ -70,7 +70,7 @@ const FavoriteButton = ({city}) => {
         if (!id) return;
         let cityReq = {city_id: city._id}
         console.log(cityReq)
-        Axios
+        axiosAuth()
             .delete(`https://citrics-staging.herokuapp.com/api/users/favs/${id}`, { data: cityReq})
             .then(response => {
                 console.log(response)
