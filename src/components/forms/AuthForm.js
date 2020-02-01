@@ -56,7 +56,7 @@ const AuthForm = props => {
     }
 
     const onSubmit = e => {
-        console.log('user', login)
+
     
         axios
         .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action.toLowerCase()}`, login)
@@ -65,7 +65,7 @@ const AuthForm = props => {
             
             
             localStorage.setItem('jwt', res.data.token)
-            console.log(user, "USERER")
+
             
             //redirect user to home
             return res.data.user}).then(user => {
