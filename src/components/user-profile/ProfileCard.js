@@ -133,8 +133,11 @@ const ProfileCard = (props)=> {
                                      setUser({...user, userimage : image})
                                      
                                 })
+                                .catch(err=> console.log(err))
                         })
+                        .catch(err=> console.log(err))
                 })
+                .catch(err=> console.log(err))
 
         } else {
 
@@ -145,8 +148,9 @@ const ProfileCard = (props)=> {
                 .then(res => {
                     const image = res.data[0].userimage
                     setUserImage({...userImage, usersimage: image})
+                })
+                .catch(err=> console.log(err))
             })
-        })
             .catch(err => {
                 console.log('Unable to upload', err)
             })

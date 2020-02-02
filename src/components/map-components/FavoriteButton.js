@@ -69,6 +69,7 @@ const FavoriteButton = ({city}) => {
             .then(response => {
                 setFavorites(favorites.filter(item =>  item !== city._id))
             })
+            .catch(err => console.log(err))
     }
 
 

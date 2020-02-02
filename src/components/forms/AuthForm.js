@@ -79,6 +79,7 @@ const AuthForm = props => {
                     props.history.push('/')
                     // window.location.reload()
                 })
+                .catch(err => console.log(err))
                 
          })
         .catch(error => {

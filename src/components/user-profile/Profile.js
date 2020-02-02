@@ -1,7 +1,5 @@
-import React, {useState, useEffect, useContext} from 'react';
-import {NavLink, Route}  from "react-router-dom";
-import axios from 'axios';
-import { CityContext } from "../../contexts/CityContext"
+import React, { useContext } from 'react';
+import { Route }  from "react-router-dom";
 
 import './profile.scss'
 
@@ -13,8 +11,6 @@ import ProfileCard from './ProfileCard'
 import SideNav from './SideNav'
 
 function Profile({selected}) {
-    //state for logged in user
-    const {user, setUser} = useContext(CityContext);
 
     return (
         <div className='profile-body'>
