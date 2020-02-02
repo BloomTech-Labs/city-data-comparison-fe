@@ -30,7 +30,7 @@ import "../../App.scss"
 function Dashboard({history}){
 
      AOS.init()
-     const { user, setUser, toggleSearch, setToggleSearch} = useContext(UserContext);
+     const { user, setUser, toggleSearch, setToggleSearch, axiosAuth} = useContext(UserContext);
      const { cityMarkers, selected, setSelected, cityIndex, viewport, setViewport, getCity, getCities, getBestSuggestion, getBestSuggestions } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
      const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
@@ -39,7 +39,7 @@ function Dashboard({history}){
        useEffect(_ => {
           console.log(user, "user in dashboard useeffect")
           if(user){
-          Axios
+          axiosAuth()
           .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
           .then(res => {
                
@@ -49,7 +49,8 @@ function Dashboard({history}){
                setUser({...user, userimage: image.userimage})
                }
 
-          })}
+          }).catch(err => console.log(err))
+     }
           },[])
       
    useEffect( _ => {

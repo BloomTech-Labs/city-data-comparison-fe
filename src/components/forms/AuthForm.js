@@ -44,7 +44,7 @@ const AuthForm = props => {
    //const [isLoading, setIsLoading] = useState(false)
    const [validated, setValidated] = useState(false)
    
-   const {user, setUser} = useContext(UserContext)
+   const {user, setUser, axiosAuth} = useContext(UserContext)
 
    const [login, setLogin] = useState({username: '', password: ''})
     const [errorMsg, setErrorMsg] = useState("");    
@@ -68,7 +68,7 @@ const AuthForm = props => {
             
             //redirect user to home
             return res.data.user}).then(user => {
-            axios
+            axiosAuth()
             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
             .then(res => {
                 console.log(res, "LOLG")
@@ -132,7 +132,7 @@ const AuthForm = props => {
                             className="username" 
                             type='text' name='username' 
                             placeholder='username' 
-                            value={login.username} 
+                            // value={login.username} 
                             onChange={onChange}
                             ref={register({
                                 required:true, 
@@ -148,7 +148,7 @@ const AuthForm = props => {
                             type='password'
                             name='password'
                             placeholder="Password"
-                            value={login.password}
+                            // value={login.password}
                             ref={register({
                                 required: true, 
                                 minLength : {

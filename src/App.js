@@ -17,6 +17,7 @@ import { CityContext } from './contexts/CityContext';
 import Axios from "axios"
 import Callback from './components/Callback';
 import AuthForm from './components/forms/AuthForm';
+import axiosAuth from "./components/axiosAuth"
 
 
 function initializeAnalytics() {
@@ -247,7 +248,7 @@ cityIndex.sort(compare);
 
   return (
     <Router>
-      <UserContext.Provider value={{user, setUserValue, setUser, favorites, setFavorites, toggleSearch, setToggleSearch}}>
+      <UserContext.Provider value={{axiosAuth, user, setUserValue, setUser, favorites, setFavorites, toggleSearch, setToggleSearch}}>
         <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, getBestSuggestions}}>
           <div className="App">
             <Navigation />
