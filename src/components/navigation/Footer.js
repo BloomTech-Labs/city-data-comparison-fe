@@ -10,7 +10,7 @@ import {UserContext} from "../../contexts/UserContext";
 
 function Footer(){
 
-     const {user} = useContext(UserContext)
+     const {user, setToggleSearch} = useContext(UserContext)
      const {isShowing, toggle} = useModal();
      const [modalState, setModalState] = useState();
 
@@ -38,8 +38,8 @@ function Footer(){
                          <div className="footer-categories-container">
                               <div className="footer-categories">
                                    <p className="footer-title">Services</p>
-                                   <a href="/">Search a City</a>
-                                   <a href="/">Compare Cities</a>
+                                   <Link to="/" onClick={() => {window.scrollTo(0,0); setToggleSearch(true)}}>Search a City</Link>
+                                   <Link to="/" onClick={() => {window.scrollTo(0,0); setToggleSearch(false)}}>Compare Cities</Link>
                               </div>
                               <div className="footer-categories">
                                    <p className="footer-title">Company</p>
@@ -50,7 +50,7 @@ function Footer(){
                               <div className="footer-categories">
                                    <p href="#" className="footer-title">Resources</p>
                                    <a href="https://api.citrics.io/docs">Data Sources</a>
-                                   <a href="#" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}>Private Policy</a>
+                                   <a href="#" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}>Privacy Policy</a>
                                    <a href="#" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}> Terms of Use</a>
                               </div>
                          </div>

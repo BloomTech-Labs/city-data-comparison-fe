@@ -47,7 +47,7 @@ const AuthForm = props => {
    const {user, setUser} = useContext(UserContext)
 
    const [login, setLogin] = useState({username: '', password: ''})
-            
+    const [errorMsg, setErrorMsg] = useState("");    
 
 
     const onChange = e => {
@@ -56,7 +56,6 @@ const AuthForm = props => {
     }
 
     const onSubmit = e => {
-
     
         axios
         .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action.toLowerCase()}`, login)
@@ -83,7 +82,15 @@ const AuthForm = props => {
                 })
                 
          })
-        .catch(error => console.log(error)) 
+        .catch(error => {
+            if (error.response.status === 500) {
+            setErrorMsg("That user already exists.");
+
+          } else if (error.response.status === 401) {
+              setErrorMsg("Username or password is invalid")
+          } 
+          else {console.log(error)}
+        }) 
         
 }
 
@@ -135,7 +142,7 @@ const AuthForm = props => {
 
                         
                        {errors.password && errors.password.type === 'required' && <p className='formError'>Your password is required</p>}
-                       {errors.password && errors.password.type === 'minLength' && <p className='formError'>Passwords must be at least 8</p>}
+                       {errors.password && errors.password.type === 'minLength' && <p className='formError'>Passwords must be at least 8 characters long</p>}
                        <input 
                             className="password"
                             type='password'
@@ -160,7 +167,7 @@ const AuthForm = props => {
                             <div className="pp">
                                 
                                 <input className="checkbox" type="checkbox" name="pp" ref={register({required: true})}></input>
-                                <p>
+                                <p className="accept-text">
                                     Please accept our 
                                     <span className="ppText" style={{'margin' : '2vw'}} onClick={() => (setModalState(<PrivacyPolicy register={props.register}/>), toggle())} style={{cursor: "pointer"}}> 
                                         privacy policy
@@ -169,7 +176,7 @@ const AuthForm = props => {
                             </div> 
                         : <div></div>
                         }
-
+                        {errorMsg ? <p className="form-error">{errorMsg}</p> : null}
                         {/* <input type="submit"/> */}
                        <input className={`formButton ${props.action}Button`} value="Start Exploring Cities" type="submit"/>
 
@@ -182,6 +189,7 @@ const AuthForm = props => {
                             }
                         </div>
                    </form>
+                   
                    </div>
                </div>
                 

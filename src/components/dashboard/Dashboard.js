@@ -30,7 +30,7 @@ import "../../App.scss"
 function Dashboard({history}){
 
      AOS.init()
-     const { user, setUser} = useContext(UserContext);
+     const { user, setUser, toggleSearch, setToggleSearch} = useContext(UserContext);
      const { cityMarkers, selected, setSelected, cityIndex, viewport, setViewport, getCity, getCities, getBestSuggestion, getBestSuggestions } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
      const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
@@ -189,7 +189,7 @@ function Dashboard({history}){
      
      //* TOGGLING BUTTONS */
      const [buttonClass, setButtonClass] = useState("")
-     const [toggleSearch, setToggleSearch] = useState(true)
+     // const [toggleSearch, setToggleSearch] = useState(true)
 
      const toggleClass = () => {
           if(buttonClass === "search-toggle-green"){
