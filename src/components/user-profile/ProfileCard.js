@@ -102,7 +102,7 @@ const ProfileCard = (props)=> {
             .put(`https://citrics-staging.herokuapp.com/api/users/${id}/profile`, userPost)
             .then(res => {
                 
-                setUser({...user, ...userInfo})
+                setUser({...user, ...userPost})
                 
             })
             .catch(err => {
