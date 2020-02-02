@@ -29,10 +29,9 @@ import Google from '../../assets/icons/google.svg'
 import Facebook from '../../assets/icons/white-facebook.svg'
 import Linkedin from '../../assets/icons/linkedin.svg'
 
-import green_globe from '../../assets/forms/globe_green.svg'
-import green_world from '../../assets/forms/world_map.svg'
+import signin_photo from '../../assets/forms/world_map.svg'
 import mobile_blue from '../../assets/forms/best_place.svg'
-
+import signup_photo from '../../assets/forms/destinations.svg'
 //styled icons
 const Username_icon = styled(User)`
     color: #d6d6d6;
@@ -105,7 +104,7 @@ const AuthForm = props => {
                     hide={toggle}
                     component={modalState}
                 />
-           <div className='authForm'>
+           <div className={ (props.action === 'Register') ? 'authForm signinForm' :'authForm signupForm'}>
 
 
 
@@ -212,7 +211,7 @@ const AuthForm = props => {
                 
                 {/*Container for photo to be displayed right of form */}
                <div className={`authFormPhoto ${props.action}Photo`}>
-                   <img className="loginPhoto" src={(props.action === 'Register') ? green_globe : green_world} alt={`{props.action} photo`}/>
+                   <img className="loginPhoto" src={(props.action === 'Register') ? signup_photo: signin_photo} alt={`{props.action} photo`}/>
                </div>
 
            </div>
