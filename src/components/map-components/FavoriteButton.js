@@ -30,10 +30,8 @@ const FavoriteButton = ({city}) => {
         axiosAuth()
             .get(`https://citrics-staging.herokuapp.com/api/users/favs/${id}`)
             .then(response => {
-                console.log(response)
                 response.data.forEach(cityid => {favcities.push(cityid.city_id)
                 setFavorites([...favorites, ...favcities])})
-                console.log(favorites)
             })
             .catch(error => console.log(error))
         }
@@ -57,10 +55,7 @@ const FavoriteButton = ({city}) => {
         axiosAuth()
             .post(`https://citrics-staging.herokuapp.com/api/users/favs/${id}`, cityReq)
             .then(response => {
-                
-                console.log(response)
                 setFavorites([...favorites, (city._id)])
-                console.log(favorites)
                 setSaving(false)
             })
             .catch(error => console.log(error))
@@ -69,11 +64,9 @@ const FavoriteButton = ({city}) => {
     const removeFromFavorites = city => {
         if (!id) return;
         let cityReq = {city_id: city._id}
-        console.log(cityReq)
         axiosAuth()
             .delete(`https://citrics-staging.herokuapp.com/api/users/favs/${id}`, { data: cityReq})
             .then(response => {
-                console.log(response)
                 setFavorites(favorites.filter(item =>  item !== city._id))
             })
     }

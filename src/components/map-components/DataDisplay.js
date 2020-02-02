@@ -48,20 +48,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     var isScrolledToFooter = _ => 
         window.pageYOffset > document.body.scrollHeight - window.innerHeight - 300;
    
-
-
     const scrollAnchor = _ => {
-
- 
-        // console.log("sticky", sticky)
-        // console.log("y offset" , window.pageYOffset)
-        // console.log("Is scrolled to footer",isScrolledToFooter())
-
 
         if (window.pageYOffset > sticky && !isScrolledToFooter()) {
             stickynav.classList.add("sticky");
             autofillContainer.classList.add("abso-width")
-
 
         } else {
             stickynav.classList.remove("sticky");
@@ -74,8 +65,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
             stickynav.classList.remove("nav-bottom-anchor")
         }
     }
-
-    
 
     const toggleMenu = () => {
         if (menu.status === 'closed') {

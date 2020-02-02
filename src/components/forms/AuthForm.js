@@ -71,7 +71,6 @@ const AuthForm = props => {
             axiosAuth()
             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
             .then(res => {
-                console.log(res, "LOLG")
                 if (
                     res.data.length > 0
                     ){

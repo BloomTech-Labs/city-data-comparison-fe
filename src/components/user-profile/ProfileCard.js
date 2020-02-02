@@ -25,11 +25,6 @@ const ProfileCard = (props)=> {
         state: userInfo.state
     }
 
-    console.log(userPost)
-
-
-    console.log(userInfo, 'user state')
-
     const handleChange = e => {
         setUserInfo({
             ...userInfo,
@@ -146,13 +141,10 @@ const ProfileCard = (props)=> {
         axiosAuth()
             .post('https://citrics-staging.herokuapp.com/api/users/', formData)
             .then(res => {
-                console.log('image uploaded', res)
-                console.log(formData)
                 axiosAuth().get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
                 .then(res => {
                     const image = res.data[0].userimage
                     setUserImage({...userImage, usersimage: image})
-                    console.log(image) 
             })
         })
             .catch(err => {

@@ -37,7 +37,6 @@ function App() {
   let cityIndex = []
   
   Object.keys(citiesIndex).forEach(item => {
-      // console.log(citiesIndex[item])
       let city = citiesIndex[item]
       city.name = item
       cityIndex.push(city)
@@ -97,7 +96,6 @@ function App() {
       let newCity = res.data;
       newCity.color = getCityColor();
       setSelected([...selected, newCity])
-      console.log(newCity)
     })
     .catch(err => console.log("getCity error", err))
 }
@@ -117,7 +115,6 @@ const getCities = arr => {
       let newCity = res.data;
       newCity.color = getSecondCityColor(output);
       output.push(newCity);
-      console.log(output);
       setSelected([...selected, ...output])
     }))
     .catch(err => console.log("getCity error", err))

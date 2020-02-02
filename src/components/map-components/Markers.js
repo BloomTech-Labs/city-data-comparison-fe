@@ -17,10 +17,7 @@ const Markers = ({ cityMarkers, setCityMarkers, selected, toggleSelected, cityIn
   })
   const [cursorState, setCursorState] = useState('pointer')
   const getCursorStyle = () =>{
-    // console.log("this is it")
-    // console.log(selected, "selected")
     if(selected.length >2){
-      // console.log("THIS TOOOO")
       setCursorState("not-allowed")
     } else{
       setCursorState("pointer")

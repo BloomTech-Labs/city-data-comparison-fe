@@ -14,13 +14,8 @@ import SideNav from './SideNav'
 
 function Profile({selected}) {
     //state for logged in user
-    
     const {user, setUser} = useContext(CityContext);
-    console.log('Current user state',user)
-    
-    
-    
-    
+
     return (
         <div className='profile-body'>
         <div className='profile-page'>
