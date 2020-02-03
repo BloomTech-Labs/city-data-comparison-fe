@@ -2,6 +2,10 @@ import React, {useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+import styled from 'styled-components'
+import {User} from 'styled-icons/boxicons-regular/User'
+import {LockAlt} from 'styled-icons/boxicons-regular/LockAlt'
+
 //react hook form is used for validation instead of formik
 import { useForm } from 'react-hook-form'
 
@@ -25,10 +29,16 @@ import Google from '../../assets/icons/google.svg'
 import Facebook from '../../assets/icons/white-facebook.svg'
 import Linkedin from '../../assets/icons/linkedin.svg'
 
-import green_globe from '../../assets/forms/globe_green.svg'
-import green_world from '../../assets/forms/world_map.svg'
-
-
+import signin_photo from '../../assets/forms/world_map.svg'
+import mobile_blue from '../../assets/forms/best_place.svg'
+import signup_photo from '../../assets/forms/destinations.svg'
+//styled icons
+const Username_icon = styled(User)`
+    color: #d6d6d6;
+`
+const Lock_icon = styled(LockAlt)`
+    color: #d6d6d6;
+`
 const AuthForm = props => {
 
    //list of companies 
@@ -64,7 +74,7 @@ const AuthForm = props => {
             
             
             localStorage.setItem('jwt', res.data.token)
-
+            console.log(user, "USERER")
             
             //redirect user to home
             return res.data.user}).then(user => {
@@ -103,10 +113,16 @@ const AuthForm = props => {
                     hide={toggle}
                     component={modalState}
                 />
-           <div className='authForm'>
+           <div className={ (props.action === 'Register') ? 'authForm signinForm' :'authForm signupForm'}>
+
+
 
                {/*Container for left side of forms */}
                <div className="form">
+
+                   <div className='mobileFormImage'>
+                       <img src={mobile_blue} alt="citrics"/>
+                   </div>
 
                    <h2 className="formTitle">{(props.action === 'Login') ? 'Welcome Back!' : 'Create Your Account'}</h2>
 
@@ -129,37 +145,45 @@ const AuthForm = props => {
                    <form className="fields" onSubmit={handleSubmit(onSubmit)}>
                    
                         {errors.username && errors.username.type === "required" && <p className='formError'>Your username is required</p>} 
-                   
-                       <input 
-                            className="username" 
-                            type='text' name='username' 
-                            placeholder='username' 
-                            // value={login.username} 
-                            onChange={onChange}
-                            ref={register({
-                                required:true, 
-                               
-                            })}
-                        />
+                        <div className="field">
+                            <div className="fieldIcon"> <Username_icon/> </div>
+                            <input 
+                                    className='username'
+                                    type='text' name='username' 
+                                    placeholder='username' 
+                                    //value={login.username} 
+                                    onChange={onChange}
+                                    ref={register({
+                                        required:true, 
+                                    
+                                    })}
+                                />
+                        </div>
 
                         
                        {errors.password && errors.password.type === 'required' && <p className='formError'>Your password is required</p>}
                        {errors.password && errors.password.type === 'minLength' && <p className='formError'>Passwords must be at least 8 characters long</p>}
-                       <input 
-                            className="password"
-                            type='password'
-                            name='password'
-                            placeholder="Password"
-                            // value={login.password}
-                            ref={register({
-                                required: true, 
-                                minLength : {
-                                    value: 8,
-                                    message: 'password must be at least 8 characters long'
-                                  }
-                                })}
-                            onChange={onChange}
-                        />
+                       
+                       <div className="field">
+                           <div className="fieldIcon">
+                               <Lock_icon/>
+                           </div>
+                        <input 
+                                className="password"
+                                type='password'
+                                name='password'
+                                placeholder="Password"
+                               // value={login.password}
+                                ref={register({
+                                    required: true, 
+                                    minLength : {
+                                        value: 8,
+                                        message: 'password must be at least 8 characters long'
+                                    }
+                                    })}
+                                onChange={onChange}
+                            />
+                        </div>
                        
                        {errors.pp && <p className="formError">Accepting our privacy policy is required</p>}
                        {    
@@ -197,7 +221,7 @@ const AuthForm = props => {
                 
                 {/*Container for photo to be displayed right of form */}
                <div className={`authFormPhoto ${props.action}Photo`}>
-                   <img className="loginPhoto" src={(props.action === 'Register') ? green_globe : green_world} alt={`{props.action} photo`}/>
+                   <img className="loginPhoto" src={(props.action === 'Register') ? signup_photo: signin_photo} alt={`{props.action} photo`}/>
                </div>
 
            </div>
