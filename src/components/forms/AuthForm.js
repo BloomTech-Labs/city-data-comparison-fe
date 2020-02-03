@@ -68,7 +68,7 @@ const AuthForm = props => {
     const onSubmit = e => {
     
         axios
-        .post(`https://citrics-staging.herokuapp.com/api/auth/${props.action.toLowerCase()}`, login)
+        .post(`https://be.citrics.io/api/auth/${props.action.toLowerCase()}`, login)
         .then(res => {
             setUser({...user, ...res.data.user})
             
@@ -79,7 +79,7 @@ const AuthForm = props => {
             //redirect user to home
             return res.data.user}).then(user => {
             axiosAuth()
-            .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
+            .get(`https://be.citrics.io/api/users/profile/${user.id}/image`)
             .then(res => {
                 if (
                     res.data.length > 0
@@ -93,12 +93,14 @@ const AuthForm = props => {
                 
          })
         .catch(error => {
-            if (error.response.status === 500) {
-            setErrorMsg("That user already exists.");
+            if (error.response){
+                if (error.response.status === 500) {
+                setErrorMsg("That user already exists.");
 
-          } else if (error.response.status === 401) {
-              setErrorMsg("Username or password is invalid")
-          } 
+            } else if (error.response.status === 401) {
+                setErrorMsg("Username or password is invalid")
+            } 
+         }
           else {console.log(error)}
         }) 
         

@@ -93,6 +93,8 @@ function App() {
     }
     Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`)
     .then(res => {
+      ReactGA.event({ category: 'Data', 
+      action: `selected ${res.data.name_with_com}` });
       let newCity = res.data;
       newCity.color = getCityColor();
       setSelected([...selected, newCity])
@@ -109,10 +111,14 @@ const getCities = arr => {
     .then(res => {
       let newCity = res.data;
       newCity.color = getCityColor();
+      ReactGA.event({ category: 'Data', 
+      action: `selected ${newCity.name_with_com}` });
       output.push(newCity);
     }).then(res => Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[1].ID}`)
     .then(res => {
       let newCity = res.data;
+      ReactGA.event({ category: 'Data', 
+      action: `selected ${newCity.name_with_com}` });
       newCity.color = getSecondCityColor(output);
       output.push(newCity);
       setSelected([...selected, ...output])
@@ -120,6 +126,8 @@ const getCities = arr => {
     .catch(err => console.log("getCity error", err))
 
     if (typeof arr[0] === "object" && typeof arr[1] === "string") {
+      ReactGA.event({ category: 'Data', 
+      action: `searched for "${arr[1]}"` });
      Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[1]}`)
     .then(res => {
       if (res.data) {
@@ -135,6 +143,8 @@ const getCities = arr => {
     }
 
     if (typeof arr[0] === "string" && typeof arr[1] === "object") {
+      ReactGA.event({ category: 'Data', 
+      action: `searched for "${arr[0]}"` });
       Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[0]}`)
       .then(res => {
         if (res.data) {
@@ -151,6 +161,7 @@ const getCities = arr => {
     
   // if both strings
   if (typeof arr[0] === "string" && typeof arr[1] === "string") {
+    
     getBestSuggestions(arr)
   }
 
@@ -175,6 +186,10 @@ const getBestSuggestion = search => {
 
 const getBestSuggestions = arr => {
   const output = [];
+  ReactGA.event({ category: 'Data', 
+      action: `searched  for "${arr[0]}"` });
+    ReactGA.event({ category: 'Data', 
+      action: `searched for "${arr[1]}"` });
   Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[0]}`)
   .then(res => {
     // if there's a suggestion

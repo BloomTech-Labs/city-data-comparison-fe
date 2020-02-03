@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from "react";
 import Axios from "axios"
 import {CityContext} from "../../contexts/CityContext"
 import recommend from './recommend-pin.svg'
+import ReactGA from "react-ga"
 
 const Recommendations = ({city}) => {
     const {getCity} = useContext(CityContext)
@@ -20,9 +21,7 @@ const Recommendations = ({city}) => {
     };
 
     useEffect( _ => {
-        setHousingRec({city: "", ID: ""});
-        setIndustryRec({city: "", ID: ""});
-        setCultureRec({city: "", ID: ""});
+            {/* on mount, this component selects one recommendation at random for each available category */}
             Axios.get(`${housingURL}${city._id}`)
             .then(res=> {
                 let recName = randomKey(res.data);
@@ -50,9 +49,9 @@ const Recommendations = ({city}) => {
             ?
             <div className="recommendation-container">
                 <div className="recommendation-title">Here are some recommendations based on your search.</div>
-                <div className="recommendation" onClick={_ => getCity(housingRec)}><p className="recommendation-subtitle">Similar housing</p> <br /> <p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{housingRec.city}</p> </div>
-                <div className="recommendation" onClick={_ => getCity(cultureRec)}><p className="recommendation-subtitle">Similar culture</p><br /> <p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{cultureRec.city}</p></div>
-                <div className="recommendation" onClick={_ => getCity(industryRec)}><p className="recommendation-subtitle">Similar industries</p> <br /><p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{industryRec.city}</p></div>
+                <div className="recommendation" onClick={ _ => {ReactGA.event({ category: 'Data', action: `selected housing rec: ${housingRec.city}` }); getCity(housingRec)}}><p className="recommendation-subtitle">Similar housing</p> <br /> <p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{housingRec.city}</p> </div>
+                <div className="recommendation" onClick={ _ => {ReactGA.event({ category: 'Data', action: `selected culture rec: ${cultureRec.city}` }); getCity(cultureRec)}}><p className="recommendation-subtitle">Similar culture</p><br /> <p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{cultureRec.city}</p></div>
+                <div className="recommendation" onClick={ _ => {ReactGA.event({ category: 'Data', action: `selected industry rec: ${industryRec.city}` }); getCity(industryRec)}}><p className="recommendation-subtitle">Similar industries</p> <br /><p className="recommendation-cities"><img alt="pinpoint" src={recommend}/>{industryRec.city}</p></div>
             </div>
             : <div className="recommendation-container">
             <div className="recommendation-title">Here are some recommendations based on your search.</div>

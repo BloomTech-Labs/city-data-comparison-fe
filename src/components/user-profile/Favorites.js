@@ -14,7 +14,7 @@ const Favorites = ()=> {
         //Users saved cities axios call
         useEffect(() => {
             axiosAuth()
-                .get(`https://citrics-staging.herokuapp.com/api/users/favs/${user.id}`)
+                .get(`https://be.citrics.io/api/users/favs/${user.id}`)
                 .then(res => {
                     const favArray = [];
                     res.data.forEach(city => {
@@ -40,7 +40,7 @@ const Favorites = ()=> {
     const handleDelete = id => {
         // id.preventDefault();
         axiosAuth()
-            .delete(`https://citrics-staging.herokuapp.com/api/users/favs`, id)
+            .delete(`https://be.citrics.io/api/users/favs`, id)
             .then(res => {
                 console.log(res);
             })
