@@ -110,6 +110,10 @@
             @media screen and (min-width: 2400px){
                 width: 70%;
             }
+
+            @media screen and (min-width: 2900px){
+                width: 64%; 
+            }
             .oauthButton{
                 
                 border-radius: 3px; 
@@ -126,6 +130,18 @@
 
                 @media screen and (min-width: 1000px){
                     font-size: 1.2rem; 
+                }
+
+                @media screen and (min-height: 1300px){
+                    height: 6vh; 
+                }
+
+                @media screen and (min-height: 1800px){
+                    height: 4vh; 
+                }
+
+                @media screen and (min-height: 1500px){
+                    height: 5vh; 
                 }
 
                 @media screen and (min-width: 2000px){
