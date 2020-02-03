@@ -170,7 +170,7 @@ const team = [
             linkedin: 'umekowalker', 
             email: ''
         }, 
-        about:'Umeko is software engineer who loves to solve problems and bring cool ideas to life. Her favorite languages are Java, Python, and JavaScript. Working on this project, help her to understand the importance of communication, mobile first design, and documentation. She looks forward to working on projects that will help others.', 
+        about:'Umeko is software engineer who loves to solve problems and bring cool ideas to life. Her favorite languages are Java, Python, and JavaScript. Working on this project helped her to understand the importance of communication, mobile first design, and documentation. She looks forward to working on projects that will help others.', 
         portfolio: 'https://umekowalker.me'
     
     }
