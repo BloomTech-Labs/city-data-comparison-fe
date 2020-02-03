@@ -206,8 +206,8 @@
                 width:80%;
             }
 
-            @media screen and (min-width:850px){
-                width: 31%;
+            @media screen and (min-width:840px){
+                width: 45%;
             }
 
             @media screen and (min-width:950px){
@@ -355,7 +355,7 @@
                         // border: 1px solid rgb(201, 201, 201); 
                         padding: 3.5% 2%; 
                         width:100%;
-                        margin-top:6%;
+                        margin-top:1%;
                         border:none;
 
                         &:focus{
@@ -411,12 +411,12 @@
                 }
 
                 .question{
-                    font-size: 0.55rem;
+                    font-size: 66%;
                     color: #665858;
                     margin: 1%;
 
                     @media screen and (min-width: 360px){
-                        font-size: 0.8rem;
+                        font-size: 75%;
                     }
 
                     div{
