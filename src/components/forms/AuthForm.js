@@ -160,7 +160,7 @@ const AuthForm = props => {
 
                         
                        {errors.password && errors.password.type === 'required' && <p className='formError'>Your password is required</p>}
-                       {errors.password && errors.password.type === 'minLength' && <p className='formError'>Passwords must be at least 8</p>}
+                       {errors.password && errors.password.type === 'minLength' && <p className='formError'>Passwords must be at least 8 characters long</p>}
                        
                        <div className="field">
                            <div className="fieldIcon">
