@@ -2,8 +2,6 @@ import React from 'react'
 
 const ExpandIcon = (props) => {
 
-    console.log(props, 'props')
-
     return (
         <div className= {`${props.name} ${props.expand}`} onClick={props.toggle}>
                         <div className="bar1" key="b1" />

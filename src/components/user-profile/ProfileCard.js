@@ -25,11 +25,6 @@ const ProfileCard = (props)=> {
         state: userInfo.state
     }
 
-    console.log(userPost)
-
-
-    console.log(userInfo, 'user state')
-
     const handleChange = e => {
         setUserInfo({
             ...userInfo,
@@ -107,7 +102,7 @@ const ProfileCard = (props)=> {
             .put(`https://citrics-staging.herokuapp.com/api/users/${id}/profile`, userPost)
             .then(res => {
                 
-                setUser({...user, ...userInfo})
+                setUser({...user, ...userPost})
                 
             })
             .catch(err => {
@@ -138,23 +133,24 @@ const ProfileCard = (props)=> {
                                      setUser({...user, userimage : image})
                                      
                                 })
+                                .catch(err=> console.log(err))
                         })
+                        .catch(err=> console.log(err))
                 })
+                .catch(err=> console.log(err))
 
         } else {
 
         axiosAuth()
             .post('https://citrics-staging.herokuapp.com/api/users/', formData)
             .then(res => {
-                console.log('image uploaded', res)
-                console.log(formData)
                 axiosAuth().get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
                 .then(res => {
                     const image = res.data[0].userimage
                     setUserImage({...userImage, usersimage: image})
-                    console.log(image) 
+                })
+                .catch(err=> console.log(err))
             })
-        })
             .catch(err => {
                 console.log('Unable to upload', err)
             })
