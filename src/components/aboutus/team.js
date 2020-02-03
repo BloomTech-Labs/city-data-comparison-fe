@@ -109,7 +109,7 @@ const team = [
             linkedin: 'muamer-kukic-502419130', 
             email: ''
         }, 
-        about:'Muamer Kukic is a software engineer currently living in Las Vegas, Nevada. He inspires to be apart of the next big project that furthers education in growth of individuals and mental health. He is also a big basketball fan so feel free to contact his social media and talk trash about his favorite teams.',
+        about:'Muamer Kukic is a software engineer currently living in Las Vegas, Nevada. He aspires to be apart of the next big project that furthers education in growth of individuals and mental health. He is also a big basketball fan so feel free to contact his social media and talk trash about his favorite teams.',
         portfolio: 'https://kukicako.github.io/portfolio-website/'
     
     }, 
@@ -155,7 +155,7 @@ const team = [
             linkedin: 'daniel-briksza-23a331191/', 
             email: ''
         }, 
-        about:'Daniel is an awesome developer. ', 
+        about:'Daniel is a full-stack web developer at Lambda School. As an outgoing and studious individual, Daniel is a great team player who knows when to take the initiative. Diverse interests ranging from gardening to animation give Daniel a wide range of skills useful in any industry. Daniel is looking to test his skills and abilities in the tech industry, and make the world a better place.', 
         portfolio: 'https://kevinn.net/Portfolio/'
     
     }, 
@@ -170,7 +170,7 @@ const team = [
             linkedin: 'umekowalker', 
             email: ''
         }, 
-        about:'Umeko is an awesome developer', 
+        about:'Umeko is software engineer who loves to solve problems and bring cool ideas to life. Her favorite languages are Java, Python, and JavaScript. Working on this project helped her to understand the importance of communication, mobile first design, and documentation. She looks forward to working on projects that will help others.', 
         portfolio: 'https://umekowalker.me'
     
     }
