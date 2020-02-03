@@ -40,7 +40,8 @@ const Member = props => {
                     </p>
 
                     <div className="member-portfolio" href={props.member.portfolio}>
-                        View {props.member.name}'s Portfolio
+                        {(props.member.name.charAt(props.member.name.length - 1) === 's') ? `View ${props.member.name}' Portfolio` : `View ${props.member.name}'s Portfolio`}
+                        
                     </div>
                 </div>
 
