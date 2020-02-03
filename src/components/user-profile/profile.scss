@@ -330,6 +330,7 @@
 
         img {
             width: 20px;
+            height:20px;
             margin-right: 5px;
         }
 
@@ -475,7 +476,7 @@
 
         button{
             border: none;
-            margin-top: 5px;
+            margin-top: 10px;
             width: 130px;
             border-radius: 5px;
             font-size: 1.1rem;
@@ -500,7 +501,7 @@
     }
         }
         h2 {
-            margin-bottom: 1px;
+            margin: 0;
             @media screen and (max-width:900px){
                 margin-bottom: 5px;
                 margin-top: 1px;

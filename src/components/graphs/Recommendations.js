@@ -28,21 +28,21 @@ const Recommendations = ({city}) => {
                 let recName = randomKey(res.data);
                 
                 setHousingRec({city: recName, ID: res.data[recName].id})
-            })
+            }).catch(err => console.log(err))
             Axios.get(`${cultureURL}${city._id}`)
             .then(res=> {
                 let recName = randomKey(res.data);
                 setCultureRec({city: recName, ID: res.data[recName].id})
-            })
+            }).catch(err => console.log(err))
             Axios.get(`${industryURL}${city._id}`)
             .then(res=> {
                 let recName = randomKey(res.data);
                 setIndustryRec({city: recName, ID: res.data[recName].id})
-            })
+            }).catch(err => console.log(err))
             
         
         
-    },[city])
+    },[])
 
     return (
         <div className="recommendation-grid">

@@ -13,7 +13,7 @@ import {UserContext} from "../../contexts/UserContext"
 const ProfileCard = (props)=> {
 
     //state for logged in user
-    const { user, setUser } = useContext(UserContext)
+    const { user, setUser, axiosAuth } = useContext(UserContext)
     const [userInfo, setUserInfo] = useState(user)
     const [userImage, setUserImage] = useState({usersimage:null, users_id: userInfo.id})
     
@@ -24,11 +24,6 @@ const ProfileCard = (props)=> {
         city: userInfo.city,
         state: userInfo.state
     }
-
-    console.log(userPost)
-
-
-    console.log(userInfo, 'user state')
 
     const handleChange = e => {
         setUserInfo({
@@ -90,7 +85,7 @@ const ProfileCard = (props)=> {
     //User information axios call
     
     useEffect(() => {
-        axios
+        axiosAuth()
             .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
             .then(res => {
                 const image = res.data[0].userimage
@@ -101,31 +96,13 @@ const ProfileCard = (props)=> {
             })
     },[]);
     
-    // useEffect(() => {
-    //     axios
-    //         .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}`)
-    //         .then(res => {
-                
-    //             const information = res.data[0]
-    //             setUserInfo(information)
-    //         })
-    //         .catch(err => {
-    //             console.error('Unable to get user information', err);
-    //         });
-
-    // },[]);
-
-    
-
-   
-
     const updateUser = () => {
         
-        axios
+        axiosAuth()
             .put(`https://citrics-staging.herokuapp.com/api/users/${id}/profile`, userPost)
             .then(res => {
                 
-                setUser(userInfo)
+                setUser({...user, ...userPost})
                 
             })
             .catch(err => {
@@ -142,13 +119,13 @@ const ProfileCard = (props)=> {
         formData.append('users_id', userImage.users_id)
 
         if (user.userimage !== null) {
-            axios
+            axiosAuth()
                 .delete(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
                 .then(res => {
-                    axios
+                    axiosAuth()
                         .post('https://citrics-staging.herokuapp.com/api/users/', formData)
                         .then(res => {
-                            axios
+                            axiosAuth()
                                 .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
                                 .then(res => {
                                     const image = res.data[0].userimage
@@ -156,23 +133,24 @@ const ProfileCard = (props)=> {
                                      setUser({...user, userimage : image})
                                      
                                 })
+                                .catch(err=> console.log(err))
                         })
+                        .catch(err=> console.log(err))
                 })
+                .catch(err=> console.log(err))
 
         } else {
 
-        axios
+        axiosAuth()
             .post('https://citrics-staging.herokuapp.com/api/users/', formData)
             .then(res => {
-                console.log('image uploaded', res)
-                console.log(formData)
-                axios.get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
+                axiosAuth().get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
                 .then(res => {
                     const image = res.data[0].userimage
                     setUserImage({...userImage, usersimage: image})
-                    console.log(image) 
+                })
+                .catch(err=> console.log(err))
             })
-        })
             .catch(err => {
                 console.log('Unable to upload', err)
             })

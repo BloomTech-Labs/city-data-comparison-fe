@@ -4,7 +4,6 @@ import LineGraph from '../graphs/PieGraph'
 import LineGraph2 from '../graphs/TwoGraph'
 import RadarGraph from '../graphs/RadarGraph'
 import ReactGA from "react-ga";
-import Axios from "axios";
 
 import pointer from './assets/pointer.svg'
 import location from './assets/location.svg'
@@ -19,7 +18,6 @@ import driver from "./assets/motorbike_driver.png"
 import frontwheel from "./assets/motorbike_front_wheel.png"
 import plant from "./assets/motorbike_plant.png"
 
-
 import { CityContext } from '../../contexts/CityContext';
 import { UserContext } from "../../contexts/UserContext"
 
@@ -30,16 +28,15 @@ import "../../App.scss"
 function Dashboard({history}){
 
      AOS.init()
-     const { user, setUser} = useContext(UserContext);
-     const { cityMarkers, selected, setSelected, cityIndex, viewport, setViewport, getCity, getCities, getBestSuggestion, getBestSuggestions } = useContext(CityContext)
+     const { user, setUser, toggleSearch, setToggleSearch, axiosAuth} = useContext(UserContext);
+     const { selected, cityIndex, viewport, setViewport, getCity, getCities, getBestSuggestion, getBestSuggestions } = useContext(CityContext)
      // * SEARCH 1 STATE / HANDLECHANGE
      const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
      const [cityTwoSuggestions, setCityTwoSuggestions] = useState([]);
 
        useEffect(_ => {
-          console.log(user, "user in dashboard useeffect")
           if(user){
-          Axios
+          axiosAuth()
           .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
           .then(res => {
                
@@ -49,21 +46,14 @@ function Dashboard({history}){
                setUser({...user, userimage: image.userimage})
                }
 
-          })}
+          }).catch(err => console.log(err))
+     }
           },[])
       
    useEffect( _ => {
           ReactGA.event({ category: 'Selected', 
           action: 'selected a city using dashboard' });
      }, [selected])
-      
-     const selectSearch = async cityMarker =>  {
-          if (selected.find(item => item._id === cityMarker.ID)) {
-              return;
-          } else {
-              getCity(cityMarker);
-          }
-        }
 
      //* COMPARE 2 STATE / HANDLECHANGE */
      const [compare, setCompare] = useState({
@@ -110,7 +100,6 @@ function Dashboard({history}){
                ...compare,
                cityOne:city.name.replace(" city", "")
           })
-          // selectSearch(city);
           setCityOneSuggestions([]);
           setViewport({
               ...viewport,
@@ -123,7 +112,6 @@ function Dashboard({history}){
                ...compare,
                cityTwo:city.name.replace(" city", "")
           })
-          // selectSearch(city);
           setCityTwoSuggestions([]);
           setViewport({
                ...viewport,
@@ -136,7 +124,6 @@ function Dashboard({history}){
      //* SUBMIT SEARCH */
      const submitCity = async (event) => {
           event.preventDefault();
-          console.log("searching", compare)
           // all the below logic should be pulled into app.js and handle things on that end i think
                if (!compare.cityTwo && !compare.cityOne) {
                     history.push("/map")
@@ -189,7 +176,7 @@ function Dashboard({history}){
      
      //* TOGGLING BUTTONS */
      const [buttonClass, setButtonClass] = useState("")
-     const [toggleSearch, setToggleSearch] = useState(true)
+     // const [toggleSearch, setToggleSearch] = useState(true)
 
      const toggleClass = () => {
           if(buttonClass === "search-toggle-green"){
@@ -243,7 +230,7 @@ function Dashboard({history}){
                                                             padding:"10px",
                                                             boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
                                                        }                                                       
-                                                       return <div key={suggestion._id} name="cityOne" style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                       return <div key={suggestion._id} name="cityOne" style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img alt="a pointer" className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
                                                   })}
                                              </div>
                                         </div>
@@ -271,7 +258,7 @@ function Dashboard({history}){
                                                             padding:"10px",
                                                             boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                                        }
-                                                       return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                       return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img alt="a map pin" className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
                                                   })}
                                              </div>
                                         </div>
@@ -291,7 +278,7 @@ function Dashboard({history}){
                                                             padding:"10px",
                                                             boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
                                                        }
-                                                       return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                       return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img alt="a map pin" className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
                                                   })}
                                              </div>
                                         </div>

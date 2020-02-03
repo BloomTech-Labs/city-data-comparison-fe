@@ -17,6 +17,7 @@ import { CityContext } from './contexts/CityContext';
 import Axios from "axios"
 import Callback from './components/Callback';
 import AuthForm from './components/forms/AuthForm';
+import axiosAuth from "./components/axiosAuth"
 
 
 function initializeAnalytics() {
@@ -36,13 +37,12 @@ function App() {
   let cityIndex = []
   
   Object.keys(citiesIndex).forEach(item => {
-      // console.log(citiesIndex[item])
       let city = citiesIndex[item]
       city.name = item
       cityIndex.push(city)
   })
 
-
+  const [toggleSearch, setToggleSearch] = useState(true);
   const [user, setUserValue] = useState(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null);
   const [favorites, setFavorites] = useState([]);
   const [cityMarkers, setCityMarkers] = useState(cityIndex);
@@ -96,7 +96,6 @@ function App() {
       let newCity = res.data;
       newCity.color = getCityColor();
       setSelected([...selected, newCity])
-      console.log(newCity)
     })
     .catch(err => console.log("getCity error", err))
 }
@@ -116,7 +115,6 @@ const getCities = arr => {
       let newCity = res.data;
       newCity.color = getSecondCityColor(output);
       output.push(newCity);
-      console.log(output);
       setSelected([...selected, ...output])
     }))
     .catch(err => console.log("getCity error", err))
@@ -247,7 +245,7 @@ cityIndex.sort(compare);
 
   return (
     <Router>
-      <UserContext.Provider value={{user, setUserValue, setUser, favorites, setFavorites}}>
+      <UserContext.Provider value={{axiosAuth, user, setUserValue, setUser, favorites, setFavorites, toggleSearch, setToggleSearch}}>
         <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, getBestSuggestions}}>
           <div className="App">
             <Navigation />

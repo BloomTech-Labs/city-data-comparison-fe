@@ -39,7 +39,7 @@ function TotalPopulation({ethData}) {
 
         <div className="city-overview-container-small">
             {ethData.map(item => 
-            <div className="city-overview-container-medium">
+            <div key={item._id} className="city-overview-container-medium">
             <div className="city-overview-container"> 
             <div className="city-overview-border">
                 <p>City overview</p>

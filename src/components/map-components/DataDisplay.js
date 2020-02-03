@@ -48,20 +48,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     var isScrolledToFooter = _ => 
         window.pageYOffset > document.body.scrollHeight - window.innerHeight - 300;
    
-
-
     const scrollAnchor = _ => {
-
- 
-        // console.log("sticky", sticky)
-        // console.log("y offset" , window.pageYOffset)
-        // console.log("Is scrolled to footer",isScrolledToFooter())
-
 
         if (window.pageYOffset > sticky && !isScrolledToFooter()) {
             stickynav.classList.add("sticky");
             autofillContainer.classList.add("abso-width")
-
 
         } else {
             stickynav.classList.remove("sticky");
@@ -74,8 +65,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
             stickynav.classList.remove("nav-bottom-anchor")
         }
     }
-
-    
 
     const toggleMenu = () => {
         if (menu.status === 'closed') {
@@ -118,8 +107,22 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             />
                             {selected.length > 0 
                             ? <div className="anchor-nav">
+                                <ul>
+                                    {selected.map(item => 
+                                    <div key={item._id} className={`menu-items ${menu.status}`}>
+                                        <li key={item._id}><span className="color-legend-text"><div className="color-legend" style={{display: "inline-block", background: item.color, height: "1rem", width: "1rem", marginRight: ".5rem"}}></div>{item.name_with_com}</span> 
+                                            <span onClick={ _ => {
+                                                let foundCity = cityIndex.find(indexed => indexed.ID === item._id);
+                                                toggleSelected(foundCity);
+                                                }}>
+                                                <img className="delete-icon" src={deleteIcon} alt="delete icon" />
+                                            </span>
+                                        </li>
+                                    </div>)}
+                                </ul>
                                 {/* <p className="anchor-header">General Statistics</p> */}
                                 <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} offset={-150}>City Overview</Link>
+
                                 <p className="anchor-header">Housing</p>
                                 <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} offset={-150}>Rent</Link>
                                 <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} offset={-150}>Housing Costs</Link>
@@ -151,19 +154,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             : null}
                         </div>
                     </div>
-                    <ul>
-                        {selected.map(item => 
-                        <div key={item._id} className={`menu-items ${menu.status}`}>
-                            <li key={item._id}><span className="color-legend-text"><div className="color-legend" style={{display: "inline-block", background: item.color, height: "1rem", width: "1rem", marginRight: ".5rem"}}></div>{item.name_with_com}</span> 
-                                <span onClick={ _ => {
-                                    let foundCity = cityIndex.find(indexed => indexed.ID === item._id);
-                                    toggleSelected(foundCity);
-                                    }}>
-                                    <img className="delete-icon" src={deleteIcon} alt="delete icon" />
-                                </span>
-                            </li>
-                        </div>)}
-                    </ul>
+
                 </div>    
             </nav>
             </div>

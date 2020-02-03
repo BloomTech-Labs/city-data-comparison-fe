@@ -155,7 +155,7 @@ const team = [
             linkedin: 'daniel-briksza-23a331191/', 
             email: ''
         }, 
-        about:'Daniel is an awesome developer. ', 
+        about:'Daniel is a full-stack web developer at Lambda School. As an outgoing and studious individual, Daniel is a great team player who knows when to take the initiative. Diverse interests ranging from gardening to animation give Daniel a wide range of skills useful in any industry. Daniel is looking to test his skills and abilities in the tech industry, and make the world a better place.', 
         portfolio: 'https://kevinn.net/Portfolio/'
     
     }, 
