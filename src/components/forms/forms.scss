@@ -34,6 +34,18 @@
         display:flex;
     }
 
+    @media screen and (min-height:900px){
+        margin-top:14%;
+    }
+
+    @media screen and (min-width: 2000px){
+        margin-top:10%;
+    }
+
+    @media screen and (min-width: 2150px){
+        margin-top: 6%; 
+    }
+
     
     .mobileFormImage{
         img{
@@ -46,8 +58,9 @@
     }
 
     .form{
-        width: 100%;
         margin: auto;
+        width: 100%;
+        
 
         .formTitle{
             text-align: center;
@@ -62,12 +75,19 @@
         
             }
 
+            @media screen and (min-width: 1000px){
+                font-size: 1.8rem; 
+            }
+
         }
 
         @media screen and (min-width: 780px){
             width:43%;
         }
         
+        @media screen and (min-width: 2350px){
+            width: 30%; 
+        }
 
         //container for oauth buttons
         .auth{ 
@@ -86,6 +106,10 @@
                 margin-top: 2%;
         
             }
+
+            @media screen and (min-width: 2400px){
+                width: 70%;
+            }
             .oauthButton{
                 
                 border-radius: 3px; 
@@ -94,7 +118,19 @@
                 height: 7vh;
                 align-items: center;
                 cursor:pointer; 
-                font-size: .9rem;
+                font-size: 1rem;
+
+                @media screen and (min-width: 700px){
+                    font-size: 1.5rem;
+                }
+
+                @media screen and (min-width: 1000px){
+                    font-size: 1.2rem; 
+                }
+
+                @media screen and (min-width: 2000px){
+                    font-size: 1.8rem; 
+                }
             }
 
             //styles for each button
@@ -112,7 +148,21 @@
                     margin: 1%;
                     font-weight: 600;
                     width: 12%;
+
+                    @media screen and (min-width: 1000px){
+                        width: 11%; 
+                    }
+
+                    @media screen and (min-width: 1400px){
+                        width:9%; 
+                    }
+
+                    @media screen and (min-width: 2150px){
+                        width: 8%; 
+                    }
                 }
+
+
                     img{
                         width:100%; 
                     }
@@ -124,35 +174,40 @@
                 }
             }
 
-            .FacebookButton{
-                background: #4368B2;
+            // .FacebookButton{
+            //     background: #4368B2;
 
-                .iconContainer{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin: 2%;
-                    width: 13%;
-                    margin-left: 1%;
-                    @media screen and (min-width: 400px){
-                        width:11%;
-                    }
+            //     .iconContainer{
+            //         display: flex;
+            //         justify-content: center;
+            //         align-items: center;
+            //         margin: 2%;
+            //         width: 13%;
+            //         margin-left: 1%;
+            //         @media screen and (min-width: 400px){
+            //             width:11%;
+            //         }
 
-                    @media screen and (min-width: 1040px) {
+            //         @media screen and (min-width:1000px){
+            //             width:10%;
+            //         }
+                    
+                    
+            //         @media screen and (min-width: 1040px) {
                    
-                        margin-left: .4vw;
-                        margin-top: .7vh;
+            //             margin-left: .4vw;
+            //             margin-top: .7vh;
                 
-                }
-                }
+            //     }
+            //     }
 
-                .FacebookName{
-                    margin-left:5.5%;
-                    color:white;
-                }
+            //     .FacebookName{
+            //         margin-left:5.5%;
+            //         color:white;
+            //     }
 
                
-            }
+            // }
 
             .LinkedinButton{
                 background: #0077B5;
@@ -172,6 +227,18 @@
                     @media screen and (min-width: 400px){
                         width: 11%;
                     }
+
+                    @media screen and (min-width: 1200px){
+                        width:10%;
+                    }
+
+                    @media screen and (min-width: 1350px){
+                        width:9%;
+                    }
+
+                    @media screen and (min-width: 2150px){
+                        width: 8%; 
+                    }
                     @media screen and (min-width: 1040px){
                         margin-top: .6vh;
                         margin-left: .5vw;
@@ -186,7 +253,7 @@
             //media queries
 
             @media screen and (min-width:400px) {
-                margin-top:0;
+                //margin-top:0;
                 width:80%;
             }
 
@@ -207,19 +274,25 @@
             }
 
             @media screen and (min-width:840px){
-                width: 45%;
+                width: 40%;
+            }
+            @media screen and (min-width:1000px){
+                width: 42%; 
             }
 
-            @media screen and (min-width:950px){
-                width: 29vw;
+            @media screen and (min-width:1200px){
+                width:40%;
             }
 
-            @media screen and (min-width: 1500px){
-                width:40vh;
+            @media screen and (min-width:1500px){
+                width:35%; 
+            }
+            @media screen and (min-width: 1650px){
+               // width:26%;
             }
 
             @media screen and (min-width: 2000px){
-                width: 35vh; 
+                //width: 35vh; 
                 font-size: 1.4rem;
 
                 .GoogleButton{
@@ -261,15 +334,22 @@
                     margin-top: 2%;
                 }
             
+                @media screen and (min-width: 700px){
+                    font-size:1rem; 
+                }
                 //text "or with email"
                 .center{
                     margin: 0 2%;
-                    font-size: .8rem;
+                    font-size: 80%;
 
                     
                     
                     // samsung: 
                     // margin-top: 2%;
+
+                    @media screen and (min-width: 2000px){
+                        font-size: 1.2rem; 
+                    }
                 }
 
                 //gray lines
@@ -290,6 +370,10 @@
                     color: #fc3966;
                     text-align: center;
                     margin: 1%;
+
+                    @media screen and (min-width: 1200px){
+                        font-size: 1.2rem; 
+                    }
                 }
 
                 .pp{
@@ -299,12 +383,28 @@
                     justify-content: center;
                     font-size: .9rem;
                     margin-top:2%;
+
+                    @media screen and (min-width: 700px){
+                        font-size: 1.2rem; 
+                    }
+
+                    @media screen and (min-width: 2000px){
+                        font-size: 1.4rem; 
+                    }
                     p{
                         margin:0;
                         .ppText{
                             margin: 1.5vw;
                             cursor: pointer;
-                            color: #3999fc
+                            color: #3999fc; 
+
+                            @media screen and (min-width: 700px){
+                                margin:1vw; 
+                            }
+
+                            @media screen and (min-width: 1000px){
+                                margin: .5vw; 
+                            }
                         }
 
                     }
@@ -368,6 +468,14 @@
                             margin-top: 1%;
                     
                         }
+
+                        @media screen and (min-width: 700px){
+                            font-size: 1rem;
+                        }
+
+                        @media screen and (min-width: 2000px){
+                            font-size: 1.2rem; 
+                        }
                 }
                 
 
@@ -404,6 +512,10 @@
                 
                     }
 
+                    @media screen and (min-width: 2000px){
+                        font-size:1.4rem; 
+                    }
+
                      // //samsung {
                     //     margin-top: 3%;
                     //     font-size: .9rem;
@@ -411,12 +523,16 @@
                 }
 
                 .question{
-                    font-size: 66%;
+                    font-size: 58%;
                     color: #665858;
                     margin: 1%;
 
                     @media screen and (min-width: 360px){
                         font-size: 75%;
+                    }
+
+                    @media screen and (min-width: 700px){
+                        font-size:100%; 
                     }
 
                     div{
