@@ -211,95 +211,7 @@
 
 
 
-//Styling for burger stack
 
-// .burger-menu.open .bar1 {
-//     -webkit-transform: rotate(-45deg) translate(-4px, 4px);
-//     transform: rotate(-45deg) translate(-4px, 4px);
-// }
-
-// .burger-menu.open .bar2 {
-//     opacity: 0;
-// }
-
-// .burger-menu.open .bar3 {
-//     -webkit-transform: rotate(45deg) translate(-6px, -6px);
-//     transform: rotate(45deg) translate(-6px, -6px);
-// }
-
-// .burger-menu.closed .slide.closed .menu-items.closed {
-//     width: 10px;
-// }
-
-// .burger-menu .bar1,
-// .bar2,
-// .bar3 {
-//     width: 25px;
-//     height: 3px;
-//     background-color:rgb(48, 48, 48);
-//     margin: 4px 0;
-//     transition: 0.5s;
-//     @media only screen and (min-width: 900px) {
-//         display: none;
-//     }
-// }
-
-
-
-
-
-// .side-nav {
-//     margin-top: 130px;
-//     position: fixed;
-//     padding: 10px;
-//     background-color: white;
-//     box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-
-//     .side-nav.closed{
-//         @media only screen and (max-width: 900px) {
-//             -webkit-transform: translate(-100px, 0);
-//             transform: translate(-100px, 0);
-//             transition: .0s;
-//         }
-//     }
-    
-//     .side-nav.open{
-//         @media only screen and (max-width: 900px) {
-//            transition: .5s;
-//            -webkit-transform: translate(0, 0);
-//            transform: translate(0, 0);
-//         }
-//     }
-    
-    
-    
-//     .nav-items {
-//         display: flex;
-//         flex-direction: column;
-
-        
-
-//         img {
-//             width: 20px;
-//             height:20px;
-//             margin-right: 5px;
-//         }
-
-//         a {
-//             display: flex;
-//             margin:10px auto;
-//             text-decoration: none;
-//             color: #84868C;
-//             font-size: 18px;
-//             text-align: center;
-            
-//         }
-//         .selected {
-//             color: #5E6066;
-//             font-weight: 500;
-//         }
-//     }
-// }
 
 
 
@@ -717,4 +629,94 @@
 
 // .housing-pref.closed, .econ-contents.closed, .social-contents.closed {
 //     display: none;
+// }
+
+//Styling for burger stack on profile page. Ended up removing side nav
+
+// .burger-menu.open .bar1 {
+//     -webkit-transform: rotate(-45deg) translate(-4px, 4px);
+//     transform: rotate(-45deg) translate(-4px, 4px);
+// }
+
+// .burger-menu.open .bar2 {
+//     opacity: 0;
+// }
+
+// .burger-menu.open .bar3 {
+//     -webkit-transform: rotate(45deg) translate(-6px, -6px);
+//     transform: rotate(45deg) translate(-6px, -6px);
+// }
+
+// .burger-menu.closed .slide.closed .menu-items.closed {
+//     width: 10px;
+// }
+
+// .burger-menu .bar1,
+// .bar2,
+// .bar3 {
+//     width: 25px;
+//     height: 3px;
+//     background-color:rgb(48, 48, 48);
+//     margin: 4px 0;
+//     transition: 0.5s;
+//     @media only screen and (min-width: 900px) {
+//         display: none;
+//     }
+// }
+
+
+
+
+
+// .side-nav {
+//     margin-top: 130px;
+//     position: fixed;
+//     padding: 10px;
+//     background-color: white;
+//     box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+
+//     .side-nav.closed{
+//         @media only screen and (max-width: 900px) {
+//             -webkit-transform: translate(-100px, 0);
+//             transform: translate(-100px, 0);
+//             transition: .0s;
+//         }
+//     }
+    
+//     .side-nav.open{
+//         @media only screen and (max-width: 900px) {
+//            transition: .5s;
+//            -webkit-transform: translate(0, 0);
+//            transform: translate(0, 0);
+//         }
+//     }
+    
+    
+    
+//     .nav-items {
+//         display: flex;
+//         flex-direction: column;
+
+        
+
+//         img {
+//             width: 20px;
+//             height:20px;
+//             margin-right: 5px;
+//         }
+
+//         a {
+//             display: flex;
+//             margin:10px auto;
+//             text-decoration: none;
+//             color: #84868C;
+//             font-size: 18px;
+//             text-align: center;
+            
+//         }
+//         .selected {
+//             color: #5E6066;
+//             font-weight: 500;
+//         }
+//     }
 // }
