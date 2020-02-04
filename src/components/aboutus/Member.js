@@ -1,14 +1,13 @@
-import React, {useState} from 'react'; 
+//this component is used to render information for each team member in AboutUs.js
 
-import './aboutus.scss'
+import React from 'react'; 
 
-//icons
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { faGithubSquare, faTwitterSquare, faLinkedin} from '@fortawesome/free-brands-svg-icons'; 
 
-import ReactMapGL from 'react-map-gl'
-
+//stylesheet
+import './aboutus.scss'
 
 const Member = props => {
     
