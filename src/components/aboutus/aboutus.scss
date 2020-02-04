@@ -1,3 +1,6 @@
+//mobile first 
+
+
 .aboutUs{
     display:flex; 
     align-items: center;
@@ -182,26 +185,13 @@
                     cursor: pointer;
                     margin:auto;
     
-                        // &:hover{
-                        //     color: white; 
-                        //     background: #3999fc; 
-                        //     box-shadow:0px 10px 10px rgba(0,0,0,0.2);
+                    &:hover{
+                        color: white; 
+                        background: #3999fc; 
                             
-                        // }
+                            
+                    }
                     
-                        // &:active{
-                        //     box-shadow:0px 5px 10px rgba(0,0,0,0.2);
-                        //     transform:translateY(-1px);
-                        // }
-                    
-                        // &::after{
-                        //     transition: all .5s;
-                        // }
-                    
-                        // &:hover::after {
-                        //     transform: scaleX(1.4) scaleY(1.6);
-                        //     opacity: 0;
-                              // }
                     @media screen and (min-width: 325px){
                         width: 80%; 
                     }

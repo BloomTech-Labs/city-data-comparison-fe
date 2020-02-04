@@ -358,11 +358,6 @@
                     margin: 0 2%;
                     font-size: 80%;
 
-                    
-                    
-                    // samsung: 
-                    // margin-top: 2%;
-
                     @media screen and (min-width: 2000px){
                         font-size: 1.2rem; 
                     }
@@ -426,21 +421,7 @@
                     }
                   }
 
-                // @media screen and (min-width:600px){
-                //     width:;
-                // }
-
-                // @media screen and (min-width:850px){
-                //     width:49vw;
-                // }
-
-                // @media screen and (min-width:950px){
-                //     width:40vw;
-                // }
-
-                // @media screen and (min-width:1500px){
-                //     width:30vw;
-                // }
+                
                 .field{
 
                     display: flex;
@@ -467,8 +448,6 @@
                         }
                     }
                     .username, .password{
-                        // border-radius: 5px;
-                        // border: 1px solid rgb(201, 201, 201); 
                         padding: 3.5% 2%; 
                         width:100%;
                         margin-top:1%;
@@ -493,12 +472,6 @@
                             font-size: 1.2rem; 
                         }
                 }
-                
-
-                    // samsung: 
-                    // padding: 2.5% 2%;
-                    // width: 100%;
-                    // margin-top: 2%;
                    
                 }
                 .form-error {
@@ -534,10 +507,6 @@
                         font-size:1.4rem; 
                     }
 
-                     // //samsung {
-                    //     margin-top: 3%;
-                    //     font-size: .9rem;
-                    // //}
                 }
 
                 .question{
@@ -569,10 +538,6 @@
                             color: #3999FC;
                             cursor: pointer;
                         }
-                
-                    
-
-
                     
                 }
             }
@@ -595,10 +560,6 @@
             @media screen and (min-width:780px){
                 display:block;
                 
-                img{
-                    // margin-top: 12vh;
-                    // margin-left: 5vw;
-                }
                 
             }
         }
