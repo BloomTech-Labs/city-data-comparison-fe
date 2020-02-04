@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Route, BrowserRouter as Router} from "react-router-dom";
 import ReactGA from "react-ga";
+import PrivateRoute from "./components/PrivateRoute"
 
 import './App.scss';
 
@@ -54,6 +55,7 @@ function App() {
     latitude: 38.55,
     zoom: 3.55,
     minZoom: 3.5,
+    maxZoom: 10,
     trackResize: true,
 
 
@@ -252,7 +254,7 @@ cityIndex.sort(compare);
     const filters = [f1,f2,f3,f4]
 
     setCityMarkers(recursive_filter(cityIndex, filters).slice(0,30))
-
+    console.log(viewport.zoom)
     // let selectedCityMarkers = selected.map(item => cityIndex.find(city => city.ID === item.id))
     // setCityMarkers([...cityMarkers, ...selectedCityMarkers])
 
@@ -267,7 +269,7 @@ cityIndex.sort(compare);
             <Route exact path='/' component={Dashboard} />
             <Route exact path='/' component={Footer} />
             <Route path="/map" component={Map} />
-            <Route path='/profile' component={Profile} />
+            <PrivateRoute path='/profile' component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/aboutus" component={AboutUs} />
 

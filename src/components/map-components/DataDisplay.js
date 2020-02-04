@@ -39,16 +39,17 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     var stickynav = document.getElementById("stickynav");
     var autofillContainer = document.getElementsByClassName("autofill-container")[0]
     var placeholder = document.getElementsByClassName("nav-placeholder")[0]
-    if (stickynav) {
-        // This line handles the offset from the main nav bar - If we unfix the main nav bar
-        // (i believe we will) - the subtraction will be unnecessary.
-        var sticky = placeholder.offsetTop - 105;
-    }
+    
 
     var isScrolledToFooter = _ => 
         window.pageYOffset > document.body.scrollHeight - window.innerHeight - 300;
    
     const scrollAnchor = _ => {
+        if (stickynav) {
+            // This line handles the offset from the main nav bar
+
+            var sticky = placeholder.offsetTop - 105;
+        }
 
         if (window.pageYOffset > sticky && !isScrolledToFooter()) {
             stickynav.classList.add("sticky");
@@ -139,7 +140,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("unemploymentRate")} activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} offset={-150}>Unemployment Rate</Link>
                                 <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} offset={-150}>Health Insurance</Link>
                                 <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} offset={-150}>Retirement</Link>
-                                <Link onClick={() => dataNavClicked("transportation")} activeClass="active" className="anchor-link" to="transportation" spy={true} smooth={true} duration={500} offset={-150}>Transportaion</Link>
                                 
 
                                 <p className="anchor-header">Culture</p>

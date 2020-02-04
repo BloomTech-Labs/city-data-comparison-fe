@@ -78,9 +78,11 @@ function TotalPopulation({ethData}) {
                 </div>
             </div>
             </div>
-            <div>
+                {/* we don't want recommendations on the profile list of favorites */}
+                {window.location.href.includes("profile") ? <div style={{marginTop: "1%"}} /> : 
+                <div>
                     <Recommendations city={item}/>
-                </div>
+                </div>}
             </div>
             )}
             
