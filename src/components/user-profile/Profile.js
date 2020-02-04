@@ -15,13 +15,17 @@ function Profile({selected}) {
     return (
         <div className='profile-body'>
         <div className='profile-page'>
-            <SideNav />
+            
+            {/* Decided against using a side nav, everything is shown on profile now */}
+            {/* <SideNav /> */}
             <div className='profile-slides'>
-            <Route path='/profile/' render={_ => <ProfileCard selected={selected} />} />
+            {/* <Route path='/profile/' render={_ => <ProfileCard selected={selected} />} />
             <Route path='/profile/favorites' render={_ => <Favorites selected={selected} />} />
             <Route path='/profile/preferences' render={_ => <Preferences selected={selected} />} />
-            <Route path='/profile/settings' render={_ => <Settings selected={selected} />} />
             
+            <Route path='/profile/settings' render={_ => <Settings selected={selected} />} /> */}
+            <ProfileCard />
+            <Favorites />
             </div>  
         </div>
         <Footer />

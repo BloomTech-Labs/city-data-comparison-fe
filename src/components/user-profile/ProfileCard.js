@@ -15,14 +15,15 @@ const ProfileCard = (props)=> {
     //state for logged in user
     const { user, setUser, axiosAuth } = useContext(UserContext)
     const [userInfo, setUserInfo] = useState(user)
-    const [userImage, setUserImage] = useState({usersimage:null, users_id: userInfo.id})
+    const [userImage, setUserImage] = useState({userimage:null, users_id: userInfo.id})
     
     const userPost = {
         first_name: userInfo.first_name,
         last_name: userInfo.last_name,
         email: userInfo.email,
         city: userInfo.city,
-        state: userInfo.state
+        state: userInfo.state,
+        username: userInfo.username
     }
 
     const handleChange = e => {
@@ -89,7 +90,7 @@ const ProfileCard = (props)=> {
             .get(`https://be.citrics.io/api/users/profile/${id}/image`)
             .then(res => {
                 const image = res.data[0].userimage
-                setUserImage({...userImage, usersimage: image})
+                setUserImage({...userImage, userimage: image})
             })
             .catch(err => {
                 console.log('Unable to get image', err)
@@ -129,7 +130,7 @@ const ProfileCard = (props)=> {
                                 .get(`https://be.citrics.io/api/users/profile/${id}/image`)
                                 .then(res => {
                                     const image = res.data[0].userimage
-                                     setUserImage({...userImage, usersimage: image})
+                                     setUserImage({...userImage, userimage: image})
                                      setUser({...user, userimage : image})
                                      
                                 })
@@ -147,7 +148,7 @@ const ProfileCard = (props)=> {
                 axiosAuth().get(`https://be.citrics.io/api/users/profile/${id}/image`)
                 .then(res => {
                     const image = res.data[0].userimage
-                    setUserImage({...userImage, usersimage: image})
+                    setUserImage({...userImage, userimage: image})
                 })
                 .catch(err=> console.log(err))
             })
@@ -167,7 +168,7 @@ const ProfileCard = (props)=> {
         <div className='profile-container'>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
-                    <img src={userImage.usersimage === null ? `${ProfileImage}` : `https://be.citrics.io/${userImage.usersimage}`} />
+                    <img src={userImage.userimage === null ? `${ProfileImage}` : `https://be.citrics.io/${userImage.userimage}`} />
                     <form className={`edit-image ${imageUpload.status}`} action='/uploads' enctype="multipart/form-data" onSubmit={onSubmit}>
                         <input 
                         className='image-input'
@@ -181,6 +182,19 @@ const ProfileCard = (props)=> {
                 </div>
                 <div className= ' info'>
                 <div className='name-tab'>
+                    {/* <p>Username</p>
+                    <h2 className={`user-name ${nameEdit.status}`}>{userInfo.username}</h2>
+                    <form className={`edit-name ${nameEdit.status}`} onSubmit={updateUser}>
+                        <input
+                            onChange={handleChange}
+                            className='edit-first-name'
+                            name='username'
+                            type='username'
+                            value={userInfo.username}
+                            placeholder='Username'
+                        />
+                    </form> */}
+
                     <p>Name</p>
                     <h2 className={`user-name ${nameEdit.status}`}>{userInfo.first_name} {userInfo.last_name}</h2>
                     {/* Added function where onSubmit is to make the update user so that it does not execute everytime when the page loads */}
