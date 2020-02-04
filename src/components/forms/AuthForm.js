@@ -1,37 +1,39 @@
+//component used for signup and login forms because there were a lot of similarites between the two. 
+//Most elements are conditionally rendered
+
 import React, {useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
+import {UserContext} from "../../contexts/UserContext"
 import axios from 'axios'
-
-import styled from 'styled-components'
-import {User} from 'styled-icons/boxicons-regular/User'
-import {LockAlt} from 'styled-icons/boxicons-regular/LockAlt'
 
 //react hook form is used for validation instead of formik
 import { useForm } from 'react-hook-form'
 
-import PrivacyPolicy from '../legal/PrivacyPolicy';
+//component for each oauth button
+import './OauthButton'
+//icons for oauth buttons
+import Google from '../../assets/icons/google.svg'
+import Linkedin from '../../assets/icons/linkedin.svg'
 
-//modal
+//modal that contains the privacy policy
 import Modal from "../modal/modal";
 import useModal from "../modal/useModal";
+import PrivacyPolicy from '../legal/PrivacyPolicy';
 
-import city from '../../assets/illustrations/city_illustration.jpg'
-import {UserContext} from "../../contexts/UserContext"
-//oauth button
-import './OauthButton'
+//styled component icons instead of fontawesome
+import styled from 'styled-components'
+import {User} from 'styled-icons/boxicons-regular/User'
+import {LockAlt} from 'styled-icons/boxicons-regular/LockAlt'
 
 //styling
 import './forms.scss'
 import OauthButton from './OauthButton'
 
-//icons
-import Google from '../../assets/icons/google.svg'
-import Facebook from '../../assets/icons/white-facebook.svg'
-import Linkedin from '../../assets/icons/linkedin.svg'
-
+//illustrations for forms
 import signin_photo from '../../assets/forms/world_map.svg'
-import mobile_blue from '../../assets/forms/best_place.svg'
 import signup_photo from '../../assets/forms/destinations.svg'
+import mobile_blue from '../../assets/forms/town_blue.svg'
+
 //styled icons
 const Username_icon = styled(User)`
     color: #d6d6d6;
@@ -39,25 +41,26 @@ const Username_icon = styled(User)`
 const Lock_icon = styled(LockAlt)`
     color: #d6d6d6;
 `
+
+
 const AuthForm = props => {
 
-   //list of companies 
-   const companies = [{name:'Google', icon: Google},/* {name:'Facebook', icon:Facebook}, */{name:'Linkedin', icon:Linkedin}]
+   //list of companies
+   const companies = [{name:'Google', icon: Google}, {name:'Linkedin', icon:Linkedin}]
 
    //state used for react-hook-form
    const {register, handleSubmit, errors} = useForm()
 
-    //state for modal
+   //state for modal
    const {isShowing, toggle} = useModal();
    const [modalState, setModalState] = useState();
 
-   //const [isLoading, setIsLoading] = useState(false)
-   const [validated, setValidated] = useState(false)
-   
+   //state
    const {user, setUser, axiosAuth} = useContext(UserContext)
-
    const [login, setLogin] = useState({username: '', password: ''})
-    const [errorMsg, setErrorMsg] = useState("");    
+   
+   //error message for any error that is sent back from server
+   const [errorMsg, setErrorMsg] = useState("");    
 
 
     const onChange = e => {
@@ -87,7 +90,7 @@ const AuthForm = props => {
                         setUser({...user, userimage: res.data[0].userimage})
                     }
                     props.history.push('/')
-                    // window.location.reload()
+                    
                 })
                 .catch(err => console.log(err))
                 
@@ -119,7 +122,7 @@ const AuthForm = props => {
 
                {/*Container for left side of forms */}
                <div className="form">
-
+                    {/*this is the illustration that will display at the top for mobile/tablet screens */}
                    <div className='mobileFormImage'>
                        <img src={mobile_blue} alt="citrics"/>
                    </div>
@@ -134,6 +137,7 @@ const AuthForm = props => {
                     }  
                    </div>
 
+                    {/*container for center text, input fields, checkbox, and submit button*/}
                    <div className="bottomPortion">
                    
                    <div className="centerText">
@@ -151,7 +155,6 @@ const AuthForm = props => {
                                     className='username'
                                     type='text' name='username' 
                                     placeholder='username' 
-                                    //value={login.username} 
                                     onChange={onChange}
                                     ref={register({
                                         required:true, 
@@ -173,7 +176,6 @@ const AuthForm = props => {
                                 type='password'
                                 name='password'
                                 placeholder="Password"
-                               // value={login.password}
                                 ref={register({
                                     required: true, 
                                     minLength : {
@@ -203,7 +205,7 @@ const AuthForm = props => {
                         : <div></div>
                         }
                         {errorMsg ? <p className="form-error">{errorMsg}</p> : null}
-                        {/* <input type="submit"/> */}
+
                        <input className={`formButton ${props.action}Button`} value="Start Exploring Cities" type="submit"/>
 
                        <div className='question'>
