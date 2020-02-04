@@ -18,13 +18,13 @@ const team = [
         image: anna,
         role: 'Team Lead', 
         social: {
-            twitter: '', 
+            twitter: 'annatow62847551', 
             github: 'annatownsend9916', 
-            linkedin: '', 
+            linkedin: 'anna-townsend-74404a188', 
             email: ''
         }, 
         about: 'Anna Townsend is a full stack web Developer from Michigan.  Anna loves to stay creative through art and programming.  In her spare time she codes games and paints, even on walls.',
-        portfolio: 'https://thebest404pageeverredux.com/'
+        portfolio: 'https://www.linkedin.com/in/anna-townsend-74404a188/'
     
     }, 
     {
@@ -46,13 +46,13 @@ const team = [
         image: luke,
         role: 'Data Scientist', 
         social: {
-            twitter: '', 
+            twitter: 'ltownsend10', 
             github: 'ldtownsend', 
-            linkedin: '', 
+            linkedin: 'luke-townsend-caia-95312610a', 
             email: ''
         }, 
         about: 'Luke Townsend is a data scientist in Kansas City, MO. He spent four years as an investment analyst at a university foundation. He’s interested in applying data science tools to improve the decision making process at businesses.',
-        portfolio: 'https://thebest404pageeverredux.com/'
+        portfolio: 'https://www.linkedin.com/in/luke-townsend-caia-95312610a/'
     
     }, 
     {
@@ -74,7 +74,7 @@ const team = [
         image: scott,
         role: 'Data Scientist', 
         social: {
-            twitter: '', 
+            twitter: 'scott_w_maxwell', 
             github: 'scottwmwork', 
             linkedin: '', 
             email: ''
@@ -89,7 +89,7 @@ const team = [
         image: michael,
         role: 'Web Developer', 
         social: {
-            twitter: '', 
+            twitter: 'michaelharms70', 
             github: 'michaelharms6010', 
             linkedin: 'michael-harms-88aa49b4', 
             email: ''
@@ -104,7 +104,7 @@ const team = [
         image: muamer,
         role: 'Web Developer', 
         social: {
-            twitter: '', 
+            twitter: 'MuamerKukic', 
             github: 'kukicako', 
             linkedin: 'muamer-kukic-502419130', 
             email: ''
@@ -119,7 +119,7 @@ const team = [
         image: kevin,
         role: 'Web Developer', 
         social: {
-            twitter: 'kevinnguyen805', 
+            twitter: 'kevinboard', 
             github: 'kevinnguyen805', 
             linkedin: 'kevinnguyen805', 
             email: ''
@@ -140,7 +140,7 @@ const team = [
             email: ''
         }, 
         about: 'John is an awesome developer', 
-        portfolio: 'https://thebest404pageeverredux.com/'
+        portfolio: 'https://www.github.com/thejohnwatt'
     
     }
     , 
@@ -150,13 +150,13 @@ const team = [
         image: daniel,
         role: 'Web Developer', 
         social: {
-            twitter: '', 
+            twitter: 'brikszaDaniel', 
             github: 'dbriksza', 
             linkedin: 'daniel-briksza-23a331191/', 
             email: ''
         }, 
         about:'Daniel is a full-stack web developer at Lambda School. As an outgoing and studious individual, Daniel is a great team player who knows when to take the initiative. Diverse interests ranging from gardening to animation give Daniel a wide range of skills useful in any industry. Daniel is looking to test his skills and abilities in the tech industry, and make the world a better place.', 
-        portfolio: 'https://thebest404pageeverredux.com/'
+        portfolio: 'https://portfolio.dbriksza.now.sh'
     
     }, 
 
@@ -165,7 +165,7 @@ const team = [
         image: umeko,
         role: 'Web Developer', 
         social: {
-            twitter: 'umekow', 
+            twitter: 'umekow2', 
             github: 'umekolw', 
             linkedin: 'umekowalker', 
             email: ''
