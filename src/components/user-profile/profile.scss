@@ -7,9 +7,9 @@
     background-color:#F2F9FD;
 
     .profile-slides{
-        margin: 10px auto;
+        margin: 0 auto;
         margin-bottom: 5px;
-        width: 80%;
+        width: 100%;
     }
 
     .recommendation-grid {
@@ -18,9 +18,35 @@
     
     
     .favorites{
+        width: 100%;
         margin: 0 auto;
-        margin-top: 50px;
+        button{
+            border: none;
+            margin-top: 10px;
+            width: 130px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 5px;
+            background-color: #2ca4fc;
+            color: white;
+            max-width: 400px;
+            transition: 0.22s ease;
+            box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.07);
+            cursor:pointer;
+                 &:focus{
+                   outline:0;
+                 }
+                 &:hover{
+                   filter: brightness(115%);
+                 }
+    cursor: pointer;
+                }
         
+        h3 {
+            text-align: center;
+        }
+
 
         h2{
             font-size: 32px;
@@ -36,7 +62,7 @@
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             background-color:white;
             padding: 0 10px;
-            margin: 0 auto;
+            margin: 30px auto;
             
             @media screen and (max-width:800px){
                 width:100%;
@@ -481,6 +507,9 @@
     }
 
 }
+
+
+
 
 .pref-container {
 
