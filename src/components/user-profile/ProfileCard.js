@@ -166,6 +166,7 @@ const ProfileCard = (props)=> {
 
     return (
         <div className='profile-container'>
+            <h1>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
                     <img src={userImage.userimage === null ? `${ProfileImage}` : `https://be.citrics.io/${userImage.userimage}`} />

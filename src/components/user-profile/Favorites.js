@@ -52,8 +52,7 @@ const Favorites = (props) => {
 
     const handleRefresh = () => {
         if (savedCities.length === 0 ) {
-            history.push('/map');
-           
+            history.push('/map') 
         } else {
         window.location.reload(false);
         }
@@ -61,7 +60,9 @@ const Favorites = (props) => {
 
     return (
         <div className="favorites">
+            
             <div className={`update-favorites`}>
+                <h1>Favorites</h1>
             <h2 className={savedCities.length === 0 ? 'favorites-header' : 'favorites-header-hidden'}>Explore cities to add to favorites!</h2>
                     <GeneralStats ethData={savedCities}/>
                     
