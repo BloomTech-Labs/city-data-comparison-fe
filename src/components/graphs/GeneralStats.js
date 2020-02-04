@@ -78,9 +78,10 @@ function TotalPopulation({ethData}) {
                 </div>
             </div>
             </div>
-            <div>
+                {window.location.href.includes("profile") ? <div style={{marginTop: "1%"}} /> : 
+                <div>
                     <Recommendations city={item}/>
-                </div>
+                </div>}
             </div>
             )}
             
