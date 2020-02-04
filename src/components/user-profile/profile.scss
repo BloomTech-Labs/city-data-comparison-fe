@@ -17,12 +17,14 @@
     }    
     
     
-    .favorites{
+    .update-favorites{
         width: 100%;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column; 
         button{
             border: none;
-            margin-top: 10px;
+            margin: 10px auto;
             width: 130px;
             border-radius: 5px;
             font-size: 1.1rem;
@@ -47,12 +49,15 @@
             text-align: center;
         }
 
+        .favorites-header-hidden {
+            display: none
+        }
+
 
         h2{
             font-size: 32px;
             margin-bottom: 32px;
             text-align: center;
-            padding-left: 127px;
             font-weight: 400;
             color: #32373D;
         }

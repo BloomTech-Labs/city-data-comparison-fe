@@ -61,10 +61,12 @@ const Favorites = (props) => {
 
     return (
         <div className="favorites">
-            <h2>Favorites </h2>
-            <h3>Explore cities to add to favorites!</h3>
+            <div className={`update-favorites`}>
+            <h2 className={savedCities.length === 0 ? 'favorites-header' : 'favorites-header-hidden'}>Explore cities to add to favorites!</h2>
                     <GeneralStats ethData={savedCities}/>
-                    <button className={`update-favorites`} onClick={() => handleRefresh()}  >{savedCities.length === 0 ? 'Explore' : 'Update Favorites'}</button>
+                    
+                    <button  onClick={() => handleRefresh()}  >{savedCities.length === 0 ? 'Explore' : 'Update Favorites'}</button>
+                    </div>
         </div>
     )
 }
