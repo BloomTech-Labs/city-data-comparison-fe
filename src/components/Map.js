@@ -78,9 +78,29 @@ const selectSearch = cityMarker =>  {
         getBestSuggestion(search);
       }   
     }
+    var maxLong = -51.531963
+    var minLong = -170.872761
+    var minLat = 20.416615
+    var maxLat = 73.347546
 
     const onViewportChange = viewport => {
+      if (viewport.longitude < minLong || viewport.longitude > 150){
+        viewport.longitude = minLong
+        console.log("MIN BOUND")
+      }
+      else if ( viewport.longitude > maxLong && viewport.longitude < 150){
+        viewport.longitude = maxLong
+        console.log("MAXX BOUND")
+      }
+      else if ( viewport.latitude < minLat ) {
+        viewport.latitude = minLat;
+      }
+      else if ( viewport.latitude >maxLat ) {
+        viewport.latitude = maxLat;
+      }
         setViewport({ ...viewport, width:"100%", height:"100%" });
+
+
       };
 
       return (
@@ -94,13 +114,18 @@ const selectSearch = cityMarker =>  {
               <MapWrapper className="main-map">
                 <ReactMapGL
                   // mapStyle='mapbox://styles/mapbox/light-v10'
-                    mapStyle='mapbox://styles/brunchtime/ck5miuybu2in21ipq7j47ey29'
+                    mapStyle='mapbox://styles/brunchtime/ck5miuybu2in21ipq7j47ey29?optimize=true'
                     {...viewport}
                     mapboxApiAccessToken={
                     'pk.eyJ1IjoiYnJ1bmNodGltZSIsImEiOiJjazIwdG80MGkxN3lmM25vaWZ5cThkZDU1In0.uYqrXjiEyUL1mTEO_N5-0w'
                     }
                     onViewportChange={onViewportChange}
+                    
+
                     >
+                      
+                      
+                      
                     
                     <Markers 
                       cityMarkers={cityMarkers}
