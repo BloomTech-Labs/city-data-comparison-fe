@@ -39,16 +39,21 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     var stickynav = document.getElementById("stickynav");
     var autofillContainer = document.getElementsByClassName("autofill-container")[0]
     var placeholder = document.getElementsByClassName("nav-placeholder")[0]
-    if (stickynav) {
-        // This line handles the offset from the main nav bar - If we unfix the main nav bar
-        // (i believe we will) - the subtraction will be unnecessary.
-        var sticky = placeholder.offsetTop - 105;
-    }
+    
 
     var isScrolledToFooter = _ => 
         window.pageYOffset > document.body.scrollHeight - window.innerHeight - 300;
    
     const scrollAnchor = _ => {
+        if (stickynav) {
+            // This line handles the offset from the main nav bar
+
+            var sticky = placeholder.offsetTop - 105;
+        }
+        console.log("window yoffset", window.pageYOffset)
+        console.log("Sticky:", sticky)
+        console.log(placeholder.offsetTop - 105)
+
 
         if (window.pageYOffset > sticky && !isScrolledToFooter()) {
             stickynav.classList.add("sticky");
