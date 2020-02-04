@@ -37,7 +37,7 @@ function Dashboard({history}){
        useEffect(_ => {
           if(user){
           axiosAuth()
-          .get(`https://citrics-staging.herokuapp.com/api/users/profile/${user.id}/image`)
+          .get(`https://be.citrics.io/api/users/profile/${user.id}/image`)
           .then(res => {
                
                const image = res.data[0]

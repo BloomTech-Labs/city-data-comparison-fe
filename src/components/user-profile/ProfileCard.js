@@ -86,7 +86,7 @@ const ProfileCard = (props)=> {
     
     useEffect(() => {
         axiosAuth()
-            .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
+            .get(`https://be.citrics.io/api/users/profile/${id}/image`)
             .then(res => {
                 const image = res.data[0].userimage
                 setUserImage({...userImage, usersimage: image})
@@ -99,7 +99,7 @@ const ProfileCard = (props)=> {
     const updateUser = () => {
         
         axiosAuth()
-            .put(`https://citrics-staging.herokuapp.com/api/users/${id}/profile`, userPost)
+            .put(`https://be.citrics.io/api/users/${id}/profile`, userPost)
             .then(res => {
                 
                 setUser({...user, ...userPost})
@@ -120,13 +120,13 @@ const ProfileCard = (props)=> {
 
         if (user.userimage !== null) {
             axiosAuth()
-                .delete(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
+                .delete(`https://be.citrics.io/api/users/profile/${id}/image`)
                 .then(res => {
                     axiosAuth()
-                        .post('https://citrics-staging.herokuapp.com/api/users/', formData)
+                        .post('https://be.citrics.io/api/users/', formData)
                         .then(res => {
                             axiosAuth()
-                                .get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
+                                .get(`https://be.citrics.io/api/users/profile/${id}/image`)
                                 .then(res => {
                                     const image = res.data[0].userimage
                                      setUserImage({...userImage, usersimage: image})
@@ -142,9 +142,9 @@ const ProfileCard = (props)=> {
         } else {
 
         axiosAuth()
-            .post('https://citrics-staging.herokuapp.com/api/users/', formData)
+            .post('https://be.citrics.io/api/users/', formData)
             .then(res => {
-                axiosAuth().get(`https://citrics-staging.herokuapp.com/api/users/profile/${id}/image`)
+                axiosAuth().get(`https://be.citrics.io/api/users/profile/${id}/image`)
                 .then(res => {
                     const image = res.data[0].userimage
                     setUserImage({...userImage, usersimage: image})
@@ -167,7 +167,7 @@ const ProfileCard = (props)=> {
         <div className='profile-container'>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
-                    <img src={userImage.usersimage === null ? `${ProfileImage}` : `https://citrics-staging.herokuapp.com/${userImage.usersimage}`} />
+                    <img src={userImage.usersimage === null ? `${ProfileImage}` : `https://be.citrics.io/${userImage.usersimage}`} />
                     <form className={`edit-image ${imageUpload.status}`} action='/uploads' enctype="multipart/form-data" onSubmit={onSubmit}>
                         <input 
                         className='image-input'

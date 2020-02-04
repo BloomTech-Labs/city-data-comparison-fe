@@ -30,7 +30,7 @@ const DropMenu = (props) => {
                     {user.userimage == null ? 
                     <img src={ProfileImage} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar" />
                     :
-                    <img src={`https://citrics-staging.herokuapp.com/${user.userimage}`} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar"/>}
+                    <img src={`https://be.citrics.io/${user.userimage}`} style={{maxWidth: "50px", maxHeight: "50px"}} alt="user's avatar"/>}
                     {/* this is the dropdown that appears when the avatar in the top right corner is hovered */}
                     {/* styling should be abstracted to app.scss or a new scss */}
                     {/* the transparent border top is so you don't leave the div and trigger the toggle */}
