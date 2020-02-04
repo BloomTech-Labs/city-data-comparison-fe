@@ -139,7 +139,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("unemploymentRate")} activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} offset={-150}>Unemployment Rate</Link>
                                 <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} offset={-150}>Health Insurance</Link>
                                 <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} offset={-150}>Retirement</Link>
-                                <Link onClick={() => dataNavClicked("transportation")} activeClass="active" className="anchor-link" to="transportation" spy={true} smooth={true} duration={500} offset={-150}>Transportaion</Link>
                                 
 
                                 <p className="anchor-header">Culture</p>
