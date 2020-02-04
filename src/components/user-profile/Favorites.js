@@ -2,8 +2,9 @@ import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import {UserContext} from "../../contexts/UserContext"
 import GeneralStats from "../graphs/GeneralStats";
+import { useHistory } from 'react-router-dom';
 
-const Favorites = ()=> {
+const Favorites = (props) => {
 
     const { user, setUser, axiosAuth } = useContext(UserContext);
     //state for saved cities for specific user
@@ -35,7 +36,7 @@ const Favorites = ()=> {
                 })
         }, []);
 
-        
+    let history = useHistory();    
     //delete saved city handler
     const handleDelete = id => {
         // id.preventDefault();
@@ -49,10 +50,24 @@ const Favorites = ()=> {
             })
     };
 
+    const handleRefresh = () => {
+        if (savedCities.length === 0 ) {
+            history.push('/map') 
+        } else {
+        window.location.reload(false);
+        }
+    }
+
     return (
         <div className="favorites">
-            <h2>Favorites </h2>
+            
+            <div className={`update-favorites`}>
+                <h1>Favorites</h1>
+            <h2 className={savedCities.length === 0 ? 'favorites-header' : 'favorites-header-hidden'}>Explore cities to add to favorites!</h2>
                     <GeneralStats ethData={savedCities}/>
+                    
+                    <button  onClick={() => handleRefresh()}  >{savedCities.length === 0 ? 'Explore' : 'Update Favorites'}</button>
+                    </div>
         </div>
     )
 }
