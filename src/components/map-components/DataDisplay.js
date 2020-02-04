@@ -50,10 +50,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
             var sticky = placeholder.offsetTop - 105;
         }
-        console.log("window yoffset", window.pageYOffset)
-        console.log("Sticky:", sticky)
-        console.log(placeholder.offsetTop - 105)
-
 
         if (window.pageYOffset > sticky && !isScrolledToFooter()) {
             stickynav.classList.add("sticky");
