@@ -24,7 +24,7 @@ const team = [
             email: ''
         }, 
         about: 'Anna Townsend is a full stack web Developer from Michigan.  Anna loves to stay creative through art and programming.  In her spare time she codes games and paints, even on walls.',
-        portfolio: ''
+        portfolio: 'https://thebest404pageeverredux.com/'
     
     }, 
     {
@@ -52,7 +52,7 @@ const team = [
             email: ''
         }, 
         about: 'Luke Townsend is a data scientist in Kansas City, MO. He spent four years as an investment analyst at a university foundation. He’s interested in applying data science tools to improve the decision making process at businesses.',
-        portfolio: ''
+        portfolio: 'https://thebest404pageeverredux.com/'
     
     }, 
     {
@@ -65,7 +65,7 @@ const team = [
             linkedin: '', 
             email: ''
         }, 
-        about: 'Matthew is an awesome data scientist', 
+        about: 'Matthew Sessions is a Machine Learning Engineer in Seattle, Washington. Before becoming a full-time developer, Matthew was working abroad in Shenzhen, China as a cross-border e-commerce specialist. He believes that Data Science provides a roadmap that helps companies demystify complex business problems.', 
         portfolio: 'http://matthewlsessions.com/'
     
     }, 
@@ -80,7 +80,7 @@ const team = [
             email: ''
         }, 
         about: 'Scott Maxwell is a data scientist & engineer in Gilbert, Arizona. He has a strong background in object oriented programming and software engineering. He is an individual driven by product delivery and software that provides solutions.',
-        portfolio: 'Scottmaxwellportfolio.com'
+        portfolio: 'http://Scottmaxwellportfolio.com'
     
     }, 
 
@@ -140,7 +140,7 @@ const team = [
             email: ''
         }, 
         about: 'John is an awesome developer', 
-        portfolio: 'https://kevinn.net/Portfolio/'
+        portfolio: 'https://thebest404pageeverredux.com/'
     
     }
     , 
@@ -156,7 +156,7 @@ const team = [
             email: ''
         }, 
         about:'Daniel is a full-stack web developer at Lambda School. As an outgoing and studious individual, Daniel is a great team player who knows when to take the initiative. Diverse interests ranging from gardening to animation give Daniel a wide range of skills useful in any industry. Daniel is looking to test his skills and abilities in the tech industry, and make the world a better place.', 
-        portfolio: 'https://kevinn.net/Portfolio/'
+        portfolio: 'https://thebest404pageeverredux.com/'
     
     }, 
 
