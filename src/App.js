@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Route, BrowserRouter as Router} from "react-router-dom";
 import ReactGA from "react-ga";
+import PrivateRoute from "./components/PrivateRoute"
 
 import './App.scss';
 
@@ -268,7 +269,7 @@ cityIndex.sort(compare);
             <Route exact path='/' component={Dashboard} />
             <Route exact path='/' component={Footer} />
             <Route path="/map" component={Map} />
-            <Route path='/profile' component={Profile} />
+            <PrivateRoute path='/profile' component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/aboutus" component={AboutUs} />
 
