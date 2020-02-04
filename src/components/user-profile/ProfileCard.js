@@ -169,6 +169,20 @@ const ProfileCard = (props)=> {
             <h1>Profile</h1>
             <div className='profile-contents'>
                 <div className='avatar-tab'>
+                    <div className='username'>
+                    <p>Username</p>
+                    <h2 className={`user-name ${nameEdit.status}`}>{ userInfo.googleid === null && userInfo.linkedinid === null ? `${userInfo.username}` : userInfo.googleid === null ? 'Logged in with LinkedIn' : 'Logged in with Google'}</h2>
+                    <form className={`edit-name ${nameEdit.status}`} onSubmit={updateUser}>
+                        <input
+                            onChange={handleChange}
+                            className='edit-first-name'
+                            name='username'
+                            type='username'
+                            value={userInfo.username}
+                            placeholder='Username'
+                        />
+                    </form>
+                    </div>
                     <img src={userImage.userimage === null ? `${ProfileImage}` : `https://be.citrics.io/${userImage.userimage}`} />
                     <form className={`edit-image ${imageUpload.status}`} action='/uploads' enctype="multipart/form-data" onSubmit={onSubmit}>
                         <input 
@@ -183,18 +197,7 @@ const ProfileCard = (props)=> {
                 </div>
                 <div className= ' info'>
                 <div className='name-tab'>
-                    {/* <p>Username</p>
-                    <h2 className={`user-name ${nameEdit.status}`}>{userInfo.username}</h2>
-                    <form className={`edit-name ${nameEdit.status}`} onSubmit={updateUser}>
-                        <input
-                            onChange={handleChange}
-                            className='edit-first-name'
-                            name='username'
-                            type='username'
-                            value={userInfo.username}
-                            placeholder='Username'
-                        />
-                    </form> */}
+                    {/*  */}
 
                     <p>Name</p>
                     <h2 className={`user-name ${nameEdit.status}`}>{userInfo.first_name} {userInfo.last_name}</h2>
