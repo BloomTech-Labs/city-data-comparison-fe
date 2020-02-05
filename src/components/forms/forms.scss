@@ -19,8 +19,12 @@
     }
 
     @media screen and (min-height: 640px) {
-        margin-top: 22%; 
+        margin-top: 15%; 
 
+    }
+
+    @media screen and (min-width: 2150px){
+        margin-top: 6%; 
     }
 
     @media screen and (min-width: 600px){
@@ -42,9 +46,7 @@
         margin-top:10%;
     }
 
-    @media screen and (min-width: 2150px){
-        margin-top: 6%; 
-    }
+    
 
     
     .mobileFormImage{
@@ -95,11 +97,6 @@
             width: 85%;
             margin: auto;
             margin-top: 5%;
-
-            // samsung : 
-            // margin: auto;
-            // margin-top: 2%;
-            //styles that apply to all oauth buttons
 
             @media screen and (min-height: 640px) {
                 margin: auto;
