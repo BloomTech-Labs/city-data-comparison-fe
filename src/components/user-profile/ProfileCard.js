@@ -183,7 +183,7 @@ const ProfileCard = (props)=> {
                         />
                     </form>
                     </div>
-                    <img src={userImage.userimage === null ? `${ProfileImage}` : `https://be.citrics.io/${userImage.userimage}`} />
+                    <img src={!user.userimage ? `${ProfileImage}` : `https://be.citrics.io/${user.userimage}`} />
                     <form className={`edit-image ${imageUpload.status}`} action='/uploads' enctype="multipart/form-data" onSubmit={onSubmit}>
                         <input 
                         className='image-input'
