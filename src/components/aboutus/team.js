@@ -133,7 +133,7 @@ const team = [
             github: 'thejohnwatt', 
             linkedin: 'thejohnwatt'
         }, 
-        about: 'John is an awesome developer', 
+        about: 'John Watt is a full stack web developer for Citrics.io. Previously, John worked in tech/mobile sales in Colorado Springs, Co.  After 6 years of sales, he became burnt out and decided to move on to bigger and better things. He was recommended to join Lambda Schools and learn full stack web development and is currently finishing up his coding journey in Murrieta, Ca.', 
         portfolio: 'https://www.github.com/thejohnwatt'
     
     }
