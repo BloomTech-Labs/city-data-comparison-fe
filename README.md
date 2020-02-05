@@ -70,7 +70,7 @@ Cities with data are marked on a searchable, indexed map generated from the Mapb
 - Lightweight 
 
 
-#### Front end deployed to https://master.d1td9ufw3xylcx.amplifyapp.com/
+#### Front end deployed to https://citrics.io/
 
 <!-- #### [Back end](🚫link to back end repo here) built using:
 
