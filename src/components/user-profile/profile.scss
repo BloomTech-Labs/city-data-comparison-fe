@@ -252,7 +252,7 @@
         padding: 15px;
         display: flex;
         flex-direction: column;
-        justify-content:space-between;
+        justify-content:space-around;
         align-items: center;
         width: 45%;
         height:40vh;
@@ -305,7 +305,7 @@
         display:flex;
         flex-direction: column;
         padding-top:0px;
-        justify-content: space-between;
+        justify-content: space-around;
         
         button {
             margin: 0 auto;
@@ -452,6 +452,10 @@
             padding: 12px;
         }
               
+    }
+
+    .edit-location-btn.open {
+        margin-top:10%;
     }
 
     .edit-name.closed, .save-name-btn.closed,.edit-name-btn.open,   .edit-email.closed,.save-email-btn.closed,  .edit-email-btn.open,     .edit-location.open,.save-location-btn.open,    .edit-location-btn.closed, .user-name.open, .user-email.open,     .user-location.closed, .edit-image.closed, .save-image-btn.closed, .edit-image-btn.open {
