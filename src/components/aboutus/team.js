@@ -129,7 +129,7 @@ const team = [
         image: john,
         role: 'Web Developer', 
         social: {
-            twitter: 'thejohnwatt', 
+            twitter: 'thejohnwatt_', 
             github: 'thejohnwatt', 
             linkedin: 'thejohnwatt'
         }, 
