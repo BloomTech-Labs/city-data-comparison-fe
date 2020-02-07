@@ -29,19 +29,21 @@ const Member = props => {
                     </div>
                     <div className="member-social">
                         
-                        <FontAwesomeIcon icon={faGithubSquare} size="2x" color="#3999fc" onClick={() => goToLink(`https://www.github.com/${props.member.social.github}`)} />
-                        <FontAwesomeIcon icon={faLinkedin} size="2x" color="#3999fc" onClick={() => goToLink(`https://www.Linkedin.com/in/${props.member.social.linkedin}`)}/>
-                        <FontAwesomeIcon icon={faTwitterSquare} size="2x" color="#3999fc" onClick={() => goToLink(`https://www.twitter.com/${props.member.social.twitter}`)}/>
+                        <FontAwesomeIcon style={{cursor: "pointer"}} icon={faGithubSquare} size="2x" color="#3999fc" onClick={() => goToLink(`https://www.github.com/${props.member.social.github}`)} />
+                        <FontAwesomeIcon style={{cursor: "pointer"}} icon={faLinkedin} size="2x" color="#3999fc" onClick={() => goToLink(`https://www.Linkedin.com/in/${props.member.social.linkedin}`)}/>
+                        <FontAwesomeIcon style={{cursor: "pointer"}} icon={faTwitterSquare} size="2x" color="#3999fc" onClick={() => goToLink(`https://www.twitter.com/${props.member.social.twitter}`)}/>
                     </div>
 
                     <p className="member-about">
                         {props.member.about}
                     </p>
 
-                    <div className="member-portfolio" href={props.member.portfolio}>
+                    <a href={props.member.portfolio}>
+                        <div className="member-portfolio">
                         {(props.member.name.charAt(props.member.name.length - 1) === 's') ? `View ${props.member.name}' Portfolio` : `View ${props.member.name}'s Portfolio`}
                         
-                    </div>
+                        </div>
+                    </a>
                 </div>
 
 
