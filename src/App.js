@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Route, BrowserRouter as Router} from "react-router-dom";
 import ReactGA from "react-ga";
 import PrivateRoute from "./components/PrivateRoute"
-
+ 
 import './App.scss';
 
 import Dashboard from './components/dashboard/Dashboard'
@@ -19,6 +19,7 @@ import Axios from "axios"
 import Callback from './components/Callback';
 import AuthForm from './components/forms/AuthForm';
 import axiosAuth from "./components/axiosAuth"
+
 
 
 function initializeAnalytics() {
