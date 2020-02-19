@@ -1,7 +1,7 @@
 import React, {useState} from 'react'; 
 
 //file that contains information for each user
-import members from './team.js'
+import members from './team2.js'
 
 //styling
 import './aboutus.scss'; 
