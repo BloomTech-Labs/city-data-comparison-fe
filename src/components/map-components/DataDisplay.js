@@ -24,7 +24,7 @@ import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 import BirthRateCard from "../graphs/culture/birthRateCard"
 import Transportaion from "../graphs/transportationScore"
-
+import './DataDisplay.scss';
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
     const [menu, setMenu] = useState({status: 'closed'})
@@ -122,6 +122,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                     </div>)}
                                 </ul>
                                 {/* <p className="anchor-header">General Statistics</p> */}
+                                
                                 <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} offset={-150}>City Overview</Link>
 
                                 <p className="anchor-header">Housing</p>
