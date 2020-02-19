@@ -10,7 +10,7 @@ export default class RadarGraph extends Component{
         chartData: {
             labels: ["Cost of living score", "Job prospects score", "Housing score", "Weather score", "Safety score", "Entertainment score"],
             datasets: [{
-              label: "Austen, TX",
+              label: "Austin, TX",
               backgroundColor: 'rgb(179, 142, 255, 0.8)',
               data: [65, 75, 70, 80, 60, 80]
             }, {
