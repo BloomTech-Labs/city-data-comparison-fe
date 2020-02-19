@@ -15,6 +15,20 @@ import jeremy from '../../assets/team2_photos/Jeremy Rogel.png';
 
 const team2 = [
     {
+        name: 'Jeremy Rogel', 
+        image: jeremy,
+        role: 'Team Lead', 
+        social: {
+            twitter: '', 
+            github: 'https://github.com/jeremyRogel', 
+            linkedin: 'https://www.linkedin.com/in/jeremy-rogel-293640186/', 
+            
+        }, 
+        about: 'A natural go-getter, Jeremy Rogel applies his knowledge of code and passion for creation by being the best fullstack web developer this side of the Mississippi! Applying his trade in Durham, NC, his passion to keep getting better shines in whatever he sets out to do.',
+        portfolio: ''
+    
+    },
+    {
         name: 'Dariush Khansari', 
         image: dariush,
         role: 'UX Designer', 
@@ -122,7 +136,7 @@ const team2 = [
             linkedin: '', 
             
         }, 
-        about: 'Ryan Cooper is a Web Developer from Michigan. ',
+        about: 'Ryan Cooper is a Web Developer from Michigan.',
         portfolio: ''
     
     }, 
@@ -153,21 +167,7 @@ const team2 = [
         about: '',
         portfolio: ''
     
-    }, 
-    {
-        name: 'Jeremy Rogel', 
-        image: jeremy,
-        role: 'Team Lead', 
-        social: {
-            twitter: '', 
-            github: 'https://github.com/jeremyRogel', 
-            linkedin: 'https://www.linkedin.com/in/jeremy-rogel-293640186/', 
-            
-        }, 
-        about: '',
-        portfolio: 'A natural go-getter, Jeremy Rogel applies his knowledge of code and passion for creation by being the best fullstack web developer this side of the Mississippi! Applying his trade in Durham, NC, his passion to keep getting better shines in whatever he sets out to do.'
-    
-    }, 
+    }
 ]
 
 export default team2;
