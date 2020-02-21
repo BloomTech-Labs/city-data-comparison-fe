@@ -24,7 +24,9 @@ import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 import BirthRateCard from "../graphs/culture/birthRateCard"
 import Transportaion from "../graphs/transportationScore"
-import './DataDisplay.scss';
+//import './DataDisplay.scss';
+import PerfectScrollbar from 'react-perfect-scrollbar'
+
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
     const [menu, setMenu] = useState({status: 'closed'})
@@ -35,6 +37,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     }
 
     // fixed sidebar handling
+  /*
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
     var autofillContainer = document.getElementsByClassName("autofill-container")[0]
@@ -66,6 +69,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
             stickynav.classList.remove("nav-bottom-anchor")
         }
     }
+*/
 
     const toggleMenu = () => {
         if (menu.status === 'closed') {
@@ -124,7 +128,10 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 {/* <p className="anchor-header">General Statistics</p> */}
                                 
                                 <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} offset={-150}>City Overview</Link>
-
+                                <PerfectScrollbar>
+                                    <span>
+                                        
+                                    </span>
                                 <p className="anchor-header">Housing</p>
                                 <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} offset={-150}>Rent</Link>
                                 <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} offset={-150}>Housing Costs</Link>
@@ -150,7 +157,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} offset={-150}>Population</Link>
                                 {/* <Link onClick={() => dataNavClicked("birthRate")} activeClass="active" className="anchor-link" to="birthRate" spy={true} smooth={true} duration={500} offset={-150}>Birth Rate</Link> */}
                                 <Link onClick={() => dataNavClicked("avgTemp")} activeClass="active" className="anchor-link" to="avgTemp" spy={true} smooth={true} duration={500} offset={-150}>Weather</Link>
-
+                                </PerfectScrollbar>
                             </div>
                             : null}
                         </div>
