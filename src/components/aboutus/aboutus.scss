@@ -21,10 +21,12 @@
     .member{
         .aboutus-title{
             text-align:center;
-            font-size: .7rem; 
+            font-size: 1rem; 
+            padding-top: 50px;
 
             @media screen and (min-width: 400px){
                 font-size: 1rem; 
+                padding-top: 45px;
             }
 
             @media screen and (min-width: 1200px){
@@ -32,11 +34,13 @@
             }
 
             @media screen and (min-width: 600px){
-                font-size: .8rem; 
+                font-size: 1rem; 
+                padding-top: 45px;
             }
 
             @media screen and (min-width: 900px){
                 font-size: 1.2rem; 
+                padding-top: 40px;
             }
             @media screen and (min-width: 1200px){
                 font-size: 1.3rem; 

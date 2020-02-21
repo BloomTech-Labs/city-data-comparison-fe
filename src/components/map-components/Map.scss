@@ -1101,6 +1101,7 @@
         .anchor-nav {
             display:flex;
             flex-direction:column;
+            overflow: auto;
             // border:1px solid green;
             
             a {
