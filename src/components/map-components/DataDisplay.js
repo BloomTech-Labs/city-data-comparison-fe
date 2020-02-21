@@ -34,12 +34,24 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         action: `clicked ${link} link` });
     }
 
+    // Handles toggles for Anchor-headers
+    function toggle1() {
+        document.getElementById("menuCollapse1").classList.toggle("hideMenu");
+      }
+
+    function toggle2() {
+    document.getElementById("menuCollapse2").classList.toggle("hideMenu");
+    }
+
+    function toggle3() {
+    document.getElementById("menuCollapse3").classList.toggle("hideMenu");
+    }
+
     // fixed sidebar handling
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
     var autofillContainer = document.getElementsByClassName("autofill-container")[0]
     var placeholder = document.getElementsByClassName("nav-placeholder")[0]
-    
 
     var isScrolledToFooter = _ => 
         window.pageYOffset > document.body.scrollHeight - window.innerHeight - 300;
@@ -124,14 +136,21 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 {/* <p className="anchor-header">General Statistics</p> */}
                                 <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} offset={-150}>City Overview</Link>
 
-                                <p className="anchor-header">Housing</p>
-                                <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} offset={-150}>Rent</Link>
-                                <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} offset={-150}>Housing Costs</Link>
-                                <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} offset={-150}>Owner Costs</Link>
-                                <Link onClick={() => dataNavClicked("rooms")} activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} offset={-150}>Rooms</Link>
-                                <Link onClick={() => dataNavClicked("vacancy")} activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} offset={-150}>Vacancy</Link>
+                                <p className="anchor-header1" onClick={toggle1}>Housing</p>
+                                <div id="menuCollapse1">
+                                    <span class="spanStyle">
+                                        <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} offset={-150}>Rent</Link>
+                                        <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} offset={-150}>Housing Costs</Link>
+                                        <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} offset={-150}>Owner Costs</Link>
+                                        <Link onClick={() => dataNavClicked("rooms")} activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} offset={-150}>Rooms</Link>
+                                        <Link onClick={() => dataNavClicked("vacancy")} activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} offset={-150}>Vacancy</Link>
+                                    </span>
+                                </div>
+
                                 
-                                <p className="anchor-header">Industry</p>
+                                <p className="anchor-header2" onClick={toggle2}>Industry</p>
+                                <div id="menuCollapse2">
+                                    <span class="spanStyle">
                                 <Link onClick={() => dataNavClicked("industries")} activeClass="active" className="anchor-link" to="industries" spy={true} smooth={true} duration={500} offset={-150}>Job Industry</Link>
                                 <Link onClick={() => dataNavClicked("salary")} activeClass="active" className="anchor-link" to="salary" spy={true} smooth={true} duration={500} offset={-150}>Salary</Link>
                                 <Link onClick={() => dataNavClicked("commute")} activeClass="active" className="anchor-link" to="commute" spy={true} smooth={true} duration={500} offset={-150}>Commute</Link>
@@ -140,16 +159,21 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <Link onClick={() => dataNavClicked("unemploymentRate")} activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} offset={-150}>Unemployment Rate</Link>
                                 <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} offset={-150}>Health Insurance</Link>
                                 <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} offset={-150}>Retirement</Link>
-                                
+                                </span>
+                                </div>
 
-                                <p className="anchor-header">Culture</p>
+                                
+                                <p className="anchor-header3" onClick={toggle3}>Culture</p>
+                                <div id="menuCollapse3">
+                                    <span class="spanStyle">
                                 <Link onClick={() => dataNavClicked("ageDistribution")} activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} offset={-150}>Age Distribution</Link>
                                 <Link onClick={() => dataNavClicked("ethnicity")} activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} offset={-150}>Diversity</Link>
                                 <Link onClick={() => dataNavClicked("education")} activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} offset={-150}>Education</Link>
                                 <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} offset={-150}>Population</Link>
                                 {/* <Link onClick={() => dataNavClicked("birthRate")} activeClass="active" className="anchor-link" to="birthRate" spy={true} smooth={true} duration={500} offset={-150}>Birth Rate</Link> */}
                                 <Link onClick={() => dataNavClicked("avgTemp")} activeClass="active" className="anchor-link" to="avgTemp" spy={true} smooth={true} duration={500} offset={-150}>Weather</Link>
-
+                                </span>
+                                </div>
                             </div>
                             : null}
                         </div>
