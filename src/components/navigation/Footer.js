@@ -33,7 +33,7 @@ function Footer(){
                                         : <Link to="/signup"><button className="footer-CTA-button">Start Now</button></Link> }
                               </div>
                               <div>
-                                   <p className="copyright">© Citrics 2019</p>
+                                   <p className="copyright">© Citrics 2020</p>
                               </div>
                          </div>
 
@@ -58,7 +58,7 @@ function Footer(){
                               </div>
                          </div>
                          <div>
-                              <p className="copyright-mobile">© Citrics 2019</p>
+                              <p className="copyright-mobile">© Citrics 2020</p>
                          </div>
                     </div>
                </div>
