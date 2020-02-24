@@ -28,7 +28,7 @@ const FavoriteButton = ({city}) => {
     useEffect(() => {
         if (id) {
         axiosAuth()
-            .get(`https://be.citrics.io/api/users/favs/${id}`)
+            .get(`/api/users/favs`)
             .then(response => {
                 response.data.forEach(cityid => {favcities.push(cityid.city_id)
                 setFavorites([...favorites, ...favcities])})
@@ -50,7 +50,7 @@ const FavoriteButton = ({city}) => {
         ReactGA.event({ category: 'User', action: `added city to favorites: ${city.name_with_com}` });
         let cityReq = {city_id: city._id};
         axiosAuth()
-            .post(`https://be.citrics.io/api/users/favs/${id}`, cityReq)
+            .post(`/users/favs`, cityReq)
             .then(response => {
                 setFavorites([...favorites, (city._id)])
                 setSaving(false)
@@ -63,7 +63,7 @@ const FavoriteButton = ({city}) => {
         let cityReq = {city_id: city._id}
         ReactGA.event({ category: 'User', action: `removed city from favorites: ${city.name_with_com}` });
         axiosAuth()
-            .delete(`https://be.citrics.io/api/users/favs/${id}`, { data: cityReq})
+            .delete(`/users/favs`, { data: cityReq})
             .then(response => {
                 setFavorites(favorites.filter(item =>  item !== city._id))
             })
