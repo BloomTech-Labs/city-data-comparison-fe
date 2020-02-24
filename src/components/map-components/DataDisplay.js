@@ -24,6 +24,7 @@ import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 import BirthRateCard from "../graphs/culture/birthRateCard"
 import Transportaion from "../graphs/transportationScore"
+import Scroller from "react-scroll-collapse";
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
@@ -146,6 +147,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                         <Link onClick={() => dataNavClicked("vacancy")} activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} offset={-150}>Vacancy</Link>
                                     </span>
                                 </div>
+                                
 
                                 
                                 <p className="anchor-header2" onClick={toggle2}>Industry</p>
