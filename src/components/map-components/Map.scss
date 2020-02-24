@@ -68,7 +68,7 @@
     // border:1px solid red;
     background: #F2F9FD;
     display:flex;
-    padding-top: 5%;
+    padding-top: 3%;
     @media screen and (max-width:600px){
         background:white;
         padding-top:0;
@@ -1049,7 +1049,27 @@
 
 
 // **** Styling prior to Kevin's
-    .anchor-header {
+    .anchor-header1 {
+        font-size: 1.3rem;
+        text-align:left;
+        text-decoration:none;
+        margin:0;
+        margin-left:20px;
+        color:#00bfa5;
+        margin-bottom:3px;
+    }
+
+    .anchor-header2 {
+        font-size: 1.3rem;
+        text-align:left;
+        text-decoration:none;
+        margin:0;
+        margin-left:20px;
+        color:#00bfa5;
+        margin-bottom:3px;
+    }
+
+    .anchor-header3 {
         font-size: 1.3rem;
         text-align:left;
         text-decoration:none;
@@ -1065,6 +1085,7 @@
         margin-left:3%;
         min-height:40vh;
         background: white;
+        
 
         @media only screen and (max-width: 600px) {
             height: 100%;
@@ -1085,6 +1106,7 @@
         justify-content:flex-start;
         align-items: flex-start;
         color:#393B40;
+        overflow: auto;
 
         @media only screen and (max-width: 600px) {
             align-items: center;
@@ -1094,14 +1116,13 @@
         .subnav {
             display:flex;
             flex-direction:column;
-
             
         }
 
         .anchor-nav {
             display:flex;
             flex-direction:column;
-            overflow: auto;
+          
             // border:1px solid green;
             
             a {
@@ -1116,7 +1137,14 @@
             }
         }
 
+        .spanStyle {
+            display:flex;
+            flex-direction:column;
+        }
 
+        .hideMenu {
+            display: none;
+          }
 
         .slider {
             width: 100%;
@@ -1279,7 +1307,7 @@
         }
         #general{
             margin-top:5px;
-            margin-bottom:20px;
+            margin-bottom:5px;
         }
 
         

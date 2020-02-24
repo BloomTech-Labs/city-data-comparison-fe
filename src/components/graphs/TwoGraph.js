@@ -28,7 +28,7 @@ export default class HorizontalGraph extends Component{
             ]
           },
           {
-            label: 'New york, NY',
+            label: 'New York, NY',
             stack: 'Stack 1',
             data: 
             [
