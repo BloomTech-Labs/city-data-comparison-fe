@@ -24,12 +24,7 @@ import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 import BirthRateCard from "../graphs/culture/birthRateCard"
 import Transportaion from "../graphs/transportationScore"
-<<<<<<< HEAD
-//import './DataDisplay.scss';
-import PerfectScrollbar from 'react-perfect-scrollbar'
-=======
-import Scroller from "react-scroll-collapse";
->>>>>>> c4df7ae51482dce3f1e17083d8a971769a2f83d0
+
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
