@@ -24,7 +24,12 @@ import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 import BirthRateCard from "../graphs/culture/birthRateCard"
 import Transportaion from "../graphs/transportationScore"
+<<<<<<< HEAD
+//import './DataDisplay.scss';
+import PerfectScrollbar from 'react-perfect-scrollbar'
+=======
 import Scroller from "react-scroll-collapse";
+>>>>>>> c4df7ae51482dce3f1e17083d8a971769a2f83d0
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
@@ -49,6 +54,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     }
 
     // fixed sidebar handling
+  /*
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
     var autofillContainer = document.getElementsByClassName("autofill-container")[0]
@@ -80,6 +86,12 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
             stickynav.classList.remove("sticky")
         }
     }
+*/
+
+// trying out checkbox menu
+
+
+
 
     const toggleMenu = () => {
         if (menu.status === 'closed') {
@@ -137,6 +149,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                     </div>)}
                                 </ul>
                                 {/* <p className="anchor-header">General Statistics</p> */}
+                                
                                 <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} offset={-150}>City Overview</Link>
 
                                 <p className="anchor-header1" onClick={toggle1}>Housing</p>
