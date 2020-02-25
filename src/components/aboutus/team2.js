@@ -11,7 +11,7 @@ import kyle from '../../assets/team2_photos/Kyle Porter.jpg';
 import ryan from '../../assets/team2_photos/Ryan Cooper.png'; 
 import regino from '../../assets/team2_photos/Regino Parragil.png'; 
 import thomas from '../../assets/team2_photos/Thomas Rodriguez.png'
-import jeremy from '../../assets/team2_photos/Jeremy Rogel.png';
+import jeremy from '../../assets/team2_photos/Jeremy Rogel.jpg';
 
 const team2 = [
     {
@@ -20,8 +20,8 @@ const team2 = [
         role: 'Team Lead', 
         social: {
             twitter: '', 
-            github: 'https://github.com/jeremyRogel', 
-            linkedin: 'https://www.linkedin.com/in/jeremy-rogel-293640186/', 
+            github: 'jeremyRogel', 
+            linkedin: 'jeremy-rogel-293640186/', 
             
         }, 
         about: 'A natural go-getter, Jeremy Rogel applies his knowledge of code and passion for creation by being the best fullstack web developer this side of the Mississippi! Applying his trade in Durham, NC, his passion to keep getting better shines in whatever he sets out to do.',
@@ -35,7 +35,7 @@ const team2 = [
         social: {
             twitter: '', 
             github: '', 
-            linkedin: '', 
+            linkedin: 'dariush-khansari-8b8a068', 
           
         }, 
         about: 'Dariush Khansari tells stories through visual design and multimedia.',
@@ -49,7 +49,7 @@ const team2 = [
         social: {
             twitter: '', 
             github: '', 
-            linkedin: 'https://www.linkedin.com/in/songamugenzi/', 
+            linkedin: 'songamugenzi/', 
         
         }, 
         about: 'Songa Mugenzi is a strategy-minded user experience designer passionate about designing applications for emerging technologies. His mission in life is to break through our self-imposed barriers to connecting with each other by spotlighting our shared human experience.',
@@ -62,7 +62,7 @@ const team2 = [
         role: 'Data Scientist', 
         social: {
             twitter: '', 
-            github: 'https://github.com/zebfred', 
+            github: 'zebfred', 
             linkedin: '', 
           
         }, 
@@ -76,8 +76,8 @@ const team2 = [
         role: 'Data Scientist', 
         social: {
             twitter: '', 
-            github: 'https://github.com/cshields143', 
-            linkedin: 'https://www.linkedin.com/in/chris-shields-827421194/', 
+            github: 'cshields143', 
+            linkedin: 'chris-shields-827421194/', 
             
         }, 
         about: 'Chris Shields applies data science to problem solving in Spokane, WA. Having received a liberal arts education in the desert, he is now driven to use software and mathematics to empower and improve',
@@ -90,7 +90,7 @@ const team2 = [
         role: 'Data Scientist', 
         social: {
             twitter: '', 
-            github: 'https://github.com/nephylum', 
+            github: 'nephylum', 
             linkedin: '', 
           
         }, 
@@ -104,7 +104,7 @@ const team2 = [
         role: 'Web Developer', 
         social: {
             twitter: '', 
-            github: 'https://github.com/kylewp13', 
+            github: 'kylewp13', 
             linkedin: '', 
             
         }, 
@@ -118,8 +118,8 @@ const team2 = [
         role: 'Web Developer', 
         social: {
             twitter: '', 
-            github: 'https://github.com/ars394', 
-            linkedin: 'https://www.linkedin.com/in/anisha-reddy-394b60ab/', 
+            github: 'ars394', 
+            linkedin: 'anisha-reddy-394b60ab/', 
             
         }, 
         about: '',
@@ -132,8 +132,8 @@ const team2 = [
         role: 'Web Developer', 
         social: {
             twitter: '', 
-            github: 'https://github.com/ryankayne', 
-            linkedin: '', 
+            github: 'ryankayne', 
+            linkedin: 'ryankaynecooper', 
             
         }, 
         about: 'Ryan Cooper is a Web Developer from Michigan.',
@@ -146,7 +146,7 @@ const team2 = [
         role: 'Web Developer', 
         social: {
             twitter: '', 
-            github: 'https://github.com/gio5298', 
+            github: 'gio5298', 
             linkedin: '', 
            
         }, 
@@ -160,7 +160,7 @@ const team2 = [
         role: 'Web Developer', 
         social: {
             twitter: '', 
-            github: 'https://github.com/trodriguez89', 
+            github: 'trodriguez89', 
             linkedin: '', 
             
         }, 
