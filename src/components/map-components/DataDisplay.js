@@ -58,26 +58,27 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         window.pageYOffset > document.body.scrollHeight - window.innerHeight - 300;
    
     const scrollAnchor = _ => {
-    //     if (stickynav) {
-    //         // This line handles the offset from the main nav bar
+        if (stickynav) {
+            // This line handles the offset from the main nav bar
 
-    //         var sticky = placeholder.offsetTop - 105;
-    //     }
+            var sticky = placeholder.offsetTop - 105;
+        }
 
-    //     if (window.pageYOffset > sticky && !isScrolledToFooter()) {
-    //         stickynav.classList.add("sticky");
-    //         autofillContainer.classList.add("abso-width")
+        if (window.pageYOffset > sticky && !isScrolledToFooter()) {
+            stickynav.classList.add("sticky");
+            autofillContainer.classList.add("abso-width")
 
-    //     } else {
-    //         stickynav.classList.remove("sticky");
-    //         autofillContainer.classList.remove("abso-width")
-    //     }
-    //     if (isScrolledToFooter() && selected.length > 0) {
-    //         stickynav.classList.add("nav-bottom-anchor")
-    //     } 
-    //     else {
-    //         stickynav.classList.remove("nav-bottom-anchor")
-    //     }
+        } 
+        // else {
+        //     stickynav.classList.remove("sticky");
+        //     autofillContainer.classList.remove("abso-width")
+        // }
+        // if (isScrolledToFooter() && selected.length > 0) {
+        //     stickynav.classList.add("nav-bottom-anchor")
+        // } 
+        else if (window.pageYOffset < sticky && !isScrolledToFooter()) {
+            stickynav.classList.remove("sticky")
+        }
     }
 
     const toggleMenu = () => {
@@ -90,6 +91,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
      
     return (
         <div className="data-browser">
+            {/* <div className="nav-box"> */}
             <div className="nav-placeholder">
             <nav id="stickynav" className="data-nav">
                 <div className='top-menu'>
