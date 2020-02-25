@@ -24,6 +24,7 @@ import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 import BirthRateCard from "../graphs/culture/birthRateCard"
 import Transportaion from "../graphs/transportationScore"
+import Scroller from "react-scroll-collapse";
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
@@ -57,26 +58,26 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         window.pageYOffset > document.body.scrollHeight - window.innerHeight - 300;
    
     const scrollAnchor = _ => {
-        if (stickynav) {
-            // This line handles the offset from the main nav bar
+    //     if (stickynav) {
+    //         // This line handles the offset from the main nav bar
 
-            var sticky = placeholder.offsetTop - 105;
-        }
+    //         var sticky = placeholder.offsetTop - 105;
+    //     }
 
-        if (window.pageYOffset > sticky && !isScrolledToFooter()) {
-            stickynav.classList.add("sticky");
-            autofillContainer.classList.add("abso-width")
+    //     if (window.pageYOffset > sticky && !isScrolledToFooter()) {
+    //         stickynav.classList.add("sticky");
+    //         autofillContainer.classList.add("abso-width")
 
-        } else {
-            stickynav.classList.remove("sticky");
-            autofillContainer.classList.remove("abso-width")
-        }
-        if (isScrolledToFooter() && selected.length > 0) {
-            stickynav.classList.add("nav-bottom-anchor")
-        } 
-        else {
-            stickynav.classList.remove("nav-bottom-anchor")
-        }
+    //     } else {
+    //         stickynav.classList.remove("sticky");
+    //         autofillContainer.classList.remove("abso-width")
+    //     }
+    //     if (isScrolledToFooter() && selected.length > 0) {
+    //         stickynav.classList.add("nav-bottom-anchor")
+    //     } 
+    //     else {
+    //         stickynav.classList.remove("nav-bottom-anchor")
+    //     }
     }
 
     const toggleMenu = () => {
@@ -146,6 +147,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                         <Link onClick={() => dataNavClicked("vacancy")} activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} offset={-150}>Vacancy</Link>
                                     </span>
                                 </div>
+                                
 
                                 
                                 <p className="anchor-header2" onClick={toggle2}>Industry</p>
