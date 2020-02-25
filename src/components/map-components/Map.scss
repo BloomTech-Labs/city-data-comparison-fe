@@ -69,6 +69,7 @@
     background: #F2F9FD;
     display:flex;
     padding-top: 3%;
+    height: 110vh;
     @media screen and (max-width:600px){
         background:white;
         padding-top:0;
@@ -1085,7 +1086,7 @@
         margin-left:3%;
         min-height:40vh;
         background: white;
-        
+        overflow-y: auto;
 
         @media only screen and (max-width: 600px) {
             height: 100%;
@@ -1106,7 +1107,7 @@
         justify-content:flex-start;
         align-items: flex-start;
         color:#393B40;
-        overflow: auto;
+        // overflow-y: auto;
 
         @media only screen and (max-width: 600px) {
             align-items: center;
@@ -1374,6 +1375,7 @@
     .data-by-category {
         width: 73%;
         margin-left:3%;
+        // overflow-y: auto;
         
 
         @media only screen and (max-width: 600px) {
