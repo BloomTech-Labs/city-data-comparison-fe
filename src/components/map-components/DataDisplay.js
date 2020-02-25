@@ -49,7 +49,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     }
 
     // fixed sidebar handling
-  /*
+  
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
     var autofillContainer = document.getElementsByClassName("autofill-container")[0]
@@ -81,7 +81,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
             stickynav.classList.remove("sticky")
         }
     }
-*/
+
 
 // trying out checkbox menu
 
