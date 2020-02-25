@@ -83,6 +83,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     }
 */
 
+// trying out checkbox menu
+
+
+
+
     const toggleMenu = () => {
         if (menu.status === 'closed') {
             setMenu({...menu, status:'open'}) 
