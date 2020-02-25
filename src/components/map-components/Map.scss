@@ -23,6 +23,8 @@
     // height:100vh;
     .footer-container {
         margin-top:0;
+        position: absolute;
+        width: 100%;
     }
 }
 
@@ -69,7 +71,7 @@
     background: #F2F9FD;
     display:flex;
     padding-top: 3%;
-    height: 110vh;
+    height: 100%;
     @media screen and (max-width:600px){
         background:white;
         padding-top:0;
@@ -1079,14 +1081,16 @@
         color:#00bfa5;
         margin-bottom:3px;
     }
-
+    
     .nav-placeholder {
         padding:0;
         width: 20%;
         margin-left:3%;
         min-height:40vh;
+        // height: 100vh;
         background: white;
         overflow-y: auto;
+        position: sticky;
 
         @media only screen and (max-width: 600px) {
             height: 100%;
@@ -1099,6 +1103,10 @@
             min-height:0px;
             display:none;
         }
+    }
+
+    .nav-placeholder::-webkit-scrollbar {
+        display: none;
     }
 
     .data-nav {
@@ -1364,6 +1372,11 @@
         position:fixed;
         top:100px;
         width: 20%;
+        height: 85vh;
+        overflow-y: auto;
+    }
+    .sticky::-webkit-scrollbar {
+        display: none;
     }
 
     .nav-bottom-anchor {

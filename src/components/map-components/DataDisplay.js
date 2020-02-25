@@ -24,7 +24,7 @@ import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 import BirthRateCard from "../graphs/culture/birthRateCard"
 import Transportaion from "../graphs/transportationScore"
-import Scroller from "react-scroll-collapse";
+
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
@@ -49,6 +49,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     }
 
     // fixed sidebar handling
+  
     window.onscroll = _ => scrollAnchor();
     var stickynav = document.getElementById("stickynav");
     var autofillContainer = document.getElementsByClassName("autofill-container")[0]
@@ -58,27 +59,34 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         window.pageYOffset > document.body.scrollHeight - window.innerHeight - 300;
    
     const scrollAnchor = _ => {
-    //     if (stickynav) {
-    //         // This line handles the offset from the main nav bar
+        if (stickynav) {
+            // This line handles the offset from the main nav bar
 
-    //         var sticky = placeholder.offsetTop - 105;
-    //     }
+            var sticky = placeholder.offsetTop - 105;
+        }
 
-    //     if (window.pageYOffset > sticky && !isScrolledToFooter()) {
-    //         stickynav.classList.add("sticky");
-    //         autofillContainer.classList.add("abso-width")
+        if (window.pageYOffset > sticky && !isScrolledToFooter()) {
+            stickynav.classList.add("sticky");
+            autofillContainer.classList.add("abso-width")
 
-    //     } else {
-    //         stickynav.classList.remove("sticky");
-    //         autofillContainer.classList.remove("abso-width")
-    //     }
-    //     if (isScrolledToFooter() && selected.length > 0) {
-    //         stickynav.classList.add("nav-bottom-anchor")
-    //     } 
-    //     else {
-    //         stickynav.classList.remove("nav-bottom-anchor")
-    //     }
+        } 
+        // else {
+        //     stickynav.classList.remove("sticky");
+        //     autofillContainer.classList.remove("abso-width")
+        // }
+        // if (isScrolledToFooter() && selected.length > 0) {
+        //     stickynav.classList.add("nav-bottom-anchor")
+        // } 
+        else if (window.pageYOffset < sticky && !isScrolledToFooter()) {
+            stickynav.classList.remove("sticky")
+        }
     }
+
+
+// trying out checkbox menu
+
+
+
 
     const toggleMenu = () => {
         if (menu.status === 'closed') {
@@ -90,6 +98,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
      
     return (
         <div className="data-browser">
+            {/* <div className="nav-box"> */}
             <div className="nav-placeholder">
             <nav id="stickynav" className="data-nav">
                 <div className='top-menu'>
@@ -135,6 +144,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                     </div>)}
                                 </ul>
                                 {/* <p className="anchor-header">General Statistics</p> */}
+                                
                                 <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} offset={-150}>City Overview</Link>
 
                                 <p className="anchor-header1" onClick={toggle1}>Housing</p>
