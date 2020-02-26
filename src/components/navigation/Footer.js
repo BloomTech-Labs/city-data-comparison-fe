@@ -45,8 +45,9 @@ function Footer(){
                               </div>
                               <div className="footer-categories">
                                    <p className="footer-title">Company</p>
-                                   <a href="#" onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>Meet the Team (V 1.0)</a>
-                                   <a href="#" onClick={() => (setModalState(<AboutUs2/>), toggle())} style={{cursor: "pointer"}}>Meet the Team (V 2.0)</a>
+                                   <Link to="/aboutus" >Meet the Team</Link>
+                                   {/* <a href="#" onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>Meet the Team (V 1.0)</a> */}
+                                   {/* <a href="#" onClick={() => (setModalState(<AboutUs2/>), toggle())} style={{cursor: "pointer"}}>Meet the Team (V 2.0)</a> */}
                                    <a href="#" onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>About Us</a>
                                    <a href="#" onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>Contact Us</a>
                               </div>
