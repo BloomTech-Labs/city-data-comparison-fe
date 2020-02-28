@@ -8,7 +8,7 @@ function Footer(){
                     <div className="footer-CTA">
 
                         { /* this needs to be placed correctly */ }
-                        <p className="copyright">© City Data Comparison 2019</p>
+                        <p className="copyright">© City Data Comparison 2020</p>
 
                     </div>
 

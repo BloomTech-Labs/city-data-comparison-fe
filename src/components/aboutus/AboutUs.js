@@ -15,15 +15,16 @@ const AboutUs = props => {
      
     return(
         <div className="aboutUs">
-            
-            <div className="left-arrow" onClick={() =>{ 
-                (index <= 0) ? setIndex(members.length - 1) : setIndex(index - 1)
-                
-                }}></div>
+            <div>
+                <div className="left-arrow" onClick={() =>{ 
+                    (index <= 0) ? setIndex(members.length - 1) : setIndex(index - 1)
+                }}> 
+                </div>
 
-            <Member member={members[index]}/>
+                <Member member={members[index]}/>
 
-            <div className='right-arrow' onClick={() => (index === (members.length - 1)) ? setIndex(0) : setIndex(index + 1)}></div>
+                <div className='right-arrow' onClick={() => (index === (members.length - 1)) ? setIndex(0) : setIndex(index + 1)}></div>
+            </div>
         </div>
     )
 }
