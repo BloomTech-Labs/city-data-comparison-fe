@@ -71,7 +71,7 @@ export default function VacancyGraph (props) {
               }}
             /> 
           </div>
-        
+          <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: zillow.com</p>
         </div>
     )
   }

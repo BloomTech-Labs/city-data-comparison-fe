@@ -213,12 +213,14 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <div className="rent-container">
                         <p className="chart-title">Average rent</p>
                         <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
+                        <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: zillow.com</p>
                     </div>
 
                     <div className="home-container">
                         <div className="homeprice-container">
                             <p className="chart-title">Home prices</p>
                             <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
+                            <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: zillow.com</p>
                         </div>
 
                         <div className="ownerMortgage">
@@ -230,6 +232,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         <div className="room-container">
                             <p className="chart-title">Average rooms per household</p>
                             <Element name="rooms" className="element" ><RoomGraph edData={selected} /></Element>
+                            <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: zillow.com</p>
                         </div>
 
                         <div className="vacancy-owner-container">

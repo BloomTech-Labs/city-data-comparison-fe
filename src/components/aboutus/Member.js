@@ -53,4 +53,4 @@ const Member = props => {
     )
 }
 
-export default Member
+export default Member;
