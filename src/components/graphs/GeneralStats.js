@@ -73,7 +73,7 @@ function TotalPopulation({ethData}) {
 
                     <div className="overview-stats-container-two">
                         <div className="overview-stats">${numberCommas(item["Median Rent"])}</div>
-                        <div className="overview-stats">${numberCommas(item["Median Per Capita Income"])}</div>
+                        <div className="overview-stats">${numberCommas(item["Median Household Income"])}</div>
                     </div>
                 </div>
             </div>

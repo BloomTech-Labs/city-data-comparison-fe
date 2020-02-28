@@ -273,7 +273,7 @@ cityIndex.sort(compare);
             <Route path="/map" component={Map} />
             <PrivateRoute path='/profile' component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
-            <Route path="/aboutus" component={AboutUs} />
+            <Route path="/aboutus" component={AboutUs2} />
 
             <Route path='/signin' render={props => <AuthForm {...props} action="Login"/>} />
             <Route path="/signup" render={props => <AuthForm {...props} action="Register"/>} />
