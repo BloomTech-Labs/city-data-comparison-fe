@@ -375,7 +375,7 @@ function Dashboard({history}){
                     >
                          <img className="feature-images" src={data} alt="map"/>
                          <div className="feature-descriptions">
-                              <p className="feature-title">Map View</p>
+                              <p className="feature-title">Map view</p>
                               <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
                          </div>
                     </div>
@@ -390,7 +390,7 @@ function Dashboard({history}){
                     >
                          <img className="feature-images" src={location} alt="data visual"/>
                          <div className="feature-descriptions">
-                              <p className="feature-title">Visualize Data</p>
+                              <p className="feature-title">Visualize data</p>
                               <p>Data visuals help to easily understand cost of living in multiple cities and provide data from a bird’s eye view.</p>
                          </div>
                     </div>
