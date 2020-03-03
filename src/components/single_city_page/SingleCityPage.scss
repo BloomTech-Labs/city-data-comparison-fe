@@ -1,0 +1,108 @@
+.SCPhero {
+    background-image: url("/cityscape.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+    
+}
+
+.SCPcityIntro {
+
+    .SCPweather {
+
+    }
+
+    .SCPdescription {
+
+    }
+} // ends SCPcityIntro
+
+.SCPmain {
+    width: 1400px;
+
+    .SCPsidebar {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        height: 1000px;
+
+        .SCPfilter {
+
+        }
+
+        .SCPfilterCatContainer {
+
+        }
+    } // ends SCPsidebar
+
+    .SCPcategories {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+
+        .SCPexplore {
+
+            h3 {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 42px;
+                line-height: 50px;
+            }
+            .exploreContainer {
+
+                .expCat {
+                    display: flex;
+                    width: 600px;
+                    padding: 20px 0;
+
+                    .expCatImg {
+                        width: 270px;
+                        height: 170px;
+                    }
+
+                    .expCatText {
+                        height: 170px;
+                        padding-left: 20px;
+
+                        .expCatTitle {
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: 28px;
+                            line-height: 33px;
+                            
+                            h4 {
+                                margin: 0;
+                            }
+                        }
+
+                        .expP {
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 18px;
+                            width: 500px;
+                            
+                            p {
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } // ends SCPcategories
+} // ends SCPmain
+
+.SCPresources {
+
+    .resourcesContainer {
+
+        .resCat {
+
+            .resImg {
+
+            }
+        }
+    }
+}

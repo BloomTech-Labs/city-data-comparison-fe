@@ -19,7 +19,8 @@ import { CityContext } from './contexts/CityContext';
 import Axios from "axios"
 import Callback from './components/Callback';
 import AuthForm from './components/forms/AuthForm';
-import axiosAuth from "./components/axiosAuth"
+import axiosAuth from "./components/axiosAuth";
+import SingleCityPage from "./components/single_city_page/SingleCityPage";
 
 
 
@@ -274,6 +275,7 @@ cityIndex.sort(compare);
             <PrivateRoute path='/profile' component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/aboutus" component={AboutUs2} />
+            <Route path="/SCP" component={SingleCityPage} />
 
             <Route path='/signin' render={props => <AuthForm {...props} action="Login"/>} />
             <Route path="/signup" render={props => <AuthForm {...props} action="Register"/>} />
