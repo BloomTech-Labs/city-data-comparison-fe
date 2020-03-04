@@ -435,7 +435,7 @@ function Dashboard({history}){
                               data-aos-once="true"
                          >
                               <RadarGraph />
-                              <p className="metrics-description"><p className="metrics-description-title">Economy</p>Economic data includes health insurances, household income, major industries and etc.</p>
+                              <p className="metrics-description"><p className="metrics-description-title">Economy</p>Economic data includes household income, major industries, etc.</p>
                          </div>
                     </div>
                </div>

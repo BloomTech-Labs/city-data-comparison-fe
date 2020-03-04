@@ -20,9 +20,9 @@ import UnemploymentCard from "../graphs/economics/unemploymentCard";
 import deleteIcon from "./icons/close_red.png";
 import GeneralStats from "../graphs/GeneralStats";
 import TravelTime from "../graphs/economics/TravelTimeCard";
-import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
+// import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
-import BirthRateCard from "../graphs/culture/birthRateCard"
+// import BirthRateCard from "../graphs/culture/birthRateCard"
 import Transportaion from "../graphs/transportationScore"
 
 
@@ -169,7 +169,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 {/* <Link onClick={() => dataNavClicked("travelTime")} activeClass="active" className="anchor-link" to="travelTime" spy={true} smooth={true} duration={500} offset={-150} >Commute Times</Link> */}
                                 <Link onClick={() => dataNavClicked("transportation")} activeClass="active" className="anchor-link" to="transportation" spy={true} smooth={true} duration={500} offset={-150} >Travel Scores</Link>
                                 <Link onClick={() => dataNavClicked("unemploymentRate")} activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} offset={-150}>Unemployment Rate</Link>
-                                <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} offset={-150}>Health Insurance</Link>
+                                {/* <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} offset={-150}>Health Insurance</Link> */}
                                 <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} offset={-150}>Retirement</Link>
                                 </span>
                                 </div>
@@ -277,10 +277,11 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             {/* <p className="chart-title">Unemployment</p> */}
                             <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
                         </div>
-                        <div className="insurance-container">
-                            {/* <p className="chart-title">Health insurance</p> */}
+
+                        {/* <div className="insurance-container">
                             <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
-                        </div>
+                        </div> */}
+
                         <div className="retirement-container">
                             <p className="chart-title">Retirement income source</p>
                             <Element name="retirement" className="element" ><RetirementGraph ethData={selected} /></Element>
@@ -316,9 +317,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             <p className="chart-title">Population growth</p>
                             <Element name="population" className="element" ><Population selected = {selected} /></Element>
                         </div>
-                        <div className="birth-container">
+                        {/* <div className="birth-container">
                             <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="avg-temp-container">

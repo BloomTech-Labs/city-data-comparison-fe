@@ -136,10 +136,10 @@ const Preferences = ({selected, toggleSelected})=> {
                                     <div className='checkbox'><img src={checkMark} alt='check icon'/></div>
                                     <p>Household income</p>
                                 </div>
-                                <div className='tab-name'>
+                                {/* <div className='tab-name'>
                                     <div className='checkbox'><img src={checkMark} alt='check icon'/></div>
                                     <p>Health insurance</p>
-                                </div>
+                                </div> */}
                                 <div className='tab-name'>
                                     <div className='checkbox'><img src={checkMark} alt='check icon'/></div>
                                     <p>Commute</p>
