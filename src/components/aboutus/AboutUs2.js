@@ -36,8 +36,8 @@ const AboutUs2 = () => {
                     <h1 className="aboutUsH1">Meet the team</h1>
 
                     <div>
-                        <p style={{ color: 'white'}}>Version 1.0</p>
-                        <p style={{ color: 'white'}}>Version 2.0</p>
+                        <p style={{ color: 'white', lineHeight: '80%'}}>Version 1.0</p>
+                        <p style={{ color: 'white', lineHeight: '80%'}}>Version 2.0</p>
                     </div>
                 </div>
             </div>
