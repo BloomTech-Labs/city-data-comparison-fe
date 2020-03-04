@@ -7,12 +7,16 @@ import foodAndDrink from '../../assets/single_city_page_photos/foodAndDrink.jpg'
 import attractions from '../../assets/single_city_page_photos/attractions.jpg';
 import weather from '../../assets/single_city_page_photos/weather.png';
 import recreation from '../../assets/single_city_page_photos/recreation.png';
+import cityServices from '../../assets/single_city_page_photos/cityServices.png';
+import shopping from '../../assets/single_city_page_photos/shopping.png';
+import lodging from '../../assets/single_city_page_photos/lodging.png';
 
 
 const SingleCityPage = () => {
     return (
         <>
         <div className="SCPhero">
+            <img className="SCPheroImg" src={cityscape} />
         </div>
         <section className="SCPcityIntro">
             <div className="SCPweather">
@@ -92,21 +96,15 @@ const SingleCityPage = () => {
                     </div>
                     <div className="resourcesContainer">
                         <div className="resCat">
-                            <div className="resImg">
-
-                            </div>
+                            <img className="resImg" src={cityServices} />
                             <h5>City Services</h5>
                         </div>
                         <div className="resCat">
-                            <div className="resImg">
-
-                            </div>
+                            <img className="resImg" src={shopping} />
                             <h5>Shopping</h5>
                         </div>
                         <div className="resCat">
-                            <div className="resImg">
-
-                            </div>
+                            <img className="resImg" src={lodging} />
                             <h5>Lodging</h5>
                         </div>
                     </div>

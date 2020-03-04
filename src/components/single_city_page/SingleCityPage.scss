@@ -1,14 +1,22 @@
 .SCPhero {
-    background-image: url("/cityscape.jpg");
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: center;
-    background-size: cover;
-    height: 500px;
+    // background-image: url("/cityscape.jpg");
+    // background-repeat: no-repeat;
+    // background-attachment: scroll;
+    // background-position: center;
+    // background-size: cover;
+    // height: 500px;
+    // max-width: 1400px;
+
+    .SCPheroImg {
+        width: 100%;
+        height: 500px;
+        margin: 65px auto;
+    }
     
 }
 
 .SCPcityIntro {
+    max-width: 1400px;
 
     .SCPweather {
 
@@ -21,6 +29,7 @@
 
 .SCPmain {
     width: 1400px;
+    max-width: 1400px;
 
     .SCPsidebar {
         display: flex;
@@ -49,6 +58,7 @@
                 font-weight: 500;
                 font-size: 42px;
                 line-height: 50px;
+                margin: 0;
             }
             .exploreContainer {
 
@@ -95,13 +105,36 @@
 } // ends SCPmain
 
 .SCPresources {
+    max-width: 1400px;
+    margin-top: 80px;
 
+    h3 {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 42px;
+        line-height: 50px;
+        margin: 0;
+    }
     .resourcesContainer {
+        display: flex;
+        padding: 20px 0;
 
         .resCat {
+            display: flex;
+            flex-direction: column;
 
             .resImg {
+                width: 290px;
+                height: 170px;
+                padding-right: 20px;
+            }
 
+            h5 {
+                font-style: normal;
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 28px;
+                margin: 10px 0 0 0;
             }
         }
     }
