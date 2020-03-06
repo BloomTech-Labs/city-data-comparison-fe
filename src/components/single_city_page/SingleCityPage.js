@@ -1,6 +1,9 @@
-import  React, {useState, useEffect} from "react";
+import  React, {useState, useEffect, useContext} from "react";
+import axios from "axios";
+import { CityContext } from '../../contexts/CityContext';
 
 import './SingleCityPage.scss';
+// import { scpData } from './scpDummyData';
 
 import tempWeather from "../../assets/single_city_page_photos/Group 39.png"
 import cityscape from '../../assets/single_city_page_photos/cityscape.jpg';
@@ -12,14 +15,14 @@ import cityServices from '../../assets/single_city_page_photos/cityServices.png'
 import shopping from '../../assets/single_city_page_photos/shopping.png';
 import lodging from '../../assets/single_city_page_photos/lodging.png';
 
-
-
 const SingleCityPage = () => {
   
-    const [categories, setCategories] = useState({
-    })
+    const [categories, setCategories] = useState({});
+    const [restaurants, setRestaurants] = useState();
 
-     function onChange(e){ 
+    const {viewport} = useContext(CityContext);
+
+    function onChange(e){ 
         setCategories({
             ...categories,
             [e.target.name]: categories[e.target.name] ? false : true
@@ -56,7 +59,19 @@ const SingleCityPage = () => {
         document.getElementById("menuCollapse7").classList.toggle("hidden");
     }
 
+    useEffect(() => {
+        axios
+          .get(`http://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/restaurant/${viewport.latitude}/${viewport.longitude}`)
+          .then(res => {
+            console.log('get test',res.data)
+            setRestaurants(res.data)
+            console.log(setRestaurants)
+          })
+          .catch(err => console.log(err))
+      }, []);
+
     return (
+        
         <>
     {/* hero/header section */}
             <div className="SCPhero">

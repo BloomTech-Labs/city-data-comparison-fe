@@ -129,7 +129,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             cityIndex={cityIndex}
                             />
                             {selected.length > 0 
-                            ? <div className="anchor-nav">m
+                            ? <div className="anchor-nav">
                                 <ul>
                                     {selected.map(item => 
                                     <div key={item._id} className={`menu-items ${menu.status}`}>
