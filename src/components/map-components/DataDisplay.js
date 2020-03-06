@@ -35,6 +35,18 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         action: `clicked ${link} link` });
     }
 
+    const [categories, setCategories] = useState({
+    })
+
+    // function for handling sidebar checkbox check/uncheck (display of categories)
+
+     function onChange(e){ 
+        setCategories({
+            ...categories,
+            [e.target.name]: categories[e.target.name] ? false : true
+        })
+    }
+
     // Handles toggles for Anchor-headers
     function toggle1() {
         document.getElementById("menuCollapse1").classList.toggle("hideMenu");
@@ -129,7 +141,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             cityIndex={cityIndex}
                             />
                             {selected.length > 0 
-                            ? <div className="anchor-nav">m
+                            ? <div className="anchor-nav">
                                 <ul>
                                     {selected.map(item => 
                                     <div key={item._id} className={`menu-items ${menu.status}`}>
@@ -150,7 +162,9 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <p className="anchor-header1" onClick={toggle1}>Housing</p>
                                 <div id="menuCollapse1">
                                     <span class="spanStyle">
-                                        <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} offset={-150}>Rent</Link>
+                                        <input type="checkbox" id="rent" name="rent" value="rent" onChange={onChange}/>
+                                        <label for="rent">rent</label><br />
+                                        {/* <Link onClick={() => dataNavClicked("rent")}  type="checkbox" id="rent" name="rent" value="rent" activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} offset={-150}>Rent</Link> */}
                                         <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} offset={-150}>Housing Costs</Link>
                                         <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} offset={-150}>Owner Costs</Link>
                                         <Link onClick={() => dataNavClicked("rooms")} activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} offset={-150}>Rooms</Link>
@@ -210,11 +224,15 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         <p className="data-category-header">Housing</p>
                         <p className="data-category-subtitle">View the comprehensive picture of housing in American cities.</p>
                     </div> */}
+
+                { categories.rent?      
                     <div className="rent-container">
                         <p className="chart-title">Average rent</p>
                         <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
                         <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: zillow.com</p>
                     </div>
+                    : <div></div>
+                }
 
                     <div className="home-container">
                         <div className="homeprice-container">

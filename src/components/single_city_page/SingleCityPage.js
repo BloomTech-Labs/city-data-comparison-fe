@@ -19,14 +19,15 @@ const SingleCityPage = () => {
     const [categories, setCategories] = useState({
     })
 
+    // function for handling sidebar checkbox check/uncheck (display of categories)
+
      function onChange(e){ 
         setCategories({
             ...categories,
             [e.target.name]: categories[e.target.name] ? false : true
         })
     }
-    
-    const [menu, setMenu] = useState({status: 'closed'})
+
     
     // Handles toggles for Anchor-headers
     function toggle1() {
