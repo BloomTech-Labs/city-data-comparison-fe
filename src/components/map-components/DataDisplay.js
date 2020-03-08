@@ -173,6 +173,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                         <label for="roomsVacancy">rooms/vacancy</label><br />
                                         {/* <Link onClick={() => dataNavClicked("rooms")} activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} offset={-150}>Rooms</Link> */}
                                         {/* <Link onClick={() => dataNavClicked("vacancy")} activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} offset={-150}>Vacancy</Link> */}
+
                                     </span>
                                 </div>
                                 

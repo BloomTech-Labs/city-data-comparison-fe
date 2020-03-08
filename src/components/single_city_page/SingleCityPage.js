@@ -33,7 +33,23 @@ const SingleCityPage = () => {
     document.getElementById("menuCollapse1").classList.toggle("hidden");
   }
 
-  function toggle2() {
+
+    // function for handling sidebar checkbox check/uncheck (display of categories)
+
+     function onChange(e){ 
+        setCategories({
+            ...categories,
+            [e.target.name]: categories[e.target.name] ? false : true
+        })
+    }
+
+    
+    // Handles toggles for Anchor-headers
+    function toggle1() {
+        document.getElementById("menuCollapse1").classList.toggle("hidden");
+    }
+
+    function toggle2() {
     document.getElementById("menuCollapse2").classList.toggle("hidden");
   }
 
