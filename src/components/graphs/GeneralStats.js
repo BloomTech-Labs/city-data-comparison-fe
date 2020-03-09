@@ -42,7 +42,8 @@ function TotalPopulation({ethData}) {
             <div key={item._id} className="city-overview-container-medium">
             <div className="city-overview-container"> 
             <div className="city-overview-border">
-                <p>City overview</p>
+                <p>City overview</p> 
+                {/* change title to name of city? */}
                 <FavoriteButton city={item}/>
             </div>
             <div className="city-info-container">
