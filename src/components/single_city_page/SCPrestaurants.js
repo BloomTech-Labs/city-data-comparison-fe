@@ -7,7 +7,7 @@ console.log('propsRest', props.restaurants)
         <div style={{ width: '870px' }}>
             <h3 style={{ fontStyle: 'normal', fontWeight:   500, fontSize: '42px', lineHeight: '50px', margin: 0 }}>Restaurants</h3>
             <div style={{display: 'flex', flexWrap: 'wrap', padding: '20px 0' }}>
-            {props.restaurants.businesses.map(item => (
+            {props.restaurants.businesses.slice(0,3).map(item => (
                 <div style={{ height: '270px', width: '290px' }}>
                     <img  style={{ height: '170px', width: '290px', paddingRight: '20px' }} src={item.image_url} />
                     <h5 style={{ fontStyle: 'normal', fontWeight: 'bold',
