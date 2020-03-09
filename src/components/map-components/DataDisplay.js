@@ -1,5 +1,6 @@
 import  React, {useState, useEffect} from "react";
 import { Link, Element } from 'react-scroll'
+import { Link as SCPLink } from 'react-router-dom';
 import ReactGA from "react-ga";
 import Footer from '../navigation/Footer'
 import AvgTemp from "../graphs/culture/tempAvg"
@@ -176,8 +177,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
                                     </span>
                                 </div>
-                                
-
+                        
                                 
                                 <p className="anchor-header2" onClick={toggle2}>Industry</p>
                                 <div id="menuCollapse2">
@@ -243,6 +243,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                 </div>
 
+                <SCPLink to="/SCP">Link to SCP</SCPLink>
 
                 <div className="data-category special-margins">
                     {/* <div className="data-category-titles">
