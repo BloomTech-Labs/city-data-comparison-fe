@@ -46,7 +46,7 @@
             justify-content: flex-end;
             height: 150px;
             padding: 0;
-            
+
           .temp {
             font-size: 40px;
           }
@@ -107,15 +107,18 @@
                 margin: 0;
             }
             .exploreContainer {
+                width: 900px;
 
                 .expCat {
                     display: flex;
                     width: 600px;
                     padding: 20px 0;
+                    margin: 0;
 
                     .expCatImg {
                         width: 270px;
                         height: 170px;
+                        box-sizing: border-box;
                     }
 
                     .expCatText {
@@ -184,4 +187,5 @@
             }
         }
     }
-}
+} // end SCPresources
+
