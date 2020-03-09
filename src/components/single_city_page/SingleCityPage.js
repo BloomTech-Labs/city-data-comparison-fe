@@ -3,6 +3,7 @@ import axios from "axios";
 import { CityContext } from '../../contexts/CityContext';
 import Skycons from 'react-skycons';
 
+
 import './SingleCityPage.scss';
 // import { scpData } from './scpDummyData';
 
@@ -23,8 +24,23 @@ const SingleCityPage = () => {
     const [categories, setCategories] = useState({});
     const [restaurants, setRestaurants] = useState();
     const [weather, setWeather] = useState({});
-
+    const [menu, setMenu] = useState({ status: 'closed' })
     const { viewport } = useContext(CityContext);
+
+  function onChange(e) {
+    setCategories({
+      ...categories,
+      [e.target.name]: categories[e.target.name] ? false : true
+    })
+  }
+
+  // Handles toggles for Anchor-headers
+  function toggle1() {
+    document.getElementById("menuCollapse1").classList.toggle("hidden");
+  }
+
+    // function for handling sidebar checkbox check/uncheck (display of categories)
+
 
     function onChange(e) {
         setCategories({
@@ -33,8 +49,7 @@ const SingleCityPage = () => {
         })
     }
 
-    const [menu, setMenu] = useState({ status: 'closed' })
-
+  
     // Handles toggles for Anchor-headers
     function toggle1() {
         document.getElementById("menuCollapse1").classList.toggle("hidden");
