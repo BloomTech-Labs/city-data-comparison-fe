@@ -8,6 +8,7 @@ import './SingleCityPage.scss';
 // import { scpData } from './scpDummyData';
 
 import SCPrestaurants from "./SCPrestaurants";
+import SCPevents from "./SCPevents";
 
 import tempWeather from "../../assets/single_city_page_photos/Group 39.png"
 import cityscape from '../../assets/single_city_page_photos/cityscape.jpg';
@@ -23,8 +24,9 @@ const SingleCityPage = () => {
 
     const [categories, setCategories] = useState({});
     const [restaurants, setRestaurants] = useState();
+    const [events, setEvents] = useState();
     const [weather, setWeather] = useState({});
-    const [menu, setMenu] = useState({ status: 'closed' })
+    
     const { viewport } = useContext(CityContext);
 
   function onChange(e) {
@@ -34,14 +36,7 @@ const SingleCityPage = () => {
     })
   }
 
-  // Handles toggles for Anchor-headers
-  function toggle1() {
-    document.getElementById("menuCollapse1").classList.toggle("hidden");
-  }
-
     // function for handling sidebar checkbox check/uncheck (display of categories)
-
-
     function onChange(e) {
         setCategories({
             ...categories,
@@ -49,6 +44,7 @@ const SingleCityPage = () => {
         })
     }
 
+    const [menu, setMenu] = useState({ status: 'closed' })
   
     // Handles toggles for Anchor-headers
     function toggle1() {
@@ -77,10 +73,12 @@ const SingleCityPage = () => {
     function toggle7() {
         document.getElementById("menuCollapse7").classList.toggle("hidden");
     }
+
     console.log('viewport', viewport)
+
+    // API CALL FOR RESTAURANTS
     useEffect(() => {
-        axios
-            .get(`http://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/restaurant/${viewport.latitude}/${viewport.longitude}`)
+        axios.get(`http://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/yelp/restaurant/${viewport.latitude}/${viewport.longitude}`)
             //   .get(`http://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/restaurant?latitude=30.1&longitude=-81.7`)
             // 42.3314° N, 83.0458° W
             .then(res => {
@@ -93,6 +91,19 @@ const SingleCityPage = () => {
             .catch(err => console.log(err))
     }, [viewport]);
 
+    // API CALL FOR EVENTS
+    useEffect(() => {
+        axios.get(`http://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/yelp/events/${viewport.latitude}/${viewport.longitude}`)
+        .then(response => {
+            console.log(response)
+            setEvents(response.data)
+        })
+        .catch(error => {
+            console.log("Events", error)
+        })
+    },[viewport]);
+
+    // API CALL FOR WEATHER
     useEffect(() => {
         axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a8c0298ef7550627f36777243a127c0e/${viewport.latitude},${viewport.longitude}`)
             .then(response => {
@@ -185,8 +196,8 @@ const SingleCityPage = () => {
                                 <span class="spanStyle">
                                     <input type="checkbox" id="Restaurants" name="Restaurants" value="Restaurants" onChange={onChange} />
                                     <label for="Restaurants">Restaurants</label><br />
-                                    <input type="checkbox" id="Nightlife" name="Nightlife" value="Nightlife" onChange={onChange} />
-                                    <label for="Nightlife">Nightlife</label><br />
+                                    <input type="checkbox" id="Events" name="Events" value="Events" onChange={onChange} />
+                                    <label for="Events">Events</label><br />
                                     <input type="checkbox" id="Music" name="Music" value="Music" onChange={onChange} />
                                     <label for="Music">Music</label><br />
                                     <input type="checkbox" id="Coffeeshops" name="Coffeeshops" value="Coffeeshops" onChange={onChange} />
@@ -357,34 +368,13 @@ const SingleCityPage = () => {
                     </div>
 
                     {/* sidebar categories only display when checkbox checked */}
-                    {categories.Restaurants ?
-                        // restaurants.businesses.map(item => (
-                        //     <SCPrestaurants name={item.name} image={item.image_url} />
-                        //     ))
-                        <SCPrestaurants restaurants={restaurants} />
-                        : <div></div>
+                    {categories.Restaurants ? 
+                    <SCPrestaurants restaurants={restaurants} />
+                    : <div></div>
                     }
 
-                    {categories.Nightlife ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Nightlife</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
+                    {categories.Events ?
+                        <SCPevents events = {events}/>
                         : <div></div>
                     }
 
