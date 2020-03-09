@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SCPrestaurants = (props) => {
-
+console.log('propsRest', props.restaurants)
     return (
         <>
             {/* <h3>Restaurants</h3> */}

@@ -72,10 +72,11 @@ const SingleCityPage = () => {
                 console.log('get test', res.data)
                 console.log('vplatlong', viewport.latitude, viewport.longitude)
                 setRestaurants(res.data)
+                console.log('rest', restaurants)
                 // console.log('test setRest', setRestaurants)
             })
             .catch(err => console.log(err))
-    }, []);
+    }, [viewport]);
 
     useEffect(() => {
         axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a8c0298ef7550627f36777243a127c0e/${viewport.latitude},${viewport.longitude}`)
@@ -100,9 +101,25 @@ const SingleCityPage = () => {
 
     if ( weather.icon === "clear-day"){
         weatherIcon = "CLEAR_DAY"
-    } else if ( weather.icon === "partly-cloudy-day"){
+    } else if( weather.icon === "clear-night"){
+        weatherIcon = "CLEAR_NIGHT"
+    } else if( weather.icon === "partly-cloudy-day"){
         weatherIcon = "PARTLY_CLOUDY_DAY"
-    }
+    } else if( weather.icon === "partly-cloudy-night"){
+        weatherIcon = "PARTLY_CLOUDY_NIGHT"
+    } else if( weather.icon === "cloudy"){
+        weatherIcon = "CLOUDY"
+    } else if( weather.icon === "rain"){
+        weatherIcon = "RAIN"
+    } else if( weather.icon === "sleet"){
+        weatherIcon = "SLEET"
+    } else if( weather.icon === "snow"){
+        weatherIcon = "SNOW"
+    } else if( weather.icon === "wind"){
+        weatherIcon = "WIND"
+    } else if( weather.icon === "fog"){
+        weatherIcon = "FOG"
+    };
 
     return (
 
@@ -131,7 +148,7 @@ const SingleCityPage = () => {
                 </div>
                 <div className="SCPdescription">
                     <div>
-                        <h1 className="descH1">Miami, Florida</h1>
+                        <h1 className="descH1">{restaurants && restaurants.businesses ? restaurants.businesses[0].location.city : ''}, {restaurants && restaurants.businesses ? restaurants.businesses[0].location.state : ''}</h1>
                     </div>
                     <div className="city-desc">
                         <p>Miami is one of the state's – and the world’s – most popular vacation spots. Though destinations often are said to offer something for everyone, the Miami area does indeed offer multiple enticements for everyone: The trendy nightlife of South Beach, bejeweled by the eye candy of the Art Deco district. The bustle of Calle Ocho and the highly caffeinated energy of Little Havana. The plush hotels of Miami Beach and the historic hideaways of Coral Gables... (more)</p>
