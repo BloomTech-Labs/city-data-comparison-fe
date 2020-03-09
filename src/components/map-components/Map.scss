@@ -1288,23 +1288,25 @@
             width:95%;
         }
 
-        input {
-            width:100%;
-            margin: 0 auto;
-            height: 2rem;
-            font-size:1.3rem;
-            padding:2%;
-            margin-bottom:1rem;
-        }
+        // input {
+        //     width:100%;
+        //     margin: 0 auto;
+        //     height: 2rem;
+        //     font-size:1.3rem;
+        //     padding:2%;
+        //     margin-bottom:1rem;
+        // }
 
         // "city overview" category on side nav
         .anchor-nav .anchor-link {
-            color: red;
+            color: black;
             text-decoration:none;
-            //justify-content:flex-start;
+            justify-content:flex-start;
             cursor:pointer;
-            padding:5px 0;
+            //padding:5px 0;
             flex-direction: row;
+            padding: 4%;
+            font-size: 1rem;
         }
 
         .active {

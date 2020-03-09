@@ -184,14 +184,16 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                     <span class="spanStyle">
                                         <div className="anchor-link">
                                             <input type="checkbox" id="rent" name="rent" value="rent" onChange={onChange}/>
-                                            <label for="rent">rent</label><br />
+                                            <label for="rent">Rent</label><br />
                                         </div>
-                                        
+                                        <div className="anchor-link">
                                         <input type="checkbox" id="homeContainer" name="homeContainer" value="homeContainer" onChange={onChange}/>
-                                        <label for="homeContainer">home prices</label><br />  
+                                        <label for="homeContainer">Home Prices</label><br />  
+                                        </div>
+                                        <div className="anchor-link">
                                         <input type="checkbox" id="roomsVacancy" name="roomsVacancy" value="roomsVacancy" onChange={onChange}/>
-                                        <label for="roomsVacancy">rooms/vacancy</label><br />
-                                        
+                                        <label for="roomsVacancy">Rooms & Vacancy</label><br />
+                                        </div>
                                     </span>
                                 </div>
                                 
@@ -200,35 +202,54 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <p className="anchor-header2" onClick={toggle2}>Industry</p>
                                 <div id="menuCollapse2">
                                     <span class="spanStyle">
-                                    <input type="checkbox" id="industries" name="industries" value="industries" onChange={onChange}/>
-                                    <label for="industries">industries</label><br />
-                                <input type="checkbox" id="salary" name="salary" value="salary" onChange={onChange}/>
-                                <label for="salary">salary</label><br />  
-                                <input type="checkbox" id="commute" name="commute" value="commute" onChange={onChange}/>
-                                <label for="commute">commute</label><br /> 
-                                <input type="checkbox" id="travelScores" name="travelScores" value="travelScores" onChange={onChange}/>
-                                <label for="travelScores">travel scores</label><br />
-                                <input type="checkbox" id="unemployRetire" name="unemployRetire" value="unemployRetire" onChange={onChange}/>
-                                <label for="unemployRetire">unemployment/retirement</label><br />
-                                
-                                </span>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="industries" name="industries" value="industries" onChange={onChange}/>
+                                        <label for="industries">Industries</label><br />
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="salary" name="salary" value="salary" onChange={onChange}/>
+                                        <label for="salary">Salary</label><br />  
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="commute" name="commute" value="commute" onChange={onChange}/>
+                                        <label for="commute">Commute</label><br /> 
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="travelScores" name="travelScores" value="travelScores" onChange={onChange}/>
+                                        <label for="travelScores">Travel Scores</label><br />
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="unemployRetire" name="unemployRetire" value="unemployRetire" onChange={onChange}/>
+                                        <label for="unemployRetire">Unemployment & Retirement</label><br />
+                                    </div>
+                                    </span>
                                 </div>
 
                                 
                                 <p className="anchor-header3" onClick={toggle3}>Culture</p>
                                 <div id="menuCollapse3">
                                     <span class="spanStyle">
-                                <input type="checkbox" id="ageDistribution" name="ageDistribution" value="ageDistribution" onChange={onChange}/>
-                                <label for="ageDistribution">age distribution</label><br />
-                                <input type="checkbox" id="diversity" name="diversity" value="diversity" onChange={onChange}/>
-                                <label for="diversity">Diversity</label><br />
-                                <input type="checkbox" id="education" name="education" value="education" onChange={onChange}/>
-                                <label for="education">education</label><br />}
-                                <input type="checkbox" id="population" name="population" value="population" onChange={onChange}/>
-                                <label for="population">population</label><br />
-                                <input type="checkbox" id="avgTemp" name="avgTemp" value="avgTemp" onChange={onChange}/>
-                                <label for="avgTemp">weather</label><br />
-                                </span>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="ageDistribution" name="ageDistribution" value="ageDistribution" onChange={onChange}/>
+                                        <label for="ageDistribution">Age Distribution</label><br />
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="diversity" name="diversity" value="diversity" onChange={onChange}/>
+                                        <label for="diversity">Diversity</label><br />
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="education" name="education" value="education" onChange={onChange}/>
+                                        <label for="education">Education</label><br />
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="population" name="population" value="population" onChange={onChange}/>
+                                        <label for="population">Population</label><br />
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="avgTemp" name="avgTemp" value="avgTemp" onChange={onChange}/>
+                                        <label for="avgTemp">Weather</label><br />
+                                    </div>
+                                    </span>
                                 </div>
                             </div>
                             : null}
