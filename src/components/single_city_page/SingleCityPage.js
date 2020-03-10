@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { CityContext } from '../../contexts/CityContext';
 import Skycons from 'react-skycons';
+import { useParams } from "react-router-dom";
 
 
 import './SingleCityPage.scss';
@@ -26,8 +27,9 @@ const SingleCityPage = () => {
     const [restaurants, setRestaurants] = useState();
     const [events, setEvents] = useState();
     const [weather, setWeather] = useState({});
+    let { latitude, longitude } = useParams();
     
-    const { viewport } = useContext(CityContext);
+   
 
   function onChange(e) {
     setCategories({
@@ -74,26 +76,25 @@ const SingleCityPage = () => {
         document.getElementById("menuCollapse7").classList.toggle("hidden");
     }
 
-    console.log('viewport', viewport)
+    console.log('params', latitude)
 
     // API CALL FOR RESTAURANTS
     useEffect(() => {
-        axios.get(`https://be.citrics.io/api/yelp/restaurant/${viewport.latitude}/${viewport.longitude}`)
+        axios.get(`https://be.citrics.io/api/yelp/restaurant/${latitude}/${longitude}`)
             //   .get(`http://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/restaurant?latitude=30.1&longitude=-81.7`)
             // 42.3314° N, 83.0458° W
             .then(res => {
                 console.log('get test', res.data)
-                console.log('vplatlong', viewport.latitude, viewport.longitude)
                 setRestaurants(res.data)
                 console.log('rest', restaurants)
                 // console.log('test setRest', setRestaurants)
             })
             .catch(err => console.log(err))
-    }, [viewport]);
+    }, [latitude, longitude]);
 
     // API CALL FOR EVENTS
     useEffect(() => {
-        axios.get(`https://be.citrics.io/api/yelp/events/${viewport.latitude}/${viewport.longitude}`)
+        axios.get(`https://be.citrics.io/api/yelp/events/${latitude}/${longitude}`)
         .then(response => {
             console.log(response)
             setEvents(response.data)
@@ -101,11 +102,11 @@ const SingleCityPage = () => {
         .catch(error => {
             console.log("Events", error)
         })
-    },[viewport]);
+    },[latitude, longitude]);
 
     // API CALL FOR WEATHER
     useEffect(() => {
-        axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a8c0298ef7550627f36777243a127c0e/${viewport.latitude},${viewport.longitude}`)
+        axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a8c0298ef7550627f36777243a127c0e/${latitude},${longitude}`)
             .then(response => {
                 console.log('weather', response.data.currently)
                 setWeather(response.data.currently)
@@ -113,7 +114,7 @@ const SingleCityPage = () => {
             .catch(error => {
                 console.log("Error retrieving Weather Information", error)
             })
-    }, [viewport])
+    }, [latitude, longitude])
 
     const weatherTime = new Date().toLocaleTimeString();
 
