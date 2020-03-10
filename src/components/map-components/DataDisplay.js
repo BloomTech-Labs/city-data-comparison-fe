@@ -38,8 +38,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         action: `clicked ${link} link` });
     }
 
-    const [categories, setCategories] = useState({
-    })
+    const [categories, setCategories] = useState({})
 
     
     useEffect(() => {
@@ -60,9 +59,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
     // statement for display default
     // function for handling sidebar checkbox check/uncheck (display of categories)
     
-     
     function onChange(e){ 
-       
         setCategories({
             ...categories,
             [e.target.name]: categories[e.target.name] ? false : true
@@ -115,11 +112,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         }
     }
 
-
 // trying out checkbox menu
-
-
-
 
     const toggleMenu = () => {
         if (menu.status === 'closed') {
@@ -282,7 +275,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                         <div className="rent-container">
                             <p className="chart-title">Average rent</p>
                             <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
-                            <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: zillow.com</p>
+                            <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
                         </div>
                         : <div></div>
                     }
@@ -307,7 +300,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                             <div className="room-container">
                                 <p className="chart-title">Average rooms per household</p>
                                 <Element name="roomsVacancy" className="element" ><RoomGraph edData={selected} /></Element>
-                                <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: zillow.com</p>
+                                <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
                             </div>
 
                             <div className="vacancy-owner-container">

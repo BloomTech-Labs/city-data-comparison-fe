@@ -78,7 +78,7 @@ const SingleCityPage = () => {
 
     // API CALL FOR RESTAURANTS
     useEffect(() => {
-        axios.get(`https://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/yelp/restaurant/${viewport.latitude}/${viewport.longitude}`)
+        axios.get(`https://be.citrics.io/api/yelp/restaurant/${viewport.latitude}/${viewport.longitude}`)
             //   .get(`http://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/restaurant?latitude=30.1&longitude=-81.7`)
             // 42.3314° N, 83.0458° W
             .then(res => {
@@ -93,7 +93,7 @@ const SingleCityPage = () => {
 
     // API CALL FOR EVENTS
     useEffect(() => {
-        axios.get(`https://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/yelp/events/${viewport.latitude}/${viewport.longitude}`)
+        axios.get(`https://be.citrics.io/api/yelp/events/${viewport.latitude}/${viewport.longitude}`)
         .then(response => {
             console.log(response)
             setEvents(response.data)
