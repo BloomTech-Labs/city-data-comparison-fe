@@ -1,6 +1,7 @@
 
 import React from 'react';
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 import world from '../map-components/assets/world.svg'
 import pop from '../map-components/assets/population.svg'
@@ -31,64 +32,69 @@ const Table = styled.table`
 width:100%;
 `
 
-function TotalPopulation({ethData}) {
+function TotalPopulation({ ethData }) {
     function numberCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
     return (
 
         <div className="city-overview-container-small">
-            {ethData.map(item => 
-            <div key={item._id} className="city-overview-container-medium">
-            <div className="city-overview-container"> 
-            <div className="city-overview-border">
-                <p>City overview</p> 
-                {/* change title to name of city? */}
-                <FavoriteButton city={item}/>
-            </div>
-            <div className="city-info-container">
-                <div className="city-overview-container-one">
-                    <div className="overview-title-container-one">
-                        <div className="overview-title"> <img alt="world" src={world} /> City</div>
-                        <div className="overview-title"> <img alt="people" src={pop} /> Population</div>
-                        <div className="overview-title"> <img alt="age" src={users} /> Median age</div>
+            {ethData.map(item =>
+                <div key={item._id} className="city-overview-container-medium">
+                    {console.log(item)}
+                    <div className="city-overview-container">
+                        <div className="city-overview-border">
+                            <p>City overview</p>
+                            {/* change title to name of city? */}
+                            <FavoriteButton city={item} />
+                        </div>
                     </div>
 
-                    <div className="overview-stats-container-one">
-                        <div className="overview-stats">{item["City"]}</div>
-                        <div className="overview-stats">{numberCommas(item["Total Population"])}</div>
-                        <div className="overview-stats">{item["Median Age"]} years old</div>
+                    <div className="city-info-container">
+                        <div className="city-overview-container-one">
+                            <div className="overview-title-container-one">
+                                <div className="overview-title"> <img alt="world" src={world} /> City</div>
+                                <div className="overview-title"> <img alt="people" src={pop} /> Population</div>
+                                <div className="overview-title"> <img alt="age" src={users} /> Median age</div>
+                            </div>
+
+                            <div className="overview-stats-container-one">
+                                <div className="overview-stats">{item["City"]}</div>
+                                <div className="overview-stats">{numberCommas(item["Total Population"])}</div>
+                                <div className="overview-stats">{item["Median Age"]} years old</div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div className="city-overview-container-two">
+                            <div className="overview-title-container-two">
+                                <div className="overview-title"><img alt="briefcase" src={briefcase} />Median rent</div>
+                                <div className="overview-title"><img alt="income" src={income} />Median income</div>
+                                <div className="overview-title">
+                                    <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}>Link to SCP</Link>
+                                </div>
+
+
+                                <div className="overview-stats-container-two">
+                                    <div className="overview-stats">${numberCommas(item["Median Rent"])}</div>
+                                    <div className="overview-stats">${numberCommas(item["Median Household Income"])}</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    {/* we don't want recommendations on the profile list of favorites */}
+                    {window.location.href.includes("profile") ? <div style={{ marginTop: "1%" }} /> :
+                        <div>
+                            <Recommendations city={item} />
+                        </div>}
                 </div>
-
-
-
-
-
-                <div className="city-overview-container-two">
-                    <div className="overview-title-container-two">
-                        <div className="overview-title"><img alt="briefcase" src={briefcase} />Median rent</div>
-                        <div className="overview-title"><img alt="income" src={income} />Median income</div>
-                    </div>
-
-
-                    <div className="overview-stats-container-two">
-                        <div className="overview-stats">${numberCommas(item["Median Rent"])}</div>
-                        <div className="overview-stats">${numberCommas(item["Median Household Income"])}</div>
-                    </div>
-                </div>
-            </div>
-            </div>
-                {/* we don't want recommendations on the profile list of favorites */}
-                {window.location.href.includes("profile") ? <div style={{marginTop: "1%"}} /> : 
-                <div>
-                    <Recommendations city={item}/>
-                </div>}
-            </div>
             )}
-            
+
         </div>
-	);
+    );
 }
 
 export default TotalPopulation;
