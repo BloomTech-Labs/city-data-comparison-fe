@@ -40,13 +40,13 @@ margin: 0 auto;
         // justify-content: center;
         width: 40%;
         height: 185px;
-        padding: 0 20px 20px 105px;
+        padding: 0 20px 20px 155px;
         margin: 65px 0 0 0;
         
 
         .weatherImage {
             display: flex;
-            height: 150px;
+            height: 125px;
             
         }
 
@@ -56,9 +56,9 @@ margin: 0 auto;
             font-size: 12px;
             text-align: right;
             // justify-content: flex-end;
-            height: 150px;
+            height: 125px;
             padding: 0;
-            
+            margin-left: 20px;
 
           .temp {
             font-size: 40px;
@@ -94,7 +94,7 @@ margin: 0 auto;
 }
 
 .SCPmain {
-    width: 1440px;
+    width: 100%;
     max-width: 1440px;
     
     margin: 0;
@@ -144,7 +144,7 @@ margin: 0 auto;
                 margin: 0;
             }
             .exploreContainer {
-                width: 900px;
+                width: 100%;
 
                 .expCat {
                     display: flex;
@@ -180,7 +180,7 @@ margin: 0 auto;
                             font-style: normal;
                             font-weight: normal;
                             font-size: 18px;
-                            width: 500px;
+                            width: 95%;
                             
                             p {
                                 margin: 12px 0 0 0;
