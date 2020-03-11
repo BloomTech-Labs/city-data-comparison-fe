@@ -5,6 +5,13 @@
     scroll-behavior: smooth;
     
     overflow-y: scroll;
+    -moz-overflow-y:hidden;
     //top: 0;
     //bottom: 0;
 }
+
+.filterstyle {
+    flex-direction: column;
+
+}
+

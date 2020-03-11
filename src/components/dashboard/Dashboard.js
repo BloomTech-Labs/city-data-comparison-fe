@@ -375,7 +375,7 @@ function Dashboard({history}){
                     >
                          <img className="feature-images" src={data} alt="map"/>
                          <div className="feature-descriptions">
-                              <p className="feature-title">Map View</p>
+                              <p className="feature-title">Map view</p>
                               <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
                          </div>
                     </div>
@@ -390,7 +390,7 @@ function Dashboard({history}){
                     >
                          <img className="feature-images" src={location} alt="data visual"/>
                          <div className="feature-descriptions">
-                              <p className="feature-title">Visualize Data</p>
+                              <p className="feature-title">Visualize data</p>
                               <p>Data visuals help to easily understand cost of living in multiple cities and provide data from a bird’s eye view.</p>
                          </div>
                     </div>
@@ -435,7 +435,7 @@ function Dashboard({history}){
                               data-aos-once="true"
                          >
                               <RadarGraph />
-                              <p className="metrics-description"><p className="metrics-description-title">Economy</p>Economic data includes health insurances, household income, major industries and etc.</p>
+                              <p className="metrics-description"><p className="metrics-description-title">Economy</p>Economic data includes household income, major industries, etc.</p>
                          </div>
                     </div>
                </div>

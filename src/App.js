@@ -19,7 +19,8 @@ import { CityContext } from './contexts/CityContext';
 import Axios from "axios"
 import Callback from './components/Callback';
 import AuthForm from './components/forms/AuthForm';
-import axiosAuth from "./components/axiosAuth"
+import axiosAuth from "./components/axiosAuth";
+import SingleCityPage from "./components/single_city_page/SingleCityPage";
 
 
 
@@ -108,7 +109,6 @@ function App() {
 
 const getCities = arr => {
   let output = []
-
   // if both objects
   if (typeof arr[0] === "object" && typeof arr[1] === "object")
     Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[0].ID}`)
@@ -262,6 +262,8 @@ cityIndex.sort(compare);
 
   },[viewport.latitude])
 
+  console.log('getCities', selected)
+
   return (
     <Router>
       <UserContext.Provider value={{axiosAuth, user, setUserValue, setUser, favorites, setFavorites, toggleSearch, setToggleSearch}}>
@@ -274,6 +276,7 @@ cityIndex.sort(compare);
             <PrivateRoute path='/profile' component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/aboutus" component={AboutUs2} />
+            <Route path="/SCP/:latitude/:longitude" component={SingleCityPage} />
 
             <Route path='/signin' render={props => <AuthForm {...props} action="Login"/>} />
             <Route path="/signup" render={props => <AuthForm {...props} action="Register"/>} />

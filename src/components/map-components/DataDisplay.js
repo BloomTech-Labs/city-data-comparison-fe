@@ -1,5 +1,6 @@
 import  React, {useState, useEffect} from "react";
 import { Link, Element } from 'react-scroll'
+import { Link as SCPLink } from 'react-router-dom';
 import ReactGA from "react-ga";
 import Footer from '../navigation/Footer'
 import AvgTemp from "../graphs/culture/tempAvg"
@@ -20,13 +21,15 @@ import UnemploymentCard from "../graphs/economics/unemploymentCard";
 import deleteIcon from "./icons/close_red.png";
 import GeneralStats from "../graphs/GeneralStats";
 import TravelTime from "../graphs/economics/TravelTimeCard";
-import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
+// import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
-import BirthRateCard from "../graphs/culture/birthRateCard"
+// import BirthRateCard from "../graphs/culture/birthRateCard"
 import Transportaion from "../graphs/transportationScore"
 
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
+
+    const [defaultDisplay, setdefaultDisplay] = useState(false)
 
     const [menu, setMenu] = useState({status: 'closed'})
 
@@ -35,7 +38,34 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         action: `clicked ${link} link` });
     }
 
-    // Handles toggles for Anchor-headers
+    const [categories, setCategories] = useState({})
+
+    
+    useEffect(() => {
+        let checker = false
+        for (const item in categories) {
+            if (categories[item] === true){
+                checker = true
+            }           
+        }
+        if (checker === true){
+            setdefaultDisplay(true)
+        } else {
+            setdefaultDisplay(false)
+        }
+    }, [categories])
+    
+
+    // statement for display default
+    // function for handling sidebar checkbox check/uncheck (display of categories)
+    
+    function onChange(e){ 
+        setCategories({
+            ...categories,
+            [e.target.name]: categories[e.target.name] ? false : true
+        })
+    }
+   
     function toggle1() {
         document.getElementById("menuCollapse1").classList.toggle("hideMenu");
       }
@@ -82,11 +112,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         }
     }
 
-
 // trying out checkbox menu
-
-
-
 
     const toggleMenu = () => {
         if (menu.status === 'closed') {
@@ -143,48 +169,80 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                         </li>
                                     </div>)}
                                 </ul>
-                                {/* <p className="anchor-header">General Statistics</p> */}
+                              
                                 
                                 <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} offset={-150}>City Overview</Link>
 
                                 <p className="anchor-header1" onClick={toggle1}>Housing</p>
                                 <div id="menuCollapse1">
                                     <span class="spanStyle">
-                                        <Link onClick={() => dataNavClicked("rent")} activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} offset={-150}>Rent</Link>
-                                        <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} offset={-150}>Housing Costs</Link>
-                                        <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} offset={-150}>Owner Costs</Link>
-                                        <Link onClick={() => dataNavClicked("rooms")} activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} offset={-150}>Rooms</Link>
-                                        <Link onClick={() => dataNavClicked("vacancy")} activeClass="active" className="anchor-link" to="vacancy" spy={true} smooth={true} duration={500} offset={-150}>Vacancy</Link>
+                                        <div className="anchor-link">
+                                            <input type="checkbox" id="rent" name="rent" value="rent" onChange={onChange}/>
+                                            <label for="rent">Rent</label><br />
+                                        </div>
+                                        <div className="anchor-link">
+                                        <input type="checkbox" id="homeContainer" name="homeContainer" value="homeContainer" onChange={onChange}/>
+                                        <label for="homeContainer">Home Prices</label><br />  
+                                        </div>
+                                        <div className="anchor-link">
+                                        <input type="checkbox" id="roomsVacancy" name="roomsVacancy" value="roomsVacancy" onChange={onChange}/>
+                                        <label for="roomsVacancy">Rooms & Vacancy</label><br />
+                                        </div>
                                     </span>
                                 </div>
-                                
-
+                        
                                 
                                 <p className="anchor-header2" onClick={toggle2}>Industry</p>
                                 <div id="menuCollapse2">
                                     <span class="spanStyle">
-                                <Link onClick={() => dataNavClicked("industries")} activeClass="active" className="anchor-link" to="industries" spy={true} smooth={true} duration={500} offset={-150}>Job Industry</Link>
-                                <Link onClick={() => dataNavClicked("salary")} activeClass="active" className="anchor-link" to="salary" spy={true} smooth={true} duration={500} offset={-150}>Salary</Link>
-                                <Link onClick={() => dataNavClicked("commute")} activeClass="active" className="anchor-link" to="commute" spy={true} smooth={true} duration={500} offset={-150}>Commute</Link>
-                                {/* <Link onClick={() => dataNavClicked("travelTime")} activeClass="active" className="anchor-link" to="travelTime" spy={true} smooth={true} duration={500} offset={-150} >Commute Times</Link> */}
-                                <Link onClick={() => dataNavClicked("transportation")} activeClass="active" className="anchor-link" to="transportation" spy={true} smooth={true} duration={500} offset={-150} >Travel Scores</Link>
-                                <Link onClick={() => dataNavClicked("unemploymentRate")} activeClass="active" className="anchor-link" to="unemploymentRate" spy={true} smooth={true} duration={500} offset={-150}>Unemployment Rate</Link>
-                                <Link onClick={() => dataNavClicked("healthInsurance")} activeClass="active" className="anchor-link" to="healthInsurance" spy={true} smooth={true} duration={500} offset={-150}>Health Insurance</Link>
-                                <Link onClick={() => dataNavClicked("retirement")} activeClass="active" className="anchor-link" to="retirement" spy={true} smooth={true} duration={500} offset={-150}>Retirement</Link>
-                                </span>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="industries" name="industries" value="industries" onChange={onChange}/>
+                                        <label for="industries">Industries</label><br />
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="salary" name="salary" value="salary" onChange={onChange}/>
+                                        <label for="salary">Salary</label><br />  
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="commute" name="commute" value="commute" onChange={onChange}/>
+                                        <label for="commute">Commute</label><br /> 
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="travelScores" name="travelScores" value="travelScores" onChange={onChange}/>
+                                        <label for="travelScores">Travel Scores</label><br />
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="unemployRetire" name="unemployRetire" value="unemployRetire" onChange={onChange}/>
+                                        <label for="unemployRetire">Unemployment & Retirement</label><br />
+                                    </div>
+                                    </span>
                                 </div>
 
                                 
                                 <p className="anchor-header3" onClick={toggle3}>Culture</p>
                                 <div id="menuCollapse3">
                                     <span class="spanStyle">
-                                <Link onClick={() => dataNavClicked("ageDistribution")} activeClass="active" className="anchor-link" to="ageDistribution" spy={true} smooth={true} duration={500} offset={-150}>Age Distribution</Link>
-                                <Link onClick={() => dataNavClicked("ethnicity")} activeClass="active" className="anchor-link" to="ethnicity" spy={true} smooth={true} duration={500} offset={-150}>Diversity</Link>
-                                <Link onClick={() => dataNavClicked("education")} activeClass="active" className="anchor-link" to="education" spy={true} smooth={true} duration={500} offset={-150}>Education</Link>
-                                <Link onClick={() => dataNavClicked("population")} activeClass="active" className="anchor-link" to="population" spy={true} smooth={true} duration={500} offset={-150}>Population</Link>
-                                {/* <Link onClick={() => dataNavClicked("birthRate")} activeClass="active" className="anchor-link" to="birthRate" spy={true} smooth={true} duration={500} offset={-150}>Birth Rate</Link> */}
-                                <Link onClick={() => dataNavClicked("avgTemp")} activeClass="active" className="anchor-link" to="avgTemp" spy={true} smooth={true} duration={500} offset={-150}>Weather</Link>
-                                </span>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="ageDistribution" name="ageDistribution" value="ageDistribution" onChange={onChange}/>
+                                        <label for="ageDistribution">Age Distribution</label><br />
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="diversity" name="diversity" value="diversity" onChange={onChange}/>
+                                        <label for="diversity">Diversity</label><br />
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="education" name="education" value="education" onChange={onChange}/>
+                                        <label for="education">Education</label><br />
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="population" name="population" value="population" onChange={onChange}/>
+                                        <label for="population">Population</label><br />
+                                    </div>
+                                    <div className="anchor-link">
+                                        <input type="checkbox" id="avgTemp" name="avgTemp" value="avgTemp" onChange={onChange}/>
+                                        <label for="avgTemp">Weather</label><br />
+                                    </div>
+                                    </span>
                                 </div>
                             </div>
                             : null}
@@ -204,127 +262,173 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                 </div>
 
+                <SCPLink to="/SCP">Link to SCP</SCPLink>
 
                 <div className="data-category special-margins">
                     {/* <div className="data-category-titles">
                         <p className="data-category-header">Housing</p>
                         <p className="data-category-subtitle">View the comprehensive picture of housing in American cities.</p>
                     </div> */}
-                    <div className="rent-container">
-                        <p className="chart-title">Average rent</p>
-                        <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
-                        <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: zillow.com</p>
+
+            
+                    { !defaultDisplay || categories.rent?      
+                        <div className="rent-container">
+                            <p className="chart-title">Average rent</p>
+                            <Element name="rent" className="element" ><RentChart edData={selected} /></Element>
+                            <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
+                        </div>
+                        : <div></div>
+                    }
+
+                    { !defaultDisplay || categories.homeContainer?
+                        <div className="home-container">
+                            <div className="homeprice-container">
+                                <p className="chart-title">Home prices</p>
+                                <Element name="homeContainer" className="element" ><LineGraph selected = {selected} /></Element>
+                                <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: zillow.com</p>
+                            </div>
+
+                            <div className="ownerMortgage">
+                                <Element name="homeContainer" className="element" ><OwnerCostCard ethData = {selected} /></Element>
+                            </div>
+                        </div>
+                        : <div></div>
+                    }
+
+                    { !defaultDisplay || categories.roomsVacancy?
+                        <div className="rooms-vacancy-container">
+                            <div className="room-container">
+                                <p className="chart-title">Average rooms per household</p>
+                                <Element name="roomsVacancy" className="element" ><RoomGraph edData={selected} /></Element>
+                                <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
+                            </div>
+
+                            <div className="vacancy-owner-container">
+                                <p className="chart-title">Vacancy</p>
+                                <Element name="roomsVacancy" className="element" ><VacancyGraph edData={selected} /></Element>
+                            </div>
+                        </div>
+                        : <div></div>
+                    }
+                    </div> 
+                    
+
+                    <div className="data-category">
+                        {/* <div className="data-category-titles">
+                            <p className="data-category-header">Industry</p>
+                            <p className="data-category-subtitle">Explore optimized industry metrics.</p>
+                        </div> */}
+
+                        { !defaultDisplay || categories.industries? 
+                        <div className="industries-container">
+                            <p className="chart-title">Job industry</p>
+                            <Element name="industries" className="element" ><Industry edData={selected} /></Element>
+                        </div>
+                        : <div></div>
+                    }
+
+                    { !defaultDisplay || categories.salary? 
+                        <div className="salary-container">
+                            <p className="chart-title">Average salary</p>
+                            <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
+                        </div>
+                        : <div></div>
+                    }
+
+                    { !defaultDisplay || categories.commute?
+                        <div className="commute-travel-container">
+                            <div className="commute-container">
+                                <p className="chart-title">Ways to commute</p>
+                                <Element name="commute" className="element" ><Commute edData={selected} /></Element>
+                            </div>
+                            <div className="travel-container">
+                                {/* <p className="chart-title">Travel time to work</p> */}
+                                <Element name="commute" className="element" ><TravelTime ethData = {selected} /></Element>
+                            </div>
+                        </div>
+                    : <div></div>
+                    }
+
+                    { !defaultDisplay || categories.travelScores?
+                        <div className="travel-scores-container">
+                            <Element name="travelScores" className="element" ><Transportaion ethData = {selected} /></Element>
+                        </div>
+                        : <div></div>
+                    }
+
+                    { !defaultDisplay || categories.unemployRetire?
+                        <div className="other-industries-container">
+                            <div className="unemployment-container">
+                                {/* <p className="chart-title">Unemployment</p> */}
+                                <Element name="unemployRetire" className="element" ><UnemploymentCard ethData = {selected} /></Element>
+                            </div>
+
+                            {/* <div className="insurance-container">
+                                <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
+                            </div> */}
+
+                            <div className="retirement-container">
+                                <p className="chart-title">Retirement income source</p>
+                                <Element name="unemployRetire" className="element" ><RetirementGraph ethData={selected} /></Element>
+                            </div>
+                        </div>
+                        : <div></div>
+                        }
                     </div>
 
-                    <div className="home-container">
-                        <div className="homeprice-container">
-                            <p className="chart-title">Home prices</p>
-                            <Element name="homeprice" className="element" ><LineGraph selected = {selected} /></Element>
-                            <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: zillow.com</p>
-                        </div>
-
-                        <div className="ownerMortgage">
-                            <Element name="ownerCosts" className="element" ><OwnerCostCard ethData = {selected} /></Element>
-                        </div>
-                    </div>
-
-                    <div className="rooms-vacancy-container">
-                        <div className="room-container">
-                            <p className="chart-title">Average rooms per household</p>
-                            <Element name="rooms" className="element" ><RoomGraph edData={selected} /></Element>
-                            <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: zillow.com</p>
-                        </div>
-
-                        <div className="vacancy-owner-container">
-                            <p className="chart-title">Vacancy</p>
-                            <Element name="vacancy" className="element" ><VacancyGraph edData={selected} /></Element>
-                        </div>
-                    </div>
-                </div> 
-                
-
-                <div className="data-category">
-                    {/* <div className="data-category-titles">
-                        <p className="data-category-header">Industry</p>
-                        <p className="data-category-subtitle">Explore optimized industry metrics.</p>
-                    </div> */}
-                    <div className="industries-container">
-                        <p className="chart-title">Job industry</p>
-                        <Element name="industries" className="element" ><Industry edData={selected} /></Element>
-                    </div>
-
-                    <div className="salary-container">
-                        <p className="chart-title">Average salary</p>
-                        <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
-                    </div>
-
-                    <div className="commute-travel-container">
-                        <div className="commute-container">
-                            <p className="chart-title">Ways to commute</p>
-                            <Element name="commute" className="element" ><Commute edData={selected} /></Element>
-                        </div>
-                        <div className="travel-container">
-                            {/* <p className="chart-title">Travel time to work</p> */}
-                            <Element name="travelTime" className="element" ><TravelTime ethData = {selected} /></Element>
-                        </div>
-                    </div>
-                    <div className="travel-scores-container">
-                        <Element name="transportation" className="element" ><Transportaion ethData = {selected} /></Element>
-                    </div>
-
-                    <div className="other-industries-container">
-                        <div className="unemployment-container">
-                            {/* <p className="chart-title">Unemployment</p> */}
-                            <Element name="unemploymentRate" className="element" ><UnemploymentCard ethData = {selected} /></Element>
-                        </div>
-                        <div className="insurance-container">
-                            {/* <p className="chart-title">Health insurance</p> */}
-                            <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
-                        </div>
-                        <div className="retirement-container">
-                            <p className="chart-title">Retirement income source</p>
-                            <Element name="retirement" className="element" ><RetirementGraph ethData={selected} /></Element>
-                        </div>
-                    </div>
-                </div>
 
 
-
-                <div className="data-category">
-                    {/* <div className="data-category-titles">
-                        <p className="data-category-header">Culture</p>
-                        <p className="data-category-subtitle">Get a bird's eye view of your selected city's community.</p>
-                    </div> */}
-                    <div className="age-container">
-                        <p className="chart-title">Age distribution</p>
-                        <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
-                    </div>
-
-                    <div>
-                        <div className="ethnicity-container">
-                            <p className="chart-title">Diversity</p>
-                            <Element name="ethnicity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
+                    <div className="data-category">
+                        {/* <div className="data-category-titles">
+                            <p className="data-category-header">Culture</p>
+                            <p className="data-category-subtitle">Get a bird's eye view of your selected city's community.</p>
+                        </div> */}
+                        { !defaultDisplay || categories.ageDistribution?
+                        <div className="age-container">
+                            <p className="chart-title">Age distribution</p>
+                            <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
                         </div>
-                        <div className="education-container">
-                            <p className="chart-title">Education</p>
-                            <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
-                        </div>
-                    </div>
+                        :<div></div>
+                        }
 
-                    <div className="population-birth-container">
-                        <div className="population-container">
-                            <p className="chart-title">Population growth</p>
-                            <Element name="population" className="element" ><Population selected = {selected} /></Element>
-                        </div>
-                        <div className="birth-container">
-                            <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
-                        </div>
-                    </div>
+                        { !defaultDisplay || categories.diversity?
+                            <div className="ethnicity-container">
+                                <p className="chart-title">Diversity</p>
+                                <Element name="diversity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
+                            </div>
+                            :<div></div>
+                        }
 
-                    <div className="avg-temp-container">
-                        <p className="chart-title">Historical weather</p>
-                        <Element name="avgTemp" className="element" ><AvgTemp edData = {selected} /></Element>
-                    </div>
+                        { !defaultDisplay || categories.education?
+                            <div className="education-container">
+                                <p className="chart-title">Education</p>
+                                <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
+                            </div>
+                            : <div></div>
+                        }
+
+                        { !defaultDisplay || categories.population?
+                        <div className="population-birth-container">
+                            <div className="population-container">
+                                <p className="chart-title">Population growth</p>
+                                <Element name="population" className="element" ><Population selected = {selected} /></Element>
+                            </div>
+                            {/* <div className="birth-container">
+                                <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
+                            </div> */}
+                        </div>
+                        :<div></div>
+                        }
+
+                        { !defaultDisplay || categories.avgTemp?
+                        <div className="avg-temp-container">
+                            <p className="chart-title">Historical weather</p>
+                            <Element name="avgTemp" className="element" ><AvgTemp edData = {selected} /></Element>
+                        </div>
+                        :<div></div>
+                        }
+                    
+
                 </div>
                 </>
                 : <p className="map-prompt">
@@ -335,5 +439,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         </div>
     );
 };
+
+
 
 export default DataDisplay;

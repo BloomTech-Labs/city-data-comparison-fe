@@ -59,6 +59,7 @@ html,body{
   line-height:1.26;
   max-width: 100%;
   overflow-x: hidden;
+  -moz-overflow-x:hidden;
 }
 
 * {
@@ -899,7 +900,7 @@ background-color: #2ca4fc;
   display:flex;
   flex-direction:column;
   margin-bottom:100px;
-  color: red;
+  
 
   .dashboard-metrics{
     margin:0 auto;

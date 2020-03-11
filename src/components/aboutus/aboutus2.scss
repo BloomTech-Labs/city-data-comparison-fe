@@ -1,6 +1,6 @@
-body {
-    overflow-y: hidden;
-}
+// body {
+//     overflow-y: hidden;
+// }
 
 .aboutUsHero {
     background-image: url("/MtT_Hero Image.png");
@@ -8,13 +8,14 @@ body {
     background-attachment: scroll;
     background-position: center;
     background-size: cover;
-    height: 80vh;
+    height: 500px;
     display: flex;
 
     .aboutUsContainer {
         max-width: 1200px;
         width: 1200px;
         margin: 0 auto;
+        padding-left: 20px;
     
         .aboutUsH1Div {
             position: sticky;
