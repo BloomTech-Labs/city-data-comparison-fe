@@ -10,6 +10,7 @@ import './SingleCityPage.scss';
 
 import SCPrestaurants from "./SCPrestaurants";
 import SCPevents from "./SCPevents";
+import SCPcityServices from "./SCPcityServices";
 
 
 import cityscape from '../../assets/single_city_page_photos/cityscape.jpg';
@@ -86,15 +87,13 @@ const SingleCityPage = () => {
         document.getElementById("menuCollapse7").classList.toggle("hidden");
     }
 
-    console.log('params', latitude)
-
     // API CALL FOR RESTAURANTS
     useEffect(() => {
         axios.get(`https://be.citrics.io/api/yelp/restaurant/${latitude}/${longitude}`)
             //   .get(`http://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/restaurant?latitude=30.1&longitude=-81.7`)
             // 42.3314° N, 83.0458° W
             .then(res => {
-                console.log('get test', res.data)
+                console.log('get rest', res.data)
                 setRestaurants(res.data)
                 console.log('rest', restaurants)
                 // console.log('test setRest', setRestaurants)
@@ -106,7 +105,6 @@ const SingleCityPage = () => {
     useEffect(() => {
         axios.get(`https://be.citrics.io/api/yelp/events/${latitude}/${longitude}`)
         .then(response => {
-            console.log(response)
             setEvents(response.data)
         })
         .catch(error => {
@@ -160,7 +158,7 @@ const SingleCityPage = () => {
 
     return (
 
-        <>
+        <div className="SCPbody">
             {/* hero/header section */}
             <div className="SCPhero">
                 <img className="SCPheroImg" src={cityscape} />
@@ -179,10 +177,12 @@ const SingleCityPage = () => {
                         <span>UV Index {weather.uvIndex}</span>
                     </div>
                 </div>
+
                 <div className="SCPdescription">
                     <div>
                         <h1 className="descH1">{restaurants && restaurants.businesses ? restaurants.businesses[0].location.city : ''}, {restaurants && restaurants.businesses ? restaurants.businesses[0].location.state : ''}</h1>
                     </div>
+
                     <div className="city-desc">
                         <p>Miami is one of the state's – and the world’s – most popular vacation spots. Though destinations often are said to offer something for everyone, the Miami area does indeed offer multiple enticements for everyone: The trendy nightlife of South Beach, bejeweled by the eye candy of the Art Deco district. The bustle of Calle Ocho and the highly caffeinated energy of Little Havana. The plush hotels of Miami Beach and the historic hideaways of Coral Gables... (more)</p>
                     </div>
@@ -193,7 +193,7 @@ const SingleCityPage = () => {
                 <section className="SCPsidebar">
                     {/* sidebar filter code */}
                     <div className="SCPfilter">
-                        <h4>Filter</h4>
+                        <h4>Filter by:</h4>
                     </div>
                     <div className="SCPfilterCatContainer">
                         <ul>
@@ -301,6 +301,34 @@ const SingleCityPage = () => {
                 {/* main categories displayed when you land on page */}
 
                 <section className="SCPcategories">
+                    <div className="SCPresources">
+                            <div>
+                                <h3>City Services</h3>
+                                {/* <SCPcityServices/> */}
+                            </div>
+                            <div className="resourcesContainer">
+                                <div className="resCat">
+                                    <img className="resImg" src={cityServices} />
+                                    <h5>Name of Place</h5>
+                                    <p>Phone Number</p>
+                                    <p>Website</p>
+                                </div>
+                                <div className="resCat">
+                                    <img className="resImg" src={shopping} />
+                                    <h5>Name of Place</h5>
+                                    <p>Phone Number</p>
+                                    <p>Website</p>
+                                </div>
+                                <div className="resCat">
+                                    <img className="resImg" src={lodging} />
+                                    <h5>Name of Place</h5>
+                                    <p>Phone Number</p>
+                                    <p>Website</p>
+                                </div>
+                            </div>
+                        </div>
+
+
                     <div className="SCPexplore">
                         <div className="exploreContainer">
                             <div>
@@ -354,25 +382,7 @@ const SingleCityPage = () => {
                         </div>
                     </div>
 
-                    <div className="SCPresources">
-                        <div>
-                            <h3>Resources</h3>
-                        </div>
-                        <div className="resourcesContainer">
-                            <div className="resCat">
-                                <img className="resImg" src={cityServices} />
-                                <h5>City Services</h5>
-                            </div>
-                            <div className="resCat">
-                                <img className="resImg" src={shopping} />
-                                <h5>Shopping</h5>
-                            </div>
-                            <div className="resCat">
-                                <img className="resImg" src={lodging} />
-                                <h5>Lodging</h5>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     {/* sidebar categories only display when checkbox checked */}
                     {categories.Restaurants ? 
@@ -939,7 +949,7 @@ const SingleCityPage = () => {
 
                 </section>
             </section>
-        </>
+        </div>
     )
 }
 
