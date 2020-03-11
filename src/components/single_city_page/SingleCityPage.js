@@ -59,9 +59,25 @@ const SingleCityPage = () => {
 
   const [menu, setMenu] = useState({ status: 'closed' })
 
+  // Handles Dropdown icon animation
+  var upClass = 'toggle-up';
+  var downClass = 'toggle-down';
+  
+  function iconAnimation() {
+    var dropIcon1 = document.querySelector('.dropIcon1');
+    
+    if (~dropIcon1.className.indexOf(downClass)) {
+      dropIcon1.className = dropIcon1.className.replace(downClass, upClass);
+    } else {
+          dropIcon1.className = dropIcon1.className.replace(upClass, downClass);
+    }
+    
+  }
+
   // Handles toggles for Anchor-headers
   function toggle1() {
     document.getElementById("menuCollapse1").classList.toggle("hidden");
+    iconAnimation();
   }
 
   function toggle2() {
@@ -199,7 +215,7 @@ const SingleCityPage = () => {
           <div className="SCPfilterCatContainer">
             <ul>
 
-              <h3 className="anchor-header1" onClick={toggle1}>Food &amp; Drink<img src={dropdownIcon} className="drop-icon1"/></h3>
+              <h3 className="anchor-header1" onClick={toggle1}>Food &amp; Drink<img src={dropdownIcon} className="dropIcon1"/></h3>
               <div id="menuCollapse1">
                 <span class="spanStyle">
                   <label for="Restaurants" class="SCPfilterContain">
@@ -228,7 +244,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header2" onClick={toggle2}>Attractions<img src={dropdownIcon} className="drop-icon2"/></h3>
+              <h3 className="anchor-header2" onClick={toggle2}>Attractions<img src={dropdownIcon} className="dropIcon2"/></h3>
               <div id="menuCollapse2">
                 <span class="spanStyle">
                   <label for="Tours" class="SCPfilterContain">
@@ -259,7 +275,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header3" onClick={toggle3}>Recreation<img src={dropdownIcon} className="drop-icon3"/></h3>
+              <h3 className="anchor-header3" onClick={toggle3}>Recreation<img src={dropdownIcon} className="dropIcon3"/></h3>
               <div id="menuCollapse3">
                 <span class="spanStyle">
                   <label for="Parks" class="SCPfilterContain">
@@ -295,7 +311,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header4" onClick={toggle4}>Weather<img src={dropdownIcon} className="drop-icon4"/></h3>
+              <h3 className="anchor-header4" onClick={toggle4}>Weather<img src={dropdownIcon} className="dropIcon4"/></h3>
               <div id="menuCollapse4">
                 <span class="spanStyle">
                   <label for="Current" class="SCPfilterContain">
@@ -311,7 +327,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header5" onClick={toggle5}>Shopping<img src={dropdownIcon} className="drop-icon5"/></h3>
+              <h3 className="anchor-header5" onClick={toggle5}>Shopping<img src={dropdownIcon} className="dropIcon5"/></h3>
               <div id="menuCollapse5">
                 <span class="spanStyle">
                   <label for="Clothing" class="SCPfilterContain">
@@ -337,7 +353,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header6" onClick={toggle6}>Lodging<img src={dropdownIcon} className="drop-icon6"/></h3>
+              <h3 className="anchor-header6" onClick={toggle6}>Lodging<img src={dropdownIcon} className="dropIcon6"/></h3>
               <div id="menuCollapse6">
                 <span class="spanStyle">
                   <label for="Hotels" class="SCPfilterContain">
@@ -353,7 +369,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header7" onClick={toggle7}>Services<img src={dropdownIcon} className="drop-icon7"/></h3>
+              <h3 className="anchor-header7" onClick={toggle7}>Services<img src={dropdownIcon} className="dropIcon7"/></h3>
               <div id="menuCollapse7">
                 <span class="spanStyle">
                   <label for="Accessibility" class="SCPfilterContain">

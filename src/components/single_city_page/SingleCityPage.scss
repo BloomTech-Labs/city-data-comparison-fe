@@ -152,17 +152,18 @@
             border-width: 0 3px 3px 0;
         }
 
+        /*Dropdown icon animation*/
         .drop-icon {
-            animation: down-icon 5s ;
+            transition: all 0.75s 0.25s;
         }
 
-        @keyframes down-icon {
-            50% {transform: rotate(180deg);}
+        .toggle-down {
+            transform: rotate(0deg);
         }
 
-        // .SCPfilterCatContainer {
-
-        // }
+        .toggle-up {
+            transform: rotate(180deg);
+        }
     } 
 
     .SCPcategories {
