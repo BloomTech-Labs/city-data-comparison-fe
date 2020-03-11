@@ -272,7 +272,8 @@ cityIndex.sort(compare);
             <Navigation />
             <Route exact path='/' component={Dashboard} />
             <Route exact path='/' component={Footer} />
-            <Route path="/map" component={Map} />
+            {/* <Route path="/map" component={map} /> */}
+            <Route path='/map' render={props => <Map {...props}/>} />
             <PrivateRoute path='/profile' component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/aboutus" component={AboutUs2} />
