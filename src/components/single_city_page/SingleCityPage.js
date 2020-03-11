@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { CityContext } from '../../contexts/CityContext';
-import Skycons from 'react-skycons';
-import { useParams } from "react-router-dom";
+// import Skycons from 'react-skycons';
+import queryString from 'query-string'
 
 
 import './SingleCityPage.scss';
-// import { scpData } from './scpDummyData';
 
 import SCPrestaurants from "./SCPrestaurants";
 import SCPevents from "./SCPevents";
@@ -31,22 +30,22 @@ import cityServices from '../../assets/single_city_page_photos/cityServices.png'
 import shopping from '../../assets/single_city_page_photos/shopping.png';
 import lodging from '../../assets/single_city_page_photos/lodging.png';
 
-const SingleCityPage = () => {
+const SingleCityPage = (props) => {
+
+    const { latitude, longitude } = queryString.parse(props.location.search);
 
     const [categories, setCategories] = useState({});
     const [restaurants, setRestaurants] = useState();
     const [events, setEvents] = useState();
-    const [weather, setWeather] = useState({});
-    let { latitude, longitude } = useParams();
-    
+    const [weather, setWeather] = useState({});    
    
 
-  function onChange(e) {
-    setCategories({
-      ...categories,
-      [e.target.name]: categories[e.target.name] ? false : true
-    })
-  }
+    function onChange(e) {
+        setCategories({
+        ...categories,
+        [e.target.name]: categories[e.target.name] ? false : true
+        })
+    }
 
     // function for handling sidebar checkbox check/uncheck (display of categories)
     function onChange(e) {
@@ -118,7 +117,6 @@ const SingleCityPage = () => {
     useEffect(() => {
         axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a8c0298ef7550627f36777243a127c0e/${latitude},${longitude}`)
             .then(response => {
-                console.log('weather', response.data.currently)
                 setWeather(response.data.currently)
             })
             .catch(error => {
