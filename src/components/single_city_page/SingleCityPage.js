@@ -30,6 +30,7 @@ import recreation from '../../assets/single_city_page_photos/recreation.png';
 import cityServices from '../../assets/single_city_page_photos/cityServices.png';
 import shopping from '../../assets/single_city_page_photos/shopping.png';
 import lodging from '../../assets/single_city_page_photos/lodging.png';
+import dropdownIcon from '../../assets/single_city_page_photos/DropdownIcon.png'
 
 const SingleCityPage = () => {
 
@@ -198,7 +199,7 @@ const SingleCityPage = () => {
           <div className="SCPfilterCatContainer">
             <ul>
 
-              <h3 className="anchor-header1" onClick={toggle1}>Food &amp; Drink</h3>
+              <h3 className="anchor-header1" onClick={toggle1}>Food &amp; Drink<img src={dropdownIcon} className="drop-icon1"/></h3>
               <div id="menuCollapse1">
                 <span class="spanStyle">
                   <label for="Restaurants" class="SCPfilterContain">
@@ -227,7 +228,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header2" onClick={toggle2}>Attractions</h3>
+              <h3 className="anchor-header2" onClick={toggle2}>Attractions<img src={dropdownIcon} className="drop-icon2"/></h3>
               <div id="menuCollapse2">
                 <span class="spanStyle">
                   <label for="Tours" class="SCPfilterContain">
@@ -258,7 +259,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header3" onClick={toggle3}>Recreation</h3>
+              <h3 className="anchor-header3" onClick={toggle3}>Recreation<img src={dropdownIcon} className="drop-icon3"/></h3>
               <div id="menuCollapse3">
                 <span class="spanStyle">
                   <label for="Parks" class="SCPfilterContain">
@@ -294,7 +295,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header4" onClick={toggle4}>Weather</h3>
+              <h3 className="anchor-header4" onClick={toggle4}>Weather<img src={dropdownIcon} className="drop-icon4"/></h3>
               <div id="menuCollapse4">
                 <span class="spanStyle">
                   <label for="Current" class="SCPfilterContain">
@@ -310,7 +311,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header5" onClick={toggle5}>Shopping</h3>
+              <h3 className="anchor-header5" onClick={toggle5}>Shopping<img src={dropdownIcon} className="drop-icon5"/></h3>
               <div id="menuCollapse5">
                 <span class="spanStyle">
                   <label for="Clothing" class="SCPfilterContain">
@@ -336,7 +337,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header6" onClick={toggle6}>Lodging</h3>
+              <h3 className="anchor-header6" onClick={toggle6}>Lodging<img src={dropdownIcon} className="drop-icon6"/></h3>
               <div id="menuCollapse6">
                 <span class="spanStyle">
                   <label for="Hotels" class="SCPfilterContain">
@@ -352,7 +353,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header7" onClick={toggle7}>Services</h3>
+              <h3 className="anchor-header7" onClick={toggle7}>Services<img src={dropdownIcon} className="drop-icon7"/></h3>
               <div id="menuCollapse7">
                 <span class="spanStyle">
                   <label for="Accessibility" class="SCPfilterContain">

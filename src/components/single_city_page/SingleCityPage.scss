@@ -83,17 +83,19 @@
         width: 40%;
         height: 1000px;
 
-        .SCPfilter {
-
+        .SCPfilter h4 {
+            display: flex;
+            padding-left: 38px;
+            font-size: 20px;
         }
 
         .SCPfilterContain {
             display: block;
             position: relative;
             padding-left: 35px;
-            margin-bottom: 12px;
+            // margin-bottom: 5px;
             cursor: pointer;
-            font-size: 22px;
+            font-size: 17px;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -110,25 +112,28 @@
 
         .SCPcheckmark {
             position: absolute;
-            top: 0;
+            // top: 5px;
             left: 0;
-            height: 25px;
-            width: 25px;
-            background-color: #eee;
+            height: 20px;
+            width: 20px;
+            background-color: transparent;
+            border: 1px solid black;
+            border-radius: 5px;
         }
+        
 
-        .SCPfilterContain:hover input ~ .SCPcheckmark {
-            background-color: #ccc;
-        }
+        // .SCPfilterContain:hover input ~ .SCPcheckmark {
+        //     background-color: #ccc;
+        // }
         
           /* When the checkbox is checked, add a blue background */
         .SCPfilterContain input:checked ~ .SCPcheckmark {
-            background-color: #2196F3;
+            background-color: transparent;
         }
         
           /* Create the checkmark/indicator (hidden when not checked) */
         .SCPcheckmark:after {
-            content: "";
+            content: "X";
             position: absolute;
             display: none;
         }
@@ -140,20 +145,24 @@
         
           /* Style the checkmark/indicator */
         .SCPfilterContain .SCPcheckmark:after {
-            left: 9px;
-            top: 5px;
+            left: 4px;
+            bottom: 9px;
             width: 5px;
             height: 10px;
-            border: solid white;
             border-width: 0 3px 3px 0;
-            -webkit-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
         }
 
-        .SCPfilterCatContainer {
-
+        .drop-icon {
+            animation: down-icon 5s ;
         }
+
+        @keyframes down-icon {
+            50% {transform: rotate(180deg);}
+        }
+
+        // .SCPfilterCatContainer {
+
+        // }
     } 
 
     .SCPcategories {
