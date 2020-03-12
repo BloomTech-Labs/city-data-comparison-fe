@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { CityContext } from '../../contexts/CityContext';
-import Skycons from 'react-skycons';
-import { useParams } from "react-router-dom";
+// import Skycons from 'react-skycons';
+import queryString from 'query-string'
 
 
 import './SingleCityPage.scss';
-// import { scpData } from './scpDummyData';
 
 import SCPrestaurants from "./SCPrestaurants";
 import SCPevents from "./SCPevents";
@@ -32,22 +30,22 @@ import cityServices from '../../assets/single_city_page_photos/cityServices.png'
 import shopping from '../../assets/single_city_page_photos/shopping.png';
 import lodging from '../../assets/single_city_page_photos/lodging.png';
 
-const SingleCityPage = () => {
+const SingleCityPage = (props) => {
+
+    const { latitude, longitude } = queryString.parse(props.location.search);
 
     const [categories, setCategories] = useState({});
     const [restaurants, setRestaurants] = useState();
     const [events, setEvents] = useState();
-    const [weather, setWeather] = useState({});
-    let { latitude, longitude } = useParams();
-    
+    const [weather, setWeather] = useState({});    
    
 
-  function onChange(e) {
-    setCategories({
-      ...categories,
-      [e.target.name]: categories[e.target.name] ? false : true
-    })
-  }
+    function onChange(e) {
+        setCategories({
+        ...categories,
+        [e.target.name]: categories[e.target.name] ? false : true
+        })
+    }
 
     // function for handling sidebar checkbox check/uncheck (display of categories)
     function onChange(e) {
@@ -116,7 +114,6 @@ const SingleCityPage = () => {
     useEffect(() => {
         axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a8c0298ef7550627f36777243a127c0e/${latitude},${longitude}`)
             .then(response => {
-                console.log('weather', response.data.currently)
                 setWeather(response.data.currently)
             })
             .catch(error => {
@@ -161,12 +158,12 @@ const SingleCityPage = () => {
         <div className="SCPbody">
             {/* hero/header section */}
             <div className="SCPhero">
-                <img className="SCPheroImg" src={cityscape} />
+                <img alt='img of city' className="SCPheroImg" src={cityscape} />
             </div>
             <section className="SCPcityIntro">
                 <div className="SCPweather">
                     <div className="weatherImage">
-                        <img src={weatherIcon}/>
+                        <img alt='weather icon' src={weatherIcon}/>
                     </div>
                     <div className="weatherInfo">
                         <span>As of {weatherTime}</span>
@@ -335,7 +332,7 @@ const SingleCityPage = () => {
                                 <h3>Explore</h3>
                             </div>
                             <div className="expCat">
-                                <img className="expCatImg" src={foodAndDrink} />
+                                <img alt='img' className="expCatImg" src={foodAndDrink} />
                                 <div className="expCatText">
                                     <div className="expCatTitle">
                                         <h4>Food and drinks</h4>
@@ -346,7 +343,7 @@ const SingleCityPage = () => {
                                 </div>
                             </div>
                             <div className="expCat">
-                                <img className="expCatImg" src={attractions} />
+                                <img alt='img' className="expCatImg" src={attractions} />
                                 <div className="expCatText">
                                     <div className="expCatTitle">
                                         <h4>Attractions</h4>
@@ -357,7 +354,7 @@ const SingleCityPage = () => {
                                 </div>
                             </div>
                             <div className="expCat">
-                                <img className="expCatImg" src={weatherImg} />
+                                <img  alt='img' className="expCatImg" src={weatherImg} />
                                 <div className="expCatText">
                                     <div className="expCatTitle">
                                         <h4>Weather</h4>
@@ -369,7 +366,7 @@ const SingleCityPage = () => {
                             </div>
 
                             <div className="expCat">
-                                <img className="expCatImg" src={recreation} />
+                                <img alt='img' className="expCatImg" src={recreation} />
                                 <div className="expCatText">
                                     <div className="expCatTitle">
                                         <h4>Recreation</h4>
@@ -387,565 +384,61 @@ const SingleCityPage = () => {
                     {/* sidebar categories only display when checkbox checked */}
                     {categories.Restaurants ? 
                     <SCPrestaurants restaurants={restaurants} />
-                    : <div></div>
+                    : null
                     }
 
                     {categories.Events ?
                         <SCPevents events = {events}/>
-                        : <div></div>
+                        : null
                     }
 
-                    {categories.Music ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Music</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Music ? null : null}
 
-                    {categories.Coffeeshops ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Coffeeshops</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Coffeeshops ? null : null}
 
-                    {categories.Tours ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Tours</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Tours ? null : null}
 
-                    {categories.Museums ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Museums</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Museums ? null : null}
 
-                    {categories.Theater ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Theater</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Theater ? null : null}
 
-                    {categories.Performing_Arts ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Performing Arts</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Performing_Arts ? null : null}
 
-                    {categories.Professional_Sports ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Professional Sports</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Professional_Sports ? null : null}
 
-                    {categories.Parks ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Parks</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Parks ? null : null}
 
-                    {categories.Activities ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Activities</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Activities ? null : null}
 
-                    {categories.Clubs ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Clubs</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Clubs ? null : null}
 
-                    {categories.Sports ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Sports</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Sports ? null : null}
 
-                    {categories.Leisure_Activities ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Leisure Activities</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Leisure_Activities ? null : null}
 
-                    {categories.Senior_Activities ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Senior Activities</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Senior_Activities ? null : null}
 
-                    {categories.Current ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Current</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Current ? null : null}
 
-                    {categories.Historical ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Historical</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Historical ? null : null}
 
-                    {categories.Clothing ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Clothing</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Clothing ? null : null}
 
-                    {categories.Furnishings ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Furnishings</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Furnishings ? null : null}
 
-                    {categories.Hardware ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Hardware</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Hardware ? null : null}
 
-                    {categories.Miscellaneous ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Miscellaneous</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Miscellaneous ? null : null}
 
-                    {categories.Hotels ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Hotels</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Hotels ? null : null}
 
-                    {categories.AirBnB ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>AirBnB</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.AirBnB ? null : null}
 
-                    {categories.Accessibility ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Accessibility</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Accessibility ? null : null}
 
-                    {categories.Sustainability ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>Sustainability</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.Sustainability ? null : null}
 
-                    {categories.City_Services ?
-                        <div className="SCPresources">
-                            <div>
-                                <h3>City Services</h3>
-                            </div>
-                            <div className="resourcesContainer">
-                                <div className="resCat">
-                                    <img className="resImg" src={cityServices} />
-                                    <h5>City Services</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={shopping} />
-                                    <h5>Shopping</h5>
-                                </div>
-                                <div className="resCat">
-                                    <img className="resImg" src={lodging} />
-                                    <h5>Lodging</h5>
-                                </div>
-                            </div>
-                        </div>
-                        : <div></div>
-                    }
+                    {categories.City_Services ? null : null}
 
                 </section>
             </section>

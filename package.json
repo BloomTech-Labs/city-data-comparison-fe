@@ -19,7 +19,7 @@
     "formik": "^2.1.2",
     "mapbox-gl": "^1.6.0",
     "node-sass": "^4.13.0",
-    "query-string": "^6.10.1",
+    "query-string": "^6.11.1",
     "react": "^16.12.0",
     "react-avatar-edit": "^0.8.3",
     "react-burger-menu": "^2.6.13",

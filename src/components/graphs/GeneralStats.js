@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
@@ -29,14 +29,14 @@ function TotalPopulation({ ethData }) {
   function numberCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-  
+
 
   return (
     <>
       {/* 1 SELECTED CITY */}
       <div className="city-overview-container-small">
         {ethData.length === 1 ? ethData.map(item =>
-        
+
           <div className="city-overview-container-medium">
             <div className="city-overview-container">
               <div className="city-overview-border">
@@ -66,9 +66,9 @@ function TotalPopulation({ ethData }) {
                 <div className="weather-style">
                   <p>Historical Weather:</p>
                   <div className="avg-temp-container">
-                            <p className="chart-title">Historical weather</p>
-                            {/* <AvgTemp edData = {item.weather} /> */}
-                        </div>
+                    <p className="chart-title">Historical weather</p>
+                    {/* <AvgTemp edData = {item.weather} /> */}
+                  </div>
                 </div>
               </div>
               <div className="scores-div">
@@ -165,7 +165,8 @@ function TotalPopulation({ ethData }) {
               </div>
             </div>
             <div>
-              <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}><button className="quality-button">Quality of Life</button></Link>
+              <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
+              }><button className="quality-button">Quality of Life</button></Link>
             </div>
             {/* CODE FOR RECOMMENDATIONS */}
             {/* {window.location.href.includes("profile") ? <div style={{ marginTop: "1%" }} /> :
@@ -180,13 +181,14 @@ function TotalPopulation({ ethData }) {
           <div className="city-overview-container-medium2">
             <div className="city-overview-container">
               <div className="city-overview-border">
-              {console.log("ITEM FROM GENERAL2", item)}
+                {console.log("ITEM FROM GENERAL2", item)}
                 <p>{item.name_with_com}</p>
                 {/* <FavoriteButton city={item} /> */}
               </div>
             </div>
             <div>
-              <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}><button className="quality-button">SCP</button></Link>
+              <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
+              }><button className="quality-button">SCP</button></Link>
             </div>
             <div className="main-contain2">
               <div className="stats-div2">
@@ -316,7 +318,8 @@ function TotalPopulation({ ethData }) {
               </div>
             </div>
             <div>
-              <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}><button className="quality-button">SCP</button></Link>
+              <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
+              }><button className="quality-button">SCP</button></Link>
             </div>
             <div className="main-contain2">
               <div className="stats-div2">

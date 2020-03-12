@@ -263,8 +263,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                 </div>
 
-                
-
                 <div className="data-category special-margins">
                     {/* <div className="data-category-titles">
                         <p className="data-category-header">Housing</p>
