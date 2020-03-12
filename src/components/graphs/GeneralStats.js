@@ -21,6 +21,7 @@ import transit from "../../assets/generalstats/transit.png"
 import walk from "../../assets/generalstats/walk.png"
 
 import AvgTemp from "../graphs/culture/tempAvg";
+import CurrentWeather from "./CurrentWeather";
 import FavoriteButton from '../map-components/FavoriteButton'
 import Recommendations from "./Recommendations"
 
@@ -30,8 +31,7 @@ function TotalPopulation({ ethData }) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-
-console.log("ethData", ethData);
+  console.log("ethData", ethData);
   return (
     <>
       {/* 1 SELECTED CITY */}
@@ -68,7 +68,10 @@ console.log("ethData", ethData);
                   {/* <p>Historical Weather:</p> */}
                   <div className="avg-temp-container">
                     <p className="chart-title">Historical Temperature</p>
-                    <AvgTemp edData = {[item]} />
+                    <AvgTemp edData={[item]} />
+                  </div>
+                  <div>
+                    <CurrentWeather item={item} />
                   </div>
                 </div>
               </div>
@@ -167,7 +170,7 @@ console.log("ethData", ethData);
             </div>
             <div className="button-div">
               <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
-              }><button className="quality-button">Quality of Life</button></Link>
+              }><button className="quality-button">Experience {item.city_no_st}</button></Link>
             </div>
             {/* CODE FOR RECOMMENDATIONS */}
             {/* {window.location.href.includes("profile") ? <div style={{ marginTop: "1%" }} /> :
@@ -184,11 +187,11 @@ console.log("ethData", ethData);
               <div className="city-overview-border">
                 {console.log("ITEM FROM GENERAL2", item)}
                 <div className="title-container2">
-                <p>{item.name_with_com}</p>
+                  <p>{item.name_with_com}</p>
                 </div>
                 <div className="button-div2">
-                <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
-              }><button className="quality-button">SCP</button></Link>
+                  <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
+                  }><button className="quality-button">Experience {item.city_no_st}</button></Link>
                 </div>
                 {/* <FavoriteButton city={item} /> */}
               </div>
@@ -219,7 +222,10 @@ console.log("ethData", ethData);
                   {/* <p>Historical Weather:</p> */}
                   <div className="avg-temp-container">
                     <p className="chart-title">Historical Temperature</p>
-                    <AvgTemp edData = {[item]} />
+                    <AvgTemp edData={[item]} />
+                  </div>
+                  <div>
+                    <CurrentWeather item={item} />
                   </div>
                 </div>
               </div>
@@ -330,7 +336,7 @@ console.log("ethData", ethData);
             </div>
             <div>
               <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
-              }><button className="quality-button">SCP</button></Link>
+              }><button className="quality-button">Experience {item.city_no_st}</button></Link>
             </div>
             <div className="main-contain2">
               <div className="stats-div2">
@@ -354,7 +360,10 @@ console.log("ethData", ethData);
                   {/* <p>Historical Weather:</p> */}
                   <div className="avg-temp-container">
                     <p className="chart-title">Historical Temperature</p>
-                    <AvgTemp edData = {[item]} />
+                    <AvgTemp edData={[item]} />
+                  </div>
+                  <div>
+                    <CurrentWeather item={item} />
                   </div>
                 </div>
               </div>
