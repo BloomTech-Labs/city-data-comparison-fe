@@ -89,6 +89,34 @@
             font-size: 20px;
         }
 
+        .SCPfilterCatContainer .anchor-header1 .dropIcon1 {
+            margin-left: 100px;
+        }
+
+        .SCPfilterCatContainer .anchor-header2 .dropIcon2 {
+            margin-left: 113px;
+        }
+
+        .SCPfilterCatContainer .anchor-header3 .dropIcon3 {
+            margin-left: 117px;
+        }
+
+        .SCPfilterCatContainer .anchor-header4 .dropIcon4 {
+            margin-left: 142px;
+        }
+
+        .SCPfilterCatContainer .anchor-header5 .dropIcon5 {
+            margin-left: 130px;
+        }
+
+        .SCPfilterCatContainer .anchor-header6 .dropIcon6 {
+            margin-left: 145px;
+        }
+
+        .SCPfilterCatContainer .anchor-header7 .dropIcon7 {
+            margin-left: 140px;
+        }
+
         .SCPfilterContain {
             display: block;
             position: relative;
@@ -158,11 +186,11 @@
         }
 
         .toggle-down {
-            transform: rotate(0deg);
+            transform: rotate(180deg);
         }
 
         .toggle-up {
-            transform: rotate(180deg);
+            transform: rotate(0deg);
         }
     } 
 

@@ -63,7 +63,7 @@ const SingleCityPage = () => {
   var upClass = 'toggle-up';
   var downClass = 'toggle-down';
   
-  function iconAnimation() {
+  function iconAnimation1() {
     var dropIcon1 = document.querySelector('.dropIcon1');
     
     if (~dropIcon1.className.indexOf(downClass)) {
@@ -71,36 +71,102 @@ const SingleCityPage = () => {
     } else {
           dropIcon1.className = dropIcon1.className.replace(upClass, downClass);
     }
+  }
+
+  function iconAnimation2() {
+    var dropIcon2 = document.querySelector('.dropIcon2');
     
+    if (~dropIcon2.className.indexOf(downClass)) {
+      dropIcon2.className = dropIcon2.className.replace(downClass, upClass);
+    } else {
+          dropIcon2.className = dropIcon2.className.replace(upClass, downClass);
+    }
+  }
+
+  function iconAnimation3() {
+    var dropIcon3 = document.querySelector('.dropIcon3');
+    
+    if (~dropIcon3.className.indexOf(downClass)) {
+      dropIcon3.className = dropIcon3.className.replace(downClass, upClass);
+    } else {
+          dropIcon3.className = dropIcon3.className.replace(upClass, downClass);
+    }
+  }
+
+  function iconAnimation4() {
+    var dropIcon4 = document.querySelector('.dropIcon4');
+    
+    if (~dropIcon4.className.indexOf(downClass)) {
+      dropIcon4.className = dropIcon4.className.replace(downClass, upClass);
+    } else {
+          dropIcon4.className = dropIcon4.className.replace(upClass, downClass);
+    }
+  }
+
+  function iconAnimation5() {
+    var dropIcon5 = document.querySelector('.dropIcon5');
+    
+    if (~dropIcon5.className.indexOf(downClass)) {
+      dropIcon5.className = dropIcon5.className.replace(downClass, upClass);
+    } else {
+          dropIcon5.className = dropIcon5.className.replace(upClass, downClass);
+    }
+  }
+
+  function iconAnimation6() {
+    var dropIcon6 = document.querySelector('.dropIcon6');
+    
+    if (~dropIcon6.className.indexOf(downClass)) {
+      dropIcon6.className = dropIcon6.className.replace(downClass, upClass);
+    } else {
+          dropIcon6.className = dropIcon6.className.replace(upClass, downClass);
+    }
+  }
+
+  function iconAnimation7() {
+    var dropIcon7 = document.querySelector('.dropIcon7');
+    
+    if (~dropIcon7.className.indexOf(downClass)) {
+      dropIcon7.className = dropIcon7.className.replace(downClass, upClass);
+    } else {
+          dropIcon7.className = dropIcon7.className.replace(upClass, downClass);
+    }
   }
 
   // Handles toggles for Anchor-headers
   function toggle1() {
     document.getElementById("menuCollapse1").classList.toggle("hidden");
-    iconAnimation();
+    iconAnimation1();
   }
 
   function toggle2() {
     document.getElementById("menuCollapse2").classList.toggle("hidden");
+    iconAnimation2()
   }
 
   function toggle3() {
     document.getElementById("menuCollapse3").classList.toggle("hidden");
+    iconAnimation3()
   }
 
   function toggle4() {
     document.getElementById("menuCollapse4").classList.toggle("hidden");
+    iconAnimation4()
   }
 
   function toggle5() {
     document.getElementById("menuCollapse5").classList.toggle("hidden");
+    iconAnimation5()
   }
 
   function toggle6() {
     document.getElementById("menuCollapse6").classList.toggle("hidden");
+    iconAnimation6()
   }
+
   function toggle7() {
     document.getElementById("menuCollapse7").classList.toggle("hidden");
+    iconAnimation7()
   }
 
   console.log('params', latitude)
@@ -215,7 +281,7 @@ const SingleCityPage = () => {
           <div className="SCPfilterCatContainer">
             <ul>
 
-              <h3 className="anchor-header1" onClick={toggle1}>Food &amp; Drink<img src={dropdownIcon} className="dropIcon1"/></h3>
+              <h3 className="anchor-header1" onClick={toggle1}>Food &amp; Drink<img src={dropdownIcon} className="dropIcon1 toggle-down"/></h3>
               <div id="menuCollapse1">
                 <span class="spanStyle">
                   <label for="Restaurants" class="SCPfilterContain">
@@ -244,7 +310,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header2" onClick={toggle2}>Attractions<img src={dropdownIcon} className="dropIcon2"/></h3>
+              <h3 className="anchor-header2" onClick={toggle2}>Attractions<img src={dropdownIcon} className="dropIcon2 toggle-down"/></h3>
               <div id="menuCollapse2">
                 <span class="spanStyle">
                   <label for="Tours" class="SCPfilterContain">
@@ -275,7 +341,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header3" onClick={toggle3}>Recreation<img src={dropdownIcon} className="dropIcon3"/></h3>
+              <h3 className="anchor-header3" onClick={toggle3}>Recreation<img src={dropdownIcon} className="dropIcon3 toggle-down"/></h3>
               <div id="menuCollapse3">
                 <span class="spanStyle">
                   <label for="Parks" class="SCPfilterContain">
@@ -311,7 +377,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header4" onClick={toggle4}>Weather<img src={dropdownIcon} className="dropIcon4"/></h3>
+              <h3 className="anchor-header4" onClick={toggle4}>Weather<img src={dropdownIcon} className="dropIcon4 toggle-down"/></h3>
               <div id="menuCollapse4">
                 <span class="spanStyle">
                   <label for="Current" class="SCPfilterContain">
@@ -327,7 +393,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header5" onClick={toggle5}>Shopping<img src={dropdownIcon} className="dropIcon5"/></h3>
+              <h3 className="anchor-header5" onClick={toggle5}>Shopping<img src={dropdownIcon} className="dropIcon5 toggle-down"/></h3>
               <div id="menuCollapse5">
                 <span class="spanStyle">
                   <label for="Clothing" class="SCPfilterContain">
@@ -353,7 +419,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header6" onClick={toggle6}>Lodging<img src={dropdownIcon} className="dropIcon6"/></h3>
+              <h3 className="anchor-header6" onClick={toggle6}>Lodging<img src={dropdownIcon} className="dropIcon6 toggle-down"/></h3>
               <div id="menuCollapse6">
                 <span class="spanStyle">
                   <label for="Hotels" class="SCPfilterContain">
@@ -369,7 +435,7 @@ const SingleCityPage = () => {
                 </span>
               </div>
 
-              <h3 className="anchor-header7" onClick={toggle7}>Services<img src={dropdownIcon} className="dropIcon7"/></h3>
+              <h3 className="anchor-header7" onClick={toggle7}>Services<img src={dropdownIcon} className="dropIcon7 toggle-down"/></h3>
               <div id="menuCollapse7">
                 <span class="spanStyle">
                   <label for="Accessibility" class="SCPfilterContain">
