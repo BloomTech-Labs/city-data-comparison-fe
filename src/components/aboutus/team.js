@@ -255,10 +255,10 @@ const team = [
         social: {
             twitter: null, 
             github: 'kylewp13', 
-            linkedin: null
+            linkedin: 'kyletech'
         }, 
         about: null,
-        portfolio: null
+        portfolio: 'https://www.kyleporter.tech'
     
     }, {
         labs: 21,
