@@ -466,6 +466,11 @@
 
 }
 
+.city-overview-container-small {
+    display: flex;
+    justify-content: space-between;
+}
+
 // ONE CITY SELECTED STYLING
 .main-contain {
     display: flex;
@@ -606,167 +611,75 @@
     border-radius: 7px;
 }
 
-.city-overview-container-small {
-    border: 1px solid black;
-}
-
-.city-overview-container-medium {
-    border: 1px solid black;
-}
-
-.main-card-container {
-    border: 1px solid blue;
-}
 
 // TWO CITIES SELECTED STYLING
-
-.main-contain {
-    display: flex;
+.city-overview-container-medium2 {
+    width: 48%;
 }
 
-.stats-style {
-    display: flex;
-    align-items: center;
-}
-
-.stats-div {
-    width: 30%;
+.main-contain2 {
     display: flex;
     flex-direction: column;
+    // border: 1px solid black;
 }
 
-.scores-div {
-    width: 70%;
+.scores-div2 {
     display: flex;
     flex-wrap: wrap;
-    // border: 2px solid blue;
     justify-content: space-evenly;
 }
 
-.weather-style {
-    display: flex;
-    justify-content: center;
-}
-
-.stats-img {
-    padding-left: 25px;
-}
-
-.stats-par {
-    padding-left: 20px;
-}
-
-.historical-weather {
-    text-align: center;
-    // border: 2px solid black;
-}
-
-.icon-score-contain {
-    display: flex;
-    height: 175px;
-}
-
-.scores-contain{
+.scores-contain2 {
     display: flex;
     flex-direction: column;
     width: 30%;
+    height: 150px;
 }
 
-.title-contain {
-    text-align: center;
-}
-
-.title-contain h4 {
+.title-contain2 h4{
     margin: 0;
-    font-size: 20px;
-
+    font-size: 16px;
 }
 
-.title-contain p {
+.title-contain2 p {
     margin: 0;
+    font-size: 14px;
 }
 
-.icon-contain {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.icon-contain img {
-    width: 55%;
-}
-
-.number-contain {
-    width: 49%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-}
-
-.number-contain h5 {
-    margin: 0;
-
-}
-
-.number-contain p {
-    margin: 0;
-}
-
-.walk-number {
-    font-size: 70px;
+.walk-number2 {
+    font-size: 50px;
     color: #A74E12;
 }
 
-.transit-number {
-    font-size: 70px;
+.transit-number2 {
+    font-size: 50px;
     color: #13019A;
 }
 
-.bike-number {
-    font-size: 70px;
+.bike-number2 {
+    font-size: 50px;
     color: #13670B;
 }
 
-.sustain-number {
-    font-size: 70px;
+.sustain-number2 {
+    font-size: 50px;
     color: #5640FB;
 }
 
-.safety-number {
-    font-size: 70px;
+.safety-number2 {
+    font-size: 50px;
     color: #5640FB;
 }
 
-.access-number {
-    font-size: 70px;
+.access-number2 {
+    font-size: 50px;
     color: #13670B;
 }
 
-.quality-button {
-    background-color: #1CC784;
-    width: 200px;
-    height: 50px;
-    left: 30px;
-    top: 78px;
-    color: white;
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 134.19%;
-    border-radius: 7px;
+.weather-style2 {
+    text-align: left;
 }
 
-.city-overview-container-small {
-    border: 1px solid black;
-}
+// THREE CITIES SELECTED STYLING
 
-.city-overview-container-medium {
-    border: 1px solid black;
-}
 
-.main-card-container {
-    border: 1px solid blue;
-}

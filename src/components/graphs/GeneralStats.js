@@ -86,9 +86,9 @@ function TotalPopulation({ ethData }) {
         )}
       </div> */}
 
+      {/* 1 SELECTED CITY */}
       <div className="city-overview-container-small">
-      {ethData.length === 1 ? ethData.map(item =>
-      <div className = "main-card-container">
+        {ethData.length === 1 ? ethData.map(item =>
           <div className="city-overview-container-medium">
             <div className="city-overview-container">
               <div className="city-overview-border">
@@ -213,28 +213,30 @@ function TotalPopulation({ ethData }) {
               </div>
             </div>
             <div>
-              <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}><button className="quality-button">Link to SCP</button></Link>
+              <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}><button className="quality-button">Quality of Life</button></Link>
             </div>
-            {window.location.href.includes("profile") ? <div style={{ marginTop: "1%" }} /> :
+            {/* CODE FOR RECOMMENDATIONS */}
+            {/* {window.location.href.includes("profile") ? <div style={{ marginTop: "1%" }} /> :
               <div>
                 <Recommendations city={item} />
-              </div>}
-          </div>
+              </div>} */}
           </div>
         ) : null}
 
-{ethData.length === 2 ? ethData.map(item =>
-  <div className = "main-card-container">
-          <div className="city-overview-container-medium">
+        {/* 2 CITIES SELECTED */}
+        {ethData.length === 2 ? ethData.map(item =>
+          <div className="city-overview-container-medium2">
             <div className="city-overview-container">
               <div className="city-overview-border">
                 <p>{item.name_with_com}</p>
-                <FavoriteButton city={item} />
+                {/* <FavoriteButton city={item} /> */}
               </div>
             </div>
-            {/* <div className="city-info-container"> */}
-            <div className="main-contain">
-              <div className="stats-div">
+            <div>
+              <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}><button className="quality-button">SCP</button></Link>
+            </div>
+            <div className="main-contain2">
+              <div className="stats-div2">
                 <div className="stats-style">
                   <img className="stats-img" src={population} />
                   <p className="stats-par">Population: {numberCommas(item["Total Population"])}</p>
@@ -251,13 +253,13 @@ function TotalPopulation({ ethData }) {
                   <img className="stats-img" src={medianIncome} />
                   <p className="stats-par">Median Income: ${numberCommas(item["Median Per Capita Income"])}</p>
                 </div>
-                <div className="weather-style">
+                <div className="weather-style2">
                   <p>Historical Weather:</p>
                 </div>
               </div>
-              <div className="scores-div">
-                <div className="scores-contain">
-                  <div className="title-contain">
+              <div className="scores-div2">
+                <div className="scores-contain2">
+                  <div className="title-contain2">
                     <h4>Walkability</h4>
                     <p>Pedestrian friendliness</p>
                   </div>
@@ -267,12 +269,12 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>Inadequate</h5>
-                      <p className="walk-number">{numberCommas(item["Walk Score"])}</p>
+                      <p className="walk-number2">{numberCommas(item["Walk Score"])}</p>
                     </div>
                   </div>
                 </div>
-                <div className="scores-contain">
-                  <div className="title-contain">
+                <div className="scores-contain2">
+                  <div className="title-contain2">
                     <h4>Transit Score</h4>
                     <p>Public Transportation</p>
                   </div>
@@ -282,12 +284,12 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>Excellent</h5>
-                      <p className="transit-number">{numberCommas(item["Transit Score"])}</p>
+                      <p className="transit-number2">{numberCommas(item["Transit Score"])}</p>
                     </div>
                   </div>
                 </div>
-                <div className="scores-contain">
-                  <div className="title-contain">
+                <div className="scores-contain2">
+                  <div className="title-contain2">
                     <h4>Bikeability</h4>
                     <p>Biking infrastructure</p>
                   </div>
@@ -297,12 +299,12 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>Minimal</h5>
-                      <p className="bike-number">{numberCommas(item["Bike Score"])}</p>
+                      <p className="bike-number2">{numberCommas(item["Bike Score"])}</p>
                     </div>
                   </div>
                 </div>
-                <div className="scores-contain">
-                  <div className="title-contain">
+                <div className="scores-contain2">
+                  <div className="title-contain2">
                     <h4>Sustainability</h4>
                     <p>Green Infrastructure</p>
                   </div>
@@ -312,12 +314,12 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>Good</h5>
-                      <p className="sustain-number">51</p>
+                      <p className="sustain-number2">51</p>
                     </div>
                   </div>
                 </div>
-                <div className="scores-contain">
-                  <div className="title-contain">
+                <div className="scores-contain2">
+                  <div className="title-contain2">
                     <h4>Safety</h4>
                     <p>Historical Crime Data</p>
                   </div>
@@ -327,12 +329,12 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>Good</h5>
-                      <p className="safety-number">51</p>
+                      <p className="safety-number2">51</p>
                     </div>
                   </div>
                 </div>
-                <div className="scores-contain">
-                  <div className="title-contain">
+                <div className="scores-contain2">
+                  <div className="title-contain2">
                     <h4>Accessibility</h4>
                     <p>Accessibility infrastructure</p>
                   </div>
@@ -342,20 +344,142 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>Minimal</h5>
-                      <p className="access-number">25</p>
+                      <p className="access-number2">25</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div>
-              <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}><button className="quality-button">Link to SCP</button></Link>
-            </div>
-            {window.location.href.includes("profile") ? <div style={{ marginTop: "1%" }} /> :
-              <div>
-                <Recommendations city={item} />
-              </div>}
           </div>
+        ) : null}
+
+        {/* 3 SELECTED CITIES */}
+        {ethData.length === 3 ? ethData.map(item =>
+          <div className="city-overview-container-medium2">
+            <div className="city-overview-container">
+              <div className="city-overview-border">
+                <p>{item.name_with_com}</p>
+                {/* <FavoriteButton city={item} /> */}
+              </div>
+            </div>
+            <div>
+              <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}><button className="quality-button">SCP</button></Link>
+            </div>
+            <div className="main-contain2">
+              <div className="stats-div2">
+                <div className="stats-style">
+                  <img className="stats-img" src={population} />
+                  <p className="stats-par">Population: {numberCommas(item["Total Population"])}</p>
+                </div>
+                <div className="stats-style">
+                  <img className="stats-img" src={medianAge} />
+                  <p className="stats-par">Median Age: {numberCommas(item["Median Age"])} years old</p>
+                </div>
+                <div className="stats-style">
+                  <img className="stats-img" src={medianRent} />
+                  <p className="stats-par">Median Rent: ${numberCommas(item["Median Rent"])}</p>
+                </div>
+                <div className="stats-style">
+                  <img className="stats-img" src={medianIncome} />
+                  <p className="stats-par">Median Income: ${numberCommas(item["Median Per Capita Income"])}</p>
+                </div>
+                <div className="weather-style2">
+                  <p>Historical Weather:</p>
+                </div>
+              </div>
+              <div className="scores-div2">
+                <div className="scores-contain2">
+                  <div className="title-contain2">
+                    <h4>Walkability</h4>
+                    <p>Pedestrian friendliness</p>
+                  </div>
+                  <div className="icon-score-contain">
+                    <div className="icon-contain">
+                      <img src={walk} />
+                    </div>
+                    <div className="number-contain">
+                      <h5>Inadequate</h5>
+                      <p className="walk-number2">{numberCommas(item["Walk Score"])}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="scores-contain2">
+                  <div className="title-contain2">
+                    <h4>Transit Score</h4>
+                    <p>Public Transportation</p>
+                  </div>
+                  <div className="icon-score-contain">
+                    <div className="icon-contain">
+                      <img src={transit} />
+                    </div>
+                    <div className="number-contain">
+                      <h5>Excellent</h5>
+                      <p className="transit-number2">{numberCommas(item["Transit Score"])}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="scores-contain2">
+                  <div className="title-contain2">
+                    <h4>Bikeability</h4>
+                    <p>Biking infrastructure</p>
+                  </div>
+                  <div className="icon-score-contain">
+                    <div className="icon-contain">
+                      <img src={bike} />
+                    </div>
+                    <div className="number-contain">
+                      <h5>Minimal</h5>
+                      <p className="bike-number2">{numberCommas(item["Bike Score"])}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="scores-contain2">
+                  <div className="title-contain2">
+                    <h4>Sustainability</h4>
+                    <p>Green Infrastructure</p>
+                  </div>
+                  <div className="icon-score-contain">
+                    <div className="icon-contain">
+                      <img src={sustain} />
+                    </div>
+                    <div className="number-contain">
+                      <h5>Good</h5>
+                      <p className="sustain-number2">51</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="scores-contain2">
+                  <div className="title-contain2">
+                    <h4>Safety</h4>
+                    <p>Historical Crime Data</p>
+                  </div>
+                  <div className="icon-score-contain">
+                    <div className="icon-contain">
+                      <img src={safety} />
+                    </div>
+                    <div className="number-contain">
+                      <h5>Good</h5>
+                      <p className="safety-number2">51</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="scores-contain2">
+                  <div className="title-contain2">
+                    <h4>Accessibility</h4>
+                    <p>Accessibility infrastructure</p>
+                  </div>
+                  <div className="icon-score-contain">
+                    <div className="icon-contain">
+                      <img src={access} />
+                    </div>
+                    <div className="number-contain">
+                      <h5>Minimal</h5>
+                      <p className="access-number2">25</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         ) : null}
       </div>

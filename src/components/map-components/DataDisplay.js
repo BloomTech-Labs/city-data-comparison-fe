@@ -262,7 +262,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                 </div>
 
-                <SCPLink to="/SCP">Link to SCP</SCPLink>
+                
 
                 <div className="data-category special-margins">
                     {/* <div className="data-category-titles">
