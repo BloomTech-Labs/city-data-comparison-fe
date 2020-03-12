@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
@@ -29,13 +29,6 @@ function TotalPopulation({ ethData }) {
   function numberCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-
-  const [cities, setCities] = useState([]);
-  
-  useEffect(() => {
-    setCities(ethData)
-    console.log("useState", cities)
-  },[ethData])
 
 
 console.log("ethData", ethData);
