@@ -629,6 +629,16 @@
     justify-content: space-evenly;
 }
 
+.stats-style2 {
+    display: flex;
+    align-items: center;
+    
+}
+
+.stats-style2  p {
+    font-size: 18px;
+}
+
 .scores-contain2 {
     display: flex;
     flex-direction: column;
@@ -681,5 +691,31 @@
 }
 
 // THREE CITIES SELECTED STYLING
+.city-overview-container-medium3 {
+    width: 30%;
+}
 
+.title-contain3 h4{
+    margin: 0;
+    font-size: 14px;
+}
+
+.title-contain3 p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.scores-div3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    // border: 1px solid black;
+}
+
+.scores-contain3 {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 125px;
+}
 

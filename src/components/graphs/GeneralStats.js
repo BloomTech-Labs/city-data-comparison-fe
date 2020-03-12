@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
@@ -20,6 +20,7 @@ import sustain from "../../assets/generalstats/sustain.png"
 import transit from "../../assets/generalstats/transit.png"
 import walk from "../../assets/generalstats/walk.png"
 
+import AvgTemp from "../graphs/culture/tempAvg";
 import FavoriteButton from '../map-components/FavoriteButton'
 import Recommendations from "./Recommendations"
 
@@ -28,67 +29,14 @@ function TotalPopulation({ ethData }) {
   function numberCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
+  
+
   return (
     <>
-      {/* <div className="city-overview-container-small">
-        {ethData.map(item =>
-          <div key={item._id} className="city-overview-container-medium">
-            {console.log(item)}
-            <div className="city-overview-container">
-              <div className="city-overview-border">
-                <p>{item.name_with_com}</p> */}
-      {/* change title to name of city? */}
-      {/* <FavoriteButton city={item} />
-              </div>
-            </div> */}
-
-      {/* <div className="city-info-container">
-              <div className="city-overview-container-one">
-                <div className="overview-title-container-one">
-                  <div className="overview-title"> <img alt="world" src={world} /> City</div>
-                  <div className="overview-title"> <img alt="people" src={pop} /> Population</div>
-                  <div className="overview-title"> <img alt="age" src={users} /> Median age</div>
-                </div>
-
-                <div className="overview-stats-container-one">
-                  <div className="overview-stats">{item["City"]}</div>
-                  <div className="overview-stats">{numberCommas(item["Total Population"])}</div>
-                  <div className="overview-stats">{item["Median Age"]} years old</div>
-                </div>
-              </div> */}
-
-
-
-
-
-      {/* <div className="city-overview-container-two">
-                <div className="overview-title-container-two">
-                  <div className="overview-title"><img alt="briefcase" src={briefcase} />Median rent</div>
-                  <div className="overview-title"><img alt="income" src={income} />Median income</div>
-                  <div className="overview-title">
-                    <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}>Link to SCP</Link>
-                  </div>
-
-
-                  <div className="overview-stats-container-two">
-                    <div className="overview-stats">${numberCommas(item["Median Rent"])}</div>
-                    <div className="overview-stats">${numberCommas(item["Median Household Income"])}</div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-      {/* we don't want recommendations on the profile list of favorites */}
-      {/* {window.location.href.includes("profile") ? <div style={{ marginTop: "1%" }} /> :
-              <div>
-                <Recommendations city={item} />
-              </div>}
-          </div>
-        )}
-      </div> */}
-
       {/* 1 SELECTED CITY */}
       <div className="city-overview-container-small">
         {ethData.length === 1 ? ethData.map(item =>
+        
           <div className="city-overview-container-medium">
             <div className="city-overview-container">
               <div className="city-overview-border">
@@ -117,6 +65,10 @@ function TotalPopulation({ ethData }) {
                 </div>
                 <div className="weather-style">
                   <p>Historical Weather:</p>
+                  <div className="avg-temp-container">
+                            <p className="chart-title">Historical weather</p>
+                            {/* <AvgTemp edData = {item.weather} /> */}
+                        </div>
                 </div>
               </div>
               <div className="scores-div">
@@ -228,6 +180,7 @@ function TotalPopulation({ ethData }) {
           <div className="city-overview-container-medium2">
             <div className="city-overview-container">
               <div className="city-overview-border">
+              {console.log("ITEM FROM GENERAL2", item)}
                 <p>{item.name_with_com}</p>
                 {/* <FavoriteButton city={item} /> */}
               </div>
@@ -237,19 +190,19 @@ function TotalPopulation({ ethData }) {
             </div>
             <div className="main-contain2">
               <div className="stats-div2">
-                <div className="stats-style">
+                <div className="stats-style2">
                   <img className="stats-img" src={population} />
                   <p className="stats-par">Population: {numberCommas(item["Total Population"])}</p>
                 </div>
-                <div className="stats-style">
+                <div className="stats-style2">
                   <img className="stats-img" src={medianAge} />
                   <p className="stats-par">Median Age: {numberCommas(item["Median Age"])} years old</p>
                 </div>
-                <div className="stats-style">
+                <div className="stats-style2">
                   <img className="stats-img" src={medianRent} />
                   <p className="stats-par">Median Rent: ${numberCommas(item["Median Rent"])}</p>
                 </div>
-                <div className="stats-style">
+                <div className="stats-style2">
                   <img className="stats-img" src={medianIncome} />
                   <p className="stats-par">Median Income: ${numberCommas(item["Median Per Capita Income"])}</p>
                 </div>
@@ -355,7 +308,7 @@ function TotalPopulation({ ethData }) {
 
         {/* 3 SELECTED CITIES */}
         {ethData.length === 3 ? ethData.map(item =>
-          <div className="city-overview-container-medium2">
+          <div className="city-overview-container-medium3">
             <div className="city-overview-container">
               <div className="city-overview-border">
                 <p>{item.name_with_com}</p>
@@ -387,9 +340,9 @@ function TotalPopulation({ ethData }) {
                   <p>Historical Weather:</p>
                 </div>
               </div>
-              <div className="scores-div2">
-                <div className="scores-contain2">
-                  <div className="title-contain2">
+              <div className="scores-div3">
+                <div className="scores-contain3">
+                  <div className="title-contain3">
                     <h4>Walkability</h4>
                     <p>Pedestrian friendliness</p>
                   </div>
@@ -403,8 +356,8 @@ function TotalPopulation({ ethData }) {
                     </div>
                   </div>
                 </div>
-                <div className="scores-contain2">
-                  <div className="title-contain2">
+                <div className="scores-contain3">
+                  <div className="title-contain3">
                     <h4>Transit Score</h4>
                     <p>Public Transportation</p>
                   </div>
@@ -418,8 +371,8 @@ function TotalPopulation({ ethData }) {
                     </div>
                   </div>
                 </div>
-                <div className="scores-contain2">
-                  <div className="title-contain2">
+                <div className="scores-contain3">
+                  <div className="title-contain3">
                     <h4>Bikeability</h4>
                     <p>Biking infrastructure</p>
                   </div>
@@ -433,8 +386,8 @@ function TotalPopulation({ ethData }) {
                     </div>
                   </div>
                 </div>
-                <div className="scores-contain2">
-                  <div className="title-contain2">
+                <div className="scores-contain3">
+                  <div className="title-contain3">
                     <h4>Sustainability</h4>
                     <p>Green Infrastructure</p>
                   </div>
@@ -448,8 +401,8 @@ function TotalPopulation({ ethData }) {
                     </div>
                   </div>
                 </div>
-                <div className="scores-contain2">
-                  <div className="title-contain2">
+                <div className="scores-contain3">
+                  <div className="title-contain3">
                     <h4>Safety</h4>
                     <p>Historical Crime Data</p>
                   </div>
@@ -463,8 +416,8 @@ function TotalPopulation({ ethData }) {
                     </div>
                   </div>
                 </div>
-                <div className="scores-contain2">
-                  <div className="title-contain2">
+                <div className="scores-contain3">
+                  <div className="title-contain3">
                     <h4>Accessibility</h4>
                     <p>Accessibility infrastructure</p>
                   </div>
