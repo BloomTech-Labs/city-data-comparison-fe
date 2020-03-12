@@ -132,10 +132,12 @@
             flex-direction: column;
             flex-wrap: wrap;
             width:100%;
+            
+
 
             @media screen and (min-width: 900px){
                 flex-direction: row;
-                justify-content: space-around;
+                // justify-content: space-around;
             }
         
             .card {
@@ -150,21 +152,24 @@
 
                 @media screen and (min-width: 900px){
                     width: 48%;
+                    margin: 1%;
                 }
 
                 @media screen and (min-width: 1200px){
                     width: 30%;
+                    margin: 1.5%;
                 }
 
                 @media screen and (min-width: 2000px){
                     width: 23%;
+                    margin: 1%;
                 }
 
                 .member-info {
                     margin-bottom: 5%;
 
                     .aboutUsImg {
-                        height: auto;
+                        max-height: auto;
                         width: 100%;
                     }
     

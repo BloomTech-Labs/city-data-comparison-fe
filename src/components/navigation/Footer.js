@@ -44,9 +44,9 @@ function Footer(){
                               </div>
                               <div className="footer-categories">
                                    <p className="footer-title">Company</p>
-                                   <Link to="/aboutus" >Meet the Team</Link>
-                                   <Link to="/aboutus" >About Us</Link>
-                                   <Link to="/aboutus" >Contact Us</Link>
+                                   <Link to="/meet-the-team" >Meet the Team</Link>
+                                   <Link to="/meet-the-team" >About Us</Link>
+                                   <Link to="/meet-the-team" >Contact Us</Link>
                               </div>
                               <div className="footer-categories">
                                    <p href="#" className="footer-title">Resources</p>

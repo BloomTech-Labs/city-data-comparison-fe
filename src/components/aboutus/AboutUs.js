@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 //file that contains information for each user
 import team from './team';
 import TeamCard from './TeamCard';
+import Footer from '../navigation/Footer';
 
 //styling
 import './aboutus.scss'; 
@@ -12,6 +13,10 @@ import './aboutus.scss';
 
 
 const AboutUs = () => {
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
    
     return(
         <>
@@ -31,12 +36,24 @@ const AboutUs = () => {
         <section className='aboutUsSection'>
             <div className="sectionContainer">
                 <div className="aboutUsH2Div">
+                    <h2 id='management' className="aboutUsH2">Management <span>Team</span></h2>
+                </div>
+
+                <div className="cardContainer">
+                    {team.map(member => {
+                        if (member.management) {
+                            return <TeamCard member={member} />
+                        }
+                    })}
+                </div>
+
+                <div className="aboutUsH2Div">
                     <h2 id='labs19' className="aboutUsH2">Labs 19 <span>Development Team</span></h2>
                 </div>
 
                 <div className="cardContainer">
                     {team.map(member => {
-                        if (member.labs === 19) {
+                        if (member.labs === 19 && member.management !== true) {
                             return <TeamCard member={member} />
                         }
                     })}
@@ -47,13 +64,14 @@ const AboutUs = () => {
 
                 <div className="cardContainer">
                     {team.map(member => {
-                        if (member.labs === 21) {
+                        if (member.labs === 21 && member.management !== true) {
                             return <TeamCard member={member} />
                         }
                     })}
                 </div>
             </div>
         </section>
+        <Footer />
         </>
     )
 }

@@ -1,5 +1,36 @@
 //separate file to store all of the information about each team member
 
+//Format for team lead or any other management member
+// {
+//     labs: 21,
+//     name: 'Jeremy Rogel', 
+//     image: jeremy, (Save photo in assets/team photos)
+//     management: true,
+//     role: 'Team Lead, Labs 21', 
+//     social: {
+//         twitter: null, 
+//         github: 'jeremyRogel', 
+//         linkedin: 'jeremy-rogel-293640186/'
+//     }, 
+//     about: 'A natural go-getter, Jeremy Rogel applies his knowledge of code and passion for creation by being the best fullstack web developer this side of the Mississippi! Applying his trade in Durham, NC, his passion to keep getting better shines in whatever he sets out to do.',
+//     portfolio: null
+// }
+
+//Format for student
+// {
+//     labs: 21,
+//     name: 'Jeremy Rogel', 
+//     image: jeremy, (Save photo in assets/team photos)
+//     role: 'UI/UX Designer', 
+//     social: {
+//         twitter: null, 
+//         github: 'jeremyRogel', 
+//         linkedin: 'jeremy-rogel-293640186/'
+//     }, 
+//     about: 'A natural go-getter, Jeremy Rogel applies his knowledge of code and passion for creation by being the best fullstack web developer this side of the Mississippi! Applying his trade in Durham, NC, his passion to keep getting better shines in whatever he sets out to do.',
+//     portfolio: null
+// }
+
 //team members photos
 import anna from '../../assets/team_photos/anna_t.png'; 
 import daniel from '../../assets/team_photos/daniel_b.jpg'; 
@@ -30,7 +61,8 @@ const team = [
         labs: 19,
         name: 'Anna Townsend', 
         image: anna,
-        role: 'Team Lead', 
+        management: true,
+        role: 'Team Lead, Labs 19', 
         social: {
             twitter: 'annatow62847551', 
             github: 'annatownsend9916', 
@@ -174,7 +206,8 @@ const team = [
         labs: 21,
         name: 'Jeremy Rogel', 
         image: jeremy,
-        role: 'Team Lead', 
+        management: true,
+        role: 'Team Lead, Labs 21', 
         social: {
             twitter: null, 
             github: 'jeremyRogel', 
@@ -182,6 +215,19 @@ const team = [
         }, 
         about: 'A natural go-getter, Jeremy Rogel applies his knowledge of code and passion for creation by being the best fullstack web developer this side of the Mississippi! Applying his trade in Durham, NC, his passion to keep getting better shines in whatever he sets out to do.',
         portfolio: null
+    
+    }, {
+        labs: 21,
+        name: 'Kyle Porter', 
+        image: kyle,
+        role: 'Web Developer', 
+        social: {
+            twitter: null, 
+            github: 'kylewp13', 
+            linkedin: 'kyletech'
+        }, 
+        about: null,
+        portfolio: 'https://www.kyleporter.tech'
     
     }, {
         labs: 21,
@@ -246,19 +292,6 @@ const team = [
         }, 
         about: null,
         portfolio: null
-    
-    }, {
-        labs: 21,
-        name: 'Kyle Porter', 
-        image: kyle,
-        role: 'Web Developer', 
-        social: {
-            twitter: null, 
-            github: 'kylewp13', 
-            linkedin: 'kyletech'
-        }, 
-        about: null,
-        portfolio: 'https://www.kyleporter.tech'
     
     }, {
         labs: 21,
