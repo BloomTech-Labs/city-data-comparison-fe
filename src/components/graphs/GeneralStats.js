@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
@@ -29,19 +29,27 @@ function TotalPopulation({ ethData }) {
   function numberCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-  
 
+  const [cities, setCities] = useState([]);
+  
+  useEffect(() => {
+    setCities(ethData)
+    console.log("useState", cities)
+  },[ethData])
+
+
+console.log("ethData", ethData);
   return (
     <>
       {/* 1 SELECTED CITY */}
       <div className="city-overview-container-small">
         {ethData.length === 1 ? ethData.map(item =>
-        
+
           <div className="city-overview-container-medium">
             <div className="city-overview-container">
               <div className="city-overview-border">
                 <p>{item.name_with_com}</p>
-                <FavoriteButton city={item} />
+                {/* <FavoriteButton city={item} /> */}
               </div>
             </div>
             {/* <div className="city-info-container"> */}
@@ -64,11 +72,11 @@ function TotalPopulation({ ethData }) {
                   <p className="stats-par">Median Income: ${numberCommas(item["Median Per Capita Income"])}</p>
                 </div>
                 <div className="weather-style">
-                  <p>Historical Weather:</p>
+                  {/* <p>Historical Weather:</p> */}
                   <div className="avg-temp-container">
-                            <p className="chart-title">Historical weather</p>
-                            {/* <AvgTemp edData = {item.weather} /> */}
-                        </div>
+                    <p className="chart-title">Historical Temperature</p>
+                    <AvgTemp edData = {[item]} />
+                  </div>
                 </div>
               </div>
               <div className="scores-div">
@@ -164,8 +172,9 @@ function TotalPopulation({ ethData }) {
                 </div>
               </div>
             </div>
-            <div>
-              <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}><button className="quality-button">Quality of Life</button></Link>
+            <div className="button-div">
+              <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
+              }><button className="quality-button">Quality of Life</button></Link>
             </div>
             {/* CODE FOR RECOMMENDATIONS */}
             {/* {window.location.href.includes("profile") ? <div style={{ marginTop: "1%" }} /> :
@@ -180,14 +189,21 @@ function TotalPopulation({ ethData }) {
           <div className="city-overview-container-medium2">
             <div className="city-overview-container">
               <div className="city-overview-border">
-              {console.log("ITEM FROM GENERAL2", item)}
+                {console.log("ITEM FROM GENERAL2", item)}
+                <div className="title-container2">
                 <p>{item.name_with_com}</p>
+                </div>
+                <div className="button-div2">
+                <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
+              }><button className="quality-button">SCP</button></Link>
+                </div>
                 {/* <FavoriteButton city={item} /> */}
               </div>
             </div>
-            <div>
-              <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}><button className="quality-button">SCP</button></Link>
-            </div>
+            {/* <div>
+              <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
+              }><button className="quality-button">SCP</button></Link>
+            </div> */}
             <div className="main-contain2">
               <div className="stats-div2">
                 <div className="stats-style2">
@@ -207,7 +223,11 @@ function TotalPopulation({ ethData }) {
                   <p className="stats-par">Median Income: ${numberCommas(item["Median Per Capita Income"])}</p>
                 </div>
                 <div className="weather-style2">
-                  <p>Historical Weather:</p>
+                  {/* <p>Historical Weather:</p> */}
+                  <div className="avg-temp-container">
+                    <p className="chart-title">Historical Temperature</p>
+                    <AvgTemp edData = {[item]} />
+                  </div>
                 </div>
               </div>
               <div className="scores-div2">
@@ -316,7 +336,8 @@ function TotalPopulation({ ethData }) {
               </div>
             </div>
             <div>
-              <Link target='_blank' to={`/SCP/${item.Latitude}/${item.Longitude}`}><button className="quality-button">SCP</button></Link>
+              <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
+              }><button className="quality-button">SCP</button></Link>
             </div>
             <div className="main-contain2">
               <div className="stats-div2">
@@ -337,7 +358,11 @@ function TotalPopulation({ ethData }) {
                   <p className="stats-par">Median Income: ${numberCommas(item["Median Per Capita Income"])}</p>
                 </div>
                 <div className="weather-style2">
-                  <p>Historical Weather:</p>
+                  {/* <p>Historical Weather:</p> */}
+                  <div className="avg-temp-container">
+                    <p className="chart-title">Historical Temperature</p>
+                    <AvgTemp edData = {[item]} />
+                  </div>
                 </div>
               </div>
               <div className="scores-div3">

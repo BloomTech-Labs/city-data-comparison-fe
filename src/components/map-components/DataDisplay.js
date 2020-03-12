@@ -241,7 +241,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                     </div>
                                     <div className="anchor-link">
                                         <input type="checkbox" id="avgTemp" name="avgTemp" value="avgTemp" onChange={onChange}/>
-                                        <label for="avgTemp">Weather</label><br />
+                                        <label for="avgTemp">Historical Temperature</label><br />
                                     </div>
                                     </span>
                                 </div>
