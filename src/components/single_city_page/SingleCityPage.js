@@ -154,12 +154,15 @@ const SingleCityPage = (props) => {
     };
 
     return (
-
-        <div className="SCPbody">
+        <>
+        <header>
             {/* hero/header section */}
             <div className="SCPhero">
                 <img alt='img of city' className="SCPheroImg" src={cityscape} />
             </div>
+        </header>
+
+        <div className="SCPbody">
             <section className="SCPcityIntro">
                 <div className="SCPweather">
                     <div className="weatherImage">
@@ -181,7 +184,7 @@ const SingleCityPage = (props) => {
                     </div>
 
                     <div className="city-desc">
-                        <p>Miami is one of the state's – and the world’s – most popular vacation spots. Though destinations often are said to offer something for everyone, the Miami area does indeed offer multiple enticements for everyone: The trendy nightlife of South Beach, bejeweled by the eye candy of the Art Deco district. The bustle of Calle Ocho and the highly caffeinated energy of Little Havana. The plush hotels of Miami Beach and the historic hideaways of Coral Gables... (more)</p>
+                        <p>Miami is one of the state's – and the world’s – most popular vacation spots. Though destinations often are said to offer something for everyone, the Miami area does indeed offer multiple enticements for everyone: The trendy nightlife of South Beach, bejeweled by the eye candy of the Art Deco district. The bustle of Calle Ocho and the highly caffeinated energy of Little Havana. The plush hotels of Miami Beach and the historic hideaways of Coral Gables... more</p>
                     </div>
                 </div>
             </section>
@@ -332,47 +335,55 @@ const SingleCityPage = (props) => {
                                 <h3>Explore</h3>
                             </div>
                             <div className="expCat">
-                                <img alt='img' className="expCatImg" src={foodAndDrink} />
+                                <div className="expCatImgContainer">
+                                    <img alt='img' className="expCatImg" src={foodAndDrink} />
+                                </div>
                                 <div className="expCatText">
                                     <div className="expCatTitle">
                                         <h4>Food and drinks</h4>
                                     </div>
                                     <div className="expP">
-                                        <p>The cuisine of Miami is a reflection of its diverse population, with a heavy influence from Caribbean and Latin American cuisine. By combining the two with American cuisine, it has spawned a unique South Florida style of cooking known as Floribbean... (more)</p>
+                                        <p>The cuisine of Miami is a reflection of its diverse population, with a heavy influence from Caribbean and Latin American cuisine. By combining the two with American cuisine, it has spawned a unique South Florida style of cooking known as Floribbean... more</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="expCat">
-                                <img alt='img' className="expCatImg" src={attractions} />
+                                <div className="expCatImgContainer">
+                                    <img alt='img' className="expCatImg" src={attractions} />
+                                </div>
                                 <div className="expCatText">
                                     <div className="expCatTitle">
                                         <h4>Attractions</h4>
                                     </div>
                                     <div className="expP">
-                                        <p>In addition to annual festivals like the Calle Ocho Festival, Miami is home to many entertainment venues, theaters, museums, parks and performing arts centers. The newest addition to the Miami arts scene is the Adrienne Arsht Center for the ... (more)</p>
+                                        <p>In addition to annual festivals like the Calle Ocho Festival, Miami is home to many entertainment venues, theaters, museums, parks and performing arts centers. The newest addition to the Miami arts scene is the Adrienne Arsht Center for the ... more</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="expCat">
-                                <img  alt='img' className="expCatImg" src={weatherImg} />
+                                <div className="expCatImgContainer">
+                                    <img  alt='img' className="expCatImg" src={weatherImg} />
+                                </div>
                                 <div className="expCatText">
                                     <div className="expCatTitle">
                                         <h4>Weather</h4>
                                     </div>
                                     <div className="expP">
-                                        <p>Miami has a tropical monsoon climate (Köppen climate classification Am)[38][39] with a marked drier season in the winter. The city's sea-level elevation, coastal location, position just above the Tropic of Cancer, and proximity to the Gulf Stream shape its climate... (more)</p>
+                                        <p>Miami has a tropical monsoon climate (Köppen climate classification Am)[38][39] with a marked drier season in the winter. The city's sea-level elevation, coastal location, position just above the Tropic of Cancer, and proximity to the Gulf Stream shape its climate... more</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="expCat">
-                                <img alt='img' className="expCatImg" src={recreation} />
+                                <div className="expCatImgContainer">
+                                    <img alt='img' className="expCatImg" src={recreation} />
+                                </div>
                                 <div className="expCatText">
                                     <div className="expCatTitle">
                                         <h4>Recreation</h4>
                                     </div>
                                     <div className="expP">
-                                        <p>The City of Miami has various lands operated by the National Park Service, the Florida Division of Recreation and Parks, and the City of Miami Department of Parks and Recreation... (more)</p>
+                                        <p>The City of Miami has various lands operated by the National Park Service, the Florida Division of Recreation and Parks, and the City of Miami Department of Parks and Recreation... more</p>
                                     </div>
                                 </div>
                             </div>
@@ -443,6 +454,7 @@ const SingleCityPage = (props) => {
                 </section>
             </section>
         </div>
+    </>
     )
 }
 
