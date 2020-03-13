@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-<<<<<<< HEAD
-import { CityContext } from '../../contexts/CityContext';
-//import Skycons from 'react-skycons';
-import { useParams } from "react-router-dom";
-=======
 import queryString from 'query-string';
->>>>>>> 05ae801d8deea71d172bfc3d08e2bc1a7231846e
 
 
 import './SingleCityPage.scss';
