@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { CityContext } from '../../contexts/CityContext';
-import Skycons from 'react-skycons';
-import { useParams } from "react-router-dom";
+// import Skycons from 'react-skycons';
+import queryString from 'query-string'
 
 
 import './SingleCityPage.scss';
-// import { scpData } from './scpDummyData';
 
 import SCPrestaurants from "./SCPrestaurants";
 import SCPevents from "./SCPevents";
+import SCPcityServices from "./SCPcityServices";
 
 
 import cityscape from '../../assets/single_city_page_photos/cityscape.jpg';
@@ -32,22 +31,21 @@ import shopping from '../../assets/single_city_page_photos/shopping.png';
 import lodging from '../../assets/single_city_page_photos/lodging.png';
 import dropdownIcon from '../../assets/single_city_page_photos/DropdownIcon.png'
 
-const SingleCityPage = () => {
+const SingleCityPage = (props) => {
+
+    const { latitude, longitude } = queryString.parse(props.location.search);
 
   const [categories, setCategories] = useState({});
   const [restaurants, setRestaurants] = useState();
   const [events, setEvents] = useState();
   const [weather, setWeather] = useState({});
-  let { latitude, longitude } = useParams();
 
-
-
-  function onChange(e) {
-    setCategories({
-      ...categories,
-      [e.target.name]: categories[e.target.name] ? false : true
-    })
-  }
+    function onChange(e) {
+        setCategories({
+        ...categories,
+        [e.target.name]: categories[e.target.name] ? false : true
+        })
+    }
 
   // function for handling sidebar checkbox check/uncheck (display of categories)
   function onChange(e) {
@@ -171,109 +169,112 @@ const SingleCityPage = () => {
 
   console.log('params', latitude)
 
-  // API CALL FOR RESTAURANTS
-  useEffect(() => {
-    axios.get(`https://be.citrics.io/api/yelp/restaurant/${latitude}/${longitude}`)
-      //   .get(`http://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/restaurant?latitude=30.1&longitude=-81.7`)
-      // 42.3314° N, 83.0458° W
-      .then(res => {
-        console.log('get test', res.data)
-        setRestaurants(res.data)
-        console.log('rest', restaurants)
-        // console.log('test setRest', setRestaurants)
-      })
-      .catch(err => console.log(err))
-  }, [latitude, longitude]);
+    // API CALL FOR RESTAURANTS
+    useEffect(() => {
+        axios.get(`https://be.citrics.io/api/yelp/restaurant/${latitude}/${longitude}`)
+            //   .get(`http://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/restaurant?latitude=30.1&longitude=-81.7`)
+            // 42.3314° N, 83.0458° W
+            .then(res => {
+                console.log('get rest', res.data)
+                setRestaurants(res.data)
+                console.log('rest', restaurants)
+                // console.log('test setRest', setRestaurants)
+            })
+            .catch(err => console.log(err))
+    }, [latitude, longitude]);
 
-  // API CALL FOR EVENTS
-  useEffect(() => {
-    axios.get(`https://be.citrics.io/api/yelp/events/${latitude}/${longitude}`)
-      .then(response => {
-        console.log(response)
-        setEvents(response.data)
-      })
-      .catch(error => {
-        console.log("Events", error)
-      })
-  }, [latitude, longitude]);
+    // API CALL FOR EVENTS
+    useEffect(() => {
+        axios.get(`https://be.citrics.io/api/yelp/events/${latitude}/${longitude}`)
+        .then(response => {
+            setEvents(response.data)
+        })
+        .catch(error => {
+            console.log("Events", error)
+        })
+    },[latitude, longitude]);
 
-  // API CALL FOR WEATHER
-  useEffect(() => {
-    axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a8c0298ef7550627f36777243a127c0e/${latitude},${longitude}`)
-      .then(response => {
-        console.log('weather', response.data.currently)
-        setWeather(response.data.currently)
-      })
-      .catch(error => {
-        console.log("Error retrieving Weather Information", error)
-      })
-  }, [latitude, longitude])
+    // API CALL FOR WEATHER
+    useEffect(() => {
+        axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a8c0298ef7550627f36777243a127c0e/${latitude},${longitude}`)
+            .then(response => {
+                setWeather(response.data.currently)
+            })
+            .catch(error => {
+                console.log("Error retrieving Weather Information", error)
+            })
+    }, [latitude, longitude])
 
-  const weatherTime = new Date().toLocaleTimeString();
+    const weatherTime = new Date().toLocaleTimeString();
 
-  var roundTemp = weather.temperature;
-  roundTemp = Math.round(roundTemp)
+    var roundTemp = weather.temperature;
+    roundTemp = Math.round(roundTemp)
 
-  var feelsLike = weather.apparentTemperature;
-  feelsLike = Math.round(feelsLike);
+    var feelsLike = weather.apparentTemperature;
+    feelsLike = Math.round(feelsLike);
 
-  var weatherIcon;
+    var weatherIcon;
 
-  if (weather.icon === "clear-day") {
-    weatherIcon = clearDay
-  } else if (weather.icon === "clear-night") {
-    weatherIcon = clearNight
-  } else if (weather.icon === "partly-cloudy-day") {
-    weatherIcon = partlyCloudyDay
-  } else if (weather.icon === "partly-cloudy-night") {
-    weatherIcon = partlyCloudyNight
-  } else if (weather.icon === "cloudy") {
-    weatherIcon = cloudy
-  } else if (weather.icon === "rain") {
-    weatherIcon = rain
-  } else if (weather.icon === "sleet") {
-    weatherIcon = sleet
-  } else if (weather.icon === "snow") {
-    weatherIcon = snow
-  } else if (weather.icon === "wind") {
-    weatherIcon = wind
-  } else if (weather.icon === "fog") {
-    weatherIcon = fog
-  };
+    if ( weather.icon === "clear-day"){
+        weatherIcon = clearDay
+    } else if( weather.icon === "clear-night"){
+        weatherIcon = clearNight
+    } else if( weather.icon === "partly-cloudy-day"){
+        weatherIcon = partlyCloudyDay
+    } else if( weather.icon === "partly-cloudy-night"){
+        weatherIcon = partlyCloudyNight
+    } else if( weather.icon === "cloudy"){
+        weatherIcon = cloudy
+    } else if( weather.icon === "rain"){
+        weatherIcon = rain
+    } else if( weather.icon === "sleet"){
+        weatherIcon = sleet
+    } else if( weather.icon === "snow"){
+        weatherIcon = snow
+    } else if( weather.icon === "wind"){
+        weatherIcon = wind
+    } else if( weather.icon === "fog"){
+        weatherIcon = fog
+    };
 
-  return (
+    return (
+        <>
+        <header>
+            {/* hero/header section */}
+            <div className="SCPhero">
+                <img alt='img of city' className="SCPheroImg" src={cityscape} />
+            </div>
+        </header>
 
-    <>
-      {/* hero/header section */}
-      <div className="SCPhero">
-        <img className="SCPheroImg" src={cityscape} />
-      </div>
-      <section className="SCPcityIntro">
-        <div className="SCPweather">
-          <div className="weatherImage">
-            <img src={weatherIcon} />
-          </div>
-          <div className="weatherInfo">
-            <span>As of {weatherTime}</span>
-            <span className="temp">{roundTemp}&deg;F</span>
-            <span>{weather.summary}</span>
-            <span>feels like {feelsLike}&deg;F</span>
-            <span>Humidity {weather.humidity}&deg;</span>
-            <span>UV Index {weather.uvIndex}</span>
-          </div>
-        </div>
-        <div className="SCPdescription">
-          <div>
-            <h1 className="descH1">{restaurants && restaurants.businesses ? restaurants.businesses[0].location.city : ''}, {restaurants && restaurants.businesses ? restaurants.businesses[0].location.state : ''}</h1>
-          </div>
-          <div className="city-desc">
-            <p>Miami is one of the state's – and the world’s – most popular vacation spots. Though destinations often are said to offer something for everyone, the Miami area does indeed offer multiple enticements for everyone: The trendy nightlife of South Beach, bejeweled by the eye candy of the Art Deco district. The bustle of Calle Ocho and the highly caffeinated energy of Little Havana. The plush hotels of Miami Beach and the historic hideaways of Coral Gables... (more)</p>
-          </div>
-        </div>
-      </section>
+        <div className="SCPbody">
+            <section className="SCPcityIntro">
+                <div className="SCPweather">
+                    <div className="weatherImage">
+                        <img alt='weather icon' src={weatherIcon}/>
+                    </div>
+                    <div className="weatherInfo">
+                        <span>As of {weatherTime}</span>
+                        <span className="temp">{roundTemp}&deg;F</span>
+                        <span>{weather.summary}</span>
+                        <span>feels like {feelsLike}&deg;F</span>
+                        <span>Humidity {weather.humidity}&deg;</span>
+                        <span>UV Index {weather.uvIndex}</span>
+                    </div>
+                </div>
 
-      <section className="SCPmain">
-        <section className="SCPsidebar">
+                <div className="SCPdescription">
+                    <div>
+                        <h1 className="descH1">{restaurants && restaurants.businesses ? restaurants.businesses[0].location.city : ''}, {restaurants && restaurants.businesses ? restaurants.businesses[0].location.state : ''}</h1>
+                    </div>
+
+                    <div className="city-desc">
+                        <p>Miami is one of the state's – and the world’s – most popular vacation spots. Though destinations often are said to offer something for everyone, the Miami area does indeed offer multiple enticements for everyone: The trendy nightlife of South Beach, bejeweled by the eye candy of the Art Deco district. The bustle of Calle Ocho and the highly caffeinated energy of Little Havana. The plush hotels of Miami Beach and the historic hideaways of Coral Gables... more</p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="SCPmain">
+                <section className="SCPsidebar">
           {/* sidebar filter code */}
           <div className="SCPfilter">
             <h4>Filter</h4>
@@ -462,649 +463,164 @@ const SingleCityPage = () => {
           </div>
         </section>
 
-        {/* main categories displayed when you land on page */}
+                {/* main categories displayed when you land on page */}
 
-        <section className="SCPcategories">
-          <div className="SCPexplore">
-            <div className="exploreContainer">
-              <div>
-                <h3>Explore</h3>
-              </div>
-              <div className="expCat">
-                <img className="expCatImg" src={foodAndDrink} />
-                <div className="expCatText">
-                  <div className="expCatTitle">
-                    <h4>Food and drinks</h4>
-                  </div>
-                  <div className="expP">
-                    <p>The cuisine of Miami is a reflection of its diverse population, with a heavy influence from Caribbean and Latin American cuisine. By combining the two with American cuisine, it has spawned a unique South Florida style of cooking known as Floribbean... (more)</p>
-                  </div>
-                </div>
-              </div>
-              <div className="expCat">
-                <img className="expCatImg" src={attractions} />
-                <div className="expCatText">
-                  <div className="expCatTitle">
-                    <h4>Attractions</h4>
-                  </div>
-                  <div className="expP">
-                    <p>In addition to annual festivals like the Calle Ocho Festival, Miami is home to many entertainment venues, theaters, museums, parks and performing arts centers. The newest addition to the Miami arts scene is the Adrienne Arsht Center for the ... (more)</p>
-                  </div>
-                </div>
-              </div>
-              <div className="expCat">
-                <img className="expCatImg" src={weatherImg} />
-                <div className="expCatText">
-                  <div className="expCatTitle">
-                    <h4>Weather</h4>
-                  </div>
-                  <div className="expP">
-                    <p>Miami has a tropical monsoon climate (Köppen climate classification Am)[38][39] with a marked drier season in the winter. The city's sea-level elevation, coastal location, position just above the Tropic of Cancer, and proximity to the Gulf Stream shape its climate... (more)</p>
-                  </div>
-                </div>
-              </div>
+                <section className="SCPcategories">
+                    <div className="SCPresources">
+                            <div>
+                                <h3>City Services</h3>
+                                {/* <SCPcityServices/> */}
+                            </div>
+                            <div className="resourcesContainer">
+                                <div className="resCat">
+                                    <img className="resImg" src={cityServices} />
+                                    <h5>Name of Place</h5>
+                                    <p>Phone Number</p>
+                                    <p>Website</p>
+                                </div>
+                                <div className="resCat">
+                                    <img className="resImg" src={shopping} />
+                                    <h5>Name of Place</h5>
+                                    <p>Phone Number</p>
+                                    <p>Website</p>
+                                </div>
+                                <div className="resCat">
+                                    <img className="resImg" src={lodging} />
+                                    <h5>Name of Place</h5>
+                                    <p>Phone Number</p>
+                                    <p>Website</p>
+                                </div>
+                            </div>
+                        </div>
 
-              <div className="expCat">
-                <img className="expCatImg" src={recreation} />
-                <div className="expCatText">
-                  <div className="expCatTitle">
-                    <h4>Recreation</h4>
-                  </div>
-                  <div className="expP">
-                    <p>The City of Miami has various lands operated by the National Park Service, the Florida Division of Recreation and Parks, and the City of Miami Department of Parks and Recreation... (more)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div className="SCPresources">
-            <div>
-              <h3>Resources</h3>
-            </div>
-            <div className="resourcesContainer">
-              <div className="resCat">
-                <img className="resImg" src={cityServices} />
-                <h5>City Services</h5>
-              </div>
-              <div className="resCat">
-                <img className="resImg" src={shopping} />
-                <h5>Shopping</h5>
-              </div>
-              <div className="resCat">
-                <img className="resImg" src={lodging} />
-                <h5>Lodging</h5>
-              </div>
-            </div>
-          </div>
+                    <div className="SCPexplore">
+                        <div className="exploreContainer">
+                            <div>
+                                <h3>Explore</h3>
+                            </div>
+                            <div className="expCat">
+                                <div className="expCatImgContainer">
+                                    <img alt='img' className="expCatImg" src={foodAndDrink} />
+                                </div>
+                                <div className="expCatText">
+                                    <div className="expCatTitle">
+                                        <h4>Food and drinks</h4>
+                                    </div>
+                                    <div className="expP">
+                                        <p>The cuisine of Miami is a reflection of its diverse population, with a heavy influence from Caribbean and Latin American cuisine. By combining the two with American cuisine, it has spawned a unique South Florida style of cooking known as Floribbean... more</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="expCat">
+                                <div className="expCatImgContainer">
+                                    <img alt='img' className="expCatImg" src={attractions} />
+                                </div>
+                                <div className="expCatText">
+                                    <div className="expCatTitle">
+                                        <h4>Attractions</h4>
+                                    </div>
+                                    <div className="expP">
+                                        <p>In addition to annual festivals like the Calle Ocho Festival, Miami is home to many entertainment venues, theaters, museums, parks and performing arts centers. The newest addition to the Miami arts scene is the Adrienne Arsht Center for the ... more</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="expCat">
+                                <div className="expCatImgContainer">
+                                    <img  alt='img' className="expCatImg" src={weatherImg} />
+                                </div>
+                                <div className="expCatText">
+                                    <div className="expCatTitle">
+                                        <h4>Weather</h4>
+                                    </div>
+                                    <div className="expP">
+                                        <p>Miami has a tropical monsoon climate (Köppen climate classification Am)[38][39] with a marked drier season in the winter. The city's sea-level elevation, coastal location, position just above the Tropic of Cancer, and proximity to the Gulf Stream shape its climate... more</p>
+                                    </div>
+                                </div>
+                            </div>
 
-          {/* sidebar categories only display when checkbox checked */}
-          {categories.Restaurants ?
-            <SCPrestaurants restaurants={restaurants} />
-            : <div></div>
-          }
+                            <div className="expCat">
+                                <div className="expCatImgContainer">
+                                    <img alt='img' className="expCatImg" src={recreation} />
+                                </div>
+                                <div className="expCatText">
+                                    <div className="expCatTitle">
+                                        <h4>Recreation</h4>
+                                    </div>
+                                    <div className="expP">
+                                        <p>The City of Miami has various lands operated by the National Park Service, the Florida Division of Recreation and Parks, and the City of Miami Department of Parks and Recreation... more</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-          {categories.Events ?
-            <SCPevents events={events} />
-            : <div></div>
-          }
+                    
 
-          {categories.Music ?
-            <div className="SCPresources">
-              <div>
-                <h3>Music</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {/* sidebar categories only display when checkbox checked */}
+                    {categories.Restaurants ? 
+                    <SCPrestaurants restaurants={restaurants} />
+                    : null
+                    }
 
-          {categories.Coffeeshops ?
-            <div className="SCPresources">
-              <div>
-                <h3>Coffeeshops</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Events ?
+                        <SCPevents events = {events}/>
+                        : null
+                    }
 
-          {categories.Tours ?
-            <div className="SCPresources">
-              <div>
-                <h3>Tours</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Music ? null : null}
 
-          {categories.Museums ?
-            <div className="SCPresources">
-              <div>
-                <h3>Museums</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Coffeeshops ? null : null}
 
-          {categories.Theater ?
-            <div className="SCPresources">
-              <div>
-                <h3>Theater</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Tours ? null : null}
 
-          {categories.Performing_Arts ?
-            <div className="SCPresources">
-              <div>
-                <h3>Performing Arts</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Museums ? null : null}
 
-          {categories.Professional_Sports ?
-            <div className="SCPresources">
-              <div>
-                <h3>Professional Sports</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Theater ? null : null}
 
-          {categories.Parks ?
-            <div className="SCPresources">
-              <div>
-                <h3>Parks</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Performing_Arts ? null : null}
 
-          {categories.Activities ?
-            <div className="SCPresources">
-              <div>
-                <h3>Activities</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Professional_Sports ? null : null}
 
-          {categories.Clubs ?
-            <div className="SCPresources">
-              <div>
-                <h3>Clubs</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Parks ? null : null}
 
-          {categories.Sports ?
-            <div className="SCPresources">
-              <div>
-                <h3>Sports</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Activities ? null : null}
 
-          {categories.Leisure_Activities ?
-            <div className="SCPresources">
-              <div>
-                <h3>Leisure Activities</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Clubs ? null : null}
 
-          {categories.Senior_Activities ?
-            <div className="SCPresources">
-              <div>
-                <h3>Senior Activities</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Sports ? null : null}
 
-          {categories.Current ?
-            <div className="SCPresources">
-              <div>
-                <h3>Current</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Leisure_Activities ? null : null}
 
-          {categories.Historical ?
-            <div className="SCPresources">
-              <div>
-                <h3>Historical</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Senior_Activities ? null : null}
 
-          {categories.Clothing ?
-            <div className="SCPresources">
-              <div>
-                <h3>Clothing</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Current ? null : null}
 
-          {categories.Furnishings ?
-            <div className="SCPresources">
-              <div>
-                <h3>Furnishings</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Historical ? null : null}
 
-          {categories.Hardware ?
-            <div className="SCPresources">
-              <div>
-                <h3>Hardware</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Clothing ? null : null}
 
-          {categories.Miscellaneous ?
-            <div className="SCPresources">
-              <div>
-                <h3>Miscellaneous</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Furnishings ? null : null}
 
-          {categories.Hotels ?
-            <div className="SCPresources">
-              <div>
-                <h3>Hotels</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Hardware ? null : null}
 
-          {categories.AirBnB ?
-            <div className="SCPresources">
-              <div>
-                <h3>AirBnB</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Miscellaneous ? null : null}
 
-          {categories.Accessibility ?
-            <div className="SCPresources">
-              <div>
-                <h3>Accessibility</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Hotels ? null : null}
 
-          {categories.Sustainability ?
-            <div className="SCPresources">
-              <div>
-                <h3>Sustainability</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.AirBnB ? null : null}
 
-          {categories.City_Services ?
-            <div className="SCPresources">
-              <div>
-                <h3>City Services</h3>
-              </div>
-              <div className="resourcesContainer">
-                <div className="resCat">
-                  <img className="resImg" src={cityServices} />
-                  <h5>City Services</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={shopping} />
-                  <h5>Shopping</h5>
-                </div>
-                <div className="resCat">
-                  <img className="resImg" src={lodging} />
-                  <h5>Lodging</h5>
-                </div>
-              </div>
-            </div>
-            : <div></div>
-          }
+                    {categories.Accessibility ? null : null}
 
-        </section>
-      </section>
+                    {categories.Sustainability ? null : null}
+
+                    {categories.City_Services ? null : null}
+
+                </section>
+            </section>
+        </div>
     </>
-  )
+    )
 }
 
 
