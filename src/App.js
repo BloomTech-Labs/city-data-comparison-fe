@@ -269,7 +269,8 @@ cityIndex.sort(compare);
       <UserContext.Provider value={{axiosAuth, user, setUserValue, setUser, favorites, setFavorites, toggleSearch, setToggleSearch}}>
         <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, getBestSuggestions}}>
           <div className="App">
-            <Navigation />
+            {/* <Navigation /> */}
+            <Route path='/' render={props => <Navigation {...props}/>} />
             <Route exact path='/' component={Dashboard} />
             <Route exact path='/' component={Footer} />
             <Route path='/map' render={props => <Map {...props}/>} />
