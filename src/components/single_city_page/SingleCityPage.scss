@@ -1,16 +1,17 @@
 .SCPbody {
-display: flex;
-flex-direction: column;
-justify-content: center;
-margin: 20px 11% 0 11%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 11% 0 11%;
+    max-width: 1440px;
 
-@media screen and (max-width: 1200px) {
-    margin: 20px 9% 0 9%;
-}
+    @media screen and (max-width: 1200px) {
+        margin: 20px 9% 0 9%;
+    }
 
-@media screen and (max-width: 1200px) {
-    margin: 20px 7% 0 7%;
-}
+    @media screen and (max-width: 1200px) {
+        margin: 20px 7% 0 7%;
+    }
 
 }
 
@@ -30,7 +31,11 @@ margin: 20px 11% 0 11%;
     .SCPheroImg {
         min-height: 100%;
         min-width: 1000px;
-            
+        max-height: 600px;
+        max-width: 1440px;
+        display: block;
+        margin: 0 auto;
+
         /* Set up proportionate scaling */
         width: 100%;
         height: auto;
@@ -44,58 +49,51 @@ margin: 20px 11% 0 11%;
 }
 
 .SCPcityIntro {
-    height: 250px;
+    height: 400px;
     display: flex;
-    // margin: 0 auto;
+    justify-content: center;
     max-width: 1440px;
-    justify-content: flex-start;
-
-    .SCPweather {
-        display: flex;
-        // justify-content: center;
-        width: 33%;
-        height: 185px;
-        margin: 68px 0 0 0;
-        
-        .weatherImage {
-            display: flex;
-            height: 125px;
-        }
-
-        .weatherInfo {
-            display: flex;
-            flex-direction: column;
-            font-size: 12px;
-            text-align: right;
-            // justify-content: flex-end;
-            height: 125px;
-            padding: 0;
-            margin-left: 20px;
-
-            .temp {
-                font-size: 40px;
-            }
-        }
-    }
 
     .SCPdescription {
-        width: 64%;
+        width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: baseline;
+        justify-content: center;
+        align-items: center;
         padding: 0;
-        margin: 0;
-        height: 250px; 
+        margin: 15px 0 0 0; 
+        height: 300px;
+
+        .SCPbackToExplore {
+            display: flex;
+            align-items: center;
+
+            .backArrow {
+                height: 13px;
+                width: 13px;
+            }
+    
+            .backLink {
+                text-align: center;
+                margin-top: 2px;
+                margin-left: 5px;
+                color: #2F78A6;
+                text-decoration: none;
+            }
+        }
 
         .descH1 {
-          text-align: left;
-          margin: 0 0 9px 0;
-          font-size: 45px;
+            // text-align: left;
+            margin: 0 0 25px 0;
+            font-family: Rubik;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 3.38rem;
+            line-height: 125.69%;
         }
 
         .city-desc{
-          width: 100%;
+          width: 67%;
           
             p {
                 margin: 0;
@@ -127,7 +125,7 @@ margin: 20px 11% 0 11%;
         display: flex;
         flex-direction: column;
         width: 23%;
-        height: 1000px;
+        height: auto;
         margin-right: 10%;
       
         .SCPfilter h4 {
@@ -290,7 +288,6 @@ margin: 20px 11% 0 11%;
     .SCPcategories {
         display: flex;
         flex-direction: column;
-
         width: 60%;
 
         // ends SCPsidebar
