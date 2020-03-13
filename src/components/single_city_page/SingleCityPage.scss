@@ -1,8 +1,18 @@
 .SCPbody {
-display: flex;
-flex-direction: column;
-justify-content: center;
-margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 11% 0 11%;
+    max-width: 1440px;
+
+    @media screen and (max-width: 1200px) {
+        margin: 20px 9% 0 9%;
+    }
+
+    @media screen and (max-width: 1200px) {
+        margin: 20px 7% 0 7%;
+    }
+
 }
 
 .hidden {
@@ -19,75 +29,87 @@ margin: 0 auto;
     // max-width: 1400px;
 
     .SCPheroImg {
-        width: 100%;
-        height: 500px;
-        margin: 0 auto;
+        min-height: 100%;
+        min-width: 1000px;
+        max-height: 600px;
         max-width: 1440px;
+        display: block;
+        margin: 0 auto;
+
+        /* Set up proportionate scaling */
+        width: 100%;
+        height: auto;
+            
+        /* Set up positioning */
+        position: relative;
+        top: 0;
+        left: 0;
         
     }
-    
 }
 
 .SCPcityIntro {
-    height: 250px;
+    height: 400px;
     display: flex;
-    // margin: 0 auto;
+    justify-content: center;
     max-width: 1440px;
-    
-
-    .SCPweather {
-        display: flex;
-        // justify-content: center;
-        width: 40%;
-        height: 185px;
-        padding: 0 20px 20px 155px;
-        margin: 65px 0 0 0;
-        
-
-        .weatherImage {
-            display: flex;
-            height: 125px;
-            
-        }
-
-        .weatherInfo {
-            display: flex;
-            flex-direction: column;
-            font-size: 12px;
-            text-align: right;
-            // justify-content: flex-end;
-            height: 125px;
-            padding: 0;
-            margin-left: 20px;
-
-          .temp {
-            font-size: 40px;
-          }
-        }
-    }
 
     .SCPdescription {
-        width: 60%;
+        width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: baseline;
+        justify-content: center;
+        align-items: center;
         padding: 0;
-        margin: 0;
-        height: 250px;
-        
+        margin: 15px 0 0 0; 
+        height: 300px;
+
+        .SCPbackToExplore {
+            display: flex;
+            align-items: center;
+
+            .backArrow {
+                height: 13px;
+                width: 13px;
+            }
+    
+            .backLink {
+                text-align: center;
+                margin-top: 2px;
+                margin-left: 5px;
+                color: #2F78A6;
+                text-decoration: none;
+            }
+        }
 
         .descH1 {
-          text-align: left;
-          margin: 0 0 9px 0;
-          font-size: 45px;
+            // text-align: left;
+            margin: 0 0 25px 0;
+            font-family: Rubik;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 3.38rem;
+            line-height: 125.69%;
         }
+
         .city-desc{
-          width: 75%;
+          width: 67%;
           
             p {
                 margin: 0;
-                
+                font-family: Rubik;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 1.13rem;
+                line-height: 152%;
+
+                @media screen and (max-width: 1200px) {
+                    font-size: 1rem;
+                }
+
+                @media screen and (max-width: 1000px) {
+                    font-size: .9rem;
+                }
             }
         }
     }
@@ -96,43 +118,179 @@ margin: 0 auto;
 .SCPmain {
     width: 100%;
     max-width: 1440px;
-    
     margin: 0;
+    justify-content: flex-start;
 
     .SCPsidebar {
         display: flex;
         flex-direction: column;
-        width: 40%;
-        height: 1000px;
+        width: 23%;
+        height: auto;
+        margin-right: 10%;
+      
+        .SCPfilter h4 {
+            display: flex;
+            padding-left: 38px;
+            font-size: 20px;
+        }
+
+        .SCPfilterCatContainer .anchor-header1 .dropIcon1 {
+            margin-left: 100px;
+        }
+
+        .SCPfilterCatContainer .anchor-header2 .dropIcon2 {
+            margin-left: 113px;
+        }
+
+        .SCPfilterCatContainer .anchor-header3 .dropIcon3 {
+            margin-left: 117px;
+        }
+
+        .SCPfilterCatContainer .anchor-header4 .dropIcon4 {
+            margin-left: 142px;
+        }
+
+        .SCPfilterCatContainer .anchor-header5 .dropIcon5 {
+            margin-left: 130px;
+        }
+
+        .SCPfilterCatContainer .anchor-header6 .dropIcon6 {
+            margin-left: 145px;
+        }
+
+        .SCPfilterCatContainer .anchor-header7 .dropIcon7 {
+            margin-left: 140px;
+        }
+
+        .SCPfilterContain {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            // margin-bottom: 5px;
+            cursor: pointer;
+            font-size: 17px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        .SCPfilterContain input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .SCPcheckmark {
+            position: absolute;
+            // top: 5px;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: transparent;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
         
 
-        .SCPfilter {
-            margin-top: 15px;
-            padding-left: 156px;
-            
+        // .SCPfilterContain:hover input ~ .SCPcheckmark {
+        //     background-color: #ccc;
+        // }
+        
+          /* When the checkbox is checked, add a blue background */
+        .SCPfilterContain input:checked ~ .SCPcheckmark {
+            background-color: transparent;
+        }
+        
+          /* Create the checkmark/indicator (hidden when not checked) */
+        .SCPcheckmark:after {
+            content: "X";
+            position: absolute;
+            display: none;
+        }
+        
+          /* Show the checkmark when checked */
+        .SCPfilterContain input:checked ~ .SCPcheckmark:after {
+            display: block;
+        }
+        
+          /* Style the checkmark/indicator */
+        .SCPfilterContain .SCPcheckmark:after {
+            left: 4px;
+            bottom: 9px;
+            width: 5px;
+            height: 10px;
+            border-width: 0 3px 3px 0;
+        }
 
-            h4 {
-                font-style: normal;
-                font-weight: 500;
-                font-size: 24px;
-                line-height: 28px;
-                margin: 0;
+        /*Dropdown icon animation*/
+        .drop-icon {
+            transition: all 0.75s 0.25s;
+        }
+
+        .toggle-down {
+            transform: rotate(180deg);
+        }
+
+        .toggle-up {
+            transform: rotate(0deg);
+        }
+    } 
+
+    .SCPresources {
+        max-width: 1400px;        
+    
+        h3 {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 42px;
+            line-height: 50px;
+            margin: 0;
+        }
+
+        .resourcesContainer {
+            display: flex;
+            padding: 20px 0 110px 0;
+    
+            .resCat {
+                display: flex;
+                flex-direction: column;
+    
+                .resImg {
+                    width: 237px;
+                    height: 169px;
+                    margin-right: 18px;
+                    border-radius: 4.3px;
+                }
+    
+                h5 {
+                    font-family: Rubik;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 1.13rem;
+                    line-height: 21px;
+                    margin: 10px 0 0 0;
+                }
+    
+                p {
+                    font-family: Rubik;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 1rem;
+                    line-height: 19px;
+                }
             }
         }
-
-        .SCPfilterCatContainer {
-            padding-left: 116px;
-            
-        }
-    } // ends SCPsidebar
+    } // end SCPresources
 
     .SCPcategories {
         display: flex;
         flex-direction: column;
         width: 60%;
-        margin: 0;
-        
 
+        // ends SCPsidebar
         .SCPexplore {
             
             h3 {
@@ -143,20 +301,25 @@ margin: 0 auto;
                 line-height: 43px;
                 margin: 0;
             }
+
             .exploreContainer {
                 width: 100%;
 
                 .expCat {
                     display: flex;
                     width: 100%;
-                    
                     margin: 20px 0;
 
-                    .expCatImg {
+                    .expCatImgContainer {
                         width: 237px;
                         height: 169px;
-                        border-radius: 4.3px;
-                        
+
+                        .expCatImg {
+                            width: 237px;
+                            height: 169px;
+                            border-radius: 4.3px;
+                            
+                        }
                     }
 
                     .expCatText {
@@ -164,7 +327,6 @@ margin: 0 auto;
                         padding-left: 18px;
 
                         .expCatTitle {
-                            
                             
                             h4 {
                                 font-family: Rubik;
@@ -179,8 +341,20 @@ margin: 0 auto;
                         .expP {
                             font-style: normal;
                             font-weight: normal;
-                            font-size: 18px;
-                            width: 95%;
+                            font-size: 1.13rem;
+                            width: 100%;
+
+                            @media screen and (max-width: 1300px) {
+                                font-size: 1rem;
+                            }
+
+                            @media screen and (max-width: 1200px) {
+                                font-size: .9rem;
+                            }
+
+                            @media screen and (max-width: 1000px) {
+                                font-size: .85rem;
+                            }
                             
                             p {
                                 margin: 12px 0 0 0;
@@ -193,50 +367,5 @@ margin: 0 auto;
     } // ends SCPcategories
 } // ends SCPmain
 
-.SCPresources {
-    max-width: 1400px;
-    // margin-top: 80px;
-    
 
-    h3 {
-        font-style: normal;
-        font-weight: 500;
-        font-size: 42px;
-        line-height: 50px;
-        margin: 0;
-    }
-    .resourcesContainer {
-        display: flex;
-        padding: 20px 0 110px 0;
-
-        .resCat {
-            display: flex;
-            flex-direction: column;
-
-            .resImg {
-                width: 237px;
-                height: 169px;
-                margin-right: 18px;
-                border-radius: 4.3px;
-            }
-
-            h5 {
-                font-family: Rubik;
-                font-style: normal;
-                font-weight: 500;
-                font-size: 18px;
-                line-height: 21px;
-                margin: 10px 0 0 0;
-            }
-
-            p {
-                font-family: Rubik;
-                font-style: normal;
-                font-weight: normal;
-                font-size: 16px;
-                line-height: 19px;
-            }
-        }
-    }
-} // end SCPresources
 

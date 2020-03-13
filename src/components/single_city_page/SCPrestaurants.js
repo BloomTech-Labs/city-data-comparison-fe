@@ -1,24 +1,64 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const CategoryContainer = styled.div`
+    width: 870px;
+`;
+
+const CategoryTitle = styled.h3`
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 43px;
+    margin: 0;
+`;
+
+const CategoryInfo = styled.div`
+    display: flex; 
+    flex-wrap: wrap; 
+    padding: 20px 0;
+`;
+
+const CategoryImgContainer = styled.div`
+    height: 270px; 
+    width: 290px;
+`;
+
+const CategoryImg = styled.img`
+    height: 170px; 
+    width: 290px; 
+    padding-right: 20px;
+`;
+
+const CategorySubtitle = styled.h5`
+    font-style: normal; 
+    font-weight: bold;
+    font-size: 24px; 
+    line-height: 28px; 
+    margin: 10px 0 0 0;
+`;
+
+const CategoryWebsite = styled.a`
+    text-decoration: none;
+`;
 
 const SCPrestaurants = (props) => {
 console.log('propsRest', props.restaurants)
     return (
         <>
-        <div style={{ width: '870px' }}>
-            <h3 style={{ fontStyle: 'normal', fontWeight:   500, fontSize: '42px', lineHeight: '50px', margin: 0 }}>Restaurants</h3>
-            <div style={{display: 'flex', flexWrap: 'wrap', padding: '20px 0' }}>
-            {props.restaurants.businesses.slice(0,3).map(item => (
-                <div style={{ height: '270px', width: '290px' }}>
-                    <img  style={{ height: '170px', width: '290px', paddingRight: '20px' }} src={item.image_url} />
-                    <h5 style={{ fontStyle: 'normal', fontWeight: 'bold',
-                fontSize: '24px', lineHeight: '28px', margin: '10px 0 0 0' }}>{item.name}</h5>
-                    <a style={{ textDecoration: 'none' }} href={item.url}>Website</a>
-                </div>
-            ))}
-            </div>
-        </div>
-
-
+            <CategoryContainer>
+                <CategoryTitle>Restaurants</CategoryTitle>
+                <CategoryInfo>
+                {props.restaurants.businesses.slice(0,3).map(item => (
+                    <CategoryImgContainer>
+                        <CategoryImg src={item.image_url} />
+                        <CategorySubtitle>{item.name}</CategorySubtitle>
+                        <CategoryWebsite href={item.url}>Website</CategoryWebsite>
+                    </CategoryImgContainer>
+                ))}
+                </CategoryInfo>
+            </CategoryContainer>
         </>
     )
 }
