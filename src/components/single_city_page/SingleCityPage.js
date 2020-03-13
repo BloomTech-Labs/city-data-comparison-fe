@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-// import Skycons from 'react-skycons';
-import queryString from 'query-string'
+import queryString from 'query-string';
 
 
 import './SingleCityPage.scss';
@@ -10,25 +10,16 @@ import SCPrestaurants from "./SCPrestaurants";
 import SCPevents from "./SCPevents";
 import SCPcityServices from "./SCPcityServices";
 
-
 import cityscape from '../../assets/single_city_page_photos/cityscape.jpg';
 import foodAndDrink from '../../assets/single_city_page_photos/foodAndDrink.jpg';
 import attractions from '../../assets/single_city_page_photos/attractions.jpg';
 import weatherImg from '../../assets/single_city_page_photos/weather.png';
-import clearDay from "../../assets/single_city_page_photos/clear-day.png";
-import clearNight from  "../../assets/single_city_page_photos/clear-night.png";
-import cloudy from "../../assets/single_city_page_photos/cloudy.png";
-import fog from "../../assets/single_city_page_photos/fog.png";
-import partlyCloudyDay from "../../assets/single_city_page_photos/partly-cloudy-day.png";
-import partlyCloudyNight from "../../assets/single_city_page_photos/partly-cloudy-night.png";
-import rain from "../../assets/single_city_page_photos/rain.png";
-import sleet from "../../assets/single_city_page_photos/sleet.png";
-import snow from "../../assets/single_city_page_photos/snow.png";
-import wind from "../../assets/single_city_page_photos/wind.png";
 import recreation from '../../assets/single_city_page_photos/recreation.png';
 import cityServices from '../../assets/single_city_page_photos/cityServices.png';
 import shopping from '../../assets/single_city_page_photos/shopping.png';
 import lodging from '../../assets/single_city_page_photos/lodging.png';
+
+import backArrow from '../../assets/single_city_page_photos/Back arrow.png';
 
 const SingleCityPage = (props) => {
 
@@ -37,7 +28,7 @@ const SingleCityPage = (props) => {
     const [categories, setCategories] = useState({});
     const [restaurants, setRestaurants] = useState();
     const [events, setEvents] = useState();
-    const [weather, setWeather] = useState({});    
+        
    
 
     function onChange(e) {
@@ -110,48 +101,48 @@ const SingleCityPage = (props) => {
         })
     },[latitude, longitude]);
 
-    // API CALL FOR WEATHER
-    useEffect(() => {
-        axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a8c0298ef7550627f36777243a127c0e/${latitude},${longitude}`)
-            .then(response => {
-                setWeather(response.data.currently)
-            })
-            .catch(error => {
-                console.log("Error retrieving Weather Information", error)
-            })
-    }, [latitude, longitude])
+    // // API CALL FOR WEATHER
+    // useEffect(() => {
+    //     axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a8c0298ef7550627f36777243a127c0e/${latitude},${longitude}`)
+    //         .then(response => {
+    //             setWeather(response.data.currently)
+    //         })
+    //         .catch(error => {
+    //             console.log("Error retrieving Weather Information", error)
+    //         })
+    // }, [latitude, longitude])
 
-    const weatherTime = new Date().toLocaleTimeString();
+    // const weatherTime = new Date().toLocaleTimeString();
 
-    var roundTemp = weather.temperature;
-    roundTemp = Math.round(roundTemp)
+    // var roundTemp = weather.temperature;
+    // roundTemp = Math.round(roundTemp)
 
-    var feelsLike = weather.apparentTemperature;
-    feelsLike = Math.round(feelsLike);
+    // var feelsLike = weather.apparentTemperature;
+    // feelsLike = Math.round(feelsLike);
 
-    var weatherIcon;
+    // var weatherIcon;
 
-    if ( weather.icon === "clear-day"){
-        weatherIcon = clearDay
-    } else if( weather.icon === "clear-night"){
-        weatherIcon = clearNight
-    } else if( weather.icon === "partly-cloudy-day"){
-        weatherIcon = partlyCloudyDay
-    } else if( weather.icon === "partly-cloudy-night"){
-        weatherIcon = partlyCloudyNight
-    } else if( weather.icon === "cloudy"){
-        weatherIcon = cloudy
-    } else if( weather.icon === "rain"){
-        weatherIcon = rain
-    } else if( weather.icon === "sleet"){
-        weatherIcon = sleet
-    } else if( weather.icon === "snow"){
-        weatherIcon = snow
-    } else if( weather.icon === "wind"){
-        weatherIcon = wind
-    } else if( weather.icon === "fog"){
-        weatherIcon = fog
-    };
+    // if ( weather.icon === "clear-day"){
+    //     weatherIcon = clearDay
+    // } else if( weather.icon === "clear-night"){
+    //     weatherIcon = clearNight
+    // } else if( weather.icon === "partly-cloudy-day"){
+    //     weatherIcon = partlyCloudyDay
+    // } else if( weather.icon === "partly-cloudy-night"){
+    //     weatherIcon = partlyCloudyNight
+    // } else if( weather.icon === "cloudy"){
+    //     weatherIcon = cloudy
+    // } else if( weather.icon === "rain"){
+    //     weatherIcon = rain
+    // } else if( weather.icon === "sleet"){
+    //     weatherIcon = sleet
+    // } else if( weather.icon === "snow"){
+    //     weatherIcon = snow
+    // } else if( weather.icon === "wind"){
+    //     weatherIcon = wind
+    // } else if( weather.icon === "fog"){
+    //     weatherIcon = fog
+    // };
 
     return (
         <>
@@ -164,21 +155,11 @@ const SingleCityPage = (props) => {
 
         <div className="SCPbody">
             <section className="SCPcityIntro">
-                <div className="SCPweather">
-                    <div className="weatherImage">
-                        <img alt='weather icon' src={weatherIcon}/>
-                    </div>
-                    <div className="weatherInfo">
-                        <span>As of {weatherTime}</span>
-                        <span className="temp">{roundTemp}&deg;F</span>
-                        <span>{weather.summary}</span>
-                        <span>feels like {feelsLike}&deg;F</span>
-                        <span>Humidity {weather.humidity}&deg;</span>
-                        <span>UV Index {weather.uvIndex}</span>
-                    </div>
-                </div>
-
                 <div className="SCPdescription">
+                    <div className="SCPbackToExplore">
+                        <img className="backArrow" src={backArrow} />
+                        <Link className="backLink" to="/map">Back to explore</Link>
+                    </div>
                     <div>
                         <h1 className="descH1">{restaurants && restaurants.businesses ? restaurants.businesses[0].location.city : ''}, {restaurants && restaurants.businesses ? restaurants.businesses[0].location.state : ''}</h1>
                     </div>
@@ -301,10 +282,12 @@ const SingleCityPage = (props) => {
                 {/* main categories displayed when you land on page */}
 
                 <section className="SCPcategories">
-                    <div className="SCPresources">
+                    
+
+                    {/* <div className="SCPresources">
                             <div>
                                 <h3>City Services</h3>
-                                {/* <SCPcityServices/> */}
+                                
                             </div>
                             <div className="resourcesContainer">
                                 <div className="resCat">
@@ -326,8 +309,67 @@ const SingleCityPage = (props) => {
                                     <p>Website</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
+                    
 
+                    {/* sidebar categories only display when checkbox checked */}
+                    {categories.Restaurants ? 
+                    <SCPrestaurants restaurants={restaurants} />
+                    : null
+                    }
+
+                    {categories.Events ?
+                        <SCPevents events = {events}/>
+                        : null
+                    }
+
+                    {categories.Music ? null : null}
+
+                    {categories.Coffeeshops ? null : null}
+
+                    {categories.Tours ? null : null}
+
+                    {categories.Museums ? null : null}
+
+                    {categories.Theater ? null : null}
+
+                    {categories.Performing_Arts ? null : null}
+
+                    {categories.Professional_Sports ? null : null}
+
+                    {categories.Parks ? null : null}
+
+                    {categories.Activities ? null : null}
+
+                    {categories.Clubs ? null : null}
+
+                    {categories.Sports ? null : null}
+
+                    {categories.Leisure_Activities ? null : null}
+
+                    {categories.Senior_Activities ? null : null}
+
+                    {categories.Current ? null : null}
+
+                    {categories.Historical ? null : null}
+
+                    {categories.Clothing ? null : null}
+
+                    {categories.Furnishings ? null : null}
+
+                    {categories.Hardware ? null : null}
+
+                    {categories.Miscellaneous ? null : null}
+
+                    {categories.Hotels ? null : null}
+
+                    {categories.AirBnB ? null : null}
+
+                    {categories.Accessibility ? null : null}
+
+                    {categories.Sustainability ? null : null}
+
+                    {categories.City_Services ? null : null}
 
                     <div className="SCPexplore">
                         <div className="exploreContainer">
@@ -389,67 +431,6 @@ const SingleCityPage = (props) => {
                             </div>
                         </div>
                     </div>
-
-                    
-
-                    {/* sidebar categories only display when checkbox checked */}
-                    {categories.Restaurants ? 
-                    <SCPrestaurants restaurants={restaurants} />
-                    : null
-                    }
-
-                    {categories.Events ?
-                        <SCPevents events = {events}/>
-                        : null
-                    }
-
-                    {categories.Music ? null : null}
-
-                    {categories.Coffeeshops ? null : null}
-
-                    {categories.Tours ? null : null}
-
-                    {categories.Museums ? null : null}
-
-                    {categories.Theater ? null : null}
-
-                    {categories.Performing_Arts ? null : null}
-
-                    {categories.Professional_Sports ? null : null}
-
-                    {categories.Parks ? null : null}
-
-                    {categories.Activities ? null : null}
-
-                    {categories.Clubs ? null : null}
-
-                    {categories.Sports ? null : null}
-
-                    {categories.Leisure_Activities ? null : null}
-
-                    {categories.Senior_Activities ? null : null}
-
-                    {categories.Current ? null : null}
-
-                    {categories.Historical ? null : null}
-
-                    {categories.Clothing ? null : null}
-
-                    {categories.Furnishings ? null : null}
-
-                    {categories.Hardware ? null : null}
-
-                    {categories.Miscellaneous ? null : null}
-
-                    {categories.Hotels ? null : null}
-
-                    {categories.AirBnB ? null : null}
-
-                    {categories.Accessibility ? null : null}
-
-                    {categories.Sustainability ? null : null}
-
-                    {categories.City_Services ? null : null}
 
                 </section>
             </section>

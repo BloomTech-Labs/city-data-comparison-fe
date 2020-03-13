@@ -6,11 +6,12 @@ const CategoryContainer = styled.div`
 `;
 
 const CategoryTitle = styled.h3`
-    font-style: normal; 
-    font-weight: 500;
-    font-size: 42px;
-    line-height: 50px;
-    margin: 0
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 43px;
+    margin: 0;
 `;
 
 const CategoryInfo = styled.div`
