@@ -611,10 +611,16 @@
     border-radius: 7px;
 }
 
+.button-div {
+    display: flex;
+    justify-content: center;
+}
+
 
 // TWO CITIES SELECTED STYLING
 .city-overview-container-medium2 {
     width: 48%;
+    background-color: white;
 }
 
 .main-contain2 {
@@ -688,6 +694,17 @@
 
 .weather-style2 {
     text-align: left;
+}
+
+.button-div2 {
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.title-container2{
+    width: 50%;
 }
 
 // THREE CITIES SELECTED STYLING
