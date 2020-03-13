@@ -4,6 +4,7 @@
     justify-content: center;
     margin: 20px 11% 0 11%;
     max-width: 1440px;
+    // width: 78%;
 
     @media screen and (max-width: 1200px) {
         margin: 20px 9% 0 9%;
@@ -56,13 +57,14 @@
 
     .SCPdescription {
         width: 100%;
+        height: 300px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 0;
         margin: 15px 0 0 0; 
-        height: 300px;
+        
 
         .SCPbackToExplore {
             display: flex;
@@ -119,6 +121,7 @@
     width: 100%;
     max-width: 1440px;
     margin: 0;
+    display: flex;
     justify-content: flex-start;
 
     .SCPsidebar {
@@ -201,10 +204,11 @@
         flex-direction: column;
         justify-content: start;
         width: 67%;
-        margin: 0;
+        margin: 0 0 100px 0;
         
         .SCPexplore {
-            
+            margin-bottom: 100px;
+
             h3 {
                 font-family: Rubik;
                 font-style: normal;
@@ -278,6 +282,3 @@
         }
     } // ends SCPcategories
 } // ends SCPmain
-
-
-
