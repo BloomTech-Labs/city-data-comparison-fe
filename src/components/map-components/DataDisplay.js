@@ -40,6 +40,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
     const [categories, setCategories] = useState({})
 
+    console.log("SELECTED", selected)
     
     useEffect(() => {
         let checker = false
@@ -278,8 +279,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                     {/* <p>General Statistics:</p> */}
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                 </div>
-
-                <SCPLink to="/SCP">Link to SCP</SCPLink>
 
                 <div className="data-category special-margins">
                     {/* <div className="data-category-titles">

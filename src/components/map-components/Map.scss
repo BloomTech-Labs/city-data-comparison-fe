@@ -111,17 +111,19 @@
             background: #F2F9FD;
         }
     }
-    .special-margins{
-        // margin-top:7%;
-    }
+    // .special-margins{
+    //     // margin-top:7%;
+    // }
 
     .city-overview-container-medium{
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         width:98%;
         margin-bottom:30px;
+        // border: 2px solid green;
     }
 
     .city-overview-container-small{
+        // border: 2px solid red;
 
         .recommendation-grid {
             background-color:white;
@@ -231,6 +233,7 @@
             padding-top:0;
             display:flex;
             justify-content:space-between;
+            // border: 2px solid blue;
 
             img{
                 height:20px;
@@ -394,9 +397,9 @@
                 color:#00bfa5;
                 margin-bottom:13px;
                 
-                .smoc-img{
-                    // border:1px solid blue;
-                }
+                // .smoc-img{
+                //     // border:1px solid blue;
+                // }
             }
             .home-title{
                 display:none;
@@ -431,18 +434,18 @@
             }
         }
     @media screen and (max-width:1300px){
-        .mortgage-label-container{
-            // border:1px solid red;
-        }
-        .mortgage-label{
-            // border:1px solid blue;
-            // width:100%;
-        }
-        .home-container{
-            .ownerMortgage{
-                // display:flex;
-            }
-        }
+        // .mortgage-label-container{
+        //     // border:1px solid red;
+        // }
+        // .mortgage-label{
+        //     // border:1px solid blue;
+        //     // width:100%;
+        // }
+        // .home-container{
+        //     .ownerMortgage{
+        //         // display:flex;
+        //     }
+        // }
     }
     @media screen and (max-width:1000px){
         .home-container{
@@ -460,8 +463,8 @@
                 .mortgage{
                     width:30%;
                 }
-                    .mortgage-label{
-                    }
+                    // .mortgage-label{
+                    // }
                 }
             }
         }
@@ -644,8 +647,8 @@
 
     .travel-scores-container{
 
-        .travel-scores-container-one{
-        }
+        // .travel-scores-container-one{
+        // }
         .travel-scores-container-two{
             padding:10px;
             border-radius:5px;
@@ -1183,7 +1186,6 @@
             }
         }
         .search-bar{
-            margin-top:-30px;
             background-image:url('../dashboard/assets/search.svg');
             background-position:6px 5.5px;
             background-repeat: no-repeat;

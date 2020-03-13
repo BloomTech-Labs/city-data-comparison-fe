@@ -4,7 +4,6 @@ import Modal from "../modal/modal";
 import useModal from "../modal/useModal";
 import "../modal/modal.scss";
 import AboutUs from "../aboutus/AboutUs";
-import AboutUs2 from "../aboutus/AboutUs2";
 
 import PrivacyPolicy from "../legal/PrivacyPolicy";
 
@@ -45,11 +44,9 @@ function Footer(){
                               </div>
                               <div className="footer-categories">
                                    <p className="footer-title">Company</p>
-                                   <Link to="/aboutus" >Meet the Team</Link>
-                                   {/* <a href="#" onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>Meet the Team (V 1.0)</a> */}
-                                   {/* <a href="#" onClick={() => (setModalState(<AboutUs2/>), toggle())} style={{cursor: "pointer"}}>Meet the Team (V 2.0)</a> */}
-                                   <a href="#" onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>About Us</a>
-                                   <a href="#" onClick={() => (setModalState(<AboutUs/>), toggle())} style={{cursor: "pointer"}}>Contact Us</a>
+                                   <Link to="/meet-the-team" >Meet the Team</Link>
+                                   <Link to="/meet-the-team" >About Us</Link>
+                                   <Link to="/meet-the-team" >Contact Us</Link>
                               </div>
                               <div className="footer-categories">
                                    <p href="#" className="footer-title">Resources</p>
