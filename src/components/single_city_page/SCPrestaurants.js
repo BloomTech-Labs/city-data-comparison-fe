@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const CategoryContainer = styled.div`
     width: 870px;
+    margin-bottom: 30px;
 `;
 
 const CategoryTitle = styled.h3`
@@ -37,6 +38,7 @@ const CategorySubtitle = styled.h5`
     font-size: 24px; 
     line-height: 28px; 
     margin: 10px 0 0 0;
+    width: 270px;
 `;
 
 const CategoryWebsite = styled.a`
