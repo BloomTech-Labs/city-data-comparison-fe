@@ -13,58 +13,153 @@ import cityscape from '../../assets/single_city_page_photos/cityscape.jpg';
 import foodAndDrink from '../../assets/single_city_page_photos/foodAndDrink.jpg';
 import attractions from '../../assets/single_city_page_photos/attractions.jpg';
 import weatherImg from '../../assets/single_city_page_photos/weather.png';
+import clearDay from "../../assets/single_city_page_photos/clear-day.png";
+import clearNight from "../../assets/single_city_page_photos/clear-night.png";
+import cloudy from "../../assets/single_city_page_photos/cloudy.png";
+import fog from "../../assets/single_city_page_photos/fog.png";
+import partlyCloudyDay from "../../assets/single_city_page_photos/partly-cloudy-day.png";
+import partlyCloudyNight from "../../assets/single_city_page_photos/partly-cloudy-night.png";
+import rain from "../../assets/single_city_page_photos/rain.png";
+import sleet from "../../assets/single_city_page_photos/sleet.png";
+import snow from "../../assets/single_city_page_photos/snow.png";
+import wind from "../../assets/single_city_page_photos/wind.png";
 import recreation from '../../assets/single_city_page_photos/recreation.png';
 import cityServices from '../../assets/single_city_page_photos/cityServices.png';
 import shopping from '../../assets/single_city_page_photos/shopping.png';
 import lodging from '../../assets/single_city_page_photos/lodging.png';
+import dropdownIcon from '../../assets/single_city_page_photos/DropdownIcon.png'
 
 import backArrow from '../../assets/single_city_page_photos/Back arrow.png';
 
 const SingleCityPage = (props) => {
 
-    const { latitude, longitude } = queryString.parse(props.location.search);
+  const { latitude, longitude } = queryString.parse(props.location.search);
 
     const [categories, setCategories] = useState({});
     const [restaurants, setRestaurants] = useState();
     const [events, setEvents] = useState();
 
-    // function for handling sidebar checkbox check/uncheck (display of categories)
-    function onChange(e) {
-        setCategories({
-            ...categories,
-            [e.target.name]: categories[e.target.name] ? false : true
-        })
-    }
+  // function for handling sidebar checkbox check/uncheck (display of categories)
+  function onChange(e) {
+    setCategories({
+      ...categories,
+      [e.target.name]: categories[e.target.name] ? false : true
+    })
+  }
 
-    const [menu, setMenu] = useState({ status: 'closed' })
+  const [menu, setMenu] = useState({ status: 'closed' })
+
+  // Handles Dropdown icon animation
+  var upClass = 'toggle-up';
+  var downClass = 'toggle-down';
   
-    // Handles toggles for Anchor-headers
-    function toggle1() {
-        document.getElementById("menuCollapse1").classList.toggle("hidden");
+  function iconAnimation1() {
+    var dropIcon1 = document.querySelector('.dropIcon1');
+    
+    if (~dropIcon1.className.indexOf(downClass)) {
+      dropIcon1.className = dropIcon1.className.replace(downClass, upClass);
+    } else {
+          dropIcon1.className = dropIcon1.className.replace(upClass, downClass);
     }
+  }
 
-    function toggle2() {
-        document.getElementById("menuCollapse2").classList.toggle("hidden");
+  function iconAnimation2() {
+    var dropIcon2 = document.querySelector('.dropIcon2');
+    
+    if (~dropIcon2.className.indexOf(downClass)) {
+      dropIcon2.className = dropIcon2.className.replace(downClass, upClass);
+    } else {
+          dropIcon2.className = dropIcon2.className.replace(upClass, downClass);
     }
+  }
 
-    function toggle3() {
-        document.getElementById("menuCollapse3").classList.toggle("hidden");
+  function iconAnimation3() {
+    var dropIcon3 = document.querySelector('.dropIcon3');
+    
+    if (~dropIcon3.className.indexOf(downClass)) {
+      dropIcon3.className = dropIcon3.className.replace(downClass, upClass);
+    } else {
+          dropIcon3.className = dropIcon3.className.replace(upClass, downClass);
     }
+  }
 
-    function toggle4() {
-        document.getElementById("menuCollapse4").classList.toggle("hidden");
+  function iconAnimation4() {
+    var dropIcon4 = document.querySelector('.dropIcon4');
+    
+    if (~dropIcon4.className.indexOf(downClass)) {
+      dropIcon4.className = dropIcon4.className.replace(downClass, upClass);
+    } else {
+          dropIcon4.className = dropIcon4.className.replace(upClass, downClass);
     }
+  }
 
-    function toggle5() {
-        document.getElementById("menuCollapse5").classList.toggle("hidden");
+  function iconAnimation5() {
+    var dropIcon5 = document.querySelector('.dropIcon5');
+    
+    if (~dropIcon5.className.indexOf(downClass)) {
+      dropIcon5.className = dropIcon5.className.replace(downClass, upClass);
+    } else {
+          dropIcon5.className = dropIcon5.className.replace(upClass, downClass);
     }
+  }
 
-    function toggle6() {
-        document.getElementById("menuCollapse6").classList.toggle("hidden");
+  function iconAnimation6() {
+    var dropIcon6 = document.querySelector('.dropIcon6');
+    
+    if (~dropIcon6.className.indexOf(downClass)) {
+      dropIcon6.className = dropIcon6.className.replace(downClass, upClass);
+    } else {
+          dropIcon6.className = dropIcon6.className.replace(upClass, downClass);
     }
-    function toggle7() {
-        document.getElementById("menuCollapse7").classList.toggle("hidden");
+  }
+
+  function iconAnimation7() {
+    var dropIcon7 = document.querySelector('.dropIcon7');
+    
+    if (~dropIcon7.className.indexOf(downClass)) {
+      dropIcon7.className = dropIcon7.className.replace(downClass, upClass);
+    } else {
+          dropIcon7.className = dropIcon7.className.replace(upClass, downClass);
     }
+  }
+
+  // Handles toggles for Anchor-headers
+  function toggle1() {
+    document.getElementById("menuCollapse1").classList.toggle("hidden");
+    iconAnimation1();
+  }
+
+  function toggle2() {
+    document.getElementById("menuCollapse2").classList.toggle("hidden");
+    iconAnimation2()
+  }
+
+  function toggle3() {
+    document.getElementById("menuCollapse3").classList.toggle("hidden");
+    iconAnimation3()
+  }
+
+  function toggle4() {
+    document.getElementById("menuCollapse4").classList.toggle("hidden");
+    iconAnimation4()
+  }
+
+  function toggle5() {
+    document.getElementById("menuCollapse5").classList.toggle("hidden");
+    iconAnimation5()
+  }
+
+  function toggle6() {
+    document.getElementById("menuCollapse6").classList.toggle("hidden");
+    iconAnimation6()
+  }
+
+  function toggle7() {
+    document.getElementById("menuCollapse7").classList.toggle("hidden");
+    iconAnimation7()
+  }
+
+  console.log('params', latitude)
 
     // API CALL FOR RESTAURANTS
     useEffect(() => {
@@ -113,109 +208,191 @@ const SingleCityPage = (props) => {
 
             <section className="SCPmain">
                 <section className="SCPsidebar">
-                    {/* sidebar filter code */}
-                    <div className="SCPfilter">
-                        <h4>Filter by:</h4>
-                    </div>
+          {/* sidebar filter code */}
+          <div className="SCPfilter">
+            <h4>Filter</h4>
+          </div>
+          <div className="SCPfilterCatContainer">
+            <ul>
 
-                    <div className="SCPfilterCatContainer">
-                        <ul>
-                            <h3 className="anchor-header1" onClick={toggle1}>Food &amp; Drink</h3>
-                            <div id="menuCollapse1">
-                                <span class="spanStyle">
-                                    <input type="checkbox" id="Restaurants" name="Restaurants" value="Restaurants" onChange={onChange} />
-                                    <label for="Restaurants">Restaurants</label><br />
-                                    <input type="checkbox" id="Events" name="Events" value="Events" onChange={onChange} />
-                                    <label for="Events">Events</label><br />
-                                    <input type="checkbox" id="Music" name="Music" value="Music" onChange={onChange} />
-                                    <label for="Music">Music</label><br />
-                                    <input type="checkbox" id="Coffeeshops" name="Coffeeshops" value="Coffeeshops" onChange={onChange} />
-                                    <label for="Coffeeshops">Coffeeshops</label>
-                                </span>
-                            </div>
+              <h3 className="anchor-header1" onClick={toggle1}>Food &amp; Drink<img src={dropdownIcon} className="dropIcon1 toggle-down"/></h3>
+              <div id="menuCollapse1">
+                <span class="spanStyle">
+                  <label for="Restaurants" class="SCPfilterContain">
+                    Restaurants
+                    <input type="checkbox" id="Restaurants" name="Restaurants" value="Restaurants" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label>
+                  <br />
+                  <label for="Events" class="SCPfilterContain">
+                    Events
+                    <input type="checkbox" id="Events" name="Events" value="Events" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label>
+                  <br />
+                  <label for="Music" class="SCPfilterContain">
+                    Music
+                    <input type="checkbox" id="Music" name="Music" value="Music" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label>
+                  <br />
+                  <label for="Coffeeshops" class="SCPfilterContain">
+                    Coffeeshops
+                    <input type="checkbox" id="Coffeeshops" name="Coffeeshops" value="Coffeeshops" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label>
+                </span>
+              </div>
 
-                            <h3 className="anchor-header2" onClick={toggle2}>Attractions</h3>
-                            <div id="menuCollapse2">
-                                <span class="spanStyle">
-                                    <input type="checkbox" id="Tours" name="Tours" value="Tours" onChange={onChange} />
-                                    <label for="Tours">Tours</label><br />
-                                    <input type="checkbox" id="Museums" name="Museums" value="Museums" onChange={onChange} />
-                                    <label for="Museums">Museums</label><br />
-                                    <input type="checkbox" id="Theater" name="Theater" value="Theater" onChange={onChange} />
-                                    <label for="Theater">Theater</label><br />
-                                    <input type="checkbox" id="Performing_Arts" name="Performing_Arts" value="Performing_Arts" onChange={onChange} />
-                                    <label for="Performing_Arts">Performing Arts</label><br />
-                                    <input type="checkbox" id="Professional_Sports" name="Professional_Sports" value="Professional_Sports" onChange={onChange} />
-                                    <label for="Professional_Sports">Professional Sports</label>
-                                </span>
-                            </div>
+              <h3 className="anchor-header2" onClick={toggle2}>Attractions<img src={dropdownIcon} className="dropIcon2 toggle-down"/></h3>
+              <div id="menuCollapse2">
+                <span class="spanStyle">
+                  <label for="Tours" class="SCPfilterContain">
+                    Tours
+                    <input type="checkbox" id="Tours" name="Tours" value="Tours" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Museums" class="SCPfilterContain">
+                    Museums
+                    <input type="checkbox" id="Museums" name="Museums" value="Museums" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Theater" class="SCPfilterContain">
+                    Theater
+                    <input type="checkbox" id="Theater" name="Theater" value="Theater" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Performing_Arts" class="SCPfilterContain">
+                    Performing Arts
+                    <input type="checkbox" id="Performing_Arts" name="Performing_Arts" value="Performing_Arts" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Professional_Sports" class="SCPfilterContain">
+                    Professional Sports
+                    <input type="checkbox" id="Professional_Sports" name="Professional_Sports" value="Professional_Sports" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label>
+                </span>
+              </div>
 
-                            <h3 className="anchor-header3" onClick={toggle3}>Recreation</h3>
-                            <div id="menuCollapse3">
-                                <span class="spanStyle">
-                                    <input type="checkbox" id="Parks" name="Parks" value="Parks" onChange={onChange} />
-                                    <label for="Parks">Parks</label><br />
-                                    <input type="checkbox" id="Activities" name="Activities" value="Activities" onChange={onChange} />
-                                    <label for="Activities">Activities</label><br />
-                                    <input type="checkbox" id="Clubs" name="Clubs" value="Clubs" onChange={onChange} />
-                                    <label for="Clubs">Clubs</label><br />
-                                    <input type="checkbox" id="Sports" name="Sports" value="Sports" onChange={onChange} />
-                                    <label for="Sports">Sports</label><br />
-                                    <input type="checkbox" id="Leisure_Activities" name="Leisure_Activities" value="Leisure_Activities" onChange={onChange} />
-                                    <label for="Leisure_Activities">Leisure Activities</label><br />
-                                    <input type="checkbox" id="Senior_Activities" name="Senior_Activities" value="Senior_Activities" onChange={onChange} />
-                                    <label for="Senior_Activities">Senior Activities</label>
-                                </span>
-                            </div>
+              <h3 className="anchor-header3" onClick={toggle3}>Recreation<img src={dropdownIcon} className="dropIcon3 toggle-down"/></h3>
+              <div id="menuCollapse3">
+                <span class="spanStyle">
+                  <label for="Parks" class="SCPfilterContain">
+                    Parks
+                    <input type="checkbox" id="Parks" name="Parks" value="Parks" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Activities" class="SCPfilterContain">
+                    Activities
+                    <input type="checkbox" id="Activities" name="Activities" value="Activities" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Clubs" class="SCPfilterContain">
+                    Clubs
+                    <input type="checkbox" id="Clubs" name="Clubs" value="Clubs" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Sports" class="SCPfilterContain">
+                    Sports
+                    <input type="checkbox" id="Sports" name="Sports" value="Sports" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Leisure_Activities" class="SCPfilterContain">
+                    Leisure Activities
+                    <input type="checkbox" id="Leisure_Activities" name="Leisure_Activities" value="Leisure_Activities" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Senior_Activities" class="SCPfilterContain">
+                    Senior Activities
+                    <input type="checkbox" id="Senior_Activities" name="Senior_Activities" value="Senior_Activities" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label>
+                </span>
+              </div>
 
-                            <h3 className="anchor-header4" onClick={toggle4}>Weather</h3>
-                            <div id="menuCollapse4">
-                                <span class="spanStyle">
-                                    <input type="checkbox" id="Current" name="Current" value="Current" onChange={onChange} />
-                                    <label for="Current">Current</label><br />
-                                    <input type="checkbox" id="Historical" name="Historical" value="Historical" onChange={onChange} />
-                                    <label for="Historical">Historical</label>
-                                </span>
-                            </div>
+              <h3 className="anchor-header4" onClick={toggle4}>Weather<img src={dropdownIcon} className="dropIcon4 toggle-down"/></h3>
+              <div id="menuCollapse4">
+                <span class="spanStyle">
+                  <label for="Current" class="SCPfilterContain">
+                    Current
+                    <input type="checkbox" id="Current" name="Current" value="Current" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Historical" class="SCPfilterContain">
+                    Historical
+                    <input type="checkbox" id="Historical" name="Historical" value="Historical" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label>
+                </span>
+              </div>
 
-                            <h3 className="anchor-header5" onClick={toggle5}>Shopping</h3>
-                            <div id="menuCollapse5">
-                                <span class="spanStyle">
-                                    <input type="checkbox" id="Clothing" name="Clothing" value="Clothing" onChange={onChange} />
-                                    <label for="Clothing">Clothing</label><br />
-                                    <input type="checkbox" id="Furnishings" name="Furnishings" value="Furnishings" onChange={onChange} />
-                                    <label for="Furnishings">Furnishings</label><br />
-                                    <input type="checkbox" id="Hardware" name="Hardware" value="Hardware" onChange={onChange} />
-                                    <label for="Hardware">Hardware</label><br />
-                                    <input type="checkbox" id="Miscellaneous" name="Miscellaneous" value="Miscellaneous" onChange={onChange} />
-                                    <label for="Miscellaneous">Miscellaneous</label>
-                                </span>
-                            </div>
+              <h3 className="anchor-header5" onClick={toggle5}>Shopping<img src={dropdownIcon} className="dropIcon5 toggle-down"/></h3>
+              <div id="menuCollapse5">
+                <span class="spanStyle">
+                  <label for="Clothing" class="SCPfilterContain">
+                    Clothing
+                    <input type="checkbox" id="Clothing" name="Clothing" value="Clothing" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Furnishings" class="SCPfilterContain">
+                    Furnishings
+                    <input type="checkbox" id="Furnishings" name="Furnishings" value="Furnishings" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Hardware" class="SCPfilterContain">
+                    Hardware
+                    <input type="checkbox" id="Hardware" name="Hardware" value="Hardware" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Miscellaneous" class="SCPfilterContain">
+                    Miscellaneous
+                    <input type="checkbox" id="Miscellaneous" name="Miscellaneous" value="Miscellaneous" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label>
+                </span>
+              </div>
 
-                            <h3 className="anchor-header6" onClick={toggle6}>Lodging</h3>
-                            <div id="menuCollapse6">
-                                <span class="spanStyle">
-                                    <input type="checkbox" id="Hotels" name="Hotels" value="Hotels" onChange={onChange} />
-                                    <label for="Hotels">Hotels</label><br />
-                                    <input type="checkbox" id="AirBnB" name="AirBnB" value="AirBnB" onChange={onChange} />
-                                    <label for="AirBnB">AirBnB</label>
-                                </span>
-                            </div>
+              <h3 className="anchor-header6" onClick={toggle6}>Lodging<img src={dropdownIcon} className="dropIcon6 toggle-down"/></h3>
+              <div id="menuCollapse6">
+                <span class="spanStyle">
+                  <label for="Hotels" class="SCPfilterContain">
+                    Hotels
+                    <input type="checkbox" id="Hotels" name="Hotels" value="Hotels" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="AirBnB" class="SCPfilterContain">
+                    AirBnB
+                    <input type="checkbox" id="AirBnB" name="AirBnB" value="AirBnB" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label>
+                </span>
+              </div>
 
-                            <h3 className="anchor-header7" onClick={toggle7}>Services</h3>
-                            <div id="menuCollapse7">
-                                <span class="spanStyle">
-                                    <input type="checkbox" id="Accessibility" name="Accessibility" value="Accessibility" onChange={onChange} />
-                                    <label for="Accessibility">Accessibility</label><br />
-                                    <input type="checkbox" id="Sustainability" name="Sustainability" value="Sustainability" onChange={onChange} />
-                                    <label for="Sustainability">Sustainability</label><br />
-                                    <input type="checkbox" id="City_Services" name="City_Services" value="City_Services" onChange={onChange} />
-                                    <label for="City_Services">City Services</label>
-                                </span>
-                            </div>
-                        </ul>
-                    </div>
-                </section>
+              <h3 className="anchor-header7" onClick={toggle7}>Services<img src={dropdownIcon} className="dropIcon7 toggle-down"/></h3>
+              <div id="menuCollapse7">
+                <span class="spanStyle">
+                  <label for="Accessibility" class="SCPfilterContain">
+                    Accessibility
+                    <input type="checkbox" id="Accessibility" name="Accessibility" value="Accessibility" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="Sustainability" class="SCPfilterContain">
+                    Sustainability
+                    <input type="checkbox" id="Sustainability" name="Sustainability" value="Sustainability" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label><br />
+                  <label for="City_Services" class="SCPfilterContain">
+                    City Services
+                    <input type="checkbox" id="City_Services" name="City_Services" value="City_Services" onChange={onChange} />
+                    <span class="SCPcheckmark"></span>
+                  </label>
+                </span>
+              </div>
+
+            </ul>
+          </div>
+        </section>
 
                 {/* main categories displayed when you land on page */}
 
@@ -353,7 +530,6 @@ const SingleCityPage = (props) => {
                                     </div>
                                 </div>
                             </div>
-
                             <div className="expCat">
                                 <div className="expCatImgContainer">
                                     <img className="expCatImg" src={recreation} alt='img' />
