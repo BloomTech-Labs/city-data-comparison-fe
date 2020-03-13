@@ -22,7 +22,7 @@ import partlyCloudyNight from "../../assets/single_city_page_photos/partly-cloud
 import rain from "../../assets/single_city_page_photos/rain.png";
 import sleet from "../../assets/single_city_page_photos/sleet.png";
 import snow from "../../assets/single_city_page_photos/snow.png";
-import wind from "../../assets/single_city_page_photos/wind.png";
+import wind from "../../assets/single_city_page_photos/wind.png"
 import recreation from '../../assets/single_city_page_photos/recreation.png';
 import cityServices from '../../assets/single_city_page_photos/cityServices.png';
 import shopping from '../../assets/single_city_page_photos/shopping.png';
