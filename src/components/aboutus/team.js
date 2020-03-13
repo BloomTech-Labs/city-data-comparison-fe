@@ -275,10 +275,10 @@ const team = [
         social: {
             twitter: null, 
             github: 'nephylum', 
-            linkedin: null
+            linkedin: 'eric-ramon'
         }, 
-        about: null,
-        portfolio: null
+        about: 'Eric Ramon is a Data Scientist in Las Vegas. He has over 10 years of teaching experience, has been coding as a hobby for almost 30 years, and even speaks Mandarin Chinese. He hopes to be able to use Data Science to help people understand complex problems, and find novel solutions.',
+        portfolio: 'https://nephylum.github.io/'
     
     }, {
         labs: 21,
