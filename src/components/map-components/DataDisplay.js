@@ -176,18 +176,21 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <p className="anchor-header1" onClick={toggle1}>Housing</p>
                                 <div id="menuCollapse1">
                                     <span class="spanStyle">
-                                        <div className="anchor-link">
-                                            <input type="checkbox" id="rent" name="rent" value="rent" onChange={onChange}/>
-                                            <label for="rent">Rent</label><br />
-                                        </div>
-                                        <div className="anchor-link">
+                                        <label for="rent" class="dataFilterContain">
+                                        Rent
+                                        <input type="checkbox" id="rent" name="rent" value="rent" onChange={onChange} />
+                                        <span class="dataCheckmark"></span>
+                                        </label>
+                                        <label for="homeContainer" class="dataFilterContain">
+                                        Home Prices
                                         <input type="checkbox" id="homeContainer" name="homeContainer" value="homeContainer" onChange={onChange}/>
-                                        <label for="homeContainer">Home Prices</label><br />  
-                                        </div>
-                                        <div className="anchor-link">
+                                        <span class="dataCheckmark"></span>
+                                        </label>
+                                        <label for="roomsVacancy" class="dataFilterContain">
+                                        Rooms & Vacancy
                                         <input type="checkbox" id="roomsVacancy" name="roomsVacancy" value="roomsVacancy" onChange={onChange}/>
-                                        <label for="roomsVacancy">Rooms & Vacancy</label><br />
-                                        </div>
+                                        <span class="dataCheckmark"></span>
+                                        </label>
                                     </span>
                                 </div>
                         
@@ -195,53 +198,67 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 <p className="anchor-header2" onClick={toggle2}>Industry</p>
                                 <div id="menuCollapse2">
                                     <span class="spanStyle">
-                                    <div className="anchor-link">
+                                        <label for="industries" class="dataFilterContain">
+                                        Industries
                                         <input type="checkbox" id="industries" name="industries" value="industries" onChange={onChange}/>
-                                        <label for="industries">Industries</label><br />
-                                    </div>
-                                    <div className="anchor-link">
+                                        <span class="dataCheckmark"></span>
+                                        </label>                        
+                                        <label for="salary" class="dataFilterContain">
+                                        Salary
                                         <input type="checkbox" id="salary" name="salary" value="salary" onChange={onChange}/>
-                                        <label for="salary">Salary</label><br />  
-                                    </div>
-                                    <div className="anchor-link">
+                                        <span class="dataCheckmark"></span>
+                                        </label>
+                                        <label for="commute" class="dataFilterContain">
+                                        Commute
                                         <input type="checkbox" id="commute" name="commute" value="commute" onChange={onChange}/>
-                                        <label for="commute">Commute</label><br /> 
-                                    </div>
-                                    <div className="anchor-link">
+                                        <span class="dataCheckmark"></span>
+                                        </label>
+                                        <label for="travelScores" class="dataFilterContain">
+                                        Travel Scores
                                         <input type="checkbox" id="travelScores" name="travelScores" value="travelScores" onChange={onChange}/>
-                                        <label for="travelScores">Travel Scores</label><br />
-                                    </div>
-                                    <div className="anchor-link">
+                                        <span class="dataCheckmark"></span>
+                                        </label>
+                                        <label for="industries" class="dataFilterContain">
+                                        Unemployment & Retirement
                                         <input type="checkbox" id="unemployRetire" name="unemployRetire" value="unemployRetire" onChange={onChange}/>
-                                        <label for="unemployRetire">Unemployment & Retirement</label><br />
-                                    </div>
+                                        <span class="dataCheckmark"></span>
+                                        </label>
                                     </span>
                                 </div>
 
                                 
-                                <p className="anchor-header3" onClick={toggle3}>Culture</p>
+                                <p className="anchor-header3" onClick={toggle3}>Demographics</p>
                                 <div id="menuCollapse3">
                                     <span class="spanStyle">
-                                    <div className="anchor-link">
+                                        
+                                        <label for="ageDistribution" class="dataFilterContain">
+                                        Age Distribution
                                         <input type="checkbox" id="ageDistribution" name="ageDistribution" value="ageDistribution" onChange={onChange}/>
-                                        <label for="ageDistribution">Age Distribution</label><br />
-                                    </div>
-                                    <div className="anchor-link">
+                                        <span class="dataCheckmark"></span>
+                                        </label>
+                                        <label for="diversity" class="dataFilterContain">
+                                        Diversity
                                         <input type="checkbox" id="diversity" name="diversity" value="diversity" onChange={onChange}/>
-                                        <label for="diversity">Diversity</label><br />
-                                    </div>
-                                    <div className="anchor-link">
+                                        <span class="dataCheckmark"></span>
+                                        </label>
+                                        <label for="education" class="dataFilterContain">
+                                        Education
                                         <input type="checkbox" id="education" name="education" value="education" onChange={onChange}/>
-                                        <label for="education">Education</label><br />
-                                    </div>
-                                    <div className="anchor-link">
+                                        <span class="dataCheckmark"></span>
+                                        </label>
+                                        <label for="population" class="dataFilterContain">
+                                        Population
                                         <input type="checkbox" id="population" name="population" value="population" onChange={onChange}/>
-                                        <label for="population">Population</label><br />
-                                    </div>
-                                    <div className="anchor-link">
+                                        <span class="dataCheckmark"></span>
+                                        </label>
+                                        <label for="avgTemp" class="dataFilterContain">
+                                        Weather
                                         <input type="checkbox" id="avgTemp" name="avgTemp" value="avgTemp" onChange={onChange}/>
-                                        <label for="avgTemp">Weather</label><br />
-                                    </div>
+                                        <span class="dataCheckmark"></span>
+                                        </label>
+                                    
+                                    
+                                    
                                     </span>
                                 </div>
                             </div>

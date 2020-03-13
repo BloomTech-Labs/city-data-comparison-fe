@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { CityContext } from '../../contexts/CityContext';
-import Skycons from 'react-skycons';
+//import Skycons from 'react-skycons';
 import { useParams } from "react-router-dom";
 
 
