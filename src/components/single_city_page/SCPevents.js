@@ -28,8 +28,9 @@ const CategoryImgContainer = styled.div`
 
 const CategoryImg = styled.img`
     height: 170px; 
-    width: 290px; 
-    padding-right: 20px;
+    width: 270px; 
+    margin-right: 20px;
+    border-radius: 4.3px;
 `;
 
 const CategorySubtitle = styled.h5`
