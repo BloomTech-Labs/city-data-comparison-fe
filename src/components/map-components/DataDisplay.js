@@ -25,7 +25,7 @@ import TravelTime from "../graphs/economics/TravelTimeCard";
 import OwnerCostCard from "../graphs/housing/OwnerCostCard"
 // import BirthRateCard from "../graphs/culture/birthRateCard"
 import Transportaion from "../graphs/transportationScore"
-
+import dropdownIcon from '../../assets/single_city_page_photos/DropdownIcon.png'
 
 const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cityMarkers, viewport, setViewport, selectSearch, cityIndex}) => {
 
@@ -67,17 +67,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         })
     }
    
-    function toggle1() {
-        document.getElementById("menuCollapse1").classList.toggle("hideMenu");
-      }
-
-    function toggle2() {
-    document.getElementById("menuCollapse2").classList.toggle("hideMenu");
-    }
-
-    function toggle3() {
-    document.getElementById("menuCollapse3").classList.toggle("hideMenu");
-    }
+    
 
     // fixed sidebar handling
   
@@ -113,6 +103,60 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         }
     }
 
+
+ 
+ // Handles Dropdown icon animation
+ var upClass = 'toggle-up';
+ var downClass = 'toggle-down';
+ 
+ function iconAnimation1() {
+   var dropIcon1 = document.querySelector('.dropIcon1');
+   
+   if (~dropIcon1.className.indexOf(downClass)) {
+     dropIcon1.className = dropIcon1.className.replace(downClass, upClass);
+   } else {
+         dropIcon1.className = dropIcon1.className.replace(upClass, downClass);
+   }
+ }
+
+ function iconAnimation2() {
+   var dropIcon2 = document.querySelector('.dropIcon2');
+   
+   if (~dropIcon2.className.indexOf(downClass)) {
+     dropIcon2.className = dropIcon2.className.replace(downClass, upClass);
+   } else {
+         dropIcon2.className = dropIcon2.className.replace(upClass, downClass);
+   }
+ }
+
+ function iconAnimation3() {
+   var dropIcon3 = document.querySelector('.dropIcon3');
+   
+   if (~dropIcon3.className.indexOf(downClass)) {
+     dropIcon3.className = dropIcon3.className.replace(downClass, upClass);
+   } else {
+         dropIcon3.className = dropIcon3.className.replace(upClass, downClass);
+   }
+ }
+
+
+//toggles
+
+function toggle1() {
+    document.getElementById("menuCollapse1").classList.toggle("hidden");
+    iconAnimation1();
+  }
+
+  function toggle2() {
+    document.getElementById("menuCollapse2").classList.toggle("hidden");
+    iconAnimation2()
+  }
+
+  function toggle3() {
+    document.getElementById("menuCollapse3").classList.toggle("hidden");
+    iconAnimation3()
+  }
+  
 // trying out checkbox menu
 
     const toggleMenu = () => {
@@ -123,6 +167,7 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
         }
     }
      
+    
     return (
         <div className="data-browser">
             {/* <div className="nav-box"> */}
@@ -172,84 +217,111 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                 </ul>
                               
                                 
-                                <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-link" to="generalStats" spy={true} smooth={true} duration={500} offset={-150}>City Overview</Link>
+                                <Link onClick={() => dataNavClicked("generalStats")} id="general" activeClass="active" className="anchor-nav" to="generalStats" spy={true} smooth={true} duration={500} offset={-150}>City Overview</Link>
 
-                                <p className="anchor-header1" onClick={toggle1}>Housing</p>
-                                <div id="menuCollapse1">
-                                    <span class="spanStyle">
-                                        <div className="anchor-link">
-                                            <input type="checkbox" id="rent" name="rent" value="rent" onChange={onChange}/>
-                                            <label for="rent">Rent</label><br />
-                                        </div>
-                                        <div className="anchor-link">
-                                        <input type="checkbox" id="homeContainer" name="homeContainer" value="homeContainer" onChange={onChange}/>
-                                        <label for="homeContainer">Home Prices</label><br />  
-                                        </div>
-                                        <div className="anchor-link">
-                                        <input type="checkbox" id="roomsVacancy" name="roomsVacancy" value="roomsVacancy" onChange={onChange}/>
-                                        <label for="roomsVacancy">Rooms & Vacancy</label><br />
-                                        </div>
-                                    </span>
-                                </div>
-                        
-                                
-                                <p className="anchor-header2" onClick={toggle2}>Industry</p>
-                                <div id="menuCollapse2">
-                                    <span class="spanStyle">
-                                    <div className="anchor-link">
-                                        <input type="checkbox" id="industries" name="industries" value="industries" onChange={onChange}/>
-                                        <label for="industries">Industries</label><br />
+                                <div className = "dataFilterCatContainer">
+                                    <div className="togglediv">
+                                        <p className="anchor-header1" onClick={toggle1}>Housing<img src={dropdownIcon} className="dropIcon1 toggle-down"/></p>
                                     </div>
-                                    <div className="anchor-link">
-                                        <input type="checkbox" id="salary" name="salary" value="salary" onChange={onChange}/>
-                                        <label for="salary">Salary</label><br />  
+                                   
+                                    <div id="menuCollapse1">
+                                        <span class="spanStyle">
+                                            <label for="rent" class="dataFilterContain">
+                                            Rent
+                                            <input type="checkbox" id="rent" name="rent" value="rent" onChange={onChange} />
+                                            <span class="dataCheckmark"></span>
+                                            </label>
+                                            <label for="homeContainer" class="dataFilterContain">
+                                            Home Prices
+                                            <input type="checkbox" id="homeContainer" name="homeContainer" value="homeContainer" onChange={onChange}/>
+                                            <span class="dataCheckmark"></span>
+                                            </label>
+                                            <label for="roomsVacancy" class="dataFilterContain">
+                                            Rooms &amp; Vacancy
+                                            <input type="checkbox" id="roomsVacancy" name="roomsVacancy" value="roomsVacancy" onChange={onChange}/>
+                                            <span class="dataCheckmark"></span>
+                                            </label>
+                                        </span>
                                     </div>
-                                    <div className="anchor-link">
-                                        <input type="checkbox" id="commute" name="commute" value="commute" onChange={onChange}/>
-                                        <label for="commute">Commute</label><br /> 
+                            
+                                    <div className = "togglediv">
+                                        <p className="anchor-header2" onClick={toggle2}>Industry<img src={dropdownIcon} className="dropIcon2 toggle-down"/></p>
                                     </div>
-                                    <div className="anchor-link">
-                                        <input type="checkbox" id="travelScores" name="travelScores" value="travelScores" onChange={onChange}/>
-                                        <label for="travelScores">Travel Scores</label><br />
+                                    
+                                    <div id="menuCollapse2">
+                                        <span class="spanStyle">
+                                            <label for="industries" class="dataFilterContain">
+                                            Industries
+                                            <input type="checkbox" id="industries" name="industries" value="industries" onChange={onChange}/>
+                                            <span class="dataCheckmark"></span>
+                                            </label>                        
+                                            <label for="salary" class="dataFilterContain">
+                                            Salary
+                                            <input type="checkbox" id="salary" name="salary" value="salary" onChange={onChange}/>
+                                            <span class="dataCheckmark"></span>
+                                            </label>
+                                            <label for="commute" class="dataFilterContain">
+                                            Commute
+                                            <input type="checkbox" id="commute" name="commute" value="commute" onChange={onChange}/>
+                                            <span class="dataCheckmark"></span>
+                                            </label>
+                                            <label for="travelScores" class="dataFilterContain">
+                                            Travel Scores
+                                            <input type="checkbox" id="travelScores" name="travelScores" value="travelScores" onChange={onChange}/>
+                                            <span class="dataCheckmark"></span>
+                                            </label>
+                                            <label for="industries" class="dataFilterContain">
+                                            Unemployment &amp; Retirement
+                                            <input type="checkbox" id="unemployRetire" name="unemployRetire" value="unemployRetire" onChange={onChange}/>
+                                            <span class="dataCheckmark"></span>
+                                            </label>
+                                        </span>
                                     </div>
-                                    <div className="anchor-link">
-                                        <input type="checkbox" id="unemployRetire" name="unemployRetire" value="unemployRetire" onChange={onChange}/>
-                                        <label for="unemployRetire">Unemployment & Retirement</label><br />
+
+                                    <div className = "togglediv">
+                                        <p className="anchor-header3" onClick={toggle3}>Demographics<img src={dropdownIcon} className="dropIcon3 toggle-down"/></p>
                                     </div>
-                                    </span>
+                                    
+                                    <div id="menuCollapse3">
+                                        <span class="spanStyle">
+                                            
+                                            <label for="ageDistribution" class="dataFilterContain">
+                                            Age Distribution
+                                            <input type="checkbox" id="ageDistribution" name="ageDistribution" value="ageDistribution" onChange={onChange}/>
+                                            <span class="dataCheckmark"></span>
+                                            </label>
+                                            <label for="diversity" class="dataFilterContain">
+                                            Diversity
+                                            <input type="checkbox" id="diversity" name="diversity" value="diversity" onChange={onChange}/>
+                                            <span class="dataCheckmark"></span>
+                                            </label>
+                                            <label for="education" class="dataFilterContain">
+                                            Education
+                                            <input type="checkbox" id="education" name="education" value="education" onChange={onChange}/>
+                                            <span class="dataCheckmark"></span>
+                                            </label>
+                                            <label for="population" class="dataFilterContain">
+                                            Population
+                                            <input type="checkbox" id="population" name="population" value="population" onChange={onChange}/>
+                                            <span class="dataCheckmark"></span>
+                                            </label>
+                                            <label for="avgTemp" class="dataFilterContain">
+                                            Weather
+                                            <input type="checkbox" id="avgTemp" name="avgTemp" value="avgTemp" onChange={onChange}/>
+                                            <span class="dataCheckmark"></span>
+                                            </label>
+                                        
+                                        
+                                        
+                                        </span>
+                                    </div>
                                 </div>
 
-                                
-                                <p className="anchor-header3" onClick={toggle3}>Culture</p>
-                                <div id="menuCollapse3">
-                                    <span class="spanStyle">
-                                    <div className="anchor-link">
-                                        <input type="checkbox" id="ageDistribution" name="ageDistribution" value="ageDistribution" onChange={onChange}/>
-                                        <label for="ageDistribution">Age Distribution</label><br />
-                                    </div>
-                                    <div className="anchor-link">
-                                        <input type="checkbox" id="diversity" name="diversity" value="diversity" onChange={onChange}/>
-                                        <label for="diversity">Diversity</label><br />
-                                    </div>
-                                    <div className="anchor-link">
-                                        <input type="checkbox" id="education" name="education" value="education" onChange={onChange}/>
-                                        <label for="education">Education</label><br />
-                                    </div>
-                                    <div className="anchor-link">
-                                        <input type="checkbox" id="population" name="population" value="population" onChange={onChange}/>
-                                        <label for="population">Population</label><br />
-                                    </div>
-                                    <div className="anchor-link">
-                                        <input type="checkbox" id="avgTemp" name="avgTemp" value="avgTemp" onChange={onChange}/>
-                                        <label for="avgTemp">Weather</label><br />
-                                    </div>
-                                    </span>
-                                </div>
                             </div>
                             : null}
                         </div>
                     </div>
-
+                    
                 </div>    
             </nav>
             </div>
