@@ -1365,6 +1365,20 @@
                     
                 }
 
+                /*Dropdown icon animation*/
+                .drop-icon {
+                    transition: all 0.75s 0.25s;
+                }
+
+                .toggle-down {
+                    transform: rotate(180deg);
+                }
+
+                .toggle-up {
+                    transform: rotate(0deg);
+                }
+                
+
                 .dataCheckmark {
                     position: absolute;
                     // top: 5px;
