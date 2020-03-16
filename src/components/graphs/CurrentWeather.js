@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import "../single_city_page/SingleCityPage.scss";
+
 import clearDay from "../../assets/single_city_page_photos/clear-day.png";
 import clearNight from "../../assets/single_city_page_photos/clear-night.png";
 import cloudy from "../../assets/single_city_page_photos/cloudy.png";
@@ -11,6 +13,7 @@ import rain from "../../assets/single_city_page_photos/rain.png";
 import sleet from "../../assets/single_city_page_photos/sleet.png";
 import snow from "../../assets/single_city_page_photos/snow.png";
 import wind from "../../assets/single_city_page_photos/wind.png";
+
 
 const CurrentWeather = (props) => {
   const [weather, setWeather] = useState({})

@@ -38,6 +38,7 @@ margin: 0 auto;
     .SCPweather {
         display: flex;
         // justify-content: center;
+        border: 1px solid black;
         width: 40%;
         height: 185px;
         padding: 0 20px 20px 155px;
@@ -59,7 +60,7 @@ margin: 0 auto;
             height: 125px;
             padding: 0;
             margin-left: 20px;
-
+            color: black;
           .temp {
             font-size: 40px;
           }
@@ -240,3 +241,33 @@ margin: 0 auto;
     }
 } // end SCPresources
 
+.SCPweather {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 185px;
+    // padding: 0 20px 20px 155px;
+    // margin: 65px 0 0 0;
+    
+
+    .weatherImage {
+        display: flex;
+        height: 125px;
+        
+    }
+
+    .weatherInfo {
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
+        text-align: right;
+        // justify-content: flex-end;
+        height: 125px;
+        padding: 0;
+        // margin-left: 20px;
+
+      .temp {
+        font-size: 40px;
+      }
+    }
+}
