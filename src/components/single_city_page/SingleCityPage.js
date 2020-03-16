@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import queryString from 'query-string';
 
-
 import './SingleCityPage.scss';
 
 import SCPrestaurants from "./SCPrestaurants";
@@ -36,17 +35,9 @@ const SingleCityPage = (props) => {
 
   const { latitude, longitude } = queryString.parse(props.location.search);
 
-  const [categories, setCategories] = useState({});
-  const [restaurants, setRestaurants] = useState();
-  const [events, setEvents] = useState();
-  const [weather, setWeather] = useState({});
-
-    function onChange(e) {
-        setCategories({
-        ...categories,
-        [e.target.name]: categories[e.target.name] ? false : true
-        })
-    }
+    const [categories, setCategories] = useState({});
+    const [restaurants, setRestaurants] = useState();
+    const [events, setEvents] = useState();
 
   // function for handling sidebar checkbox check/uncheck (display of categories)
   function onChange(e) {
@@ -173,70 +164,20 @@ const SingleCityPage = (props) => {
     // API CALL FOR RESTAURANTS
     useEffect(() => {
         axios.get(`https://be.citrics.io/api/yelp/restaurant/${latitude}/${longitude}`)
-            //   .get(`http://citricsbe-staging.kiqprw5whz.us-east-2.elasticbeanstalk.com/api/restaurant?latitude=30.1&longitude=-81.7`)
-            // 42.3314° N, 83.0458° W
-            .then(res => {
-                console.log('get rest', res.data)
-                setRestaurants(res.data)
-                console.log('rest', restaurants)
-                // console.log('test setRest', setRestaurants)
+            .then(response => {
+                setRestaurants(response.data)
             })
-            .catch(err => console.log(err))
+            .catch(error => console.log("Restaurants", error))
     }, [latitude, longitude]);
 
     // API CALL FOR EVENTS
     useEffect(() => {
         axios.get(`https://be.citrics.io/api/yelp/events/${latitude}/${longitude}`)
-        .then(response => {
-            setEvents(response.data)
-        })
-        .catch(error => {
-            console.log("Events", error)
-        })
-    },[latitude, longitude]);
-
-    // // API CALL FOR WEATHER
-    // useEffect(() => {
-    //     axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a8c0298ef7550627f36777243a127c0e/${latitude},${longitude}`)
-    //         .then(response => {
-    //             setWeather(response.data.currently)
-    //         })
-    //         .catch(error => {
-    //             console.log("Error retrieving Weather Information", error)
-    //         })
-    // }, [latitude, longitude])
-
-    // const weatherTime = new Date().toLocaleTimeString();
-
-    // var roundTemp = weather.temperature;
-    // roundTemp = Math.round(roundTemp)
-
-    // var feelsLike = weather.apparentTemperature;
-    // feelsLike = Math.round(feelsLike);
-
-    // var weatherIcon;
-
-    // if ( weather.icon === "clear-day"){
-    //     weatherIcon = clearDay
-    // } else if( weather.icon === "clear-night"){
-    //     weatherIcon = clearNight
-    // } else if( weather.icon === "partly-cloudy-day"){
-    //     weatherIcon = partlyCloudyDay
-    // } else if( weather.icon === "partly-cloudy-night"){
-    //     weatherIcon = partlyCloudyNight
-    // } else if( weather.icon === "cloudy"){
-    //     weatherIcon = cloudy
-    // } else if( weather.icon === "rain"){
-    //     weatherIcon = rain
-    // } else if( weather.icon === "sleet"){
-    //     weatherIcon = sleet
-    // } else if( weather.icon === "snow"){
-    //     weatherIcon = snow
-    // } else if( weather.icon === "wind"){
-    //     weatherIcon = wind
-    // } else if( weather.icon === "fog"){
-    //     weatherIcon = fog
-    // };
+            .then(response => {
+                setEvents(response.data)
+            })
+            .catch(error => console.log("Events", error))
+    }, [latitude, longitude]);
 
     return (
         <>
@@ -251,9 +192,10 @@ const SingleCityPage = (props) => {
             <section className="SCPcityIntro">
                 <div className="SCPdescription">
                     <div className="SCPbackToExplore">
-                        <img className="backArrow" src={backArrow} />
+                        <img className="backArrow" src={backArrow} alt="" />
                         <Link className="backLink" to="/map">Back to explore</Link>
                     </div>
+
                     <div>
                         <h1 className="descH1">{restaurants && restaurants.businesses ? restaurants.businesses[0].location.city : ''}, {restaurants && restaurants.businesses ? restaurants.businesses[0].location.state : ''}</h1>
                     </div>
@@ -448,8 +390,6 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-
-
             </ul>
           </div>
         </section>
@@ -457,7 +397,6 @@ const SingleCityPage = (props) => {
                 {/* main categories displayed when you land on page */}
 
                 <section className="SCPcategories">
-                    
 
                     {/* <div className="SCPresources">
                             <div>
@@ -488,13 +427,14 @@ const SingleCityPage = (props) => {
                     
 
                     {/* sidebar categories only display when checkbox checked */}
+
                     {categories.Restaurants ? 
-                    <SCPrestaurants restaurants={restaurants} />
-                    : null
+                        <SCPrestaurants restaurants={restaurants} />
+                        : null
                     }
 
                     {categories.Events ?
-                        <SCPevents events = {events}/>
+                        <SCPevents events={events}/>
                         : null
                     }
 
@@ -553,7 +493,7 @@ const SingleCityPage = (props) => {
                             </div>
                             <div className="expCat">
                                 <div className="expCatImgContainer">
-                                    <img alt='img' className="expCatImg" src={foodAndDrink} />
+                                    <img className="expCatImg" src={foodAndDrink} alt='img' />
                                 </div>
                                 <div className="expCatText">
                                     <div className="expCatTitle">
@@ -566,7 +506,7 @@ const SingleCityPage = (props) => {
                             </div>
                             <div className="expCat">
                                 <div className="expCatImgContainer">
-                                    <img alt='img' className="expCatImg" src={attractions} />
+                                    <img className="expCatImg" src={attractions} alt='img' />
                                 </div>
                                 <div className="expCatText">
                                     <div className="expCatTitle">
@@ -579,7 +519,7 @@ const SingleCityPage = (props) => {
                             </div>
                             <div className="expCat">
                                 <div className="expCatImgContainer">
-                                    <img  alt='img' className="expCatImg" src={weatherImg} />
+                                    <img className="expCatImg" src={weatherImg} alt='img' />
                                 </div>
                                 <div className="expCatText">
                                     <div className="expCatTitle">
@@ -590,10 +530,9 @@ const SingleCityPage = (props) => {
                                     </div>
                                 </div>
                             </div>
-
                             <div className="expCat">
                                 <div className="expCatImgContainer">
-                                    <img alt='img' className="expCatImg" src={recreation} />
+                                    <img className="expCatImg" src={recreation} alt='img' />
                                 </div>
                                 <div className="expCatText">
                                     <div className="expCatTitle">
