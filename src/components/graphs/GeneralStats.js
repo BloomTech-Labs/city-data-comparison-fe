@@ -27,6 +27,9 @@ import Recommendations from "./Recommendations"
 
 function TotalPopulation({ ethData }) {
   function numberCommas(x) {
+    if (x === null) {
+      return
+    }
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
@@ -80,7 +83,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="stats-style">
                       <img className="stats-img" src={medianIncome} />
-                      <p className="stats-par">Median Income: ${numberCommas(item["Median Per Capita Income"])}</p>
+                      <p className="stats-par">Median Income: ${numberCommas(item["Median Household Income"])}</p>
                     </div>
                   </div>
                 </div>
@@ -238,7 +241,7 @@ function TotalPopulation({ ethData }) {
                 </div>
                 <div className="stats-style2">
                   <img className="stats-img" src={medianIncome} />
-                  <p className="stats-par">Median Income: ${numberCommas(item["Median Per Capita Income"])}</p>
+                  <p className="stats-par">Median Income: ${numberCommas(item["Median Household Income"])}</p>
                 </div>
 
               </div>
@@ -376,7 +379,7 @@ function TotalPopulation({ ethData }) {
                 </div>
                 <div className="stats-style">
                   <img className="stats-img" src={medianIncome} />
-                  <p className="stats-par">Median Income: ${numberCommas(item["Median Per Capita Income"])}</p>
+                  <p className="stats-par">Median Income: ${numberCommas(item["Median Household Income"])}</p>
                 </div>
               </div>
               <div className="scores-div3">
