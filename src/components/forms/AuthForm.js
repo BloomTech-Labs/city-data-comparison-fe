@@ -82,7 +82,7 @@ const AuthForm = props => {
             //redirect user to home
             return res.data.user}).then(user => {
             axiosAuth()
-            .get(`https://be.citrics.io/api/users/profile/${user.id}/image`)
+            .get(`/users/profile/image`)
             .then(res => {
                 if (
                     res.data.length > 0
