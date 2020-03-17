@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Carousel, { Dots } from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 
 const CategoryContainer = styled.div`
     width: 870px;
@@ -47,19 +49,28 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPrestaurants = (props) => {
-console.log('propsRest', props.restaurants)
+    console.log('propsRest', props.restaurants)
+
     return (
         <>
             <CategoryContainer>
                 <CategoryTitle>Restaurants</CategoryTitle>
                 <CategoryInfo>
-                {props.restaurants.businesses.slice(0,3).map(item => (
+                <Carousel
+                    dots={true}
+                    infinite
+                    slidesPerPage={1}
+                    clickToChange={true}
+                    itemWidth={290}
+                    >    
+                {props.restaurants.businesses.map(item => (
                     <CategoryImgContainer>
                         <CategoryImg src={item.image_url} />
-                        <CategorySubtitle>{item.name}</CategorySubtitle>
-                        <CategoryWebsite href={item.url}>Website</CategoryWebsite>
+                        <CategorySubtitle>{item.name.length<=28?item.name.substring(0,28):`${item.name.substring(0,28)}...`}</CategorySubtitle>
+                        <CategoryWebsite href={item.url} target="_blank" >Website</CategoryWebsite>
                     </CategoryImgContainer>
                 ))}
+                </Carousel>
                 </CategoryInfo>
             </CategoryContainer>
         </>

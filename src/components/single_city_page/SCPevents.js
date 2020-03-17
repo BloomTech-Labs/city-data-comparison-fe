@@ -1,5 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
+import Carousel, { Dots } from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 
 const CategoryContainer = styled.div`
     width: 870px;
@@ -48,18 +50,27 @@ const CategoryWebsite = styled.a`
 
 const SCPevents = (props) => {
     console.log('propsEvents', props.events)
+    
     return (
         <>
             <CategoryContainer>
                 <CategoryTitle>Events</CategoryTitle>
                 <CategoryInfo>
-                {props.events.events.slice(0,3).map(item => (
+                <Carousel
+                    dots={true}
+                    infinite
+                    slidesPerPage={1}
+                    clickToChange={true}
+                    itemWidth={290}
+                    >
+                {props.events.events.map(item => (
                     <CategoryImgContainer>
                         <CategoryImg src={item.image_url} />
-                        <CategorySubtitle>{item.name}</CategorySubtitle>
-                        <CategoryWebsite href={item.event_site_url}>Event Website</CategoryWebsite>
+                        <CategorySubtitle>{item.name.length<=28?item.name.substring(0,28):`${item.name.substring(0,28)}...`}</CategorySubtitle>
+                        <CategoryWebsite href={item.event_site_url} target="_blank" >Event Website</CategoryWebsite>
                     </CategoryImgContainer>
                 ))}
+                </Carousel>
                 </CategoryInfo>
             </CategoryContainer>
         </> 
