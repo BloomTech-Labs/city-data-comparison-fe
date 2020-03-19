@@ -63,13 +63,13 @@ const SCPrestaurants = (props) => {
                     clickToChange={true}
                     itemWidth={290}
                     >    
-                {props.restaurants.businesses.map(item => (
+                {props.restaurants.businesses ? props.restaurants.businesses.map(item => (
                     <CategoryImgContainer>
                         <CategoryImg src={item.image_url} />
                         <CategorySubtitle>{item.name.length<=28?item.name.substring(0,28):`${item.name.substring(0,28)}...`}</CategorySubtitle>
                         <CategoryWebsite href={item.url} target="_blank" >Website</CategoryWebsite>
                     </CategoryImgContainer>
-                ))}
+                )) : null }
                 </Carousel>
                 </CategoryInfo>
             </CategoryContainer>

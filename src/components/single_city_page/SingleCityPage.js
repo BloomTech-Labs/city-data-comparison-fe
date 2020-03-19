@@ -33,11 +33,15 @@ import backArrow from '../../assets/single_city_page_photos/Back arrow.png';
 
 const SingleCityPage = (props) => {
 
-  const { latitude, longitude } = queryString.parse(props.location.search);
+  const { latitude, longitude, cityId } = queryString.parse(props.location.search);
 
-    const [categories, setCategories] = useState({});
-    const [restaurants, setRestaurants] = useState();
-    const [events, setEvents] = useState();
+    const [categories, setCategories] = useState({
+      Restaurants: true,
+      Events: true
+    });
+    const [description, setDescription] = useState('Information not available');
+    const [restaurants, setRestaurants] = useState([]);
+    const [events, setEvents] = useState([]);
 
   // function for handling sidebar checkbox check/uncheck (display of categories)
   function onChange(e) {
@@ -159,7 +163,20 @@ const SingleCityPage = (props) => {
     iconAnimation7()
   }
 
-  console.log('params', latitude)
+    // API CALL FOR WIKI DESCRIPTION
+    useEffect(() => {
+      axios.get
+      (`https://cors-anywhere.herokuapp.com/https://city-data-comparison.herokuapp.com/jkekal6d6e5si3i2ld66d4dl/wikisum/${cityId}`)
+      // (`https://cors-anywhere.herokuapp.com/https://city-data-comparison.herokuapp.com/jkekal6d6e5si3i2ld66d4dl/singlecityWiki/${cityId}`) actually working
+          .then(response => {
+              // setDescription(response.data.wiki_data.summary)
+              setDescription(response.data.wiki_sum)
+              console.log('wikiResponse', response)
+          })
+          .catch(error => console.log("Description", error))
+  }, [cityId]);
+
+  //https://city-data-comparison.herokuapp.com/{access_key}/wikisum/<city_id>
 
     // API CALL FOR RESTAURANTS
     useEffect(() => {
@@ -201,7 +218,7 @@ const SingleCityPage = (props) => {
                     </div>
 
                     <div className="city-desc">
-                        <p>Miami is one of the state's – and the world’s – most popular vacation spots. Though destinations often are said to offer something for everyone, the Miami area does indeed offer multiple enticements for everyone: The trendy nightlife of South Beach, bejeweled by the eye candy of the Art Deco district. The bustle of Calle Ocho and the highly caffeinated energy of Little Havana. The plush hotels of Miami Beach and the historic hideaways of Coral Gables... more</p>
+                      <p>{description}</p>
                     </div>
                 </div>
             </section>
@@ -486,7 +503,7 @@ const SingleCityPage = (props) => {
 
                     {categories.City_Services ? null : null}
 
-                    <div className="SCPexplore">
+                    {/* <div className="SCPexplore">
                         <div className="exploreContainer">
                             <div>
                                 <h3>Explore</h3>
@@ -544,7 +561,7 @@ const SingleCityPage = (props) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                 </section>
             </section>
