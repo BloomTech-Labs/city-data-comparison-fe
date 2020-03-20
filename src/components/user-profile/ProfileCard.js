@@ -87,7 +87,7 @@ const ProfileCard = (props)=> {
     
     useEffect(() => {
         axiosAuth()
-            .get(`https://be.citrics.io/api/users/profile/${id}/image`)
+            .get(`/users/profile/image`)
             .then(res => {
                 const image = res.data[0].userimage
                 setUserImage({...userImage, userimage: image})
@@ -100,7 +100,7 @@ const ProfileCard = (props)=> {
     const updateUser = () => {
         
         axiosAuth()
-            .put(`https://be.citrics.io/api/users/${id}/profile`, userPost)
+            .put(`/users/profile`, userPost)
             .then(res => {
                 
                 setUser({...user, ...userPost})
@@ -121,13 +121,13 @@ const ProfileCard = (props)=> {
 
         if (user.userimage !== null) {
             axiosAuth()
-                .delete(`https://be.citrics.io/api/users/profile/${id}/image`)
+                .delete(`/users/profile/image`)
                 .then(res => {
                     axiosAuth()
-                        .post('https://be.citrics.io/api/users/', formData)
+                        .post('/api/users/', formData)
                         .then(res => {
                             axiosAuth()
-                                .get(`https://be.citrics.io/api/users/profile/${id}/image`)
+                                .get(`/users/profile/image`)
                                 .then(res => {
                                     const image = res.data[0].userimage
                                      setUserImage({...userImage, userimage: image})
@@ -143,9 +143,9 @@ const ProfileCard = (props)=> {
         } else {
 
         axiosAuth()
-            .post('https://be.citrics.io/api/users/', formData)
+            .post('/api/users/', formData)
             .then(res => {
-                axiosAuth().get(`https://be.citrics.io/api/users/profile/${id}/image`)
+                axiosAuth().get(`/users/profile/image`)
                 .then(res => {
                     const image = res.data[0].userimage
                     setUserImage({...userImage, userimage: image})

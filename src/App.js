@@ -12,7 +12,7 @@ import Map from "./components/Map";
 import Profile from './components/user-profile/Profile'
 import PrivacyPolicy from "./components/legal/PrivacyPolicy"
 import AboutUs from './components/aboutus/AboutUs'; 
-import AboutUs2 from './components/aboutus/AboutUs2'; 
+// import AboutUs2 from './components/aboutus/AboutUs2'; 
 import citiesIndex from './data/city_ids.json'
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
@@ -109,7 +109,6 @@ function App() {
 
 const getCities = arr => {
   let output = []
-
   // if both objects
   if (typeof arr[0] === "object" && typeof arr[1] === "object")
     Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[0].ID}`)
@@ -263,19 +262,22 @@ cityIndex.sort(compare);
 
   },[viewport.latitude])
 
+  console.log('getCities', selected)
+
   return (
     <Router>
       <UserContext.Provider value={{axiosAuth, user, setUserValue, setUser, favorites, setFavorites, toggleSearch, setToggleSearch}}>
         <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, getBestSuggestions}}>
           <div className="App">
-            <Navigation />
+            {/* <Navigation /> */}
+            <Route path='/' render={props => <Navigation {...props}/>} />
             <Route exact path='/' component={Dashboard} />
             <Route exact path='/' component={Footer} />
-            <Route path="/map" component={Map} />
+            <Route path='/map' render={props => <Map {...props}/>} />
             <PrivateRoute path='/profile' component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
-            <Route path="/aboutus" component={AboutUs2} />
-            <Route path="/SCP" component={SingleCityPage} />
+            <Route path="/meet-the-team" component={AboutUs} />
+            <Route path='/SingleCityPage' render={props => <SingleCityPage {...props}/>} />
 
             <Route path='/signin' render={props => <AuthForm {...props} action="Login"/>} />
             <Route path="/signup" render={props => <AuthForm {...props} action="Register"/>} />

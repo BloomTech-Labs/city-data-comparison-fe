@@ -4,7 +4,7 @@ const axiosAuth = () => {
 
     const token = localStorage.getItem('jwt')
     return axios.create({
-        baseURL: "",
+        baseURL: 'https://be.citrics.io/api',
         headers: {
             authorization: token
         }

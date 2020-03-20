@@ -6,12 +6,6 @@ import RadarGraph from '../graphs/RadarGraph'
 import ReactGA from "react-ga";
 
 import pointer from './assets/pointer.svg'
-import location from './assets/location.svg'
-import data from './assets/data_visual.svg'
-import control from './assets/control_data.svg'
-
-import landing from './assets/landing2.jpg'
-
 import backwheel from "./assets/motorbike_back_wheel.png"
 import edgeblur from "./assets/edge_blur.png"
 import driver from "./assets/motorbike_driver.png"
@@ -25,6 +19,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import "../../App.scss"
 
+import landing from '../homepage-imgs/landing.svg'
+import economy from '../homepage-imgs/economy.svg'
+import community from '../homepage-imgs/community.svg'
+import housing from '../homepage-imgs/housing.svg'
+import data from '../homepage-imgs/visualize.svg'
+import location from '../homepage-imgs/map.svg'
+import control from '../homepage-imgs/control.svg'
+import unlock from '../homepage-imgs/unlock.svg'
 function Dashboard({history}){
 
      AOS.init()
@@ -37,7 +39,7 @@ function Dashboard({history}){
        useEffect(_ => {
           if(user){
           axiosAuth()
-          .get(`https://be.citrics.io/api/users/profile/${user.id}/image`)
+          .get(`/users/profile/image`)
           .then(res => {
                
                const image = res.data[0]
@@ -320,8 +322,11 @@ function Dashboard({history}){
                     data-aos-mirror="true"
                     data-aos-once="true"
                >
+                    
                     <div className="motoranimationcontainer">
-                         <div className="motoranimbackground">
+                         <img alt='img of lock' className="unlockfeatures" src={unlock} />
+                         
+                         {/* <div className="motoranimbackground">
                               <img className="edgeblurleft" src={edgeblur}/>
                               <img className="edgeblurright" src={edgeblur}/>
                          </div>
@@ -330,7 +335,7 @@ function Dashboard({history}){
                               <img className="motoranim wheel" src={frontwheel} alt="frontwheel" style={{top:"90px", left:"67px"}}/>
                               <img className="motoranim driver" src={driver} alt="driver" style={{top:"20px"}}/>
                               <img className="motoranim plant" src={plant} alt="plant" style={{top:"27px", right:"60px"}} />
-                         </div>
+                         </div> */}
                     </div>    
                     <div className="bonus-features-CTA">
                          <p className="bonus-features-title">Unlock bonus features</p>
@@ -410,7 +415,8 @@ function Dashboard({history}){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-                              <LineGraph2 />
+                              <img className="feature-images" src={housing} alt="housing visual"/>     
+                              {/* <LineGraph2 /> */}
                               <p className="metrics-description"><p className="metrics-description-title">Housing</p>Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
@@ -422,7 +428,8 @@ function Dashboard({history}){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-                              <LineGraph />
+                              <img className="feature-images" src={community} alt="community visual"/>
+                              {/* <LineGraph /> */}
                               <p className="metrics-description"><p className="metrics-description-title">Community</p>Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
@@ -434,7 +441,8 @@ function Dashboard({history}){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-                              <RadarGraph />
+                              <img className="feature-images" src={economy} alt="economy visual"/>
+                              {/* <RadarGraph /> */}
                               <p className="metrics-description"><p className="metrics-description-title">Economy</p>Economic data includes household income, major industries, etc.</p>
                          </div>
                     </div>

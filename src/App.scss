@@ -55,7 +55,7 @@ html,body{
   margin:0 auto;
   font-family: 'Rubik', sans-serif;
   box-sizing:border-box;
-  color: #2e2f38;
+  color: #5E6066;
   line-height:1.26;
   max-width: 100%;
   overflow-x: hidden;
@@ -80,16 +80,13 @@ html,body{
      display: flex;
      justify-content: space-between;
      align-items: center;
-     position: fixed;
+     position: absolute;
      top: 0;
      width: 100%;
-     opacity: 0.97;
      padding:10px 0;
      padding-top:15px;
      font-size: 0.9rem;
-     z-index: 99999;
      margin:0 auto;
-     background-color: #fff;
      transition: top 0.3s;
 
      
@@ -157,7 +154,7 @@ html,body{
   }
   #signup-link{
     border:none;
-    background-color:#00bfa5;
+    background-color:#a33a00;
     border-radius:5px;
     padding:10px 13px;
     color:white;
@@ -197,7 +194,7 @@ html,body{
          display: none;
     }
     .navigation-container{
-      background-color:#fff !important;
+      // background-color:#fff !important;
       nav {
         width:100%;
       }
@@ -418,7 +415,7 @@ background-color: #2ca4fc;
     }
 
     .sign-up-CTA{
-      background-color:#5666fa;
+      background-color:#a33a00;
       color:white;
       border:none;
       padding:10px 37px;
@@ -540,7 +537,7 @@ background-color: #2ca4fc;
     }
 
     input:checked + .slider {
-      background-color: #00bfa5;
+      background-color: #A33A00;
     }
 
     input:checked + .slider:before {
@@ -559,7 +556,7 @@ background-color: #2ca4fc;
 
 
     .search-toggle-green{
-      color:#00bfa5 !important;
+      color: #A33A00 !important;
     }
   }
   }
@@ -675,7 +672,7 @@ background-color: #2ca4fc;
       font-size:1.1rem;
       font-weight:500;
       padding:14px 50px;
-      background-color:#2ca4fc;
+      background-color:#A33A00;
       color:white;
       max-width:400px;
       transition:0.22s ease;
@@ -795,7 +792,7 @@ background-color: #2ca4fc;
   margin-top:40px;
   padding-top:30px;
   padding-bottom:80px;
-  background-color:#F1F9FD;
+  background-color:#D2D7DC;
   border-bottom:1px solid #ECF1F5;
   border-top:1px solid #ECF1F5;
   height:270px;
