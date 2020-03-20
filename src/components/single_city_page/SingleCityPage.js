@@ -89,6 +89,23 @@ const SingleCityPage = (props) => {
     const [restaurants, setRestaurants] = useState([]);
     const [events, setEvents] = useState([]);
 
+    const [defaultDisplay, setdefaultDisplay] = useState(false)
+
+    useEffect(() => {
+      let checker = false
+      for (const item in categories) {
+          if (categories[item] === true){
+              checker = true
+          }           
+      }
+      if (checker === true){
+          setdefaultDisplay(true)
+      } else {
+          setdefaultDisplay(false)
+      }
+    }, [categories])
+
+
   // function for handling sidebar checkbox check/uncheck (display of categories)
   function onChange(e) {
     setCategories({
@@ -508,12 +525,12 @@ const SingleCityPage = (props) => {
 
                     {/* sidebar categories only display when checkbox checked */}
 
-                    {categories.Restaurants ? 
+                    {!defaultDisplay || categories.Restaurants ? 
                         <SCPrestaurants restaurants={restaurants} />
                         : null
                     }
 
-                    {categories.Events ?
+                    {!defaultDisplay || categories.Events ?
                         <SCPevents events={events}/>
                         : null
                     }
@@ -549,7 +566,7 @@ const SingleCityPage = (props) => {
                         <SCPparks yelpApi={yelpApi} data={yelp.parks} />
                         : null}
 
-                    {categories.Activities ? 
+                    {!defaultDisplay || categories.Activities ? 
                         <SCPactivities yelpApi={yelpApi} data={yelp.active} />
                         : null}
 
