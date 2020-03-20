@@ -15,7 +15,7 @@ const Favorites = (props) => {
         //Users saved cities axios call
         useEffect(() => {
             axiosAuth()
-                .get(`https://be.citrics.io/api/users/favs/${user.id}`)
+                .get(`/users/favs`)
                 .then(res => {
                     const favArray = [];
                     res.data.forEach(city => {
@@ -41,7 +41,7 @@ const Favorites = (props) => {
     const handleDelete = id => {
         // id.preventDefault();
         axiosAuth()
-            .delete(`https://be.citrics.io/api/users/favs`, id)
+            .delete(`/api/users/favs`, id)
             .then(res => {
                 console.log(res);
             })
