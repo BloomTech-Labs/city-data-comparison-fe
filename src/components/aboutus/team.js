@@ -218,19 +218,6 @@ const team = [
     
     }, {
         labs: 21,
-        name: 'Kyle Porter', 
-        image: kyle,
-        role: 'Web Developer', 
-        social: {
-            twitter: null, 
-            github: 'kylewp13', 
-            linkedin: 'kyletech'
-        }, 
-        about: null,
-        portfolio: 'https://www.kyleporter.tech'
-    
-    }, {
-        labs: 21,
         name: 'Dariush Khansari', 
         image: dariush,
         role: 'UX Designer', 
@@ -240,7 +227,7 @@ const team = [
             linkedin: 'dariush-khansari-8b8a068'
         }, 
         about: 'Dariush Khansari tells stories through visual design and multimedia.',
-        portfolio: null
+        portfolio: 'https://dariush.myportfolio.com/'
     
     }, {
         labs: 21,
@@ -288,10 +275,10 @@ const team = [
         social: {
             twitter: null, 
             github: 'nephylum', 
-            linkedin: null
+            linkedin: 'eric-ramon'
         }, 
-        about: null,
-        portfolio: null
+        about: 'Eric Ramon is a Data Scientist in Las Vegas. He has over 10 years of teaching experience, has been coding as a hobby for almost 30 years, and even speaks Mandarin Chinese. He hopes to be able to use Data Science to help people understand complex problems, and find novel solutions.',
+        portfolio: 'https://nephylum.github.io/'
     
     }, {
         labs: 21,
@@ -345,6 +332,19 @@ const team = [
         about: null,
         portfolio: null
 
+    },  {
+        labs: 21,
+        name: 'Kyle Porter', 
+        image: kyle,
+        role: 'Web Developer', 
+        social: {
+            twitter: null, 
+            github: 'kylewp13', 
+            linkedin: 'kyletech'
+        }, 
+        about: null,
+        portfolio: 'https://www.kyleporter.tech'
+    
     }
 ]
 

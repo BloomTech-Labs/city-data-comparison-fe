@@ -55,7 +55,7 @@ html,body{
   margin:0 auto;
   font-family: 'Rubik', sans-serif;
   box-sizing:border-box;
-  color: #2e2f38;
+  color: #5E6066;
   line-height:1.26;
   max-width: 100%;
   overflow-x: hidden;
@@ -80,16 +80,13 @@ html,body{
      display: flex;
      justify-content: space-between;
      align-items: center;
-     position: fixed;
+     position: absolute;
      top: 0;
      width: 100%;
-     opacity: 0.97;
      padding:10px 0;
      padding-top:15px;
      font-size: 0.9rem;
-     z-index: 99999;
      margin:0 auto;
-     background-color: #fff;
      transition: top 0.3s;
 
      
@@ -197,7 +194,7 @@ html,body{
          display: none;
     }
     .navigation-container{
-      background-color:#fff !important;
+      // background-color:#fff !important;
       nav {
         width:100%;
       }

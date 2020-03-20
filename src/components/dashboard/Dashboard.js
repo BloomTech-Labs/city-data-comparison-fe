@@ -39,7 +39,7 @@ function Dashboard({history}){
        useEffect(_ => {
           if(user){
           axiosAuth()
-          .get(`https://be.citrics.io/api/users/profile/${user.id}/image`)
+          .get(`/users/profile/image`)
           .then(res => {
                
                const image = res.data[0]
