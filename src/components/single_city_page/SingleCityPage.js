@@ -344,7 +344,7 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <div classname="mainCatFilter">
+              <div className="mainCatFilter">
               <h3 className="anchor-header2" onClick={toggle2}>Attractions</h3>
               <img src={dropdownIcon} className="dropIcon2 toggle-down"/>
               </div>
