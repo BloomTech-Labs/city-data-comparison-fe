@@ -63,12 +63,13 @@ function NavBar (){
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
                <nav className="main-nav">
+                    <Link to="/" className="nav-button">Home</Link>
                     {user ? <div /> : null}
-                    <Link to="/map" className="nav-button">Explore</Link>
+                    <Link to="/map" className="nav-button">Compare</Link>
                     {user == null ? 
                     <>
                          <Link id="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
-                         <Link id="signup-link" to="/signup">Get Started</Link>
+                         {/* <Link id="signup-link" to="/signup">Get Started</Link> */}
                     </> :
                     <>
                          <DropMenu/>
