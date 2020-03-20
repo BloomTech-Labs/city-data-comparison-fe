@@ -164,7 +164,6 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
                                     <span class="spanStyle">
                                         <input type="checkbox" id="rent" name="rent" value="rent" onChange={onChange}/>
                                         <label for="rent">rent</label><br />
-                                        {/* <Link onClick={() => dataNavClicked("rent")}  type="checkbox" id="rent" name="rent" value="rent" activeClass="active" className="anchor-link" to="rent" spy={true} smooth={true} duration={500} offset={-150}>Rent</Link> */}
                                         <Link onClick={() => dataNavClicked("housing costs")} activeClass="active" className="anchor-link" to="homeprice" spy={true} smooth={true} duration={500} offset={-150}>Housing Costs</Link>
                                         <Link onClick={() => dataNavClicked("ownerCosts")} activeClass="active" className="anchor-link" to="ownerCosts" spy={true} smooth={true} duration={500} offset={-150}>Owner Costs</Link>
                                         <Link onClick={() => dataNavClicked("rooms")} activeClass="active" className="anchor-link" to="rooms" spy={true} smooth={true} duration={500} offset={-150}>Rooms</Link>

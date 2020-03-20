@@ -16,7 +16,15 @@ import lodging from '../../assets/single_city_page_photos/lodging.png';
 
 const SingleCityPage = () => {
   
-    const [categories, setCategories] = useState({
+  // const [menu, setMenu] = useState({status: 'closed'})
+
+  // const dataNavClicked = link => {
+  //     ReactGA.event({ category: 'Data', 
+  //     action: `clicked ${link} link` });
+  // }
+  
+  
+  const [categories, setCategories] = useState({
     })
 
     // function for handling sidebar checkbox check/uncheck (display of categories)
@@ -57,6 +65,8 @@ const SingleCityPage = () => {
         document.getElementById("menuCollapse7").classList.toggle("hidden");
     }
 
+
+
     return (
         <>
     {/* hero/header section */}
@@ -91,7 +101,7 @@ const SingleCityPage = () => {
                 <section className="SCPsidebar">
     {/* sidebar filter code */}
                     <div className="SCPfilter">
-                        <h4>Filter</h4>
+                        <h4>Filter by</h4>
                     </div>
                     <div className="SCPfilterCatContainer">
                         <ul>
