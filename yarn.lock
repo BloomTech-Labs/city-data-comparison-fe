@@ -1534,7 +1534,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@7.8.4":
+"@babel/runtime@7.8.4", "@babel/runtime@^7.5.5":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
   integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
@@ -1545,13 +1545,6 @@
   version "7.7.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.7.tgz#194769ca8d6d7790ec23605af9ee3e42a0aa79cf"
   integrity sha512-uCnC2JEVAu8AKB5do1WRIsvrdJ0flYx/A/9f/6chdacnEZ7LmavjdsDXr5ksYBegxtuTPR5Va9/+13QF/kFkCA==
-  dependencies:
-    regenerator-runtime "^0.13.2"
-
-"@babel/runtime@^7.5.5":
-  version "7.8.4"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
-  integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -1612,11 +1605,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@brainhubeu/react-carousel@^1.13.2":
-  version "1.13.2"
-  resolved "https://registry.yarnpkg.com/@brainhubeu/react-carousel/-/react-carousel-1.13.2.tgz#a79005d6de19e1e25bfbc430f7911f16b1ea6f6f"
-  integrity sha512-ySAxtIe8ft4LvhR64inDc+zNwxhdcbpP0mM+3n9KJ7onrgK8vOrkPkABq6p4MjIJgd7epWfJqX6n0FL/hTBDPw==
-
 "@babel/types@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.8.3.tgz#5a383dffa5416db1b73dedffd311ffd0788fb31c"
@@ -1625,6 +1613,11 @@
     esutils "^2.0.2"
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
+
+"@brainhubeu/react-carousel@^1.13.2":
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/@brainhubeu/react-carousel/-/react-carousel-1.13.2.tgz#a79005d6de19e1e25bfbc430f7911f16b1ea6f6f"
+  integrity sha512-ySAxtIe8ft4LvhR64inDc+zNwxhdcbpP0mM+3n9KJ7onrgK8vOrkPkABq6p4MjIJgd7epWfJqX6n0FL/hTBDPw==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
@@ -4577,6 +4570,11 @@ data-urls@^1.0.0, data-urls@^1.1.0:
     abab "^2.0.0"
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
+
+debounce@^1.1.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
+  integrity sha512-mYtLl1xfZLi1m4RtQYlZgJUNQjl4ZxVnHzIR8nLLgi4q1YT8o/WM+MK/f8yfcc9s5Ir5zRaPZyZU6xs1Syoocg==
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
@@ -10109,6 +10107,11 @@ range-parser@^1.2.1, range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
+range@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/range/-/range-0.0.3.tgz#b5b8eb2463a516b624a563bd32b18fe89e70151b"
+  integrity sha1-tbjrJGOlFrYkpWO9MrGP6J5wFRs=
+
 raw-body@2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/raw-body/-/raw-body-2.4.0.tgz#a1ce6fb9c9bc356ca52e89256ab59059e13d0332"
@@ -10148,6 +10151,14 @@ react-burger-menu@^2.6.13:
     eve "~0.5.1"
     prop-types "^15.7.2"
     snapsvg-cjs "0.0.6"
+
+react-carousel@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/react-carousel/-/react-carousel-4.3.0.tgz#de694c605664cb58174f20b02947cb559f519e89"
+  integrity sha512-t8MfCK877KuOaQFAsO6NwzkWdhcJG8hxSN5zYR7/cSfTNI6DnM/HswvgvdfajtiETuoLZRMXXLZv6QRLGETKjw==
+  dependencies:
+    debounce "^1.1.0"
+    range "0.0.3"
 
 react-chartjs-2@^2.8.0:
   version "2.8.0"
@@ -12255,14 +12266,6 @@ typescript-tuple@^2.2.1:
   integrity sha512-Zcr0lbt8z5ZdEzERHAMAniTiIKerFCMgd7yjq1fPnDJ43et/k9twIFQMUYff9k5oXcsQ0WpvFcgzK2ZKASoW6Q==
   dependencies:
     typescript-compare "^0.0.2"
-
-uglify-js@3.4.x:
-  version "3.4.10"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.4.10.tgz#9ad9563d8eb3acdfb8d38597d2af1d815f6a755f"
-  integrity sha512-Y2VsbPVs0FIshJztycsO2SfPk7/KAF/T72qzv9u5EpQ4kB2hQoHlhNQTsNyy6ul7lQtqJN/AoWeS23OzEiEFxw==
-  dependencies:
-    commander "~2.19.0"
-    source-map "~0.6.1"
 
 uglify-js@^3.1.4:
   version "3.7.4"
