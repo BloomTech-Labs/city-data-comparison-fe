@@ -7,6 +7,19 @@ import './SingleCityPage.scss';
 
 import SCPrestaurants from "./SCPrestaurants";
 import SCPevents from "./SCPevents";
+import SCPmusic from "./SCPmusic";
+import SCPcoffee from "./SCPcoffee";
+import SCPtours from "./SCPtours";
+import SCPmuseums from "./SCPmuseums";
+import SCPtheater from "./SCPtheater";
+import SCPsportsTeams from "./SCPsportsTeams";
+import SCPparks from "./SCPparks";
+import SCPactivities from "./SCPactivities";
+import SCPsocialClubs from "./SCPsocialClubs";
+import SCPfashion from "./SCPfashion";
+import SCPfurniture from "./SCPfurniture";
+import SCPhardware from "./SCPhardware";
+import SCPhotels from "./SCPhotels";
 import SCPcityServices from "./SCPcityServices";
 
 import cityscape from '../../assets/single_city_page_photos/cityscape.jpg';
@@ -28,17 +41,50 @@ import cityServices from '../../assets/single_city_page_photos/cityServices.png'
 import shopping from '../../assets/single_city_page_photos/shopping.png';
 import lodging from '../../assets/single_city_page_photos/lodging.png';
 import dropdownIcon from '../../assets/single_city_page_photos/DropdownIcon.png'
-
 import backArrow from '../../assets/single_city_page_photos/Back arrow.png';
 
 const SingleCityPage = (props) => {
 
   const { latitude, longitude, cityId } = queryString.parse(props.location.search);
 
-    const [categories, setCategories] = useState({
-      Restaurants: true,
-      Events: true
+    const [yelp, setYelp] = useState({
+      musicvenues: [],
+      coffee: [],
+      tours: [],
+      museums: [],
+      theater: [],
+      sportsteams: [],
+      parks: [],
+      active: [],
+      social_clubs: [],
+      fashion: [],
+      furniture: [],
+      hardware: [],
+      hotels: [],
+      publicservicesgovt: [],
+
     });
+
+    const [categories, setCategories] = useState({
+      Restaurants: false,
+      Events: false,
+      Music: false,
+      Coffee: false,
+      Tours: false,
+      Museums: false,
+      Theater: false,
+      SportsTeams: false,
+      Parks: false,
+      Activities: false,
+      SocialClubs: false,
+      Fashion: false,
+      Furniture: false,
+      Hardware: false,
+      Hotels: false,
+      CityServices: false,
+
+    });
+
     const [description, setDescription] = useState('Information not available');
     const [restaurants, setRestaurants] = useState([]);
     const [events, setEvents] = useState([]);
@@ -196,6 +242,19 @@ const SingleCityPage = (props) => {
             .catch(error => console.log("Events", error))
     }, [latitude, longitude]);
 
+    //API CALL FOR ALL OTHER CATEGORIES
+    function yelpApi (category) {
+    
+      axios.get(`https://be.citrics.io/api/yelp/categories/${latitude}/${longitude}/${category}`)
+            .then(response => {
+                setYelp({
+                  ...yelp, 
+                  [category]: response.data
+                })
+            })
+            .catch(error => console.log("category", error))
+      }
+
     return (
         <>
         <header>
@@ -218,7 +277,7 @@ const SingleCityPage = (props) => {
                     </div>
 
                     <div className="city-desc">
-                      <p>{description}</p>
+                      <p>{description.length<=500 ? description : `${description.substring(0,500)}... more`}</p>
                     </div>
                 </div>
             </section>
@@ -237,7 +296,9 @@ const SingleCityPage = (props) => {
                 <span class="spanStyle">
                   <label for="Restaurants" class="SCPfilterContain">
                     Restaurants
-                    <input type="checkbox" id="Restaurants" name="Restaurants" value="Restaurants" onChange={onChange} />
+                    <input type="checkbox" id="Restaurants" name="Restaurants" value={categories.Restaurants} 
+                    // checked={categories.Restaurants}
+                    onChange={onChange}  />
                     <span class="SCPcheckmark"></span>
                   </label>
                   <br />
@@ -455,53 +516,82 @@ const SingleCityPage = (props) => {
                         : null
                     }
 
-                    {categories.Music ? null : null}
+                    {categories.Music ? 
+                        <SCPmusic yelpApi={yelpApi} data={yelp.musicvenues} /> 
+                        : null}
 
-                    {categories.Coffeeshops ? null : null}
 
-                    {categories.Tours ? null : null}
+                    {categories.Coffeeshops ? 
+                        <SCPcoffee yelpApi={yelpApi} data={yelp.coffee} />
+                        : null}
 
-                    {categories.Museums ? null : null}
+                    {categories.Tours ? 
+                        <SCPtours yelpApi={yelpApi} data={yelp.tours} />
+                        : null}
 
-                    {categories.Theater ? null : null}
+                    {categories.Museums ? 
+                        <SCPmuseums yelpApi={yelpApi} data={yelp.museums} />
+                        : null}
 
-                    {categories.Performing_Arts ? null : null}
+                    {categories.Theater ? 
+                        <SCPtheater yelpApi={yelpApi} data={yelp.theater} />
+                        : null}
 
-                    {categories.Professional_Sports ? null : null}
+                    {/* {categories.Performing_Arts ? null : null} */}
 
-                    {categories.Parks ? null : null}
+                    {categories.Professional_Sports ? 
+                        <SCPsportsTeams yelpApi={yelpApi} data={yelp.sportsteams} />
+                        : null}
 
-                    {categories.Activities ? null : null}
+                    {categories.Parks ? 
+                        <SCPparks yelpApi={yelpApi} data={yelp.parks} />
+                        : null}
 
-                    {categories.Clubs ? null : null}
+                    {categories.Activities ? 
+                        <SCPactivities yelpApi={yelpApi} data={yelp.active} />
+                        : null}
 
-                    {categories.Sports ? null : null}
+                    {categories.Clubs ? 
+                        <SCPsocialClubs yelpApi={yelpApi} data={yelp.social_clubs} />
+                        : null}
 
-                    {categories.Leisure_Activities ? null : null}
+                    {/* {categories.Sports ? null : null} */}
 
-                    {categories.Senior_Activities ? null : null}
+                    {/* {categories.Leisure_Activities ? null : null} */}
 
-                    {categories.Current ? null : null}
+                    {/* {categories.Senior_Activities ? null : null} */}
 
-                    {categories.Historical ? null : null}
+                    {/* {categories.Current ? null : null} */}
 
-                    {categories.Clothing ? null : null}
+                    {/* {categories.Historical ? null : null} */}
 
-                    {categories.Furnishings ? null : null}
+                    {categories.Clothing ? 
+                        <SCPfashion yelpApi={yelpApi} data={yelp.fashion} />
+                        : null}
 
-                    {categories.Hardware ? null : null}
+                    {categories.Furnishings ? 
+                        <SCPfurniture yelpApi={yelpApi} data={yelp.furniture} />
+                        : null}
 
-                    {categories.Miscellaneous ? null : null}
+                    {categories.Hardware ? 
+                        <SCPhardware yelpApi={yelpApi} data={yelp.hardware} />
+                        : null}
 
-                    {categories.Hotels ? null : null}
+                    {/* {categories.Miscellaneous ? null : null} */}
 
-                    {categories.AirBnB ? null : null}
+                    {categories.Hotels ? 
+                        <SCPhotels yelpApi={yelpApi} data={yelp.hotels} />
+                        : null}
 
-                    {categories.Accessibility ? null : null}
+                    {/* {categories.AirBnB ? null : null} */}
 
-                    {categories.Sustainability ? null : null}
+                    {/* {categories.Accessibility ? null : null} */}
 
-                    {categories.City_Services ? null : null}
+                    {/* {categories.Sustainability ? null : null} */}
+
+                    {categories.City_Services ? 
+                        <SCPcityServices yelpApi={yelpApi} data={yelp.publicservicesgovt} />
+                        : null}
 
                     {/* <div className="SCPexplore">
                         <div className="exploreContainer">

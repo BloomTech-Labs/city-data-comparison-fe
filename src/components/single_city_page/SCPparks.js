@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Carousel, { Dots } from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 
 const CategoryContainer = styled.div`
     width: 870px;
@@ -47,19 +49,32 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPparks = (props) => {
-// console.log('propsParks', props.)
+    useEffect(() => {
+        props.yelpApi('parks')
+    }, [])
+    
+    console.log('propsParks', props.data)
+
     return (
         <>
             <CategoryContainer>
                 <CategoryTitle>Parks</CategoryTitle>
                 <CategoryInfo>
-                {/* {props..slice(0,3).map(item => ( */}
+                <Carousel
+                    dots={true}
+                    infinite
+                    slidesPerPage={1}
+                    clickToChange={true}
+                    itemWidth={290}
+                    >    
+                {props.data.businesses ? props.data.businesses.map(item => (
                     <CategoryImgContainer>
-                        {/* <CategoryImg src={item.} /> */}
-                        {/* <CategorySubtitle>{item.}</CategorySubtitle> */}
-                        {/* <CategoryWebsite href={item.}>Website</CategoryWebsite> */}
+                        <CategoryImg src={item.image_url} />
+                        <CategorySubtitle>{item.name.length<=28?item.name.substring(0,28):`${item.name.substring(0,28)}...`}</CategorySubtitle>
+                        <CategoryWebsite href={item.url} target="_blank" >Website</CategoryWebsite>
                     </CategoryImgContainer>
-                {/* ))} */}
+                )) : null }
+                </Carousel>
                 </CategoryInfo>
             </CategoryContainer>
         </>

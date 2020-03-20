@@ -48,17 +48,17 @@ const CategoryWebsite = styled.a`
     text-decoration: none;
 `;
 
-const SCPfashion = (props) => {
+const SCPsportsTeams = (props) => {
     useEffect(() => {
-        props.yelpApi('fashion')
+        props.yelpApi('sportsteams')
     }, [])
     
-    console.log('propsFashion', props.data)
+    console.log('propsSportsTeams', props.data)
 
     return (
         <>
             <CategoryContainer>
-                <CategoryTitle>Shopping</CategoryTitle>
+                <CategoryTitle>Sports Teams</CategoryTitle>
                 <CategoryInfo>
                 <Carousel
                     dots={true}
@@ -81,4 +81,4 @@ const SCPfashion = (props) => {
     )
 }
 
-export default SCPfashion;
+export default SCPsportsTeams;
