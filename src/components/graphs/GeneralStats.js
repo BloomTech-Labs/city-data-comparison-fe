@@ -43,7 +43,7 @@ function TotalPopulation({ ethData }) {
             <div className="main-contain">
               <div className="stats-div">
                 <div className="button-div">
-                  <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
+                  <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}&cityId=${item._id}`
                   }><button className="quality-button">Experience {item.city_no_st}</button></Link>
                 </div>
                 <div className="current-weather">
@@ -331,7 +331,7 @@ function TotalPopulation({ ethData }) {
               </div>
             </div>
             <div className="button-contain3">
-              <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
+              <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}&cityId=${item._id}`
               }><button className="quality-button">Experience {item.city_no_st}</button></Link>
             </div>
             <div className="main-contain2">

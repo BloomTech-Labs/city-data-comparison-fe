@@ -63,13 +63,13 @@ const SCPevents = (props) => {
                     clickToChange={true}
                     itemWidth={290}
                     >
-                {props.events.events.map(item => (
+                {props.events.events ? props.events.events.map(item => (
                     <CategoryImgContainer>
                         <CategoryImg src={item.image_url} />
                         <CategorySubtitle>{item.name.length<=28?item.name.substring(0,28):`${item.name.substring(0,28)}...`}</CategorySubtitle>
                         <CategoryWebsite href={item.event_site_url} target="_blank" >Event Website</CategoryWebsite>
                     </CategoryImgContainer>
-                ))}
+                )) : null}
                 </Carousel>
                 </CategoryInfo>
             </CategoryContainer>
