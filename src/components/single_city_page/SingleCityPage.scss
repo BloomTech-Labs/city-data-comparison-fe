@@ -137,33 +137,68 @@
             font-size: 20px;
         }
 
-        .SCPfilterCatContainer .anchor-header1 .dropIcon1 {
-            margin-left: 100px;
+        .mainCatFilter {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .dropIcon1 {
+                height: .6rem;
+                margin: 1.5rem;
+            }
+            .dropIcon2 {
+                height: .6rem;
+                margin: 1.5rem;
+            }
+            .dropIcon3 {
+                height: .6rem;
+                margin: 1.5rem;
+            }
+            .dropIcon4 {
+                height: .6rem;
+                margin: 1.5rem;
+            }
+            .dropIcon5 {
+                height: .6rem;
+                margin: 1.5rem;
+            }
+            .dropIcon6 {
+                height: .6rem;
+                margin: 1.5rem;
+            }
+            .dropIcon7 {
+                height: .6rem;
+                margin: 1.5rem;
+            }
         }
 
-        .SCPfilterCatContainer .anchor-header2 .dropIcon2 {
-            margin-left: 113px;
-        }
+        // .SCPfilterCatContainer .anchor-header1 .dropIcon1 {
+        //     margin-left: 100px;
+        // }
 
-        .SCPfilterCatContainer .anchor-header3 .dropIcon3 {
-            margin-left: 117px;
-        }
+        // .SCPfilterCatContainer .anchor-header2 .dropIcon2 {
+        //     margin-left: 113px;
+        // }
 
-        .SCPfilterCatContainer .anchor-header4 .dropIcon4 {
-            margin-left: 142px;
-        }
+        // .SCPfilterCatContainer .anchor-header3 .dropIcon3 {
+        //     margin-left: 117px;
+        // }
 
-        .SCPfilterCatContainer .anchor-header5 .dropIcon5 {
-            margin-left: 130px;
-        }
+        // .SCPfilterCatContainer .anchor-header4 .dropIcon4 {
+        //     margin-left: 142px;
+        // }
 
-        .SCPfilterCatContainer .anchor-header6 .dropIcon6 {
-            margin-left: 145px;
-        }
+        // .SCPfilterCatContainer .anchor-header5 .dropIcon5 {
+        //     margin-left: 130px;
+        // }
 
-        .SCPfilterCatContainer .anchor-header7 .dropIcon7 {
-            margin-left: 140px;
-        }
+        // .SCPfilterCatContainer .anchor-header6 .dropIcon6 {
+        //     margin-left: 145px;
+        // }
+
+        // .SCPfilterCatContainer .anchor-header7 .dropIcon7 {
+        //     margin-left: 140px;
+        // }
 
         .SCPfilterContain {
             display: block;

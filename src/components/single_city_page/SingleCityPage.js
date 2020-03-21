@@ -89,6 +89,23 @@ const SingleCityPage = (props) => {
     const [restaurants, setRestaurants] = useState([]);
     const [events, setEvents] = useState([]);
 
+    const [defaultDisplay, setdefaultDisplay] = useState(false)
+
+    useEffect(() => {
+      let checker = false
+      for (const item in categories) {
+          if (categories[item] === true){
+              checker = true
+          }           
+      }
+      if (checker === true){
+          setdefaultDisplay(true)
+      } else {
+          setdefaultDisplay(false)
+      }
+    }, [categories])
+
+
   // function for handling sidebar checkbox check/uncheck (display of categories)
   function onChange(e) {
     setCategories({
@@ -255,6 +272,8 @@ const SingleCityPage = (props) => {
             .catch(error => console.log("category", error))
       }
 
+
+
     return (
         <>
         <header>
@@ -291,7 +310,10 @@ const SingleCityPage = (props) => {
           <div className="SCPfilterCatContainer">
             <ul>
 
-              <h3 className="anchor-header1" onClick={toggle1}>Food &amp; Drink<img src={dropdownIcon} className="dropIcon1 toggle-down"/></h3>
+              <div className="mainCatFilter">
+              <h3 className="anchor-header1" onClick={toggle1}>Food &amp; Drink</h3>
+              <img src={dropdownIcon} className="dropIcon1 toggle-down"/>
+              </div>
               <div id="menuCollapse1">
                 <span class="spanStyle">
                   <label for="Restaurants" class="SCPfilterContain">
@@ -322,7 +344,10 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <h3 className="anchor-header2" onClick={toggle2}>Attractions<img src={dropdownIcon} className="dropIcon2 toggle-down"/></h3>
+              <div className="mainCatFilter">
+              <h3 className="anchor-header2" onClick={toggle2}>Attractions</h3>
+              <img src={dropdownIcon} className="dropIcon2 toggle-down"/>
+              </div>
               <div id="menuCollapse2">
                 <span class="spanStyle">
                   <label for="Tours" class="SCPfilterContain">
@@ -353,7 +378,10 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <h3 className="anchor-header3" onClick={toggle3}>Recreation<img src={dropdownIcon} className="dropIcon3 toggle-down"/></h3>
+              <div className="mainCatFilter">
+              <h3 className="anchor-header3" onClick={toggle3}>Recreation</h3>
+              <img src={dropdownIcon} className="dropIcon3 toggle-down"/>
+              </div>
               <div id="menuCollapse3">
                 <span class="spanStyle">
                   <label for="Parks" class="SCPfilterContain">
@@ -389,7 +417,10 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <h3 className="anchor-header4" onClick={toggle4}>Weather<img src={dropdownIcon} className="dropIcon4 toggle-down"/></h3>
+              <div className="mainCatFilter">
+              <h3 className="anchor-header4" onClick={toggle4}>Weather</h3>
+              <img src={dropdownIcon} className="dropIcon4 toggle-down"/>
+              </div>
               <div id="menuCollapse4">
                 <span class="spanStyle">
                   <label for="Current" class="SCPfilterContain">
@@ -405,7 +436,10 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <h3 className="anchor-header5" onClick={toggle5}>Shopping<img src={dropdownIcon} className="dropIcon5 toggle-down"/></h3>
+              <div classname="mainCatFilter">
+              <h3 className="anchor-header5" onClick={toggle5}>Shopping</h3>
+              <img src={dropdownIcon} className="dropIcon5 toggle-down"/>
+              </div>
               <div id="menuCollapse5">
                 <span class="spanStyle">
                   <label for="Clothing" class="SCPfilterContain">
@@ -431,7 +465,10 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <h3 className="anchor-header6" onClick={toggle6}>Lodging<img src={dropdownIcon} className="dropIcon6 toggle-down"/></h3>
+              <div className="mainCatFilter">
+              <h3 className="anchor-header6" onClick={toggle6}>Lodging</h3>
+              <img src={dropdownIcon} className="dropIcon6 toggle-down"/>
+              </div>
               <div id="menuCollapse6">
                 <span class="spanStyle">
                   <label for="Hotels" class="SCPfilterContain">
@@ -447,7 +484,10 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <h3 className="anchor-header7" onClick={toggle7}>Services<img src={dropdownIcon} className="dropIcon7 toggle-down"/></h3>
+              <div className="mainCatFilter">
+              <h3 className="anchor-header7" onClick={toggle7}>Services</h3>
+              <img src={dropdownIcon} className="dropIcon7 toggle-down"/>
+              </div>
               <div id="menuCollapse7">
                 <span class="spanStyle">
                   <label for="Accessibility" class="SCPfilterContain">
@@ -506,12 +546,12 @@ const SingleCityPage = (props) => {
 
                     {/* sidebar categories only display when checkbox checked */}
 
-                    {categories.Restaurants ? 
+                    {!defaultDisplay || categories.Restaurants ? 
                         <SCPrestaurants restaurants={restaurants} />
                         : null
                     }
 
-                    {categories.Events ?
+                    {!defaultDisplay || categories.Events ?
                         <SCPevents events={events}/>
                         : null
                     }
@@ -547,7 +587,7 @@ const SingleCityPage = (props) => {
                         <SCPparks yelpApi={yelpApi} data={yelp.parks} />
                         : null}
 
-                    {categories.Activities ? 
+                    {!defaultDisplay || categories.Activities ? 
                         <SCPactivities yelpApi={yelpApi} data={yelp.active} />
                         : null}
 
