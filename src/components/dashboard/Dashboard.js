@@ -215,6 +215,7 @@ function Dashboard({history}){
                               
                                    {/* TITLE */}
                                    <p className="dashboard-title">Make Your <br/>Move.</p>
+                                   <p className="dashboard-title2">Make <br/>Your <br/>Move.</p>
                                    {/* SEARCH CONTAINER */}
                                    <div className="dashboard-function-container">
                                         {/* TOGGLE SEARCH VS. COMPARE FUNCTIONALITY */}

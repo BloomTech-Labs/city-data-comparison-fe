@@ -121,6 +121,7 @@ html,body{
      align-items: center;
      padding-left: 0%;
      padding-right:2%;
+     margin-top: 5px;;
    }
    
   .main-nav a{
@@ -500,10 +501,22 @@ background-color: #2ca4fc;
     min-width: 1520px;
     min-height: 650px;
     margin-top: 70px;
+
+    @media screen and (max-width: 500px){
+      min-height: 600px;
+    }
   }
   
   .dashboard-image-header {
     margin-left: 150px;
+
+    @media screen and (max-width: 800px){
+      margin-left: 100px;
+    }
+
+    @media screen and (max-width: 500px){
+      margin-left: 50px;
+    }
   }
 }
 
@@ -594,6 +607,7 @@ background-color: #2ca4fc;
     animation-fill-mode:forwards;
     animation-timing-function:cubic-bezier(0.2,0.8,0.2,1);
     transition: .7s cubic-bezier(0.2,0.8,0.2,1);
+
     @keyframes DashboardCTA {
       0% {
         opacity: 0;                
@@ -609,11 +623,35 @@ background-color: #2ca4fc;
       margin-top:-150px;
       width:100%;
       font-weight:500;
-      font-size:7.5vw;
+      font-size: 108px;
       line-height:1;
       margin-bottom:35px;
       color: white;
+
+      @media screen and (max-width: 1440px){
+        font-size: 108px;
+      }
     }
+      .dashboard-title2 {
+        margin-top:-150px;
+        width:100%;
+        font-weight:500;
+        font-size: 108px;
+        line-height:1;
+        margin-bottom:35px;
+        color: white;
+        display: none;
+
+        @media screen and (max-width: 500px){
+          font-size: 105px !important;
+        }
+
+        @media screen and (max-width: 500px){
+          font-size: 75px !important;
+          margin-top: -200px;
+        }
+      }
+    
 
     .dashboard-function-container {
       position: absolute;
@@ -633,10 +671,14 @@ background-color: #2ca4fc;
       padding:13px 40px;
       font-size:1.1rem;
       padding-left:39px;
-      width: 478px;
+      width: 450px;
       border:1px solid #b8bec4;
       border-radius:5px;
       box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.07);
+
+      @media screen and (max-width: 700px){
+        width: 300px;
+      }
 
       &:focus{
         outline:none;
@@ -756,13 +798,17 @@ background-color: #2ca4fc;
 
         .dashboard-search-function{
           width:100%;
+
           input{
-            width:100%;
+            width: 50vw;
           }
 
           .dashboard-title{
-            margin-top:0;
-            text-align:center;
+            display:none;
+          }
+          .dashboard-title2{
+            display: flex;
+            // font-size: 15vw;
           }
           .compare-button{
             // padding:14px 50px;
@@ -988,6 +1034,17 @@ background-color: #2ca4fc;
     .feature-images{
       height: 100px;
       width: 45%;
+    }
+  }
+}
+
+@media screen and (max-width:400px){
+  .feature-descriptions-container{
+    .feature-descriptions{
+
+      p{
+    font-size: .8rem;
+      }
     }
   }
 }
