@@ -273,7 +273,7 @@ function Dashboard({history}){
                                                             })}
                                                        </div>
                                                   </div>
-                                                  <div style={{ display: 'flex' }}>
+                                                  <div style={{ display: 'flex', marginTop: '10px' }}>
                                                        <input 
                                                        placeholder="Enter city two"
                                                        onChange={handleCityTwo}
