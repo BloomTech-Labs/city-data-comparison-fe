@@ -388,15 +388,33 @@ background-color: #2ca4fc;
 .bonus-features-container{
   max-width:900px;
   width: 100%;
-  margin: 0 auto;
+  margin-left: 20%;
   display:flex;
   align-items:center;
   justify-content:space-between;
+  height: 300px;
 
-  .motorbike{
-    width:350px;
-    filter: contrast(105%);
+  @media screen and (max-width: 1100px){
+    margin-left: 15%;
+    width: 75%;
   }
+
+  @media screen and (max-width: 900px){
+    height: 250px;
+  }
+
+  @media screen and (max-width: 500px){
+    height: 275px;
+  }
+
+  @media screen and (max-width: 400px){
+    height: 300px;
+  }
+
+  // .motorbike{
+  //   width:350px;
+  //   filter: contrast(105%);
+  // }
 
   .bonus-features-CTA{
     width:100%;
@@ -454,7 +472,7 @@ background-color: #2ca4fc;
       }
       .sign-up-CTA{
         font-size:1.15rem;
-        width:50%;
+        // width:50%;
       }
     }
   }
@@ -808,7 +826,7 @@ background-color: #2ca4fc;
 
 //* Dashboard Features Styling
 .kevin{
-  margin-top:40px;
+  margin-top:10px;
   padding-top:30px;
   padding-bottom:80px;
   background-color:#D2D7DC;
@@ -1294,53 +1312,53 @@ background-color: #2ca4fc;
 }
 }
 
-.motoranimationcontainer {
-  display: flex;
-  position: relative;
-  height: 300px;
-  min-width: 200px;
-  justify-content: flex-end;
-  align-items: center;
+// .motoranimationcontainer {
+//   display: flex;
+//   position: relative;
+//   height: 300px;
+//   min-width: 200px;
+//   justify-content: flex-end;
+//   align-items: center;
 
-  .motoranimbackground {
-    position: relative;
-    background: url("./components/dashboard/assets/motorbike_background.png") repeat 0 0;
-    background-size: cover;
-    animation: slide 3s linear infinite;
-    height: 300px;
-    width: 300px;
+//   .motoranimbackground {
+//     position: relative;
+//     background: url("./components/dashboard/assets/motorbike_background.png") repeat 0 0;
+//     background-size: cover;
+//     animation: slide 3s linear infinite;
+//     height: 300px;
+//     width: 300px;
 
-    .edgeblurleft {
-      position: absolute;
-      left: 0px;
-      height:300px;
-      width: 150px;
-    }
+//     .edgeblurleft {
+//       position: absolute;
+//       left: 0px;
+//       height:300px;
+//       width: 150px;
+//     }
 
-    .edgeblurright {
-      position: absolute;
-      transform: scaleX(-1);
-      right: 0px;
-      height:300px;
-      width: 150px;
-    }
-  }
+//     .edgeblurright {
+//       position: absolute;
+//       transform: scaleX(-1);
+//       right: 0px;
+//       height:300px;
+//       width: 150px;
+//     }
+//   }
 
-  .motoranim{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-  }
-  .wheel{
-    animation: rotating .5s linear infinite;
-  }
-  .plant{
-    animation: plant .5s cubic-bezier(0.33333, 0.66667, 0.66667, 1) infinite;
-  }
-  .driver{
-    animation: driver .5s cubic-bezier(0.310, 0.440, 0.445, 1.650) infinite;
-  }
-}
+//   .motoranim{
+//     position: absolute;
+//     height: 100%;
+//     width: 100%;
+//   }
+//   .wheel{
+//     animation: rotating .5s linear infinite;
+//   }
+//   .plant{
+//     animation: plant .5s cubic-bezier(0.33333, 0.66667, 0.66667, 1) infinite;
+//   }
+//   .driver{
+//     animation: driver .5s cubic-bezier(0.310, 0.440, 0.445, 1.650) infinite;
+//   }
+// }
 
 @keyframes slide {
   from { background-position: 0 0; }
