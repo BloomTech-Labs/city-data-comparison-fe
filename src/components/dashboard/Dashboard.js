@@ -360,7 +360,7 @@ function Dashboard({history}){
                <div className="kevin">
                <div className="dashboard-features-container">
                     <div className="dashboard-features-title">
-                    <p className="features-title">Features</p>
+                    <h3 className="features-title">Features</h3>
                </div>
                     <div className="feature-descriptions-container"
                          data-aos="fade-up"
@@ -386,7 +386,7 @@ function Dashboard({history}){
                          data-aos-mirror="true"
                          data-aos-once="true"
                     >
-                         <img className="feature-images" src={data} alt="map"/>
+                         <img className="feature-images" src={location} alt="map"/>
                          <div className="feature-descriptions">
                               <p className="feature-title">Map view</p>
                               <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
@@ -401,7 +401,7 @@ function Dashboard({history}){
                          data-aos-mirror="true"
                          data-aos-once="true"
                     >
-                         <img className="feature-images" src={location} alt="data visual"/>
+                         <img className="feature-images" src={data} alt="data visual"/>
                          <div className="feature-descriptions">
                               <p className="feature-title">Visualize data</p>
                               <p>Data visuals help to easily understand cost of living in multiple cities and provide data from a bird’s eye view.</p>
