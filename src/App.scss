@@ -461,8 +461,8 @@ background-color: #2ca4fc;
 }
 
 .dashboard-search-container {
-  display:flex;
-  justify-content:space-between;
+  // display:flex;
+  // justify-content:space-between;
   
   .dashboard-image {
     background-image: url(./components/homepage-imgs/landing.svg);
@@ -584,13 +584,17 @@ background-color: #2ca4fc;
       }
     }
     .dashboard-title{
-      margin-top:30px;
+      margin-top:-150px;
       width:100%;
       font-weight:500;
       font-size:7.5vw;
       line-height:1;
       margin-bottom:35px;
       color: white;
+    }
+
+    .dashboard-function-container {
+      position: absolute;
     }
 
     .search-and-button {
@@ -607,7 +611,7 @@ background-color: #2ca4fc;
       padding:13px 40px;
       font-size:1.1rem;
       padding-left:39px;
-      width:97%;
+      width: 478px;
       border:1px solid #b8bec4;
       border-radius:5px;
       box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.07);
