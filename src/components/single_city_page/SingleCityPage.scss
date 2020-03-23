@@ -33,7 +33,6 @@
         min-height: 100%;
         min-width: 1000px;
         max-height: 600px;
-        // max-width: 1440px;
         display: block;
         margin: 0 auto;
 
@@ -45,7 +44,14 @@
         position: relative;
         top: 0;
         left: 0;
-        
+
+        @media screen and (max-width: 500px) {
+            min-height: 0;
+            min-width: 0;
+            max-height: 75%;
+            width: 100%;
+            margin-bottom: 25px;
+        }
     }
 }
 
@@ -54,6 +60,10 @@
     display: flex;
     justify-content: center;
     max-width: 1440px;
+
+    @media screen and (max-width: 500px) {
+        margin-top: 75px;
+        }
 
     .SCPdescription {
         width: 100%;
@@ -92,11 +102,14 @@
             font-weight: 500;
             font-size: 3.38rem;
             line-height: 125.69%;
+            
+            @media screen and (max-width: 500px) {
+                font-size: 2.5rem;
+            }
         }
 
         .city-desc{
-          width: 67%;
-          
+            width: 67%;
             p {
                 margin: 0;
                 font-family: Rubik;
@@ -111,6 +124,10 @@
 
                 @media screen and (max-width: 1000px) {
                     font-size: .9rem;
+                }
+
+                @media screen and (max-width: 500px) {
+                    font-size: 1rem;
                 }
             }
         }
@@ -130,7 +147,11 @@
         width: 23%;
         height: auto;
         margin-right: 10%;
-      
+
+        @media screen and (max-width: 500px) {
+            display: none
+            }
+
         .SCPfilter h4 {
             display: flex;
             padding-left: 38px;
@@ -329,6 +350,10 @@
         justify-content: start;
         width: 67%;
         margin: 0 0 100px 0;
+
+        @media screen and (max-width: 500px) {
+            margin-top: 30px;
+        }
 
         // ends SCPsidebar
 
