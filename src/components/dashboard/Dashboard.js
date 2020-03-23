@@ -229,6 +229,7 @@ function Dashboard({history}){
                                                        name="cityOne"
                                                        />
                                                        <button onClick={submitCity} className="compare-button">Go</button>
+                                                       </div>
                                                        <div>
                                                             {cityOneSuggestions.map( (suggestion) => {
                                                                  const style = {
@@ -242,7 +243,7 @@ function Dashboard({history}){
                                                                  return <div key={suggestion._id} name="cityOne" style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img alt="a pointer" className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
                                                             })}
                                                        </div>
-                                                  </div>
+                                                  
                                              </form>
                                         </div>
 
@@ -256,7 +257,8 @@ function Dashboard({history}){
                                                        onChange={handleCityOne}
                                                        value={compare.cityOne}
                                                        name="cityOne"
-                                                       />                 
+                                                       />
+                                                                       
                                                        <div>
                                                             {cityOneSuggestions.map( (suggestion) => {
                                                                  const style = {
@@ -271,12 +273,14 @@ function Dashboard({history}){
                                                             })}
                                                        </div>
                                                   </div>
-                                                  <div>
+                                                  <div style={{ display: 'flex' }}>
                                                        <input 
                                                        placeholder="Enter city two"
                                                        onChange={handleCityTwo}
                                                        value={compare.cityTwo}
                                                        />
+                                                       <button onClick={submitCity} className="compare-button">Go</button> 
+                                                       </div>
                                                        <div>
                                                             {cityTwoSuggestions.map( (suggestion) => {
                                                                  const style = {
@@ -290,7 +294,7 @@ function Dashboard({history}){
                                                                  return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img alt="a map pin" className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
                                                             })}
                                                        </div>
-                                                  </div>
+                                                  
                                              </form>
                                         </div>
                                         }

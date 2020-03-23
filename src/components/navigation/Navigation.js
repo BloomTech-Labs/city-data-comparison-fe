@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { Link } from "react-router-dom";
 import citrics from './citrics-mock.png'
-import lock from './lock.svg'
+import lock from './lock.png'
 import { UserContext } from '../../contexts/UserContext';
 import DropMenu from "./Dropdown"
 
@@ -68,7 +68,7 @@ function NavBar (){
                     <Link to="/map" className="nav-button">Compare</Link>
                     {user == null ? 
                     <>
-                         <Link id="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
+                         <Link id="login-link" to="/signin"><img className="lock" alt="lock" src={lock}/>Log In</Link>
                          {/* <Link id="signup-link" to="/signup">Get Started</Link> */}
                     </> :
                     <>
