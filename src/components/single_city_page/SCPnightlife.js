@@ -47,7 +47,7 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPnightlife = (props) => {
-// console.log('propsNightlife', props.)
+
     return (
         <>
             <CategoryContainer>

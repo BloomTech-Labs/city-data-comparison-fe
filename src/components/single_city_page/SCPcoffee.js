@@ -49,11 +49,6 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPcoffee = (props) => {
-    useEffect(() => {
-        props.yelpApi('coffee')
-    }, [])
-    
-    console.log('propsCoffee', props.data)
 
     return (
         <>

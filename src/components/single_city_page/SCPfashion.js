@@ -49,11 +49,6 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPfashion = (props) => {
-    useEffect(() => {
-        props.yelpApi('fashion')
-    }, [])
-    
-    console.log('propsFashion', props.data)
 
     return (
         <>

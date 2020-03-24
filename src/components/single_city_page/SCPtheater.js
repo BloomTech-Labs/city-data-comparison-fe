@@ -49,11 +49,6 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPtheater = (props) => {
-    useEffect(() => {
-        props.yelpApi('theater')
-    }, [])
-    
-    console.log('propsTheater', props.data)
 
     return (
         <>
