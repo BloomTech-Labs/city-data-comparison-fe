@@ -40,34 +40,45 @@ const CurrentWeather = (props) => {
 
   var weatherIcon;
 
-  if ( weather.icon === "clear-day"){
+  if (weather.icon === "clear-day") {
     weatherIcon = clearDay
-} else if( weather.icon === "clear-night"){
+  } else if (weather.icon === "clear-night") {
     weatherIcon = clearNight
-} else if( weather.icon === "partly-cloudy-day"){
+  } else if (weather.icon === "partly-cloudy-day") {
     weatherIcon = partlyCloudyDay
-} else if( weather.icon === "partly-cloudy-night"){
+  } else if (weather.icon === "partly-cloudy-night") {
     weatherIcon = partlyCloudyNight
-} else if( weather.icon === "cloudy"){
+  } else if (weather.icon === "cloudy") {
     weatherIcon = cloudy
-} else if( weather.icon === "rain"){
+  } else if (weather.icon === "rain") {
     weatherIcon = rain
-} else if( weather.icon === "sleet"){
+  } else if (weather.icon === "sleet") {
     weatherIcon = sleet
-} else if( weather.icon === "snow"){
+  } else if (weather.icon === "snow") {
     weatherIcon = snow
-} else if( weather.icon === "wind"){
+  } else if (weather.icon === "wind") {
     weatherIcon = wind
-} else if( weather.icon === "fog"){
+  } else if (weather.icon === "fog") {
     weatherIcon = fog
-};
+  };
 
+  function mobileWeatherImg(info) {
+    if (info.length > 1) {
+      return <div className="weatherImage2">
+        <img alt='weather icon' src={weatherIcon} />
+      </div>
+    } else if (info.length <= 1) {
+      return <div className="weatherImage">
+        <img alt='weather icon' src={weatherIcon} />
+      </div>
+    }
+  };
+
+  console.log("From weather", props.ethData)
   return (
     <>
       <div className="SCPweather">
-        <div className="weatherImage">
-          <img alt='weather icon' src={weatherIcon} />
-        </div>
+        {mobileWeatherImg(props.ethData)}
         <div className="weatherInfo">
           <span>As of {weatherTime}</span>
           <span className="temp">{roundTemp}&deg;F</span>
