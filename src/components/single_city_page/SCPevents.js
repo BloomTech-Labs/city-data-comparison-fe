@@ -49,8 +49,7 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPevents = (props) => {
-    console.log('propsEvents', props.events)
-    
+        
     return (
         <>
             <CategoryContainer>

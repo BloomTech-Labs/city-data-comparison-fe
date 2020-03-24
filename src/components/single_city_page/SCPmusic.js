@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import styled from 'styled-components';
 import Carousel, { Dots } from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
@@ -49,11 +50,6 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPmusic = (props) => {
-    useEffect(() => {
-        props.yelpApi('musicvenues')
-    }, [])
-    
-    console.log('propsMusic', props.data)
 
     return (
         <>

@@ -49,11 +49,6 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPsportsTeams = (props) => {
-    useEffect(() => {
-        props.yelpApi('sportsteams')
-    }, [])
-    
-    console.log('propsSportsTeams', props.data)
 
     return (
         <>

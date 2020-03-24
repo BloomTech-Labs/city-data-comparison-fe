@@ -47,7 +47,7 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPsportsClubs = (props) => {
-// console.log('propsSportsClubs', props.)
+
     return (
         <>
             <CategoryContainer>

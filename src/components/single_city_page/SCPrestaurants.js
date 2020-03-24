@@ -49,7 +49,6 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPrestaurants = (props) => {
-    console.log('propsRest', props.restaurants)
 
     return (
         <>
