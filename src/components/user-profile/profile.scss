@@ -71,6 +71,7 @@
             padding: 0 10px;
             margin: 30px auto;
             
+            
             @media screen and (max-width:800px){
                 width:100%;
             }
@@ -584,38 +585,48 @@
     margin: 0;
 }
 
-.walk-number {
+.number-style25 {
     font-size: 70px;
-    color: #A74E12;
+    color: #FA6501;
 }
 
-.transit-number {
+.number-style50 {
     font-size: 70px;
-    color: #13019A;
+    color: #12D000;
 }
 
-.bike-number {
+.number-style75{
     font-size: 70px;
-    color: #13670B;
+    color: #0062F4;
 }
 
-.sustain-number {
+.number-style100{
     font-size: 70px;
-    color: #5640FB;
+    color:  #1C00EE;
 }
 
-.safety-number {
-    font-size: 70px;
-    color: #5640FB;
+.number-style25-2 {
+    font-size: 50px;
+    color: #FA6501;
 }
 
-.access-number {
-    font-size: 70px;
-    color: #13670B;
+.number-style50-2 {
+    font-size: 50px;
+    color: #12D000;
+}
+
+.number-style75-2 {
+    font-size: 50px;
+    color: #0062F4;
+}
+
+.number-style100-2 {
+    font-size: 50px;
+    color:  #1C00EE;
 }
 
 .quality-button {
-    background-color: #A33A00;
+    // background-color: #A33A00;
     width: 200px;
     height: 50px;
     left: 30px;
@@ -635,6 +646,17 @@
    padding-left: 30px;
 }
 
+.sustain-number {
+    font-size: 70px;
+}
+
+.safety-number {
+    font-size: 70px;
+}
+
+.access-number {
+    font-size: 70px;
+}
 
 // TWO CITIES SELECTED STYLING
 .city-overview-container-medium2 {
@@ -698,17 +720,17 @@
 
 .sustain-number2 {
     font-size: 50px;
-    color: #5640FB;
+    // color: #5640FB;
 }
 
 .safety-number2 {
     font-size: 50px;
-    color: #5640FB;
+    // color: #5640FB;
 }
 
 .access-number2 {
     font-size: 50px;
-    color: #13670B;
+    // color: #13670B;
 }
 
 .weather-style2 {
@@ -726,8 +748,9 @@
 }
 
 .title-container2{
-    width: 50%;
+    // width: 50%;
     // border: 1px solid black;
+    width: 100%;
 }
 
 .avg-temp-container2{
@@ -781,6 +804,7 @@
     background-color:white;
     // margin-left: 5px;
     // margin-right: 5px;
+
 }
 
 .city-overview-container3{
@@ -825,4 +849,192 @@
   
 }
 
+.button-weather-contain {
+    width: 100%;
+    display: flex;
+}
 
+// MOBILE STYLING FOR 1 CITY SELECTED
+@media screen and (max-width: 500px){
+    .stats-div {
+        display: flex;
+        height: 250px;
+        width: 100%;
+    }
+
+    .button-div{
+        display: flex;
+        justify-content: center;
+    }
+
+    .city-overview-border{
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-contain {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stats-div-readjusted {
+        width: 100%;
+    }
+
+   .scores-div {
+    width: 100%;
+   }
+
+   .scores-container {
+    display: flex;
+    flex-wrap: wrap;
+   }
+
+   .scores-contain{
+       h4{
+        font-size: 1rem;
+       }
+       p{
+        font-size: .9rem;
+       }
+   }
+
+   .scores-contain {
+       width: 48%;
+   }
+
+} // ends mobile styling for 1 CITY SELECTED
+
+// MOBILE STYLING FOR 2 CITIES SELECTED
+@media screen and (max-width: 500px){
+    .button-weather-contain{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .title-container2 {
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .button-div2 {
+        width: 100%;
+    }
+
+    .stats-style2 {
+        width: 90%;
+    }
+
+    .scores-div2{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .scores-contain2{
+        width: 100%;
+    }
+}// ends media for 2 cities selected
+
+
+
+// MOBILE STYLING FOR 3 CITIES SELECTED
+@media screen and (max-width: 500px) {
+
+    .city-overview-border3{
+        height: 75px;
+
+        .title-contain3{
+            font-size: 1rem;
+        }
+    }
+
+    .avg-temp-container {
+        display: none;
+    }
+    .avg-temp-container2 {
+        display: none;
+    }
+    .avg-temp-container3 {
+        display: none;
+    }
+
+    .quality-button{
+        width: 100%;
+        font-size: .9rem;
+        
+    }
+
+    .stats-img {
+        display: none;
+    }
+
+    .scores-div3{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap
+    }
+
+    .scores-contain3 {
+        width: 100%;
+    }
+
+    h5{
+        font-size: .4rem;
+    }
+
+    .title-contain3 {
+        h4 {
+            font-size: 1rem
+        }
+        p {
+            font-size: .9rem;
+        }
+    } // ends .title-contain3
+
+    .icon-contain {
+        width: 48%;
+        img {
+            width: 75%;
+        }
+    } // ends .icon-contain
+
+    .icon-score-contain {
+        width: 100%;
+    }
+
+    .number-contain{
+        width: 48%;
+        h5{
+            font-size: .8rem;
+        }
+        p {
+            font-size: 2rem;
+        }
+    }// ends .number-contain
+
+    .number-style25-2 {
+        font-size: 2rem;
+    }
+
+    .number-style50-2 {
+        font-size: 2rem;
+
+    }
+
+    .number-style75-2 {
+        font-size: 2rem;
+
+    }
+
+    .number-style100-2 {
+        font-size: 2rem;
+    }
+
+    .stats-par {
+        font-size: 1.2rem;
+    }
+
+} // this ends @meda styling for 3 cities

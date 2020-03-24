@@ -49,11 +49,6 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPparks = (props) => {
-    useEffect(() => {
-        props.yelpApi('parks')
-    }, [])
-    
-    console.log('propsParks', props.data)
 
     return (
         <>

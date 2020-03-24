@@ -49,11 +49,6 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPsocialClubs = (props) => {
-    useEffect(() => {
-        props.yelpApi('social_clubs')
-    }, [])
-    
-    console.log('propsSocialClubs', props.data)
 
     return (
         <>

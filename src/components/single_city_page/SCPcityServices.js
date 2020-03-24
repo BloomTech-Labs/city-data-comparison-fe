@@ -49,11 +49,6 @@ const CategoryWebsite = styled.a`
 `;
 
 const SCPcityServices = (props) => {
-    useEffect(() => {
-        props.yelpApi('publicservicesgovt')
-    }, [])
-    
-    console.log('propsCityServices', props.data)
 
     return (
         <>

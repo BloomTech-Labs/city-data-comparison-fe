@@ -27,16 +27,42 @@ function TotalPopulation({ ethData }) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
+  function numberColor(number) {
+    if (number <= 25) {
+      return <p className="number-style25">{number}</p>
+    } else if (number > 25 && number <= 50) {
+      return <p className="number-style50">{number}</p>
+    } else if (number > 50 && number <= 75) {
+      return <p className="number-style75">{number}</p>
+    } else if (number > 75) {
+      return <p className="number-style100">{number}</p>
+    }
+  };
+
+  function numberColor2(number) {
+    if (number <= 25) {
+      return <p className="number-style25-2">{number}</p>
+    } else if (number > 25 && number <= 50) {
+      return <p className="number-style50-2">{number}</p>
+    } else if (number > 50 && number <= 75) {
+      return <p className="number-style75-2">{number}</p>
+    } else if (number > 75) {
+      return <p className="number-style100-2">{number}</p>
+    }
+  };
+
+  const cityColors = ["#A33A00", "#0041A3", "#017428"]
+
 
   return (
     <>
       {/* 1 SELECTED CITY */}
       <div className="city-overview-container-small">
-        {ethData.length === 1 ? ethData.map((item) => {
+        {ethData.length === 1 ? ethData.map((item, i) => {
           return <div className="city-overview-container-medium">
             <div className="city-overview-container">
               <div className="city-overview-border">
-                <p>{item.name_with_com}</p>
+                <p style={{ color: cityColors[i] }}>{item.name_with_com}</p>
                 {/* <FavoriteButton city={item} /> */}
               </div>
             </div>
@@ -44,10 +70,10 @@ function TotalPopulation({ ethData }) {
               <div className="stats-div">
                 <div className="button-div">
                   <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}&cityId=${item._id}`
-                  }><button className="quality-button">Experience {item.city_no_st}</button></Link>
+                  }><button style={{ backgroundColor: cityColors[i] }} key={i} className="quality-button">Experience {item.city_no_st}</button></Link>
                 </div>
                 <div className="current-weather">
-                  <CurrentWeather item={item} />
+                  <CurrentWeather item={item} ethData={ethData} />
                 </div>
                 <div className="weather-style">
                   <div className="avg-temp-container">
@@ -91,7 +117,7 @@ function TotalPopulation({ ethData }) {
                       </div>
                       <div className="number-contain">
                         <h5>{scoreStatement(item["Walk Score"])}</h5>
-                        <p className="walk-number">{numberCommas(item["Walk Score"])}</p>
+                        {numberColor(item["Walk Score"])}
                       </div>
                     </div>
                   </div>
@@ -106,7 +132,7 @@ function TotalPopulation({ ethData }) {
                       </div>
                       <div className="number-contain">
                         <h5>{scoreStatement(item["Transit Score"])}</h5>
-                        <p className="transit-number">{numberCommas(item["Transit Score"])}</p>
+                        {numberColor(item["Transit Score"])}
                       </div>
                     </div>
                   </div>
@@ -121,7 +147,7 @@ function TotalPopulation({ ethData }) {
                       </div>
                       <div className="number-contain">
                         <h5>{scoreStatement(item["Bike Score"])}</h5>
-                        <p className="bike-number">{numberCommas(item["Bike Score"])}</p>
+                        {numberColor(item["Bike Score"])}
                       </div>
                     </div>
                   </div>
@@ -136,7 +162,7 @@ function TotalPopulation({ ethData }) {
                       </div>
                       <div className="number-contain">
                         <h5>Good</h5>
-                        <p className="sustain-number">51</p>
+                        <p className="sustain-number">00</p>
                       </div>
                     </div>
                   </div>
@@ -151,7 +177,7 @@ function TotalPopulation({ ethData }) {
                       </div>
                       <div className="number-contain">
                         <h5>Good</h5>
-                        <p className="safety-number">51</p>
+                        <p className="safety-number">00</p>
                       </div>
                     </div>
                   </div>
@@ -166,7 +192,7 @@ function TotalPopulation({ ethData }) {
                       </div>
                       <div className="number-contain">
                         <h5>Minimal</h5>
-                        <p className="access-number">25</p>
+                        <p className="access-number">00</p>
                       </div>
                     </div>
                   </div>
@@ -182,26 +208,25 @@ function TotalPopulation({ ethData }) {
         }) : null}
 
         {/* 2 CITIES SELECTED */}
-        {ethData.length === 2 ? ethData.map(item =>
+        {ethData.length === 2 ? ethData.map((item, i) => (
           <div className="city-overview-container-medium2">
             <div className="city-overview-container">
               <div className="city-overview-border">
                 <div className="title-container2">
-                  <p>{item.name_with_com}</p>
+                  <p style={{ color: cityColors[i] }}>{item.name_with_com}</p>
+                  <div className="button-weather-contain">
                   <div className="button-div2">
-                    <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}`
-                    }><button className="quality-button">Experience {item.city_no_st}</button></Link>
-                  </div>
+                    <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}&cityId=${item._id}`
+                    }><button style={{ backgroundColor: cityColors[i] }} key={i} className="quality-button">Experience {item.city_no_st}</button></Link>
                 </div>
                 {/* <FavoriteButton city={item} /> */}
-                <div>
-                  <CurrentWeather item={item} />
+                  <CurrentWeather item={item} ethData={ethData}/>
+                </div>
                 </div>
               </div>
             </div>
             <div className="main-contain2">
               <div className="stats-div2">
-
                 <div className="weather-style2">
                   <div className="avg-temp-container2">
                     <p className="chart-title">Historical Temperature</p>
@@ -237,7 +262,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>{scoreStatement(item["Walk Score"])}</h5>
-                      <p className="walk-number2">{numberCommas(item["Walk Score"])}</p>
+                      {numberColor2(item["Walk Score"])}
                     </div>
                   </div>
                 </div>
@@ -252,7 +277,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>{scoreStatement(item["Transit Score"])}</h5>
-                      <p className="transit-number2">{numberCommas(item["Transit Score"])}</p>
+                      {numberColor2(item["Transit Score"])}
                     </div>
                   </div>
                 </div>
@@ -267,7 +292,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>{scoreStatement(item["Bike Score"])}</h5>
-                      <p className="bike-number2">{numberCommas(item["Bike Score"])}</p>
+                      {numberColor2(item["Bike Score"])}
                     </div>
                   </div>
                 </div>
@@ -282,7 +307,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>Good</h5>
-                      <p className="sustain-number2">51</p>
+                      <p className="sustain-number2">00</p>
                     </div>
                   </div>
                 </div>
@@ -297,7 +322,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>Good</h5>
-                      <p className="safety-number2">51</p>
+                      <p className="safety-number2">00</p>
                     </div>
                   </div>
                 </div>
@@ -312,33 +337,33 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>Minimal</h5>
-                      <p className="access-number2">25</p>
+                      <p className="access-number2">00</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        ) : null}
+        )) : null}
 
         {/* 3 SELECTED CITIES */}
-        {ethData.length === 3 ? ethData.map(item =>
+        {ethData.length === 3 ? ethData.map((item, i) => (
           <div className="city-overview-container-medium3">
             <div className="city-overview-container3">
               <div className="city-overview-border3">
-                <p className="title-contain3">{item.name_with_com}</p>
+                <p style={{ color: cityColors[i] }} className="title-contain3">{item.name_with_com}</p>
                 {/* <FavoriteButton city={item} /> */}
               </div>
             </div>
             <div className="button-contain3">
               <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}&cityId=${item._id}`
-              }><button className="quality-button">Experience {item.city_no_st}</button></Link>
+              }><button style={{ backgroundColor: cityColors[i] }} key={i} className="quality-button">Experience {item.city_no_st}</button></Link>
             </div>
             <div className="main-contain2">
               <div className="stats-div2">
                 <div className="weather-style3">
-                  <div>
-                    <CurrentWeather item={item} />
+                  <div style={{paddingTop: "10px"}}>
+                    <CurrentWeather item={item} ethData={ethData}/>
                   </div>
                   <div className="avg-temp-container3">
                     <p className="chart-title">Historical Temperature</p>
@@ -374,7 +399,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>{scoreStatement(item["Walk Score"])}</h5>
-                      <p className="walk-number2">{numberCommas(item["Walk Score"])}</p>
+                      {numberColor2(item["Walk Score"])}
                     </div>
                   </div>
                 </div>
@@ -389,7 +414,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>{scoreStatement(item["Transit Score"])}</h5>
-                      <p className="transit-number2">{numberCommas(item["Transit Score"])}</p>
+                      {numberColor2(item["Transit Score"])}
                     </div>
                   </div>
                 </div>
@@ -404,7 +429,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>{scoreStatement(item["Bike Score"])}</h5>
-                      <p className="bike-number2">{numberCommas(item["Bike Score"])}</p>
+                      {numberColor2(item["Bike Score"])}
                     </div>
                   </div>
                 </div>
@@ -419,7 +444,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>Good</h5>
-                      <p className="sustain-number2">51</p>
+                      <p className="sustain-number2">00</p>
                     </div>
                   </div>
                 </div>
@@ -434,7 +459,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>Good</h5>
-                      <p className="safety-number2">51</p>
+                      <p className="safety-number2">00</p>
                     </div>
                   </div>
                 </div>
@@ -449,14 +474,14 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>Minimal</h5>
-                      <p className="access-number2">25</p>
+                      <p className="access-number2">00</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        ) : null}
+        )) : null}
       </div>
     </>
   );

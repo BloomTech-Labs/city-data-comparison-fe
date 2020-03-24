@@ -88,6 +88,24 @@ const SingleCityPage = (props) => {
     const [description, setDescription] = useState('Information not available');
     const [restaurants, setRestaurants] = useState([]);
     const [events, setEvents] = useState([]);
+    const [cityImg, setCityImg] = useState(cityscape)
+
+    const [defaultDisplay, setdefaultDisplay] = useState(false)
+
+    useEffect(() => {
+      let checker = false
+      for (const item in categories) {
+          if (categories[item] === true){
+              checker = true
+          }           
+      }
+      if (checker === true){
+          setdefaultDisplay(true)
+      } else {
+          setdefaultDisplay(false)
+      }
+    }, [categories])
+
 
   // function for handling sidebar checkbox check/uncheck (display of categories)
   function onChange(e) {
@@ -217,24 +235,34 @@ const SingleCityPage = (props) => {
           .then(response => {
               // setDescription(response.data.wiki_data.summary)
               setDescription(response.data.wiki_sum)
+              axios.get(`https://api.unsplash.com/photos/random?client_id=8c128b7fe2a7d14005e3c71c4de86d40db1c42480032d591bf89c41b282ea763&query=${response.data.city_st}downtown`)
+                  .then(res => {
+                    setCityImg(res.data.urls.raw)
+                  })
+                  .catch(err => console.log('cityImg error', err))
               console.log('wikiResponse', response)
           })
           .catch(error => console.log("Description", error))
   }, [cityId]);
 
-  //https://city-data-comparison.herokuapp.com/{access_key}/wikisum/<city_id>
 
-    // API CALL FOR RESTAURANTS
     useEffect(() => {
+        // API CALL FOR RESTAURANTS
         axios.get(`https://be.citrics.io/api/yelp/restaurant/${latitude}/${longitude}`)
-            .then(response => {
-                setRestaurants(response.data)
-            })
-            .catch(error => console.log("Restaurants", error))
-    }, [latitude, longitude]);
+          .then(response => {
+              setRestaurants(response.data)
+          })
+          .catch(error => console.log("Restaurants", error))
 
-    // API CALL FOR EVENTS
-    useEffect(() => {
+        //API CALL FOR ALL OTHER CATEGORIES
+        axios.get(`https://be.citrics.io/api/yelp/all/${latitude}/${longitude}`)
+          .then(response => {
+              setYelp(response.data)
+              console.log(yelp)
+          })
+          .catch(error => console.log("category", error))
+
+        // API CALL FOR EVENTS
         axios.get(`https://be.citrics.io/api/yelp/events/${latitude}/${longitude}`)
             .then(response => {
                 setEvents(response.data)
@@ -242,25 +270,12 @@ const SingleCityPage = (props) => {
             .catch(error => console.log("Events", error))
     }, [latitude, longitude]);
 
-    //API CALL FOR ALL OTHER CATEGORIES
-    function yelpApi (category) {
-    
-      axios.get(`https://be.citrics.io/api/yelp/categories/${latitude}/${longitude}/${category}`)
-            .then(response => {
-                setYelp({
-                  ...yelp, 
-                  [category]: response.data
-                })
-            })
-            .catch(error => console.log("category", error))
-      }
-
     return (
         <>
         <header>
             {/* hero/header section */}
             <div className="SCPhero">
-                <img alt='img of city' className="SCPheroImg" src={cityscape} />
+                <img alt='img of city' className="SCPheroImg" src={cityImg} />
             </div>
         </header>
 
@@ -291,14 +306,15 @@ const SingleCityPage = (props) => {
           <div className="SCPfilterCatContainer">
             <ul>
 
-              <h3 className="anchor-header1" onClick={toggle1}>Food &amp; Drink<img src={dropdownIcon} className="dropIcon1 toggle-down"/></h3>
+              <div className="mainCatFilter">
+              <h3 className="anchor-header1" onClick={toggle1}>Food &amp; Drink</h3>
+              <img src={dropdownIcon} className="dropIcon1 toggle-down"/>
+              </div>
               <div id="menuCollapse1">
                 <span class="spanStyle">
                   <label for="Restaurants" class="SCPfilterContain">
                     Restaurants
-                    <input type="checkbox" id="Restaurants" name="Restaurants" value={categories.Restaurants} 
-                    // checked={categories.Restaurants}
-                    onChange={onChange}  />
+                    <input type="checkbox" id="Restaurants" name="Restaurants" value="Restaurants" onChange={onChange}  />
                     <span class="SCPcheckmark"></span>
                   </label>
                   <br />
@@ -322,7 +338,10 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <h3 className="anchor-header2" onClick={toggle2}>Attractions<img src={dropdownIcon} className="dropIcon2 toggle-down"/></h3>
+              <div className="mainCatFilter">
+              <h3 className="anchor-header2" onClick={toggle2}>Attractions</h3>
+              <img src={dropdownIcon} className="dropIcon2 toggle-down"/>
+              </div>
               <div id="menuCollapse2">
                 <span class="spanStyle">
                   <label for="Tours" class="SCPfilterContain">
@@ -353,7 +372,10 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <h3 className="anchor-header3" onClick={toggle3}>Recreation<img src={dropdownIcon} className="dropIcon3 toggle-down"/></h3>
+              <div className="mainCatFilter">
+              <h3 className="anchor-header3" onClick={toggle3}>Recreation</h3>
+              <img src={dropdownIcon} className="dropIcon3 toggle-down"/>
+              </div>
               <div id="menuCollapse3">
                 <span class="spanStyle">
                   <label for="Parks" class="SCPfilterContain">
@@ -389,7 +411,10 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <h3 className="anchor-header4" onClick={toggle4}>Weather<img src={dropdownIcon} className="dropIcon4 toggle-down"/></h3>
+              <div className="mainCatFilter">
+              <h3 className="anchor-header4" onClick={toggle4}>Weather</h3>
+              <img src={dropdownIcon} className="dropIcon4 toggle-down"/>
+              </div>
               <div id="menuCollapse4">
                 <span class="spanStyle">
                   <label for="Current" class="SCPfilterContain">
@@ -405,7 +430,10 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <h3 className="anchor-header5" onClick={toggle5}>Shopping<img src={dropdownIcon} className="dropIcon5 toggle-down"/></h3>
+              <div classname="mainCatFilter">
+              <h3 className="anchor-header5" onClick={toggle5}>Shopping</h3>
+              <img src={dropdownIcon} className="dropIcon5 toggle-down"/>
+              </div>
               <div id="menuCollapse5">
                 <span class="spanStyle">
                   <label for="Clothing" class="SCPfilterContain">
@@ -431,7 +459,10 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <h3 className="anchor-header6" onClick={toggle6}>Lodging<img src={dropdownIcon} className="dropIcon6 toggle-down"/></h3>
+              <div className="mainCatFilter">
+              <h3 className="anchor-header6" onClick={toggle6}>Lodging</h3>
+              <img src={dropdownIcon} className="dropIcon6 toggle-down"/>
+              </div>
               <div id="menuCollapse6">
                 <span class="spanStyle">
                   <label for="Hotels" class="SCPfilterContain">
@@ -447,7 +478,10 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <h3 className="anchor-header7" onClick={toggle7}>Services<img src={dropdownIcon} className="dropIcon7 toggle-down"/></h3>
+              <div className="mainCatFilter">
+              <h3 className="anchor-header7" onClick={toggle7}>Services</h3>
+              <img src={dropdownIcon} className="dropIcon7 toggle-down"/>
+              </div>
               <div id="menuCollapse7">
                 <span class="spanStyle">
                   <label for="Accessibility" class="SCPfilterContain">
@@ -506,53 +540,53 @@ const SingleCityPage = (props) => {
 
                     {/* sidebar categories only display when checkbox checked */}
 
-                    {categories.Restaurants ? 
+                    {!defaultDisplay || categories.Restaurants ? 
                         <SCPrestaurants restaurants={restaurants} />
                         : null
                     }
 
-                    {categories.Events ?
+                    {!defaultDisplay || categories.Events ?
                         <SCPevents events={events}/>
                         : null
                     }
 
                     {categories.Music ? 
-                        <SCPmusic yelpApi={yelpApi} data={yelp.musicvenues} /> 
+                        <SCPmusic data={yelp.musicvenues} /> 
                         : null}
 
 
                     {categories.Coffeeshops ? 
-                        <SCPcoffee yelpApi={yelpApi} data={yelp.coffee} />
+                        <SCPcoffee data={yelp.coffee} />
                         : null}
 
                     {categories.Tours ? 
-                        <SCPtours yelpApi={yelpApi} data={yelp.tours} />
+                        <SCPtours data={yelp.tours} />
                         : null}
 
                     {categories.Museums ? 
-                        <SCPmuseums yelpApi={yelpApi} data={yelp.museums} />
+                        <SCPmuseums data={yelp.museums} />
                         : null}
 
                     {categories.Theater ? 
-                        <SCPtheater yelpApi={yelpApi} data={yelp.theater} />
+                        <SCPtheater data={yelp.theater} />
                         : null}
 
                     {/* {categories.Performing_Arts ? null : null} */}
 
                     {categories.Professional_Sports ? 
-                        <SCPsportsTeams yelpApi={yelpApi} data={yelp.sportsteams} />
+                        <SCPsportsTeams data={yelp.sportsteams} />
                         : null}
 
                     {categories.Parks ? 
-                        <SCPparks yelpApi={yelpApi} data={yelp.parks} />
+                        <SCPparks data={yelp.parks} />
                         : null}
 
-                    {categories.Activities ? 
-                        <SCPactivities yelpApi={yelpApi} data={yelp.active} />
+                    {!defaultDisplay || categories.Activities ? 
+                        <SCPactivities data={yelp.active} />
                         : null}
 
                     {categories.Clubs ? 
-                        <SCPsocialClubs yelpApi={yelpApi} data={yelp.social_clubs} />
+                        <SCPsocialClubs data={yelp.social_clubs} />
                         : null}
 
                     {/* {categories.Sports ? null : null} */}
@@ -566,21 +600,21 @@ const SingleCityPage = (props) => {
                     {/* {categories.Historical ? null : null} */}
 
                     {categories.Clothing ? 
-                        <SCPfashion yelpApi={yelpApi} data={yelp.fashion} />
+                        <SCPfashion data={yelp.fashion} />
                         : null}
 
                     {categories.Furnishings ? 
-                        <SCPfurniture yelpApi={yelpApi} data={yelp.furniture} />
+                        <SCPfurniture data={yelp.furniture} />
                         : null}
 
                     {categories.Hardware ? 
-                        <SCPhardware yelpApi={yelpApi} data={yelp.hardware} />
+                        <SCPhardware data={yelp.hardware} />
                         : null}
 
                     {/* {categories.Miscellaneous ? null : null} */}
 
                     {categories.Hotels ? 
-                        <SCPhotels yelpApi={yelpApi} data={yelp.hotels} />
+                        <SCPhotels data={yelp.hotels} />
                         : null}
 
                     {/* {categories.AirBnB ? null : null} */}
@@ -590,7 +624,7 @@ const SingleCityPage = (props) => {
                     {/* {categories.Sustainability ? null : null} */}
 
                     {categories.City_Services ? 
-                        <SCPcityServices yelpApi={yelpApi} data={yelp.publicservicesgovt} />
+                        <SCPcityServices data={yelp.publicservicesgovt} />
                         : null}
 
                     {/* <div className="SCPexplore">

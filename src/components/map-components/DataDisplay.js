@@ -40,8 +40,8 @@ const DataDisplay = ({search, selected, toggleSelected, onSearch, setSearch, cit
 
     const [categories, setCategories] = useState({})
 
-    console.log("SELECTED", selected)
-    
+    // console.log("SELECTED", selected)
+    console.log("edData", selected)
     useEffect(() => {
         let checker = false
         for (const item in categories) {
