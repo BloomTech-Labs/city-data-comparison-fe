@@ -72,7 +72,7 @@ html,body{
 }
 .mock-logo{
   width:110px;
-  margin-top:-50px;
+  margin-top:-45px;
   margin-bottom:-45px;
 }
 
@@ -1212,11 +1212,9 @@ background-color: #2ca4fc;
 .footer-container{
   border-top:1px solid rgba(203, 230, 252, 0.562);
   background-color:#F4F5FF;
-  height:50px;
+  // height:50px;
 
-  @media screen and (max-width: 600px) {
-    height: 40px;
-  }
+  
   
   .footer{
     // display:flex;
