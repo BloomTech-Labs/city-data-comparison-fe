@@ -70,9 +70,9 @@ function Footer(){
                                    <a href="#" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}> Terms of Use</a>
                               </div>
                          </div> */}
-                         <div>
+                         {/* <div>
                               <p className="copyright-mobile">© Citrics 2020</p>
-                         </div>
+                         </div> */}
                     </div>
                </div>
           </>
