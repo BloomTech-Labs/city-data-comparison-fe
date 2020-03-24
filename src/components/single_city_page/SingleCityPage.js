@@ -248,6 +248,7 @@ const SingleCityPage = (props) => {
                 setRestaurants(response.data)
             })
             .catch(error => console.log("Restaurants", error))
+        yelpApi('musicvenues');
     }, [latitude, longitude]);
 
     // API CALL FOR EVENTS
@@ -261,16 +262,16 @@ const SingleCityPage = (props) => {
 
     //API CALL FOR ALL OTHER CATEGORIES
     function yelpApi (category) {
-    
-      axios.get(`https://be.citrics.io/api/yelp/categories/${latitude}/${longitude}/${category}`)
-            .then(response => {
-                setYelp({
-                  ...yelp, 
-                  [category]: response.data
-                })
+      axios.get(`https://be.citrics.io/api/yelp/categories/${category}/${latitude}/${longitude}`)
+        .then(response => {
+            setYelp({
+              ...yelp, 
+              [category]: response.data
             })
-            .catch(error => console.log("category", error))
-      }
+            console.log(yelp)
+        })
+        .catch(error => console.log("category", error))
+    }
 
 
 
@@ -318,9 +319,7 @@ const SingleCityPage = (props) => {
                 <span class="spanStyle">
                   <label for="Restaurants" class="SCPfilterContain">
                     Restaurants
-                    <input type="checkbox" id="Restaurants" name="Restaurants" value={categories.Restaurants} 
-                    // checked={categories.Restaurants}
-                    onChange={onChange}  />
+                    <input type="checkbox" id="Restaurants" name="Restaurants" value="Restaurants" onChange={onChange}  />
                     <span class="SCPcheckmark"></span>
                   </label>
                   <br />
