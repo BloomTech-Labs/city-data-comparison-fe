@@ -335,7 +335,7 @@ function toggle1() {
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                 </div>
 
-                <div className="data-category special-margins">
+                <div className="data-category">
                     {/* <div className="data-category-titles">
                         <p className="data-category-header">Housing</p>
                         <p className="data-category-subtitle">View the comprehensive picture of housing in American cities.</p>

@@ -115,9 +115,10 @@
             background: #F2F9FD;
         }
     }
-    // .special-margins{
-    //     // margin-top:7%;
-    // }
+
+    .special-margins{
+        margin-bottom: 3%;
+    }
 
     .city-overview-container-medium{
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
@@ -502,6 +503,7 @@
         display:flex;
         justify-content:space-between;
         align-items:flex-start;
+        margin-bottom: 3%;
 
         .room-container{
             background-color:white;
