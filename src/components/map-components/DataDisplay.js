@@ -306,7 +306,7 @@ function toggle1() {
                                             <span class="dataCheckmark"></span>
                                             </label>
                                             <label for="avgTemp" class="dataFilterContain">
-                                            Weather
+                                            Historical Temperature
                                             <input type="checkbox" id="avgTemp" name="avgTemp" value="avgTemp" onChange={onChange}/>
                                             <span class="dataCheckmark"></span>
                                             </label>
@@ -493,7 +493,7 @@ function toggle1() {
 
                         { !defaultDisplay || categories.avgTemp?
                         <div className="avg-temp-container">
-                            <p className="chart-title">Historical weather</p>
+                            <p className="chart-title">Historical temperature</p>
                             <Element name="avgTemp" className="element" ><AvgTemp edData = {selected} /></Element>
                         </div>
                         :<div></div>

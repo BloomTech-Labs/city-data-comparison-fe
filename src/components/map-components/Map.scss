@@ -1,9 +1,13 @@
 
 
 /* this is the map container */
+.map {
+    margin-top: 100px;
+}
+
 .main-map {
     margin: 0 auto;
-    margin-top:83px;
+    // margin-top:83px;
     border: 2px solid darkgrey;
     border:none;
     // max-width:1000px;
@@ -89,7 +93,7 @@
 
     .data-category {
         width:98%;
-        margin-top: 4%;
+        // margin-top: 4%;
         border-radius:5px;
 
         @media screen and (max-width:600px){
@@ -119,6 +123,7 @@
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         width:98%;
         margin-bottom:30px;
+        border-radius: 5px;
         // border: 2px solid green;
     }
 
@@ -552,6 +557,7 @@
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         margin-bottom:30px;
         background-color:white;
+        margin-top: 3%;
     }
     .salary-container{
         padding:10px;
@@ -1059,33 +1065,42 @@
         font-size: 1.2rem;
         text-align:left;
         text-decoration:none;
-        margin:0;
-        margin-left:20px;
+        // margin:0;
+        // margin-left:20px;
         color:#00bfa5;
-        margin-bottom:5%;
-        margin-top: 6%
+        // margin-bottom:5%;
+        // margin-top: 6%;
+        margin: 6% 20px 5% 20px;
+        display: flex;
+        justify-content: space-between;
     }
 
     .anchor-header2 {
         font-size: 1.2rem;
         text-align:left;
         text-decoration:none;
-        margin:0;
-        margin-left:20px;
+        // margin:0;
+        // margin-left:20px;
         color:#00bfa5;
-        margin-bottom:5%;
-        margin-top: 6%
+        // margin-bottom:5%;
+        // margin-top: 6%;
+        margin: 6% 20px 5% 20px;
+        display: flex;
+        justify-content: space-between;
     }
 
     .anchor-header3 {
         font-size: 1.2rem;
         text-align:left;
         text-decoration:none;
-        margin:0;
-        margin-left:20px;
+        // margin:0;
+        // margin-left:20px;
         color:#00bfa5;
-        margin-bottom:5%;
-        margin-top: 6%
+        // margin-bottom:5%;
+        // margin-top: 6%;
+        margin: 6% 20px 5% 20px;
+        display: flex;
+        justify-content: space-between;
     }
     
     .nav-placeholder {
@@ -1138,6 +1153,7 @@
         .anchor-nav {
             display:flex;
             flex-direction:column;
+            margin-top: 20px;
           
             // border:1px solid green;
             
@@ -1207,6 +1223,7 @@
             font-size:1.1rem;
             border-radius:5px;
             border:1px solid #b8bec4;
+            width: 100%;
             &:focus{
                 outline:none;
             }
@@ -1350,19 +1367,22 @@
                 }
 
                 .dataFilterCatContainer .anchor-header1 .dropIcon1 {
-                    margin-left: 4%;
-
+                    // margin-left: 4%;
+                    width: 15px;
+                    height: 9px;
                     
                 }
         
                 .dataFilterCatContainer .anchor-header2 .dropIcon2 {
-                    margin-left: 4%;
-                    
+                    // margin-left: 4%;
+                    width: 15px;
+                    height: 9px;
                 }
         
                 .dataFilterCatContainer .anchor-header3 .dropIcon3 {
-                    margin-left: 4%;
-                    
+                    // margin-left: 4%;
+                    width: 15px;
+                    height: 9px;
                 }
 
                 /*Dropdown icon animation*/
@@ -1485,6 +1505,7 @@
             }
 
         .autofill-container {
+            width: 94%;
             position:absolute;
             // width:19%;
             @media only screen and (max-width: 600px) {

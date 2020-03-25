@@ -430,7 +430,7 @@ const SingleCityPage = (props) => {
                 </span>
               </div>
 
-              <div classname="mainCatFilter">
+              <div className="mainCatFilter">
               <h3 className="anchor-header5" onClick={toggle5}>Shopping</h3>
               <img src={dropdownIcon} className="dropIcon5 toggle-down"/>
               </div>
