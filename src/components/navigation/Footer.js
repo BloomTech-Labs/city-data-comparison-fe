@@ -47,7 +47,7 @@ function Footer(){
                                    </div>
 
                                    <div className="footer3">
-                                        <a href="#" onClick={() => (setModalState(<PrivacyPolicy/>), toggle())} style={{cursor: "pointer"}}>Privacy Policy</a>
+                                        <Link to="/PrivacyPolicy" >Privacy Policy</Link>
                                    </div>
                               </div>
                          </div>
