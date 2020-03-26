@@ -21,6 +21,7 @@ import SCPfurniture from "./SCPfurniture";
 import SCPhardware from "./SCPhardware";
 import SCPhotels from "./SCPhotels";
 import SCPcityServices from "./SCPcityServices";
+import Footer from '../navigation/Footer'
 
 import cityscape from '../../assets/single_city_page_photos/cityscape.jpg';
 import foodAndDrink from '../../assets/single_city_page_photos/foodAndDrink.jpg';
@@ -293,6 +294,9 @@ const SingleCityPage = (props) => {
 
                     <div className="city-desc">
                       <p>{description.length<=500 ? description : `${description.substring(0,500)}... more`}</p>
+                    </div>
+                    <div className="city-desc2">
+                      <p>{description.length<=500 ? description : `${description.substring(0,260)}... more`}</p>
                     </div>
                 </div>
             </section>
@@ -690,6 +694,7 @@ const SingleCityPage = (props) => {
                 </section>
             </section>
         </div>
+        <Footer />
     </>
     )
 }
