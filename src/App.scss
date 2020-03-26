@@ -55,7 +55,7 @@ html,body{
   margin:0 auto;
   font-family: 'Rubik', sans-serif;
   box-sizing:border-box;
-  color: #5E6066;
+  color: #444444;
   line-height:1.26;
   max-width: 100%;
   overflow-x: hidden;
@@ -150,7 +150,7 @@ html,body{
     }
 
     &:hover{
-      color:#2ca4fc;
+      color:#a33a00;
     }
   }
   #signup-link{
@@ -255,20 +255,20 @@ html,body{
   #popupmap{
     display:none;
   }
-    .navigation-container nav {
-         display:none;
-    }
+    // .navigation-container nav {
+    //      display:none;
+    // }
     
      .dropdownContainer{
           display:flex;
      }
     .dropbtn {
       background-color:#fcfcfb;
-      color: #2ca4fc;
+      color: #A33A00;
       font-weight:600;
       padding: 10px 20px;
       font-size: 16px;
-      border: 1.4px solid #2ca4fc;
+      border: 1.4px solid #A33A00;
       border-radius:5px;
       margin-right:30px;
 
@@ -313,7 +313,7 @@ html,body{
 
     .dropdown-content a:hover {
         color:#fcfcfb;
-        background-color: #2ca4fc;
+        background-color: #a33a00;
       }
 
     .dropdown:hover .dropdown-content {
@@ -322,7 +322,7 @@ html,body{
 
     .dropdown:hover .dropbtn {
         color:#fcfcfb;
-      background-color: #2ca4fc;
+      background-color: #a33a00;
     }
 
 }
@@ -368,7 +368,7 @@ font-size:1.1rem;
 
 .dropdown-content-loggedin a:hover {
  color:#fcfcfb;
- background-color: #2ca4fc;
+ background-color: #a33a00;
 }
 
 .dropdown-loggedin:hover .dropdown-content-loggedin {
@@ -377,7 +377,7 @@ display: block;
 
 .dropdown-loggedin:hover .dropbtn-loggedin {
  color:#fcfcfb;
-background-color: #2ca4fc;
+background-color: #a33a00;
 }
 
 //* Dashboard Bonus Features CTA
@@ -1211,7 +1211,7 @@ background-color: #2ca4fc;
 // * Footer Styling
 .footer-container{
   border-top:1px solid rgba(203, 230, 252, 0.562);
-  background-color:#F4F5FF;
+  background-color:#e9e8e9;
   // height:50px;
 
   
