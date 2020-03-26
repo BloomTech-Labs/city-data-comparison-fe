@@ -51,6 +51,18 @@ function TotalPopulation({ ethData }) {
     }
   };
 
+  function numberColor3(number) {
+    if (number <= 25) {
+      return <p className="number-style25-3">{number}</p>
+    } else if (number > 25 && number <= 50) {
+      return <p className="number-style50-3">{number}</p>
+    } else if (number > 50 && number <= 75) {
+      return <p className="number-style75-3">{number}</p>
+    } else if (number > 75) {
+      return <p className="number-style100-3">{number}</p>
+    }
+  };
+
   const cityColors = ["#A33A00", "#0041A3", "#017428"]
 
 
@@ -258,11 +270,11 @@ function TotalPopulation({ ethData }) {
                   </div>
                   <div className="icon-score-contain">
                     <div className="icon-contain">
-                      <img src={walkScore(item["Walk Score"])} />
+                      <img className="walking-img2" src={walkScore(item["Walk Score"])} />
                     </div>
                     <div className="number-contain">
                       <h5>{scoreStatement(item["Walk Score"])}</h5>
-                      {numberColor2(item["Walk Score"])}
+                      {numberColor3(item["Walk Score"])}
                     </div>
                   </div>
                 </div>
@@ -277,7 +289,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>{scoreStatement(item["Transit Score"])}</h5>
-                      {numberColor2(item["Transit Score"])}
+                      {numberColor3(item["Transit Score"])}
                     </div>
                   </div>
                 </div>
@@ -292,7 +304,7 @@ function TotalPopulation({ ethData }) {
                     </div>
                     <div className="number-contain">
                       <h5>{scoreStatement(item["Bike Score"])}</h5>
-                      {numberColor2(item["Bike Score"])}
+                      {numberColor3(item["Bike Score"])}
                     </div>
                   </div>
                 </div>
@@ -395,7 +407,7 @@ function TotalPopulation({ ethData }) {
                   </div>
                   <div className="icon-score-contain">
                     <div className="icon-contain">
-                      <img src={walkScore(item["Walk Score"])} />
+                      <img className="walk-img3" src={walkScore(item["Walk Score"])} />
                     </div>
                     <div className="number-contain">
                       <h5>{scoreStatement(item["Walk Score"])}</h5>
