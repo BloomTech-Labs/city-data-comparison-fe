@@ -327,9 +327,9 @@ const team = [
         social: {
             twitter: null, 
             github: 'trodriguez89', 
-            linkedin: null
+            linkedin: 'thomas-rodriguez-556859149'
         }, 
-        about: 'Thomas is a Web Developer at Lambda School and has been an instrumental part of the Citrics web team.',
+        about: 'Thomas Rodriguez is a Software Engineer from San Jose, CA. He loves problem solving and learning new technologies. In his free time you can catch him watching California sports, playing videogames and playing guitar.',
         portfolio: null
 
     },  {
