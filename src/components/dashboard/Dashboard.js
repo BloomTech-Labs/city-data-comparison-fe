@@ -321,7 +321,8 @@ function Dashboard({history}){
                
                
                {/* SIGN UP CALL TO ACTION */}
-               <div className="kevinmotor">
+               <div className="kevinmotor" style={{ display: 'flex',
+  justifyContent: 'center' }}>
                <div className="bonus-features-container"
                     data-aos="fade-right"
                     data-aos-offset="100"

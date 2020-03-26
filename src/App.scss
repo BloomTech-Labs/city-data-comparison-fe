@@ -385,18 +385,20 @@ background-color: #a33a00;
   background-color:#F8FCFF;
   background-color:#F1F9FD;
   border-top:1px solid #ECF1F5;
+  // display: flex;
+  // justify-content: center;
 }
 .bonus-features-container{
   max-width:900px;
   width: 100%;
-  margin-left: 20%;
+  // margin-left: 20%;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  // justify-content:space-between;
   height: 300px;
 
   @media screen and (max-width: 1100px){
-    margin-left: 15%;
+    // margin-left: 15%;
     width: 75%;
   }
 
@@ -435,6 +437,30 @@ background-color: #a33a00;
       margin-top:10px;
       font-size:1.2rem;
       line-height:1.4;
+
+      @media screen and (max-width: 1100px){
+        width: 550px;
+      }
+
+      @media screen and (max-width: 900px){
+        width: 500px;
+      }
+
+      @media screen and (max-width: 800px){
+        width: 400px;
+      }
+
+      @media screen and (max-width: 700px){
+        width: 350px;
+      }
+
+      @media screen and (max-width: 450px){
+        width: 300px;
+      }
+
+      @media screen and (max-width: 400px){
+        width: 280px;
+      }
     }
 
     .sign-up-CTA{
@@ -462,7 +488,7 @@ background-color: #a33a00;
     flex-direction:column;
 
     .bonus-features-CTA{
-      padding: 0 5%;
+      // padding: 0 5%;
     }    
     .motorbike{
       width:250px;
@@ -494,9 +520,9 @@ background-color: #a33a00;
     background-size: cover;
     position: relative;
     display: flex;
-    // justify-content: center;
+    justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     height: auto;
     min-width: 1520px;
     min-height: 650px;
@@ -508,14 +534,14 @@ background-color: #a33a00;
   }
   
   .dashboard-image-header {
-    margin-left: 150px;
+    margin-right: 650px;
 
-    @media screen and (max-width: 800px){
-      margin-left: 100px;
+    @media screen and (max-width: 850px){
+      margin-right: 750px;
     }
 
-    @media screen and (max-width: 500px){
-      margin-left: 50px;
+    @media screen and (max-width: 750px){
+      margin-right: 850px;
     }
   }
 }
@@ -808,7 +834,8 @@ background-color: #a33a00;
           }
           .dashboard-title2{
             display: flex;
-            // font-size: 15vw;
+            margin-right: 335px;
+
           }
           .compare-button{
             // padding:14px 50px;
