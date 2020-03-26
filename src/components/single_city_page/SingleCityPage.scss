@@ -524,6 +524,10 @@
         @media screen and (max-width: 900px){
             display: none;
         }
+
+        @media screen and (max-width: 1300px){
+            display: none;
+        }
     }
 
     .weatherInfo {
@@ -556,6 +560,14 @@
       @media screen and (max-width: 900px){
           margin-top: 10px;
           margin-top: 5px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      @media screen and (max-width: 1300px){
+          margin-top: 10px;
           width: 100%;
           display: flex;
           justify-content: center;
