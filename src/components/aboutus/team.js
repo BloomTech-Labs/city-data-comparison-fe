@@ -51,9 +51,9 @@ import chris from '../../assets/team2_photos/Christopher Shields.png';
 import anisha from '../../assets/team2_photos/Anisha Sunkerneni.png';
 import kyle from '../../assets/team2_photos/Kyle Porter.jpg';
 import ryan from '../../assets/team2_photos/Ryan Cooper.png'; 
-import regino from '../../assets/team2_photos/Regino Parragil.png'; 
+import regino from '../../assets/team2_photos/Regino Parragil.jpg'; 
 import thomas from '../../assets/team2_photos/Thomas Rodriguez.png';
-import jeremy from '../../assets/team2_photos/Jeremy Rogel.jpg';
+import jeremy from '../../assets/team2_photos/Jeremy Rogel1.png';
 
 
 const team = [
