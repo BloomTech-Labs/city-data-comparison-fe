@@ -359,11 +359,11 @@ const SingleCityPage = (props) => {
                     <input type="checkbox" id="Theater" name="Theater" value="Theater" onChange={onChange} />
                     <span class="SCPcheckmark"></span>
                   </label><br />
-                  <label for="Performing_Arts" class="SCPfilterContain">
+                  {/* <label for="Performing_Arts" class="SCPfilterContain">
                     Performing Arts
                     <input type="checkbox" id="Performing_Arts" name="Performing_Arts" value="Performing_Arts" onChange={onChange} />
                     <span class="SCPcheckmark"></span>
-                  </label><br />
+                  </label><br /> */}
                   <label for="Professional_Sports" class="SCPfilterContain">
                     Professional Sports
                     <input type="checkbox" id="Professional_Sports" name="Professional_Sports" value="Professional_Sports" onChange={onChange} />
@@ -393,7 +393,7 @@ const SingleCityPage = (props) => {
                     <input type="checkbox" id="Clubs" name="Clubs" value="Clubs" onChange={onChange} />
                     <span class="SCPcheckmark"></span>
                   </label><br />
-                  <label for="Sports" class="SCPfilterContain">
+                  {/* <label for="Sports" class="SCPfilterContain">
                     Sports
                     <input type="checkbox" id="Sports" name="Sports" value="Sports" onChange={onChange} />
                     <span class="SCPcheckmark"></span>
@@ -407,11 +407,11 @@ const SingleCityPage = (props) => {
                     Senior Activities
                     <input type="checkbox" id="Senior_Activities" name="Senior_Activities" value="Senior_Activities" onChange={onChange} />
                     <span class="SCPcheckmark"></span>
-                  </label>
+                  </label> */}
                 </span>
               </div>
 
-              <div className="mainCatFilter">
+              {/* <div className="mainCatFilter">
               <h3 className="anchor-header4" onClick={toggle4}>Weather</h3>
               <img src={dropdownIcon} className="dropIcon4 toggle-down"/>
               </div>
@@ -428,7 +428,7 @@ const SingleCityPage = (props) => {
                     <span class="SCPcheckmark"></span>
                   </label>
                 </span>
-              </div>
+              </div> */}
 
               <div className="mainCatFilter">
               <h3 className="anchor-header5" onClick={toggle5}>Shopping</h3>
@@ -451,11 +451,11 @@ const SingleCityPage = (props) => {
                     <input type="checkbox" id="Hardware" name="Hardware" value="Hardware" onChange={onChange} />
                     <span class="SCPcheckmark"></span>
                   </label><br />
-                  <label for="Miscellaneous" class="SCPfilterContain">
+                  {/* <label for="Miscellaneous" class="SCPfilterContain">
                     Miscellaneous
                     <input type="checkbox" id="Miscellaneous" name="Miscellaneous" value="Miscellaneous" onChange={onChange} />
                     <span class="SCPcheckmark"></span>
-                  </label>
+                  </label> */}
                 </span>
               </div>
 
@@ -470,11 +470,11 @@ const SingleCityPage = (props) => {
                     <input type="checkbox" id="Hotels" name="Hotels" value="Hotels" onChange={onChange} />
                     <span class="SCPcheckmark"></span>
                   </label><br />
-                  <label for="AirBnB" class="SCPfilterContain">
+                  {/* <label for="AirBnB" class="SCPfilterContain">
                     AirBnB
                     <input type="checkbox" id="AirBnB" name="AirBnB" value="AirBnB" onChange={onChange} />
                     <span class="SCPcheckmark"></span>
-                  </label>
+                  </label> */}
                 </span>
               </div>
 
@@ -484,7 +484,7 @@ const SingleCityPage = (props) => {
               </div>
               <div id="menuCollapse7">
                 <span class="spanStyle">
-                  <label for="Accessibility" class="SCPfilterContain">
+                  {/* <label for="Accessibility" class="SCPfilterContain">
                     Accessibility
                     <input type="checkbox" id="Accessibility" name="Accessibility" value="Accessibility" onChange={onChange} />
                     <span class="SCPcheckmark"></span>
@@ -493,7 +493,7 @@ const SingleCityPage = (props) => {
                     Sustainability
                     <input type="checkbox" id="Sustainability" name="Sustainability" value="Sustainability" onChange={onChange} />
                     <span class="SCPcheckmark"></span>
-                  </label><br />
+                  </label><br /> */}
                   <label for="City_Services" class="SCPfilterContain">
                     City Services
                     <input type="checkbox" id="City_Services" name="City_Services" value="City_Services" onChange={onChange} />
