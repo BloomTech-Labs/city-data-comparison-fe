@@ -84,6 +84,7 @@ function TotalPopulation({ ethData }) {
                   <Link target='_blank' to={`/SingleCityPage?latitude=${item.Latitude}&longitude=${item.Longitude}&cityId=${item._id}`
                   }><button style={{ backgroundColor: cityColors[i] }} key={i} className="quality-button">Experience {item.city_no_st}</button></Link>
                 </div>
+                <div className="weather-contain1">
                 <div className="current-weather">
                   <CurrentWeather item={item} ethData={ethData} />
                 </div>
@@ -91,6 +92,7 @@ function TotalPopulation({ ethData }) {
                   <div className="avg-temp-container">
                     <p className="chart-title">Historical Temperature</p>
                     <AvgTemp edData={[item]} />
+                  </div>
                   </div>
                 </div>
               </div>
