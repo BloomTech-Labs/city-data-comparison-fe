@@ -54,7 +54,8 @@ h1{
     overflow-y: scroll;
     height: 100%; 
     padding: 0 3%; 
-    width: 80%; 
+    width: 80%;
+    -ms-overflow-style: none;
 
     @media screen and (max-width: 800px){
         width: 100%;
@@ -62,4 +63,8 @@ h1{
     }
  
 
+}
+
+.privacy-policy-container::-webkit-scrollbar {
+    display: none;
 }
