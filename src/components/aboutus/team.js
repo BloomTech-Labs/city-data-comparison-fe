@@ -342,7 +342,7 @@ const team = [
             github: 'kylewp13', 
             linkedin: 'kyletech'
         }, 
-        about: 'Thomas is a Web Developer at Lambda School and has been an instrumental part of the Citrics web team.',
+        about: 'Kyle is a Web Developer at Lambda School and has been an instrumental part of the Citrics web team.',
         portfolio: 'https://www.kyleporter.tech'
     
     }
