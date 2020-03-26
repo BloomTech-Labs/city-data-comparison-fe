@@ -581,7 +581,7 @@ const SingleCityPage = (props) => {
                         <SCPparks data={yelp.parks} />
                         : null}
 
-                    {!defaultDisplay || categories.Activities ? 
+                    {categories.Activities ? 
                         <SCPactivities data={yelp.active} />
                         : null}
 
