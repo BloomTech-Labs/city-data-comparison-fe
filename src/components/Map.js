@@ -107,7 +107,7 @@ const selectSearch = cityMarker =>  {
 
         <div className="map-page">
           <div className="loader-animation" timeout={800}>
-              <Loader type="Plane" color="#2ba4fc" height={350} width={350} timeout={700} style={{'padding':'400px 300px'}}/>                
+              <Loader type="Plane" color="rgb(163, 58, 0)" height={350} width={350} timeout={700} style={{'padding':'400px 300px'}}/>                
           </div>
           <PopupMap/>
           <div className="map">

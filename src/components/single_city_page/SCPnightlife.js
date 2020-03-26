@@ -18,7 +18,7 @@ const CategoryTitle = styled.h3`
 const CategoryInfo = styled.div`
     display: flex; 
     flex-wrap: wrap; 
-    padding: 20px 0;
+    padding: 20px 0 0 0;
 `;
 
 const CategoryImgContainer = styled.div`

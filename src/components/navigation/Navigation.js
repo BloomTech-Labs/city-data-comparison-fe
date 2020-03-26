@@ -72,6 +72,8 @@ function NavBar (){
                          {/* <Link id="signup-link" to="/signup">Get Started</Link> */}
                     </> :
                     <>
+
+                    {/* DROPDOWN NAVBAR MENU FOR MOBILE STARTS HERE */}
                          <DropMenu/>
                     </>
                     }
@@ -85,6 +87,7 @@ function NavBar (){
                                              <Link to="/map">Explore</Link>
                                              <Link to="/signin">Log In</Link>
                                              <Link to="/signup">Get Started</Link>
+                                             
                                         </div>
                                    </div>
                               </div>

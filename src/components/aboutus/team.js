@@ -290,7 +290,7 @@ const team = [
             github: 'ars394', 
             linkedin: 'anisha-reddy-394b60ab/'
         }, 
-        about: null,
+        about: 'Anisha Sunkerneni is a Web Developer from California. She has a background in medicine and is interested in exploring the intersection of medicine and technology. Anisha enjoys cooking, curating playlists, playing boardgames and exploring new places.',
         portfolio: null
     
     }, {
@@ -303,7 +303,7 @@ const team = [
             github: 'ryankayne', 
             linkedin: 'ryankaynecooper'
         }, 
-        about: 'Ryan Cooper is a Web Developer from Michigan.',
+        about: 'Ryan Cooper is a Web Developer from Michigan. He loves learning, traveling, and meeting new people... and eating ramen, cannot forget about the ramen.',
         portfolio: null
     
     }, {
@@ -314,9 +314,9 @@ const team = [
         social: {
             twitter: null, 
             github: 'gio5298', 
-            linkedin: null
+            linkedin: 'regino-a-parragil-a813b9198'
         }, 
-        about: null,
+        about: 'Regino Parragil is a Web Developer from Phoenix, AZ who wants to continue learning about the different libraries that are available to expand beyond basic web development. He is eager to see where the world of web development takes him.... or where he takes the world...',
         portfolio: null
     
     }, {
@@ -327,9 +327,9 @@ const team = [
         social: {
             twitter: null, 
             github: 'trodriguez89', 
-            linkedin: null
+            linkedin: 'thomas-rodriguez-556859149'
         }, 
-        about: null,
+        about: 'Thomas Rodriguez is a Software Engineer from San Jose, CA. He loves problem solving and learning new technologies. In his free time you can catch him watching California sports, playing videogames and playing guitar.',
         portfolio: null
 
     },  {
@@ -342,7 +342,7 @@ const team = [
             github: 'kylewp13', 
             linkedin: 'kyletech'
         }, 
-        about: null,
+        about: 'Thomas is a Web Developer at Lambda School and has been an instrumental part of the Citrics web team.',
         portfolio: 'https://www.kyleporter.tech'
     
     }

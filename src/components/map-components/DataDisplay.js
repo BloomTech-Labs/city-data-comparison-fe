@@ -265,11 +265,11 @@ function toggle1() {
                                             <input type="checkbox" id="commute" name="commute" value="commute" onChange={onChange}/>
                                             <span class="dataCheckmark"></span>
                                             </label>
-                                            <label for="travelScores" class="dataFilterContain">
+                                            {/* <label for="travelScores" class="dataFilterContain">
                                             Travel Scores
                                             <input type="checkbox" id="travelScores" name="travelScores" value="travelScores" onChange={onChange}/>
                                             <span class="dataCheckmark"></span>
-                                            </label>
+                                            </label> */}
                                             <label for="industries" class="dataFilterContain">
                                             Unemployment &amp; Retirement
                                             <input type="checkbox" id="unemployRetire" name="unemployRetire" value="unemployRetire" onChange={onChange}/>
@@ -306,7 +306,7 @@ function toggle1() {
                                             <span class="dataCheckmark"></span>
                                             </label>
                                             <label for="avgTemp" class="dataFilterContain">
-                                            Weather
+                                            Historical Temperature
                                             <input type="checkbox" id="avgTemp" name="avgTemp" value="avgTemp" onChange={onChange}/>
                                             <span class="dataCheckmark"></span>
                                             </label>
@@ -335,7 +335,7 @@ function toggle1() {
                     <Element name="generalStats" className="element" ><GeneralStats ethData = {selected} /></Element>
                 </div>
 
-                <div className="data-category special-margins">
+                <div className="data-category">
                     {/* <div className="data-category-titles">
                         <p className="data-category-header">Housing</p>
                         <p className="data-category-subtitle">View the comprehensive picture of housing in American cities.</p>
@@ -377,6 +377,7 @@ function toggle1() {
                             <div className="vacancy-owner-container">
                                 <p className="chart-title">Vacancy</p>
                                 <Element name="roomsVacancy" className="element" ><VacancyGraph edData={selected} /></Element>
+                                <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
                             </div>
                         </div>
                         : <div></div>
@@ -394,6 +395,7 @@ function toggle1() {
                         <div className="industries-container">
                             <p className="chart-title">Job industry</p>
                             <Element name="industries" className="element" ><Industry edData={selected} /></Element>
+                            <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
                         </div>
                         : <div></div>
                     }
@@ -402,6 +404,7 @@ function toggle1() {
                         <div className="salary-container">
                             <p className="chart-title">Average salary</p>
                             <Element name="salary" className="element" ><BarGraph edData={selected} /></Element>
+                            <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
                         </div>
                         : <div></div>
                     }
@@ -411,27 +414,30 @@ function toggle1() {
                             <div className="commute-container">
                                 <p className="chart-title">Ways to commute</p>
                                 <Element name="commute" className="element" ><Commute edData={selected} /></Element>
+                                <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
                             </div>
                             <div className="travel-container">
                                 {/* <p className="chart-title">Travel time to work</p> */}
                                 <Element name="commute" className="element" ><TravelTime ethData = {selected} /></Element>
+                                
                             </div>
                         </div>
                     : <div></div>
                     }
 
-                    { !defaultDisplay || categories.travelScores?
+                    {/* { !defaultDisplay || categories.travelScores?
                         <div className="travel-scores-container">
                             <Element name="travelScores" className="element" ><Transportaion ethData = {selected} /></Element>
                         </div>
                         : <div></div>
-                    }
+                    } */}
 
                     { !defaultDisplay || categories.unemployRetire?
                         <div className="other-industries-container">
                             <div className="unemployment-container">
                                 {/* <p className="chart-title">Unemployment</p> */}
                                 <Element name="unemployRetire" className="element" ><UnemploymentCard ethData = {selected} /></Element>
+                                
                             </div>
 
                             {/* <div className="insurance-container">
@@ -441,6 +447,7 @@ function toggle1() {
                             <div className="retirement-container">
                                 <p className="chart-title">Retirement income source</p>
                                 <Element name="unemployRetire" className="element" ><RetirementGraph ethData={selected} /></Element>
+                                <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
                             </div>
                         </div>
                         : <div></div>
@@ -458,6 +465,7 @@ function toggle1() {
                         <div className="age-container">
                             <p className="chart-title">Age distribution</p>
                             <Element name="ageDistribution" className="element" ><AgeDistributionGraph ethData = {selected} /></Element>
+                            <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
                         </div>
                         :<div></div>
                         }
@@ -466,6 +474,7 @@ function toggle1() {
                             <div className="ethnicity-container">
                                 <p className="chart-title">Diversity</p>
                                 <Element name="diversity" className="element" ><EthnicityGraph ethData = {selected} /></Element>
+                                <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
                             </div>
                             :<div></div>
                         }
@@ -474,7 +483,9 @@ function toggle1() {
                             <div className="education-container">
                                 <p className="chart-title">Education</p>
                                 <Element name="education" className="element" ><EducationGraph edData={selected} /></Element>
+                                <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
                             </div>
+
                             : <div></div>
                         }
 
@@ -483,6 +494,7 @@ function toggle1() {
                             <div className="population-container">
                                 <p className="chart-title">Population growth</p>
                                 <Element name="population" className="element" ><Population selected = {selected} /></Element>
+                                <p style={{ textAlign: 'right', fontSize: '10px' }}>Source: U.S. Census (2018)</p>
                             </div>
                             {/* <div className="birth-container">
                                 <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
@@ -491,13 +503,14 @@ function toggle1() {
                         :<div></div>
                         }
 
-                        { !defaultDisplay || categories.avgTemp?
+                        {/* { !defaultDisplay || categories.avgTemp?
                         <div className="avg-temp-container">
-                            <p className="chart-title">Historical weather</p>
+                            <p className="chart-title">Historical temperature</p>
                             <Element name="avgTemp" className="element" ><AvgTemp edData = {selected} /></Element>
+
                         </div>
                         :<div></div>
-                        }
+                        } */}
                     
 
                 </div>
