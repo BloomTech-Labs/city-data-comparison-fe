@@ -57,7 +57,7 @@ const PrivacyPolicy = () => {
 
 
                     
-                    <h3>Your privacy is critically important to us.</h3>
+                    <h1>Your privacy is critically important to us.</h1>
                     {/* citrics.io is located at:<br/>
                     <address>
                     citrics.io<br/><br/>5079935257			</address> */}
