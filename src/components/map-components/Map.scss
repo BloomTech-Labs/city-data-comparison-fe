@@ -1,9 +1,11 @@
-
-
 /* this is the map container */
+.map {
+    margin-top: 100px;
+}
+
 .main-map {
     margin: 0 auto;
-    margin-top:83px;
+    // margin-top:83px;
     border: 2px solid darkgrey;
     border:none;
     // max-width:1000px;
@@ -17,7 +19,7 @@
 
 .map-page {
     background: white;
-    background: #F2F9FD;
+    background: #e9e8e9;
     height:100%;
     // border:1px solid red;
     // height:100vh;
@@ -42,7 +44,7 @@
     border:1px solid #ECF1F5;
 
     .save-container{
-        color:#2ba4fc;
+        color:#A33A00;
 
         .save-title{
             font-size:1.2rem;
@@ -64,11 +66,14 @@
     }
 }
 
-
+.general-stats-container{
+    margin-bottom: 3%;
+}
 
 .data-browser {
     // border:1px solid red;
-    background: #F2F9FD;
+    // background: #F2F9FD;
+    background: #e9e8e9;
     display:flex;
     padding-top: 3%;
     height: 100%;
@@ -83,13 +88,13 @@
     .map-prompt {
         text-align:center;
         font-size:1.3rem;
-        color:#2ba4fc;
+        color:#A33A00;
     }
 
 
     .data-category {
         width:98%;
-        margin: 10% 0;
+        // margin-top: 4%;
         border-radius:5px;
 
         @media screen and (max-width:600px){
@@ -99,7 +104,7 @@
             border-top:1px solid #ecf1f5;
             border-bottom:1px solid #ecf1f5;
             border-radius:0;
-            background: #F2F9FD;
+            background: #e9e8e9;
         }
     }
 
@@ -108,20 +113,35 @@
             width:100%;
             padding:0 5%;
             padding-top:5%;
-            background: #F2F9FD;
+            background: #e9e8e9;
         }
     }
+
     .special-margins{
-        // margin-top:7%;
+        margin-bottom: 3%;
     }
 
     .city-overview-container-medium{
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         width:98%;
-        margin-bottom:30px;
+        // margin-bottom:30px;
+        border-radius: 5px;
+        // border: 2px solid green;
     }
 
+    .city-overview-container-medium2 {
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        border-radius: 5px;
+    }
+
+    .city-overview-container-medium3 {
+        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        border-radius: 5px;
+    }
+    
+
     .city-overview-container-small{
+        // border: 2px solid red;
 
         .recommendation-grid {
             background-color:white;
@@ -200,7 +220,7 @@
                 }
                 &:hover{
                     background-color:#F6F9FC;
-                    border:1px solid #F2F9FD;
+                    border:1px solid #e9e8e9;
                 }
             }
         }
@@ -221,7 +241,7 @@
             margin-bottom:0 !important;
             padding-left:2%;
             font-size:1.3rem;
-            color:#00bfa5;
+            // color:#00bfa5;
             width:100%;
             display:flex;
         }
@@ -231,6 +251,7 @@
             padding-top:0;
             display:flex;
             justify-content:space-between;
+            // border: 2px solid blue;
 
             img{
                 height:20px;
@@ -328,7 +349,7 @@
             font-size:2rem;
             margin-top:5px;
             margin-bottom:0;
-            color:#00bfa5;
+            // color:#00bfa5;
         }
 
         .data-category-subtitle{
@@ -340,7 +361,7 @@
     }
 
     .chart-title{
-        color:#00bfa5;
+        // color:#00bfa5;
         margin-top:10px;
         font-size:1.3rem;
         margin-left:2%;
@@ -391,19 +412,19 @@
                 align-items:center;
                 justify-content:space-between;
                 font-size:1.2rem;
-                color:#00bfa5;
+                // color:#00bfa5;
                 margin-bottom:13px;
                 
-                .smoc-img{
-                    // border:1px solid blue;
-                }
+                // .smoc-img{
+                //     // border:1px solid blue;
+                // }
             }
             .home-title{
                 display:none;
             }
             .mortgage-price{
                 font-size:1.15rem;
-                color:#00bfa5;
+                color:#444444;
                 margin-left:3px;
             }
             .mortgage-label-container{
@@ -431,18 +452,18 @@
             }
         }
     @media screen and (max-width:1300px){
-        .mortgage-label-container{
-            // border:1px solid red;
-        }
-        .mortgage-label{
-            // border:1px solid blue;
-            // width:100%;
-        }
-        .home-container{
-            .ownerMortgage{
-                // display:flex;
-            }
-        }
+        // .mortgage-label-container{
+        //     // border:1px solid red;
+        // }
+        // .mortgage-label{
+        //     // border:1px solid blue;
+        //     // width:100%;
+        // }
+        // .home-container{
+        //     .ownerMortgage{
+        //         // display:flex;
+        //     }
+        // }
     }
     @media screen and (max-width:1000px){
         .home-container{
@@ -460,8 +481,8 @@
                 .mortgage{
                     width:30%;
                 }
-                    .mortgage-label{
-                    }
+                    // .mortgage-label{
+                    // }
                 }
             }
         }
@@ -473,7 +494,7 @@
                     justify-content:space-between;
 
                     .mortgage{
-                        width:45%;
+                        width:100%;
                         .mortgage-label-container{
                             flex-wrap:wrap;
 
@@ -494,6 +515,7 @@
         display:flex;
         justify-content:space-between;
         align-items:flex-start;
+        margin-bottom: 3%;
 
         .room-container{
             background-color:white;
@@ -549,6 +571,7 @@
         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         margin-bottom:30px;
         background-color:white;
+        margin-top: 3%;
     }
     .salary-container{
         padding:10px;
@@ -606,11 +629,11 @@
                 flex-wrap:wrap;
                 @media screen and (max-width:800px){
                     margin-bottom:30px;
-                    width:45%;
+                    width:100%;
                 }
 
                 .commute-city-title{
-                    color:#00bfa5;
+                    // color:#00bfa5;
                     font-size:1rem;
                     width:100%;
                     margin-bottom:25px;
@@ -644,8 +667,8 @@
 
     .travel-scores-container{
 
-        .travel-scores-container-one{
-        }
+        // .travel-scores-container-one{
+        // }
         .travel-scores-container-two{
             padding:10px;
             border-radius:5px;
@@ -781,12 +804,16 @@
             flex-direction:column;
             width:22%;
             @media screen and (max-width:800px){
-                width:47%;
+                width:100%;
                 flex-direction:row;  
                 flex-wrap:wrap;
                 justify-content:center;
                 // border:1px solid red;
             }  
+
+            .element {
+                width: 100%;
+            }
 
             .unemployment-card-container{
                 // font-size:1.1vw;
@@ -808,8 +835,8 @@
                 }
 
                 .unemployment-title{
-                    color:#00bfa5;
-                    font-size:1.1rem;
+                    // color:#00bfa5;
+                    font-size:1.2rem;
                     width:100%;
                     margin-bottom:25px;
                     display:flex;
@@ -833,7 +860,7 @@
                 }
                 .unemployment-label{
                     color:grey;
-                    font-size:14px;
+                    font-size:12px;
                     width:100%;
                     margin-top:10px;
                     text-align:center;
@@ -845,7 +872,7 @@
 
 
         .retirement-container{
-            width:52%;
+            width:74%;
             padding:10px;
             border-radius:5px;
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
@@ -857,66 +884,66 @@
                 margin-bottom:0px;
             }
         }
-        .insurance-container{
-            width:22%;
-            @media screen and (max-width:800px){
-                width:47%;   
-                display:flex;
-                justify-content:center;      
-            }
+        // .insurance-container{
+        //     width:22%;
+        //     @media screen and (max-width:800px){
+        //         width:47%;   
+        //         display:flex;
+        //         justify-content:center;      
+        //     }
 
-            .healthinsurance-card-container{
-                // height:170px;
-                // height:200px;
-                padding:15px;
-                padding-bottom:10px;
-                border-radius:5px;
-                box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-                margin-bottom:15px;
-                background-color:white;
+        //     .healthinsurance-card-container{
+        //         // height:170px;
+        //         // height:200px;
+        //         padding:15px;
+        //         padding-bottom:10px;
+        //         border-radius:5px;
+        //         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        //         margin-bottom:15px;
+        //         background-color:white;
 
-                @media screen and (max-width:800px){
-                    height:170px;
-                    width:100%;
-                    margin-bottom:30px;
-                }
-                @media screen and (max-width:500px){
-                    height:200px;
-                    height:auto;
-                }
+        //         @media screen and (max-width:800px){
+        //             height:170px;
+        //             width:100%;
+        //             margin-bottom:30px;
+        //         }
+        //         @media screen and (max-width:500px){
+        //             height:200px;
+        //             height:auto;
+        //         }
 
-                .healthinsurance-title{
-                    color:#00bfa5;
-                    font-size:1.1rem;
-                    width:100%;
-                    margin-bottom:25px;
-                    display:flex;
-                    justify-content:space-between;
-                }
+        //         .healthinsurance-title{
+        //             color:#00bfa5;
+        //             font-size:1.1rem;
+        //             width:100%;
+        //             margin-bottom:25px;
+        //             display:flex;
+        //             justify-content:space-between;
+        //         }
 
-                .healthinsurance-num{
-                    font-size:2rem;
-                    font-weight:400;
-                    color:black;
-                    display:flex;
-                    justify-content:center;
-                    align-items:center;
-                    .activity{
-                        width:20px;
-                        margin-right:6px;
-                    }
-                }
-                .healthinsurance-label{
-                    color:grey;
-                    // font-size:1.1vw;
-                    width:100%;
-                    font-size:14px;
-                    margin-top:10px;
-                    text-align:center;
-                    margin-bottom:5px;
-                }
-            }
-        }
+        //         .healthinsurance-num{
+        //             font-size:2rem;
+        //             font-weight:400;
+        //             color:black;
+        //             display:flex;
+        //             justify-content:center;
+        //             align-items:center;
+        //             .activity{
+        //                 width:20px;
+        //                 margin-right:6px;
+        //             }
+        //         }
+        //         .healthinsurance-label{
+        //             color:grey;
+        //             // font-size:1.1vw;
+        //             width:100%;
+        //             font-size:14px;
+        //             margin-top:10px;
+        //             text-align:center;
+        //             margin-bottom:5px;
+        //         }
+        //     }
+        // }
     }
 
 
@@ -959,7 +986,7 @@
             box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
             margin-bottom:30px;
             background-color:white;
-            width:75%;
+            width:100%;
             @media screen and (max-width:800px){
                 width:100%;     
             }
@@ -989,7 +1016,7 @@
                 }  
 
                 .birth-title{
-                    color:#00bfa5;
+                    // color:#00bfa5;
                     font-size:1.1rem;
                     width:100%;
                     margin-bottom:20px;
@@ -1039,7 +1066,7 @@
         // border:1px solid red;
         padding:10px;
         border-radius:5px;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         margin-bottom:30px;
         background-color:white;
     }
@@ -1053,33 +1080,45 @@
 
 // **** Styling prior to Kevin's
     .anchor-header1 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         text-align:left;
         text-decoration:none;
-        margin:0;
-        margin-left:20px;
-        color:#00bfa5;
-        margin-bottom:3px;
+        // margin:0;
+        // margin-left:20px;
+        color:#A33A00;
+        // margin-bottom:5%;
+        // margin-top: 6%;
+        margin: 6% 20px 5% 20px;
+        display: flex;
+        justify-content: space-between;
     }
 
     .anchor-header2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         text-align:left;
         text-decoration:none;
-        margin:0;
-        margin-left:20px;
-        color:#00bfa5;
-        margin-bottom:3px;
+        // margin:0;
+        // margin-left:20px;
+        color:#A33A00;
+        // margin-bottom:5%;
+        // margin-top: 6%;
+        margin: 6% 20px 5% 20px;
+        display: flex;
+        justify-content: space-between;
     }
 
     .anchor-header3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         text-align:left;
         text-decoration:none;
-        margin:0;
-        margin-left:20px;
-        color:#00bfa5;
-        margin-bottom:3px;
+        // margin:0;
+        // margin-left:20px;
+        color:#A33A00;
+        // margin-bottom:5%;
+        // margin-top: 6%;
+        margin: 6% 20px 5% 20px;
+        display: flex;
+        justify-content: space-between;
     }
     
     .nav-placeholder {
@@ -1090,7 +1129,10 @@
         // height: 100vh;
         background: white;
         overflow-y: auto;
+        -moz-overflow-y:hidden;
         position: sticky;
+        // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        border-radius: 5px;
 
         @media only screen and (max-width: 600px) {
             height: 100%;
@@ -1131,17 +1173,29 @@
         .anchor-nav {
             display:flex;
             flex-direction:column;
+            margin-top: 20px;
           
             // border:1px solid green;
             
             a {
+                
+                //color:#2e2f38;
+                //padding-left:25px !important;
+                font-size: 1.2rem;
+                text-align:left;
                 text-decoration:none;
-                color:#2e2f38;
-                padding-left:25px !important;
+                margin:0;
+                margin-left:20px;
+                color:#A33A00;
+                // margin-bottom:3px;
+               
+                cursor:pointer;
+                
 
                 .selected {
                     color :white;
                     font-size:1.1rem;
+
                 }
             }
         }
@@ -1182,7 +1236,6 @@
             }
         }
         .search-bar{
-            margin-top:-30px;
             background-image:url('../dashboard/assets/search.svg');
             background-position:6px 5.5px;
             background-repeat: no-repeat;
@@ -1190,6 +1243,7 @@
             font-size:1.1rem;
             border-radius:5px;
             border:1px solid #b8bec4;
+            width: 100%;
             &:focus{
                 outline:none;
             }
@@ -1270,6 +1324,7 @@
 
         .color-legend-text {
             color:black;
+            text-align: left;
         }
 
         .delete-icon {
@@ -1287,25 +1342,156 @@
             width:95%;
         }
 
-        input {
-            width:100%;
-            margin: 0 auto;
-            height: 2rem;
-            font-size:1.3rem;
-            padding:2%;
-            margin-bottom:1rem;
-        }
+        //data sidebar styling
 
-        .anchor-nav .anchor-link {
-            color: grey;
-            text-decoration:none;
-            justify-content:flex-start;
-            cursor:pointer;
-            padding:5px 0;
-        }
+        // .SCPmain {
+        //     width: 1400px;
+        //     max-width: 1400px;
+        //     .SCPsidebar {
+        //         display: flex;
+        //         flex-direction: column;
+        //         width: 40%;
+        //         height: 1000px;
+        //         .SCPfilter h4 {
+        //             display: flex;
+        //             padding-left: 38px;
+        //             font-size: 20px;
+        //         }
+                .dataFilterContain {
+                    display: block;
+                    position: relative;
+                    padding: 2% 0 2% 20%;
+                    // margin-bottom: 5px;
+                    cursor: pointer;
+                    font-size: 17px;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none
+                    
+                }
+                .dataFilterContain input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+                    padding: 1%;
+                }
+
+                .togglediv {
+                    width: 100%;
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                .dataFilterCatContainer .anchor-header1 .dropIcon1 {
+                    // margin-left: 4%;
+                    width: 15px;
+                    height: 9px;
+                    
+                }
+        
+                .dataFilterCatContainer .anchor-header2 .dropIcon2 {
+                    // margin-left: 4%;
+                    width: 15px;
+                    height: 9px;
+                }
+        
+                .dataFilterCatContainer .anchor-header3 .dropIcon3 {
+                    // margin-left: 4%;
+                    width: 15px;
+                    height: 9px;
+                }
+
+                /*Dropdown icon animation*/
+                .drop-icon {
+                    transition: all 0.75s 0.25s;
+                }
+
+                .toggle-down {
+                    transform: rotate(180deg);
+                }
+
+                .toggle-up {
+                    transform: rotate(0deg);
+                }
+                
+
+                .dataCheckmark {
+                    position: absolute;
+                    // top: 5px;
+                    //justify-content: flex-start;
+                    left: 7.5%;
+                    height: 17px;
+                    width: 17px;
+                    top: 18%;
+                    background-color: transparent;
+                    border: 1px solid #393B40;
+                    border-radius: 5px;
+                }
+                .dataFilterContain:hover input ~ .SCPcheckmark {
+                    background-color: #ccc;
+                }
+                  /* When the checkbox is checked, add a blue background */
+                .dataFilterContain input:checked ~ .dataCheckmark {
+                    background-color: transparent;
+                }
+
+                .dataFilterContain {
+                    margin-top: 1%;
+                    margin-bottom:1%;
+                }
+                  /* Create the checkmark/indicator (hidden when not checked) */
+                .dataCheckmark:after {
+                    content: "X";
+                    position: absolute;
+                    display: none;
+                }
+                  /* Show the checkmark when checked */
+                .dataFilterContain input:checked ~ .dataCheckmark:after {
+                    display: block;
+                }
+                  /* Style the checkmark/indicator */
+                .dataFilterContain .dataCheckmark:after {
+                    left: 12%;
+                    bottom: 11px;
+                    width: 4px;
+                    height: 6px;
+                    border-width: 0 3px 3px 0;
+                }
+                .drop-icon {
+                    animation: down-icon 5s ;
+                }
+                @keyframes down-icon {
+                    50% {transform: rotate(180deg);}
+                }
+        
+        // input {
+        //     width:100%;
+        //     margin: 0 auto;
+        //     height: 2rem;
+        //     font-size:1.3rem;
+        //     padding:2%;
+        //     margin-bottom:1rem;
+        // }
+
+        // "city overview" category on side nav
+        // .anchor-nav .anchor-link {
+        //     // color: black;
+        //     // text-decoration:none;
+        //     // justify-content:flex-start;
+        //     // cursor:pointer;
+        //     // padding:5px 0;
+        //     // flex-direction: row;
+        //     // padding: 4%;
+        //     // font-size: 1.1
+            
+        // }
 
         .active {
-            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.08);
+            // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.08);
             font-size:1.1rem;
             // background-color:#f6fbff;
             // color:black !important; 
@@ -1315,8 +1501,8 @@
             margin-bottom:30px;
         }
         #general{
-            margin-top:5px;
-            margin-bottom:5px;
+            margin-top: 6%;
+            margin-bottom: 3%; 
         }
 
         
@@ -1339,8 +1525,9 @@
             }
 
         .autofill-container {
+            width: 94%;
             position:absolute;
-            width:19%;
+            // width:19%;
             @media only screen and (max-width: 600px) {
                 display:none;
             }
@@ -1374,6 +1561,7 @@
         width: 20%;
         height: 85vh;
         overflow-y: auto;
+        -moz-overflow-y:hidden;
     }
     .sticky::-webkit-scrollbar {
         display: none;

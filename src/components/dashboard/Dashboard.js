@@ -6,12 +6,6 @@ import RadarGraph from '../graphs/RadarGraph'
 import ReactGA from "react-ga";
 
 import pointer from './assets/pointer.svg'
-import location from './assets/location.svg'
-import data from './assets/data_visual.svg'
-import control from './assets/control_data.svg'
-
-import landing from './assets/landing2.jpg'
-
 import backwheel from "./assets/motorbike_back_wheel.png"
 import edgeblur from "./assets/edge_blur.png"
 import driver from "./assets/motorbike_driver.png"
@@ -24,6 +18,15 @@ import { UserContext } from "../../contexts/UserContext"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import "../../App.scss"
+
+import landing from '../homepage-imgs/landing.svg'
+import economy from '../homepage-imgs/economy.svg'
+import community from '../homepage-imgs/community.svg'
+import housing from '../homepage-imgs/housing.svg'
+import data from '../homepage-imgs/visualize.svg'
+import location from '../homepage-imgs/map.svg'
+import control from '../homepage-imgs/control.svg'
+import unlock from '../homepage-imgs/unlock.svg'
 
 function Dashboard({history}){
 
@@ -205,112 +208,121 @@ function Dashboard({history}){
                {/* * LANDING PAGE AND SEARCH FUNCTION */}
                <div className="dashboard-search-container">
                     <div className="dashboard-search-function">
-                         {/* TITLE */}
-                         <p className="dashboard-title">Make Your Move.</p>
-                         {/* SEARCH CONTAINER */}
-                         <div className="dashboard-function-container">
-                              {/* TOGGLE SEARCH VS. COMPARE FUNCTIONALITY */}
-                              { toggleSearch ? 
-                              <div className="dashboard-single-search-container">
-                                   <form autoComplete="off" onSubmit={submitCity}>
-                                        <div>
-                                             <input 
-                                             placeholder="Search for a city"
-                                             onChange={handleCityOne}
-                                             value={compare.cityOne}
-                                             name="cityOne"
-                                             />
-                                             <div>
-                                                  {cityOneSuggestions.map( (suggestion) => {
-                                                       const style = {
-                                                            backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                            cursor: "pointer",
-                                                            fontSize:"1rem",
-                                                            textAlign:"left",
-                                                            padding:"10px",
-                                                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
-                                                       }                                                       
-                                                       return <div key={suggestion._id} name="cityOne" style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img alt="a pointer" className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
-                                                  })}
-                                             </div>
+                         {/* LANDING IMAGE */}
+                         <div className="dashboard-image">
+                              <div className="dashboard-image-header">
+                                   
+                              
+                                   {/* TITLE */}
+                                   <p className="dashboard-title">Make Your <br/>Move.</p>
+                                   <p className="dashboard-title2">Make <br/>Your <br/>Move.</p>
+                                   {/* SEARCH CONTAINER */}
+                                   <div className="dashboard-function-container">
+                                        {/* TOGGLE SEARCH VS. COMPARE FUNCTIONALITY */}
+                                        { toggleSearch ? 
+                                        <div className="dashboard-single-search-container">
+                                             <form autoComplete="off" onSubmit={submitCity}>
+                                                  <div className="search-and-button">
+                                                       <input 
+                                                       placeholder="Search for a city"
+                                                       onChange={handleCityOne}
+                                                       value={compare.cityOne}
+                                                       name="cityOne"
+                                                       />
+                                                       <button onClick={submitCity} className="compare-button">Go</button>
+                                                       </div>
+                                                       <div>
+                                                            {cityOneSuggestions.map( (suggestion) => {
+                                                                 const style = {
+                                                                      backgroundColor: suggestion.active ? "#e9e8e9" : "#fff",
+                                                                      cursor: "pointer",
+                                                                      fontSize:"1rem",
+                                                                      textAlign:"left",
+                                                                      padding:"10px",
+                                                                      boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
+                                                                 }                                                       
+                                                                 return <div key={suggestion._id} name="cityOne" style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img alt="a pointer" className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                            })}
+                                                       </div>
+                                                  
+                                             </form>
                                         </div>
-                                   </form>
-                              </div>
 
-                              :
+                                        :
 
-                              <div className="dashboard-compare-search-container">
-                                   <form autoComplete="off" onSubmit={submitCity}>
-                                        <div>
-                                             <input 
-                                             placeholder="Enter city one"
-                                             onChange={handleCityOne}
-                                             value={compare.cityOne}
-                                             name="cityOne"
-                                             />                 
-                                             <div>
-                                                  {cityOneSuggestions.map( (suggestion) => {
-                                                       const style = {
-                                                            backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                            cursor: "pointer",
-                                                            fontSize:"1rem",
-                                                            textAlign:"left",
-                                                            padding:"10px",
-                                                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
-                                                       }
-                                                       return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img alt="a map pin" className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
-                                                  })}
-                                             </div>
+                                        <div className="dashboard-compare-search-container">
+                                             <form autoComplete="off" onSubmit={submitCity}>
+                                                  <div>
+                                                       <input 
+                                                       placeholder="Enter city one"
+                                                       onChange={handleCityOne}
+                                                       value={compare.cityOne}
+                                                       name="cityOne"
+                                                       />
+                                                                       
+                                                       <div>
+                                                            {cityOneSuggestions.map( (suggestion) => {
+                                                                 const style = {
+                                                                      backgroundColor: suggestion.active ? "#e9e8e9" : "#fff",
+                                                                      cursor: "pointer",
+                                                                      fontSize:"1rem",
+                                                                      textAlign:"left",
+                                                                      padding:"10px",
+                                                                      boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
+                                                                 }
+                                                                 return <div key={suggestion.name} style={style} onClick={() => chooseCityOneSuggestion(suggestion)}> <img alt="a map pin" className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                            })}
+                                                       </div>
+                                                  </div>
+                                                  <div style={{ display: 'flex', marginTop: '10px' }}>
+                                                       <input 
+                                                       placeholder="Enter city two"
+                                                       onChange={handleCityTwo}
+                                                       value={compare.cityTwo}
+                                                       />
+                                                       <button onClick={submitCity} className="compare-button">Go</button> 
+                                                       </div>
+                                                       <div>
+                                                            {cityTwoSuggestions.map( (suggestion) => {
+                                                                 const style = {
+                                                                      backgroundColor: suggestion.active ? "#e9e8e9" : "#fff",
+                                                                      cursor: "pointer",
+                                                                      fontSize:"1rem",
+                                                                      textAlign:"left",
+                                                                      padding:"10px",
+                                                                      boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
+                                                                 }
+                                                                 return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img alt="a map pin" className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
+                                                            })}
+                                                       </div>
+                                                  
+                                             </form>
                                         </div>
-                                        <div>
-                                             <input 
-                                             placeholder="Enter city two"
-                                             onChange={handleCityTwo}
-                                             value={compare.cityTwo}
-                                             />
-                                             <div>
-                                                  {cityTwoSuggestions.map( (suggestion) => {
-                                                       const style = {
-                                                            backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
-                                                            cursor: "pointer",
-                                                            fontSize:"1rem",
-                                                            textAlign:"left",
-                                                            padding:"10px",
-                                                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)"
-                                                       }
-                                                       return <div key={suggestion.name} style={style} onClick={() => chooseCityTwoSuggestion(suggestion)}> <img alt="a map pin" className="imageStyle" src={pointer}/> {suggestion.name.replace(" city", "")}</div>
-                                                  })}
-                                             </div>
-                                        </div>
-                                   </form>
-                              </div>
-                              }
+                                        }
 
-                              {/* * TOGGLE DIV FOR SEARCH AND GO BUTTON */}
-                              <div className="toggle-div">
-                                   <div id="search-toggle">
-                                        <label className="switch">
-                                             <input type="checkbox"
-                                             onClick={toggleClass}
-                                             />
-                                             <span className="slider round"></span>
-                                        </label>
-                                        <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
+                                        {/* * TOGGLE DIV FOR SEARCH AND GO BUTTON */}
+                                        <div className="toggle-div">
+                                             <div id="search-toggle">
+                                                  <label className="switch">
+                                                       <input type="checkbox"
+                                                       onClick={toggleClass}
+                                                       />
+                                                       <span className="slider round"></span>
+                                                  </label>
+                                                  <p className={buttonClass} style={toggleStyle}>Compare cities</p>                                   
+                                             </div>
+                                                  
+                                        </div>
                                    </div>
-                                        <button onClick={submitCity} className="compare-button">Go</button>
                               </div>
                          </div>
-                    </div>
-
-                    {/* LANDING IMAGE */}
-                    <div className="dashboard-image">
-                         <img className="landing-image" src={landing} alt="environment" />
                     </div>
                </div>
                
                
                {/* SIGN UP CALL TO ACTION */}
-               <div className="kevinmotor">
+               <div className="kevinmotor" style={{ display: 'flex',
+  justifyContent: 'center' }}>
                <div className="bonus-features-container"
                     data-aos="fade-right"
                     data-aos-offset="100"
@@ -320,8 +332,11 @@ function Dashboard({history}){
                     data-aos-mirror="true"
                     data-aos-once="true"
                >
+                    
                     <div className="motoranimationcontainer">
-                         <div className="motoranimbackground">
+                         <img alt='img of lock' className="unlockfeatures" src={unlock} />
+                         
+                         {/* <div className="motoranimbackground">
                               <img className="edgeblurleft" src={edgeblur}/>
                               <img className="edgeblurright" src={edgeblur}/>
                          </div>
@@ -330,13 +345,13 @@ function Dashboard({history}){
                               <img className="motoranim wheel" src={frontwheel} alt="frontwheel" style={{top:"90px", left:"67px"}}/>
                               <img className="motoranim driver" src={driver} alt="driver" style={{top:"20px"}}/>
                               <img className="motoranim plant" src={plant} alt="plant" style={{top:"27px", right:"60px"}} />
-                         </div>
+                         </div> */}
                     </div>    
                     <div className="bonus-features-CTA">
                          <p className="bonus-features-title">Unlock bonus features</p>
                          <p className="bonus-features-description">Sign up for free to unlock additional features to export data, review and comment on cities, and view favorited cities. </p>
                          
-                         <Link to="/signup"><button className="sign-up-CTA">Sign Up Free</button></Link>
+                         <Link to="/signup"><button className="sign-up-CTA">Sign Up</button></Link>
                     </div>
                </div>
                </div>
@@ -347,7 +362,7 @@ function Dashboard({history}){
                <div className="kevin">
                <div className="dashboard-features-container">
                     <div className="dashboard-features-title">
-                    <p className="features-title">Features</p>
+                    <h3 className="features-title">Features</h3>
                </div>
                     <div className="feature-descriptions-container"
                          data-aos="fade-up"
@@ -373,7 +388,7 @@ function Dashboard({history}){
                          data-aos-mirror="true"
                          data-aos-once="true"
                     >
-                         <img className="feature-images" src={data} alt="map"/>
+                         <img className="feature-images" src={location} alt="map"/>
                          <div className="feature-descriptions">
                               <p className="feature-title">Map view</p>
                               <p>View the map to explore what is near cities and how the data compares with different parts of the city.</p>
@@ -388,7 +403,7 @@ function Dashboard({history}){
                          data-aos-mirror="true"
                          data-aos-once="true"
                     >
-                         <img className="feature-images" src={location} alt="data visual"/>
+                         <img className="feature-images" src={data} alt="data visual"/>
                          <div className="feature-descriptions">
                               <p className="feature-title">Visualize data</p>
                               <p>Data visuals help to easily understand cost of living in multiple cities and provide data from a bird’s eye view.</p>
@@ -410,7 +425,8 @@ function Dashboard({history}){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-                              <LineGraph2 />
+                              <img className="feature-images" src={housing} alt="housing visual"/>     
+                              {/* <LineGraph2 /> */}
                               <p className="metrics-description"><p className="metrics-description-title">Housing</p>Housing data includes median rent, home prices, monthly homeowner costs, housing by rooms, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
@@ -422,7 +438,8 @@ function Dashboard({history}){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-                              <LineGraph />
+                              <img className="feature-images" src={community} alt="community visual"/>
+                              {/* <LineGraph /> */}
                               <p className="metrics-description"><p className="metrics-description-title">Community</p>Data for social trends consists of age, ethnicity, education, languages spoken, school enrollment, and etc.</p>
                          </div>
                          <div className="metrics-description-container"
@@ -434,8 +451,9 @@ function Dashboard({history}){
                               data-aos-mirror="true"
                               data-aos-once="true"
                          >
-                              <RadarGraph />
-                              <p className="metrics-description"><p className="metrics-description-title">Economy</p>Economic data includes health insurances, household income, major industries and etc.</p>
+                              <img className="feature-images" src={economy} alt="economy visual"/>
+                              {/* <RadarGraph /> */}
+                              <p className="metrics-description"><p className="metrics-description-title">Economy</p>Economic data includes household income, major industries, etc.</p>
                          </div>
                     </div>
                </div>

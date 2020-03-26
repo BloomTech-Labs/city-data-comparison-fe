@@ -36,7 +36,7 @@ export default class ColoredScrollbars extends Component {
     renderThumb({ style, ...props }) {
         const { top } = this.state;
         const thumbStyle = {
-            backgroundColor: `#2ca4fc`
+            backgroundColor: `#a33a00`
         };
         return (
             <div

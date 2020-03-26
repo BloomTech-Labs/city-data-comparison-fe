@@ -12,14 +12,15 @@ import Map from "./components/Map";
 import Profile from './components/user-profile/Profile'
 import PrivacyPolicy from "./components/legal/PrivacyPolicy"
 import AboutUs from './components/aboutus/AboutUs'; 
-import AboutUs2 from './components/aboutus/AboutUs2'; 
+// import AboutUs2 from './components/aboutus/AboutUs2'; 
 import citiesIndex from './data/city_ids.json'
 import { UserContext } from './contexts/UserContext';
 import { CityContext } from './contexts/CityContext';
 import Axios from "axios"
 import Callback from './components/Callback';
 import AuthForm from './components/forms/AuthForm';
-import axiosAuth from "./components/axiosAuth"
+import axiosAuth from "./components/axiosAuth";
+import SingleCityPage from "./components/single_city_page/SingleCityPage";
 
 
 
@@ -71,23 +72,24 @@ function App() {
 
   const getCityColor = _ => {
     let activeColors = selected.map(item => item.color)
-      if (!activeColors.includes("#8DD3C7")) {
-        return "#8DD3C7"
-      } else if (!activeColors.includes("#FB7F72")) {
-        return "#FB7F72"
-      } else if (!activeColors.includes("#80B1D3")) {
-        return "#80B1D3"
+      if (!activeColors.includes("#A33A00")) {
+        return "#A33A00"
+      } else if (!activeColors.includes("#0041A3")) {
+        return "#0041A3"
+      } else if (!activeColors.includes("#017428")) {
+        return "#017428"
       }   
   }
+  
   const getSecondCityColor = arr => {
     let activeColors = selected.map(item => item.color)
     activeColors.push(arr[0].color)
-      if (!activeColors.includes("#8DD3C7")) {
-        return "#8DD3C7"
-      } else if (!activeColors.includes("#FB7F72")) {
-        return "#FB7F72"
-      } else if (!activeColors.includes("#80B1D3")) {
-        return "#80B1D3"
+      if (!activeColors.includes("#A33A00")) {
+        return "#A33A00"
+      } else if (!activeColors.includes("#0041A3")) {
+        return "#0041A3"
+      } else if (!activeColors.includes("#017428")) {
+        return "#017428"
       }   
   }
 
@@ -108,7 +110,6 @@ function App() {
 
 const getCities = arr => {
   let output = []
-
   // if both objects
   if (typeof arr[0] === "object" && typeof arr[1] === "object")
     Axios.get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[0].ID}`)
@@ -262,18 +263,22 @@ cityIndex.sort(compare);
 
   },[viewport.latitude])
 
+  console.log('getCities', selected)
+
   return (
     <Router>
       <UserContext.Provider value={{axiosAuth, user, setUserValue, setUser, favorites, setFavorites, toggleSearch, setToggleSearch}}>
         <CityContext.Provider value={{cityIndex, cityMarkers, getCities, setCityMarkers, selected, setSelected, viewport, setViewport, getCity, getBestSuggestion, getBestSuggestions}}>
           <div className="App">
-            <Navigation />
+            {/* <Navigation /> */}
+            <Route path='/' render={props => <Navigation {...props}/>} />
             <Route exact path='/' component={Dashboard} />
             <Route exact path='/' component={Footer} />
-            <Route path="/map" component={Map} />
+            <Route path='/map' render={props => <Map {...props}/>} />
             <PrivateRoute path='/profile' component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
-            <Route path="/aboutus" component={AboutUs2} />
+            <Route path="/meet-the-team" component={AboutUs} />
+            <Route path='/SingleCityPage' render={props => <SingleCityPage {...props}/>} />
 
             <Route path='/signin' render={props => <AuthForm {...props} action="Login"/>} />
             <Route path="/signup" render={props => <AuthForm {...props} action="Register"/>} />
