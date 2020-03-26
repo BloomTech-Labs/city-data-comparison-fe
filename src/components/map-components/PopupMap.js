@@ -9,7 +9,7 @@ export const SelectedMapWrapper = styled.div`
         display: none;
         border: 2px solid darkgrey;
         padding-bottom:20px;
-        background-color:#F2F9FD;
+        background-color:#e9e8e9;
         transition:'left 2s, top 2s'
     `;
 
