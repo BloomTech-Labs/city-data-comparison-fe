@@ -19,7 +19,7 @@
 
 .map-page {
     background: white;
-    background: #F2F9FD;
+    background: #e9e8e9;
     height:100%;
     // border:1px solid red;
     // height:100vh;
@@ -44,7 +44,7 @@
     border:1px solid #ECF1F5;
 
     .save-container{
-        color:#2ba4fc;
+        color:#A33A00;
 
         .save-title{
             font-size:1.2rem;
@@ -72,7 +72,8 @@
 
 .data-browser {
     // border:1px solid red;
-    background: #F2F9FD;
+    // background: #F2F9FD;
+    background: #e9e8e9;
     display:flex;
     padding-top: 3%;
     height: 100%;
@@ -87,7 +88,7 @@
     .map-prompt {
         text-align:center;
         font-size:1.3rem;
-        color:#2ba4fc;
+        color:#A33A00;
     }
 
 
@@ -103,7 +104,7 @@
             border-top:1px solid #ecf1f5;
             border-bottom:1px solid #ecf1f5;
             border-radius:0;
-            background: #F2F9FD;
+            background: #e9e8e9;
         }
     }
 
@@ -112,7 +113,7 @@
             width:100%;
             padding:0 5%;
             padding-top:5%;
-            background: #F2F9FD;
+            background: #e9e8e9;
         }
     }
 
@@ -219,7 +220,7 @@
                 }
                 &:hover{
                     background-color:#F6F9FC;
-                    border:1px solid #F2F9FD;
+                    border:1px solid #e9e8e9;
                 }
             }
         }
@@ -423,7 +424,7 @@
             }
             .mortgage-price{
                 font-size:1.15rem;
-                color:#00bfa5;
+                color:#444444;
                 margin-left:3px;
             }
             .mortgage-label-container{
@@ -493,7 +494,7 @@
                     justify-content:space-between;
 
                     .mortgage{
-                        width:45%;
+                        width:100%;
                         .mortgage-label-container{
                             flex-wrap:wrap;
 
@@ -628,7 +629,7 @@
                 flex-wrap:wrap;
                 @media screen and (max-width:800px){
                     margin-bottom:30px;
-                    width:45%;
+                    width:100%;
                 }
 
                 .commute-city-title{
@@ -803,12 +804,16 @@
             flex-direction:column;
             width:22%;
             @media screen and (max-width:800px){
-                width:47%;
+                width:100%;
                 flex-direction:row;  
                 flex-wrap:wrap;
                 justify-content:center;
                 // border:1px solid red;
             }  
+
+            .element {
+                width: 100%;
+            }
 
             .unemployment-card-container{
                 // font-size:1.1vw;
@@ -831,7 +836,7 @@
 
                 .unemployment-title{
                     // color:#00bfa5;
-                    font-size:1.1rem;
+                    font-size:1.2rem;
                     width:100%;
                     margin-bottom:25px;
                     display:flex;
@@ -855,7 +860,7 @@
                 }
                 .unemployment-label{
                     color:grey;
-                    font-size:14px;
+                    font-size:12px;
                     width:100%;
                     margin-top:10px;
                     text-align:center;
@@ -1061,7 +1066,7 @@
         // border:1px solid red;
         padding:10px;
         border-radius:5px;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         margin-bottom:30px;
         background-color:white;
     }
@@ -1080,7 +1085,7 @@
         text-decoration:none;
         // margin:0;
         // margin-left:20px;
-        color:#00bfa5;
+        color:#A33A00;
         // margin-bottom:5%;
         // margin-top: 6%;
         margin: 6% 20px 5% 20px;
@@ -1094,7 +1099,7 @@
         text-decoration:none;
         // margin:0;
         // margin-left:20px;
-        color:#00bfa5;
+        color:#A33A00;
         // margin-bottom:5%;
         // margin-top: 6%;
         margin: 6% 20px 5% 20px;
@@ -1108,7 +1113,7 @@
         text-decoration:none;
         // margin:0;
         // margin-left:20px;
-        color:#00bfa5;
+        color:#A33A00;
         // margin-bottom:5%;
         // margin-top: 6%;
         margin: 6% 20px 5% 20px;
@@ -1126,7 +1131,7 @@
         overflow-y: auto;
         -moz-overflow-y:hidden;
         position: sticky;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         border-radius: 5px;
 
         @media only screen and (max-width: 600px) {
@@ -1181,7 +1186,7 @@
                 text-decoration:none;
                 margin:0;
                 margin-left:20px;
-                color:#00bfa5;
+                color:#A33A00;
                 // margin-bottom:3px;
                
                 cursor:pointer;
@@ -1486,7 +1491,7 @@
         // }
 
         .active {
-            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.08);
+            // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.08);
             font-size:1.1rem;
             // background-color:#f6fbff;
             // color:black !important; 

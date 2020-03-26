@@ -1,10 +1,10 @@
 .profile-body {
-   background-color: #F2F9FD;
+   background-color: #e9e8e9;
 }
 
 .profile-page {
     display: flex;
-    background-color:#F2F9FD;
+    background-color:#e9e8e9;
 
     .profile-slides{
         margin: 0 auto;
@@ -28,7 +28,7 @@
             font-size: 1.1rem;
             font-weight: 500;
             padding: 5px;
-            background-color: #2ca4fc;
+            background-color: #a33a00;
             color: white;
             max-width: 400px;
             transition: 0.22s ease;
@@ -47,7 +47,7 @@
             font-size: 32px;
             margin-bottom: 32px;
             font-weight: 400;
-            color: #00bfa5;
+            color: #5e6066;
             text-align: center;
         }
 
@@ -259,7 +259,7 @@
         align-items: center;
         width: 45%;
         height:35vh;
-        box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        // box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
         background-color: white;
 
         @media screen and (max-width:1400px){
@@ -270,9 +270,9 @@
             padding: 10px;
         }
 
-        button {
-            box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        }
+        // button {
+        //      box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
+        // }
 
         h2 {
             font-size: 1.3rem;
@@ -322,7 +322,7 @@
         margin: 10px auto;
         margin-bottom:20px;
         font-weight: 500;
-        color: #00bfa5;
+        color: #5e6066;
     }
 
     
@@ -359,7 +359,7 @@
         p {
             font-size: 18px;
             font-weight: 500;
-            color: #00bfa5;
+            color: #5e6066;
             text-align:center;
             @media screen and (max-width:900px){
                 margin-bottom: 5px;
@@ -380,7 +380,7 @@
             font-size: 1.1rem;
             font-weight: 500;
             padding: 5px;
-            background-color: #2ca4fc;
+            background-color: #a33a00;
             color: white;
             max-width: 400px;
             transition: 0.22s ease;
@@ -625,6 +625,26 @@
     color:  #1C00EE;
 }
 
+.number-style25-3 {
+    font-size: 50px;
+    color: #FA6501;
+}
+
+.number-style50-3 {
+    font-size: 50px;
+    color: #12D000;
+}
+
+.number-style75-3 {
+    font-size: 50px;
+    color: #0062F4;
+}
+
+.number-style100-3 {
+    font-size: 50px;
+    color:  #1C00EE;
+}
+
 .quality-button {
     // background-color: #A33A00;
     width: 200px;
@@ -854,8 +874,15 @@
     display: flex;
 }
 
-// MOBILE STYLING FOR 1 CITY SELECTED
+// 500PX MOBILE STYLING FOR 1 CITY SELECTED
 @media screen and (max-width: 500px){
+
+    .stats-style {
+        p {
+            font-size: 1rem;
+        }
+    }
+
     .stats-div {
         display: flex;
         height: 250px;
@@ -905,7 +932,7 @@
 
 } // ends mobile styling for 1 CITY SELECTED
 
-// MOBILE STYLING FOR 2 CITIES SELECTED
+// 500PX MOBILE STYLING FOR 2 CITIES SELECTED
 @media screen and (max-width: 500px){
     .button-weather-contain{
         display: flex;
@@ -925,6 +952,9 @@
 
     .stats-style2 {
         width: 90%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
     }
 
     .scores-div2{
@@ -940,7 +970,7 @@
 
 
 
-// MOBILE STYLING FOR 3 CITIES SELECTED
+// 500PX MOBILE STYLING FOR 3 CITIES SELECTED
 @media screen and (max-width: 500px) {
 
     .city-overview-border3{
@@ -965,6 +995,11 @@
         width: 100%;
         font-size: .9rem;
         
+    }
+
+    .stats-style {
+        display: flex;
+        justify-content: center;
     }
 
     .stats-img {
@@ -1035,6 +1070,528 @@
 
     .stats-par {
         font-size: 1.2rem;
+        padding: 0;
     }
 
 } // this ends @meda styling for 3 cities
+
+// STYLING 800px FOR 1 CITY
+@media screen and (max-width: 800px){
+
+    .current-weather {
+        // border: 1px solid black;
+    }
+
+    .stats-div {
+        display: flex;
+        height: 250px;
+        width: 100%;
+    }
+
+    .button-div{
+        display: flex;
+        justify-content: center;
+    }
+
+    .city-overview-border{
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-contain {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stats-div-readjusted {
+        width: 100%;
+    }
+
+   .scores-div {
+    width: 100%;
+   }
+
+   .number-contain {
+       h4 {
+           font-size: 2rem;
+       }
+   }
+
+   .scores-container {
+    display: flex;
+    flex-wrap: wrap;
+   }
+
+   .scores-contain{
+       h4{
+        // font-size: 1rem;
+       }
+    //    p{
+    //     font-size: .9rem;
+    //    }
+   }
+
+   .scores-contain {
+       width: 48%;
+   }
+
+} // ends 800px mobile styling for 1 CITY SELECTED
+
+
+// MEDIA 800PX FOR 2 CITIES
+@media screen and (max-width: 800px) {
+    .button-weather-contain{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .title-container2 {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .button-div2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .stats-style2 {
+        width: 90%;
+    }
+
+    .scores-div2{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .title-contain2 {
+        text-align: center;
+    }
+
+    .icon-score-contain {
+        justify-content: center;
+    }
+
+    .icon-contain {
+        text-align: right;
+    }
+
+    .number-contain {
+        text-align: center;
+        text-align: left;
+    }
+
+    .scores-contain2{
+        width: 100%;
+    }
+
+    .walking-img2 {
+        width: 50%;
+    }
+
+    .number-style25-3 {
+        font-size: 50px;
+    
+    }
+    
+    .number-style50-3 {
+        font-size: 50px;
+   
+    }
+    
+    .number-style75-3 {
+        font-size: 50px;
+    
+    }
+    
+    .number-style100-3 {
+        font-size: 50px;
+  
+    }
+
+} // this ends media for 800px for 2 cities selected
+
+
+// MEDIA 800PX FOR 3 CITIES
+@media screen and (max-width: 800px) {
+
+    .city-overview-border3{
+        height: 75px;
+
+        .title-contain3{
+            font-size: 1rem;
+        }
+    }
+
+    .avg-temp-container {
+        display: none;
+    }
+    .avg-temp-container2 {
+        display: none;
+    }
+    .avg-temp-container3 {
+        display: none;
+    }
+
+    .quality-button{
+        width: 99%;
+        font-size: .9rem;
+    }
+
+    .stats-img {
+        display: none;
+    }
+
+    .stats-style {
+        text-align: center;
+    }
+
+    .scores-div3{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap
+    }
+
+    .scores-contain3 {
+        width: 100%;
+        margin-top:5px ;
+    }
+
+    h5{
+        font-size: .4rem;
+    }
+
+    .title-contain3 {
+        h4 {
+            font-size: 1rem
+        }
+        p {
+            font-size: .9rem;
+        }
+    } // ends .title-contain3
+
+    .icon-contain {
+        width: 48%;
+
+        .walk-img3 {
+            width: 60%;
+        }
+
+        img {
+            width: 65%;
+        }
+    } // ends .icon-contain
+
+    .icon-score-contain {
+        width: 100%;
+
+    }
+
+    .number-contain{
+        width: 48%;
+        h5{
+            font-size: 1rem;
+        }
+        // p {
+        //     font-size: 2rem;
+        // }
+    }// ends .number-contain
+
+    .number-style25-2 {
+        font-size: 2rem;
+    }
+
+    .number-style50-2 {
+        font-size: 2rem;
+
+    }
+
+    .number-style75-2 {
+        font-size: 2rem;
+
+    }
+
+    .number-style100-2 {
+        font-size: 2rem;
+    }
+
+    .stats-par {
+        font-size: 1.2rem;
+    }
+
+    .weather-style3 {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+} // this ends media for 800px for 3 cities selected
+
+// STYLING 900px FOR 1 CITY
+@media screen and (max-width: 900px){
+
+    .stats-div {
+        display: flex;
+        height: 250px;
+        width: 100%;
+    }
+
+    .button-div{
+        display: flex;
+        justify-content: center;
+    }
+
+    .city-overview-border{
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-contain {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stats-div-readjusted {
+        width: 100%;
+    }
+
+   .scores-div {
+    width: 100%;
+   }
+
+   .number-contain {
+       h4 {
+           font-size: 2rem;
+       }
+   }
+
+   .scores-container {
+    display: flex;
+    flex-wrap: wrap;
+   }
+
+   .scores-contain{
+       h4{
+        // font-size: 1rem;
+       }
+    //    p{
+    //     font-size: .9rem;
+    //    }
+   }
+
+   .scores-contain {
+       width: 48%;
+   }
+
+} // ends 900px mobile styling for 1 CITY SELECTED
+
+
+// MEDIA 900PX FOR 2 CITIES
+@media screen and (max-width: 900px) {
+    .button-weather-contain{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .title-container2 {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .button-div2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .stats-style2 {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .scores-div2{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .title-contain2 {
+        text-align: center;
+    }
+
+    .icon-score-contain {
+        justify-content: center;
+    }
+
+    .icon-contain {
+        text-align: right;
+    }
+
+    .number-contain {
+        text-align: center;
+        text-align: left;
+    }
+
+    .scores-contain2{
+        width: 100%;
+    }
+
+    .walking-img2 {
+        width: 40%;
+    }
+
+    .number-style25-3 {
+        font-size: 50px;
+    
+    }
+    
+    .number-style50-3 {
+        font-size: 50px;
+   
+    }
+    
+    .number-style75-3 {
+        font-size: 50px;
+    
+    }
+    
+    .number-style100-3 {
+        font-size: 50px;
+  
+    }
+
+} // this ends media for 900px for 2 cities selected
+
+// MEDIA 900PX FOR 3 CITIES
+@media screen and (max-width: 900px) {
+
+    .city-overview-border3{
+        height: 75px;
+
+        .title-contain3{
+            font-size: 1rem;
+        }
+    }
+
+    .avg-temp-container {
+        display: none;
+    }
+    .avg-temp-container2 {
+        display: none;
+    }
+    .avg-temp-container3 {
+        display: none;
+    }
+
+    .quality-button{
+        width: 99%;
+        font-size: .9rem;
+    }
+
+    .stats-img {
+        display: none;
+    }
+
+    .stats-style {
+        text-align: center;
+    }
+
+    .scores-div3{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap
+    }
+
+    .scores-contain3 {
+        width: 100%;
+        margin-top:5px ;
+    }
+
+    h5{
+        font-size: .4rem;
+    }
+
+    .title-contain3 {
+        h4 {
+            font-size: 1rem
+        }
+        p {
+            font-size: .9rem;
+        }
+    } // ends .title-contain3
+
+    .icon-contain {
+        width: 48%;
+
+        .walk-img3 {
+            width: 40%;
+        }
+
+        img {
+            width: 50%;
+        }
+    } // ends .icon-contain
+
+    .icon-score-contain {
+        width: 100%;
+
+    }
+
+    .number-contain{
+        width: 48%;
+        h5{
+            font-size: 1rem;
+        }
+        // p {
+        //     font-size: 2rem;
+        // }
+    }// ends .number-contain
+
+    .number-style25-2 {
+        font-size: 2rem;
+    }
+
+    .number-style50-2 {
+        font-size: 2rem;
+
+    }
+
+    .number-style75-2 {
+        font-size: 2rem;
+
+    }
+
+    .number-style100-2 {
+        font-size: 2rem;
+    }
+
+    .stats-par {
+        font-size: 1.2rem;
+    }
+
+    .weather-style3 {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+} // this ends media for 900px for 3 cities selected

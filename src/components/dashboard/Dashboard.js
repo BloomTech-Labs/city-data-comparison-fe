@@ -234,7 +234,7 @@ function Dashboard({history}){
                                                        <div>
                                                             {cityOneSuggestions.map( (suggestion) => {
                                                                  const style = {
-                                                                      backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                                      backgroundColor: suggestion.active ? "#e9e8e9" : "#fff",
                                                                       cursor: "pointer",
                                                                       fontSize:"1rem",
                                                                       textAlign:"left",
@@ -263,7 +263,7 @@ function Dashboard({history}){
                                                        <div>
                                                             {cityOneSuggestions.map( (suggestion) => {
                                                                  const style = {
-                                                                      backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                                      backgroundColor: suggestion.active ? "#e9e8e9" : "#fff",
                                                                       cursor: "pointer",
                                                                       fontSize:"1rem",
                                                                       textAlign:"left",
@@ -285,7 +285,7 @@ function Dashboard({history}){
                                                        <div>
                                                             {cityTwoSuggestions.map( (suggestion) => {
                                                                  const style = {
-                                                                      backgroundColor: suggestion.active ? "#F2F9FD" : "#fff",
+                                                                      backgroundColor: suggestion.active ? "#e9e8e9" : "#fff",
                                                                       cursor: "pointer",
                                                                       fontSize:"1rem",
                                                                       textAlign:"left",

@@ -74,19 +74,42 @@ const CurrentWeather = (props) => {
     }
   };
 
-  console.log("From weather", props.ethData)
+  function mobileWeatherInfo(info) {
+    if (info.length > 1) {
+      return <div className="weatherInfo">
+      <span>As of {weatherTime}</span>
+      <span className="temp">{roundTemp}&deg;F</span>
+      <span>{weather.summary}</span>
+      <span>feels like {feelsLike}&deg;F</span>
+      <span>Humidity {weather.humidity}&deg;</span>
+      <span>UV Index {weather.uvIndex}</span>
+    </div>
+    } else if (info.length <= 1) {
+      return <div className="weatherInfo2">
+      <span>As of {weatherTime}</span>
+      <span className="temp">{roundTemp}&deg;F</span>
+      <span>{weather.summary}</span>
+      <span>feels like {feelsLike}&deg;F</span>
+      <span>Humidity {weather.humidity}&deg;</span>
+      <span>UV Index {weather.uvIndex}</span>
+    </div>
+    }
+  }
+
+  console.log("From weather", weather)
   return (
     <>
       <div className="SCPweather">
         {mobileWeatherImg(props.ethData)}
-        <div className="weatherInfo">
+        {/* <div className="weatherInfo">
           <span>As of {weatherTime}</span>
           <span className="temp">{roundTemp}&deg;F</span>
           <span>{weather.summary}</span>
           <span>feels like {feelsLike}&deg;F</span>
           <span>Humidity {weather.humidity}&deg;</span>
           <span>UV Index {weather.uvIndex}</span>
-        </div>
+        </div> */}
+        {mobileWeatherInfo(props.ethData)}
       </div>
     </>
   )
