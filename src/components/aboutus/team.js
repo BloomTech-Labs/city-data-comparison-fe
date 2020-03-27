@@ -342,7 +342,7 @@ const team = [
             github: 'kylewp13', 
             linkedin: 'kyletech'
         }, 
-        about: 'Kyle is a Web Developer at Lambda School and has been an instrumental part of the Citrics web team.',
+        about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
         portfolio: 'https://www.kyleporter.tech'
     
     }

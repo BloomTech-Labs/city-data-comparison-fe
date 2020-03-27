@@ -89,7 +89,8 @@ const SingleCityPage = (props) => {
     const [description, setDescription] = useState('Information not available');
     const [restaurants, setRestaurants] = useState([]);
     const [events, setEvents] = useState([]);
-    const [cityImg, setCityImg] = useState(cityscape)
+    const [cityImg, setCityImg] = useState(cityscape);
+    const [cityName, setCityName] = useState('')
 
     const [defaultDisplay, setdefaultDisplay] = useState(false)
 
@@ -236,12 +237,12 @@ const SingleCityPage = (props) => {
           .then(response => {
               // setDescription(response.data.wiki_data.summary)
               setDescription(response.data.wiki_sum)
+              setCityName(response.data.city_st)
               axios.get(`https://api.unsplash.com/photos/random?client_id=8c128b7fe2a7d14005e3c71c4de86d40db1c42480032d591bf89c41b282ea763&query=${response.data.city_st}downtown`)
                   .then(res => {
                     setCityImg(res.data.urls.raw)
                   })
                   .catch(err => console.log('cityImg error', err))
-              console.log('wikiResponse', response)
           })
           .catch(error => console.log("Description", error))
   }, [cityId]);
@@ -259,7 +260,6 @@ const SingleCityPage = (props) => {
         axios.get(`https://be.citrics.io/api/yelp/all/${latitude}/${longitude}`)
           .then(response => {
               setYelp(response.data)
-              console.log(yelp)
           })
           .catch(error => console.log("category", error))
 
@@ -289,7 +289,7 @@ const SingleCityPage = (props) => {
                     </div>
 
                     <div>
-                        <h1 className="descH1">{restaurants && restaurants.businesses ? restaurants.businesses[0].location.city : ''}, {restaurants && restaurants.businesses ? restaurants.businesses[0].location.state : ''}</h1>
+                        <h1 className="descH1">{cityName ? cityName : null}</h1>
                     </div>
 
                     <div className="city-desc">
