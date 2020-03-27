@@ -1,15 +1,15 @@
-import React from 'react'; 
+import React from 'react';
 
- const AboutUs2 = props => {
+const AboutUs2 = props => {
     return (
         <div className="aboutUs">
             <h1>Our Story</h1>
             <div className="team">
                 <h4>Our Team</h4>
                 <div className="design">
-                    {/*Ruth*/ }
+                    {/*Ruth*/}
                     <div className="member">
-                        <img src="" alt=""/>
+                        <img src="" alt="" />
                         <p className="name">
 
                         </p>
@@ -19,27 +19,27 @@ import React from 'react';
 
                 <div className="ds">
 
-                     {/*Matthew*/ }
-                     <div className="member">
-                        <img src="" alt=""/>
+                    {/*Matthew*/}
+                    <div className="member">
+                        <img src="" alt="" />
                         <p className="name">
 
                         </p>
                         <p className="blurb"></p>
                     </div>
 
-                     {/*Luke*/ }
-                     <div className="member">
-                        <img src="" alt=""/>
+                    {/*Luke*/}
+                    <div className="member">
+                        <img src="" alt="" />
                         <p className="name">
 
                         </p>
                         <p className="blurb"></p>
                     </div>
 
-                     {/*Scott*/ }
-                     <div className="member">
-                        <img src="" alt=""/>
+                    {/*Scott*/}
+                    <div className="member">
+                        <img src="" alt="" />
                         <p className="name">
 
                         </p>
@@ -48,46 +48,46 @@ import React from 'react';
                 </div>
 
                 <div className="web">
-                    
-                     {/*Michael*/ }
-                     <div className="member">
-                        <img src="" alt=""/>
+
+                    {/*Michael*/}
+                    <div className="member">
+                        <img src="" alt="" />
                         <p className="name">
 
                         </p>
                         <p className="blurb"></p>
                     </div>
 
-                     {/*Kevin*/ }
-                     <div className="member">
-                        <img src="" alt=""/>
+                    {/*Kevin*/}
+                    <div className="member">
+                        <img src="" alt="" />
                         <p className="name">
 
                         </p>
                         <p className="blurb"></p>
                     </div>
 
-                     {/*Daniel*/ }
-                     <div className="member">
-                        <img src="" alt=""/>
+                    {/*Daniel*/}
+                    <div className="member">
+                        <img src="" alt="" />
                         <p className="name">
 
                         </p>
                         <p className="blurb"></p>
                     </div>
 
-                     {/*Muamer*/ }
-                     <div className="member">
-                        <img src="" alt=""/>
+                    {/*Muamer*/}
+                    <div className="member">
+                        <img src="" alt="" />
                         <p className="name">
 
                         </p>
                         <p className="blurb"></p>
                     </div>
 
-                     {/*John*/ }
-                     <div className="member">
-                        <img src="" alt=""/>
+                    {/*John*/}
+                    <div className="member">
+                        <img src="" alt="" />
                         <p className="name">
 
                         </p>
@@ -101,5 +101,5 @@ import React from 'react';
 }
 
 
-export default AboutUs2; 
+export default AboutUs2;
 
