@@ -2,57 +2,39 @@
 
 Application deployed at https://citrics.io/.
 
-## 4️⃣ Contributors
-
-
-|                                       [Anna Townsend](https://github.com/arturolei)                                        |                                       [Daniel Briksza](https://github.com/dbriksza)                                        |                                       [John Watt](https://github.com/thejohnwatt)                                        |                                       [Kevin Nguyen](https://github.com/kevinnguyen805)                                        |                                       [Michael A Harms](https://github.com/michaelharms6010)                                        |                                       [Muamer Kukic](https://github.com/kukicako)                                        |                                       [Umeko Walker](https://github.com/Umekow)                                        |                                       [Ruth Philips](https://github.com/)                                        |                                       [Luke Townsend](https://github.com/ldtownsend)                                        |                                       [Matthew Sessions](https://github.com/matthew-sessions)                                        |                                       [Scott Maxwell](https://github.com/scottwmwork)      |                                                           
-
-
-|                      [<img src="./src/assets/team_photos/anna_t.png" width = "200" />](https://github.com/)                       |                      [<img src="./src/assets/team_photos/daniel_b.jpg" width = "200" />](https://github.com/dbriksza)                       |                      [<img src="./src/assets/team_photos/john_w.jpg" width = "200" />](https://github.com/thejohnwatt)                       |                      [<img src="./src/assets/team_photos/kevin_n.png" width = "200" />](https://github.com/kevinnguyen805)                       |                      [<img src="./src/assets/team_photos/michael_h.jpg" width = "200" />](https://github.com/michaelharms6010)                       |                      [<img src="./src/assets/team_photos/muamer_k.jpg" width = "200" />](https://github.com/kukicako)                       |                      [<img src="./src/assets/team_photos/umeko_w.jpg" width = "200" />](https://github.com/Umekow)                       |                      [<img src="./src/assets/team_photos/ruth_p.jpg" width = "200" />](https://github.com/)                       |                      [<img src="./src/assets/team_photos/luke_t.png" width = "200" />](https://github.com/ldtownsend)                       |                      [<img src="./src/assets/team_photos/matthew_s.jpg" width = "200" />](https://github.com/matthew-sessions)                       |                      [<img src="./src/assets/team_photos/scott_m.png" width = "200" />](https://github.com/scottwmwork)      
-
-
-
-<br>
-<br>
-
-<!-- 
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) -->
-
+## Contributors
+[Meet the Team](https://citrics.io/meet-the-team)
 
 ## Project Overview
 
-[Trello Board](https://trello.com/b/VXbaBrSL/labs-19-citydatacomparison)
-
 [Product Canvas](https://www.notion.so/City-Data-Comparison-bc94a2f56b05482e9c42a12748a0ed0a)
 
-[UX Design files](https://www.figma.com/file/mkHP2saWvSK02a9g1cHoCM/City-Data-Comparison-Ruth-Philips?node-id=275%3A84)
+[UX Design files](https://www.figma.com/file/nPnVfqPCoitykxcuf8obvH/City-Data-Comparison%3A-Analysis%2C-Dariush-%26-Eddy)
 
 Citrics is an application that analyzes data from cities such as populations, cost of living, crime rates and many other social and economic factors that are important in deciding where someone would like to live. Citrics present such important data in an intuitive and easy to understand interface.
 <br>
 Cities with data are marked on a searchable, indexed map generated from the Mapbox.com API. Selected markers populate navigable data graphs powered by the Chartjs library that indicate important information about the selected city. Graphs are generated dynamically as users adjust their selection of cities to compare.
 
-
-### 4️⃣ Key Features
+### Key Features
 
 ### Basic Features
 - Allows users to search city data set without logging in
 - Data visualization of city metrics 
 - Map visualization that allows users to navigate and browse cities 
 - Autofill search feature to streamline city searching 
-- Specific city metrics accessible through side navigation 
+- Specific city metrics accessible through side navigation
+- Qualitative metrics (restaurants, activities, events, etc.) for each city displayed on a "Single City Page"
+- Filter on Single City Page to filter and display preferred sections
+- Filter on Data Overview Page to filter and display preferred sections
 
 ### Future Features
-- User account creation 
+- User account personalization 
     - Quiz users to indicate their priorities in a city. This will power DS prediciton engine
     - Allow users to save records of which cities important to them
 - Expanded data set - Pending DS completion, this app aims to encompass data from ~30000 US cities
 - User-friendly API access to DS model via multiple endpoints (Premium feature)
 
-## 1️⃣ Tech Stack
+## Tech Stack
 
 ### Front end built using:
 - React 
@@ -61,6 +43,7 @@ Cities with data are marked on a searchable, indexed map generated from the Mapb
 - Mapbox
 - Font Awesome
 - React-scroll
+- React-carousel
 
 #### React
 
@@ -69,33 +52,11 @@ Cities with data are marked on a searchable, indexed map generated from the Mapb
 - Web optimized 
 - Lightweight 
 
+#### Front-end deployed to https://citrics.io/
 
-#### Front end deployed to https://citrics.io/
-
-<!-- #### [Back end](🚫link to back end repo here) built using:
-
-#### 🚫 back end framework goes here
-
--    point one
--    point two
--    point three
-
-🚫 List the rest of the back end end features and libraries in the same format as the framework above -->
-
-# APIs
-
-<!-- ## 2️⃣ Authentication API here
-
-🚫Replace text below with a description of the API
-
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good. -->
-
-
-## 3️⃣ MapBox
+## MapBox
 
 MapBox is an open source mapping platform for custom designed maps. 
-
-
 
 <!-- # 3️⃣ Environment Variables
 
@@ -127,7 +88,7 @@ In order for the app to function correctly, the user must set up their own envir
 
 🚫Document what you used for testing and why -->
 
-# 4️⃣ Installation Instructions
+# Installation Instructions
 
 In the root folder, run "yarn"
 
@@ -172,5 +133,3 @@ Remember that this project is licensed under the MIT license, and by submitting 
 These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
 <!-- 
 ## Documentation
-
-See [Backend Documentation](🚫_link to your backend readme here_) for details on the backend of our project. -->
