@@ -1595,3 +1595,166 @@
     }
 
 } // this ends media for 900px for 3 cities selected
+
+// STYLING 1300px FOR 1 CITY
+@media screen and (max-width: 1300px){
+
+    .stats-div {
+        display: flex;
+        width: 100%;
+    }
+
+    .weather-contain1 {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .stats-div-readjusted {
+        display: flex;
+        justify-content: center;
+    }
+
+    .button-div{
+        display: flex;
+        justify-content: center;
+    }
+
+    .city-overview-border{
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-contain {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stats-div-readjusted {
+        width: 100%;
+    }
+
+   .scores-div {
+    width: 100%;
+   }
+
+   .number-contain {
+       h4 {
+           font-size: 2rem;
+       }
+   }
+
+   .scores-container {
+    display: flex;
+    flex-wrap: wrap;
+   }
+
+   .scores-contain{
+       h4{
+        // font-size: 1rem;
+       }
+    //    p{
+    //     font-size: .9rem;
+    //    }
+   }
+
+   .scores-contain {
+       width: 48%;
+   }
+
+} // ends 1300px mobile styling for 1 CITY SELECTED
+
+// MEDIA 1300PX FOR 2 CITIES
+@media screen and (max-width: 1300px) {
+    .button-weather-contain{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .title-container2 {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .button-div2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .stats-style2 {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        img {
+            display: none;
+        }
+    }
+
+    .scores-div2{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .title-contain2 {
+        text-align: center;
+    }
+
+    .icon-score-contain {
+        justify-content: center;
+    }
+
+    .icon-contain {
+        text-align: right;
+        display: flex;
+        justify-content: center;
+
+        img{
+            width: 30%;
+        }
+
+        .bike-image{
+            width: 45%;
+        }
+
+    }
+
+    .number-contain {
+        text-align: left;
+    }
+
+    .scores-contain2{
+        width: 100%;
+    }
+
+    .walking-img2 {
+        width: 40%;
+    }
+
+    .number-style25-3 {
+        font-size: 50px;
+    
+    }
+    
+    .number-style50-3 {
+        font-size: 50px;
+    }
+    
+    .number-style75-3 {
+        font-size: 50px;
+    }
+    
+    .number-style100-3 {
+        font-size: 50px;
+    }
+
+} // this ends media for 1300px for 2 cities selected
