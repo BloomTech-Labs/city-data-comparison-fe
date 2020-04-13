@@ -79,7 +79,6 @@ function App() {
 
   //user logic
   const setUser = (info) => {
-
     localStorage.setItem("user", JSON.stringify(info));
     setUserValue(info);
   };
