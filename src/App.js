@@ -79,7 +79,7 @@ function App() {
 
   //user logic
   const setUser = (info) => {
-    console.log("SETUSER INFO", info);
+
     localStorage.setItem("user", JSON.stringify(info));
     setUserValue(info);
   };
