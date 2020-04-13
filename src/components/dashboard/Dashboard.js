@@ -47,7 +47,11 @@ function Dashboard({ history }) {
     getBestSuggestion,
     getBestSuggestions,
   } = useContext(CityContext);
+
+
   // * SEARCH 1 STATE / HANDLECHANGE
+
+  //
   const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
   const [cityTwoSuggestions, setCityTwoSuggestions] = useState([]);
 
@@ -76,12 +80,19 @@ function Dashboard({ history }) {
     [selected]
   );
 
+  //INSIDE LANDING PAGE
   //* COMPARE 2 STATE / HANDLECHANGE */
+
+  //INITIALIZE VARIABLES FOR USERS TO COMPARE CITIES IN SEARCH FORM
   const [compare, setCompare] = useState({
     cityOne: "",
     cityTwo: "",
   });
 
+
+  //FILTERS THE USERS SEARCH,
+  //SORTED BY POPULATION,
+  //ONLY GET TOP 5 RESULTS
   const topPopFilter = (arr) => {
     let sorted = arr.sort(
       (city1, city2) => city2.population - city1.population
@@ -92,8 +103,12 @@ function Dashboard({ history }) {
     return sorted;
   };
 
+//USED AS HANDLE CHANGE IN FIRST FIELD
+//SETS THE SUGGESTIONS IN THE FIRST SEARCH INPUT
+  //ONLY CHECK JSON FILE FOR SUGGESTIONS, NO API CALLS
   const handleCityOne = (e) => {
     const searchText = e.target.value;
+
     searchText
       ? setCityOneSuggestions(
           topPopFilter(
@@ -109,8 +124,13 @@ function Dashboard({ history }) {
     });
   };
 
+//USED AS HANDLE CHANGE IN SECOND FIELD
+  //SETS THE SUGGESTIONS IN THE SECOND SEARCH INPUT
+    //ONLY CHECK JSON FILE FOR SUGGESTIONS, NO API CALLS
+
   const handleCityTwo = (e) => {
     const searchText = e.target.value;
+
     searchText
       ? setCityTwoSuggestions(
           topPopFilter(
@@ -126,6 +146,9 @@ function Dashboard({ history }) {
     });
   };
 
+
+  //CLICK HANDLER FOR SUGGESTED CITIES IN SEARCH INPUT
+  //WILL SET THE CHOSEN CITY IN THE SEARCH INPUT TO WHAT YOU CLICK ON
   const chooseCityOneSuggestion = (city) => {
     setCompare({
       ...compare,
@@ -138,6 +161,10 @@ function Dashboard({ history }) {
       latitude: city.lat,
     });
   };
+
+  
+  //CLICK HANDLER FOR SUGGESTED CITIES IN SEARCH INPUT
+  //WILL SET THE CHOSEN CITY IN THE SEARCH INPUT TO WHAT YOU CLICK ON
   const chooseCityTwoSuggestion = (city) => {
     setCompare({
       ...compare,
@@ -151,25 +178,44 @@ function Dashboard({ history }) {
     });
   };
 
+
+  //POTENTIAL REDUX THINGS
+     //getCity()
+     //getBestSuggestion()
+     //setViewport()
   //* SUBMIT SEARCH */
   const submitCity = async (event) => {
     event.preventDefault();
     // all the below logic should be pulled into app.js and handle things on that end i think
+
+
+    //IF NO CITIES, push directly to /map with no selections
     if (!compare.cityTwo && !compare.cityOne) {
       history.push("/map");
       return;
     }
 
+
+    //IF CITY INPUT MATCHES OUR CITY INDEX DATABASE
     let found = cityIndex.find(
+     //     console.log("found item", item);
       (item) => item.name.replace(" city", "") === compare.cityOne
     );
     let found2 = cityIndex.find(
       (item) => item.name.replace(" city", "") === compare.cityTwo
     );
+
+    //IF WE ONLY HAVE ONE CITY
+    //FIRST CHECK TO SEE IF CITY IS IN OUR JSON FILE
+          //IF SO, CALL getCity()
+          //IF NOT, CALL getBestSuggestion()
+               //WHICH WILL HIT THE DS API
     if (!compare.cityTwo && compare.cityOne) {
       if (found) {
+           //city reducer actions
         getCity(found);
       } else {
+             //city reducer actions
         getBestSuggestion(compare.cityOne);
       }
       history.push("/map");
@@ -185,6 +231,11 @@ function Dashboard({ history }) {
       history.push("/map");
       return;
     }
+
+//IF WE HAVE BOTH CITIES...
+    //CALL getCities()
+    //UPDATE viewport OBJECT
+
     if (found && found2) {
       getCities([found, found2]);
       // the viewport set below will require zoom handling based on population
@@ -198,7 +249,7 @@ function Dashboard({ history }) {
     } else if (!found && found2) {
       getCities([compare.cityOne, found2]);
     }
-    // if you don't enter the cities by name it goes to the sug
+    // if you don't enter the cities by name it goes to the suggestion
     else {
       ReactGA.event({
         category: "Data",
@@ -209,10 +260,15 @@ function Dashboard({ history }) {
     history.push("/map");
   };
 
+
+
+  
   //* TOGGLING BUTTONS */
   const [buttonClass, setButtonClass] = useState("");
   // const [toggleSearch, setToggleSearch] = useState(true)
 
+
+  //CLICK HANDLER FOR THE TOGGLE SWITCH UNDER THE SEARCH INPUT
   const toggleClass = () => {
     if (buttonClass === "search-toggle-green") {
       setButtonClass("");
