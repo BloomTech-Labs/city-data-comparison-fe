@@ -5,7 +5,7 @@ import GeneralStats from "../graphs/GeneralStats";
 import { useHistory } from 'react-router-dom';
 
 const Favorites = (props) => {
-
+    console.log("im the favorites")
     const { user, setUser, axiosAuth } = useContext(UserContext);
     //state for saved cities for specific user
     const [savedCitiesId, setSavedCitiesId] = useState();
