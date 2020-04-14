@@ -1,7 +1,9 @@
-export const FETCH_CITIES = "FETCH_CITIES";
-export const FETCH_CITIES_SUCCESS = "FETCH_CITIES_SUCCESS";
-export const SET_CITIES_ERROR = "SET_CITIES_ERROR";
+export const GET_CITY = "GET_CITY";
+export const GET_CITY_SUCCESS = "GET_CITY_SUCCESS";
+export const GET_CITY_ERROR = "GET_CITY_ERROR";
+
 
 export const GET_CITIES = "GET_CITIES";
 export const GET_CITIES_SUCCESS = "GET_CITIES_SUCCESS";
 export const GET_CITIES_ERROR = "GET_CITIES_ERROR";
+

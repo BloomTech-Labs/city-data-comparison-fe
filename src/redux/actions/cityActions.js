@@ -10,18 +10,26 @@ import * as types from "./actionTypes";
 // export const GET_CITIES_SUCCESS = "GET_CITIES_SUCCESS";
 // export const GET_CITIES_ERROR = "GET_CITIES_ERROR";
 
+function cityData(id) {
+  return Axios.get(
+    `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${id}`
+  )
+}
 
+function matchCity(city) {
+  return Axios.get(
+    `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${city}`
+  )
+}
 
 export function getCity(cityMarker) {
     return (dispatch, getState) => {
-      dispatch({type: types.FETCH_CITY})
+      dispatch({type: types.GET_CITY})
       const selected = getState().selected
       if (selected.length >= 3) {
         return;
       }
-      Axios.get(
-        `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`
-      )
+      cityData(cityMarker.ID)
         .then((res) => {
           ReactGA.event({
             category: "Data",
@@ -29,7 +37,7 @@ export function getCity(cityMarker) {
           });
           let newCity = res.data;
           newCity.color = getCityColor(selected);
-          setSelected([...selected, newCity]);
+          dispatch({type: types.GET_CITY_SUCCESS, payload: newCity})
         })
         .catch((err) => console.log("getCity error", err));
       };
@@ -41,9 +49,7 @@ export const getCities = (arr) => (dispatch) => {
   let output = [];
   // if both objects
   if (typeof arr[0] === "object" && typeof arr[1] === "object")
-    Axios.get(
-      `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[0].ID}`
-    )
+    cityData(arr[0].ID)
       .then((res) => {
         let newCity = res.data;
         newCity.color = getCityColor();
@@ -54,9 +60,7 @@ export const getCities = (arr) => (dispatch) => {
         output.push(newCity);
       })
       .then((res) =>
-        Axios.get(
-          `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[1].ID}`
-        ).then((res) => {
+      cityData(arr[1].ID).then((res) => {
           let newCity = res.data;
           ReactGA.event({
             category: "Data",
@@ -71,9 +75,7 @@ export const getCities = (arr) => (dispatch) => {
 
   if (typeof arr[0] === "object" && typeof arr[1] === "string") {
     ReactGA.event({ category: "Data", action: `searched for "${arr[1]}"` });
-    Axios.get(
-      `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[1]}`
-    )
+    matchCity(arr[1])
       .then((res) => {
         if (res.data) {
           // get the best (first) suggestion and add it to state
@@ -89,9 +91,7 @@ export const getCities = (arr) => (dispatch) => {
 
   if (typeof arr[0] === "string" && typeof arr[1] === "object") {
     ReactGA.event({ category: "Data", action: `searched for "${arr[0]}"` });
-    Axios.get(
-      `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[0]}`
-    )
+    matchCity(arr[0])
       .then((res) => {
         if (res.data) {
           // get the best (first) suggestion and add it to state
