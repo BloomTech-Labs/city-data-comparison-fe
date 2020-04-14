@@ -1,5 +1,4 @@
-import getCityColor from "../../App";
-import getSecondCityColor from "../../App";
+import {getCityColor, getSecondCityColor} from "../../utils/cityColors.js";
 import ReactGA from "react-ga";
 import * as types from "./actionTypes";
 
@@ -10,6 +9,31 @@ import * as types from "./actionTypes";
 // export const GET_CITIES = "GET_CITIES";
 // export const GET_CITIES_SUCCESS = "GET_CITIES_SUCCESS";
 // export const GET_CITIES_ERROR = "GET_CITIES_ERROR";
+
+
+
+export function getCity(cityMarker) {
+    return (dispatch, getState) => {
+      dispatch({type: types.FETCH_CITY})
+      const selected = getState().selected
+      if (selected.length >= 3) {
+        return;
+      }
+      Axios.get(
+        `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`
+      )
+        .then((res) => {
+          ReactGA.event({
+            category: "Data",
+            action: `selected ${res.data.name_with_com}`,
+          });
+          let newCity = res.data;
+          newCity.color = getCityColor(selected);
+          setSelected([...selected, newCity]);
+        })
+        .catch((err) => console.log("getCity error", err));
+      };
+}
 
 export const getCities = (arr) => (dispatch) => {
     
