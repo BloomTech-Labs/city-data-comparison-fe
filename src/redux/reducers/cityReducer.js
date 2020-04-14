@@ -1,8 +1,4 @@
-import {
-  FETCH_CITIES,
-  FETCH_CITIES_SUCCESS,
-  SET_CITIES_ERROR,
-} from "../actions/cityActions.js";
+import * as types from "./actionTypes";
 
 let initialState = {
   selected: [],
