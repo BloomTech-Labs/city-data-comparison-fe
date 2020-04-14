@@ -32,6 +32,8 @@ export default function Map() {
     cityIndex,
   } = useContext(CityContext);
 
+  const dispatch = useDispatch()
+
   const [search, setSearch] = useState("");
 
   // Google Analytics Events
