@@ -19,7 +19,7 @@ import { CityContext } from "./contexts/CityContext";
 import Axios from "axios";
 import Callback from "./components/Callback";
 import AuthForm from "./components/forms/AuthForm";
-import axiosAuth from "./components/axiosAuth";
+import axiosAuth from "./utils/axiosAuth";
 import SingleCityPage from "./components/single_city_page/SingleCityPage";
 
 function initializeAnalytics() {
