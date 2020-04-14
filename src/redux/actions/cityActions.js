@@ -1,7 +1,7 @@
 import { getCityColor, getSecondCityColor } from "../../utils/cityColors.js";
 import ReactGA from "react-ga";
 import * as types from "./actionTypes";
-
+import Axios from "axios";
 // export const FETCH_CITIES = "FETCH_CITIES";
 // export const FETCH_CITIES_SUCCESS = "FETCH_CITIES_SUCCESS";
 // export const SET_CITIES_ERROR = "SET_CITIES_ERROR";
@@ -46,9 +46,9 @@ export function getCity(cityMarker) {
   };
 }
 
-export const getCities = (arr) => (dispatch) => {
+export const getCities = (arr) => (dispatch, getState) => {
   dispatch({ type: types.GET_CITIES });
-
+  selected = getState().selected;
   let output = [];
   // IF BOTH INPUTS ARE OBJECTS
   //THEY ARE IN THE CORRECT FORMAT WE WANT
@@ -57,7 +57,7 @@ export const getCities = (arr) => (dispatch) => {
     cityDataAxios(arr[0].ID)
       .then((res) => {
         let newCity = res.data;
-        newCity.color = getCityColor();
+        newCity.color = getCityColor(selected);
         ReactGA.event({
           category: "Data",
           action: `selected ${newCity.name_with_com}`,
@@ -71,7 +71,7 @@ export const getCities = (arr) => (dispatch) => {
             category: "Data",
             action: `selected ${newCity.name_with_com}`,
           });
-          newCity.color = getSecondCityColor(output);
+          newCity.color = getSecondCityColor(output, selected);
           output.push(newCity);
           //   setSelected([...selected, ...output]);
           dispatch({ type: types.GET_CITIES_SUCCESS, payload: output });
@@ -127,23 +127,23 @@ export const getCities = (arr) => (dispatch) => {
   }
 };
 
-const getBestSuggestion = (search) => {
-  matchCityAxios(search)
-    .then((res) => {
-      console.log("suggest res", res);
-      // if there's a suggestion
-      if (res.data) {
-        // get the best (first) suggestion and add it to state
-        let suggestionKey = Object.keys(res.data)[0];
-        if (selected.find((item) => item._id === res.data[suggestionKey].ID)) {
-          return;
-        }
-        getCity(res.data[suggestionKey]);
-      }
-      // maybe add an error message if nothing is found
-    })
-    .catch((err) => console.log("suggestion error", err));
-};
+// const getBestSuggestion = (search) => {
+//   matchCityAxios(search)
+//     .then((res) => {
+//       console.log("suggest res", res);
+//       // if there's a suggestion
+//       if (res.data) {
+//         // get the best (first) suggestion and add it to state
+//         let suggestionKey = Object.keys(res.data)[0];
+//         if (selected.find((item) => item._id === res.data[suggestionKey].ID)) {
+//           return;
+//         }
+//         getCity(res.data[suggestionKey]);
+//       }
+//       // maybe add an error message if nothing is found
+//     })
+//     .catch((err) => console.log("suggestion error", err));
+// };
 
 const getBestSuggestions = (arr) => {
   const output = [];

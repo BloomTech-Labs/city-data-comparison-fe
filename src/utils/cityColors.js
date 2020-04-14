@@ -10,7 +10,7 @@ export const getCityColor = (selected) => {
   };
 
 
- export const getSecondCityColor = (arr) => {
+ export const getSecondCityColor = (arr, selected) => {
     let activeColors = selected.map((item) => item.color);
     activeColors.push(arr[0].color);
     if (!activeColors.includes("#A33A00")) {
