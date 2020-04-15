@@ -10,18 +10,21 @@ import Axios from "axios";
 // export const GET_CITIES_SUCCESS = "GET_CITIES_SUCCESS";
 // export const GET_CITIES_ERROR = "GET_CITIES_ERROR";
 
+//Axios call to get data about a city from the api using id
 function cityDataAxios(id) {
   return Axios.get(
     `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${id}`
   );
 }
 
+//Axios call to match
 function matchCityAxios(city) {
   return Axios.get(
     `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${city}`
   );
 }
 
+//Thunk to get a city from the API using a citymarker object, then add it to selected cities
 export function getCity(cityMarker) {
   return async (dispatch, getState) => {
     //If there are already three cities, dispatch an error.
@@ -57,14 +60,45 @@ export function getCity(cityMarker) {
   };
 }
 
-export const getCities = (arr) => (dispatch, getState) => {
+export const getCities = (arr) => async (dispatch, getState) => {
   dispatch({ type: types.GET_CITIES });
-  selected = getState().selected;
-  let output = [];
+
+  let cityPromiseArray = arr.map(async (item) => {
+    if (typeof item ==="object") {
+      let res = await cityDataAxios(item.ID);
+      return res.data
+    }
+    else if (typeof item === "string") {
+      let suggestionRes = await matchCityAxios(item);
+      if (suggestionRes.data) {
+        // Suggested city API returns an object with keys rather than an array of suggestions, so we need the key of the first item
+        let topSuggestionKey = Object.keys(res.data)[0];
+        let suggestedCityId = res.data[topSuggestionKey].ID;
+        let res = await cityDataAxios(suggestedCityId);
+        return res.data;
+      } else {
+        return null
+      }
+    }
+  })
+
+  //Waits for array of promises to resolve into array of city objects
+  let cityObjectArray = await Promise.all(cityPromiseArray);
+
+  //Filters out any nulls
+  const cityObjectArrayFiltered = cityObjectArray.filter((item) => item);
+
+  dispatch({type: types.GET_CITIES_SUCCESS, payload: cityObjectArrayFiltered})
+
   // IF BOTH INPUTS ARE OBJECTS
   //THEY ARE IN THE CORRECT FORMAT WE WANT
   //PUSH THEM INTO STATE
-  if (typeof arr[0] === "object" && typeof arr[1] === "object")
+  if (typeof arr[0] === "object" && typeof arr[1] === "object") {
+    let res = await cityDataAxios(arr[0].ID);
+    let newCity = res.data;
+    newCity.color = getCityColor(getState().selected);
+
+  }
     cityDataAxios(arr[0].ID)
       .then((res) => {
         let newCity = res.data;
