@@ -23,26 +23,37 @@ function matchCityAxios(city) {
 }
 
 export function getCity(cityMarker) {
-  return (dispatch, getState) => {
-    dispatch({ type: types.GET_CITY });
-    const selected = getState().selected;
-    if (selected.length >= 3) {
-      return;
-    }
-    cityDataAxios(cityMarker.ID)
-      .then((res) => {
-        ReactGA.event({
-          category: "Data",
-          action: `selected ${res.data.name_with_com}`,
-        });
-        let newCity = res.data;
-        newCity.color = getCityColor(selected);
-        dispatch({ type: types.GET_CITY_SUCCESS, payload: newCity });
-      })
-      .catch((err) => {
-        dispatch({ type: types.GET_CITY_ERROR, payload: err });
-        console.log("getCity error", err);
+  return async (dispatch, getState) => {
+    //If there are already three cities, dispatch an error.
+    if (getState().selected.length >= 3) {
+      dispatch({
+        type: types.GET_CITY_ERROR,
+        payload: "Only compare three cities at a time.",
       });
+    } else {
+      //Log selected in Google Analytics.
+      ReactGA.event({
+        category: "Data",
+        action: `selected ${res.data.name_with_com}`,
+      });
+      //Set isFetching in store.
+      dispatch({ type: types.GET_CITY });
+      try {
+        //Make an axios call to the citydata api using the city's id.
+        const res = await cityDataAxios(cityMarker.ID);
+        let newCity = res.data;
+        newCity.color = getCityColor(getState().selected);
+        //Dispatch the city to state.
+        dispatch({ type: types.GET_CITY_SUCCESS, payload: newCity });
+      } catch (err) {
+        //If anything throws an error, catch, console log, and dispatch an error message to state.
+        dispatch({
+          type: types.GET_CITY_ERROR,
+          payload: "Could not fetch city.",
+        });
+        console.error(err);
+      }
+    }
   };
 }
 
