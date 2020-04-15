@@ -24,8 +24,8 @@ describe("City actions", () => {
   describe("Get city", () => {
     it("creates GET_CITY_SUCCESS when fetching city has been", () => {
       mockAxios
-        .onGet("/jkekal6d6e5si3i2ld66d4dl/citydata/")
-        .reply(200, cityActionsMockData);
+        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
+        .reply(200, cityActionsMockData["Angie, LA"]);
       const expectedActions = [
         { type: types.GET_CITY },
         {
@@ -35,7 +35,7 @@ describe("City actions", () => {
       ];
       const store = mockStore(initialState);
 
-      return store.dispatch(cityActions.getCity()).then(() => {
+      return store.dispatch(cityActions.getCity(cityActionsMockData["Angie, LA"])).then(() => {
         // return of async actions
         expect(store.getActions()).toEqual(expectedActions);
       });
