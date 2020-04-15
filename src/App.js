@@ -254,6 +254,7 @@ function App() {
         if (res.data) {
           // get the best (first) suggestion and add it to state
           let suggestionKey = Object.keys(res.data)[0];
+          console.log("suggestionKey", suggestionKey)
           let newCity = res.data[suggestionKey];
           output.push(newCity);
         }
