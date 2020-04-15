@@ -117,7 +117,6 @@ function App() {
       `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${cityMarker.ID}`
     )
       .then((res) => {
-        console.log("single city api res", res);
         ReactGA.event({
           category: "Data",
           action: `selected ${res.data.name_with_com}`,
@@ -131,7 +130,6 @@ function App() {
 
   //city logic
   const getCities = (arr) => {
-    console.log("getCities arr input", arr);
     let output = [];
     // if both objects
     if (typeof arr[0] === "object" && typeof arr[1] === "object")
@@ -139,28 +137,25 @@ function App() {
         `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[0].ID}`
       )
         .then((res) => {
-          console.log("obj obj api res", res);
           let newCity = res.data;
           newCity.color = getCityColor();
           ReactGA.event({
             category: "Data",
             action: `selected ${newCity.name_with_com}`,
           });
-          console.log("obj obj api res 1 newCity data", newCity)
+          console.log("obj obj api res 1 newCity data", newCity);
           output.push(newCity);
         })
         .then((res) =>
           Axios.get(
             `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${arr[1].ID}`
           ).then((res) => {
-            console.log("obj obj api res 2", res);
             let newCity = res.data;
             ReactGA.event({
               category: "Data",
               action: `selected ${newCity.name_with_com}`,
             });
             newCity.color = getSecondCityColor(output);
-            console.log("obj obj api res 2 newCity data", newCity)
             output.push(newCity);
             setSelected([...selected, ...output]);
           })
@@ -173,13 +168,10 @@ function App() {
         `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[1]}`
       )
         .then((res) => {
-          console.log("obj str api res", res);
           if (res.data) {
             // get the best (first) suggestion and add it to state
             let suggestionKey = Object.keys(res.data)[0];
-            console.log("obj str api res SUGGESTIONKEY", suggestionKey)
             let foundIndex = res.data[suggestionKey];
-            console.log("obj str api res FOUNDINDEX", foundIndex)
 
             getCities([arr[0], foundIndex]);
           } else {
@@ -195,14 +187,11 @@ function App() {
         `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${arr[0]}`
       )
         .then((res) => {
-          console.log("str obj api res", res);
           if (res.data) {
             // get the best (first) suggestion and add it to state
             let suggestionKey = Object.keys(res.data)[0];
-            console.log("STR OBJ api res SUGGESTIONKEY", suggestionKey)
 
             let foundIndex = res.data[suggestionKey];
-            console.log("STR OBJ api res FOUNDINDEX", foundIndex)
 
             getCities([arr[1], foundIndex]);
           } else {
@@ -254,7 +243,6 @@ function App() {
         if (res.data) {
           // get the best (first) suggestion and add it to state
           let suggestionKey = Object.keys(res.data)[0];
-          console.log("suggestionKey", suggestionKey)
           let newCity = res.data[suggestionKey];
           output.push(newCity);
         }
