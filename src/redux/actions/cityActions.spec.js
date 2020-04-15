@@ -5,6 +5,8 @@ import * as types from "./actionTypes";
 
 import MockAdapter from "axios-mock-adapter";
 import Axios from "axios";
+import cityActionsMockData from './cityActionsMockData.js';
+import {initialState} from '../reducers/cityReducer.js';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -17,14 +19,12 @@ describe("City actions", () => {
 
   describe("Get city", () => {
     it("creates GET_CITY_SUCCESS when fetching city has been", () => {
-    //   mock.onGet("/jkekal6d6e5si3i2ld66d4dl/citydata/").reply(200, {
-    //     users: [{ id: 1, name: "John Smith" }],
-    //   });
-
+      mock.onGet("/jkekal6d6e5si3i2ld66d4dl/citydata/").reply(200, cityActionsMockData);
         const expectedActions = [
             {type: types.GET_CITY},
-            {type: types.GET_CITY_SUCCESS, payload: }
+            {type: types.GET_CITY_SUCCESS, payload: cityActionsMockData["Angie, LA"]}
         ]
+        const store = mockStore(initialState)
 
         return store.dispatch(cityActions.getCity()).then(() => {
                   // return of async actions

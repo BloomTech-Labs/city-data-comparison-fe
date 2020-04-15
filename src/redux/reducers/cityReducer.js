@@ -1,6 +1,6 @@
 import * as types from "../actions/actionTypes";
 
-let initialState = {
+export const initialState = {
   isFetching: false,
   selected: [],
   viewport: {
