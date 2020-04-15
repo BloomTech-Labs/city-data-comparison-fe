@@ -1,6 +1,6 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import * as actions from "";
+import * as cityActions from "./cityActions.js";
 import * as types from "./actionTypes";
 
 import MockAdapter from "axios-mock-adapter";
@@ -17,15 +17,19 @@ describe("City actions", () => {
 
   describe("Get city", () => {
     it("creates GET_CITY_SUCCESS when fetching city has been", () => {
-    //   mock.onGet("/", { params: { searchText: "John" } }).reply(200, {
+    //   mock.onGet("/jkekal6d6e5si3i2ld66d4dl/citydata/").reply(200, {
     //     users: [{ id: 1, name: "John Smith" }],
     //   });
 
         const expectedActions = [
             {type: types.GET_CITY},
-            {type: types.GET_CITY_SUCCESS}
+            {type: types.GET_CITY_SUCCESS, payload: }
         ]
 
+        return store.dispatch(cityActions.getCity()).then(() => {
+                  // return of async actions
+                  expect(store.getActions()).toEqual(expectedActions);
+                });
 
     });
     it.todo("");
