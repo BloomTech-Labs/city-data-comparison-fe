@@ -65,7 +65,7 @@ describe("City actions", () => {
   });
 
   describe("Get cities", () => {
-    it("Should create action GET_CITIES_SUCCESS if passed an array of city objects", () => {
+    it("should create action GET_CITIES_SUCCESS if passed an array of city objects", () => {
       mockAxios
       .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
       .reply(200, cityActionsMockData["Angie, LA"]);
@@ -90,7 +90,7 @@ describe("City actions", () => {
       })
     });
 
-    it("Should create action GET_CITIES_SUCESS if passed an array of strings", () => {
+    it("should create action GET_CITIES_SUCESS if passed an array of strings", () => {
       mockAxios
       .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angi")
       .reply(200, cityActionsMockData);
@@ -120,7 +120,7 @@ describe("City actions", () => {
 
     });
 
-    it("Should create action GET_CITIES_SUCESS if passed an array containing one a string and a city object", () => {
+    it("should create action GET_CITIES_SUCESS if passed an array containing one a string and a city object", () => {
       mockAxios
       .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angi")
       .reply(200, cityActionsMockData);
@@ -150,5 +150,14 @@ describe("City actions", () => {
     });
 
   });
+
+  describe("Clear city", () => {
+    it.todo("should remove a city based on id")
+
+  })
+
+  describe("Clear cities", () => {
+    it.todo("should clear all cities in state")
+  })
 
 });
