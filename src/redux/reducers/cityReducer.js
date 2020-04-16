@@ -25,7 +25,7 @@ export default function cityReducer(state = initialState, action) {
         error: "",
       };
 
-    case types.GET_CITY_SUCCESS:
+    case types.GET_CITY_SUCCESS: 
       return {
         ...state,
         isFetching: false,
