@@ -70,8 +70,8 @@ export const getCities = (arr) => async (dispatch, getState) => {
       let suggestionRes = await matchCityAxios(item);
       if (suggestionRes.data) {
         // Suggested city API returns an object with keys rather than an array of suggestions, so we need the key of the first item
-        let topSuggestionKey = Object.keys(res.data)[0];
-        let suggestedCityId = res.data[topSuggestionKey].ID;
+        let topSuggestionKey = Object.keys(suggestionRes.data)[0];
+        let suggestedCityId = suggestionRes.data[topSuggestionKey].ID;
         let res = await cityDataAxios(suggestedCityId);
         return res.data;
       } else {
