@@ -1,4 +1,7 @@
 export const getCityColor = (selected) => {
+    if (selected === undefined) {
+      return "#A33A00";
+    }
     let activeColors = selected.map((item) => item.color);
     if (!activeColors.includes("#A33A00")) {
       return "#A33A00";

@@ -60,13 +60,18 @@ export default function cityReducer(state = initialState, action) {
         isFetching: true,
         error: "",
       };
-    case types.GET_CITIES_SUCCESS:
+    case types.GET_CITIES_SUCCESS: {
+      action.payload.forEach((city, i, cityArray) => {
+        city.color = getCityColor(cityArray)
+      })
       return {
         ...state,
         isFetching: false,
         selected: [...action.payload],
         error: "",
       };
+    }
+      
     case types.GET_CITIES_ERROR:
       return {
         ...state,

@@ -86,7 +86,16 @@ describe('City reducer', () => {
     expect(finalState.selected[1]).toEqual(newCity2)
   })
 
-  it.todo("should set colors for both cities on GET_CITIES_SUCCESS")
+  it("should set colors for both cities on GET_CITIES_SUCCESS", () => {
+    const newCity1 = JSON.parse(JSON.stringify(cityMockData["Rangely, CO"]))
+    const newCity2 = JSON.parse(JSON.stringify(cityMockData["Wrangell, AK"]))
+
+    const finalState = cityReducer(undefined, {type: types.GET_CITIES_SUCCESS, payload: [newCity1, newCity2]})
+
+    expect(finalState.selected[0].color).toBeDefined()
+    expect(finalState.selected[1].color).toBeDefined()
+    expect(finalState.selected[0].color).not.toEqual(finalState.selected[1].color)
+  })
 
   it.todo("should clear a city from state on REMOVE_CITY")
 
