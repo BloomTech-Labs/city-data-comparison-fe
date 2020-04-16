@@ -1,5 +1,6 @@
 import {initialState} from './cityReducer.js'
 import cityReducer from './cityReducer.js'
+import cityMockData from '../actions/cityActionsMockData.js'
 
 import * as types from '../actions/actionTypes.js'
 
@@ -8,11 +9,43 @@ describe('City reducer', () => {
     expect(cityReducer(undefined, {})).toEqual(initialState)
   })
 
-  it.todo("should set isFetching true on GET_CITY")
+  it("should set isFetching true on GET_CITY", () => {
+      expect(cityReducer(undefined, {type: types.GET_CITY}).isFetching).toEqual(true)
+  })
 
-  it.todo("should add a city on a GET_CITY_SUCCESS")
+  it("should add a city on a GET_CITY_SUCCESS", () => {
+    const stateIsFetching = JSON.parse(JSON.stringify(initialState))
+    stateIsFetching.isFetching = true;
 
-  it.todo("should add an unused color on GET_CITY_SUCCESS")
+    const expectedState = JSON.parse(JSON.stringify(initialState));
+    expectedState.selected = [cityMockData["Angels, CA"]]
+
+    expect(cityReducer(undefined, {type: types.GET_CITY_SUCCESS, payload: cityMockData["Angels, CA"]})).toEqual(expectedState)
+  })
+
+  it("should add an unused city color to the newly added city on GET_CITY_SUCCESS", () => {
+      //Create dummy cities
+    const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Angels, CA"]))
+    previousCity1.color = "#A33A00";
+    const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Angie, LA"]))
+    previousCity2.color = "#0041A3";
+    const newCity = JSON.parse(JSON.stringify(cityMockData["Kane, IL"]))
+    
+    //Create dummy current state with dummy cities
+    const stateWithOtherColors = JSON.parse(JSON.stringify(initialState))
+    stateWithOtherColors.selected = [previousCity1, previousCity2]
+
+
+    //Run the reducer with the payload
+    const finalState = cityReducer(stateWithOtherColors, {type: types.GET_CITY_SUCCESS, payload: newCity});
+
+
+    //Assert
+    expect(finalState.selected[2].color).toBeDefined()
+    expect(finalState.selected[2].color).not.toEqual(previousCity1.color)
+    expect(finalState.selected[2].color).not.toEqual(previousCity2.color)
+
+  })
 
   it.todo("should not add a city on GET_CITY_SUCCESS when there are already three cities")
 
