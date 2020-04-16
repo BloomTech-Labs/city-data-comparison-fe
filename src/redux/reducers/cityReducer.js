@@ -64,7 +64,7 @@ export default function cityReducer(state = initialState, action) {
       return {
         ...state,
         isFetching: false,
-        selected: [...state.selected, ...action.payload],
+        selected: [...action.payload],
         error: "",
       };
     case types.GET_CITIES_ERROR:
