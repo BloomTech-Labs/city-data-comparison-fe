@@ -10,21 +10,19 @@ import * as types from "./actionTypes";
 
 import cityActionsMockData from "./cityActionsMockData.js";
 
+
+//Mock the module 'react-ga' so none of the functions we are testing try to actually use google analytics
 import ReactGA from "react-ga";
 jest.mock("react-ga");
 
 
+//Apply whatever redux middleware we are using to our mock store configuration
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const mockAxios = new MockAdapter(Axios);
 
 
 describe("City actions", () => {
-  //Before each test mock the module 'react-ga' so none of the functions we are testing try to actually use google analytics
-  beforeEach(() => {
-    
-  });
-  //After each test clear the object that mocks all the axios endpoints, so that each test can individually decide what the mocked response is
+  //After each test clear all axios endpoints that the given test mocked 
   afterEach(() => {
     mockAxios.resetHandlers();
   });
@@ -87,7 +85,7 @@ describe("City actions", () => {
     it.todo("Should create action GET_CITIES_SUCESS if passed an array of strings");
 
     it.todo("Should create action GET_CITIES_SUCESS if passed an array containing one a string and a city object");
-    
+
   });
 
 });
