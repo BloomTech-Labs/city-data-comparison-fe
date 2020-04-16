@@ -17,11 +17,7 @@ describe('City reducer', () => {
     const stateIsFetching = JSON.parse(JSON.stringify(initialState))
     stateIsFetching.isFetching = true;
 
-    const expectedState = JSON.parse(JSON.stringify(initialState));
-    expectedState.selected = [cityMockData["Angels, CA"]]
-
-    const finalState = cityReducer(undefined, {type: types.GET_CITY_SUCCESS, payload: cityMockData["Angels, CA"]});
-
+    const finalState = cityReducer(stateIsFetching, {type: types.GET_CITY_SUCCESS, payload: cityMockData["Angels, CA"]});
 
     expect(finalState.selected).toHaveLength(1)
     expect(typeof finalState.selected[0]).toMatch(/object/)
@@ -50,7 +46,21 @@ describe('City reducer', () => {
 
   })
 
-  it.todo("should not add a city on GET_CITY_SUCCESS when there are already three cities")
+  it("should not add a city on GET_CITY_SUCCESS when there are already three cities", () => {
+    
+
+    const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Angels, CA"]))
+    const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Angie, LA"]))
+    const previousCity3 = JSON.parse(JSON.stringify(cityMockData["Kane, IL"]))
+    const newCity = JSON.parse(JSON.stringify(cityMockData["Rangely, CO"]))
+
+    const stateWithOtherCities = JSON.parse(JSON.stringify(initialState))
+    stateWithOtherCities.selected = [previousCity1, previousCity2, previousCity3]
+
+    const finalState = cityReducer(stateWithOtherCities, {type: types.GET_CITY_SUCCESS, payload: newCity});
+
+    expect(finalState.selected).toHaveLength(3)
+  })
 
   it.todo("should set isFetching true on GET_CITIES")
 

@@ -1,5 +1,5 @@
 import * as types from "../actions/actionTypes";
-import {getCityColor} from "../../utils/cityColors.js"
+import { getCityColor } from "../../utils/cityColors.js";
 
 export const initialState = {
   isFetching: false,
@@ -27,18 +27,26 @@ export default function cityReducer(state = initialState, action) {
       };
 
     case types.GET_CITY_SUCCESS: {
-      const newCity = {
-        ...action.payload,
-        color: getCityColor(state.selected)
+      if (state.selected.length >= 3) {
+        return {
+          ...state,
+          isFetching: false,
+          error: "Only three cities max.",
+        };
+      } else {
+        const newCity = {
+          ...action.payload,
+          color: getCityColor(state.selected),
+        };
+        return {
+          ...state,
+          isFetching: false,
+          selected: [...state.selected, newCity],
+          error: "",
+        };
       }
-      return {
-        ...state,
-        isFetching: false,
-        selected: [...state.selected, newCity],
-        error: "",
-      };
     }
-      
+
     case types.GET_CITY_ERROR:
       return {
         ...state,
