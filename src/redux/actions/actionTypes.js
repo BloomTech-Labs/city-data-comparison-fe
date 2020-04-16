@@ -9,4 +9,3 @@ export const GET_CITIES_ERROR = "GET_CITIES_ERROR";
 
 export const REMOVE_CITY = "REMOVE_CITY";
 export const CLEAR_ALL_CITIES = "CLEAR_ALL_CITIES";
-
