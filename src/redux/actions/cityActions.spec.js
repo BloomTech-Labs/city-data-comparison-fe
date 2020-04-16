@@ -25,7 +25,7 @@ describe("City actions", () => {
   });
 
   describe("Get city", () => {
-    it("creates GET_CITY_SUCCESS when fetching city has been", () => {
+    it("should create action GET_CITY_SUCCESS when passed a city object", () => {
       //Creates a mock for this axios endpoint within this test, gets cleared after each test with mockAxios.restore in aftereach clause above
       mockAxios
         .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
@@ -51,11 +51,34 @@ describe("City actions", () => {
           expect(store.getActions()).toEqual(expectedActions);
         });
     });
-    it.todo("");
   });
 
   describe("Get cities", () => {
-    it.todo("");
+    it("Should return city object if passed an object", () => {
+      mockAxios
+      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
+      .reply(200, cityActionsMockData["Angie, LA"]);
+      const expectedActions = [
+        { type: types.GET_CITIES },
+        {
+          type: types.GET_CITIES_SUCCESS,
+          payload: [cityActionsMockData["Angie, LA"], cityActionsMockData["Angels, CA"]],
+        },
+      ];
+      mockAxios
+      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/1533")
+      .reply(200, cityActionsMockData["Angels, CA"]);
+
+      const store = mockStore(initialState);
+
+      return store
+      .dispatch(cityActions.getCities([cityActionsMockData["Angie, LA"], cityActionsMockData["Angels, CA"]]))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      })
+    });
+  
+
     it.todo("");
   });
 

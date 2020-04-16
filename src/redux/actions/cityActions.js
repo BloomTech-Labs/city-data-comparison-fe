@@ -61,7 +61,7 @@ export function getCity(cityMarker) {
 
 export const getCities = (arr) => async (dispatch, getState) => {
   dispatch({ type: types.GET_CITIES });
-
+  //CREATES ARRAY OF PROMISED TO BE USED WITH PROMISE.ALL
   let cityPromiseArray = arr.map(async (item) => {
     if (typeof item === "object") {
       let res = await cityDataAxios(item.ID);
