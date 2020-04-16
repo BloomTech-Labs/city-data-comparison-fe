@@ -120,7 +120,34 @@ describe("City actions", () => {
 
     });
 
-    it.todo("Should create action GET_CITIES_SUCESS if passed an array containing one a string and a city object");
+    it("Should create action GET_CITIES_SUCESS if passed an array containing one a string and a city object", () => {
+      mockAxios
+      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angi")
+      .reply(200, cityActionsMockData);
+      mockAxios
+      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
+      .reply(200, cityActionsMockData["Angie, LA"]);
+      mockAxios
+      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/1533")
+      .reply(200, cityActionsMockData["Angels, CA"]);
+    
+
+      const expectedActions = [
+        { type: types.GET_CITIES },
+        {
+          type: types.GET_CITIES_SUCCESS,
+          payload: [cityActionsMockData["Angie, LA"], cityActionsMockData["Angels, CA"]],
+        },
+      ];
+
+      const store = mockStore(initialState);
+
+      return store
+      .dispatch(cityActions.getCities(["angi", cityActionsMockData["Angels, CA"]]))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      })
+    });
 
   });
 
