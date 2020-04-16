@@ -10,18 +10,23 @@ import * as types from "./actionTypes";
 
 import cityActionsMockData from "./cityActionsMockData.js";
 
+import ReactGA from "react-ga";
+jest.mock("react-ga");
+
+
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const mockAxios = new MockAdapter(Axios);
 
+
 describe("City actions", () => {
   //Before each test mock the module 'react-ga' so none of the functions we are testing try to actually use google analytics
   beforeEach(() => {
-    jest.mock("react-ga");
+    
   });
   //After each test clear the object that mocks all the axios endpoints, so that each test can individually decide what the mocked response is
   afterEach(() => {
-    mockAxios.restore();
+    mockAxios.resetHandlers();
   });
 
   describe("Get city", () => {
@@ -54,7 +59,7 @@ describe("City actions", () => {
   });
 
   describe("Get cities", () => {
-    it("Should return city object if passed an object", () => {
+    it("Should create action GET_CITIES_SUCCESS if passed an array of objects", () => {
       mockAxios
       .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
       .reply(200, cityActionsMockData["Angie, LA"]);
