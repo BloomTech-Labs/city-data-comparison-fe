@@ -1,4 +1,5 @@
 import * as types from "../actions/actionTypes";
+import {getCityColor} from "../../utils/cityColors.js"
 
 export const initialState = {
   isFetching: false,
@@ -25,13 +26,19 @@ export default function cityReducer(state = initialState, action) {
         error: "",
       };
 
-    case types.GET_CITY_SUCCESS: 
+    case types.GET_CITY_SUCCESS: {
+      const newCity = {
+        ...action.payload,
+        color: getCityColor(state.selected)
+      }
       return {
         ...state,
         isFetching: false,
-        selected: [...state.selected, action.payload],
+        selected: [...state.selected, newCity],
         error: "",
       };
+    }
+      
     case types.GET_CITY_ERROR:
       return {
         ...state,

@@ -20,7 +20,11 @@ describe('City reducer', () => {
     const expectedState = JSON.parse(JSON.stringify(initialState));
     expectedState.selected = [cityMockData["Angels, CA"]]
 
-    expect(cityReducer(undefined, {type: types.GET_CITY_SUCCESS, payload: cityMockData["Angels, CA"]})).toEqual(expectedState)
+    const finalState = cityReducer(undefined, {type: types.GET_CITY_SUCCESS, payload: cityMockData["Angels, CA"]});
+
+
+    expect(finalState.selected).toHaveLength(1)
+    expect(typeof finalState.selected[0]).toMatch(/object/)
   })
 
   it("should add an unused city color to the newly added city on GET_CITY_SUCCESS", () => {
@@ -34,7 +38,6 @@ describe('City reducer', () => {
     //Create dummy current state with dummy cities
     const stateWithOtherColors = JSON.parse(JSON.stringify(initialState))
     stateWithOtherColors.selected = [previousCity1, previousCity2]
-
 
     //Run the reducer with the payload
     const finalState = cityReducer(stateWithOtherColors, {type: types.GET_CITY_SUCCESS, payload: newCity});
