@@ -61,7 +61,7 @@ export default function Map() {
     if (selected.find((item) => item._id === cityMarker.ID)) {
       setSelected(selected.filter((item) => item._id !== cityMarker.ID));
     }
-    // Outerwise get the city's data and add it to selected array
+    // Otherwise get the city's data and add it to selected array
     else {
       getCity(cityMarker);
     }

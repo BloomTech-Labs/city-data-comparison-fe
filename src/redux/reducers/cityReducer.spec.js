@@ -119,7 +119,7 @@ describe('City reducer', () => {
 
     expect(finalState.selected).toHaveLength(0)
 
-    it.todo("should add a city object on ADD_CITY")
+
   })
 
 })
