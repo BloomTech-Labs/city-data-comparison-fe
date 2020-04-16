@@ -1,3 +1,8 @@
+// This test uses the libraries redux-mock-store and axios-mock-adapter to test our thunks
+// https://redux.js.org/recipes/writing-tests
+// https://github.com/ctimmerm/axios-mock-adapter
+
+
 import thunk from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 
@@ -19,6 +24,9 @@ jest.mock("react-ga");
 //Apply whatever redux middleware we are using to our mock store configuration
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
+
+//Create our axios mock object
+const mockAxios = new MockAdapter(Axios);
 
 
 describe("City actions", () => {
