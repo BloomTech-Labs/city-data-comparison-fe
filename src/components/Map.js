@@ -13,7 +13,7 @@ import PopupMap from "./map-components/PopupMap";
 
 import { CityContext } from "../contexts/CityContext";
 import Axios from "axios";
-
+//maybe convert toggleSelected and selectSearch
 const MapWrapper = styled.div`
   width: 100vw;
   height: 60vh;
@@ -56,6 +56,7 @@ export default function Map() {
   //redux things
   //getSelected()
   //getCity()
+  //maybe convert toggleSelected
   const toggleSelected = (cityMarker) => {
     // if the City is already selected, deselect it
     if (selected.find((item) => item._id === cityMarker.ID)) {
@@ -72,6 +73,7 @@ export default function Map() {
   //WILL CALL getCity() IF A SEARCH ITEM IS CLICKED...
     //REDUX THINGS
     //getCity()
+    //Maybe convert selectSearch
   const selectSearch = (cityMarker) => {
     console.log("selectsearch", cityMarker);
     // Stop function and return if the city is already selected
