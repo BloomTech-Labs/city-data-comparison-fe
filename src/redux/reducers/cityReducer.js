@@ -87,7 +87,7 @@ export default function cityReducer(state = initialState, action) {
         })]
       }
 
-    case types.CLEAR_CITIES: 
+    case types.CLEAR_ALL_CITIES: 
       return {
         ...state,
         selected: []

@@ -109,13 +109,13 @@ describe('City reducer', () => {
     expect(finalState.selected).not.toContain(previousCity1)
   })
 
-  it("should clear all cities from state on CLEAR_CITIES", () => {
+  it("should clear all cities from state on CLEAR_ALL_CITIES", () => {
     const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Rangely, CO"]));
     const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Wrangell, AK"]));
     const stateWithOtherCities = JSON.parse(JSON.stringify(initialState))
     stateWithOtherCities.selected = [previousCity1, previousCity2]
 
-    const finalState = cityReducer(stateWithOtherCities, {type: types.CLEAR_CITIES})
+    const finalState = cityReducer(stateWithOtherCities, {type: types.CLEAR_ALL_CITIES})
 
     expect(finalState.selected).toHaveLength(0)
 

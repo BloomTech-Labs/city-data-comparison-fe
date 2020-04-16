@@ -2,7 +2,6 @@
 // https://redux.js.org/recipes/writing-tests
 // https://github.com/ctimmerm/axios-mock-adapter
 
-
 import thunk from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 
@@ -15,11 +14,9 @@ import * as types from "./actionTypes";
 
 import cityActionsMockData from "./cityActionsMockData.js";
 
-
 //Mock the module 'react-ga' so none of the functions we are testing try to actually use google analytics
 import ReactGA from "react-ga";
 jest.mock("react-ga");
-
 
 //Apply whatever redux middleware we are using to our mock store configuration
 const middlewares = [thunk];
@@ -28,9 +25,8 @@ const mockStore = configureMockStore(middlewares);
 //Create our axios mock object
 const mockAxios = new MockAdapter(Axios);
 
-
 describe("City actions", () => {
-  //After each test clear all axios endpoints that the given test mocked 
+  //After each test clear all axios endpoints that the given test mocked
   afterEach(() => {
     mockAxios.resetHandlers();
   });
@@ -67,97 +63,128 @@ describe("City actions", () => {
   describe("Get cities", () => {
     it("should create action GET_CITIES_SUCCESS if passed an array of city objects", () => {
       mockAxios
-      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
-      .reply(200, cityActionsMockData["Angie, LA"]);
+        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
+        .reply(200, cityActionsMockData["Angie, LA"]);
       mockAxios
-      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/1533")
-      .reply(200, cityActionsMockData["Angels, CA"]);
+        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/1533")
+        .reply(200, cityActionsMockData["Angels, CA"]);
 
       const expectedActions = [
         { type: types.GET_CITIES },
         {
           type: types.GET_CITIES_SUCCESS,
-          payload: [cityActionsMockData["Angie, LA"], cityActionsMockData["Angels, CA"]],
+          payload: [
+            cityActionsMockData["Angie, LA"],
+            cityActionsMockData["Angels, CA"],
+          ],
         },
       ];
-     
+
       const store = mockStore(initialState);
 
       return store
-      .dispatch(cityActions.getCities([cityActionsMockData["Angie, LA"], cityActionsMockData["Angels, CA"]]))
-      .then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      })
+        .dispatch(
+          cityActions.getCities([
+            cityActionsMockData["Angie, LA"],
+            cityActionsMockData["Angels, CA"],
+          ])
+        )
+        .then(() => {
+          expect(store.getActions()).toEqual(expectedActions);
+        });
     });
 
     it("should create action GET_CITIES_SUCESS if passed an array of strings", () => {
       mockAxios
-      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angi")
-      .reply(200, cityActionsMockData);
+        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angi")
+        .reply(200, cityActionsMockData);
       mockAxios
-      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angel")
-      .reply(200, cityActionsMockData);
+        .onGet(
+          "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angel"
+        )
+        .reply(200, cityActionsMockData);
       mockAxios
-      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
-      .reply(200, cityActionsMockData["Angie, LA"]);
-    
+        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
+        .reply(200, cityActionsMockData["Angie, LA"]);
 
       const expectedActions = [
         { type: types.GET_CITIES },
         {
           type: types.GET_CITIES_SUCCESS,
-          payload: [cityActionsMockData["Angie, LA"], cityActionsMockData["Angie, LA"]],
+          payload: [
+            cityActionsMockData["Angie, LA"],
+            cityActionsMockData["Angie, LA"],
+          ],
         },
       ];
 
       const store = mockStore(initialState);
 
       return store
-      .dispatch(cityActions.getCities(["angi", "angel"]))
-      .then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      })
-
+        .dispatch(cityActions.getCities(["angi", "angel"]))
+        .then(() => {
+          expect(store.getActions()).toEqual(expectedActions);
+        });
     });
 
     it("should create action GET_CITIES_SUCESS if passed an array containing one a string and a city object", () => {
       mockAxios
-      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angi")
-      .reply(200, cityActionsMockData);
+        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angi")
+        .reply(200, cityActionsMockData);
       mockAxios
-      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
-      .reply(200, cityActionsMockData["Angie, LA"]);
+        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
+        .reply(200, cityActionsMockData["Angie, LA"]);
       mockAxios
-      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/1533")
-      .reply(200, cityActionsMockData["Angels, CA"]);
-    
+        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/1533")
+        .reply(200, cityActionsMockData["Angels, CA"]);
 
       const expectedActions = [
         { type: types.GET_CITIES },
         {
           type: types.GET_CITIES_SUCCESS,
-          payload: [cityActionsMockData["Angie, LA"], cityActionsMockData["Angels, CA"]],
+          payload: [
+            cityActionsMockData["Angie, LA"],
+            cityActionsMockData["Angels, CA"],
+          ],
         },
       ];
 
       const store = mockStore(initialState);
 
       return store
-      .dispatch(cityActions.getCities(["angi", cityActionsMockData["Angels, CA"]]))
-      .then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      })
+        .dispatch(
+          cityActions.getCities(["angi", cityActionsMockData["Angels, CA"]])
+        )
+        .then(() => {
+          expect(store.getActions()).toEqual(expectedActions);
+        });
     });
-
   });
 
-  describe("Clear city", () => {
-    it.todo("should remove a city based on id")
+  describe("Remove city", () => {
+    it("should remove a city based on id", () => {
+      const expectedActions = [
+        {
+          type: types.REMOVE_CITY,
+          payload: "7444",
+        },
+      ];
+      const store = mockStore(initialState);
+      store.dispatch(cityActions.removeCity("7444"));
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
 
-  })
-
-  describe("Clear cities", () => {
-    it.todo("should clear all cities in state")
-  })
-
+  describe("Clear all cities", () => {
+    it("should clear all cities in state", () => {
+      const expectedActions = [
+        {
+          type: types.CLEAR_ALL_CITIES
+        },
+      ];
+      const store = mockStore(initialState);
+      store.dispatch(cityActions.clearAllCities());
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
 });
