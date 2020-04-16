@@ -97,50 +97,29 @@ describe('City reducer', () => {
     expect(finalState.selected[0].color).not.toEqual(finalState.selected[1].color)
   })
 
-  it.todo("should clear a city from state on REMOVE_CITY")
+  it("should remove a city from state on REMOVE_CITY", () => {
+    const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Rangely, CO"]));
+    const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Wrangell, AK"]));
+    const stateWithOtherCities = JSON.parse(JSON.stringify(initialState))
+    stateWithOtherCities.selected = [previousCity1, previousCity2]
 
-  it.todo("should clear all cities from state on CLEAR_CITIES")
 
+    const finalState = cityReducer(stateWithOtherCities, {type: types.REMOVE_CITY, payload: previousCity1.ID})
 
-//   it('should handle ADD_TODO', () => {
-//     expect(
-//       reducer([], {
-//         type: types.ADD_TODO,
-//         text: 'Run the tests'
-//       })
-//     ).toEqual([
-//       {
-//         text: 'Run the tests',
-//         completed: false,
-//         id: 0
-//       }
-//     ])
+    expect(finalState.selected).not.toContain(previousCity1)
+  })
 
-//     expect(
-//       reducer(
-//         [
-//           {
-//             text: 'Use Redux',
-//             completed: false,
-//             id: 0
-//           }
-//         ],
-//         {
-//           type: types.ADD_TODO,
-//           text: 'Run the tests'
-//         }
-//       )
-//     ).toEqual([
-//       {
-//         text: 'Run the tests',
-//         completed: false,
-//         id: 1
-//       },
-//       {
-//         text: 'Use Redux',
-//         completed: false,
-//         id: 0
-//       }
-//     ])
-//   })
+  it("should clear all cities from state on CLEAR_CITIES", () => {
+    const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Rangely, CO"]));
+    const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Wrangell, AK"]));
+    const stateWithOtherCities = JSON.parse(JSON.stringify(initialState))
+    stateWithOtherCities.selected = [previousCity1, previousCity2]
+
+    const finalState = cityReducer(stateWithOtherCities, {type: types.CLEAR_CITIES})
+
+    expect(finalState.selected).toHaveLength(0)
+
+    it.todo("should add a city object on ADD_CITY")
+  })
+
 })

@@ -79,6 +79,20 @@ export default function cityReducer(state = initialState, action) {
         error: action.payload,
       };
 
+    case types.REMOVE_CITY: 
+      return {
+        ...state,
+        selected: [...state.selected.filter(item => {
+          return (item.ID !== action.payload)
+        })]
+      }
+
+    case types.CLEAR_CITIES: 
+      return {
+        ...state,
+        selected: []
+      }
+
     default:
       return state;
   }
