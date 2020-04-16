@@ -59,10 +59,14 @@ describe("City actions", () => {
   });
 
   describe("Get cities", () => {
-    it("Should create action GET_CITIES_SUCCESS if passed an array of objects", () => {
+    it("Should create action GET_CITIES_SUCCESS if passed an array of city objects", () => {
       mockAxios
       .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
       .reply(200, cityActionsMockData["Angie, LA"]);
+      mockAxios
+      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/1533")
+      .reply(200, cityActionsMockData["Angels, CA"]);
+
       const expectedActions = [
         { type: types.GET_CITIES },
         {
@@ -70,10 +74,7 @@ describe("City actions", () => {
           payload: [cityActionsMockData["Angie, LA"], cityActionsMockData["Angels, CA"]],
         },
       ];
-      mockAxios
-      .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/1533")
-      .reply(200, cityActionsMockData["Angels, CA"]);
-
+     
       const store = mockStore(initialState);
 
       return store
@@ -82,26 +83,11 @@ describe("City actions", () => {
         expect(store.getActions()).toEqual(expectedActions);
       })
     });
-  
 
-    it.todo("");
+    it.todo("Should create action GET_CITIES_SUCESS if passed an array of strings");
+
+    it.todo("Should create action GET_CITIES_SUCESS if passed an array containing one a string and a city object");
+    
   });
 
-  //   it("creates FETCH_TODOS_SUCCESS when fetching todos has been done", () => {
-  //     fetchMock.getOnce("/todos", {
-  //       body: { todos: ["do something"] },
-  //       headers: { "content-type": "application/json" },
-  //     });
-
-  //     const expectedActions = [
-  //       { type: types.FETCH_TODOS_REQUEST },
-  //       { type: types.FETCH_TODOS_SUCCESS, body: { todos: ["do something"] } },
-  //     ];
-  //     const store = mockStore({ todos: [] });
-
-  //     return store.dispatch(actions.fetchTodos()).then(() => {
-  //       // return of async actions
-  //       expect(store.getActions()).toEqual(expectedActions);
-  //     });
-  //   });
 });
