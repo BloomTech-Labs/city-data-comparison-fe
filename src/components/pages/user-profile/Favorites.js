@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
-import {UserContext} from "../../contexts/UserContext"
-import GeneralStats from "../graphs/GeneralStats";
+import {UserContext} from "../../../contexts/UserContext"
+import GeneralStats from "../../graphs/GeneralStats";
 import { useHistory } from 'react-router-dom';
 
 const Favorites = (props) => {

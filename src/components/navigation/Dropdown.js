@@ -2,7 +2,7 @@ import React, {useState, useContext} from "react";
 import { Link } from "react-router-dom";
 import {CityContext} from "../../contexts/CityContext"
 import {UserContext} from "../../contexts/UserContext"
-import ProfileImage from '../user-profile/icons/profileimage.png'
+import ProfileImage from '../pages/user-profile/icons/profileimage.png'
 
 
 const DropMenu = (props) => {

@@ -3,7 +3,7 @@ import { Route }  from "react-router-dom";
 
 import './profile.scss'
 
-import Footer from '../navigation/Footer'
+import Footer from '../../navigation/Footer'
 import Favorites from './Favorites'
 import Preferences from './Preferences'
 import Settings from './Settings'
