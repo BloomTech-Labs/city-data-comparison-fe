@@ -21,7 +21,7 @@ function matchCityAxios(city) {
 export function getCity(cityMarker) {
   return async (dispatch, getState) => {
     //If there are already three cities, dispatch an error.
-    if (getState().selected.length >= 3) {
+    if (getState().cityReducer.selected.length >= 3) {
       dispatch({
         type: types.GET_CITY_ERROR,
         payload: "Only compare three cities at a time.",

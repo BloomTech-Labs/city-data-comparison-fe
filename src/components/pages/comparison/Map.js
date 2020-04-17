@@ -1,4 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+
+import { getCity, getCities, removeCity } from '../../../redux/actions/cityActions.js';
+
 import ReactMapGL from "react-map-gl";
 import styled from "styled-components";
 import "./map-components/Map.scss";
@@ -23,14 +27,14 @@ export default function Map() {
   const {
     cityMarkers,
     setCityMarkers,
-    selected,
-    setSelected,
     viewport,
     setViewport,
-    getCity,
     getBestSuggestion,
     cityIndex,
   } = useContext(CityContext);
+
+  const selected = useSelector(state => state.cityReducer.selected);
+  const dispatch = useDispatch();
 
   // const dispatch = useDispatch()
 
@@ -60,11 +64,11 @@ export default function Map() {
   const toggleSelected = (cityMarker) => {
     // if the City is already selected, deselect it
     if (selected.find((item) => item._id === cityMarker.ID)) {
-      setSelected(selected.filter((item) => item._id !== cityMarker.ID));
+      dispatch(removeCity(cityMarker.ID));
     }
     // Otherwise get the city's data and add it to selected array
     else {
-      getCity(cityMarker);
+      dispatch(getCity(cityMarker));
     }
   };
 
@@ -80,7 +84,7 @@ export default function Map() {
     if (selected.find((item) => item._id === cityMarker.ID)) {
       return;
     } else {
-      getCity(cityMarker);
+      dispatch(getCity(cityMarker));
     }
   };
 

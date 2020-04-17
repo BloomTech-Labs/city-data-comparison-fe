@@ -83,7 +83,7 @@ export default function cityReducer(state = initialState, action) {
       return {
         ...state,
         selected: [...state.selected.filter(item => {
-          return (item.ID !== action.payload)
+          return (item._id !== action.payload)
         })]
       }
 

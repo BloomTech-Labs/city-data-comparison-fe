@@ -4,6 +4,9 @@ import LineGraph from "../../graphs/PieGraph";
 import LineGraph2 from "../../graphs/TwoGraph";
 import RadarGraph from "../../graphs/RadarGraph";
 import ReactGA from "react-ga";
+import { useSelector, useDispatch } from 'react-redux';//import
+
+import { getCity, getCities, removeCity } from '../../../redux/actions/cityActions.js';//import 
 
 import pointer from "./assets/pointer.svg";
 import backwheel from "./assets/motorbike_back_wheel.png";
@@ -38,15 +41,16 @@ function Dashboard({ history }) {
     axiosAuth,
   } = useContext(UserContext);
   const {
-    selected,
+    // selected, deleted
     cityIndex,
     viewport,
     setViewport,
-    getCity,
-    getCities,
     getBestSuggestion,
     getBestSuggestions,
   } = useContext(CityContext);
+
+  const selected = useSelector(state => state.cityReducer.selected); //added
+  const dispatch = useDispatch(); //added
 
 
   // * SEARCH 1 STATE / HANDLECHANGE
@@ -213,7 +217,7 @@ function Dashboard({ history }) {
     if (!compare.cityTwo && compare.cityOne) {
       if (found) {
            //city reducer actions
-        getCity(found);
+        dispatch(getCity(found));
       } else {
              //city reducer actions
         getBestSuggestion(compare.cityOne);
@@ -223,7 +227,7 @@ function Dashboard({ history }) {
     }
     if (compare.cityTwo && !compare.cityOne) {
       if (found2) {
-        getCity(found2);
+        dispatch(getCity(found2));
       } else {
         getBestSuggestion(compare.cityTwo);
       }
@@ -237,7 +241,7 @@ function Dashboard({ history }) {
     //UPDATE viewport OBJECT
 
     if (found && found2) {
-      getCities([found, found2]);
+      dispatch(getCities([found, found2]));
       // the viewport set below will require zoom handling based on population
       setViewport({
         ...viewport,
@@ -245,9 +249,10 @@ function Dashboard({ history }) {
         latitude: found.lat,
       });
     } else if (found && !found2) {
-      getCities([found, compare.cityTwo]);
+      // getCities([found, compare.cityTwo]);
+      dispatch(getCities([found, compare.cityTwo]));
     } else if (!found && found2) {
-      getCities([compare.cityOne, found2]);
+      dispatch(getCities([compare.cityOne, found2]));
     }
     // if you don't enter the cities by name it goes to the suggestion
     else {
