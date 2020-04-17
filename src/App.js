@@ -166,8 +166,6 @@ function App() {
             cityIndex,
             cityMarkers,
             setCityMarkers,
-            selected,
-            setSelected,
             viewport,
             setViewport,
           }}
