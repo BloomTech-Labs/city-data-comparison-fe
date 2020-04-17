@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 //file that contains information for each user
 import team from './team';
 import TeamCard from './TeamCard';
-import Footer from '../navigation/Footer';
+import Footer from '../../navigation/Footer';
 
 //styling
 import './aboutus.scss'; 

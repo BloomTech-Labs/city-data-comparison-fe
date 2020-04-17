@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {NavLink}  from "react-router-dom";
-import Heart from '../map-components/icons/filled_heart.svg'
+import Heart from '../pages/comparison/map-components/icons/filled_heart.svg'
 import User from './icons/user.png'
 
 const SideNav = () => {

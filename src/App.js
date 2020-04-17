@@ -11,7 +11,7 @@ import Footer from "./components/navigation/Footer";
 import Map from "./components/pages/comparison/Map";
 import Profile from "./components/user-profile/Profile";
 import PrivacyPolicy from "./components/legal/PrivacyPolicy";
-import AboutUs from "./components/aboutus/AboutUs";
+import AboutUs from "./components/pages/aboutus/AboutUs";
 // import AboutUs2 from './components/aboutus/AboutUs2';
 import citiesIndex from "./data/city_ids.json";
 import { UserContext } from "./contexts/UserContext";
