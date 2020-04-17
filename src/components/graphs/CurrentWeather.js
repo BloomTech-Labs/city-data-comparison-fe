@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import "../single_city_page/SingleCityPage.scss";
+import "../pages/singlecity/SingleCityPage.scss";
 
 import clearDay from "../../assets/single_city_page_photos/clear-day.png";
 import clearNight from "../../assets/single_city_page_photos/clear-night.png";

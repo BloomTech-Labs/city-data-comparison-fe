@@ -21,28 +21,28 @@ import SCPfurniture from "./SCPfurniture";
 import SCPhardware from "./SCPhardware";
 import SCPhotels from "./SCPhotels";
 import SCPcityServices from "./SCPcityServices";
-import Footer from '../navigation/Footer'
+import Footer from '../../navigation/Footer'
 
-import cityscape from '../../assets/single_city_page_photos/cityscape.jpg';
-import foodAndDrink from '../../assets/single_city_page_photos/foodAndDrink.jpg';
-import attractions from '../../assets/single_city_page_photos/attractions.jpg';
-import weatherImg from '../../assets/single_city_page_photos/weather.png';
-import clearDay from "../../assets/single_city_page_photos/clear-day.png";
-import clearNight from "../../assets/single_city_page_photos/clear-night.png";
-import cloudy from "../../assets/single_city_page_photos/cloudy.png";
-import fog from "../../assets/single_city_page_photos/fog.png";
-import partlyCloudyDay from "../../assets/single_city_page_photos/partly-cloudy-day.png";
-import partlyCloudyNight from "../../assets/single_city_page_photos/partly-cloudy-night.png";
-import rain from "../../assets/single_city_page_photos/rain.png";
-import sleet from "../../assets/single_city_page_photos/sleet.png";
-import snow from "../../assets/single_city_page_photos/snow.png";
-import wind from "../../assets/single_city_page_photos/wind.png"
-import recreation from '../../assets/single_city_page_photos/recreation.png';
-import cityServices from '../../assets/single_city_page_photos/cityServices.png';
-import shopping from '../../assets/single_city_page_photos/shopping.png';
-import lodging from '../../assets/single_city_page_photos/lodging.png';
-import dropdownIcon from '../../assets/single_city_page_photos/DropdownIcon.png'
-import backArrow from '../../assets/single_city_page_photos/Back arrow.png';
+import cityscape from '../../../assets/single_city_page_photos/cityscape.jpg';
+import foodAndDrink from '../../../assets/single_city_page_photos/foodAndDrink.jpg';
+import attractions from '../../../assets/single_city_page_photos/attractions.jpg';
+import weatherImg from '../../../assets/single_city_page_photos/weather.png';
+import clearDay from "../../../assets/single_city_page_photos/clear-day.png";
+import clearNight from "../../../assets/single_city_page_photos/clear-night.png";
+import cloudy from "../../../assets/single_city_page_photos/cloudy.png";
+import fog from "../../../assets/single_city_page_photos/fog.png";
+import partlyCloudyDay from "../../../assets/single_city_page_photos/partly-cloudy-day.png";
+import partlyCloudyNight from "../../../assets/single_city_page_photos/partly-cloudy-night.png";
+import rain from "../../../assets/single_city_page_photos/rain.png";
+import sleet from "../../../assets/single_city_page_photos/sleet.png";
+import snow from "../../../assets/single_city_page_photos/snow.png";
+import wind from "../../../assets/single_city_page_photos/wind.png"
+import recreation from '../../../assets/single_city_page_photos/recreation.png';
+import cityServices from '../../../assets/single_city_page_photos/cityServices.png';
+import shopping from '../../../assets/single_city_page_photos/shopping.png';
+import lodging from '../../../assets/single_city_page_photos/lodging.png';
+import dropdownIcon from '../../../assets/single_city_page_photos/DropdownIcon.png'
+import backArrow from '../../../assets/single_city_page_photos/Back arrow.png';
 
 const SingleCityPage = (props) => {
 

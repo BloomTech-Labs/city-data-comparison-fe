@@ -20,7 +20,7 @@ import Axios from "axios";
 import Callback from "./components/Callback";
 import AuthForm from "./components/forms/AuthForm";
 import axiosAuth from "./utils/axiosAuth";
-import SingleCityPage from "./components/single_city_page/SingleCityPage";
+import SingleCityPage from "./components/pages/singlecity/SingleCityPage";
 
 function initializeAnalytics() {
   ReactGA.initialize("UA-156199574-1");
