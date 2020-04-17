@@ -4,9 +4,13 @@ import LineGraph from "../../graphs/PieGraph";
 import LineGraph2 from "../../graphs/TwoGraph";
 import RadarGraph from "../../graphs/RadarGraph";
 import ReactGA from "react-ga";
-import { useSelector, useDispatch } from 'react-redux';//import
+import { useSelector, useDispatch } from "react-redux"; //import
 
-import { getCity, getCities, removeCity } from '../../../redux/actions/cityActions.js';//import 
+import {
+  getCity,
+  cityComparison,
+  removeCity,
+} from "../../../redux/actions/cityActions.js"; //import
 
 import pointer from "./assets/pointer.svg";
 import backwheel from "./assets/motorbike_back_wheel.png";
@@ -45,13 +49,12 @@ function Dashboard({ history }) {
     cityIndex,
     viewport,
     setViewport,
-    getBestSuggestion,
-    getBestSuggestions,
+    // getBestSuggestion,
+    // getBestSuggestions,
   } = useContext(CityContext);
 
-  const selected = useSelector(state => state.cityReducer.selected); //added
+  const selected = useSelector((state) => state.cityReducer.selected); //added
   const dispatch = useDispatch(); //added
-
 
   // * SEARCH 1 STATE / HANDLECHANGE
 
@@ -93,7 +96,6 @@ function Dashboard({ history }) {
     cityTwo: "",
   });
 
-
   //FILTERS THE USERS SEARCH,
   //SORTED BY POPULATION,
   //ONLY GET TOP 5 RESULTS
@@ -107,8 +109,8 @@ function Dashboard({ history }) {
     return sorted;
   };
 
-//USED AS HANDLE CHANGE IN FIRST FIELD
-//SETS THE SUGGESTIONS IN THE FIRST SEARCH INPUT
+  //USED AS HANDLE CHANGE IN FIRST FIELD
+  //SETS THE SUGGESTIONS IN THE FIRST SEARCH INPUT
   //ONLY CHECK JSON FILE FOR SUGGESTIONS, NO API CALLS
   const handleCityOne = (e) => {
     const searchText = e.target.value;
@@ -128,9 +130,9 @@ function Dashboard({ history }) {
     });
   };
 
-//USED AS HANDLE CHANGE IN SECOND FIELD
+  //USED AS HANDLE CHANGE IN SECOND FIELD
   //SETS THE SUGGESTIONS IN THE SECOND SEARCH INPUT
-    //ONLY CHECK JSON FILE FOR SUGGESTIONS, NO API CALLS
+  //ONLY CHECK JSON FILE FOR SUGGESTIONS, NO API CALLS
 
   const handleCityTwo = (e) => {
     const searchText = e.target.value;
@@ -150,7 +152,6 @@ function Dashboard({ history }) {
     });
   };
 
-
   //CLICK HANDLER FOR SUGGESTED CITIES IN SEARCH INPUT
   //WILL SET THE CHOSEN CITY IN THE SEARCH INPUT TO WHAT YOU CLICK ON
   const chooseCityOneSuggestion = (city) => {
@@ -166,7 +167,6 @@ function Dashboard({ history }) {
     });
   };
 
-  
   //CLICK HANDLER FOR SUGGESTED CITIES IN SEARCH INPUT
   //WILL SET THE CHOSEN CITY IN THE SEARCH INPUT TO WHAT YOU CLICK ON
   const chooseCityTwoSuggestion = (city) => {
@@ -182,16 +182,14 @@ function Dashboard({ history }) {
     });
   };
 
-
   //POTENTIAL REDUX THINGS
-     //getCity()
-     //getBestSuggestion()
-     //setViewport()
+  //getCity()
+  //getBestSuggestion()
+  //setViewport()
   //* SUBMIT SEARCH */
   const submitCity = async (event) => {
     event.preventDefault();
     // all the below logic should be pulled into app.js and handle things on that end i think
-
 
     //IF NO CITIES, push directly to /map with no selections
     if (!compare.cityTwo && !compare.cityOne) {
@@ -199,28 +197,24 @@ function Dashboard({ history }) {
       return;
     }
 
-
     //IF CITY INPUT MATCHES OUR CITY INDEX DATABASE
+    //WE REPLACE INPUTS CITY NAME WITH THE NAME IN OUR DB
     let found = cityIndex.find(
-     //     console.log("found item", item);
+      //     console.log("found item", item);
       (item) => item.name.replace(" city", "") === compare.cityOne
     );
     let found2 = cityIndex.find(
       (item) => item.name.replace(" city", "") === compare.cityTwo
     );
 
-    //IF WE ONLY HAVE ONE CITY
-    //FIRST CHECK TO SEE IF CITY IS IN OUR JSON FILE
-          //IF SO, CALL getCity()
-          //IF NOT, CALL getBestSuggestion()
-               //WHICH WILL HIT THE DS API
+    //If we have only one city
     if (!compare.cityTwo && compare.cityOne) {
+      // and it's in the json file pass the object into getCity
       if (found) {
-           //city reducer actions
         dispatch(getCity(found));
       } else {
-             //city reducer actions
-        getBestSuggestion(compare.cityOne);
+        //else pass the search term into getCity which will get the best suggestion from a DS endpoint, then get the city object
+        dispatch(getCity(compare.cityOne));
       }
       history.push("/map");
       return;
@@ -229,19 +223,19 @@ function Dashboard({ history }) {
       if (found2) {
         dispatch(getCity(found2));
       } else {
-        getBestSuggestion(compare.cityTwo);
+        dispatch(getCity(compare.cityTwo));
       }
 
       history.push("/map");
       return;
     }
 
-//IF WE HAVE BOTH CITIES...
+    //IF WE HAVE BOTH CITIES...
     //CALL getCities()
     //UPDATE viewport OBJECT
 
     if (found && found2) {
-      dispatch(getCities([found, found2]));
+      dispatch(cityComparison([found, found2]));
       // the viewport set below will require zoom handling based on population
       setViewport({
         ...viewport,
@@ -250,9 +244,9 @@ function Dashboard({ history }) {
       });
     } else if (found && !found2) {
       // getCities([found, compare.cityTwo]);
-      dispatch(getCities([found, compare.cityTwo]));
+      dispatch(cityComparison([found, compare.cityTwo]));
     } else if (!found && found2) {
-      dispatch(getCities([compare.cityOne, found2]));
+      dispatch(cityComparison([compare.cityOne, found2]));
     }
     // if you don't enter the cities by name it goes to the suggestion
     else {
@@ -260,18 +254,14 @@ function Dashboard({ history }) {
         category: "Data",
         action: `used suggestion endpoint: ${compare.cityOne}`,
       });
-      await getBestSuggestions([compare.cityOne, compare.cityTwo]);
+      await dispatch(cityComparison([compare.cityOne, compare.cityTwo]));
     }
     history.push("/map");
   };
 
-
-
-  
   //* TOGGLING BUTTONS */
   const [buttonClass, setButtonClass] = useState("");
   // const [toggleSearch, setToggleSearch] = useState(true)
-
 
   //CLICK HANDLER FOR THE TOGGLE SWITCH UNDER THE SEARCH INPUT
   const toggleClass = () => {

@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 
-import { getCity, getCities, removeCity } from '../../../redux/actions/cityActions.js';
+import {
+  getCity,
+  cityComparison,
+  removeCity,
+} from "../../../redux/actions/cityActions.js";
 
 import ReactMapGL from "react-map-gl";
 import styled from "styled-components";
@@ -29,11 +33,10 @@ export default function Map() {
     setCityMarkers,
     viewport,
     setViewport,
-    getBestSuggestion,
     cityIndex,
   } = useContext(CityContext);
 
-  const selected = useSelector(state => state.cityReducer.selected);
+  const selected = useSelector((state) => state.cityReducer.selected);
   const dispatch = useDispatch();
 
   // const dispatch = useDispatch()
@@ -72,14 +75,9 @@ export default function Map() {
     }
   };
 
-
-  //ONLY WORKS WITH SEARCH INPUT
-  //WILL CALL getCity() IF A SEARCH ITEM IS CLICKED...
-    //REDUX THINGS
-    //getCity()
-    //Maybe convert selectSearch
+  // This function checks if the city is already in selected
+  // when the user clicks a city from the suggested dropdown in the search bar
   const selectSearch = (cityMarker) => {
-    console.log("selectsearch", cityMarker);
     // Stop function and return if the city is already selected
     if (selected.find((item) => item._id === cityMarker.ID)) {
       return;
@@ -89,10 +87,7 @@ export default function Map() {
   };
 
   //WORKS WITH THE SEARCH BAR ON LEFT
-  
   const onSearch = (e) => {
-    // TODO - More nimble handling on this autofill (use includes, remove commas,
-    // handle state abbreviations)
     e.preventDefault();
     const found = cityMarkers.find(
       (item) => item.name.replace(" city", "") === search
@@ -106,11 +101,7 @@ export default function Map() {
         latitude: found.lat,
       });
     } else {
-      ReactGA.event({
-        category: "Data",
-        action: `used suggestion endpoint: ${search}`,
-      });
-      getBestSuggestion(search);
+      dispatch(getCity(search));
     }
   };
 

@@ -20,78 +20,117 @@ function matchCityAxios(city) {
 //Thunk to get a city from the API using a citymarker object, then add it to selected cities
 export function getCity(cityMarker) {
   return async (dispatch, getState) => {
-    //If there are already three cities, dispatch an error.
-    if (getState().cityReducer.selected.length >= 3) {
-      dispatch({
-        type: types.GET_CITY_ERROR,
-        payload: "Only compare three cities at a time.",
-      });
-    } else {
+    dispatch({ type: types.GET_CITY });
+    const selected = getState().cityReducer.selected
+    try {
+    //If there are already three cities, dispatch an error. (todo, move this logic to reducer)
+    if (selected.length < 3) {
       //Set isFetching in store.
-      dispatch({ type: types.GET_CITY });
-      try {
-        //Make an axios call to the citydata api using the city's id.
-        const res = await cityDataAxios(cityMarker.ID);
-        //Log selected in Google Analytics.
+      if (typeof cityMarker === "object") {
+           //Make an axios call to the citydata api using the city's id.
+           const res = await cityDataAxios(cityMarker.ID);
+           //Log selected in Google Analytics.
+           ReactGA.event({
+             category: "Data",
+             action: `selected ${res.data.name_with_com}`,
+           });
+           let newCity = res.data;
+           console.log("selected", selected)
+           console.log(newCity._id)
+           console.log('filtered arr', selected.filter((item) => item._id === newCity._id));
+          
+           if ( selected.filter((item) => item._id === newCity._id).length > 0) {
+             console.log("HELLO?!??")
+             //If state already has the same city dispatch an error
+             dispatch({type: types.GET_CITY_ERROR, payload: "City is already in state"})
+           }
+           else {
+            //Dispatch the city to state.
+            dispatch({ type: types.GET_CITY_SUCCESS, payload: newCity });
+           }
+      }
+      else if (typeof cityMarker === "string") {
+        //Log that we use the suggestion endpoint
         ReactGA.event({
           category: "Data",
-          action: `selected ${res.data.name_with_com}`,
+          action: `used suggestion endpoint: ${cityMarker}`,
         });
-        let newCity = res.data;
-        //Dispatch the city to state.
-        dispatch({ type: types.GET_CITY_SUCCESS, payload: newCity });
-      } catch (err) {
-        //If anything throws an error, catch, console log, and dispatch an error message to state.
-        dispatch({
-          type: types.GET_CITY_ERROR,
-          payload: "Could not fetch city.",
-        });
-        console.error(err);
+        //Use the suggestion endpoint
+        let suggestionRes = await matchCityAxios(cityMarker);
+        if (!suggestionRes.data["No Data"]) {
+          // Get the key of the first property in the response data
+          let topSuggestionKey = Object.keys(suggestionRes.data)[0];
+          let suggestedCityId = suggestionRes.data[topSuggestionKey].ID;
+          let res = await cityDataAxios(suggestedCityId);
+           dispatch({type: types.GET_CITY_SUCCESS, payload: res.data})
+        }
+        else {
+          dispatch({type: types.GET_CITY_ERROR, payload: `Could not find city: ${cityMarker}`})
+        }
       }
     }
-  };
+    else {
+      dispatch({type: types.GET_CITY_ERROR, payload: "Selected cities full."})
+    }
+    }
+    catch(err) {
+      console.error(err)
+    }
+  }
 }
 
-export const getCities = (arr) => async (dispatch, getState) => {
-  dispatch({ type: types.GET_CITIES });
-  //CREATES ARRAY OF PROMISED TO BE USED WITH PROMISE.ALL
-  let cityPromiseArray = arr.map(async (item) => {
-    if (typeof item === "object") {
-      let res = await cityDataAxios(item.ID);
-      return res.data;
-    } else if (typeof item === "string") {
-      let suggestionRes = await matchCityAxios(item);
-      if (suggestionRes.data) {
-        // Suggested city API returns an object with keys rather than an array of suggestions, so we need the key of the first item
-        let topSuggestionKey = Object.keys(suggestionRes.data)[0];
-        let suggestedCityId = suggestionRes.data[topSuggestionKey].ID;
-        let res = await cityDataAxios(suggestedCityId);
+export const cityComparison = (arr) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: types.CITY_COMPARISON });
+    //CREATES ARRAY OF PROMISED TO BE USED WITH PROMISE.ALL
+    let cityPromiseArray = arr.map(async (item) => {
+      if (typeof item === "object") {
+        let res = await cityDataAxios(item.ID);
         return res.data;
-      } else {
-        return null;
+      } else if (typeof item === "string") {
+        //Log that we use the suggestion endpoint
+        ReactGA.event({
+          category: "Data",
+          action: `used suggestion endpoint: ${item}`,
+        });
+        let suggestionRes = await matchCityAxios(item);
+        console.log(suggestionRes)
+        if (!suggestionRes.data["No Data"]) {
+          // Suggested city API returns an object with keys rather than an array of suggestions, so we need the key of the first item
+          let topSuggestionKey = Object.keys(suggestionRes.data)[0];
+          let suggestedCityId = suggestionRes.data[topSuggestionKey].ID;
+          let res = await cityDataAxios(suggestedCityId);
+          return res.data;
+        } else {
+          return null;
+        }
       }
-    }
-  });
-  //Waits for array of promises to resolve into array of city objects
-  let cityObjectArray = await Promise.all(cityPromiseArray);
-  //Filters out any nulls
-  const cityObjectArrayFiltered = cityObjectArray.filter((item) => item);
-  dispatch({
-    type: types.GET_CITIES_SUCCESS,
-    payload: cityObjectArrayFiltered,
-  });
-
+    });
+    //Waits for array of promises to resolve into array of city objects
+    let cityObjectArray = await Promise.all(cityPromiseArray);
+    //Filters out any nulls
+    const cityObjectArrayFiltered = cityObjectArray.filter((item) => item);
+    dispatch({
+      type: types.CITY_COMPARISON_SUCCESS,
+      payload: cityObjectArrayFiltered,
+    });
+  } catch (err) {
+    dispatch({
+      type: types.CITY_COMPARISON_ERROR,
+      payload: "Could not fetch cities.",
+    });
+    console.error(err);
+  }
 };
-
 
 export function removeCity(ID) {
   return (dispatch, getState) => {
     dispatch({ type: types.REMOVE_CITY, payload: ID });
-  }
+  };
 }
 
 export function clearAllCities() {
   return (dispatch, getState) => {
     dispatch({ type: types.CLEAR_ALL_CITIES });
-  }
+  };
 }

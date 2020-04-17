@@ -54,13 +54,13 @@ export default function cityReducer(state = initialState, action) {
         error: action.payload,
       };
 
-    case types.GET_CITIES:
+    case types.CITY_COMPARISON:
       return {
         ...state,
         isFetching: true,
         error: "",
       };
-    case types.GET_CITIES_SUCCESS: {
+    case types.CITY_COMPARISON_SUCCESS: {
       action.payload.forEach((city, i, cityArray) => {
         city.color = getCityColor(cityArray)
       })
@@ -72,7 +72,7 @@ export default function cityReducer(state = initialState, action) {
       };
     }
       
-    case types.GET_CITIES_ERROR:
+    case types.CITY_COMPARISON_ERROR:
       return {
         ...state,
         isFetching: false,

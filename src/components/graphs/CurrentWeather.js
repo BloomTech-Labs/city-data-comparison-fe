@@ -22,7 +22,6 @@ const CurrentWeather = (props) => {
   useEffect(() => {
     axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a8c0298ef7550627f36777243a127c0e/${props.item.Latitude},${props.item.Longitude}`)
       .then(response => {
-        console.log(response)
         setWeather(response.data.currently)
       })
       .catch(error => {
@@ -96,7 +95,7 @@ const CurrentWeather = (props) => {
     }
   }
 
-  console.log("From weather", weather)
+
   return (
     <>
       <div className="SCPweather">
