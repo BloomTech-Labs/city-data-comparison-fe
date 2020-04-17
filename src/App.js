@@ -5,7 +5,7 @@ import PrivateRoute from "./components/PrivateRoute";
 
 import "./App.scss";
 
-import Dashboard from "./components/dashboard/Dashboard";
+import Dashboard from "./components/pages/index/Dashboard";
 import Navigation from "./components/navigation/Navigation";
 import Footer from "./components/navigation/Footer";
 import Map from "./components/pages/comparison/Map";

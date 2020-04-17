@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import LineGraph from "../graphs/PieGraph";
-import LineGraph2 from "../graphs/TwoGraph";
-import RadarGraph from "../graphs/RadarGraph";
+import LineGraph from "../../graphs/PieGraph";
+import LineGraph2 from "../../graphs/TwoGraph";
+import RadarGraph from "../../graphs/RadarGraph";
 import ReactGA from "react-ga";
 
 import pointer from "./assets/pointer.svg";
@@ -12,21 +12,21 @@ import driver from "./assets/motorbike_driver.png";
 import frontwheel from "./assets/motorbike_front_wheel.png";
 import plant from "./assets/motorbike_plant.png";
 
-import { CityContext } from "../../contexts/CityContext";
-import { UserContext } from "../../contexts/UserContext";
+import { CityContext } from "../../../contexts/CityContext";
+import { UserContext } from "../../../contexts/UserContext";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "../../App.scss";
+import "../../../App.scss";
 
-import landing from "../homepage-imgs/landing.svg";
-import economy from "../homepage-imgs/economy.svg";
-import community from "../homepage-imgs/community.svg";
-import housing from "../homepage-imgs/housing.svg";
-import data from "../homepage-imgs/visualize.svg";
-import location from "../homepage-imgs/map.svg";
-import control from "../homepage-imgs/control.svg";
-import unlock from "../homepage-imgs/unlock.svg";
+import landing from "../../homepage-imgs/landing.svg";
+import economy from "../../homepage-imgs/economy.svg";
+import community from "../../homepage-imgs/community.svg";
+import housing from "../../homepage-imgs/housing.svg";
+import data from "../../homepage-imgs/visualize.svg";
+import location from "../../homepage-imgs/map.svg";
+import control from "../../homepage-imgs/control.svg";
+import unlock from "../../homepage-imgs/unlock.svg";
 //submit city needs more looking at.... Reducer needed???
 function Dashboard({ history }) {
   AOS.init();
