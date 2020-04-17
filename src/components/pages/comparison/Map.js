@@ -3,7 +3,7 @@ import ReactMapGL from "react-map-gl";
 import styled from "styled-components";
 import "./map-components/Map.scss";
 import ReactGA from "react-ga";
-import Footer from "./navigation/Footer";
+import Footer from "../../navigation/Footer";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
@@ -11,7 +11,7 @@ import Markers from "./map-components/Markers";
 import DataDisplay from "./map-components/DataDisplay";
 import PopupMap from "./map-components/PopupMap";
 
-import { CityContext } from "../contexts/CityContext";
+import { CityContext } from "../../../contexts/CityContext";
 import Axios from "axios";
 //maybe convert toggleSelected and selectSearch
 const MapWrapper = styled.div`

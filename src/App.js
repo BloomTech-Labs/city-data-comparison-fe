@@ -8,7 +8,7 @@ import "./App.scss";
 import Dashboard from "./components/dashboard/Dashboard";
 import Navigation from "./components/navigation/Navigation";
 import Footer from "./components/navigation/Footer";
-import Map from "./components/Map";
+import Map from "./components/pages/comparison/Map";
 import Profile from "./components/user-profile/Profile";
 import PrivacyPolicy from "./components/legal/PrivacyPolicy";
 import AboutUs from "./components/aboutus/AboutUs";
