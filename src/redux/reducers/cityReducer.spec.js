@@ -62,12 +62,12 @@ describe('City reducer', () => {
     expect(finalState.selected).toHaveLength(3)
   })
 
-  it("should set isFetching true on GET_CITIES", () => {
+  it("should set isFetching true on CITY_COMPARISON", () => {
 
-    expect(cityReducer(undefined, {type: types.GET_CITIES}).isFetching).toEqual(true)
+    expect(cityReducer(undefined, {type: types.CITY_COMPARISON}).isFetching).toEqual(true)
   })
 
-  it("should replace two cities on GET_CITIES_SUCCESS", () => {
+  it("should replace two cities on CITY_COMPARISON_SUCCESS", () => {
 
     const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Angels, CA"]))
     const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Angie, LA"]))
@@ -79,18 +79,18 @@ describe('City reducer', () => {
     const stateWithOtherCities = JSON.parse(JSON.stringify(initialState))
     stateWithOtherCities.selected = [previousCity1, previousCity2, previousCity3]
 
-    const finalState = cityReducer(stateWithOtherCities, {type: types.GET_CITIES_SUCCESS, payload: [newCity1, newCity2]});
+    const finalState = cityReducer(stateWithOtherCities, {type: types.CITY_COMPARISON_SUCCESS, payload: [newCity1, newCity2]});
 
     expect(finalState.selected).toHaveLength(2)
     expect(finalState.selected[0]).toEqual(newCity1)
     expect(finalState.selected[1]).toEqual(newCity2)
   })
 
-  it("should set colors for both cities on GET_CITIES_SUCCESS", () => {
+  it("should set colors for both cities on CITY_COMPARISON_SUCCESS", () => {
     const newCity1 = JSON.parse(JSON.stringify(cityMockData["Rangely, CO"]))
     const newCity2 = JSON.parse(JSON.stringify(cityMockData["Wrangell, AK"]))
 
-    const finalState = cityReducer(undefined, {type: types.GET_CITIES_SUCCESS, payload: [newCity1, newCity2]})
+    const finalState = cityReducer(undefined, {type: types.CITY_COMPARISON_SUCCESS, payload: [newCity1, newCity2]})
 
     expect(finalState.selected[0].color).toBeDefined()
     expect(finalState.selected[1].color).toBeDefined()
