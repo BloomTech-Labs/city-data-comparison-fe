@@ -2,12 +2,12 @@
 import React from 'react';
 import styled from "styled-components";
 
-import world from '../map-components/assets/world.svg'
-import pop from '../map-components/assets/population.svg'
-import users from '../map-components/assets/users.svg'
-import briefcase from '../map-components/assets/briefcase.svg'
-import income from '../map-components/assets/dollar.svg'
-import FavoriteButton from '../map-components/FavoriteButton'
+import world from '../pages/comparison/map-components/assets/world.svg'
+import pop from '../pages/comparison/map-components/assets/population.svg'
+import users from '../pages/comparison/map-components/assets/users.svg'
+import briefcase from '../pages/comparison/map-components/assets/briefcase.svg'
+import income from '../pages/comparison/map-components/assets/dollar.svg'
+import FavoriteButton from '../pages/comparison/map-components/FavoriteButton'
 import Recommendations from "./Recommendations"
 
 // const CenterCard = styled.h3`
