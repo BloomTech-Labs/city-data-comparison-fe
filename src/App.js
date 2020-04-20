@@ -16,7 +16,6 @@ import AboutUs from "./components/pages/aboutus/AboutUs";
 import citiesIndex from "./data/city_ids.json";
 import { UserContext } from "./contexts/UserContext";
 import { CityContext } from "./contexts/CityContext";
-import Axios from "axios";
 import Callback from "./components/Callback";
 import AuthForm from "./components/forms/AuthForm";
 import axiosAuth from "./utils/axiosAuth";
