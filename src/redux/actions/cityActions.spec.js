@@ -61,7 +61,7 @@ describe("City actions", () => {
   });
 
   describe("Get cities", () => {
-    it("should create action GET_CITIES_SUCCESS if passed an array of city objects", () => {
+    it("should create action CITY_COMPARISON_SUCCESS if passed an array of city objects", () => {
       mockAxios
         .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
         .reply(200, cityActionsMockData["Angie, LA"]);
@@ -70,9 +70,9 @@ describe("City actions", () => {
         .reply(200, cityActionsMockData["Angels, CA"]);
 
       const expectedActions = [
-        { type: types.GET_CITIES },
+        { type: types.CITY_COMPARISON },
         {
-          type: types.GET_CITIES_SUCCESS,
+          type: types.CITY_COMPARISON_SUCCESS,
           payload: [
             cityActionsMockData["Angie, LA"],
             cityActionsMockData["Angels, CA"],
@@ -84,7 +84,7 @@ describe("City actions", () => {
 
       return store
         .dispatch(
-          cityActions.getCities([
+          cityActions.cityComparison([
             cityActionsMockData["Angie, LA"],
             cityActionsMockData["Angels, CA"],
           ])
@@ -94,7 +94,7 @@ describe("City actions", () => {
         });
     });
 
-    it("should create action GET_CITIES_SUCESS if passed an array of strings", () => {
+    it("should create action CITY_COMPARISON_SUCCESS if passed an array of strings", () => {
       mockAxios
         .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angi")
         .reply(200, cityActionsMockData);
@@ -108,9 +108,9 @@ describe("City actions", () => {
         .reply(200, cityActionsMockData["Angie, LA"]);
 
       const expectedActions = [
-        { type: types.GET_CITIES },
+        { type: types.CITY_COMPARISON },
         {
-          type: types.GET_CITIES_SUCCESS,
+          type: types.CITY_COMPARISON_SUCCESS,
           payload: [
             cityActionsMockData["Angie, LA"],
             cityActionsMockData["Angie, LA"],
@@ -121,13 +121,13 @@ describe("City actions", () => {
       const store = mockStore(initialState);
 
       return store
-        .dispatch(cityActions.getCities(["angi", "angel"]))
+        .dispatch(cityActions.cityComparison(["angi", "angel"]))
         .then(() => {
           expect(store.getActions()).toEqual(expectedActions);
         });
     });
 
-    it("should create action GET_CITIES_SUCESS if passed an array containing one a string and a city object", () => {
+    it("should create action CITY_COMPARISON_SUCCESS if passed an array containing one a string and a city object", () => {
       mockAxios
         .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angi")
         .reply(200, cityActionsMockData);
@@ -139,9 +139,9 @@ describe("City actions", () => {
         .reply(200, cityActionsMockData["Angels, CA"]);
 
       const expectedActions = [
-        { type: types.GET_CITIES },
+        { type: types.CITY_COMPARISON },
         {
-          type: types.GET_CITIES_SUCCESS,
+          type: types.CITY_COMPARISON_SUCCESS,
           payload: [
             cityActionsMockData["Angie, LA"],
             cityActionsMockData["Angels, CA"],
@@ -153,7 +153,7 @@ describe("City actions", () => {
 
       return store
         .dispatch(
-          cityActions.getCities(["angi", cityActionsMockData["Angels, CA"]])
+          cityActions.cityComparison(["angi", cityActionsMockData["Angels, CA"]])
         )
         .then(() => {
           expect(store.getActions()).toEqual(expectedActions);
