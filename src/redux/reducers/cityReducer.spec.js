@@ -40,7 +40,6 @@ describe('City reducer', () => {
     //Run the reducer with the payload
     const finalState = cityReducer(stateWithOtherColors, {type: types.GET_CITY_SUCCESS, payload: newCity});
 
-    console.log(finalState.selected)
 
     //Assert
     expect(finalState.selected[2].color).toBeDefined()
@@ -109,7 +108,7 @@ describe('City reducer', () => {
     stateWithOtherCities.selected = [previousCity1, previousCity2]
 
 
-    const finalState = cityReducer(stateWithOtherCities, {type: types.REMOVE_CITY, payload: previousCity1.ID})
+    const finalState = cityReducer(stateWithOtherCities, {type: types.REMOVE_CITY, payload: previousCity1._id})
 
     expect(finalState.selected).not.toContain(previousCity1)
   })
