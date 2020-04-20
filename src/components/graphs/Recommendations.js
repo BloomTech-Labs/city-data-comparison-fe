@@ -3,9 +3,13 @@ import Axios from "axios";
 import { CityContext } from "../../contexts/CityContext";
 import recommend from "./recommend-pin.svg";
 import ReactGA from "react-ga";
+
+import {useDispatch} from 'react-redux';
+import {getCity} from '../../redux/actions/cityActions.js'
+
 //not using this component as far as we can tell right now
 const Recommendations = ({ city }) => {
-  const { getCity } = useContext(CityContext);
+  const dispatch = useDispatch()
   let [cultureRec, setCultureRec] = useState({ city: "", ID: "" });
   let [housingRec, setHousingRec] = useState({ city: "", ID: "" });
   let [industryRec, setIndustryRec] = useState({ city: "", ID: "" });
@@ -64,7 +68,7 @@ const Recommendations = ({ city }) => {
                 category: "Data",
                 action: `selected housing rec: ${housingRec.city}`,
               });
-              getCity(housingRec);
+              dispatch(getCity(housingRec));
             }}
           >
             <p className="recommendation-subtitle">Similar housing</p> <br />{" "}
@@ -80,7 +84,7 @@ const Recommendations = ({ city }) => {
                 category: "Data",
                 action: `selected culture rec: ${cultureRec.city}`,
               });
-              getCity(cultureRec);
+              dispatch(getCity(cultureRec));
             }}
           >
             <p className="recommendation-subtitle">Similar culture</p>
@@ -97,7 +101,7 @@ const Recommendations = ({ city }) => {
                 category: "Data",
                 action: `selected industry rec: ${industryRec.city}`,
               });
-              getCity(industryRec);
+              dispatch(getCity(industryRec));
             }}
           >
             <p className="recommendation-subtitle">Similar industries</p> <br />
