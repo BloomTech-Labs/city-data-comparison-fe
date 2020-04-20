@@ -62,6 +62,8 @@ describe('City reducer', () => {
     expect(finalState.selected).toHaveLength(3)
   })
 
+  it.todo("should not add a city if that city is already selected")
+
   it("should set isFetching true on CITY_COMPARISON", () => {
 
     expect(cityReducer(undefined, {type: types.CITY_COMPARISON}).isFetching).toEqual(true)

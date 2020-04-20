@@ -20,36 +20,21 @@ function matchCityAxios(city) {
 //Thunk to get a city from the API using a citymarker object, then add it to selected cities
 export function getCity(cityMarker) {
   return async (dispatch, getState) => {
-    dispatch({ type: types.GET_CITY });
-    const selected = getState().cityReducer.selected
-    try {
-    //If there are already three cities, dispatch an error. (todo, move this logic to reducer)
-    if (selected.length < 3) {
       //Set isFetching in store.
+    dispatch({ type: types.GET_CITY });
+    try {
       if (typeof cityMarker === "object") {
-           //Make an axios call to the citydata api using the city's id.
-           const res = await cityDataAxios(cityMarker.ID);
-           //Log selected in Google Analytics.
-           ReactGA.event({
-             category: "Data",
-             action: `selected ${res.data.name_with_com}`,
-           });
-           let newCity = res.data;
-           console.log("selected", selected)
-           console.log(newCity._id)
-           console.log('filtered arr', selected.filter((item) => item._id === newCity._id));
-          
-           if ( selected.filter((item) => item._id === newCity._id).length > 0) {
-             console.log("HELLO?!??")
-             //If state already has the same city dispatch an error
-             dispatch({type: types.GET_CITY_ERROR, payload: "City is already in state"})
-           }
-           else {
-            //Dispatch the city to state.
-            dispatch({ type: types.GET_CITY_SUCCESS, payload: newCity });
-           }
-      }
-      else if (typeof cityMarker === "string") {
+        //Make an axios call to the citydata api using the city's id.
+        const res = await cityDataAxios(cityMarker.ID);
+        //Log selected city in Google Analytics.
+        ReactGA.event({
+          category: "Data",
+          action: `selected ${res.data.name_with_com}`,
+        });
+        let newCity = res.data;
+        //Dispatch the city to state.
+        dispatch({ type: types.GET_CITY_SUCCESS, payload: newCity });
+      } else if (typeof cityMarker === "string") {
         //Log that we use the suggestion endpoint
         ReactGA.event({
           category: "Data",
@@ -62,21 +47,18 @@ export function getCity(cityMarker) {
           let topSuggestionKey = Object.keys(suggestionRes.data)[0];
           let suggestedCityId = suggestionRes.data[topSuggestionKey].ID;
           let res = await cityDataAxios(suggestedCityId);
-           dispatch({type: types.GET_CITY_SUCCESS, payload: res.data})
-        }
-        else {
-          dispatch({type: types.GET_CITY_ERROR, payload: `Could not find city: ${cityMarker}`})
+          dispatch({ type: types.GET_CITY_SUCCESS, payload: res.data });
+        } else {
+          dispatch({
+            type: types.GET_CITY_ERROR,
+            payload: `Could not find city: ${cityMarker}`,
+          });
         }
       }
+    } catch (err) {
+      console.error(err);
     }
-    else {
-      dispatch({type: types.GET_CITY_ERROR, payload: "Selected cities full."})
-    }
-    }
-    catch(err) {
-      console.error(err)
-    }
-  }
+  };
 }
 
 export const cityComparison = (arr) => async (dispatch, getState) => {
@@ -94,7 +76,6 @@ export const cityComparison = (arr) => async (dispatch, getState) => {
           action: `used suggestion endpoint: ${item}`,
         });
         let suggestionRes = await matchCityAxios(item);
-        console.log(suggestionRes)
         if (!suggestionRes.data["No Data"]) {
           // Suggested city API returns an object with keys rather than an array of suggestions, so we need the key of the first item
           let topSuggestionKey = Object.keys(suggestionRes.data)[0];
