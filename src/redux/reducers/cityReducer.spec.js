@@ -64,7 +64,19 @@ describe('City reducer', () => {
     expect(finalState.selected).toHaveLength(3)
   })
 
-  it.todo("should not add a city if that city is already selected")
+  it("should not add a city if that city is already selected", () => {
+    const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Angels, CA"]))
+    const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Angie, LA"]))
+
+    const stateWithOtherCities = JSON.parse(JSON.stringify(initialState))
+    stateWithOtherCities.selected = [previousCity1, previousCity2]
+
+    const newCity = JSON.parse(JSON.stringify(cityMockData["Angie, LA"]));
+
+    const finalState = cityReducer(stateWithOtherCities, {type: types.GET_CITY_SUCCESS, payload: newCity})
+
+    expect(finalState.selected.length).toEqual(2)
+  })
 
   it("should set isFetching true on CITY_COMPARISON", () => {
 
