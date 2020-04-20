@@ -1,6 +1,6 @@
 import {initialState} from './cityReducer.js'
 import cityReducer from './cityReducer.js'
-import cityMockData from '../actions/cityActionsMockData.js'
+import cityMockData from './cityReducerMockData.js'
 
 import * as types from '../actions/actionTypes.js'
 
@@ -24,20 +24,23 @@ describe('City reducer', () => {
   })
 
   it("should add an unused city color to the newly added city on GET_CITY_SUCCESS", () => {
-      //Create dummy cities
+      //Create dummy cities for the dummy current state
     const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Angels, CA"]))
     previousCity1.color = "#A33A00";
     const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Angie, LA"]))
     previousCity2.color = "#0041A3";
-    const newCity = JSON.parse(JSON.stringify(cityMockData["Kane, IL"]))
-    
+
     //Create dummy current state with dummy cities
     const stateWithOtherColors = JSON.parse(JSON.stringify(initialState))
     stateWithOtherColors.selected = [previousCity1, previousCity2]
 
+    //Create a dummy new city to pass into the aciton
+    const newCity = JSON.parse(JSON.stringify(cityMockData["Kane, IL"]))
+
     //Run the reducer with the payload
     const finalState = cityReducer(stateWithOtherColors, {type: types.GET_CITY_SUCCESS, payload: newCity});
 
+    console.log(finalState.selected)
 
     //Assert
     expect(finalState.selected[2].color).toBeDefined()

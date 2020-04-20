@@ -33,7 +33,15 @@ export default function cityReducer(state = initialState, action) {
           isFetching: false,
           error: "Only three cities max.",
         };
-      } else {
+      } 
+      else if (state.selected.filter((item) => item._id === action.payload._id).length > 0) {
+        return {
+          ...state,
+          isFetching: false,
+          error: "The specified city has already been selected.",
+        };
+      }
+      else {
         const newCity = {
           ...action.payload,
           color: getCityColor(state.selected),
