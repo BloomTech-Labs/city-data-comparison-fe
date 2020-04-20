@@ -4,11 +4,14 @@ import {CityContext} from "../../contexts/CityContext"
 import {UserContext} from "../../contexts/UserContext"
 import ProfileImage from '../pages/user-profile/icons/profileimage.png'
 
+import {useDispatch} from 'react-redux';
+import {clearAllCities} from '../../redux/actions/cityActions.js'
 
 const DropMenu = (props) => {
     const {user, setUserValue, setFavorites} = useContext(UserContext)
     const {setSelected} = useContext(CityContext)
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const dispatch = useDispatch()
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
     //This logout function should probably be abstracted to the userContext
@@ -17,7 +20,7 @@ const DropMenu = (props) => {
     const Logout = () => {
         setUserValue(null);
         setFavorites([])
-        setSelected([])
+        dispatch(clearAllCities())
         localStorage.setItem('user', null)
         localStorage.setItem('jwt', null)
     }
