@@ -1,4 +1,3 @@
-import { getCityColor, getSecondCityColor } from "../../utils/cityColors.js";
 import ReactGA from "react-ga";
 import * as types from "./actionTypes";
 import Axios from "axios";
