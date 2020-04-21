@@ -1,6 +1,6 @@
 # Citrics
 
-Application deployed at https://citrics.io/.
+Applicatio deployed at https://citrics.io/.
 
 ## Contributors
 [Meet the Team](https://citrics.io/meet-the-team)
