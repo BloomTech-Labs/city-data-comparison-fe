@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import clock from '../../map-components/assets/clock.svg'
+import clock from '../../pages/comparison/map-components/assets/clock.svg'
 
 
 function TotalPopulation({ethData}) {

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import Modal from "../modal/modal";
 import useModal from "../modal/useModal";
 import "../modal/modal.scss";
-import AboutUs from "../aboutus/AboutUs";
+import AboutUs from "../pages/aboutus/AboutUs";
 
 import PrivacyPolicy from "../legal/PrivacyPolicy";
 

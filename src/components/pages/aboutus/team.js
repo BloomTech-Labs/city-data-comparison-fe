@@ -32,28 +32,28 @@
 // }
 
 //team members photos
-import anna from '../../assets/team_photos/anna_t.png'; 
-import daniel from '../../assets/team_photos/daniel_b.jpg'; 
-import john from '../../assets/team_photos/john_w.jpg'; 
-import kevin from '../../assets/team_photos/kevin_n.png'; 
-import luke from '../../assets/team_photos/luke_t.png'; 
-import matthew from '../../assets/team_photos/matthew_s.jpg';
-import michael from '../../assets/team_photos/michael_h.jpg';
-import muamer from '../../assets/team_photos/muamer_k.jpg'; 
-import ruth from '../../assets/team_photos/ruth_p.jpg'; 
-import scott from '../../assets/team_photos/scott_m.png';
-import umeko from '../../assets/team_photos/umeko_w.jpg';
-import dariush from '../../assets/team2_photos/Dariush Khansari.png'; 
-import songa from '../../assets/team2_photos/Songa Mugenzi.png'; 
-import jimmy from '../../assets/team2_photos/Jimmy Smith.png'; 
-import eric from '../../assets/team2_photos/Eric Ramon.png'; 
-import chris from '../../assets/team2_photos/Christopher Shields.png'; 
-import anisha from '../../assets/team2_photos/Anisha Sunkerneni.png';
-import kyle from '../../assets/team2_photos/Kyle Porter.jpg';
-import ryan from '../../assets/team2_photos/Ryan Cooper.png'; 
-import regino from '../../assets/team2_photos/Regino Parragil.jpg'; 
-import thomas from '../../assets/team2_photos/Thomas Rodriguez.png';
-import jeremy from '../../assets/team2_photos/Jeremy Rogel1.png';
+import anna from '../../../assets/team_photos/anna_t.png'; 
+import daniel from '../../../assets/team_photos/daniel_b.jpg'; 
+import john from '../../../assets/team_photos/john_w.jpg'; 
+import kevin from '../../../assets/team_photos/kevin_n.png'; 
+import luke from '../../../assets/team_photos/luke_t.png'; 
+import matthew from '../../../assets/team_photos/matthew_s.jpg';
+import michael from '../../../assets/team_photos/michael_h.jpg';
+import muamer from '../../../assets/team_photos/muamer_k.jpg'; 
+import ruth from '../../../assets/team_photos/ruth_p.jpg'; 
+import scott from '../../../assets/team_photos/scott_m.png';
+import umeko from '../../../assets/team_photos/umeko_w.jpg';
+import dariush from '../../../assets/team2_photos/Dariush Khansari.png'; 
+import songa from '../../../assets/team2_photos/Songa Mugenzi.png'; 
+import jimmy from '../../../assets/team2_photos/Jimmy Smith.png'; 
+import eric from '../../../assets/team2_photos/Eric Ramon.png'; 
+import chris from '../../../assets/team2_photos/Christopher Shields.png'; 
+import anisha from '../../../assets/team2_photos/Anisha Sunkerneni.png';
+import kyle from '../../../assets/team2_photos/Kyle Porter.jpg';
+import ryan from '../../../assets/team2_photos/Ryan Cooper.png'; 
+import regino from '../../../assets/team2_photos/Regino Parragil.jpg'; 
+import thomas from '../../../assets/team2_photos/Thomas Rodriguez.png';
+import jeremy from '../../../assets/team2_photos/Jeremy Rogel1.png';
 
 
 const team = [

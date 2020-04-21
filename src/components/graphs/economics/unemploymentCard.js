@@ -1,5 +1,5 @@
 import React from 'react';
-import archive from '../../map-components/assets/archive.svg'
+import archive from '../../pages/comparison/map-components/assets/archive.svg'
 
 function TotalPopulation({ethData}) {	
 	return (

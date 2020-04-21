@@ -1,5 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react'
-import {UserContext} from '../../contexts/UserContext'; 
+import {UserContext} from '../../../../contexts/UserContext'; 
 //assets
 import heart_icon from './icons/heart.svg';
 import filled_heart from './icons/filled_heart.svg'

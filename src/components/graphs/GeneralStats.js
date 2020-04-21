@@ -14,7 +14,7 @@ import sustain from "../../assets/generalstats/sustain.png"
 
 import AvgTemp from "../graphs/culture/tempAvg";
 import CurrentWeather from "./CurrentWeather";
-import FavoriteButton from '../map-components/FavoriteButton'
+import FavoriteButton from '../pages/comparison/map-components/FavoriteButton'
 import Recommendations from "./Recommendations"
 
 

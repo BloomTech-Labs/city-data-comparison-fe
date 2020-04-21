@@ -44,6 +44,8 @@ Cities with data are marked on a searchable, indexed map generated from the Mapb
 - Font Awesome
 - React-scroll
 - React-carousel
+- Redux
+- Redux thunk
 
 #### React
 

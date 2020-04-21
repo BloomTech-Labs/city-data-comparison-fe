@@ -4,7 +4,7 @@ import axios from 'axios'
 import ProfileImage from './icons/profileimage.png'
 import './profile.scss'
 
-import {UserContext} from "../../contexts/UserContext"
+import {UserContext} from "../../../contexts/UserContext"
 
 
 

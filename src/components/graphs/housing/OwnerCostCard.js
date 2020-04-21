@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
-import helpCircle from '../../map-components/assets/helpcircle.svg'
+import helpCircle from '../../pages/comparison/map-components/assets/helpcircle.svg'
 import SmocModal from "../../modal/smocModule";
 import useModal from "../../modal/useModal";
 import Smoc from "../../modal/SmocCard";
