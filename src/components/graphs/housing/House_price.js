@@ -1,43 +1,87 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import selected from "./mockSelected.js";
+// import selected from "./mockSelected.js";
 
-export default function HousePriceGraph() {
-  const labels = Object.keys(
-    selected[0]["Historical Property Value Data"]["Average Home Value"]
-  );
-
-  // This decides holds all the lines currently displayed on the graph
-  // it could change when the user clicks a specific city on the legend for focus view
-  const [lines, setLines] = useState([]);
-
-  // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
-  function numberCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-
+export default function HousePriceGraph({selected}) {
+  // This state contains all the data we will input in the ChartJS line graph as props
+  const [graphData, setGraphData] = useState({
+    datasets: [],
+    labels: []
+  });
 
   // This function formats an array of lines for displaying one city in the line graph component
   // this array goes into the chartjs line graph component's prop called "datasets"
-  function formatGraphLinesWithOneCity(city) {
-    const lineData = labels.map((label) => {
+  function formatGraphDataWithOneCity(city) {
+    const historicalLabels = [Object.keys(city["Historical Property Value Data"]["Average Home Value"])]
+    const predictionLabels = [Object.keys(city["Historical Property Value Data"]["Average Home Value"])]
+
+    const nullArrayWithHistLength = historicalLabels.map(() => null);
+
+    const historicalData = historicalLabels.map((label) => {
       return city["Historical Property Value Data"]["Average Home Value"][label];
     });
-    return [
-      {
+
+    const lowerLimitData = [...nullArrayWithHistoryLength,
+      ...predictionLabels.map( dateLabel => city["Historical Property Value Data"]["Lower_Predictions"][dateLabel])
+    ];
+    lowerLimitData[historicalData.length - 1] = historicalData[historicalData.length - 1];
+
+    const predictionLineData = [...nullArrayWithHistoryLength,
+      ...predictionLabels.map( dateLabel => city["Historical Property Value Data"]["Predictions"][dateLabel])
+    ];
+    predictionLineData[historicalData.length - 1] = historicalData[historicalData.length - 1];
+
+    const upperLimitLineData = [...nullArrayWithHistoryLength,
+      ...predictionLabels.map( dateLabel => city["Historical Property Value Data"]["Upper_Predictions"][dateLabel])
+    ];
+    upperLimitLineData[historicalData.length - 1] = historicalData[historicalData.length - 1];
+
+    // Return a new graph data object
+    return {
+      labels: [...historicalLabels, ...predictionLabels],
+      datasets: [
+        // Historical data line
+        {
+          label: `${city.name_with_com}`,
+          fill: false,
+          //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
+          data: historicalData,
+          borderColor: city.color,
+        },
+        // Lower limit line
+        {
+           //just city, state = item.name_with_com,
+           label: `${city.name_with_com}`,
+           fill: false,
+           //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
+           data: lowerLimitData,
+           borderColor: city.color,
+        },
+        //Prediction line
+        {
+          //just city, state = item.name_with_com,
+          label: `${city.name_with_com}`,
+          fill: false,
+          //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
+          data: predictionData,
+          borderColor: city.color,
+       },
+       // Upper limit line
+       {
         //just city, state = item.name_with_com,
-        label: city.name_with_com,
+        label: `${city.name_with_com}`,
         fill: false,
         //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
-        data: lineData,
+        data: upperLimitLineData,
         borderColor: city.color,
-      },
-    ];
+     },
+      ]
+    }
   }
 
   // This function formats an array of lines in the line graph for displaying multiple cities,
   // to be placed in the chartjs line graph component's prop called "datasets"
-  function formatGraphLinesWithMultipleCities(cities) {
+  function formatGraphDataWithMultipleCities(cities) {
     return cities.map((city) => {
       const lineData = labels.map((label) => {
         return city["Historical Property Value Data"]["Average Home Value"][label];
@@ -53,38 +97,37 @@ export default function HousePriceGraph() {
     });
   }
 
+  // This useEffect formats the graph data and saves it to local state
+  // as soon as we get the "selected" cities props
   useEffect(() => {
-    setLines(formatGraphLinesWithMultipleCities(selected));
+    setGraphData(formatGraphDataWithMultipleCities(selected));
   }, [selected]);
   
 
+  // This function handles when you click a city's name or color block on the chart legend
+  // It moves the component to a detail view displaying just one city
+  // It will format the graph to show the accuracy of the prediction
   const handleClickLegend = (e, legendItem) => {
     if (lines.length > 1) {
-      setLines(formatGraphLinesWithOneCity(selected[legendItem.datasetIndex]));
+      setGraphData(formatGraphDataWithOneCity(selected[legendItem.datasetIndex]));
     }
     else {
-      setLines(formatGraphLinesWithMultipleCities(selected))
+      setGraphData(formatGraphDataWithMultipleCities(selected))
     }
   };
 
+  // This function handles when you click the Show All button
+  // It will move the chart to a view that shows all cities
+  // When multiple cities are shown on the accuracy of the prediction for each city isn't shown
   const handleClickShowAll = () => {
-    setLines(formatGraphLinesWithMultipleCities(selected));
+    setGraphData(formatGraphLinesWithMultipleCities(selected));
   };
 
-  // useEffect(() => {
-  //     let data = selected[0];
-  //     if (data["Historical Property Value Data"]["Average Home Value"]) {
-  //         setLabels(Object.keys(data["Historical Property Value Data"]["Average Home Value"]))
-  //     } else if (data["Historical Property Value Data"]["Four Bedroom Houses"]){
-  //         setLabels(Object.keys(data["Historical Property Value Data"]["Four Bedroom Houses"]))
-  //     } else if (data["Historical Property Value Data"]["Three Bedroom Houses"]){
-  //       setLabels(Object.keys(data["Historical Property Value Data"]["Three Bedroom Houses"]))
-  //     } else if (data["Historical Property Value Data"]["Two Bedroom Houses"]){
-  //       setLabels(Object.keys(data["Historical Property Value Data"]["Two Bedroom Houses"]))
-  //     } else {
-  //       setLabels(["This data is currently unavailable."])
-  //     }
-  // }, [selected])
+
+ // This numberCommas utility Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
+ function numberCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
   return (
     <div className="charts">
@@ -93,10 +136,7 @@ export default function HousePriceGraph() {
         style={{ position: "relative", width: `100%` }}
       >
         <Line
-          data={{
-            labels: labels,
-            datasets: lines,
-          }}
+          data={graphInputData}
           options={{
             title: {
               display: false,
