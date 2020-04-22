@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import selected from "./mockSelected";
+import selected from "./mockSelected.js";
+
 export default function HousePriceGraph() {
   const labels = Object.keys(
     selected[0]["Historical Property Value Data"]["Average Home Value"]
@@ -16,56 +17,58 @@ export default function HousePriceGraph() {
   }
 
 
-  function formatLines(focus) {
-    if (focus.length > 1) {
-      return focus.map((item) => {
-        const lineData = labels.map((label) => {
-          return item["Historical Property Value Data"]["Average Home Value"][
-            label
-          ];
-        });
-        return {
-          //just city, state = item.name_with_com,
-          label: item.name_with_com,
-          fill: false,
-          //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
-          data: lineData,
-          borderColor: item.color,
-        };
-      });
-    } else {
+  // This function formats an array of lines for displaying one city in the line graph component
+  // this array goes into the chartjs line graph component's prop called "datasets"
+  function formatGraphLinesWithOneCity(city) {
+    const lineData = labels.map((label) => {
+      return city["Historical Property Value Data"]["Average Home Value"][label];
+    });
+    return [
+      {
+        //just city, state = item.name_with_com,
+        label: city.name_with_com,
+        fill: false,
+        //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
+        data: lineData,
+        borderColor: city.color,
+      },
+    ];
+  }
+
+  // This function formats an array of lines in the line graph for displaying multiple cities,
+  // to be placed in the chartjs line graph component's prop called "datasets"
+  function formatGraphLinesWithMultipleCities(cities) {
+    return cities.map((city) => {
       const lineData = labels.map((label) => {
-        return focus["Historical Property Value Data"]["Average Home Value"][label];
+        return city["Historical Property Value Data"]["Average Home Value"][label];
       });
-      return [
-        {
-          //just city, state = item.name_with_com,
-          label: focus.name_with_com,
-          fill: false,
-          //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
-          data: lineData,
-          borderColor: focus.color,
-        },
-      ];
-    }
+      return {
+        //just city, state = item.name_with_com,
+        label: city.name_with_com,
+        fill: false,
+        //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
+        data: lineData,
+        borderColor: city.color,
+      };
+    });
   }
 
   useEffect(() => {
-    setLines(formatLines(selected));
+    setLines(formatGraphLinesWithMultipleCities(selected));
   }, [selected]);
   
 
   const handleClickLegend = (e, legendItem) => {
-    if (lines.length === 3) {
-      setLines(formatLines(selected[legendItem.datasetIndex]));
+    if (lines.length > 1) {
+      setLines(formatGraphLinesWithOneCity(selected[legendItem.datasetIndex]));
     }
     else {
-      setLines(formatLines(selected))
+      setLines(formatGraphLinesWithMultipleCities(selected))
     }
   };
 
   const handleClickShowAll = () => {
-    setLines(formatLines(selected));
+    setLines(formatGraphLinesWithMultipleCities(selected));
   };
 
   // useEffect(() => {
