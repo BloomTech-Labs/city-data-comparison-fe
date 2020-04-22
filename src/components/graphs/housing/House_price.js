@@ -8,6 +8,7 @@ export default function HousePriceGraph({ selected }) {
   const [graphData, setGraphData] = useState({
     datasets: [],
     labels: [],
+    isDetailView: false
   });
 
   // This function formats an array of lines for displaying one city in the line graph component
@@ -19,12 +20,12 @@ export default function HousePriceGraph({ selected }) {
     ];
     // and an array of all the dates we have values for in the predictions
     const predictionLabels = [
-      Object.keys(city["Historical Property Value Data"]["Prediction"]),
+      Object.keys(city["Historical Property Value Data"]["Predictions"]),
     ];
     // later we will combine these two arrays of labels to create all the labels for the X axis on the graph
 
     // now we create an array of null values with the same length as the historical label array
-    const nullArrayWithHistLength = historicalLabels.map(() => null);
+    const nullArrayWithHistoryLength = historicalLabels.map(() => null);
 
     // We map through the historical data to create an array of the historical values
     const historicalData = historicalLabels.map((label) => {
@@ -70,6 +71,7 @@ export default function HousePriceGraph({ selected }) {
 
     // Return a new graph data object
     return {
+      isDetailView: true,
       // This will be the array of labels for each item on the X axis
       labels: [...historicalLabels, ...predictionLabels],
       //This will be an array that contains each objects for styling of each line on the graph
@@ -92,7 +94,7 @@ export default function HousePriceGraph({ selected }) {
         {
           label: `${city.name_with_com}`,
           fill: false,
-          data: predictionData,
+          data: predictionLineData,
           borderColor: city.color,
         },
         // Upper limit line
@@ -117,12 +119,12 @@ export default function HousePriceGraph({ selected }) {
     ];
     // and an array of all the dates we have values for in the predictions
     const predictionLabels = [
-      Object.keys(cities[0]["Historical Property Value Data"]["Prediction"]),
+      Object.keys(cities[0]["Historical Property Value Data"]["Predictions"]),
     ];
     // later we will combine these two arrays of labels to create all the labels for the X axis on the graph
 
     // now we create an array of null values with the same length as the historical label array
-    const nullArrayWithHistLength = historicalLabels.map(() => null);
+    const nullArrayWithHistoryLength = historicalLabels.map(() => null);
 
     let datasets = [];
     // This function creates a
@@ -153,12 +155,13 @@ export default function HousePriceGraph({ selected }) {
       datasets.push({
         label: `${city.name_with_com}`,
         fill: false,
-        data: predictionData,
+        data: predictionLineData,
         borderColor: city.color,
       });
     });
 
     return {
+      isDetailView: false,
       labels: [...historicalLabels, ...predictionLabels],
       datasets: datasets,
     };
@@ -174,9 +177,10 @@ export default function HousePriceGraph({ selected }) {
   // It moves the component to a detail view displaying just one city
   // It will format the graph to show the accuracy of the prediction
   const handleClickLegend = (e, legendItem) => {
-    if (lines.length > 1) {
+    if (!graphData.isDetailView) {
+      console.log(legendItem)
       setGraphData(
-        formatGraphDataWithOneCity(selected[legendItem.datasetIndex])
+        formatGraphDataWithOneCity(selected.find(city => city.name_with_com === legendItem.text)) // needs to go by city ID? city name probably
       );
     } else {
       setGraphData(formatGraphDataWithMultipleCities(selected));
@@ -187,7 +191,7 @@ export default function HousePriceGraph({ selected }) {
   // It will move the chart to a view that shows all cities
   // When multiple cities are shown on the accuracy of the prediction for each city isn't shown
   const handleClickShowAll = () => {
-    setGraphData(formatGraphLinesWithMultipleCities(selected));
+    setGraphData(formatGraphDataWithMultipleCities(selected));
   };
 
   // This numberCommas utility Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
@@ -207,7 +211,7 @@ export default function HousePriceGraph({ selected }) {
           <></>
         )}
         <Line
-          data={graphInputData}
+          data={graphData}
           options={{
             title: {
               display: false,
