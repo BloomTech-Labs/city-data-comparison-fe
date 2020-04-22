@@ -3,9 +3,10 @@ import { Line } from "react-chartjs-2";
 import selected from "./mockSelected.js";
 
 export default function HousePriceGraph() {
-  const labels = Object.keys(
+  const historicalLabels = [Object.keys(
     selected[0]["Historical Property Value Data"]["Average Home Value"]
-  );
+  )]
+  const predictionLabels = [Object.keys(selected[0]["Historical Property Value Data"]["Predictions"])]
 
   // This decides holds all the lines currently displayed on the graph
   // it could change when the user clicks a specific city on the legend for focus view
@@ -20,9 +21,10 @@ export default function HousePriceGraph() {
   // This function formats an array of lines for displaying one city in the line graph component
   // this array goes into the chartjs line graph component's prop called "datasets"
   function formatGraphLinesWithOneCity(city) {
-    const lineData = labels.map((label) => {
+    const historicalLineData = labels.map((label) => {
       return city["Historical Property Value Data"]["Average Home Value"][label];
     });
+    const predictionLineData = 
     return [
       {
         //just city, state = item.name_with_com,
