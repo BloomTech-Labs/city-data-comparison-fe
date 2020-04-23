@@ -44,6 +44,7 @@ export default function HousePriceGraph() {
         //just city, state = item.name_with_com,
         label: city.name_with_com,
         fill: false,
+        pointRadius: 0,
         //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
         data: lineData,
         borderColor: city.color,
@@ -53,20 +54,13 @@ export default function HousePriceGraph() {
   useEffect(() => {
     setLines(formatGraphLinesWithMultipleCities(selected));
   }, [selected]);
-  const handleClickLegend = (e, legendItem) => {
-    if (lines.length > 1) {
-      setLines(formatGraphLinesWithOneCity(selected[legendItem.datasetIndex]));
-    }
-    else {
-      setLines(formatGraphLinesWithMultipleCities(selected))
-    }
-  };
-  const handleClickShowAll = () => {
-    setLines(formatGraphLinesWithMultipleCities(selected));
-  };
- 
 
-// This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
+  const handleClickLegend = (e, legendItem) => {
+    if (lines.length > 1) {setLines(formatGraphLinesWithOneCity(selected[legendItem.datasetIndex]));}
+    else {setLines(formatGraphLinesWithMultipleCities(selected))}
+  };
+  const handleClickShowAll = () => {setLines(formatGraphLinesWithMultipleCities(selected));};
+ // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
 function numberCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -117,7 +111,7 @@ function numberCommas(x) {
                   scaleLabel: {
                     display: true,
                     labelString: "Amount",
-                    ticks: {beginAtZero: true,},
+                    ticks: {beginAtZero: false,},
                   },
                 },
               ],
@@ -126,7 +120,9 @@ function numberCommas(x) {
         />
       </div>
       <p style={{margin: '0 auto'}}>Click a city on the legend to enter a more detailed view.</p>
-      {/* <button style={{margin: '0 auto', display: 'block'}} onClick={handleClickShowAll}>Show All Cities</button> */}
+      <br />
+      <p>wut</p>
+      <button style={{margin: '0 auto'}} onClick={handleClickShowAll}>Show All Cities</button>
     </div>
   );
 }
