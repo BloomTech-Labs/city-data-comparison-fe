@@ -21,14 +21,37 @@ const Button = styled.button`
 export default function HousePriceGraph({selected}) {
   const currentDate = new Date()
 
+  const firstDates = selected.map(city => new Date(Object.keys(city["Historical Property Value Data"]["Forecast"])[0]) );
+  
+  
+  
+  // let index = 0;
+  // for ( let i = 1; i < firstDates.length; i++) {
+  //   console.log("firstdates", firstDates)
+  //   let currentDate = firstDates[0];
+  //   console.log('cur date', currentDate)
+  //   if (firstDates[i] < currentDate) {
+  //     currentDate = firstDates[i];
+  //     console.log('cur date', currentDate)
+  //     index = i;
+  //     console.log('city index', index)
+
+  //   }
+  // }
+
+
 
   // This gets us all the keys for the Forecast Object in the city data from our API
   // This value will be recalculated every time the component updates because props changing triggers
   // a full re-render of the component function
   const keys = Object.keys(selected[0]["Historical Property Value Data"]["Forecast"]);
+
+
   // Now we filter out any keys whose values don't have historical property data listed
   // We now have an array that represents the range of dates we have data for
   const labels = keys.filter((date) => selected[0]["Historical Property Value Data"]["Forecast"][date]);
+
+
   // This state holds all the lines currently displayed on the graph
   // it could change when the user clicks a specific city on the legend for focus view
   const [lines, setLines] = useState([]);
