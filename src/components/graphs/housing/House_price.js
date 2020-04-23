@@ -1,16 +1,17 @@
-import React, {useState,useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import {Line} from "react-chartjs-2";
 import selected from "./mockSelected.js";
 export default function HousePriceGraph() {
+  const currentDate = new Date()
+
+
   // This gets us all the keys for the Average Home Value Object in the city data from our API
   // This value will be recalculated every time the component updates because props changing triggers
   // a full re-render of the component function
-  const keys = Object.keys(
-    selected[0]["Historical Property Value Data"]["Average Home Value"]
-  );
+  const keys = Object.keys(selected[0]["Historical Property Value Data"]["Average Home Value"]);
   // Now we filter out any keys whose values don't have historical property data listed
   // We now have an array that represents the range of dates we have data for
-  const labels = keys.filter(date => selected[0]["Historical Property Value Data"]["Average Home Value"][date]);
+  const labels = keys.filter((date) => selected[0]["Historical Property Value Data"]["Average Home Value"][date]);
   // This state holds all the lines currently displayed on the graph
   // it could change when the user clicks a specific city on the legend for focus view
   const [lines, setLines] = useState([]);
@@ -19,17 +20,13 @@ export default function HousePriceGraph() {
   // datasets is an array representing all the different datasets being compared in the chart
   // https://www.chartjs.org/docs/latest/charts/line.html
   function formatGraphLinesWithOneCity(city) {
-    const lineData = labels.map((label) => {
-      return city["Historical Property Value Data"]["Average Home Value"][label];
-    });
+    const lineData = labels.map((label) => {return city["Historical Property Value Data"]["Average Home Value"][label];});
     return [
       {
         //just city, state = item.name_with_com,
-        label: city.name_with_com,
-        fill: false,
+        label: city.name_with_com, fill: false,
         //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
-        data: lineData,
-        borderColor: city.color,
+        data: lineData, borderColor: city.color,
       },
     ];
   }
@@ -48,33 +45,36 @@ export default function HousePriceGraph() {
         //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
         data: lineData,
         borderColor: city.color,
-      };
+        pointRadius: labels.map(date => {
+          if (new Date(date) < currentDate)
+          {
+            return 0
+          }
+          else {
+            return 2
+          }
+        }),
+        pointBackgroundColor: "red"
+      }
     });
   }
-  useEffect(() => {
-    setLines(formatGraphLinesWithMultipleCities(selected));
+  useEffect(() => {setLines(formatGraphLinesWithMultipleCities(selected));
   }, [selected]);
-
   const handleClickLegend = (e, legendItem) => {
-    if (lines.length > 1) {setLines(formatGraphLinesWithOneCity(selected[legendItem.datasetIndex]));}
-    else {setLines(formatGraphLinesWithMultipleCities(selected))}
+    if (lines.length > 1) {setLines(formatGraphLinesWithOneCity(selected[legendItem.datasetIndex]));
+    } else {setLines(formatGraphLinesWithMultipleCities(selected));}
   };
   const handleClickShowAll = () => {setLines(formatGraphLinesWithMultipleCities(selected));};
- // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
-function numberCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+  // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
+  function numberCommas(x) {return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
   return (
-    <div className="charts">
+    <div className="housing-graph">
       <div
         className="chart-container"
-        style={{ position: "relative", width: `100%` }}
+        style={{ position: "relative", width: `100%`}}
       >
         <Line
-          data={{
-            labels: labels,
-            datasets: lines,
-          }}
+          data={{labels: labels, datasets: lines,}}
           options={{
             title: {
               display: false,
@@ -90,28 +90,22 @@ function numberCommas(x) {
               xAxes: [
                 {
                   display: true,
-                  gridLines: {
-                  display: false,
-                  },
+                  gridLines: {display: false},
                   scaleLabel: {
-                  display: true,
-                  labelString: "Year",
+                    display: true,
+                    labelString: "Year",
                   },
                 },
               ],
               yAxes: [
                 {
                   display: true,
-                  ticks: {
-                    userCallback: (value, index, values) => {
-                      return `$${numberCommas(value)}`;
-                    },
-                  },
-                  gridLines: {display: false,},
+                  ticks: {userCallback: (value, index, values) => {return `$${numberCommas(value)}`;}},
+                  gridLines: {display: false},
                   scaleLabel: {
                     display: true,
                     labelString: "Amount",
-                    ticks: {beginAtZero: false,},
+                    ticks: {beginAtZero: false},
                   },
                 },
               ],
@@ -119,10 +113,12 @@ function numberCommas(x) {
           }}
         />
       </div>
-      <p style={{margin: '0 auto'}}>Click a city on the legend to enter a more detailed view.</p>
-      <br />
-      <p>wut</p>
-      <button style={{margin: '0 auto'}} onClick={handleClickShowAll}>Show All Cities</button>
+      <button style={{ margin: "0 auto"}} onClick={handleClickShowAll}>Show All Cities</button>
+      <br></br>
+      <p style={{ margin: "0 auto" }}>
+        Click a city on the legend to enter a more detailed view.
+      </p>
+   
     </div>
   );
 }
