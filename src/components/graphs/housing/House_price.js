@@ -1,6 +1,23 @@
 import React, {useState, useEffect} from "react";
 import {Line} from "react-chartjs-2";
 import selected from "./mockSelected.js";
+import styled from 'styled-components';
+
+const Button = styled.button`
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  border: none;
+  font-size: .9rem;
+  color: #A33A00;
+  &:focus: {
+    outline: none;
+  }
+  &:hover: {
+    text-decoration: underline;
+  }
+`
+
 export default function HousePriceGraph() {
   const currentDate = new Date()
 
@@ -113,11 +130,11 @@ export default function HousePriceGraph() {
           }}
         />
       </div>
-      <button style={{ margin: "0 auto"}} onClick={handleClickShowAll}>Show All Cities</button>
-      <br></br>
-      <p style={{ margin: "0 auto" }}>
+      {(selected.length > 1) && (lines.length == 1) ?
+      <Button onClick={handleClickShowAll}>Show All Cities</Button>: <></>}
+      {(selected.length !== 1) && (lines.length > 1) ? <p style={{ margin: "0 auto", textAlign: 'center' }}>
         Click a city on the legend to enter a more detailed view.
-      </p>
+      </p> : <></>}
    
     </div>
   );
