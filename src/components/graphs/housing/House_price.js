@@ -10,12 +10,9 @@ const Button = styled.button`
   border: none;
   font-size: .9rem;
   color: #A33A00;
-  &:focus: {
-    outline: none;
-  }
-  &:hover: {
-    text-decoration: underline;
-  }
+  border: .5px solid #A33A00;
+  border-radius: 5px;
+  background-color: white;
 `
 
 export default function HousePriceGraph() {
@@ -131,7 +128,7 @@ export default function HousePriceGraph() {
         />
       </div>
       {(selected.length > 1) && (lines.length == 1) ?
-      <Button onClick={handleClickShowAll}>Show All Cities</Button>: <></>}
+      <Button onClick={handleClickShowAll}>Show All</Button>: <></>}
       {(selected.length !== 1) && (lines.length > 1) ? <p style={{ margin: "0 auto", textAlign: 'center' }}>
         Click a city on the legend to enter a more detailed view.
       </p> : <></>}
