@@ -5,7 +5,7 @@ import Axios from "axios";
 //Axios call to get data about a city from the api using id
 function cityDataAxios(id) {
   return Axios.get(
-    `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${id}`
+    `https://labs23-test.herokuapp.com/${id}`
   );
 }
 
