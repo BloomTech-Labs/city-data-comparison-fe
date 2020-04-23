@@ -695,8 +695,8 @@ export default [
         'TMIN-AVG-8': 72.875,
         'TMIN-AVG-9': 68.75
       },
-      color: '#017428'
-    }
+    },
+    color: '#017428'
   },
   {
     'Age Distribution': {
