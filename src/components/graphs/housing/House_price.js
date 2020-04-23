@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Line} from "react-chartjs-2";
 import styled from 'styled-components';
+import {lightenOrDarken} from '../../../utils/cityColors.js'
 
 const Button = styled.button`
   margin: 0 auto;
@@ -12,6 +13,9 @@ const Button = styled.button`
   border: .5px solid #A33A00;
   border-radius: 5px;
   background-color: white;
+  position: relative;
+  bottom: 27px;
+  left: 120px;
 `
 
 export default function HousePriceGraph({selected}) {
@@ -67,7 +71,7 @@ export default function HousePriceGraph({selected}) {
             return 2
           }
         }),
-        pointBackgroundColor: "red"
+        pointBackgroundColor: lightenOrDarken(city.color, 75)
       }
     });
   }
@@ -128,6 +132,7 @@ export default function HousePriceGraph({selected}) {
       </div>
       {(selected.length > 1) && (lines.length == 1) ?
       <Button onClick={handleClickShowAll}>Show All</Button>: <></>}
+      <p style={{ margin: "0 auto", textAlign: 'center' }}>The dotted area of the line represents projected values from our machine learning API.</p>
       {(selected.length !== 1) && (lines.length > 1) ? <p style={{ margin: "0 auto", textAlign: 'center' }}>
         Click a city on the legend to enter a more detailed view.
       </p> : <></>}
