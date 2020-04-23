@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import {Line} from "react-chartjs-2";
-import selected from "./mockSelected.js";
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -15,17 +14,17 @@ const Button = styled.button`
   background-color: white;
 `
 
-export default function HousePriceGraph() {
+export default function HousePriceGraph({selected}) {
   const currentDate = new Date()
 
 
-  // This gets us all the keys for the Average Home Value Object in the city data from our API
+  // This gets us all the keys for the Forecast Object in the city data from our API
   // This value will be recalculated every time the component updates because props changing triggers
   // a full re-render of the component function
-  const keys = Object.keys(selected[0]["Historical Property Value Data"]["Average Home Value"]);
+  const keys = Object.keys(selected[0]["Historical Property Value Data"]["Forecast"]);
   // Now we filter out any keys whose values don't have historical property data listed
   // We now have an array that represents the range of dates we have data for
-  const labels = keys.filter((date) => selected[0]["Historical Property Value Data"]["Average Home Value"][date]);
+  const labels = keys.filter((date) => selected[0]["Historical Property Value Data"]["Forecast"][date]);
   // This state holds all the lines currently displayed on the graph
   // it could change when the user clicks a specific city on the legend for focus view
   const [lines, setLines] = useState([]);
@@ -34,7 +33,7 @@ export default function HousePriceGraph() {
   // datasets is an array representing all the different datasets being compared in the chart
   // https://www.chartjs.org/docs/latest/charts/line.html
   function formatGraphLinesWithOneCity(city) {
-    const lineData = labels.map((label) => {return city["Historical Property Value Data"]["Average Home Value"][label];});
+    const lineData = labels.map((label) => {return city["Historical Property Value Data"]["Forecast"][label];});
     return [
       {
         //just city, state = item.name_with_com,
@@ -49,7 +48,7 @@ export default function HousePriceGraph() {
   function formatGraphLinesWithMultipleCities(cities) {
     return cities.map((city) => {
       const lineData = labels.map((label) => {
-        return city["Historical Property Value Data"]["Average Home Value"][label];
+        return city["Historical Property Value Data"]["Forecast"][label];
       });
       return {
         //just city, state = item.name_with_com,
