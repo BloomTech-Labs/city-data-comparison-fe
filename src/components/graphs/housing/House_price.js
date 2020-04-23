@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
+import React, {useState,useEffect} from "react";
+import {Line} from "react-chartjs-2";
 import selected from "./mockSelected.js";
-
 export default function HousePriceGraph() {
-  const labels = Object.keys(
+  // This gets us all the keys for the Average Home Value Object in the city data from our API
+  // This value will be recalculated every time the component updates because props changing triggers
+  // a full re-render of the component function
+  const keys = Object.keys(
     selected[0]["Historical Property Value Data"]["Average Home Value"]
   );
-
-  // This decides holds all the lines currently displayed on the graph
+  // Now we filter out any keys whose values don't have historical property data listed
+  // We now have an array that represents the range of dates we have data for
+  const labels = keys.filter(date => selected[0]["Historical Property Value Data"]["Average Home Value"][date]);
+  // This state holds all the lines currently displayed on the graph
   // it could change when the user clicks a specific city on the legend for focus view
   const [lines, setLines] = useState([]);
-
-  // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
-  function numberCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-
-
-  // This function formats an array of lines for displaying one city in the line graph component
-  // this array goes into the chartjs line graph component's prop called "datasets"
+  // This function formats the line data for when you click a city on the chart legend
+  // this array goes into "lines" array above, which goes into chartjs line graph component's prop called "datasets"
+  // datasets is an array representing all the different datasets being compared in the chart
+  // https://www.chartjs.org/docs/latest/charts/line.html
   function formatGraphLinesWithOneCity(city) {
     const lineData = labels.map((label) => {
       return city["Historical Property Value Data"]["Average Home Value"][label];
@@ -34,7 +33,6 @@ export default function HousePriceGraph() {
       },
     ];
   }
-
   // This function formats an array of lines in the line graph for displaying multiple cities,
   // to be placed in the chartjs line graph component's prop called "datasets"
   function formatGraphLinesWithMultipleCities(cities) {
@@ -52,12 +50,9 @@ export default function HousePriceGraph() {
       };
     });
   }
-
   useEffect(() => {
     setLines(formatGraphLinesWithMultipleCities(selected));
   }, [selected]);
-  
-
   const handleClickLegend = (e, legendItem) => {
     if (lines.length > 1) {
       setLines(formatGraphLinesWithOneCity(selected[legendItem.datasetIndex]));
@@ -66,26 +61,15 @@ export default function HousePriceGraph() {
       setLines(formatGraphLinesWithMultipleCities(selected))
     }
   };
-
   const handleClickShowAll = () => {
     setLines(formatGraphLinesWithMultipleCities(selected));
   };
+ 
 
-  // useEffect(() => {
-  //     let data = selected[0];
-  //     if (data["Historical Property Value Data"]["Average Home Value"]) {
-  //         setLabels(Object.keys(data["Historical Property Value Data"]["Average Home Value"]))
-  //     } else if (data["Historical Property Value Data"]["Four Bedroom Houses"]){
-  //         setLabels(Object.keys(data["Historical Property Value Data"]["Four Bedroom Houses"]))
-  //     } else if (data["Historical Property Value Data"]["Three Bedroom Houses"]){
-  //       setLabels(Object.keys(data["Historical Property Value Data"]["Three Bedroom Houses"]))
-  //     } else if (data["Historical Property Value Data"]["Two Bedroom Houses"]){
-  //       setLabels(Object.keys(data["Historical Property Value Data"]["Two Bedroom Houses"]))
-  //     } else {
-  //       setLabels(["This data is currently unavailable."])
-  //     }
-  // }, [selected])
-
+// This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
+function numberCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
   return (
     <div className="charts">
       <div
@@ -113,11 +97,11 @@ export default function HousePriceGraph() {
                 {
                   display: true,
                   gridLines: {
-                    display: false,
+                  display: false,
                   },
                   scaleLabel: {
-                    display: true,
-                    labelString: "Year",
+                  display: true,
+                  labelString: "Year",
                   },
                 },
               ],
@@ -129,15 +113,11 @@ export default function HousePriceGraph() {
                       return `$${numberCommas(value)}`;
                     },
                   },
-                  gridLines: {
-                    display: false,
-                  },
+                  gridLines: {display: false,},
                   scaleLabel: {
                     display: true,
                     labelString: "Amount",
-                    ticks: {
-                      beginAtZero: true,
-                    },
+                    ticks: {beginAtZero: true,},
                   },
                 },
               ],
