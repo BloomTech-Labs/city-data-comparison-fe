@@ -39,7 +39,7 @@ function TotalPopulation({ethData}) {
 
         <div className="city-overview-container-small">
             {ethData.map(item => 
-            <div key={item._id} className="city-overview-container-medium">
+            <div key={item._id} className="city-overview-card">
             <div className="city-overview-container"> 
             <div className="city-overview-border">
                 <p>City overview</p>
@@ -50,13 +50,13 @@ function TotalPopulation({ethData}) {
                     <div className="overview-title-container-one">
                         <div className="overview-title"> <img alt="world" src={world} /> City</div>
                         <div className="overview-title"> <img alt="people" src={pop} /> Population</div>
-                        <div className="overview-title"> <img alt="age" src={users} /> Median age</div>
+
                     </div>
 
                     <div className="overview-stats-container-one">
                         <div className="overview-stats">{item["City"]}</div>
                         <div className="overview-stats">{numberCommas(item["Total Population"])}</div>
-                        <div className="overview-stats">{item["Median Age"]} years old</div>
+
                     </div>
                 </div>
 
