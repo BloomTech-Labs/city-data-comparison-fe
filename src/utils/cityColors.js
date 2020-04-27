@@ -11,8 +11,6 @@ export const getCityColor = (selected) => {
       return "#017428";
     }
   };
-
-
  export const getSecondCityColor = (arr, selected) => {
     let activeColors = selected.map((item) => item.color);
     activeColors.push(arr[0].color);
@@ -24,8 +22,6 @@ export const getCityColor = (selected) => {
       return "#017428";
     }
   };
-
-
   export const lightenOrDarken = (color, percent) => {
     var num = parseInt(color.replace("#", ""), 16);
     let amt = Math.round(2.55 * percent);
