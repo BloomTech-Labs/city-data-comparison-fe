@@ -5,7 +5,7 @@ import ReactGA from "react-ga";
 import Footer from "../../../navigation/Footer";
 import AvgTemp from "../../../graphs/culture/tempAvg";
 import MapSearch from "./MapSearch";
-import LineGraph from "../../../graphs/housing/House_price";
+import HousePriceGraph from "../../../graphs/housing/House_price";
 import RoomGraph from "../../../graphs/housing/HousingByRooms";
 import RentChart from "../../../graphs/housing/RentChart";
 import Industry from "../../../graphs/economics/industries";
@@ -50,7 +50,7 @@ const DataDisplay = ({
   const [categories, setCategories] = useState({});
 
   // console.log("SELECTED", selected)
-  console.log("edData", selected);
+  // console.log("edData", selected);
   useEffect(() => {
     let checker = false;
     for (const item in categories) {
@@ -484,7 +484,7 @@ const DataDisplay = ({
                   <div className="homeprice-container">
                     <p className="chart-title">Home prices</p>
                     <Element name="homeContainer" className="element">
-                      <LineGraph selected={selected} />
+                      <HousePriceGraph selected={selected} />
                     </Element>
                     <p style={{ textAlign: "right", fontSize: "10px" }}>
                       Source: zillow.com
