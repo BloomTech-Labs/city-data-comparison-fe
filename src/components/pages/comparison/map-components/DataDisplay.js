@@ -174,73 +174,71 @@ const DataDisplay = ({
   return (
     <div className="data-browser">
       <div className="test-bar">
-      
-          <div className="nav-placeholder">
-            <nav id="stickynav" className="data-nav">
-              <div className="search-container">
-                <div className={`slider ${menu.status}`}>
-                  <div className={`menu-items ${menu.status}`}>
-                    <div className="data-nav-top">
-                      <MapSearch
-                        menu={menu.status}
-                        setSearch={setSearch}
-                        onSearch={onSearch}
-                        cityMarkers={cityMarkers}
-                        search={search}
-                        viewport={viewport}
-                        setViewport={setViewport}
-                        selectSearch={selectSearch}
-                        cityIndex={cityIndex}
-                      />
-                      {selected.length > 0 ? (
-                        <div className="anchor-nav">
-                          <ul>
-                            {selected.map((item) => (
-                              <div
-                                key={item._id}
-                                className={`menu-items ${menu.status}`}
-                              >
-                                <li key={item._id}>
-                                  <span className="color-legend-text">
-                                    <div
-                                      className="color-legend"
-                                      style={{
-                                        display: "inline-block",
-                                        background: item.color,
-                                        height: "1rem",
-                                        width: "1rem",
-                                        marginRight: ".5rem",
-                                      }}
-                                    ></div>
-                                    {item.name_with_com}
-                                  </span>
-                                  <span
-                                    onClick={(_) => {
-                                      let foundCity = cityIndex.find(
-                                        (indexed) => indexed.ID === item._id
-                                      );
-                                      toggleSelected(foundCity);
+        <div className="nav-placeholder">
+          <nav id="stickynav" className="data-nav">
+            <div className="search-container">
+              <div className={`slider ${menu.status}`}>
+                <div className={`menu-items ${menu.status}`}>
+                  <div className="data-nav-top">
+                    <MapSearch
+                      menu={menu.status}
+                      setSearch={setSearch}
+                      onSearch={onSearch}
+                      cityMarkers={cityMarkers}
+                      search={search}
+                      viewport={viewport}
+                      setViewport={setViewport}
+                      selectSearch={selectSearch}
+                      cityIndex={cityIndex}
+                    />
+                    {selected.length > 0 ? (
+                      <div className="anchor-nav">
+                        <ul>
+                          {selected.map((item) => (
+                            <div
+                              key={item._id}
+                              className={`menu-items ${menu.status}`}
+                            >
+                              <li key={item._id}>
+                                <span className="color-legend-text">
+                                  <div
+                                    className="color-legend"
+                                    style={{
+                                      display: "inline-block",
+                                      background: item.color,
+                                      height: "1rem",
+                                      width: "1rem",
+                                      marginRight: ".5rem",
                                     }}
-                                  >
-                                    <img
-                                      className="delete-icon"
-                                      src={deleteIcon}
-                                      alt="delete icon"
-                                    />
-                                  </span>
-                                </li>
-                              </div>
-                            ))}
-                          </ul>
-                        </div>
-                      ) : null}
-                    </div>
+                                  ></div>
+                                  {item.name_with_com}
+                                </span>
+                                <span
+                                  onClick={(_) => {
+                                    let foundCity = cityIndex.find(
+                                      (indexed) => indexed.ID === item._id
+                                    );
+                                    toggleSelected(foundCity);
+                                  }}
+                                >
+                                  <img
+                                    className="delete-icon"
+                                    src={deleteIcon}
+                                    alt="delete icon"
+                                  />
+                                </span>
+                              </li>
+                            </div>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               </div>
-            </nav>
-          </div>
-       
+            </div>
+          </nav>
+        </div>
       </div>
       {/* <div className="nav-box"> */}
       {/* <div className="nav-placeholder">
