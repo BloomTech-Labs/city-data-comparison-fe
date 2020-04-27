@@ -22,9 +22,6 @@ import Recommendations from "./Recommendations"
 const Wrap = styled.div`
 display:flex;
 flex-direction:row;
-
-
-
 `
 
 const Table = styled.table`
