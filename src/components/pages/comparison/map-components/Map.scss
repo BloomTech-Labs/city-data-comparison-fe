@@ -1138,7 +1138,7 @@
     color: #393b40;
     padding-bottom: 10px;
     // overflow-y: auto;
-    border: 2px solid black;
+    // border: 2px solid black;
     width: 70%;
     margin: auto;
     margin-bottom: 30px;
@@ -1210,7 +1210,6 @@
       font-size: 1.1rem;
       border-radius: 5px;
       width: 100%;
-      border: 2px solid red;
       &:focus {
         outline: none;
       }
@@ -1219,24 +1218,12 @@
       }
     }
 
-    .search-bar.open {
-      @media only screen and (max-width: 600px) {
-        // display: none;
-      }
-      transition: 1s;
-    }
 
     .menu-items {
 
     }
 
 
-    .search-bar.closed {
-      @media only screen and (max-width: 600px) {
-        // display: none;
-      }
-      transition: transform 1s, margin 1s, padding 1s;
-    }
 
     //Styling for burger stack
 
@@ -1297,7 +1284,7 @@
       margin: 0% auto;
     }
 
-    form {
+    .search-form {
       margin: 0 auto;
       width: 95%;
     }
@@ -1472,6 +1459,7 @@
     .inner-search-container {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       padding-top: 15px;
       height: 100%;
       width: 100%;

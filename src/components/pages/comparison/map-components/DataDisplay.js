@@ -186,7 +186,7 @@ const DataDisplay = ({
             selectSearch={selectSearch}
             cityIndex={cityIndex}
           />
-          {selected.length > 0 ? (
+          {/* {selected.length > 0 ? (
             <div className="anchor-nav">
               <ul>
                 {selected.map((item) => (
@@ -224,7 +224,7 @@ const DataDisplay = ({
                 ))}
               </ul>
             </div>
-          ) : null}
+          ) : null} */}
         </div>
       </nav>
       {/* <div className="nav-box"> */}
