@@ -77,38 +77,38 @@ const DataDisplay = ({
 
   // fixed sidebar handling
 
-  window.onscroll = (_) => scrollAnchor();
-  var stickynav = document.getElementById("stickynav");
-  var autofillContainer = document.getElementsByClassName(
-    "autofill-container"
-  )[0];
-  var placeholder = document.getElementsByClassName("nav-placeholder")[0];
+  // window.onscroll = (_) => scrollAnchor();
+  // var stickynav = document.getElementById("stickynav");
+  // var autofillContainer = document.getElementsByClassName(
+  //   "autofill-container"
+  // )[0];
+  // var placeholder = document.getElementsByClassName("nav-placeholder")[0];
 
-  var isScrolledToFooter = (_) =>
-    window.pageYOffset > document.body.scrollHeight - window.innerHeight - 300;
+  // var isScrolledToFooter = (_) =>
+  //   window.pageYOffset > document.body.scrollHeight - window.innerHeight - 300;
 
-  const scrollAnchor = (_) => {
-    if (stickynav) {
-      // This line handles the offset from the main nav bar
+  // const scrollAnchor = (_) => {
+  //   if (stickynav) {
+  //     // This line handles the offset from the main nav bar
 
-      var sticky = placeholder.offsetTop - 105;
-    }
+  //     var sticky = placeholder.offsetTop - 105;
+  //   }
 
-    if (window.pageYOffset > sticky && !isScrolledToFooter()) {
-      stickynav.classList.add("sticky");
-      autofillContainer.classList.add("abso-width");
-    }
-    // else {
-    //     stickynav.classList.remove("sticky");
-    //     autofillContainer.classList.remove("abso-width")
-    // }
-    // if (isScrolledToFooter() && selected.length > 0) {
-    //     stickynav.classList.add("nav-bottom-anchor")
-    // }
-    else if (window.pageYOffset < sticky && !isScrolledToFooter()) {
-      stickynav.classList.remove("sticky");
-    }
-  };
+  //   if (window.pageYOffset > sticky && !isScrolledToFooter()) {
+  //     stickynav.classList.add("sticky");
+  //     autofillContainer.classList.add("abso-width");
+  //   }
+  //   // else {
+  //   //     stickynav.classList.remove("sticky");
+  //   //     autofillContainer.classList.remove("abso-width")
+  //   // }
+  //   // if (isScrolledToFooter() && selected.length > 0) {
+  //   //     stickynav.classList.add("nav-bottom-anchor")
+  //   // }
+  //   else if (window.pageYOffset < sticky && !isScrolledToFooter()) {
+  //     stickynav.classList.remove("sticky");
+  //   }
+  // };
 
   // Handles Dropdown icon animation
   var upClass = "toggle-up";
@@ -173,75 +173,60 @@ const DataDisplay = ({
 
   return (
     <div className="data-browser">
-      <div className="test-bar">
-      
-          <div className="nav-placeholder">
-            <nav id="stickynav" className="data-nav">
-              <div className="search-container">
-                <div className={`slider ${menu.status}`}>
-                  <div className={`menu-items ${menu.status}`}>
-                    <div className="data-nav-top">
-                      <MapSearch
-                        menu={menu.status}
-                        setSearch={setSearch}
-                        onSearch={onSearch}
-                        cityMarkers={cityMarkers}
-                        search={search}
-                        viewport={viewport}
-                        setViewport={setViewport}
-                        selectSearch={selectSearch}
-                        cityIndex={cityIndex}
-                      />
-                      {selected.length > 0 ? (
-                        <div className="anchor-nav">
-                          <ul>
-                            {selected.map((item) => (
-                              <div
-                                key={item._id}
-                                className={`menu-items ${menu.status}`}
-                              >
-                                <li key={item._id}>
-                                  <span className="color-legend-text">
-                                    <div
-                                      className="color-legend"
-                                      style={{
-                                        display: "inline-block",
-                                        background: item.color,
-                                        height: "1rem",
-                                        width: "1rem",
-                                        marginRight: ".5rem",
-                                      }}
-                                    ></div>
-                                    {item.name_with_com}
-                                  </span>
-                                  <span
-                                    onClick={(_) => {
-                                      let foundCity = cityIndex.find(
-                                        (indexed) => indexed.ID === item._id
-                                      );
-                                      toggleSelected(foundCity);
-                                    }}
-                                  >
-                                    <img
-                                      className="delete-icon"
-                                      src={deleteIcon}
-                                      alt="delete icon"
-                                    />
-                                  </span>
-                                </li>
-                              </div>
-                            ))}
-                          </ul>
-                        </div>
-                      ) : null}
-                    </div>
+      <nav className="search-container">
+        <div className="inner-search-container">
+          <MapSearch
+            menu={menu.status}
+            setSearch={setSearch}
+            onSearch={onSearch}
+            cityMarkers={cityMarkers}
+            search={search}
+            viewport={viewport}
+            setViewport={setViewport}
+            selectSearch={selectSearch}
+            cityIndex={cityIndex}
+          />
+          {selected.length > 0 ? (
+            <div className="anchor-nav">
+              <ul>
+                {selected.map((item) => (
+                  <div key={item._id} className={`menu-items ${menu.status}`}>
+                    <li key={item._id}>
+                      <span className="color-legend-text">
+                        <div
+                          className="color-legend"
+                          style={{
+                            display: "inline-block",
+                            background: item.color,
+                            height: "1rem",
+                            width: "1rem",
+                            marginRight: ".5rem",
+                          }}
+                        ></div>
+                        {item.name_with_com}
+                      </span>
+                      <span
+                        onClick={(_) => {
+                          let foundCity = cityIndex.find(
+                            (indexed) => indexed.ID === item._id
+                          );
+                          toggleSelected(foundCity);
+                        }}
+                      >
+                        <img
+                          className="delete-icon"
+                          src={deleteIcon}
+                          alt="delete icon"
+                        />
+                      </span>
+                    </li>
                   </div>
-                </div>
-              </div>
-            </nav>
-          </div>
-       
-      </div>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </div>
+      </nav>
       {/* <div className="nav-box"> */}
       {/* <div className="nav-placeholder">
         <nav id="stickynav" className="data-nav">
