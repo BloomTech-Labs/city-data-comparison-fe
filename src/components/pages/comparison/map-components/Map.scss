@@ -68,8 +68,10 @@
   }
 }
 
+//not being used
 .general-stats-container {
   margin-bottom: 3%;
+  width: 100%;
 }
 
 .data-browser {
@@ -141,8 +143,12 @@
   }
 
   .city-overview-container-small {
-    // border: 2px solid red;
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+    }
 
     .recommendation-grid {
       background-color: white;
@@ -232,7 +238,6 @@
     border-top-right-radius: 5px;
     padding: 0 10px;
     margin-bottom: 0;
-
     @media screen and (max-width: 800px) {
       width: 100%;
     }
@@ -245,38 +250,39 @@
       width: 100%;
       display: flex;
     }
-
     .city-info-container {
-      padding: 15px 7%;
-      padding-top: 0;
       display: flex;
+      flex-wrap: wrap;
+      padding: 15px 3%;
+      margin-bottom: 0;
+      @media screen and (min-width: 800px) {
+        &:only-child {
+          padding: 15px 7%;
+          padding-top: 0;
+        }
+      }
+
       justify-content: space-between;
       // border: 2px solid blue;
-
       img {
         height: 20px;
         margin-right: 15px;
       }
-      @media screen and (max-width: 800px) {
-        flex-wrap: wrap;
-        padding: 15px 3%;
-        margin-bottom: 0;
-      }
 
       .city-overview-container-one {
-        width: 45%;
         display: flex;
+        width: 100%;
         align-items: center;
-
         @media screen and (max-width: 800px) {
-          width: 100%;
+          &:only-child {
+            width: 45%;
+          }
         }
 
         .overview-title-container-one {
           width: 60%;
           display: flex;
           flex-direction: column;
-
           .overview-title {
             margin: 10px 0;
             color: grey;
@@ -289,7 +295,6 @@
           font-size: 1.1rem;
           display: flex;
           flex-direction: column;
-
           .overview-stats {
             width: 100%;
             margin: 10px 0;
@@ -297,15 +302,18 @@
         }
       }
       .city-overview-container-two {
-        width: 40%;
         display: flex;
+        width: 100%;
+        justify-content: space-between;
         @media screen and (max-width: 800px) {
-          width: 100%;
-          justify-content: space-between;
+          &:only-child {
+            width: 40%;
+            display: flex;
+          }
         }
 
         .overview-title-container-two {
-          width: 70%;
+          width: 60%;
           display: flex;
           flex-direction: column;
 
@@ -316,11 +324,14 @@
             font-size: 1.1rem;
           }
           @media screen and (max-width: 800px) {
-            width: 60%;
+            &:only-child {
+              width: 70%;
+              flex-direction: column;
+            }
           }
         }
         .overview-stats-container-two {
-          width: 27%;
+          width: 40%;
           font-size: 1.1rem;
           display: flex;
           flex-direction: column;
@@ -328,8 +339,10 @@
             width: 100%;
             margin: 10px 0;
           }
-          @media screen and (max-width: 800px) {
-            width: 40%;
+          @media screen and (min-width: 800px) {
+            &:only-child {
+              width: 27%;
+            }
           }
         }
       }
