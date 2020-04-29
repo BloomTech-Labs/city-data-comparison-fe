@@ -7,6 +7,7 @@ import pop from '../pages/comparison/map-components/assets/population.svg'
 import users from '../pages/comparison/map-components/assets/users.svg'
 import briefcase from '../pages/comparison/map-components/assets/briefcase.svg'
 import income from '../pages/comparison/map-components/assets/dollar.svg'
+import weather from '../pages/comparison/map-components/assets/activity.svg'
 import FavoriteButton from '../pages/comparison/map-components/FavoriteButton'
 import Recommendations from "./Recommendations"
 
@@ -42,21 +43,20 @@ function TotalPopulation({ethData}) {
             <div key={item._id} className="city-overview-card">
             <div className="city-overview-container"> 
             <div className="city-overview-border">
-                <p>City overview</p>
+                <p>{item["City"]}</p>
                 <FavoriteButton city={item}/>
+                {console.log(item)}
             </div>
             <div className="city-info-container">
                 <div className="city-overview-container-one">
                     <div className="overview-title-container-one">
-                        <div className="overview-title"> <img alt="world" src={world} /> City</div>
-                        <div className="overview-title"> <img alt="people" src={pop} /> Population</div>
-
+                        <div className="overview-title"><img alt="income" src={income} />Median income</div>
+                        <div className="overview-title"><img alt="briefcase" src={briefcase} />Median rent</div>
                     </div>
 
                     <div className="overview-stats-container-one">
-                        <div className="overview-stats">{item["City"]}</div>
-                        <div className="overview-stats">{numberCommas(item["Total Population"])}</div>
-
+                        <div className="overview-stats">${numberCommas(item["Median Per Capita Income"])}</div>
+                        <div className="overview-stats">${numberCommas(item["Median Rent"])}</div>
                     </div>
                 </div>
 
@@ -66,14 +66,13 @@ function TotalPopulation({ethData}) {
 
                 <div className="city-overview-container-two">
                     <div className="overview-title-container-two">
-                        <div className="overview-title"><img alt="briefcase" src={briefcase} />Median rent</div>
-                        <div className="overview-title"><img alt="income" src={income} />Median income</div>
+                        <div className="overview-title"> <img alt="people" src={pop} /> Population</div>
+            <div className="overview-title"> <img alt="people" src={weather} /> {new Date().toLocaleString('default', { month: 'long' })} avg temp</div>
                     </div>
 
-
                     <div className="overview-stats-container-two">
-                        <div className="overview-stats">${numberCommas(item["Median Rent"])}</div>
-                        <div className="overview-stats">${numberCommas(item["Median Per Capita Income"])}</div>
+                        <div className="overview-stats">{numberCommas(item["Total Population"])}</div>
+                        <div className="overview-stats">{`${Math.floor(item["weather"]["tavg"][`TAVG-AVG-${new Date().getMonth()}`])}° F`}</div>
                     </div>
                 </div>
             </div>
