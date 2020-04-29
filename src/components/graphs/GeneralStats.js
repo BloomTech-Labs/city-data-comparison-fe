@@ -1,7 +1,6 @@
-
 import React from 'react';
+import {useState, useEffect} from 'react';
 import styled from "styled-components";
-
 import world from '../pages/comparison/map-components/assets/world.svg'
 import pop from '../pages/comparison/map-components/assets/population.svg'
 import users from '../pages/comparison/map-components/assets/users.svg'
@@ -16,27 +15,18 @@ import DeselectCityButton from "../pages/comparison/map-components/DeselectCityB
 // display:flex;
 // flex-wrap:wrap;
 
-
-
-
-
-
 const Wrap = styled.div`
 display:flex;
 flex-direction:row;
-
-
-
 `
-
 const Table = styled.table`
 width:100%;
 `
-
 function TotalPopulation({ethData}) {
     function numberCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+
     return (
 
         <div className="city-overview-container-small">
@@ -45,7 +35,7 @@ function TotalPopulation({ethData}) {
             <div className="city-overview-container"> 
             <div className="city-overview-border">
                 <p>{item["City"]}</p>
-                <FavoriteButton city={item}/>
+                <FavoriteButton city={item}  />
                 <DeselectCityButton city={item} />
             </div>
             <div className="city-info-container">

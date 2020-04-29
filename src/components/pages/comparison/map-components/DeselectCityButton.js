@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import {removeCity} from '../../../../redux/actions/cityActions.js'
 import closeIcon from './icons/close.svg';
 
+
 const DeselectCityButton = ({city}) => {
     const dispatch = useDispatch();
     const handleClick = () => {
@@ -20,9 +21,11 @@ const DeselectCityButton = ({city}) => {
             'borderRadius': '0.3rem',
             'margin': '0 0.3rem',
             'margin-right': '0.6rem'
-        }}>
+        }}  
+        >
         <img style={{
-            'width': '100%'}} src={closeIcon} class="deselect-city-button" onClick={handleClick}/>
+            'width': '100%'}} src={closeIcon} class="deselect-city-button" onClick={handleClick}
+            />
         </div>
     )
 }
