@@ -147,7 +147,6 @@
     }
 
     .city-overview-card {
-      max-width: 445px;
       height: 100%;
       .recommendation-grid {
         background-color: white;
@@ -210,6 +209,7 @@
         }
       }
       &:only-child {
+          max-width: none;
         .city-info-container {
           @media screen and (min-width: 800px) {
             padding: 15px 7%;
