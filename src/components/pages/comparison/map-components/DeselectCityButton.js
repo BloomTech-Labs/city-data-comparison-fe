@@ -15,11 +15,11 @@ const DeselectCityButton = ({city}) => {
             'alignItems' : 'center',
             'justifyContent' : 'spaceAround',
             'background' : 'white',
-            'width': '23px',
+            'width': '1.4rem',
             'justifyContent': 'space-around', 
-            'borderRadius': '5px',
-            'margin': '0 5px',
-            'margin-right': '10px'
+            'borderRadius': '0.3rem',
+            'margin': '0 0.3rem',
+            'margin-right': '0.6rem'
         }}>
         <img style={{
             'width': '100%'}} src={closeIcon} class="deselect-city-button" onClick={handleClick}/>

@@ -84,12 +84,11 @@ const FavoriteButton = ({city}) => {
                         'alignItems' : 'center',
                         'justifyContent' : 'spaceAround',
                         'background' : 'white',
-                        'width': '23px',
+                        'width': '1.4rem',
                         'justifyContent': 'space-around', 
-                        'borderRadius': '5px',
-                        'margin': '0 5px',
+                        'borderRadius': '0.3rem',
+                        'margin': '0 0.3rem',
                         'margin-left': 'auto'
-                        
                     }}
                     >
                         <img style={{'width' : '100%'}} 
