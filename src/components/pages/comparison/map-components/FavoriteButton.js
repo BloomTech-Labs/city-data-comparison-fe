@@ -84,13 +84,15 @@ const FavoriteButton = ({city}) => {
                         'alignItems' : 'center',
                         'justifyContent' : 'spaceAround',
                         'background' : 'white',
-                        'width': '100px',
+                        'width': '23px',
                         'justifyContent': 'space-around', 
                         'borderRadius': '5px',
-                        'marginLeft' : 'auto',
+                        'margin': '0 5px',
+                        'margin-left': 'auto'
+                        
                     }}
                     >
-                        <img style={{'width' : '23%'}} 
+                        <img style={{'width' : '100%'}} 
                         src={favorites && favorites.includes(city._id) ? filled_heart : heart_icon} alt='add to favorites'/>
 
                         {hover === true && id === null && <div className="save-container-big" style={{
