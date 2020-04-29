@@ -68,7 +68,7 @@ function TotalPopulation({ethData}) {
                 <div className="city-overview-container-two">
                     <div className="overview-title-container-two">
                         <div className="overview-title"> <img alt="people" src={pop} /> Population</div>
-            <div className="overview-title"> <img alt="people" src={weather} /> {new Date().toLocaleString('default', { month: 'long' })} avg temp</div>
+            <div className="overview-title"> <img alt="people" src={weather} /> {new Date().toLocaleString('default', { month: 'long' })} average</div>
                     </div>
 
                     <div className="overview-stats-container-two">
