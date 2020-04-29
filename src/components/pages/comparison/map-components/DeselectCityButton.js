@@ -16,3 +16,5 @@ const DeselectCityButton = ({city}) => {
         <img src={closeIcon} class="deselect-city-button" onClick={handleClick}/>
     )
 }
+
+export default DeselectCityButton

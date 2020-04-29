@@ -10,6 +10,7 @@ import income from '../pages/comparison/map-components/assets/dollar.svg'
 import weather from '../pages/comparison/map-components/assets/activity.svg'
 import FavoriteButton from '../pages/comparison/map-components/FavoriteButton'
 import Recommendations from "./Recommendations"
+import DeselectCityButton from "../pages/comparison/map-components/DeselectCityButton.js"
 
 // const CenterCard = styled.h3`
 // display:flex;
@@ -45,7 +46,7 @@ function TotalPopulation({ethData}) {
             <div className="city-overview-border">
                 <p>{item["City"]}</p>
                 <FavoriteButton city={item}/>
-                {console.log(item)}
+                <DeselectCityButton city={item} />
             </div>
             <div className="city-info-container">
                 <div className="city-overview-container-one">
