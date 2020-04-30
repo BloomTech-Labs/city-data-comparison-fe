@@ -1,20 +1,8 @@
 import ReactGA from "react-ga";
 import * as types from "./actionTypes";
-import Axios from "axios";
 
-//Axios call to get data about a city from the api using id
-function cityDataAxios(id) {
-  return Axios.get(
-    `https://labs23-test.herokuapp.com/${id}`
-  );
-}
+import {cityDataById, matchCityFromString} from '../../utils/axiosDataScience.js'
 
-//Axios call to find the closest related city to an input string
-function matchCityAxios(city) {
-  return Axios.get(
-    `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/${city}`
-  );
-}
 
 //This thunk either takes a object with a property ID,
 //or takes a string to send to an API that will get the closest matching citymarker with ID.
@@ -27,7 +15,7 @@ export function getCity(cityMarker) {
     try {
       if (typeof cityMarker === "object") {
         //Make an axios call to the citydata api using the city's id.
-        const res = await cityDataAxios(cityMarker.ID);
+        const res = await cityDataById().get(`/${cityMarker.ID}`);
         //Log selected city in Google Analytics.
         ReactGA.event({
           category: "Data",
@@ -43,12 +31,12 @@ export function getCity(cityMarker) {
           action: `used suggestion endpoint: ${cityMarker}`,
         });
         //Use the suggestion endpoint
-        let suggestionRes = await matchCityAxios(cityMarker);
+        let suggestionRes = await matchCityFromString().get(`/${cityMarker}`);
         if (!suggestionRes.data["No Data"]) {
           // Get the key of the first property in the response data
           let topSuggestionKey = Object.keys(suggestionRes.data)[0];
           let suggestedCityId = suggestionRes.data[topSuggestionKey].ID;
-          let res = await cityDataAxios(suggestedCityId);
+          let res = await cityDataById().get(`/${suggestedCityId}`);
           // Dispatch the action to state with the city data object as payload
           dispatch({ type: types.GET_CITY_SUCCESS, payload: res.data });
         } else {
@@ -76,7 +64,7 @@ export const cityComparison = (arr) => async (dispatch, getState) => {
     let cityPromiseArray = arr.map(async (item) => {
       if (typeof item === "object") {
         //If the value is an object with ID resolve with the full city data object.
-        let res = await cityDataAxios(item.ID);
+        let res = await cityDataById().get(`/${item.ID}`);
         return res.data;
         //If the value is a string,
       } else if (typeof item === "string") {
@@ -85,11 +73,11 @@ export const cityComparison = (arr) => async (dispatch, getState) => {
           action: `used suggestion endpoint: ${item}`,
         });
         //first match a city from the string with the DS search API,
-        let suggestionRes = await matchCityAxios(item);
+        let suggestionRes = await matchCityFromString().get(`/${item}`)
         if (!suggestionRes.data["No Data"]) {
           let topSuggestionKey = Object.keys(suggestionRes.data)[0];
           let suggestedCityId = suggestionRes.data[topSuggestionKey].ID;
-          let res = await cityDataAxios(suggestedCityId);
+          let res = await cityDataById().get(`/${suggestedCityId}`);
           //then resolve with the full city data object if there is a match,
           return res.data;
         } else {

@@ -50,7 +50,7 @@ const MapSearch = ({
   };
 
   return (
-    <form autoComplete="off" onSubmit={onSearch}>
+    <form className='search-form' autoComplete="off" onSubmit={onSearch}>
       <input
         className={`search-bar ${menu}`}
         placeholder="Search up to 3 cities"

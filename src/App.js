@@ -21,6 +21,7 @@ import AuthForm from "./components/forms/AuthForm";
 import axiosAuth from "./utils/axiosAuth";
 import SingleCityPage from "./components/pages/singlecity/SingleCityPage";
 
+
 function initializeAnalytics() {
   ReactGA.initialize("UA-156199574-1");
   ReactGA.pageview("/");

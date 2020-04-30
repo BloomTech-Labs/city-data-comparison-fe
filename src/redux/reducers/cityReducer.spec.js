@@ -1,6 +1,6 @@
 import {initialState} from './cityReducer.js'
 import cityReducer from './cityReducer.js'
-import cityMockData from './cityReducerMockData.js'
+import {mockCityMarkers} from '../../utils/testing/mockCityData.js'
 
 import * as types from '../actions/actionTypes.js'
 
@@ -17,7 +17,7 @@ describe('City reducer', () => {
     const stateIsFetching = JSON.parse(JSON.stringify(initialState))
     stateIsFetching.isFetching = true;
 
-    const finalState = cityReducer(stateIsFetching, {type: types.GET_CITY_SUCCESS, payload: cityMockData["Angels, CA"]});
+    const finalState = cityReducer(stateIsFetching, {type: types.GET_CITY_SUCCESS, payload: mockCityMarkers["Angels, CA"]});
 
     expect(finalState.selected).toHaveLength(1)
     expect(typeof finalState.selected[0]).toMatch(/object/)
@@ -25,9 +25,9 @@ describe('City reducer', () => {
 
   it("should add an unused city color to the newly added city on GET_CITY_SUCCESS", () => {
       //Create dummy cities for the dummy current state
-    const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Angels, CA"]))
+    const previousCity1 = JSON.parse(JSON.stringify(mockCityMarkers["Angels, CA"]))
     previousCity1.color = "#A33A00";
-    const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Angie, LA"]))
+    const previousCity2 = JSON.parse(JSON.stringify(mockCityMarkers["Angie, LA"]))
     previousCity2.color = "#0041A3";
 
     //Create dummy current state with dummy cities
@@ -35,7 +35,7 @@ describe('City reducer', () => {
     stateWithOtherColors.selected = [previousCity1, previousCity2]
 
     //Create a dummy new city to pass into the aciton
-    const newCity = JSON.parse(JSON.stringify(cityMockData["Kane, IL"]))
+    const newCity = JSON.parse(JSON.stringify(mockCityMarkers["Kane, IL"]))
 
     //Run the reducer with the payload
     const finalState = cityReducer(stateWithOtherColors, {type: types.GET_CITY_SUCCESS, payload: newCity});
@@ -51,10 +51,10 @@ describe('City reducer', () => {
   it("should not add a city on GET_CITY_SUCCESS when there are already three cities", () => {
     
 
-    const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Angels, CA"]))
-    const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Angie, LA"]))
-    const previousCity3 = JSON.parse(JSON.stringify(cityMockData["Kane, IL"]))
-    const newCity = JSON.parse(JSON.stringify(cityMockData["Rangely, CO"]))
+    const previousCity1 = JSON.parse(JSON.stringify(mockCityMarkers["Angels, CA"]))
+    const previousCity2 = JSON.parse(JSON.stringify(mockCityMarkers["Angie, LA"]))
+    const previousCity3 = JSON.parse(JSON.stringify(mockCityMarkers["Kane, IL"]))
+    const newCity = JSON.parse(JSON.stringify(mockCityMarkers["Rangely, CO"]))
 
     const stateWithOtherCities = JSON.parse(JSON.stringify(initialState))
     stateWithOtherCities.selected = [previousCity1, previousCity2, previousCity3]
@@ -65,13 +65,13 @@ describe('City reducer', () => {
   })
 
   it("should not add a city if that city is already selected", () => {
-    const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Angels, CA"]))
-    const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Angie, LA"]))
+    const previousCity1 = JSON.parse(JSON.stringify(mockCityMarkers["Angels, CA"]))
+    const previousCity2 = JSON.parse(JSON.stringify(mockCityMarkers["Angie, LA"]))
 
     const stateWithOtherCities = JSON.parse(JSON.stringify(initialState))
     stateWithOtherCities.selected = [previousCity1, previousCity2]
 
-    const newCity = JSON.parse(JSON.stringify(cityMockData["Angie, LA"]));
+    const newCity = JSON.parse(JSON.stringify(mockCityMarkers["Angie, LA"]));
 
     const finalState = cityReducer(stateWithOtherCities, {type: types.GET_CITY_SUCCESS, payload: newCity})
 
@@ -85,12 +85,12 @@ describe('City reducer', () => {
 
   it("should replace two cities on CITY_COMPARISON_SUCCESS", () => {
 
-    const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Angels, CA"]))
-    const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Angie, LA"]))
-    const previousCity3 = JSON.parse(JSON.stringify(cityMockData["Kane, IL"]))
+    const previousCity1 = JSON.parse(JSON.stringify(mockCityMarkers["Angels, CA"]))
+    const previousCity2 = JSON.parse(JSON.stringify(mockCityMarkers["Angie, LA"]))
+    const previousCity3 = JSON.parse(JSON.stringify(mockCityMarkers["Kane, IL"]))
 
-    const newCity1 = JSON.parse(JSON.stringify(cityMockData["Rangely, CO"]))
-    const newCity2 = JSON.parse(JSON.stringify(cityMockData["Wrangell, AK"]))
+    const newCity1 = JSON.parse(JSON.stringify(mockCityMarkers["Rangely, CO"]))
+    const newCity2 = JSON.parse(JSON.stringify(mockCityMarkers["Wrangell, AK"]))
 
     const stateWithOtherCities = JSON.parse(JSON.stringify(initialState))
     stateWithOtherCities.selected = [previousCity1, previousCity2, previousCity3]
@@ -103,8 +103,8 @@ describe('City reducer', () => {
   })
 
   it("should set colors for both cities on CITY_COMPARISON_SUCCESS", () => {
-    const newCity1 = JSON.parse(JSON.stringify(cityMockData["Rangely, CO"]))
-    const newCity2 = JSON.parse(JSON.stringify(cityMockData["Wrangell, AK"]))
+    const newCity1 = JSON.parse(JSON.stringify(mockCityMarkers["Rangely, CO"]))
+    const newCity2 = JSON.parse(JSON.stringify(mockCityMarkers["Wrangell, AK"]))
 
     const finalState = cityReducer(undefined, {type: types.CITY_COMPARISON_SUCCESS, payload: [newCity1, newCity2]})
 
@@ -114,8 +114,8 @@ describe('City reducer', () => {
   })
 
   it("should remove a city from state on REMOVE_CITY", () => {
-    const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Rangely, CO"]));
-    const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Wrangell, AK"]));
+    const previousCity1 = JSON.parse(JSON.stringify(mockCityMarkers["Rangely, CO"]));
+    const previousCity2 = JSON.parse(JSON.stringify(mockCityMarkers["Wrangell, AK"]));
     const stateWithOtherCities = JSON.parse(JSON.stringify(initialState))
     stateWithOtherCities.selected = [previousCity1, previousCity2]
 
@@ -126,8 +126,8 @@ describe('City reducer', () => {
   })
 
   it("should clear all cities from state on CLEAR_ALL_CITIES", () => {
-    const previousCity1 = JSON.parse(JSON.stringify(cityMockData["Rangely, CO"]));
-    const previousCity2 = JSON.parse(JSON.stringify(cityMockData["Wrangell, AK"]));
+    const previousCity1 = JSON.parse(JSON.stringify(mockCityMarkers["Rangely, CO"]));
+    const previousCity2 = JSON.parse(JSON.stringify(mockCityMarkers["Wrangell, AK"]));
     const stateWithOtherCities = JSON.parse(JSON.stringify(initialState))
     stateWithOtherCities.selected = [previousCity1, previousCity2]
 
