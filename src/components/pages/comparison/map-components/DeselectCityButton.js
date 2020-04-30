@@ -24,7 +24,9 @@ const DeselectCityButton = ({city}) => {
         }}  
         >
         <img style={{
-            'width': '100%'}} src={closeIcon} class="deselect-city-button" onClick={handleClick}
+            'width': '100%',
+            'opacity': '84%'
+        }} src={closeIcon} onClick={handleClick}
             />
         </div>
     )
