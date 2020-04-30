@@ -35,7 +35,7 @@ describe("City actions", () => {
     it("should create action GET_CITY_SUCCESS when passed a city object", () => {
       //Creates a mock for this axios endpoint within this test, gets cleared after each test with mockAxios.restore in aftereach clause above
       mockAxios
-        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
+        .onGet(`7244`)
         .reply(200, cityActionsMockData["Angie, LA"]);
       //Write the action objects we expect the thunk action creator "getCity()""  to create
       const expectedActions = [
@@ -63,10 +63,10 @@ describe("City actions", () => {
   describe("Get cities", () => {
     it("should create action CITY_COMPARISON_SUCCESS if passed an array of city objects", () => {
       mockAxios
-        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
+        .onGet(`/7244`)
         .reply(200, cityActionsMockData["Angie, LA"]);
       mockAxios
-        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/1533")
+        .onGet(`/1533`)
         .reply(200, cityActionsMockData["Angels, CA"]);
 
       const expectedActions = [
@@ -96,15 +96,13 @@ describe("City actions", () => {
 
     it("should create action CITY_COMPARISON_SUCCESS if passed an array of strings", () => {
       mockAxios
-        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angi")
+        .onGet(`/angi`)
         .reply(200, cityActionsMockData);
       mockAxios
-        .onGet(
-          "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angel"
-        )
+        .onGet("/angel")
         .reply(200, cityActionsMockData);
       mockAxios
-        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
+        .onGet(`/7244`)
         .reply(200, cityActionsMockData["Angie, LA"]);
 
       const expectedActions = [
@@ -129,13 +127,13 @@ describe("City actions", () => {
 
     it("should create action CITY_COMPARISON_SUCCESS if passed an array containing one a string and a city object", () => {
       mockAxios
-        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity/angi")
+        .onGet(`/angi`)
         .reply(200, cityActionsMockData);
       mockAxios
-        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/7244")
+        .onGet(`/7244`)
         .reply(200, cityActionsMockData["Angie, LA"]);
       mockAxios
-        .onGet("https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/1533")
+        .onGet(`/1533`)
         .reply(200, cityActionsMockData["Angels, CA"]);
 
       const expectedActions = [

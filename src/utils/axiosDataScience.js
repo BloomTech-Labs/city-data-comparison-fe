@@ -11,6 +11,6 @@ export function cityDataById() {
 export const matchCityBaseUrl = 'https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity';
 export function matchCityFromString() {
     return axios.create({
-        baseURL: matchCityFromString
+        baseURL: matchCityBaseUrl
     })
 }
