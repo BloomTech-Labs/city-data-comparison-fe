@@ -39,9 +39,6 @@ export default function Map() {
   const selected = useSelector((state) => state.cityReducer.selected);
   const dispatch = useDispatch();
 
-  // const dispatch = useDispatch()
-
-  const [search, setSearch] = useState("");
 
   // Google Analytics Events
   useEffect((_) => {
@@ -132,9 +129,7 @@ export default function Map() {
       <DataDisplay
         toggleSelected={toggleSelected}
         selected={selected}
-        setSearch={setSearch}
         cityMarkers={cityMarkers}
-        search={search}
         viewport={viewport}
         setViewport={setViewport}
         cityIndex={cityIndex}

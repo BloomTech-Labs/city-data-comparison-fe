@@ -28,15 +28,11 @@ import Transportaion from "../../../graphs/transportationScore";
 import dropdownIcon from "../../../../assets/single_city_page_photos/DropdownIcon.png";
 
 const DataDisplay = ({
-  search,
   selected,
   toggleSelected,
-  onSearch,
-  setSearch,
   cityMarkers,
   viewport,
   setViewport,
-  selectSearch,
   cityIndex,
 }) => {
   const [defaultDisplay, setdefaultDisplay] = useState(false);
@@ -51,13 +47,9 @@ const DataDisplay = ({
     <div className="data-browser">
       <div className="inner-search-container">
         <MapSearch
-          setSearch={setSearch}
-          onSearch={onSearch}
           cityMarkers={cityMarkers}
-          search={search}
           viewport={viewport}
           setViewport={setViewport}
-          selectSearch={selectSearch}
           cityIndex={cityIndex}
         />
       </div>

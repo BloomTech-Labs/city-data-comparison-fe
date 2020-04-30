@@ -3,14 +3,13 @@ import { useDispatch } from "react-redux";
 import ReactGA from "react-ga";
 import { getCity } from "../../../../redux/actions/cityActions.js";
 const MapSearch = ({
-  search,
-  setSearch,
   cityMarkers,
   viewport,
   setViewport,
   cityIndex,
 }) => {
   const [suggestions, setSuggestions] = useState([]);
+  const [search, setSearch] = useState("");
 
   const dispatch = useDispatch();
 

@@ -23,10 +23,6 @@ const cityIndex = Object.keys(citiesIndex).map(item => {
 //Configure the mockStore function with our middleware
 const mockStore = configureStore([thunk]);
 const mockSetViewport = jest.fn();
-const mockMenu = jest.fn()
-const mockSearch = jest.fn()
-const mockSetSearch = jest.fn()
-const mockCityMarkers = jest.fn()
 const mockViewport = jest.fn()
 
 describe('MapSearch.js', () => {
@@ -55,8 +51,6 @@ describe('MapSearch.js', () => {
         const {getByTestId} = render(
             <Provider store={store}>
                 <MapSearch 
-                    search={mockSearch}
-                    setSearch={mockSetSearch}
                     cityMarkers={mockCityMarkers}
                     viewport={mockViewport}
                     setViewport={mockSetViewport}
