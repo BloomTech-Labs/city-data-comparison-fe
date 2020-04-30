@@ -74,14 +74,15 @@ const MapSearch = ({
   };
 
   return (
-    <form className="search-form" autoComplete="off" onSubmit={onSearch}>
+    <form className="search-form" autoComplete="off" onSubmit={onSearch} >
       <input
         className={"search-bar " + (suggestions.length ? "active" : "")}
         placeholder="Search up to 3 cities"
         onChange={handleChange}
         value={search}
-        data-testid="map-search"
+        data-testid="search-bar-input"
       />
+      <input type={"submit"} style={{display: 'none'}} data-testid={'search-bar-submit'}/>
 
       <div className={suggestions.length ? "autofill-container" : null}>
         <div className={suggestions.length ? "border-line" : null} />

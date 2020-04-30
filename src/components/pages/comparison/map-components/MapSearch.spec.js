@@ -3,6 +3,10 @@ import React from 'react';
 import { render, fireEvent, cleanup } from '@testing-library/react';
 import MapSearch from './MapSearch';
 
+// import axios modules
+import Axios from "axios";
+import MockAdapter from "axios-mock-adapter";
+
 // Import all the modules necessary to mock a redux setup
 import { Provider } from 'react-redux';;
 import thunk from "redux-thunk";
@@ -10,6 +14,14 @@ import configureStore from 'redux-mock-store';
 
 //Import any mock data we need
 import citiesIndex from "../../../../data/city_ids.json";
+
+
+//Mock the module 'react-ga' so none of the functions we are testing try to actually use google analytics
+import ReactGA from "react-ga";
+jest.mock("react-ga");
+
+//Create our axios mock object
+const mockAxios = new MockAdapter(Axios);
 
 
 // Format the the cities index data into an array of cities indexes for the autocomplete
@@ -29,7 +41,10 @@ const mockViewport = {}
 
 describe('MapSearch.js', () => {
     // Cleans up after each testing library render
-    afterEach(cleanup)
+    afterEach(() => {
+        mockAxios.resetHandlers();
+        cleanup();
+      });
     it('has expected text value after input change event', () => {
         //create a mock store
         const store = mockStore();
@@ -45,11 +60,15 @@ describe('MapSearch.js', () => {
             </Provider>
         );
         //Arrange, Act
-        const searchBarInput = getByTestId('map-search');
+        const searchBarInput = getByTestId('search-bar-input');
         fireEvent.change(searchBarInput, {target: {value: 'string'}});
         expect(searchBarInput.value).toBe('string');
     })
-    it('passes an ADD_CITY action to dispatch when you submit a string', () => {
+    it('passes an GET_CITY action to dispatch when you submit a string', () => {
+        // Create a mock axios response, preventing actual calls to the API
+          mockAxios
+            .onGet("/philadelphia")
+            .reply(200, mockCityMarkers);
         //create a mock store
         const store = mockStore();
         //Render the component on the virtual react DOM wrapped in a mock store provider
@@ -63,10 +82,17 @@ describe('MapSearch.js', () => {
                 />
             </Provider>
         );
+
         //Arrange, Act
-        const searchBarInput = getByTestId('map-search');
-        fireEvent.change(searchBarInput, {target: {value: 'string'}});
-        expect(searchBarInput.value).toBe('string');
+        const searchBarInput = getByTestId('search-bar-input');
+        const searchBarSubmit = getByTestId('search-bar-submit');
+
+        fireEvent.change(searchBarInput, {target: {value: 'philadelphia'}});
+        fireEvent.click(searchBarSubmit)
+
+
+        expect(store.getActions()[0].type).toBe('GET_CITY');
+
     })
-    it.todo('passes an ADD_CITY action to dispatch when you click a suggestion')
+    it.todo('passes an GET_CITY action to dispatch when you click a suggestion')
 })
