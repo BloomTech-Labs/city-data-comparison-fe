@@ -49,9 +49,6 @@ const DataDisplay = ({
 
   const [categories, setCategories] = useState({});
 
-  // console.log("SELECTED", selected)
-  // console.log("edData", selected);
-
   return (
     <div className="data-browser">
       <div className="inner-search-container">

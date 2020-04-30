@@ -1093,13 +1093,7 @@
     border-radius: 20px;
     border: 0;
     width: 100%;
-    &:hover {
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
-    }
-    &:focus {
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
-      outline: none;
-    }
+    outline: none;
     @media only screen and (max-width: 900px) {
       padding-left: 6%;
     }
@@ -1121,8 +1115,10 @@
   }
 
   .search-bar.active {
+    outline: none;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
   }
 
   .search-form {
@@ -1144,10 +1140,7 @@
     background-color: white;
     padding: 0 1.5%;
     z-index: 5;
-    // width: 100%;
-    // transition: 1s;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     width: 80.75%;
