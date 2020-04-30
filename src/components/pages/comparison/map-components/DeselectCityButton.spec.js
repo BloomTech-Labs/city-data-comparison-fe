@@ -1,24 +1,31 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-
-import { Provider } from 'react-redux';;
-import configureStore from 'redux-mock-store';
-
-import '@testing-library/jest-dom/extend-expect'
-
-import reduxMock from 'react-redux';
-
+import { render, fireEvent, cleanup } from '@testing-library/react'
 import DeselectCityButton from './DeselectCityButton.js'
 
+import { Provider } from 'react-redux';;
+import thunk from "redux-thunk";
+import configureStore from 'redux-mock-store';
 
-jest.mock('react-redux')
+const mockStore = configureStore([thunk]);
 
 describe('DeselectCityButton', () => {
-    it('mocks dispatch', () => {
-        const city = {'_id': 1234}
-        render(<Provider><DeselectCityButton city={city}/></Provider>)
-        expect(reduxMock).toHaveBeenCalledTimes(1);
+
+    afterEach(cleanup)
+
+    it('passes an REMOVE_CITY action to dispatch', () => {
+        //Configure a mockstore
+        const store = mockStore();
+
+        const {getByAltText} = render(
+            <Provider store={store}>
+                <DeselectCityButton city={{'_id': 1234}}/>
+            </Provider>
+            );
+
+        const button = getByAltText("Deselect city.");
+        fireEvent.click(button)
+
+        expect(store.getActions()[0].type).toBe('REMOVE_CITY')
+        expect(store.getActions()[0].payload).toBe(1234)
     })
-    it.todo('displays an img tag')
-    it.todo('passes an REMOVE_CITY action to dispatch')
 })

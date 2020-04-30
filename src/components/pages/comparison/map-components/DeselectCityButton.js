@@ -23,7 +23,7 @@ const DeselectCityButton = ({city}) => {
             'marginRight': '0.6rem'
         }}  
         >
-        <img style={{
+        <img alt={'Deselect city.'} style={{
             'width': '100%',
             'opacity': '84%',
             'color':''
