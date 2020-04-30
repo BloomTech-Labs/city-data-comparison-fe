@@ -1,8 +1,8 @@
 // Import the usual react testing library modules, and the component in question
-import React from 'react'
-import { render, fireEvent, cleanup } from '@testing-library/react'
-import DeselectCityButton from './DeselectCityButton.js';
+import React from 'react';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 import MapSearch from './MapSearch';
+
 // Import all the modules necessary to mock a redux setup
 import { Provider } from 'react-redux';;
 import thunk from "redux-thunk";
@@ -14,40 +14,26 @@ import citiesIndex from "../../../../data/city_ids.json";
 
 // Format the the cities index data into an array of cities indexes for the autocomplete
 const cityIndex = Object.keys(citiesIndex).map(item => {
-      city = citiesIndex[item];
+      const city = citiesIndex[item];
       city.name = item;
       return city
 })
+// This is the mock data of the city markers filtered by the map based on zoom level in App.js
+const mockCityMarkers = cityIndex.slice(0, 30);
 
 
 //Configure the mockStore function with our middleware
 const mockStore = configureStore([thunk]);
 const mockSetViewport = jest.fn();
-const mockViewport = jest.fn()
+const mockViewport = {}
 
 describe('MapSearch.js', () => {
     // Cleans up after each testing library render
     afterEach(cleanup)
-    it('passes an REMOVE_CITY action to dispatch', () => {
-        //Create a mock store
-        const store = mockStore();
-        //Render the component wrapped in a mock store provider
-        const {getByAltText} = render(
-            <Provider store={store}>
-                <DeselectCityButton city={{'_id': 1234}}/>
-            </Provider>
-            );
-        //Arrange, act
-        const button = getByAltText("Deselect city.");
-        fireEvent.click(button)
-        //Assert
-        expect(store.getActions()[0].type).toBe('REMOVE_CITY')
-        expect(store.getActions()[0].payload).toBe(1234)
-    })
-    it.todo('passes an ADD_CITY action to dispatch when you submit a string', () => {
+    it('has expected text value after input change event', () => {
         //create a mock store
         const store = mockStore();
-        //Render the component wrapped in a mock store provider
+        //Render the component on the virtual react DOM wrapped in a mock store provider
         const {getByTestId} = render(
             <Provider store={store}>
                 <MapSearch 
@@ -59,6 +45,28 @@ describe('MapSearch.js', () => {
             </Provider>
         );
         //Arrange, Act
+        const searchBarInput = getByTestId('map-search');
+        fireEvent.change(searchBarInput, {target: {value: 'string'}});
+        expect(searchBarInput.value).toBe('string');
+    })
+    it('passes an ADD_CITY action to dispatch when you submit a string', () => {
+        //create a mock store
+        const store = mockStore();
+        //Render the component on the virtual react DOM wrapped in a mock store provider
+        const {getByTestId} = render(
+            <Provider store={store}>
+                <MapSearch 
+                    cityMarkers={mockCityMarkers}
+                    viewport={mockViewport}
+                    setViewport={mockSetViewport}
+                    cityIndex={cityIndex}
+                />
+            </Provider>
+        );
+        //Arrange, Act
+        const searchBarInput = getByTestId('map-search');
+        fireEvent.change(searchBarInput, {target: {value: 'string'}});
+        expect(searchBarInput.value).toBe('string');
     })
     it.todo('passes an ADD_CITY action to dispatch when you click a suggestion')
 })

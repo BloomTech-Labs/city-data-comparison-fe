@@ -80,6 +80,7 @@ const MapSearch = ({
         placeholder="Search up to 3 cities"
         onChange={handleChange}
         value={search}
+        data-testid="map-search"
       />
 
       <div className={suggestions.length ? "autofill-container" : null}>
