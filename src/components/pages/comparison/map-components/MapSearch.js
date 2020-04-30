@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import ReactGA from "react-ga";
 import { getCity } from "../../../../redux/actions/cityActions.js";
 const MapSearch = ({
-  menu,
   search,
   setSearch,
   cityMarkers,

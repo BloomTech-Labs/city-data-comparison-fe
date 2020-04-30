@@ -41,8 +41,6 @@ const DataDisplay = ({
 }) => {
   const [defaultDisplay, setdefaultDisplay] = useState(false);
 
-  const [menu, setMenu] = useState({ status: "closed" });
-
   const dataNavClicked = (link) => {
     ReactGA.event({ category: "Data", action: `clicked ${link} link` });
   };
@@ -53,7 +51,6 @@ const DataDisplay = ({
     <div className="data-browser">
       <div className="inner-search-container">
         <MapSearch
-          menu={menu.status}
           setSearch={setSearch}
           onSearch={onSearch}
           cityMarkers={cityMarkers}
