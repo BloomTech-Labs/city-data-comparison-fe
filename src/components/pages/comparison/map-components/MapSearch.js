@@ -1,18 +1,44 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import ReactGA from "react-ga";
-
+import { getCity } from "../../../../redux/actions/cityActions.js";
 const MapSearch = ({
   menu,
   search,
-  onSearch,
   setSearch,
   cityMarkers,
   viewport,
   setViewport,
-  selectSearch,
   cityIndex,
 }) => {
   const [suggestions, setSuggestions] = useState([]);
+
+  const dispatch = useDispatch();
+
+  const selectSearch = (cityMarker) => {
+    // Stop function and return if the city is already selected
+    dispatch(getCity(cityMarker));
+  };
+
+  //WORKS WITH THE SEARCH BAR ON LEFT
+  const onSearch = (e) => {
+    e.preventDefault();
+    const found = cityMarkers.find(
+      (item) => item.name.replace(" city", "") === search
+    );
+    if (found) {
+      selectSearch(found);
+      // the viewport set below will require zoom handling based on population
+      setViewport({
+        ...viewport,
+        longitude: found.lng,
+        latitude: found.lat,
+      });
+    } else {
+      dispatch(getCity(search));
+    }
+  };
+
   const handleChange = (e) => {
     const searchText = e.target.value;
     searchText

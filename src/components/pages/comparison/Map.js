@@ -75,36 +75,6 @@ export default function Map() {
     }
   };
 
-  // This function checks if the city is already in selected
-  // when the user clicks a city from the suggested dropdown in the search bar
-  const selectSearch = (cityMarker) => {
-    // Stop function and return if the city is already selected
-    if (selected.find((item) => item._id === cityMarker.ID)) {
-      return;
-    } else {
-      dispatch(getCity(cityMarker));
-    }
-  };
-
-  //WORKS WITH THE SEARCH BAR ON LEFT
-  const onSearch = (e) => {
-    e.preventDefault();
-    const found = cityMarkers.find(
-      (item) => item.name.replace(" city", "") === search
-    );
-    if (found) {
-      selectSearch(found);
-      // the viewport set below will require zoom handling based on population
-      setViewport({
-        ...viewport,
-        longitude: found.lng,
-        latitude: found.lat,
-      });
-    } else {
-      dispatch(getCity(search));
-    }
-  };
-
   var maxLong = -51.531963;
   var minLong = -170.872761;
   var minLat = 20.416615;
@@ -160,10 +130,8 @@ export default function Map() {
         </MapWrapper>
       </div>
       <DataDisplay
-        selectSearch={selectSearch}
         toggleSelected={toggleSelected}
         selected={selected}
-        onSearch={onSearch}
         setSearch={setSearch}
         cityMarkers={cityMarkers}
         search={search}
