@@ -20,12 +20,13 @@ const DeselectCityButton = ({city}) => {
             'justifyContent': 'space-around', 
             'borderRadius': '0.3rem',
             'margin': '0 0.3rem',
-            'margin-right': '0.6rem'
+            'marginRight': '0.6rem'
         }}  
         >
         <img style={{
             'width': '100%',
-            'opacity': '84%'
+            'opacity': '84%',
+            'color':''
         }} src={closeIcon} onClick={handleClick}
             />
         </div>
