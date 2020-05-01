@@ -56,6 +56,10 @@ export function getCity(cityMarker) {
       
       }
     } catch (err) {
+      dispatch({
+            type: types.GET_CITY_ERROR,
+            payload: `Could not find city: ${cityMarker}`,
+          });
       console.error(err);
     }
   };
