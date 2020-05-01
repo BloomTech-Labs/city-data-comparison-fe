@@ -31,22 +31,35 @@ export function getCity(cityMarker) {
           action: `used suggestion endpoint: ${cityMarker}`,
         });
         //Use the suggestion endpoint
-        let suggestionRes = await matchCityFromString().get(`/${cityMarker}`);
-        if (!suggestionRes.data["No Data"]) {
-          // Get the key of the first property in the response data
-          let topSuggestionKey = Object.keys(suggestionRes.data)[0];
-          let suggestedCityId = suggestionRes.data[topSuggestionKey].ID;
-          let res = await cityDataById().get(`/${suggestedCityId}`);
-          // Dispatch the action to state with the city data object as payload
-          dispatch({ type: types.GET_CITY_SUCCESS, payload: res.data });
-        } else {
+        try {
+          let suggestionRes = await matchCityFromString().get(`/${cityMarker}`);
+          if (!suggestionRes.data["No Data"]) {
+            // Get the key of the first property in the response data
+            let topSuggestionKey = Object.keys(suggestionRes.data)[0];
+            let suggestedCityId = suggestionRes.data[topSuggestionKey].ID;
+            let res = await cityDataById().get(`/${suggestedCityId}`);
+            // Dispatch the action to state with the city data object as payload
+            dispatch({ type: types.GET_CITY_SUCCESS, payload: res.data });
+          } else {
+            dispatch({
+              type: types.GET_CITY_ERROR,
+              payload: `Could not find city: ${cityMarker}`,
+            });
+          }
+        }
+        catch(err) {
           dispatch({
             type: types.GET_CITY_ERROR,
             payload: `Could not find city: ${cityMarker}`,
           });
         }
+      
       }
     } catch (err) {
+      dispatch({
+            type: types.GET_CITY_ERROR,
+            payload: `Could not find city: ${cityMarker}`,
+          });
       console.error(err);
     }
   };

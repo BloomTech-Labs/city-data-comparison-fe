@@ -45,12 +45,9 @@ function Dashboard({ history }) {
     axiosAuth,
   } = useContext(UserContext);
   const {
-    // selected, deleted
     cityIndex,
     viewport,
     setViewport,
-    // getBestSuggestion,
-    // getBestSuggestions,
   } = useContext(CityContext);
 
   const selected = useSelector((state) => state.cityReducer.selected); //added
@@ -58,7 +55,6 @@ function Dashboard({ history }) {
 
   // * SEARCH 1 STATE / HANDLECHANGE
 
-  //
   const [cityOneSuggestions, setCityOneSuggestions] = useState([]);
   const [cityTwoSuggestions, setCityTwoSuggestions] = useState([]);
 
@@ -200,7 +196,6 @@ function Dashboard({ history }) {
     //IF CITY INPUT MATCHES OUR CITY INDEX DATABASE
     //WE REPLACE INPUTS CITY NAME WITH THE NAME IN OUR DB
     let found = cityIndex.find(
-      //     console.log("found item", item);
       (item) => item.name.replace(" city", "") === compare.cityOne
     );
     let found2 = cityIndex.find(

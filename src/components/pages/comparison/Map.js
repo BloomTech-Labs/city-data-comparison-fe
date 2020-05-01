@@ -39,9 +39,6 @@ export default function Map() {
   const selected = useSelector((state) => state.cityReducer.selected);
   const dispatch = useDispatch();
 
-  // const dispatch = useDispatch()
-
-  const [search, setSearch] = useState("");
 
   // Google Analytics Events
   useEffect((_) => {
@@ -72,36 +69,6 @@ export default function Map() {
     // Otherwise get the city's data and add it to selected array
     else {
       dispatch(getCity(cityMarker));
-    }
-  };
-
-  // This function checks if the city is already in selected
-  // when the user clicks a city from the suggested dropdown in the search bar
-  const selectSearch = (cityMarker) => {
-    // Stop function and return if the city is already selected
-    if (selected.find((item) => item._id === cityMarker.ID)) {
-      return;
-    } else {
-      dispatch(getCity(cityMarker));
-    }
-  };
-
-  //WORKS WITH THE SEARCH BAR ON LEFT
-  const onSearch = (e) => {
-    e.preventDefault();
-    const found = cityMarkers.find(
-      (item) => item.name.replace(" city", "") === search
-    );
-    if (found) {
-      selectSearch(found);
-      // the viewport set below will require zoom handling based on population
-      setViewport({
-        ...viewport,
-        longitude: found.lng,
-        latitude: found.lat,
-      });
-    } else {
-      dispatch(getCity(search));
     }
   };
 
@@ -160,13 +127,9 @@ export default function Map() {
         </MapWrapper>
       </div>
       <DataDisplay
-        selectSearch={selectSearch}
         toggleSelected={toggleSelected}
         selected={selected}
-        onSearch={onSearch}
-        setSearch={setSearch}
         cityMarkers={cityMarkers}
-        search={search}
         viewport={viewport}
         setViewport={setViewport}
         cityIndex={cityIndex}
