@@ -1,6 +1,6 @@
 // Import the usual react testing library modules, and the component in question
 import React from 'react';
-import { render, fireEvent, cleanup } from '@testing-library/react';
+import { render, fireEvent, waitFor, cleanup } from '@testing-library/react';
 import MapSearch from './MapSearch';
 
 // import axios modules
@@ -14,7 +14,7 @@ import configureStore from 'redux-mock-store';
 
 //Import any mock data we need
 import citiesIndex from "../../../../data/city_ids.json";
-
+import {mockCityMarkers as mockSuggestionResponse, mockCityData} from '../../../../utils/testing/mockCityData.js'
 
 //Mock the module 'react-ga' so none of the functions we are testing try to actually use google analytics
 import ReactGA from "react-ga";
@@ -32,6 +32,8 @@ const cityIndex = Object.keys(citiesIndex).map(item => {
 })
 // This is the mock data of the city markers filtered by the map based on zoom level in App.js
 const mockCityMarkers = cityIndex.slice(0, 30);
+
+
 
 
 //Configure the mockStore function with our middleware
@@ -64,11 +66,14 @@ describe('MapSearch.js', () => {
         fireEvent.change(searchBarInput, {target: {value: 'string'}});
         expect(searchBarInput.value).toBe('string');
     })
-    it('passes an GET_CITY action to dispatch when you submit a string', () => {
+    it('passes an GET_CITY action to dispatch when you submit a string', async () => {
         // Create a mock axios response, preventing actual calls to the API
           mockAxios
             .onGet("/philadelphia")
-            .reply(200, mockCityMarkers);
+            .reply(200, mockSuggestionResponse)
+            mockAxios
+            .onGet("/7244")
+            .reply(200, mockCityData['Philadelphia, PA'])
         //create a mock store
         const store = mockStore();
         //Render the component on the virtual react DOM wrapped in a mock store provider
@@ -90,8 +95,12 @@ describe('MapSearch.js', () => {
         fireEvent.change(searchBarInput, {target: {value: 'philadelphia'}});
         fireEvent.click(searchBarSubmit)
 
+        // Wait for all the async action creaters/thunks to complete
+        await waitFor(() => expect(mockAxios.history.get.length).toBe(2))
 
+        // Assert on all the actions
         expect(store.getActions()[0].type).toBe('GET_CITY');
+        expect(store.getActions()[1].type).toBe('GET_CITY_SUCCESS');
 
     })
     it.todo('passes an GET_CITY action to dispatch when you click a suggestion')
