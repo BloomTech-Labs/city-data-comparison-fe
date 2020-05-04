@@ -1,30 +1,54 @@
-import React, {useState, useEffect} from "react";
-import {Line} from "react-chartjs-2";
-import styled from 'styled-components';
-import {lightenOrDarken} from '../../../utils/cityColors.js'
+import React, { useState, useEffect } from "react";
+import { Line } from "react-chartjs-2";
+import styled from "styled-components";
+import { lightenOrDarken } from "../../../utils/cityColors.js";
 
 const Button = styled.button`
   margin: 0 auto;
   text-align: center;
   display: block;
   border: none;
-  font-size: .9rem;
-  color: #A33A00;
-  border: .5px solid #A33A00;
+  font-size: 0.9rem;
+  color: #a33a00;
+  border: 0.5px solid #a33a00;
   border-radius: 5px;
   background-color: white;
   position: relative;
   bottom: 27px;
   left: 120px;
-`
+`;
 
-export default function HousePriceGraph({selected}) {
-  const currentDate = new Date()
+export default function HousePriceGraph({ selected }) {
+  const currentDate = new Date();
 
-  const firstDates = selected.map(city => new Date(Object.keys(city["Historical Property Value Data"]["Forecast"])[0]) );
-  
-  
-  
+  // const firstDates = selected.map(city => new Date(Object.keys(city["Historical Property Value Data"]["Forecast"])[0]) );
+  const [dateKeys, setDateKeys] = useState([]);
+
+  useEffect(() => {
+    let indexOfCityWithMostDates = null;
+    let longestLength = 0;
+    selected.forEach((item, index) => {
+      if (
+        Object.keys(item["Historical Property Value Data"]["Forecast"]).length >
+        longestLength
+      ) {
+        longestLength = Object.keys(
+          item["Historical Property Value Data"]["Forecast"]
+        ).length;
+        indexOfCityWithMostDates = index;
+      }
+    });
+
+    setDateKeys(
+      Object.keys(
+        selected[indexOfCityWithMostDates]["Historical Property Value Data"]["Forecast"]
+      ).filter(
+        (date) =>
+          selected[indexOfCityWithMostDates]["Historical Property Value Data"]["Forecast"][date]
+      )
+    );
+  }, [selected]);
+
   // let index = 0;
   // for ( let i = 1; i < firstDates.length; i++) {
   //   console.log("firstdates", firstDates)
@@ -39,18 +63,21 @@ export default function HousePriceGraph({selected}) {
   //   }
   // }
 
-
-
   // This gets us all the keys for the Forecast Object in the city data from our API
   // This value will be recalculated every time the component updates because props changing triggers
   // a full re-render of the component function
-  const keys = Object.keys(selected[0]["Historical Property Value Data"]["Forecast"]);
 
+  // const keys = Object.keys(
+  //   selected[0]["Historical Property Value Data"]["Forecast"]
+  // );
+  // console.log("HOUSE KEYS", keys);
 
   // Now we filter out any keys whose values don't have historical property data listed
   // We now have an array that represents the range of dates we have data for
-  const labels = keys.filter((date) => selected[0]["Historical Property Value Data"]["Forecast"][date]);
-
+  // const labels = keys.filter(
+  //   (date) => selected[0]["Historical Property Value Data"]["Forecast"][date]
+  // );
+  // console.log("HOUSE labels", labels);
 
   // This state holds all the lines currently displayed on the graph
   // it could change when the user clicks a specific city on the legend for focus view
@@ -59,22 +86,26 @@ export default function HousePriceGraph({selected}) {
   // this array goes into "lines" array above, which goes into chartjs line graph component's prop called "datasets"
   // datasets is an array representing all the different datasets being compared in the chart
   // https://www.chartjs.org/docs/latest/charts/line.html
-  function formatGraphLinesWithOneCity(city) {
-    const lineData = labels.map((label) => {return city["Historical Property Value Data"]["Forecast"][label];});
+  function formatGraphLinesWithOneCity(city, keys) {
+    const lineData = keys.map((label) => {
+      return city["Historical Property Value Data"]["Forecast"][label];
+    });
     return [
       {
         //just city, state = item.name_with_com,
-        label: city.name_with_com, fill: false,
+        label: city.name_with_com,
+        fill: false,
         //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
-        data: lineData, borderColor: city.color,
+        data: lineData,
+        borderColor: city.color,
       },
     ];
   }
   // This function formats an array of lines in the line graph for displaying multiple cities,
   // to be placed in the chartjs line graph component's prop called "datasets"
-  function formatGraphLinesWithMultipleCities(cities) {
+  function formatGraphLinesWithMultipleCities(cities, keys) {
     return cities.map((city) => {
-      const lineData = labels.map((label) => {
+      const lineData = keys.map((label) => {
         return city["Historical Property Value Data"]["Forecast"][label];
       });
       return {
@@ -85,36 +116,47 @@ export default function HousePriceGraph({selected}) {
         //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
         data: lineData,
         borderColor: city.color,
-        pointRadius: labels.map(date => {
-          if (new Date(date) < currentDate)
-          {
-            return 0
-          }
-          else {
-            return 2
+        pointRadius: keys.map((date) => {
+          if (new Date(date) < currentDate) {
+            return 0;
+          } else {
+            return 2;
           }
         }),
-        pointBackgroundColor: lightenOrDarken(city.color, 75)
-      }
+        pointBackgroundColor: lightenOrDarken(city.color, 75),
+      };
     });
   }
-  useEffect(() => {setLines(formatGraphLinesWithMultipleCities(selected));
-  }, [selected]);
+
+  useEffect(() => {
+    setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
+  }, [selected, dateKeys]);
+
   const handleClickLegend = (e, legendItem) => {
-    if (lines.length > 1) {setLines(formatGraphLinesWithOneCity(selected[legendItem.datasetIndex]));
-    } else {setLines(formatGraphLinesWithMultipleCities(selected));}
+    if (lines.length > 1) {
+      setLines(formatGraphLinesWithOneCity(selected[legendItem.datasetIndex], dateKeys));
+    } else {
+      setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
+    }
   };
-  const handleClickShowAll = () => {setLines(formatGraphLinesWithMultipleCities(selected));};
+
+  const handleClickShowAll = () => {
+    setLines(formatGraphLinesWithMultipleCities(selected,dateKeys));
+  };
+
   // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
-  function numberCommas(x) {return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
+  function numberCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   return (
     <div className="housing-graph">
       <div
         className="chart-container"
-        style={{ position: "relative", width: `100%`}}
+        style={{ position: "relative", width: `100%` }}
       >
         <Line
-          data={{labels: labels, datasets: lines,}}
+          data={{ labels: dateKeys, datasets: lines }}
           options={{
             title: {
               display: false,
@@ -130,7 +172,7 @@ export default function HousePriceGraph({selected}) {
               xAxes: [
                 {
                   display: true,
-                  gridLines: {display: false},
+                  gridLines: { display: false },
                   scaleLabel: {
                     display: true,
                     labelString: "Year",
@@ -140,12 +182,16 @@ export default function HousePriceGraph({selected}) {
               yAxes: [
                 {
                   display: true,
-                  ticks: {userCallback: (value, index, values) => {return `$${numberCommas(value)}`;}},
-                  gridLines: {display: false},
+                  ticks: {
+                    userCallback: (value, index, values) => {
+                      return `$${numberCommas(value)}`;
+                    },
+                  },
+                  gridLines: { display: false },
                   scaleLabel: {
                     display: true,
                     labelString: "Amount",
-                    ticks: {beginAtZero: false},
+                    ticks: { beginAtZero: false },
                   },
                 },
               ],
@@ -153,13 +199,22 @@ export default function HousePriceGraph({selected}) {
           }}
         />
       </div>
-      {(selected.length > 1) && (lines.length == 1) ?
-      <Button onClick={handleClickShowAll}>Show All</Button>: <></>}
-      <p style={{ margin: "0 auto", textAlign: 'center' }}>The dotted area of the line represents projected values from our machine learning API.</p>
-      {(selected.length !== 1) && (lines.length > 1) ? <p style={{ margin: "0 auto", textAlign: 'center' }}>
-        Click a city on the legend to enter a more detailed view.
-      </p> : <></>}
-   
+      {selected.length > 1 && lines.length == 1 ? (
+        <Button onClick={handleClickShowAll}>Show All</Button>
+      ) : (
+        <></>
+      )}
+      <p style={{ margin: "0 auto", textAlign: "center" }}>
+        The dotted area of the line represents projected values from our machine
+        learning API.
+      </p>
+      {selected.length !== 1 && lines.length > 1 ? (
+        <p style={{ margin: "0 auto", textAlign: "center" }}>
+          Click a city on the legend to enter a more detailed view.
+        </p>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
