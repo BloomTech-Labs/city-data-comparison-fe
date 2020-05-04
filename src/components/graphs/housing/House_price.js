@@ -21,10 +21,14 @@ const Button = styled.button`
 export default function HousePriceGraph({ selected }) {
   const currentDate = new Date();
 
-  // const firstDates = selected.map(city => new Date(Object.keys(city["Historical Property Value Data"]["Forecast"])[0]) );
+  //This initializes a variable that contains all the dates of the historical data
+  //that will be turned into labels for the housing prices graph
   const [dateKeys, setDateKeys] = useState([]);
 
   useEffect(() => {
+    //This logic will check the historical data and check to see which of the objects are the longest
+    //The largest object will have the dates that go the furthest back, thus the greatest length
+    //We then set dateKeys to that longest array of keys so that our graph labels are correct
     let indexOfCityWithMostDates = null;
     let longestLength = 0;
     selected.forEach((item, index) => {
@@ -48,36 +52,6 @@ export default function HousePriceGraph({ selected }) {
       )
     );
   }, [selected]);
-
-  // let index = 0;
-  // for ( let i = 1; i < firstDates.length; i++) {
-  //   console.log("firstdates", firstDates)
-  //   let currentDate = firstDates[0];
-  //   console.log('cur date', currentDate)
-  //   if (firstDates[i] < currentDate) {
-  //     currentDate = firstDates[i];
-  //     console.log('cur date', currentDate)
-  //     index = i;
-  //     console.log('city index', index)
-
-  //   }
-  // }
-
-  // This gets us all the keys for the Forecast Object in the city data from our API
-  // This value will be recalculated every time the component updates because props changing triggers
-  // a full re-render of the component function
-
-  // const keys = Object.keys(
-  //   selected[0]["Historical Property Value Data"]["Forecast"]
-  // );
-  // console.log("HOUSE KEYS", keys);
-
-  // Now we filter out any keys whose values don't have historical property data listed
-  // We now have an array that represents the range of dates we have data for
-  // const labels = keys.filter(
-  //   (date) => selected[0]["Historical Property Value Data"]["Forecast"][date]
-  // );
-  // console.log("HOUSE labels", labels);
 
   // This state holds all the lines currently displayed on the graph
   // it could change when the user clicks a specific city on the legend for focus view
