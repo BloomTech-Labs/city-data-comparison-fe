@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import LineGraph from "../../graphs/PieGraph";
-import LineGraph2 from "../../graphs/TwoGraph";
-import RadarGraph from "../../graphs/RadarGraph";
+import LineGraph from "./PieGraph";
+import LineGraph2 from "./TwoGraph";
+import RadarGraph from "./RadarGraph";
 import ReactGA from "react-ga";
 import { useSelector, useDispatch } from "react-redux"; //import
 

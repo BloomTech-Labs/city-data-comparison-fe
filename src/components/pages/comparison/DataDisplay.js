@@ -19,7 +19,7 @@ import RetirementGraph from "../../graphs/economics/retirement";
 import VacancyGraph from "../../graphs/housing/vacancy";
 import UnemploymentCard from "../../graphs/economics/unemploymentCard";
 import deleteIcon from "./icons/close_red.png";
-import GeneralStats from "../../graphs/GeneralStats";
+import GeneralStats from "./graphs/GeneralStats";
 import TravelTime from "../../graphs/economics/TravelTimeCard";
 // import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "../../graphs/housing/OwnerCostCard";
