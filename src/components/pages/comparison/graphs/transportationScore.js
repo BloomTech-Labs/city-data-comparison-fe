@@ -1,8 +1,8 @@
 import React from 'react';
-import bicycle from '../pages/comparison/map-components/assets/bicycle.svg'
-import walkingThick from '../pages/comparison/map-components/assets/walkingThick.svg'
-import walkingThin from '../pages/comparison/map-components/assets/walkingThin.svg'
-import bus from '../pages/comparison/map-components/assets/bus.svg'
+import bicycle from '../assets/bicycle.svg'
+import walkingThick from '../assets/walkingThick.svg'
+import walkingThin from '../assets/walkingThin.svg'
+import bus from '../assets/bus.svg'
 
 function Score({ethData}) {
   
