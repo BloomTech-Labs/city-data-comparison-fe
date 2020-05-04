@@ -8,11 +8,12 @@
                        
 //                    //#663300 brightness: 40          //#33cc00-brightness 80/#cc6633
 //Brightness differentiation:  yellow: 100 (#ffcc33), red: 
-
+//variables below are the color and then the brightness
 const yellow100 = "#ffcc33";
 const orange80 = "#cc6633";
 const green80 = "#33cc00";
-const red60 = "#990000"
+const red60 = "#990000";
+const green60 = "#009900";
 
 
 export const getCityColor = (selected) => {
@@ -25,8 +26,8 @@ export const getCityColor = (selected) => {
       return "#ffcc33";
     } else if (!activeColors.includes("#cc6633")) {
       return "#cc6633";
-    } else if (!activeColors.includes("#990000")) {
-      return "#990000";
+    } else if (!activeColors.includes(green60)) {
+      return green60;
     }
   };
  export const getSecondCityColor = (arr, selected) => {
@@ -36,8 +37,8 @@ export const getCityColor = (selected) => {
       return "#ffcc33";
     } else if (!activeColors.includes("#cc6633")) {
       return "#cc6633";
-    } else if (!activeColors.includes("#990000")) {
-      return "#990000";
+    } else if (!activeColors.includes(green60)) {
+      return green60;
     }
   };
   export const lightenOrDarken = (color, percent) => {
