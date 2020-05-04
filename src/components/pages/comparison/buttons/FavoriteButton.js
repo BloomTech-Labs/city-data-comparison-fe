@@ -1,8 +1,8 @@
 import React, {useState, useContext, useEffect} from 'react'
 import {UserContext} from '../../../../contexts/UserContext';
 import { useHistory } from 'react-router-dom'
-import heart_icon from './icons/heart.svg';
-import filled_heart from './icons/filled_heart.svg'
+import heart_icon from '../assets/heart.svg';
+import filled_heart from '../../../../assets/icons/filled_heart.svg'
 import ReactGA from "react-ga";
 
 const FavoriteButton = ({city}) => {

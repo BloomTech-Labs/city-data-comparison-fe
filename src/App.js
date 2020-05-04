@@ -8,7 +8,7 @@ import "./App.scss";
 import Dashboard from "./components/pages/index/Dashboard";
 import Navigation from "./components/navigation/Navigation";
 import Footer from "./components/navigation/Footer";
-import Map from "./components/pages/comparison/Map";
+import Comparison from "./components/pages/comparison/Comparison.js";
 import Profile from "./components/pages/user-profile/Profile";
 import PrivacyPolicy from "./components/legal/PrivacyPolicy";
 import AboutUs from "./components/pages/aboutus/AboutUs";
@@ -138,7 +138,7 @@ function App() {
       const filters = [f1, f2, f3, f4];
 
       setCityMarkers(recursive_filter(cityIndex, filters).slice(0, 30));
-      console.log(viewport.zoom);
+
       // let selectedCityMarkers = selected.map(item => cityIndex.find(city => city.ID === item.id))
       // setCityMarkers([...cityMarkers, ...selectedCityMarkers])
     },
@@ -175,7 +175,7 @@ function App() {
             <Route path="/" render={(props) => <Navigation {...props} />} />
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/" component={Footer} />
-            <Route path="/map" render={(props) => <Map {...props} />} />
+            <Route path="/compare" render={(props) => <Comparison {...props} />} />
             <PrivateRoute path="/profile" component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/meet-the-team" component={AboutUs} />

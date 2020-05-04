@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import LineGraph from "../../graphs/PieGraph";
-import LineGraph2 from "../../graphs/TwoGraph";
-import RadarGraph from "../../graphs/RadarGraph";
+import LineGraph from "./PieGraph";
+import LineGraph2 from "./TwoGraph";
+import RadarGraph from "./RadarGraph";
 import ReactGA from "react-ga";
 import { useSelector, useDispatch } from "react-redux"; //import
 
@@ -189,7 +189,7 @@ function Dashboard({ history }) {
 
     //IF NO CITIES, push directly to /map with no selections
     if (!compare.cityTwo && !compare.cityOne) {
-      history.push("/map");
+      history.push("/compare");
       return;
     }
 
@@ -211,7 +211,7 @@ function Dashboard({ history }) {
         //else pass the search term into getCity which will get the best suggestion from a DS endpoint, then get the city object
         dispatch(getCity(compare.cityOne));
       }
-      history.push("/map");
+      history.push("/compare");
       return;
     }
     if (compare.cityTwo && !compare.cityOne) {
@@ -221,7 +221,7 @@ function Dashboard({ history }) {
         dispatch(getCity(compare.cityTwo));
       }
 
-      history.push("/map");
+      history.push("/compare");
       return;
     }
 
@@ -251,7 +251,7 @@ function Dashboard({ history }) {
       });
       await dispatch(cityComparison([compare.cityOne, compare.cityTwo]));
     }
-    history.push("/map");
+    history.push("/compare");
   };
 
   //* TOGGLING BUTTONS */

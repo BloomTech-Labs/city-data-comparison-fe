@@ -27,7 +27,7 @@ function Navigation(props){
           float:"right"
      }
 
-     console.log('props in nav', props)
+
      return(
           <>
           {props.location.pathname === "/meet-the-team" ? <MeetTheTeam /> : <NavBar />}
@@ -65,7 +65,7 @@ function NavBar (){
                <nav className="main-nav">
                     <Link to="/" className="nav-button">Home</Link>
                     {user ? <div /> : null}
-                    <Link to="/map" className="nav-button">Compare</Link>
+                    <Link to="/compare" className="nav-button">Compare</Link>
                     {user == null ? 
                     <>
                          <Link id="login-link" to="/signin"><img className="lock" alt="lock" src={lock}/>Log In</Link>
@@ -84,7 +84,7 @@ function NavBar (){
                                    <div className="dropdown" style={styles}>
                                         <button className="dropbtn">Menu</button>
                                         <div className="dropdown-content">
-                                             <Link to="/map">Explore</Link>
+                                             <Link to="/compare">Explore</Link>
                                              <Link to="/signin">Log In</Link>
                                              <Link to="/signup">Get Started</Link>
                                              
@@ -131,10 +131,10 @@ function MeetTheTeam (){
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
                <nav className="main-nav">
                     {user ? <div /> : null}
-                    <Link to="/map" className="nav-button" style={{ color: 'white' }}>Explore</Link>
+                    <Link to="/compare" className="nav-button" style={{ color: 'white' }}>Explore</Link>
                     {user == null ? 
                     <>
-                         <Link to="/map" className="nav-button" style={{ color: 'white' }}>Compare</Link>
+                         <Link to="/compare" className="nav-button" style={{ color: 'white' }}>Compare</Link>
                          <Link id="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
                          {/* <Link id="signup-link" to="/signup">Get Started</Link> */}
                     </> :
@@ -149,7 +149,7 @@ function MeetTheTeam (){
                                    <div className="dropdown" style={styles}>
                                         <button className="dropbtn">Menu</button>
                                         <div className="dropdown-content">
-                                             <Link to="/map">Explore</Link>
+                                             <Link to="/compare">Explore</Link>
                                              <Link to="/signin">Log In</Link>
                                              <Link to="/signup">Get Started</Link>
                                         </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import styled from "styled-components";
-import { lightenOrDarken } from "../../../utils/cityColors.js";
+import { lightenOrDarken } from "../../../../../utils/cityColors.js";
 
 const Button = styled.button`
   margin: 0 auto;

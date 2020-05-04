@@ -41,8 +41,8 @@ const DropMenu = (props) => {
                     <div className="dropdown-content-loggedin">
                         {/* <div>Welcome!</div> */}
                         <Link to="/profile">Profile</Link>
-                        <Link to="/map" className="redundant">Explore</Link>
-                        <Link to="/map" className="redundant">Compare</Link>
+                        <Link to="/compare" className="redundant">Explore</Link>
+                        <Link to="/compare" className="redundant">Compare</Link>
                         <Link onClick={() => Logout()} to="/">Logout</Link>
                     </div>
             </div>
