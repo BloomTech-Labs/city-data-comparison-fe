@@ -24,7 +24,7 @@ import TravelTime from "./graphs/economics/TravelTimeCard";
 // import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "./graphs/housing/OwnerCostCard";
 // import BirthRateCard from "../graphs/culture/birthRateCard"
-import Transportaion from "./graphs/transportationScore";
+
 import dropdownIcon from "../../../assets/single_city_page_photos/DropdownIcon.png";
 
 const DataDisplay = ({
