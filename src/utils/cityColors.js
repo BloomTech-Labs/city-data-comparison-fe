@@ -1,25 +1,43 @@
+
+//old colors: ##A33A00(orange), #0041A3(blue), #017428(green)
+//            21, 100, 64       216, 100, 64    140, 99, 45
+//checking dark-light: #330000(dark orange/brown) , #3366cc-blue- websafe, #339966(very light green)
+                       //hsb: 0, 100, 20            hsb: 220, 75, 80        hsb: 180, 50, 40
+                        //high/low                    high/high                 medium/medium
+                       //hue, saturation, brightness 
+                       
+//                    //#663300 brightness: 40          //#33cc00-brightness 80/#cc6633
+//Brightness differentiation:  yellow: 100 (#ffcc33), red: 
+
+const yellow100 = "#ffcc33";
+const orange80 = "#cc6633";
+const green80 = "#33cc00";
+const red60 = "#990000"
+
+
 export const getCityColor = (selected) => {
+  
     if (selected === undefined) {
-      return "#A33A00";
+      return "#ffcc33";
     }
     let activeColors = selected.map((item) => item.color);
-    if (!activeColors.includes("#A33A00")) {
-      return "#A33A00";
-    } else if (!activeColors.includes("#0041A3")) {
-      return "#0041A3";
-    } else if (!activeColors.includes("#017428")) {
-      return "#017428";
+    if (!activeColors.includes("#ffcc33")) {
+      return "#ffcc33";
+    } else if (!activeColors.includes("#cc6633")) {
+      return "#cc6633";
+    } else if (!activeColors.includes("#990000")) {
+      return "#990000";
     }
   };
  export const getSecondCityColor = (arr, selected) => {
     let activeColors = selected.map((item) => item.color);
     activeColors.push(arr[0].color);
-    if (!activeColors.includes("#A33A00")) {
-      return "#A33A00";
-    } else if (!activeColors.includes("#0041A3")) {
-      return "#0041A3";
-    } else if (!activeColors.includes("#017428")) {
-      return "#017428";
+    if (!activeColors.includes("#ffcc33")) {
+      return "#ffcc33";
+    } else if (!activeColors.includes("#cc6633")) {
+      return "#cc6633";
+    } else if (!activeColors.includes("#990000")) {
+      return "#990000";
     }
   };
   export const lightenOrDarken = (color, percent) => {
