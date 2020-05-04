@@ -15,6 +15,8 @@ const green80 = "#33cc00";
 const red60 = "#990000";
 const green60 = "#009900";
 
+export const actionColor = "#2ca4fc";
+
 
 export const getCityColor = (selected) => {
   

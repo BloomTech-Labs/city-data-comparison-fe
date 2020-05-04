@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import citrics from './citrics-mock.png'
 import lock from './lock.png'
 import { UserContext } from '../../contexts/UserContext';
-import DropMenu from "./Dropdown"
+import DropMenu from "./Dropdown";
+import {actionColor} from "../../utils/cityColors.js";
 
 
 function Navigation(props){
@@ -13,7 +14,7 @@ function Navigation(props){
      const [bgColor, setBgColor] = useState('default-color')
      const [fixedClass, setFixedClass] = useState("")
      const defaultNavigation = () => {
-          setBgColor('default-color')
+          setBgColor('default-coloo')
           if (offset === 0 ){
                setDisplayNav('show-nav')
           }else {
@@ -63,12 +64,12 @@ function NavBar (){
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
                <nav className="main-nav">
-                    <Link to="/" className="nav-button">Home</Link>
+                    <Link to="/" className="nav-button" style={{color: actionColor}}>Home</Link>
                     {user ? <div /> : null}
-                    <Link to="/map" className="nav-button">Compare</Link>
+                    <Link to="/map" className="nav-button" style={{color: actionColor}}>Compare</Link>
                     {user == null ? 
                     <>
-                         <Link id="login-link" to="/signin"><img className="lock" alt="lock" src={lock}/>Log In</Link>
+                         <Link id="login-link" to="/signin" style={{color: actionColor}}><img className="lock" alt="lock" src={lock}/>Log In</Link>
                          {/* <Link id="signup-link" to="/signup">Get Started</Link> */}
                     </> :
                     <>
