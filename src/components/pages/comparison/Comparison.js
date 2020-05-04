@@ -15,9 +15,9 @@ import Footer from "../../navigation/Footer";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
-import Markers from "./map-components/Markers";
-import DataDisplay from "./map-components/DataDisplay";
-import PopupMap from "./map-components/PopupMap";
+import Markers from "./Markers";
+import DataDisplay from "./DataDisplay";
+import PopupMap from "./PopupMap";
 
 import { CityContext } from "../../../contexts/CityContext";
 import Axios from "axios";

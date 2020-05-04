@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import ReactGA from "react-ga";
-import { getCity } from "../../../../redux/actions/cityActions.js";
+import { getCity } from "../../../redux/actions/cityActions.js";
 const MapSearch = ({
   cityMarkers,
   viewport,
