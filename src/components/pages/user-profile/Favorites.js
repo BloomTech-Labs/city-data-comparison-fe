@@ -52,7 +52,7 @@ const Favorites = (props) => {
 
     const handleRefresh = () => {
         if (savedCities.length === 0 ) {
-            history.push('/map') 
+            history.push('/compare') 
         } else {
         window.location.reload(false);
         }
