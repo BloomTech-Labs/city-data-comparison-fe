@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import Axios from "axios";
-import { CityContext } from "../../contexts/CityContext";
+
 import recommend from "./recommend-pin.svg";
 import ReactGA from "react-ga";
 
 import {useDispatch} from 'react-redux';
-import {getCity} from '../../redux/actions/cityActions.js'
+import {getCity} from '../../../../../redux/actions/cityActions.js'
 
 //not using this component as far as we can tell right now
 const Recommendations = ({ city }) => {

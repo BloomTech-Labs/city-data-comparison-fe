@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
-import helpCircle from '../../pages/comparison/map-components/assets/helpcircle.svg'
-import SmocModal from "../../modal/smocModule";
-import useModal from "../../modal/useModal";
-import Smoc from "../../modal/SmocCard";
+import helpCircle from '../../assets/helpcircle.svg'
+import SmocModal from "../../../../modal/smocModule";
+import useModal from "../../../../modal/useModal";
+import Smoc from "../../../../modal/SmocCard";
 import { Link, Element } from 'react-scroll'
 import ReactGA from "react-ga";
 
