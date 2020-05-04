@@ -27,7 +27,7 @@ function Navigation(props){
           float:"right"
      }
 
-     console.log('props in nav', props)
+
      return(
           <>
           {props.location.pathname === "/meet-the-team" ? <MeetTheTeam /> : <NavBar />}

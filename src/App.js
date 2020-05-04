@@ -138,7 +138,7 @@ function App() {
       const filters = [f1, f2, f3, f4];
 
       setCityMarkers(recursive_filter(cityIndex, filters).slice(0, 30));
-      console.log(viewport.zoom);
+
       // let selectedCityMarkers = selected.map(item => cityIndex.find(city => city.ID === item.id))
       // setCityMarkers([...cityMarkers, ...selectedCityMarkers])
     },
