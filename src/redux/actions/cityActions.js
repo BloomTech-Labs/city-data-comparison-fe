@@ -1,8 +1,10 @@
 import ReactGA from "react-ga";
 import * as types from "./actionTypes";
 
-import {cityDataById, matchCityFromString} from '../../utils/axiosDataScience.js'
-
+import {
+  cityDataById,
+  matchCityFromString,
+} from "../../utils/axiosDataScience.js";
 
 //This thunk either takes a object with a property ID,
 //or takes a string to send to an API that will get the closest matching citymarker with ID.
@@ -12,8 +14,9 @@ export function getCity(cityMarker) {
   return async (dispatch, getState) => {
     //Set isFetching in store.
     dispatch({ type: types.GET_CITY });
-    try {
-      if (typeof cityMarker === "object") {
+
+    if (typeof cityMarker === "object") {
+      try {
         //Make an axios call to the citydata api using the city's id.
         const res = await cityDataById().get(`/${cityMarker.ID}`);
         //Log selected city in Google Analytics.
@@ -24,47 +27,44 @@ export function getCity(cityMarker) {
         let newCity = res.data;
         //Dispatch the city to state.
         dispatch({ type: types.GET_CITY_SUCCESS, payload: newCity });
-      } else if (typeof cityMarker === "string") {
-        //Log that we use the suggestion endpoint
-        ReactGA.event({
-          category: "Data",
-          action: `used suggestion endpoint: ${cityMarker}`,
+      } catch (err) {
+        dispatch({
+          type: types.GET_CITY_ERROR,
+          payload: `Could not find city: ${cityMarker}`,
         });
-        //Use the suggestion endpoint
-        try {
-          let suggestionRes = await matchCityFromString().get(`/${cityMarker}`);
-          if (!suggestionRes.data["No Data"]) {
-            // Get the key of the first property in the response data
-            let topSuggestionKey = Object.keys(suggestionRes.data)[0];
-            let suggestedCityId = suggestionRes.data[topSuggestionKey].ID;
-            let res = await cityDataById().get(`/${suggestedCityId}`);
-            // Dispatch the action to state with the city data object as payload
-            dispatch({ type: types.GET_CITY_SUCCESS, payload: res.data });
-          } else {
-            dispatch({
-              type: types.GET_CITY_ERROR,
-              payload: `Could not find city: ${cityMarker}`,
-            });
-          }
-        }
-        catch(err) {
+        console.error(err);
+      }
+    } else if (typeof cityMarker === "string") {
+      //Log that we use the suggestion endpoint
+      ReactGA.event({
+        category: "Data",
+        action: `used suggestion endpoint: ${cityMarker}`,
+      });
+      //Use the suggestion endpoint
+      try {
+        let suggestionRes = await matchCityFromString().get(`/${cityMarker}`);
+        if (!suggestionRes.data["No Data"]) {
+          // Get the key of the first property in the response data
+          let topSuggestionKey = Object.keys(suggestionRes.data)[0];
+          let suggestedCityId = suggestionRes.data[topSuggestionKey].ID;
+          let res = await cityDataById().get(`/${suggestedCityId}`);
+          // Dispatch the action to state with the city data object as payload
+          dispatch({ type: types.GET_CITY_SUCCESS, payload: res.data });
+        } else {
           dispatch({
             type: types.GET_CITY_ERROR,
             payload: `Could not find city: ${cityMarker}`,
           });
         }
-      
+      } catch (err) {
+        dispatch({
+          type: types.GET_CITY_ERROR,
+          payload: `Could not find city: ${cityMarker}`,
+        });
       }
-    } catch (err) {
-      dispatch({
-            type: types.GET_CITY_ERROR,
-            payload: `Could not find city: ${cityMarker}`,
-          });
-      console.error(err);
     }
   };
 }
-
 
 //This thunk is used when there are two fields to enter cities into, to quickly select two cities for comparison.
 //It takes an array of cities or strings and uses the same endpoints as the thunk above,
@@ -86,7 +86,7 @@ export const cityComparison = (arr) => async (dispatch, getState) => {
           action: `used suggestion endpoint: ${item}`,
         });
         //first match a city from the string with the DS search API,
-        let suggestionRes = await matchCityFromString().get(`/${item}`)
+        let suggestionRes = await matchCityFromString().get(`/${item}`);
         if (!suggestionRes.data["No Data"]) {
           let topSuggestionKey = Object.keys(suggestionRes.data)[0];
           let suggestedCityId = suggestionRes.data[topSuggestionKey].ID;

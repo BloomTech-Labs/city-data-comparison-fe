@@ -13,8 +13,8 @@ import thunk from "redux-thunk";
 import configureStore from 'redux-mock-store';
 
 //Import any mock data we need
-import citiesIndex from "../../../../data/city_ids.json";
-import {mockCityMarkers as mockSuggestionResponse, mockCityData} from '../../../../utils/testing/mockCityData.js'
+import citiesIndex from "../../../data/city_ids.json";
+import {mockCityMarkers as mockSuggestionResponse, mockCityData} from '../../../utils/testing/mockCityData.js'
 
 //Mock the module 'react-ga' so none of the functions we are testing try to actually use google analytics
 import ReactGA from "react-ga";

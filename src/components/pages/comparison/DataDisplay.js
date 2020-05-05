@@ -2,32 +2,32 @@ import React, { useState, useEffect } from "react";
 import { Link, Element } from "react-scroll";
 import { Link as SCPLink } from "react-router-dom";
 import ReactGA from "react-ga";
-import Footer from "../../../navigation/Footer";
-import AvgTemp from "../../../graphs/culture/tempAvg";
+import Footer from "../../navigation/Footer";
+import AvgTemp from "./graphs/culture/tempAvg";
 import MapSearch from "./MapSearch";
-import HousePriceGraph from "../../../graphs/housing/House_price";
-import RoomGraph from "../../../graphs/housing/HousingByRooms";
-import RentChart from "../../../graphs/housing/RentChart";
-import Industry from "../../../graphs/economics/industries";
-import Commute from "../../../graphs/economics/commute";
-import BarGraph from "../../../graphs/economics/HouseIncome_BarGraph";
-import EthnicityGraph from "../../../graphs/culture/EthnicityGraph";
-import Population from "../../../graphs/culture/PopulationGraph";
-import EducationGraph from "../../../graphs/culture/EducationGraph";
-import AgeDistributionGraph from "../../../graphs/culture/AgeDistrubution";
-import RetirementGraph from "../../../graphs/economics/retirement";
-import VacancyGraph from "../../../graphs/housing/vacancy";
-import UnemploymentCard from "../../../graphs/economics/unemploymentCard";
-import deleteIcon from "./icons/close_red.png";
-import GeneralStats from "../../../graphs/GeneralStats";
-import TravelTime from "../../../graphs/economics/TravelTimeCard";
+import HousePriceGraph from "./graphs/housing/House_price";
+import RoomGraph from "./graphs/housing/HousingByRooms";
+import RentChart from "./graphs/housing/RentChart";
+import Industry from "./graphs/economics/industries";
+import Commute from "./graphs/economics/commute";
+import BarGraph from "./graphs/economics/HouseIncome_BarGraph";
+import EthnicityGraph from "./graphs/culture/EthnicityGraph";
+import Population from "./graphs/culture/PopulationGraph";
+import EducationGraph from "./graphs/culture/EducationGraph";
+import AgeDistributionGraph from "./graphs/culture/AgeDistrubution";
+import RetirementGraph from "./graphs/economics/retirement";
+import VacancyGraph from "./graphs/housing/vacancy";
+import UnemploymentCard from "./graphs/economics/unemploymentCard";
+import deleteIcon from "./assets/close_red.png";
+import GeneralStats from "./overview/GeneralStats";
+import TravelTime from "./graphs/economics/TravelTimeCard";
 // import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
-import OwnerCostCard from "../../../graphs/housing/OwnerCostCard";
+import OwnerCostCard from "./graphs/housing/OwnerCostCard";
 // import BirthRateCard from "../graphs/culture/birthRateCard"
-import Transportaion from "../../../graphs/transportationScore";
-import dropdownIcon from "../../../../assets/single_city_page_photos/DropdownIcon.png";
 
-import {actionColor} from "../../../../utils/cityColors.js";
+import dropdownIcon from "../../../assets/single_city_page_photos/DropdownIcon.png";
+
+import {actionColor} from "../../../utils/cityColors.js";
 
 const DataDisplay = ({
   selected,

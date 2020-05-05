@@ -285,7 +285,7 @@ const SingleCityPage = (props) => {
                 <div className="SCPdescription">
                     <div className="SCPbackToExplore">
                         <img className="backArrow" src={backArrow} alt="" />
-                        <Link className="backLink" to="/map">Back to explore</Link>
+                        <Link className="backLink" to="/compare">Back to explore</Link>
                     </div>
 
                     <div>

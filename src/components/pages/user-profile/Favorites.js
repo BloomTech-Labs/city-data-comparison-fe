@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import {UserContext} from "../../../contexts/UserContext"
-import GeneralStats from "../../graphs/GeneralStats";
+import GeneralStats from "../comparison/overview/GeneralStats";
 import { useHistory } from 'react-router-dom';
 
 const Favorites = (props) => {
@@ -52,7 +52,7 @@ const Favorites = (props) => {
 
     const handleRefresh = () => {
         if (savedCities.length === 0 ) {
-            history.push('/map') 
+            history.push('/compare') 
         } else {
         window.location.reload(false);
         }
