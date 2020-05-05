@@ -6,7 +6,8 @@ import lock2 from './lock.svg';
 import signInLock from './signInLock.png';
 import { UserContext } from '../../contexts/UserContext';
 import DropMenu from "./Dropdown";
-import {actionColor} from "../../utils/cityColors.js";
+import {actionColor, navGrey} from "../../utils/cityColors.js";
+
 
 
 function Navigation(props){
@@ -66,9 +67,9 @@ function NavBar (){
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
                <nav className="main-nav">
-                    <Link to="/" className="nav-button" style={{color: actionColor}}>Home</Link>
+                    <Link to="/" className="nav-button" style={{color: navGrey}}>Home</Link>
                     {user ? <div /> : null}
-                    <Link to="/compare" className="nav-button" style={{color: actionColor}}>Compare</Link>
+                    <Link to="/compare" className="nav-button" style={{color: navGrey}}>Compare</Link>
                     {user == null ? 
                     <>
                          <Link id="login-link" to="/signin" style={{color: actionColor}}><img className="lock" alt="lock" src={signInLock}/>Log In</Link>

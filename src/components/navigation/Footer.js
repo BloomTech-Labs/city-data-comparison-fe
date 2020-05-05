@@ -9,7 +9,7 @@ import PrivacyPolicy from "../legal/PrivacyPolicy";
 
 import {UserContext} from "../../contexts/UserContext";
 
-import {actionColor} from "../../utils/cityColors.js";
+import {actionColor, footerGrey, navGrey} from "../../utils/cityColors.js";
 
 function Footer(){
 
@@ -41,15 +41,15 @@ function Footer(){
 
                               <div className="footer2">
                                    <div className="footer3">
-                                        <Link to="/meet-the-team" style={{color: actionColor}}>Meet the Team</Link>
+                                        <Link to="/meet-the-team" style={{color: navGrey}}>Meet the Team</Link>
                                    </div>
 
                                    <div className="footer3">
-                                        <a href="https://api.citrics.io/docs" style={{color: actionColor}}>Data Sources</a>
+                                        <a href="https://api.citrics.io/docs" style={{color: navGrey}}>Data Sources</a>
                                    </div>
 
                                    <div className="footer3">
-                                        <Link to="/PrivacyPolicy" style={{color: actionColor}} >Privacy Policy</Link>
+                                        <Link to="/PrivacyPolicy" style={{color: navGrey}} >Privacy Policy</Link>
                                    </div>
                               </div>
                          </div>
