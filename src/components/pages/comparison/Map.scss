@@ -15,15 +15,12 @@
 
 /* this refers to the whole page (does not include navigation */
 
-.map-page {
+.comparison-page-container {
   background: #e9e8e9;
   //   background: #e9e8e9;
-  height: 100%;
   // border:1px solid red;
   // height:100vh;
   .footer-container {
-    margin-top: 0;
-    position: absolute;
     width: 100%;
   }
 }

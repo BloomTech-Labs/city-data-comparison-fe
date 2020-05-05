@@ -93,7 +93,7 @@ export default function Map() {
   };
 
   return (
-    <div className="map-page">
+    <div className="comparison-page-container">
       <div className="loader-animation" timeout={800}>
         <Loader
           type="Plane"
