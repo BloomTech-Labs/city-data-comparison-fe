@@ -14,7 +14,12 @@ const orange80 = "#cc6633a5";
 const green80 = "#33cc00";
 const red60 = "#990000";
 const green60 = "#009900a5";
-const purple60 = "#990066";
+const purple60 = "#990099a5";
+
+//new design combo: 
+const darkBlue31 = "#293250a5";
+const newYellow100 = "#ffd55aa5";
+const green83 = "#6dd47ea5"
 
 export const actionColor = "#2ca4fc";
 export const footerGrey = "#a9a9a9";
@@ -24,26 +29,26 @@ export const navGrey = "#696969";
 export const getCityColor = (selected) => {
   
     if (selected === undefined) {
-      return yellow100;
+      return darkBlue31;
     }
     let activeColors = selected.map((item) => item.color);
-    if (!activeColors.includes(yellow100)) {
-      return yellow100;
-    } else if (!activeColors.includes(orange80)) {
-      return orange80;
-    } else if (!activeColors.includes(green60)) {
-      return green60;
+    if (!activeColors.includes(darkBlue31)) {
+      return darkBlue31;
+    } else if (!activeColors.includes(newYellow100)) {
+      return newYellow100;
+    } else if (!activeColors.includes(green83)) {
+      return green83;
     }
   };
  export const getSecondCityColor = (arr, selected) => {
     let activeColors = selected.map((item) => item.color);
     activeColors.push(arr[0].color);
-    if (!activeColors.includes(yellow100)) {
-      return yellow100;
-    } else if (!activeColors.includes(orange80)) {
-      return orange80;
-    } else if (!activeColors.includes(green60)) {
-      return green60;
+    if (!activeColors.includes(darkBlue31)) {
+      return darkBlue31;
+    } else if (!activeColors.includes(newYellow100)) {
+      return newYellow100;
+    } else if (!activeColors.includes(green83)) {
+      return green83;
     }
   };
   export const lightenOrDarken = (color, percent) => {
