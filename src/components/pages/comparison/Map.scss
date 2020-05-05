@@ -74,13 +74,14 @@
   .city-overview-cards-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     @media screen and (max-width: 800px) {
       flex-direction: column;
     }
 
     .city-overview-card {
       height: 100%;
+      width: 100%;
       .recommendation-grid {
         background-color: white;
         border-radius: 10px;
