@@ -53,13 +53,13 @@ const DataDisplay = ({
         {selected.length > 0 ? (
           <>
             <div className="general-stats-container">
-                <GeneralStats ethData={selected} />
+              <GeneralStats ethData={selected} />
             </div>
 
             <div className="data-category">
               <div className="rent-container">
                 <p className="chart-title">Average rent</p>
-                  <RentChart edData={selected} />
+                <RentChart edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
@@ -68,21 +68,21 @@ const DataDisplay = ({
               <div className="home-container">
                 <div className="homeprice-container">
                   <p className="chart-title">Home prices</p>
-                    <HousePriceGraph selected={selected} />
+                  <HousePriceGraph selected={selected} />
                   <p style={{ textAlign: "right", fontSize: "10px" }}>
                     Source: zillow.com
                   </p>
                 </div>
 
                 <div className="ownerMortgage">
-                    <OwnerCostCard ethData={selected} />
+                  <OwnerCostCard ethData={selected} />
                 </div>
               </div>
 
               <div className="rooms-vacancy-container">
                 <div className="room-container">
                   <p className="chart-title">Average rooms per household</p>
-                    <RoomGraph edData={selected} />
+                  <RoomGraph edData={selected} />
                   <p style={{ textAlign: "right", fontSize: "10px" }}>
                     Source: U.S. Census (2018)
                   </p>
@@ -90,7 +90,7 @@ const DataDisplay = ({
 
                 <div className="vacancy-owner-container">
                   <p className="chart-title">Vacancy</p>
-                    <VacancyGraph edData={selected} />
+                  <VacancyGraph edData={selected} />
                   <p style={{ textAlign: "right", fontSize: "10px" }}>
                     Source: U.S. Census (2018)
                   </p>
@@ -101,7 +101,7 @@ const DataDisplay = ({
             <div className="data-category">
               <div className="industries-container">
                 <p className="chart-title">Job industry</p>
-                  <Industry edData={selected} />
+                <Industry edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
@@ -109,7 +109,7 @@ const DataDisplay = ({
 
               <div className="salary-container">
                 <p className="chart-title">Average salary</p>
-                  <BarGraph edData={selected} />
+                <BarGraph edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
@@ -118,24 +118,24 @@ const DataDisplay = ({
               <div className="commute-travel-container">
                 <div className="commute-container">
                   <p className="chart-title">Ways to commute</p>
-                    <Commute edData={selected} />
+                  <Commute edData={selected} />
                   <p style={{ textAlign: "right", fontSize: "10px" }}>
                     Source: U.S. Census (2018)
                   </p>
                 </div>
                 <div className="travel-container">
-                    <TravelTime ethData={selected} />
+                  <TravelTime ethData={selected} />
                 </div>
               </div>
 
               <div className="other-industries-container">
                 <div className="unemployment-container">
-                    <UnemploymentCard ethData={selected} />
+                  <UnemploymentCard ethData={selected} />
                 </div>
 
                 <div className="retirement-container">
                   <p className="chart-title">Retirement income source</p>
-                    <RetirementGraph ethData={selected} />
+                  <RetirementGraph ethData={selected} />
                   <p style={{ textAlign: "right", fontSize: "10px" }}>
                     Source: U.S. Census (2018)
                   </p>
@@ -146,7 +146,7 @@ const DataDisplay = ({
             <div className="data-category">
               <div className="age-container">
                 <p className="chart-title">Age distribution</p>
-                  <AgeDistributionGraph ethData={selected} />
+                <AgeDistributionGraph ethData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
@@ -154,7 +154,7 @@ const DataDisplay = ({
 
               <div className="ethnicity-container">
                 <p className="chart-title">Diversity</p>
-                  <EthnicityGraph ethData={selected} />
+                <EthnicityGraph ethData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
@@ -162,7 +162,7 @@ const DataDisplay = ({
 
               <div className="education-container">
                 <p className="chart-title">Education</p>
-                  <EducationGraph edData={selected} />
+                <EducationGraph edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
@@ -171,7 +171,7 @@ const DataDisplay = ({
               <div className="population-birth-container">
                 <div className="population-container">
                   <p className="chart-title">Population growth</p>
-                    <Population selected={selected} />
+                  <Population selected={selected} />
                   <p style={{ textAlign: "right", fontSize: "10px" }}>
                     Source: U.S. Census (2018)
                   </p>
@@ -180,7 +180,7 @@ const DataDisplay = ({
 
               <div className="avg-temp-container">
                 <p className="chart-title">Historical temperature</p>
-                  <AvgTemp edData={selected} />
+                <AvgTemp edData={selected} />
               </div>
             </div>
           </>
