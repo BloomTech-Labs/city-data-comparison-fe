@@ -8,9 +8,9 @@ const Jobs = ({selected}) => {
     return (
         <div className="jobs-graphs data-category">
             <h3>Job Market:</h3>
-            <span id="industries"><Industry edData={selected} /></span>
-            <span id="salary"><BarGraph edData={selected} /></span>
-            <span id="commute"><Commute edData={selected} /></span>
+            <Industry edData={selected} />
+            <BarGraph edData={selected} />
+            <Commute edData={selected} />
         </div>
     )
 }
