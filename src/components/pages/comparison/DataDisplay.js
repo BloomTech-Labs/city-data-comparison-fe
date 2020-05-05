@@ -35,13 +35,11 @@ const DataDisplay = ({
   setViewport,
   cityIndex,
 }) => {
-  const [defaultDisplay, setdefaultDisplay] = useState(false);
 
   const dataNavClicked = (link) => {
     ReactGA.event({ category: "Data", action: `clicked ${link} link` });
   };
 
-  const [categories, setCategories] = useState({});
 
   return (
     <div className="data-browser">
@@ -70,7 +68,7 @@ const DataDisplay = ({
                         <p className="data-category-subtitle">View the comprehensive picture of housing in American cities.</p>
                     </div> */}
 
-              {!defaultDisplay || categories.rent ? (
+
                 <div className="rent-container">
                   <p className="chart-title">Average rent</p>
                   <Element name="rent" className="element">
@@ -80,11 +78,9 @@ const DataDisplay = ({
                     Source: U.S. Census (2018)
                   </p>
                 </div>
-              ) : (
-                <div></div>
-              )}
+           
 
-              {!defaultDisplay || categories.homeContainer ? (
+
                 <div className="home-container">
                   <div className="homeprice-container">
                     <p className="chart-title">Home prices</p>
@@ -102,11 +98,8 @@ const DataDisplay = ({
                     </Element>
                   </div>
                 </div>
-              ) : (
-                <div></div>
-              )}
 
-              {!defaultDisplay || categories.roomsVacancy ? (
+
                 <div className="rooms-vacancy-container">
                   <div className="room-container">
                     <p className="chart-title">Average rooms per household</p>
@@ -128,9 +121,7 @@ const DataDisplay = ({
                     </p>
                   </div>
                 </div>
-              ) : (
-                <div></div>
-              )}
+
             </div>
 
             <div className="data-category">
@@ -139,7 +130,7 @@ const DataDisplay = ({
                             <p className="data-category-subtitle">Explore optimized industry metrics.</p>
                         </div> */}
 
-              {!defaultDisplay || categories.industries ? (
+
                 <div className="industries-container">
                   <p className="chart-title">Job industry</p>
                   <Element name="industries" className="element">
@@ -149,11 +140,9 @@ const DataDisplay = ({
                     Source: U.S. Census (2018)
                   </p>
                 </div>
-              ) : (
-                <div></div>
-              )}
 
-              {!defaultDisplay || categories.salary ? (
+
+
                 <div className="salary-container">
                   <p className="chart-title">Average salary</p>
                   <Element name="salary" className="element">
@@ -163,11 +152,8 @@ const DataDisplay = ({
                     Source: U.S. Census (2018)
                   </p>
                 </div>
-              ) : (
-                <div></div>
-              )}
 
-              {!defaultDisplay || categories.commute ? (
+
                 <div className="commute-travel-container">
                   <div className="commute-container">
                     <p className="chart-title">Ways to commute</p>
@@ -185,9 +171,6 @@ const DataDisplay = ({
                     </Element>
                   </div>
                 </div>
-              ) : (
-                <div></div>
-              )}
 
               {/* { !defaultDisplay || categories.travelScores?
                         <div className="travel-scores-container">
@@ -196,7 +179,7 @@ const DataDisplay = ({
                         : <div></div>
                     } */}
 
-              {!defaultDisplay || categories.unemployRetire ? (
+
                 <div className="other-industries-container">
                   <div className="unemployment-container">
                     {/* <p className="chart-title">Unemployment</p> */}
@@ -219,9 +202,7 @@ const DataDisplay = ({
                     </p>
                   </div>
                 </div>
-              ) : (
-                <div></div>
-              )}
+
             </div>
 
             <div className="data-category">
@@ -229,7 +210,7 @@ const DataDisplay = ({
                             <p className="data-category-header">Culture</p>
                             <p className="data-category-subtitle">Get a bird's eye view of your selected city's community.</p>
                         </div> */}
-              {!defaultDisplay || categories.ageDistribution ? (
+
                 <div className="age-container">
                   <p className="chart-title">Age distribution</p>
                   <Element name="ageDistribution" className="element">
@@ -239,11 +220,9 @@ const DataDisplay = ({
                     Source: U.S. Census (2018)
                   </p>
                 </div>
-              ) : (
-                <div></div>
-              )}
 
-              {!defaultDisplay || categories.diversity ? (
+
+
                 <div className="ethnicity-container">
                   <p className="chart-title">Diversity</p>
                   <Element name="diversity" className="element">
@@ -253,11 +232,9 @@ const DataDisplay = ({
                     Source: U.S. Census (2018)
                   </p>
                 </div>
-              ) : (
-                <div></div>
-              )}
 
-              {!defaultDisplay || categories.education ? (
+
+
                 <div className="education-container">
                   <p className="chart-title">Education</p>
                   <Element name="education" className="element">
@@ -267,11 +244,8 @@ const DataDisplay = ({
                     Source: U.S. Census (2018)
                   </p>
                 </div>
-              ) : (
-                <div></div>
-              )}
 
-              {!defaultDisplay || categories.population ? (
+
                 <div className="population-birth-container">
                   <div className="population-container">
                     <p className="chart-title">Population growth</p>
@@ -286,9 +260,7 @@ const DataDisplay = ({
                                 <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
                             </div> */}
                 </div>
-              ) : (
-                <div></div>
-              )}
+
 
               {/* { !defaultDisplay || categories.avgTemp?
                         <div className="avg-temp-container">
@@ -301,7 +273,7 @@ const DataDisplay = ({
             </div>
           </>
         ) : (
-          <p className="map-prompt">Select up to 3 cities to compare</p>
+          <p className="map-prompt">Select up to three cities to compare</p>
         )}
       </div>
     </div>
