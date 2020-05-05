@@ -144,8 +144,68 @@
       }
       &:only-child {
         max-width: none;
-        .city-info-container {
-          @media screen and (min-width: 800px) {
+        .recommendation-grid {
+          background-color: white;
+          border-radius: 10px;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          width: 100%;
+
+          .recommendation-container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .recommendation-title {
+            display: flex;
+            align-items: center;
+            color: grey;
+            font-size: 14px;
+            margin: 0 auto;
+            border: 1px solid #ecf1f5;
+            width: 50%;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+          }
+          .recommendation {
+            cursor: pointer;
+            border: 1px solid #ecf1f5;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            padding: 10px;
+
+            .recommendation-subtitle {
+              color: grey;
+              width: 100%;
+              font-size: 14px;
+              text-align: center;
+              margin-bottom: 3px;
+              margin-top: 0;
+            }
+
+            img {
+              height: 17px;
+              margin-right: 5px;
+            }
+            .recommendation-cities {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0;
+            }
+            &:hover {
+              background-color: #f6f9fc;
+              border: 1px solid #e9e8e9;
+            }
+          }
+        }
+        @media screen and (min-width: 800px) {
+          .city-info-container {
             padding: 15px 7%;
             padding-top: 0;
             flex-direction: row;
@@ -164,23 +224,23 @@
               }
             }
           }
-        }
-        .recommendation-grid {
-          width: none;
-          .recommendation-container {
-            flex-wrap: nowrap;
-          }
-          .recommendation-title {
-            width: 31%;
-            justify-content: center;
-            text-align: left;
-            padding: 5px 10px;
-          }
-          .recommendation {
-            width: 23%;
-            padding: 10px 5px;
-            img {
-              height: 20px;
+          .recommendation-grid {
+            width: none;
+            .recommendation-container {
+              flex-wrap: nowrap;
+            }
+            .recommendation-title {
+              width: 31%;
+              justify-content: center;
+              text-align: left;
+              padding: 5px 10px;
+            }
+            .recommendation {
+              width: 23%;
+              padding: 10px 5px;
+              img {
+                height: 20px;
+              }
             }
           }
         }
@@ -731,7 +791,6 @@
     margin-bottom: 30px;
     background-color: white;
   }
-
 
   .anchor-header1 {
     font-size: 1.2rem;
