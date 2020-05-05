@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, Element } from "react-scroll";
-import { Link as SCPLink } from "react-router-dom";
+import React from "react";
 import ReactGA from "react-ga";
-import Footer from "../../navigation/Footer";
 import AvgTemp from "./graphs/culture/tempAvg";
 import MapSearch from "./MapSearch";
 import HousePriceGraph from "./graphs/housing/House_price";
@@ -18,17 +15,12 @@ import AgeDistributionGraph from "./graphs/culture/AgeDistrubution";
 import RetirementGraph from "./graphs/economics/retirement";
 import VacancyGraph from "./graphs/housing/vacancy";
 import UnemploymentCard from "./graphs/economics/unemploymentCard";
-import deleteIcon from "./assets/close_red.png";
 import GeneralStats from "./overview/GeneralStats";
 import TravelTime from "./graphs/economics/TravelTimeCard";
 import OwnerCostCard from "./graphs/housing/OwnerCostCard";
-// import BirthRateCard from "../graphs/culture/birthRateCard"
-
-import dropdownIcon from "../../../assets/single_city_page_photos/DropdownIcon.png";
 
 const DataDisplay = ({
   selected,
-  toggleSelected,
   cityMarkers,
   viewport,
   setViewport,
