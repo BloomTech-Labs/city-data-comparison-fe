@@ -193,10 +193,10 @@ const DataDisplay = ({
             </div>
 
             <div className="data-category">
-              {/* <div className="data-category-titles">
+              <div className="data-category-titles">
                             <p className="data-category-header">Culture</p>
                             <p className="data-category-subtitle">Get a bird's eye view of your selected city's community.</p>
-                        </div> */}
+                        </div>
 
                 <div className="age-container">
                   <p className="chart-title">Age distribution</p>
@@ -243,20 +243,16 @@ const DataDisplay = ({
                       Source: U.S. Census (2018)
                     </p>
                   </div>
-                  {/* <div className="birth-container">
-                                <Element name="birthRate" className="element" ><BirthRateCard ethData = {selected} /></Element>
-                            </div> */}
                 </div>
 
 
-              {/* { !defaultDisplay || categories.avgTemp?
+
                         <div className="avg-temp-container">
                             <p className="chart-title">Historical temperature</p>
                             <Element name="avgTemp" className="element" ><AvgTemp edData = {selected} /></Element>
 
                         </div>
-                        :<div></div>
-                        } */}
+
             </div>
           </>
         ) : (
