@@ -21,7 +21,6 @@ import UnemploymentCard from "./graphs/economics/unemploymentCard";
 import deleteIcon from "./assets/close_red.png";
 import GeneralStats from "./overview/GeneralStats";
 import TravelTime from "./graphs/economics/TravelTimeCard";
-// import HealthInsurance from "../graphs/economics/HealthInsuranceCard";
 import OwnerCostCard from "./graphs/housing/OwnerCostCard";
 // import BirthRateCard from "../graphs/culture/birthRateCard"
 
@@ -63,10 +62,10 @@ const DataDisplay = ({
             </div>
 
             <div className="data-category">
-              {/* <div className="data-category-titles">
+              <div className="data-category-titles">
                         <p className="data-category-header">Housing</p>
                         <p className="data-category-subtitle">View the comprehensive picture of housing in American cities.</p>
-                    </div> */}
+                    </div>
 
 
                 <div className="rent-container">
@@ -125,10 +124,10 @@ const DataDisplay = ({
             </div>
 
             <div className="data-category">
-              {/* <div className="data-category-titles">
+              <div className="data-category-titles">
                             <p className="data-category-header">Industry</p>
                             <p className="data-category-subtitle">Explore optimized industry metrics.</p>
-                        </div> */}
+                        </div>
 
 
                 <div className="industries-container">
@@ -165,32 +164,20 @@ const DataDisplay = ({
                     </p>
                   </div>
                   <div className="travel-container">
-                    {/* <p className="chart-title">Travel time to work</p> */}
                     <Element name="commute" className="element">
                       <TravelTime ethData={selected} />
                     </Element>
                   </div>
                 </div>
 
-              {/* { !defaultDisplay || categories.travelScores?
-                        <div className="travel-scores-container">
-                            <Element name="travelScores" className="element" ><Transportaion ethData = {selected} /></Element>
-                        </div>
-                        : <div></div>
-                    } */}
-
 
                 <div className="other-industries-container">
                   <div className="unemployment-container">
-                    {/* <p className="chart-title">Unemployment</p> */}
                     <Element name="unemployRetire" className="element">
                       <UnemploymentCard ethData={selected} />
                     </Element>
                   </div>
 
-                  {/* <div className="insurance-container">
-                                <Element name="healthInsurance" className="element" ><HealthInsurance ethData = {selected} /></Element>
-                            </div> */}
 
                   <div className="retirement-container">
                     <p className="chart-title">Retirement income source</p>
@@ -273,7 +260,7 @@ const DataDisplay = ({
             </div>
           </>
         ) : (
-          <p className="map-prompt">Select up to three cities to compare</p>
+          <p className="map-prompt">Select up to three cities to compare.</p>
         )}
       </div>
     </div>
