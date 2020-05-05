@@ -22,9 +22,6 @@
 
 /* The data-broswer is the component below the map */
 
-
-
-
 .general-stats-container {
   width: 100%;
   margin: 0;
@@ -36,16 +33,12 @@
   }
 }
 
-
 .data-browser {
   display: flex;
   flex-direction: column;
   height: 100%;
   position: relative;
   margin: 5%;
-  @media screen and (max-width: 600px) {
-    background: #e9e8e9;
-  }
 
   .map-prompt {
     text-align: center;
@@ -56,18 +49,7 @@
 
   .data-category {
     width: 100%;
-    border-radius: 5px;
-
-    @media screen and (max-width: 600px) {
-      width: 100%;
-      border-top: 1px solid #ecf1f5;
-      border-bottom: 1px solid #ecf1f5;
-      border-radius: 0;
-      background: #e9e8e9;
-    }
   }
-
-  
 
   .special-margins {
     margin-bottom: 3%;
@@ -160,7 +142,7 @@
         }
       }
       &:only-child {
-          max-width: none;
+        max-width: none;
         .city-info-container {
           @media screen and (min-width: 800px) {
             padding: 15px 7%;
@@ -287,7 +269,6 @@
     }
   }
 
-
   .chart-title {
     margin-top: 10px;
     font-size: 1.3rem;
@@ -360,7 +341,7 @@
       color: darkgrey;
     }
   }
- 
+
   @media screen and (max-width: 1000px) {
     .home-container {
       .homeprice-container {
@@ -410,10 +391,6 @@
       padding: 10px;
       box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
       border-radius: 5px;
-
-      @media screen and (max-width: 800px) {
-        width: 100%;
-      }
     }
 
     .vacancy-owner-container {
@@ -422,13 +399,8 @@
       width: 100%;
       padding: 10px;
       box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-
-      @media screen and (max-width: 800px) {
-        width: 100%;
-      }
     }
   }
-  
 
   // ** Industry styling
   .industries-container {
@@ -436,7 +408,6 @@
     border-radius: 5px;
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
     background-color: white;
-
   }
   .salary-container {
     padding: 10px;
@@ -445,7 +416,6 @@
     background-color: white;
   }
   .commute-travel-container {
-
     .commute-container {
       width: 100%;
       padding: 10px;
@@ -454,51 +424,44 @@
       background-color: white;
     }
 
+    .commute-time-container {
+      width: 100%;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
+      background-color: white;
+      display: flex;
+      flex-wrap: wrap;
 
-     
-
-
-
-
-      .commute-time-container {
+      .commute-city-title {
+        font-size: 1rem;
         width: 100%;
-        padding: 15px;
-        border-radius: 5px;
-        box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        background-color: white;
+        margin-bottom: 25px;
         display: flex;
-        flex-wrap: wrap;
-
-        .commute-city-title {
-          font-size: 1rem;
-          width: 100%;
-          margin-bottom: 25px;
-          display: flex;
-          align-items: flex-end;
-          justify-content: space-between;
-        }
-
-        .commute-time-num {
-          font-size: 1.9rem;
-          font-weight: 400;
-          color: black;
-          text-align: center;
-          width: 100%;
-          .commute-clock {
-            height: 18px;
-            margin-right: 10px;
-          }
-        }
-        #commute-label {
-          color: grey;
-          font-size: 1rem;
-          width: 100%;
-          margin-top: 3px;
-          text-align: center;
-          margin-bottom: 5px;
-        }
+        align-items: flex-end;
+        justify-content: space-between;
       }
 
+      .commute-time-num {
+        font-size: 1.9rem;
+        font-weight: 400;
+        color: black;
+        text-align: center;
+        width: 100%;
+        .commute-clock {
+          height: 18px;
+          margin-right: 10px;
+        }
+      }
+      #commute-label {
+        color: grey;
+        font-size: 1rem;
+        width: 100%;
+        margin-top: 3px;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+    }
   }
 
   .travel-scores-container {
@@ -613,61 +576,54 @@
     }
   }
 
+  .unemployment-card-container {
+    width: 100%;
+    padding: 15px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
+    background-color: white;
 
-
-
-
-      .unemployment-card-container {
-        width: 100%;
-        padding: 15px;
-        padding-bottom: 10px;
-        border-radius: 5px;
-        box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        background-color: white;
-
-        .unemployment-title {
-          font-size: 1.2rem;
-          width: 100%;
-          margin-bottom: 25px;
-          display: flex;
-          justify-content: space-between;
-          @media screen and (max-width: 800px) {
-            font-size: 1rem;
-          }
-        }
-
-        .unemployment-num {
-          font-size: 2rem;
-          font-weight: 400;
-          color: black;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          .archive {
-            width: 20px;
-            margin-right: 10px;
-          }
-        }
-        .unemployment-label {
-          color: grey;
-          font-size: 12px;
-          width: 100%;
-          margin-top: 10px;
-          text-align: center;
-          margin-bottom: 5px;
-        }
-      }
-
-
-    .retirement-container {
+    .unemployment-title {
+      font-size: 1.2rem;
       width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-      background-color: white;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      @media screen and (max-width: 800px) {
+        font-size: 1rem;
+      }
     }
- 
 
+    .unemployment-num {
+      font-size: 2rem;
+      font-weight: 400;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .archive {
+        width: 20px;
+        margin-right: 10px;
+      }
+    }
+    .unemployment-label {
+      color: grey;
+      font-size: 12px;
+      width: 100%;
+      margin-top: 10px;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+  }
+
+  .retirement-container {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
+    background-color: white;
+  }
 
   //** Culture styling
   .ethnicity-container {
@@ -691,83 +647,82 @@
     background-color: white;
   }
 
+  .population-container {
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
+    background-color: white;
+    width: 100%;
+    @media screen and (max-width: 800px) {
+      width: 100%;
+    }
+  }
 
-    .population-container {
-      padding: 10px;
+  .birth-container {
+    width: 22%;
+    @media screen and (max-width: 800px) {
+      .birth-card-container-mobile {
+        display: flex;
+        justify-content: space-between;
+      }
+      width: 100%;
+    }
+
+    .birth-card-container {
+      padding: 15px;
+      padding-bottom: 10px;
       border-radius: 5px;
       box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
+      margin-bottom: 30px;
       background-color: white;
-      width: 100%;
-      @media screen and (max-width: 800px) {
-        width: 100%;
-      }
-    }
 
-    .birth-container {
-      width: 22%;
       @media screen and (max-width: 800px) {
-        .birth-card-container-mobile {
-          display: flex;
-          justify-content: space-between;
-        }
-        width: 100%;
+        width: 45%;
       }
 
-      .birth-card-container {
-        padding: 15px;
-        padding-bottom: 10px;
-        border-radius: 5px;
-        box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        margin-bottom: 30px;
-        background-color: white;
+      .birth-title {
+        font-size: 1.1rem;
+        width: 100%;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
 
-        @media screen and (max-width: 800px) {
-          width: 45%;
+      .birth-num {
+        font-size: 2.1rem;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+
+        .mothers-num {
+          width: 40%;
+          color: black;
+          text-align: right;
         }
 
-        .birth-title {
-          font-size: 1.1rem;
-          width: 100%;
-          margin-bottom: 20px;
-          display: flex;
-          justify-content: space-between;
-        }
-
-        .birth-num {
-          font-size: 2.1rem;
-          display: flex;
-          text-align: center;
-          justify-content: center;
-          align-items: center;
-          padding: 0 10px;
-
-          .mothers-num {
-            width: 40%;
-            color: black;
-            text-align: right;
-          }
-
-          .birth-rate-label {
-            width: 60%;
-            color: black;
-            text-align: left;
-            font-size: 1vw;
-            margin-left: 15px;
-            @media screen and (max-width: 800px) {
-              font-size: 1rem;
-            }
+        .birth-rate-label {
+          width: 60%;
+          color: black;
+          text-align: left;
+          font-size: 1vw;
+          margin-left: 15px;
+          @media screen and (max-width: 800px) {
+            font-size: 1rem;
           }
         }
-        .birth-label {
-          color: grey;
-          font-size: 1rem;
-          width: 100%;
-          margin-top: 10px;
-          text-align: center;
-          margin-bottom: 5px;
-        }
+      }
+      .birth-label {
+        color: grey;
+        font-size: 1rem;
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+        margin-bottom: 5px;
       }
     }
+  }
 
   .avg-temp-container {
     padding: 10px;
@@ -776,7 +731,7 @@
     background-color: white;
   }
 
-  // **** Styling prior to Kevin's
+
   .anchor-header1 {
     font-size: 1.2rem;
     text-align: left;
@@ -805,10 +760,6 @@
     margin: 6% 20px 5% 20px;
     display: flex;
     justify-content: space-between;
-  }
-
-  .nav-placeholder::-webkit-scrollbar {
-    // display: none;
   }
 
   .search-bar {
@@ -849,7 +800,6 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
   }
 
-  
   .search-form {
     margin: 0 auto;
     width: 100%;
@@ -876,7 +826,7 @@
     border-bottom-right-radius: 20px;
     width: 100%;
     position: relative;
-    padding-bottom: .01rem;
+    padding-bottom: 0.01rem;
   }
 
   .autofill-container.abso-width {
