@@ -29,7 +29,7 @@ function TotalPopulation({ethData}) {
 
     return (
 
-        <div className="city-overview-container-small">
+        <div className="city-overview-cards-container">
             {ethData.map(item => 
             <div key={item._id} className="city-overview-card">
             <div className="city-overview-container"> 
@@ -38,7 +38,7 @@ function TotalPopulation({ethData}) {
                 <FavoriteButton city={item}  />
                 <DeselectCityButton city={item} />
             </div>
-            <div className="city-info-container">
+            <div className="city-overview-content">
                 <div className="city-overview-container-one">
                     <div className="overview-title-container-one">
                         <div className="overview-title"><img alt="income" src={income} />Median income</div>

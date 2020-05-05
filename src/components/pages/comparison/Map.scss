@@ -71,7 +71,7 @@
     border-radius: 5px;
   }
 
-  .city-overview-container-small {
+  .city-overview-cards-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -203,7 +203,7 @@
       width: 100%;
       display: flex;
     }
-    .city-info-container {
+    .city-overview-content {
       display: flex;
       flex-direction: column;
       padding: 15px 3%;
