@@ -16,7 +16,7 @@
 /* this refers to the whole page (does not include navigation */
 
 .map-page {
-  background: white;
+  background: #e9e8e9;
   //   background: #e9e8e9;
   height: 100%;
   // border:1px solid red;
@@ -39,7 +39,6 @@
 @media screen and (max-width: 800px) {
   .general-stats-container {
     width: 100%;
-    background: #e9e8e9;
   }
 }
 
@@ -47,14 +46,13 @@
 .data-browser {
   // border:1px solid red;
   // background: #F2F9FD;
-  background: #e9e8e9;
   display: flex;
   flex-direction: column;
-  padding-top: 3%;
   height: 100%;
+  position: relative;
+  margin: 5%;
   @media screen and (max-width: 600px) {
     background: #e9e8e9;
-    padding-top: 0;
   }
 
   .map-prompt {
@@ -1083,9 +1081,12 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
   }
 
+  
   .search-form {
     margin: 0 auto;
-    width: 95%;
+    width: 100%;
+    position: absolute;
+    top: 0;
   }
 
   .inner-search-container {
@@ -1107,28 +1108,7 @@
     border-bottom-right-radius: 20px;
     width: 100%;
     position: relative;
-    @media only screen and (max-width: 900px) {
-      padding: 0 2.5%;
-    }
-    @media only screen and (max-width: 675px) {
-      padding: 0 3.5%;
-    }
-    @media only screen and (max-width: 600px) {
-      padding: 0 4.5%;
-      width: 80.75%;
-    }
-    @media only screen and (max-width: 500px) {
-      padding: 0 5.4%;
-    }
-    @media only screen and (max-width: 414px) {
-      padding: 0 6.2%;
-    }
-    @media only screen and (max-width: 450px) {
-      width: 80.75%;
-    }
-    @media only screen and (max-width: 375px) {
-      padding: 0 7.4%;
-    }
+    padding-bottom: .01rem;
   }
 
   .autofill-container.abso-width {
