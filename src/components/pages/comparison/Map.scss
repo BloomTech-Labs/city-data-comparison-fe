@@ -32,10 +32,15 @@
 
 
 
-//not being used
+
 .general-stats-container {
-  margin-bottom: 3%;
   width: 100%;
+}
+@media screen and (max-width: 800px) {
+  .general-stats-container {
+    width: 100%;
+    background: #e9e8e9;
+  }
 }
 
 
@@ -49,7 +54,6 @@
   height: 100%;
   @media screen and (max-width: 600px) {
     background: #e9e8e9;
-    //  white;
     padding-top: 0;
   }
 
@@ -61,15 +65,11 @@
   }
 
   .data-category {
-    margin: auto;
-    width: 98%;
-    // margin-top: 4%;
+    width: 100%;
     border-radius: 5px;
 
     @media screen and (max-width: 600px) {
       width: 100%;
-      padding: 5%;
-      margin: 0% 5%;
       border-top: 1px solid #ecf1f5;
       border-bottom: 1px solid #ecf1f5;
       border-radius: 0;
@@ -77,14 +77,7 @@
     }
   }
 
-  @media screen and (max-width: 800px) {
-    .general-stats-container {
-      width: 100%;
-      padding: 0 5%;
-      padding-top: 5%;
-      background: #e9e8e9;
-    }
-  }
+  
 
   .special-margins {
     margin-bottom: 3%;
@@ -1101,7 +1094,7 @@
     justify-content: center;
     padding-top: 15px;
     height: 100%;
-    width: 85%;
+    width: 100%;
     margin: auto;
   }
 
@@ -1112,8 +1105,8 @@
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    width: 80.75%;
-    position: absolute;
+    width: 100%;
+    position: relative;
     @media only screen and (max-width: 900px) {
       padding: 0 2.5%;
     }
