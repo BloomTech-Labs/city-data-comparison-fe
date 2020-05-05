@@ -20,26 +20,16 @@
   }
 }
 
-/* The data-broswer is the component below the map */
+/* The data-browser is the area below the map */
 
-.general-stats-container {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-@media screen and (max-width: 800px) {
-  .general-stats-container {
-    width: 100%;
-  }
-}
-
-.data-browser {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.comparison-page-content-container {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1.4rem;
   position: relative;
   margin: 5%;
 
+  // This is the text that appears when no cities are selected.
   .map-prompt {
     text-align: center;
     font-size: 1.3rem;
@@ -55,23 +45,18 @@
     margin-bottom: 3%;
   }
 
-  .city-overview-container-medium {
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    width: 100%;
-    border-radius: 5px;
-  }
-
   .city-overview-cards-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 1.4rem;
     @media screen and (max-width: 800px) {
-      flex-direction: column;
+
     }
 
     .city-overview-card {
-      height: 100%;
       width: 100%;
+      height: 100%;
       .recommendation-grid {
         background-color: white;
         border-radius: 10px;
@@ -857,7 +842,7 @@
     top: 0;
   }
 
-  .inner-search-container {
+  .search-container {
     display: flex;
     flex-direction: column;
     justify-content: center;

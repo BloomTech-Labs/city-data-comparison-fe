@@ -31,8 +31,8 @@ const DataDisplay = ({
   };
 
   return (
-    <div className="data-browser">
-      <div className="inner-search-container">
+    <div className="comparison-page-content-container">
+      <div className="search-container">
         <MapSearch
           cityMarkers={cityMarkers}
           viewport={viewport}
@@ -44,9 +44,7 @@ const DataDisplay = ({
       <div className="data-by-category">
         {selected.length > 0 ? (
           <>
-            <div className="general-stats-container">
-              <GeneralStats ethData={selected} />
-            </div>
+            <GeneralStats ethData={selected} />
 
             <div className="data-category">
               <div className="rent-container">
@@ -116,19 +114,17 @@ const DataDisplay = ({
                 </div>
               </div>
 
+              <div className="unemployment-container">
+                <UnemploymentCard ethData={selected} />
+              </div>
 
-                <div className="unemployment-container">
-                  <UnemploymentCard ethData={selected} />
-                </div>
-
-                <div className="retirement-container">
-                  <p className="chart-title">Retirement income source</p>
-                  <RetirementGraph ethData={selected} />
-                  <p style={{ textAlign: "right", fontSize: "10px" }}>
-                    Source: U.S. Census (2018)
-                  </p>
-                </div>
-
+              <div className="retirement-container">
+                <p className="chart-title">Retirement income source</p>
+                <RetirementGraph ethData={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: U.S. Census (2018)
+                </p>
+              </div>
             </div>
 
             <div className="data-category">
@@ -156,15 +152,13 @@ const DataDisplay = ({
                 </p>
               </div>
 
-
-                <div className="population-container">
-                  <p className="chart-title">Population growth</p>
-                  <Population selected={selected} />
-                  <p style={{ textAlign: "right", fontSize: "10px" }}>
-                    Source: U.S. Census (2018)
-                  </p>
-                </div>
-
+              <div className="population-container">
+                <p className="chart-title">Population growth</p>
+                <Population selected={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: U.S. Census (2018)
+                </p>
+              </div>
 
               <div className="avg-temp-container">
                 <p className="chart-title">Historical temperature</p>
