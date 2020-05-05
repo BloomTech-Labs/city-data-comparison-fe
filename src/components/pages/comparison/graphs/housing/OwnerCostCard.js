@@ -22,12 +22,12 @@ function TotalPopulation({ethData}) {
 
 	return (
         <>
+		<div className="homeowner-container">
                <SmocModal
                     isShowing={isShowing}
                     hide={toggle}
                     component={modalState}
                />
-		<div className="homeowner-container">
             <p className="chart-title home-title">Homeowner costs</p>
             {ethData.map(item => 
                 <div key={item._id} className="mortgage">

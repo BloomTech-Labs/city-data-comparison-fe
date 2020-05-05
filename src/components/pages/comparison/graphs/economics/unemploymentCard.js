@@ -3,7 +3,7 @@ import archive from '../../assets/archive.svg'
 
 function TotalPopulation({ethData}) {	
 	return (
-		<div>
+		<>
             {ethData.map(item => 
                 <div key={item._id} className="unemployment-card-container">
                     <span className="unemployment-title">Unemployment rate</span>
@@ -12,7 +12,7 @@ function TotalPopulation({ethData}) {
                </div>
             )}
 			
-		</div>
+		</>
 	);
 }
 

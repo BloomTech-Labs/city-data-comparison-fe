@@ -32,6 +32,8 @@
 
 .general-stats-container {
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 @media screen and (max-width: 800px) {
   .general-stats-container {
@@ -296,27 +298,7 @@
       }
     }
   }
-  .data-category-titles {
-    text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
-    .data-category-header {
-      font-size: 2rem;
-      margin-top: 5px;
-      margin-bottom: 0;
-      // color:#00bfa5;
-    }
-
-    .data-category-subtitle {
-      font-size: 14px;
-      width: 80%;
-      color: grey;
-      margin-top: 0;
-    }
-  }
 
   .chart-title {
     // color:#00bfa5;
@@ -331,25 +313,17 @@
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    margin-bottom: 30px;
   }
 
   .home-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
     width: 100%;
-    margin-bottom: 30px;
-    // border:1px solid grey;
 
     .ownerMortgage {
       width: 20%;
-      padding: 0;
     }
   }
   .homeprice-container {
-    width: 78%;
+    width: 100%;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
@@ -360,7 +334,6 @@
       background-color: white;
       border-radius: 5px;
       box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-      margin-bottom: 15px;
       padding: 10px 10px;
     }
     .smoc {
@@ -368,12 +341,7 @@
       align-items: center;
       justify-content: space-between;
       font-size: 1.2rem;
-      // color:#00bfa5;
       margin-bottom: 13px;
-
-      // .smoc-img{
-      //     // border:1px solid blue;
-      // }
     }
     .home-title {
       display: none;
@@ -388,7 +356,6 @@
       display: flex;
       justify-content: center;
       margin-top: 5px;
-      // width:100%;
     }
     .city-mortgage-title {
       color: #2e2f38;
@@ -398,7 +365,6 @@
       color: grey;
     }
     .mortgage-label {
-      // width:100%;
       color: grey;
       font-size: 1rem;
     }
@@ -407,20 +373,7 @@
       color: darkgrey;
     }
   }
-  @media screen and (max-width: 1300px) {
-    // .mortgage-label-container{
-    //     // border:1px solid red;
-    // }
-    // .mortgage-label{
-    //     // border:1px solid blue;
-    //     // width:100%;
-    // }
-    // .home-container{
-    //     .ownerMortgage{
-    //         // display:flex;
-    //     }
-    // }
-  }
+ 
   @media screen and (max-width: 1000px) {
     .home-container {
       .homeprice-container {
@@ -437,8 +390,6 @@
           .mortgage {
             width: 30%;
           }
-          // .mortgage-label{
-          // }
         }
       }
     }
@@ -466,14 +417,9 @@
 
   .rooms-vacancy-container {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 3%;
-
     .room-container {
       background-color: white;
-      width: 60%;
+      width: 100%;
       padding: 10px;
       box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
       border-radius: 5px;
@@ -486,9 +432,8 @@
     .vacancy-owner-container {
       background-color: white;
       border-radius: 5px;
-      width: 38%;
+      width: 100%;
       padding: 10px;
-      height: auto;
       box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
 
       @media screen and (max-width: 800px) {
@@ -498,7 +443,6 @@
   }
   @media screen and (max-width: 1000px) {
     .rooms-vacancy-container {
-      display: inline;
 
       .room-container {
         width: 100%;
@@ -516,7 +460,6 @@
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    margin-bottom: 30px;
     background-color: white;
 
   }
@@ -524,52 +467,30 @@
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    margin-bottom: 30px;
     background-color: white;
   }
   .commute-travel-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-
-    @media screen and (max-width: 800px) {
-      flex-wrap: wrap;
-    }
 
     .commute-container {
-      width: 76%;
+      width: 100%;
       padding: 10px;
       border-radius: 5px;
       box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-      margin-bottom: 30px;
       background-color: white;
-      @media screen and (max-width: 800px) {
-        width: 100%;
-      }
     }
 
-    .travel-container {
-      width: 22%;
-      @media screen and (max-width: 800px) {
-        display: flex;
-        width: 100%;
-      }
 
-      @media screen and (max-width: 800px) {
-        .commute-time-container-big {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-        }
-      }
+     
+
+
+
 
       .commute-time-container {
+        width: 100%;
         padding: 15px;
-        padding-bottom: 10px;
         border-radius: 5px;
         box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
         background-color: white;
-        margin-bottom: 20px;
         display: flex;
         flex-wrap: wrap;
         @media screen and (max-width: 800px) {
@@ -607,7 +528,7 @@
           margin-bottom: 5px;
         }
       }
-    }
+
   }
 
   .travel-scores-container {
@@ -732,53 +653,19 @@
     }
   }
 
-  .other-industries-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    @media screen and (max-width: 800px) {
-      flex-wrap: wrap;
-      // border:1px solid red;
-    }
 
-    .unemployment-container {
-      // border:1px solid red;
-      display: flex;
-      flex-direction: column;
-      width: 22%;
-      @media screen and (max-width: 800px) {
-        width: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        // border:1px solid red;
-      }
 
-      .element {
-        width: 100%;
-      }
+
 
       .unemployment-card-container {
-        // font-size:1.1vw;
-        // height:170px;
+        width: 100%;
         padding: 15px;
         padding-bottom: 10px;
         border-radius: 5px;
         box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-        margin-bottom: 15px;
         background-color: white;
-        @media screen and (max-width: 800px) {
-          height: 170px;
-          margin-bottom: 30px;
-        }
-        @media screen and (max-width: 500px) {
-          height: 200px;
-          height: auto;
-          margin-bottom: 30px;
-        }
 
         .unemployment-title {
-          // color:#00bfa5;
           font-size: 1.2rem;
           width: 100%;
           margin-bottom: 25px;
@@ -810,82 +697,17 @@
           margin-bottom: 5px;
         }
       }
-    }
+
 
     .retirement-container {
-      width: 74%;
+      width: 100%;
       padding: 10px;
       border-radius: 5px;
       box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-      margin-bottom: 30px;
       background-color: white;
-
-      @media screen and (max-width: 800px) {
-        width: 100%;
-        margin-bottom: 0px;
-      }
     }
-    // .insurance-container{
-    //     width:22%;
-    //     @media screen and (max-width:800px){
-    //         width:47%;
-    //         display:flex;
-    //         justify-content:center;
-    //     }
+ 
 
-    //     .healthinsurance-card-container{
-    //         // height:170px;
-    //         // height:200px;
-    //         padding:15px;
-    //         padding-bottom:10px;
-    //         border-radius:5px;
-    //         box-shadow:0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    //         margin-bottom:15px;
-    //         background-color:white;
-
-    //         @media screen and (max-width:800px){
-    //             height:170px;
-    //             width:100%;
-    //             margin-bottom:30px;
-    //         }
-    //         @media screen and (max-width:500px){
-    //             height:200px;
-    //             height:auto;
-    //         }
-
-    //         .healthinsurance-title{
-    //             color:#00bfa5;
-    //             font-size:1.1rem;
-    //             width:100%;
-    //             margin-bottom:25px;
-    //             display:flex;
-    //             justify-content:space-between;
-    //         }
-
-    //         .healthinsurance-num{
-    //             font-size:2rem;
-    //             font-weight:400;
-    //             color:black;
-    //             display:flex;
-    //             justify-content:center;
-    //             align-items:center;
-    //             .activity{
-    //                 width:20px;
-    //                 margin-right:6px;
-    //             }
-    //         }
-    //         .healthinsurance-label{
-    //             color:grey;
-    //             // font-size:1.1vw;
-    //             width:100%;
-    //             font-size:14px;
-    //             margin-top:10px;
-    //             text-align:center;
-    //             margin-bottom:5px;
-    //         }
-    //     }
-    // }
-  }
 
   //** Culture styling
   .ethnicity-container {
@@ -893,14 +715,12 @@
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    margin-bottom: 30px;
     background-color: white;
   }
   .age-container {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    margin-bottom: 30px;
     background-color: white;
   }
   .education-container {
@@ -908,23 +728,14 @@
     width: 100%;
     border-radius: 5px;
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    margin-bottom: 30px;
     background-color: white;
   }
-  .population-birth-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
 
-    @media screen and (max-width: 800px) {
-      flex-wrap: wrap;
-    }
 
     .population-container {
       padding: 10px;
       border-radius: 5px;
       box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-      margin-bottom: 30px;
       background-color: white;
       width: 100%;
       @media screen and (max-width: 800px) {
@@ -997,7 +808,7 @@
         }
       }
     }
-  }
+
   .avg-temp-container {
     padding: 10px;
     border-radius: 5px;

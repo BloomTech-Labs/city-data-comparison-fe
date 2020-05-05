@@ -57,19 +57,15 @@ const DataDisplay = ({
                 </p>
               </div>
 
-              <div className="home-container">
-                <div className="homeprice-container">
-                  <p className="chart-title">Home prices</p>
-                  <HousePriceGraph selected={selected} />
-                  <p style={{ textAlign: "right", fontSize: "10px" }}>
-                    Source: zillow.com
-                  </p>
-                </div>
-
-                <div className="ownerMortgage">
-                  <OwnerCostCard ethData={selected} />
-                </div>
+              <div className="homeprice-container">
+                <p className="chart-title">Home prices</p>
+                <HousePriceGraph selected={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: zillow.com
+                </p>
               </div>
+
+              <OwnerCostCard ethData={selected} />
 
               <div className="rooms-vacancy-container">
                 <div className="room-container">
@@ -120,7 +116,7 @@ const DataDisplay = ({
                 </div>
               </div>
 
-              <div className="other-industries-container">
+
                 <div className="unemployment-container">
                   <UnemploymentCard ethData={selected} />
                 </div>
@@ -132,7 +128,7 @@ const DataDisplay = ({
                     Source: U.S. Census (2018)
                   </p>
                 </div>
-              </div>
+
             </div>
 
             <div className="data-category">
@@ -160,7 +156,7 @@ const DataDisplay = ({
                 </p>
               </div>
 
-              <div className="population-birth-container">
+
                 <div className="population-container">
                   <p className="chart-title">Population growth</p>
                   <Population selected={selected} />
@@ -168,7 +164,7 @@ const DataDisplay = ({
                     Source: U.S. Census (2018)
                   </p>
                 </div>
-              </div>
+
 
               <div className="avg-temp-container">
                 <p className="chart-title">Historical temperature</p>
