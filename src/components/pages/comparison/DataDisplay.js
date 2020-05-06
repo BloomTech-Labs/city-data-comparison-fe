@@ -46,9 +46,14 @@ const DataDisplay = ({
       <div className="data-by-category">
         {selected.length > 0 ? (
           <>
-            <div className="data-category">
             <GeneralStats ethData={selected} />
-            </div>
+
+            <Card title={"Home Prices"}>
+              <HousePriceGraph selected={selected} />
+              <p style={{ textAlign: "right", fontSize: "10px" }}>
+                Source: zillow.com
+              </p>
+            </Card>
 
             <div className="data-category">
               <Card title={"Average Rent"}>
@@ -57,14 +62,6 @@ const DataDisplay = ({
                   Source: U.S. Census (2018)
                 </p>
               </Card>
-
-              <Card title={"Home Prices"}>
-                <HousePriceGraph selected={selected} />
-                <p style={{ textAlign: "right", fontSize: "10px" }}>
-                  Source: zillow.com
-                </p>
-              </Card>
-
 
               <Card title="Vacancy">
                 <VacancyGraph edData={selected} />
@@ -80,8 +77,6 @@ const DataDisplay = ({
                   Source: U.S. Census (2018)
                 </p>
               </Card>
-
-             
             </div>
 
             <div className="data-category">
@@ -119,37 +114,37 @@ const DataDisplay = ({
             </div>
 
             <div className="data-category">
-                <Card title={"Age Distribution"}>
+              <Card title={"Age Distribution"}>
                 <AgeDistributionGraph ethData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-                </Card>
+              </Card>
 
-                <Card title={"Diversity"}>
+              <Card title={"Diversity"}>
                 <EthnicityGraph ethData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-                </Card>
+              </Card>
 
-                <Card title={"Education"}>
+              <Card title={"Education"}>
                 <EducationGraph edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-                </Card>
+              </Card>
 
-                <Card title={"Population Growth"}>
+              <Card title={"Population Growth"}>
                 <Population selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-                </Card>
+              </Card>
 
-                <Card title={"Historical Temperature"}>
+              <Card title={"Historical Temperature"}>
                 <AvgTemp edData={selected} />
-                </Card>
+              </Card>
             </div>
           </>
         ) : (

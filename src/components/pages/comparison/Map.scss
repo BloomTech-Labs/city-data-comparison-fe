@@ -39,10 +39,11 @@
   }
 
   .data-category {
-    width: 100%;
     margin: 0 auto;
+    width: 100%;
     display: grid;
     grid-gap: 1.4rem;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   }
 
   .special-margins {
@@ -54,9 +55,8 @@
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1.4rem;
     @media screen and (max-width: 600px) {
-    margin-bottom: 1.4rem;
-  }
-    
+      margin-bottom: 1.4rem;
+    }
 
     .city-overview-card {
       height: 100%;
@@ -338,44 +338,42 @@
     background-color: white;
   }
 
-
-    .smoc {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 1.2rem;
-      margin-bottom: 13px;
-    }
-    .home-title {
-      display: none;
-    }
-    .mortgage-price {
-      font-size: 1.15rem;
-      color: #444444;
-      margin-left: 3px;
-    }
-    .mortgage-label-container {
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      margin-top: 5px;
-    }
-    .city-mortgage-title {
-      color: #2e2f38;
-      font-size: 1rem;
-      text-align: center;
-      margin-top: 8px;
-      color: grey;
-    }
-    .mortgage-label {
-      color: grey;
-      font-size: 1rem;
-    }
-    .month-label {
-      font-size: 13px;
-      color: darkgrey;
-    }
-
+  .smoc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 13px;
+  }
+  .home-title {
+    display: none;
+  }
+  .mortgage-price {
+    font-size: 1.15rem;
+    color: #444444;
+    margin-left: 3px;
+  }
+  .mortgage-label-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+  }
+  .city-mortgage-title {
+    color: #2e2f38;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 8px;
+    color: grey;
+  }
+  .mortgage-label {
+    color: grey;
+    font-size: 1rem;
+  }
+  .month-label {
+    font-size: 13px;
+    color: darkgrey;
+  }
 
   @media screen and (max-width: 1000px) {
     .home-container {

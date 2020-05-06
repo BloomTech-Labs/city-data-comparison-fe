@@ -10,7 +10,6 @@ function Card(props) {
     <div
       style={{
         backgroundColor: "white",
-        width: "auto",
         padding: "1.4rem",
         borderRadius: "5px",
         position: "relative",
