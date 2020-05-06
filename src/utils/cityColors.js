@@ -1,15 +1,16 @@
 
 
-//city colors variables: 
+//city colors variables... the number next to the color in the variable is the b value in the hsb
 const darkBlue31 = "#293250d0";
 const newYellow100 = "#ffd55ad0";
 const green83 = "#6dd47ed0"
 
 //color variables for the rest of the site:
+//action color is the old main color for site
 export const actionColor = "#2ca4fc";
+//the updated darker blue for the site
 export const actionColor2 = "#0066CC";
-
-export const footerGrey = "#a9a9a9";
+//color for the words on the nav/footer
 export const navGrey = "#696969";
 
 
