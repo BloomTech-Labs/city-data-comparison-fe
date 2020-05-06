@@ -46,7 +46,9 @@ const DataDisplay = ({
       <div className="data-by-category">
         {selected.length > 0 ? (
           <>
+            <div className="data-category">
             <GeneralStats ethData={selected} />
+            </div>
 
             <div className="data-category">
               <Card title={"Average Rent"}>
@@ -63,6 +65,13 @@ const DataDisplay = ({
                 </p>
               </Card>
 
+
+              <Card title="Vacancy">
+                <VacancyGraph edData={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: U.S. Census (2018)
+                </p>
+              </Card>
               <OwnerCostCard ethData={selected} />
 
               <Card title="Average Rooms Per Household">
@@ -72,12 +81,7 @@ const DataDisplay = ({
                 </p>
               </Card>
 
-              <Card title="Vacancy">
-                <VacancyGraph edData={selected} />
-                <p style={{ textAlign: "right", fontSize: "10px" }}>
-                  Source: U.S. Census (2018)
-                </p>
-              </Card>
+             
             </div>
 
             <div className="data-category">

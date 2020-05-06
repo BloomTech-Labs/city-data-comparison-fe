@@ -27,7 +27,8 @@
   grid-auto-flow: row;
   gap: 1.4rem;
   position: relative;
-  margin: 5%;
+  max-width: 1200px;
+  margin: 7rem auto;
 
   // This is the text that appears when no cities are selected.
   .map-prompt {
@@ -38,10 +39,10 @@
   }
 
   .data-category {
-    display: grid;
-    grid-auto-flow: row;
-    gap: 1.4rem;
     width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1.4rem;
   }
 
   .special-margins {
@@ -49,16 +50,15 @@
   }
 
   .city-overview-cards-container {
-    width: 100%;
     display: grid;
-    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1.4rem;
-    @media screen and (max-width: 1000px) {
-      grid-auto-flow: row;
-    }
+    @media screen and (max-width: 600px) {
+    margin-bottom: 1.4rem;
+  }
+    
 
     .city-overview-card {
-      width: auto;
       height: 100%;
       .recommendation-grid {
         background-color: white;
