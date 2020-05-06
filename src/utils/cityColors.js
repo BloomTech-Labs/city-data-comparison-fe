@@ -22,6 +22,8 @@ const newYellow100 = "#ffd55aa5";
 const green83 = "#6dd47ea5"
 
 export const actionColor = "#2ca4fc";
+export const actionColor2 = "#0066CC";
+
 export const footerGrey = "#a9a9a9";
 export const navGrey = "#696969";
 

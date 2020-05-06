@@ -1,12 +1,12 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { Link } from "react-router-dom";
-import citrics from './citrics-mock.png'
+import citrics from './citrics-mock-dark.png'
 import lock from './lock.png';
 import lock2 from './lock.svg';
-import signInLock from './signInLock.png';
+import signInLock from './signInLockDark.png';
 import { UserContext } from '../../contexts/UserContext';
 import DropMenu from "./Dropdown";
-import {actionColor, navGrey} from "../../utils/cityColors.js";
+import {actionColor, actionColor2, navGrey} from "../../utils/cityColors.js";
 
 
 
@@ -72,7 +72,7 @@ function NavBar (){
                     <Link to="/compare" className="nav-button" style={{color: navGrey}}>Compare</Link>
                     {user == null ? 
                     <>
-                         <Link id="login-link" to="/signin" style={{color: actionColor}}><img className="lock" alt="lock" src={signInLock}/>Log In</Link>
+                         <Link id="login-link" to="/signin" style={{color: actionColor2}}><img className="lock" alt="lock" src={signInLock}/>Log In</Link>
                          {/* <Link id="signup-link" to="/signup">Get Started</Link> */}
                     </> :
                     <>

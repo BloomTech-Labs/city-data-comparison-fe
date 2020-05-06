@@ -9,7 +9,7 @@ import PrivacyPolicy from "../legal/PrivacyPolicy";
 
 import {UserContext} from "../../contexts/UserContext";
 
-import {actionColor, footerGrey, navGrey} from "../../utils/cityColors.js";
+import {actionColor, actionColor2, footerGrey, navGrey} from "../../utils/cityColors.js";
 
 function Footer(){
 
@@ -36,7 +36,7 @@ function Footer(){
                          </div> */}
                          <div className="footer-style">
                               <div className="footer1">
-                                   <p className="copyright" style={{color: actionColor}}>© Citrics 2020</p>
+                                   <p className="copyright" style={{color: actionColor2}}>© Citrics 2020</p>
                               </div>
 
                               <div className="footer2">
