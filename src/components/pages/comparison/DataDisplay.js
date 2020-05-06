@@ -49,7 +49,7 @@ const DataDisplay = ({
             <GeneralStats ethData={selected} />
 
             <div className="data-category">
-            <Card title={"Home Prices"} gridColumn={'span 12'}>
+            <Card title={"Home Prices"}>
               <HousePriceGraph selected={selected} />
               <p style={{ textAlign: "right", fontSize: "10px" }}>
                 Source: zillow.com
