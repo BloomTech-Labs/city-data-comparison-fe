@@ -4,7 +4,7 @@ import Card from '../../../../card/Card'
 
 function TotalPopulation({ethData}) {	
 	return (
-		<Card title={"Unemployment rate"}>
+		<Card title={"Unemployment Rate"}>
             <div style={{display: 'flex', flexWrap: 'wrap', width: '100%', justifyContent: 'space-around'}}>
             {ethData.map(item => 
                 <div key={item._id} className="unemployment-container">
