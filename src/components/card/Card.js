@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import helpCircle from "../../assets/icons/helpcircle.svg";
+
+import useModal from "../modal/useModal";
+import Modal from "../modal/modal.js";
 
 function Card(props) {
+  const { isShowing, toggle } = useModal();
   return (
     <div
       style={{
@@ -9,20 +14,51 @@ function Card(props) {
         padding: "1.4rem",
         boxShadow: "0 0px 15px 0 rgba(0, 0, 0, 0.09)",
         borderRadius: "5px",
+        position: "relative",
       }}
     >
-      <h4
+        <Modal
+                    isShowing={isShowing}
+                    hide={toggle}
+                    component={props.modalContent}
+               />
+      <div
         style={{
-            margin: "1.4rem 1.4rem",
-          fontSize: "1.4rem",
-          fontWeight: "normal"
+          display: "flex",
+          justifyContent: "space-between",
         }}
       >
-        {props.title}
-      </h4> <img style={{textAlign: "right"}}></img>
-      <div style={{
-          padding: "1.4rem 2.8rem"
-      }}>{props.children}</div>
+        <h4
+          style={{
+            margin: "1.4rem 1.4rem",
+            fontSize: "1.4rem",
+            fontWeight: "normal",
+          }}
+        >
+          {props.title}
+        </h4>
+        {props.modalContent ?
+        <img
+          style={{
+            margin: "1.4rem 1.4rem",
+          }}
+          src={helpCircle}
+          onClick={() => {
+            toggle()
+          }}
+        /> : <></>}
+      </div>
+
+
+      <div
+        style={{
+          padding: "1.4rem 2.8rem",
+        }}
+      >
+        {props.children}
+      </div>
+
+
     </div>
   );
 }

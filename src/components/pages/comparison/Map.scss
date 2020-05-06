@@ -337,13 +337,8 @@
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
     background-color: white;
   }
-  .homeowner-container {
-    .mortgage {
-      background-color: white;
-      border-radius: 5px;
-      box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-      padding: 10px 10px;
-    }
+
+
     .smoc {
       display: flex;
       align-items: center;
@@ -380,7 +375,7 @@
       font-size: 13px;
       color: darkgrey;
     }
-  }
+
 
   @media screen and (max-width: 1000px) {
     .home-container {

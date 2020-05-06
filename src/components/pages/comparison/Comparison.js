@@ -104,8 +104,8 @@ export default function Map() {
           style={{ padding: "400px 300px" }}
         />
       </div>
-      <PopupMap />
       <div className="map">
+      <PopupMap />
         <MapWrapper className="main-map">
           <ReactMapGL
             // mapStyle='mapbox://styles/mapbox/light-v10'
