@@ -1,9 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { Link } from "react-router-dom";
-import citrics from './citrics-mock.png'
-import lock from './lock.png'
+import citrics from './citrics-mock-dark.png'
+import signInLock from './signInLockDark.png';
 import { UserContext } from '../../contexts/UserContext';
-import DropMenu from "./Dropdown"
+import DropMenu from "./Dropdown";
+import {actionColor, actionColor2, navGrey} from "../../utils/cityColors.js";
+
 
 
 function Navigation(props){
@@ -63,12 +65,12 @@ function NavBar (){
 
                <a className="header-logo" href="/"> <img className="mock-logo" src={citrics} alt='logo'/></a>
                <nav className="main-nav">
-                    <Link to="/" className="nav-button">Home</Link>
+                    <Link to="/" className="nav-button" style={{color: navGrey}}>Home</Link>
                     {user ? <div /> : null}
-                    <Link to="/compare" className="nav-button">Compare</Link>
+                    <Link to="/compare" className="nav-button" style={{color: navGrey}}>Compare</Link>
                     {user == null ? 
                     <>
-                         <Link id="login-link" to="/signin"><img className="lock" alt="lock" src={lock}/>Log In</Link>
+                         <Link id="login-link" to="/signin" style={{color: actionColor2}}><img className="lock" alt="lock" src={signInLock}/>Log In</Link>
                          {/* <Link id="signup-link" to="/signup">Get Started</Link> */}
                     </> :
                     <>
@@ -135,7 +137,7 @@ function MeetTheTeam (){
                     {user == null ? 
                     <>
                          <Link to="/compare" className="nav-button" style={{ color: 'white' }}>Compare</Link>
-                         <Link id="login-link" to="/signin"><img alt="lock" src={lock}/>Log In</Link>
+                         <Link id="login-link" to="/signin"><img alt="lock" src={signInLock}/>Log In</Link>
                          {/* <Link id="signup-link" to="/signup">Get Started</Link> */}
                     </> :
                     <>

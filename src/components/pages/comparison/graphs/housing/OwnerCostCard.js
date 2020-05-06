@@ -6,6 +6,7 @@ import useModal from "../../../../modal/useModal";
 import Smoc from "../../../../modal/SmocCard";
 import { Link, Element } from 'react-scroll'
 import ReactGA from "react-ga";
+import {actionColor} from "../../../../../utils/cityColors.js";
 
 function TotalPopulation({ethData}) {
     const {isShowing, toggle} = useModal();
@@ -33,7 +34,7 @@ function TotalPopulation({ethData}) {
                 <div key={item._id} className="mortgage">
                     <div className="smoc">SMOC 
                     <Link onClick={() => SmocClicked (setModalState(<Smoc/>), toggle())}  style={{cursor: "pointer"}}>
-                        <img className="smoc-img"src={helpCircle} alt='smoc reroute'/></Link>
+                        <img className="smoc-img"src={helpCircle} alt='smoc reroute' style={{color: actionColor}}/></Link>
                     
                     </div>
 

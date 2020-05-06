@@ -27,6 +27,8 @@ import OwnerCostCard from "./graphs/housing/OwnerCostCard";
 
 import dropdownIcon from "../../../assets/single_city_page_photos/DropdownIcon.png";
 
+import {actionColor2, navGrey} from "../../../utils/cityColors.js";
+
 const DataDisplay = ({
   selected,
   toggleSelected,
@@ -301,7 +303,7 @@ const DataDisplay = ({
             </div>
           </>
         ) : (
-          <p className="map-prompt">Select up to 3 cities to compare</p>
+          <p className="map-prompt" style={{color: navGrey}}>Select up to 3 cities to compare</p>
         )}
       </div>
     </div>

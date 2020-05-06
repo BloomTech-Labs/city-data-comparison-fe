@@ -9,6 +9,8 @@ import PrivacyPolicy from "../legal/PrivacyPolicy";
 
 import {UserContext} from "../../contexts/UserContext";
 
+import {actionColor, actionColor2, footerGrey, navGrey} from "../../utils/cityColors.js";
+
 function Footer(){
 
      const {user, setToggleSearch} = useContext(UserContext)
@@ -34,20 +36,20 @@ function Footer(){
                          </div> */}
                          <div className="footer-style">
                               <div className="footer1">
-                                   <p className="copyright">© Citrics 2020</p>
+                                   <p className="copyright" style={{color: actionColor2}}>© Citrics 2020</p>
                               </div>
 
                               <div className="footer2">
                                    <div className="footer3">
-                                        <Link to="/meet-the-team" >Meet the Team</Link>
+                                        <Link to="/meet-the-team" style={{color: navGrey}}>Meet the Team</Link>
                                    </div>
 
                                    <div className="footer3">
-                                        <a href="https://api.citrics.io/docs">Data Sources</a>
+                                        <a href="https://api.citrics.io/docs" style={{color: navGrey}}>Data Sources</a>
                                    </div>
 
                                    <div className="footer3">
-                                        <Link to="/PrivacyPolicy" >Privacy Policy</Link>
+                                        <Link to="/PrivacyPolicy" style={{color: navGrey}} >Privacy Policy</Link>
                                    </div>
                               </div>
                          </div>

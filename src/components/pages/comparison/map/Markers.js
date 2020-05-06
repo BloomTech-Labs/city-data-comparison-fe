@@ -3,8 +3,8 @@ import { Marker } from "react-map-gl";
 
 import PopupMap from "./PopupMap";
 
-import pin from "../assets/pin.png";
-import activepin from "../assets/activepin.png";
+import pin from "../assets/pinDark.png";
+import activepin from "../assets/activepinDark.png";
 
 const Markers = ({
   cityMarkers,
