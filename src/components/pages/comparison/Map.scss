@@ -459,6 +459,7 @@
   .commute-time-container {
     display: flex;
     flex-wrap: wrap;
+    width: auto;
 
     .commute-city-title {
       font-size: 1rem;
@@ -603,8 +604,7 @@
   }
 
   .unemployment-container {
-    width: 100%;
-
+    width: auto;
     .unemployment-title {
       font-size: 1.2rem;
       width: 100%;
