@@ -30,7 +30,7 @@ function Card(props) {
       >
         <h4
           style={{
-            margin: "1.4rem 1.4rem",
+            marginLeft: "1.4rem",
             fontSize: "1.4rem",
             fontWeight: "normal",
           }}
@@ -52,7 +52,7 @@ function Card(props) {
 
       <div
         style={{
-          padding: "1.4rem 2.8rem",
+          padding: "2.8rem 2.8rem",
         }}
       >
         {props.children}
