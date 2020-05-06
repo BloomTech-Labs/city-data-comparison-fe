@@ -101,7 +101,7 @@ export default function Map() {
           height={350}
           width={350}
           timeout={700}
-          style={{ padding: "400px 300px" }}
+          style={{ padding: "275px 300px" }}
         />
       </div>
       <PopupMap />
