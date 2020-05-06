@@ -19,6 +19,8 @@ import GeneralStats from "./overview/GeneralStats";
 import TravelTime from "./graphs/economics/TravelTimeCard";
 import OwnerCostCard from "./graphs/housing/OwnerCostCard";
 
+import Card from "../../card/Card.js";
+
 const DataDisplay = ({
   selected,
   cityMarkers,
@@ -47,123 +49,103 @@ const DataDisplay = ({
             <GeneralStats ethData={selected} />
 
             <div className="data-category">
-              <div className="rent-container">
-                <p className="chart-title">Average rent</p>
+              <Card title={"Average Rent"}>
                 <RentChart edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </div>
+              </Card>
 
-              <div className="homeprice-container">
-                <p className="chart-title">Home prices</p>
+              <Card title={"Home Prices"}>
                 <HousePriceGraph selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: zillow.com
                 </p>
-              </div>
+              </Card>
 
               <OwnerCostCard ethData={selected} />
 
-              <div className="rooms-vacancy-container">
-                <div className="room-container">
-                  <p className="chart-title">Average rooms per household</p>
-                  <RoomGraph edData={selected} />
-                  <p style={{ textAlign: "right", fontSize: "10px" }}>
-                    Source: U.S. Census (2018)
-                  </p>
-                </div>
+              <Card title="Average Rooms Per Household">
+                <RoomGraph edData={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: U.S. Census (2018)
+                </p>
+              </Card>
 
-                <div className="vacancy-owner-container">
-                  <p className="chart-title">Vacancy</p>
-                  <VacancyGraph edData={selected} />
-                  <p style={{ textAlign: "right", fontSize: "10px" }}>
-                    Source: U.S. Census (2018)
-                  </p>
-                </div>
-              </div>
+              <Card title="Vacancy">
+                <VacancyGraph edData={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: U.S. Census (2018)
+                </p>
+              </Card>
             </div>
 
             <div className="data-category">
-              <div className="industries-container">
-                <p className="chart-title">Job industry</p>
+              <Card title={"Job Industry"}>
                 <Industry edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </div>
+              </Card>
 
-              <div className="salary-container">
-                <p className="chart-title">Average salary</p>
+              <Card title={"Average Salary"}>
                 <BarGraph edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </div>
+              </Card>
 
-              <div className="commute-travel-container">
-                <div className="commute-container">
-                  <p className="chart-title">Ways to commute</p>
-                  <Commute edData={selected} />
-                  <p style={{ textAlign: "right", fontSize: "10px" }}>
-                    Source: U.S. Census (2018)
-                  </p>
-                </div>
-                <div className="travel-container">
-                  <TravelTime ethData={selected} />
-                </div>
-              </div>
+              <Card title={"Ways to Commute"}>
+                <Commute edData={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: U.S. Census (2018)
+                </p>
+              </Card>
 
-              <div className="unemployment-container">
-                <UnemploymentCard ethData={selected} />
-              </div>
+              <TravelTime ethData={selected} />
 
-              <div className="retirement-container">
-                <p className="chart-title">Retirement income source</p>
+              <UnemploymentCard ethData={selected} />
+
+              <Card title={"Retirement Income Source"}>
                 <RetirementGraph ethData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </div>
+              </Card>
             </div>
 
             <div className="data-category">
-              <div className="age-container">
-                <p className="chart-title">Age distribution</p>
+                <Card title={"Age Distribution"}>
                 <AgeDistributionGraph ethData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </div>
+                </Card>
 
-              <div className="ethnicity-container">
-                <p className="chart-title">Diversity</p>
+                <Card title={"Diversity"}>
                 <EthnicityGraph ethData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </div>
+                </Card>
 
-              <div className="education-container">
-                <p className="chart-title">Education</p>
+                <Card title={"Education"}>
                 <EducationGraph edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </div>
+                </Card>
 
-              <div className="population-container">
-                <p className="chart-title">Population growth</p>
+                <Card title={"Population Growth"}>
                 <Population selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </div>
+                </Card>
 
-              <div className="avg-temp-container">
-                <p className="chart-title">Historical temperature</p>
+                <Card title={"Historical Temperature"}>
                 <AvgTemp edData={selected} />
-              </div>
+                </Card>
             </div>
           </>
         ) : (

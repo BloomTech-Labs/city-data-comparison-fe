@@ -38,6 +38,9 @@
   }
 
   .data-category {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 1.4rem;
     width: 100%;
   }
 
@@ -50,12 +53,12 @@
     display: grid;
     grid-auto-flow: column;
     grid-gap: 1.4rem;
-    @media screen and (max-width: 800px) {
-
+    @media screen and (max-width: 1000px) {
+      grid-auto-flow: row;
     }
 
     .city-overview-card {
-      width: 100%;
+      width: auto;
       height: 100%;
       .recommendation-grid {
         background-color: white;
@@ -307,8 +310,9 @@
 
   .chart-title {
     margin-top: 10px;
-    font-size: 1.3rem;
-    margin-left: 2%;
+    font-size: 1.4rem;
+    margin-left: 1.4rem;
+    margin-top: 1.4rem;
   }
 
   .rent-container {
@@ -419,23 +423,20 @@
     }
   }
 
-  .rooms-vacancy-container {
+  .room-container {
+    background-color: white;
     width: 100%;
-    .room-container {
-      background-color: white;
-      width: 100%;
-      padding: 10px;
-      box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-      border-radius: 5px;
-    }
+    padding: 10px;
+    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
+    border-radius: 5px;
+  }
 
-    .vacancy-owner-container {
-      background-color: white;
-      border-radius: 5px;
-      width: 100%;
-      padding: 10px;
-      box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    }
+  .vacancy-owner-container {
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
   }
 
   // ** Industry styling
@@ -451,52 +452,51 @@
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
     background-color: white;
   }
-  .commute-travel-container {
-    .commute-container {
+
+  .commute-container {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
+    background-color: white;
+  }
+
+  .commute-time-container {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+
+    .commute-city-title {
+      font-size: 1rem;
       width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-      background-color: white;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
     }
 
-    .commute-time-container {
+    .commute-time-num {
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: black;
+      text-align: center;
       width: 100%;
-      padding: 15px;
-      border-radius: 5px;
-      box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-      background-color: white;
-      display: flex;
-      flex-wrap: wrap;
-
-      .commute-city-title {
-        font-size: 1rem;
-        width: 100%;
-        margin-bottom: 25px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
+      .commute-clock {
+        height: 18px;
+        margin-right: 10px;
       }
-
-      .commute-time-num {
-        font-size: 1.9rem;
-        font-weight: 400;
-        color: black;
-        text-align: center;
-        width: 100%;
-        .commute-clock {
-          height: 18px;
-          margin-right: 10px;
-        }
-      }
-      #commute-label {
-        color: grey;
-        font-size: 1rem;
-        width: 100%;
-        margin-top: 3px;
-        text-align: center;
-        margin-bottom: 5px;
-      }
+    }
+    #commute-label {
+      color: grey;
+      font-size: 1rem;
+      width: 100%;
+      margin-top: 3px;
+      text-align: center;
+      margin-bottom: 5px;
     }
   }
 
@@ -915,6 +915,9 @@
   }
 
   .data-by-category {
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 1.4rem;
     width: 100%;
     margin: auto;
     margin-top: 100px;
