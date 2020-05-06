@@ -12,7 +12,6 @@ function Card(props) {
         backgroundColor: "white",
         width: "auto",
         padding: "1.4rem",
-        boxShadow: "0 0px 15px 0 rgba(0, 0, 0, 0.09)",
         borderRadius: "5px",
         position: "relative",
       }}
