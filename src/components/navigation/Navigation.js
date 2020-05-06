@@ -15,7 +15,7 @@ function Navigation(props){
      const [bgColor, setBgColor] = useState('default-color')
      const [fixedClass, setFixedClass] = useState("")
      const defaultNavigation = () => {
-          setBgColor('default-coloo')
+          setBgColor('default-color')
           if (offset === 0 ){
                setDisplayNav('show-nav')
           }else {
