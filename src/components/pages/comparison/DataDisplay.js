@@ -48,14 +48,14 @@ const DataDisplay = ({
           <>
             <GeneralStats ethData={selected} />
 
-            <Card title={"Home Prices"}>
+            <div className="data-category">
+            <Card title={"Home Prices"} gridColumn={'span 12'}>
               <HousePriceGraph selected={selected} />
               <p style={{ textAlign: "right", fontSize: "10px" }}>
                 Source: zillow.com
               </p>
             </Card>
-
-            <div className="data-category">
+            
               <Card title={"Average Rent"}>
                 <RentChart edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>

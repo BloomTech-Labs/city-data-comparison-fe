@@ -23,9 +23,7 @@
 /* The data-browser is the area below the map */
 
 .comparison-page-content-container {
-  display: grid;
-  grid-auto-flow: row;
-  gap: 1.4rem;
+  display: block;
   position: relative;
   max-width: 1200px;
   margin: 7rem auto;

@@ -13,6 +13,7 @@ function Card(props) {
         padding: "1.4rem",
         borderRadius: "5px",
         position: "relative",
+        gridColumn: props.gridColumn
       }}
     >
         <Modal
