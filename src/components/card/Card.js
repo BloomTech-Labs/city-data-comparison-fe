@@ -30,7 +30,9 @@ function Card(props) {
       >
         <h4
           style={{
+            margin: '0',
             marginLeft: "1.4rem",
+            marginTop: '1.4rem',
             fontSize: "1.4rem",
             fontWeight: "normal",
           }}
