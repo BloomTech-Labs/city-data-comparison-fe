@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import helpCircle from "../../assets/icons/helpcircle.svg";
 import useModal from "../modal/useModal";
 import ModalPopup from "../modal/modal.js";
-import {actionColor} from "../../utils/cityColors.js";
+import { actionColor } from "../../utils/cityColors.js";
 import styled from "styled-components";
 
 function Card(props) {
@@ -10,7 +10,7 @@ function Card(props) {
 
   const CardContainer = styled.div`
     background-color: white;
-    padding: 1.4rem;
+    padding: 2.8rem 2.8rem;
     border-radius: 5px;
     position: relative;
     grid-column: span ${props.gridColumn ? props.gridColumn : 12};
@@ -21,27 +21,35 @@ function Card(props) {
 
   const CardTitle = styled.h4`
     margin: 0;
-    margin-left: 1.4rem;
-    margin-top: 1.4rem;
     font-size: 1.4rem;
     font-weight: normal;
-    
+    text-align: left;
+    &:only-child {
+      text-align: ${props.gridColumn == 3 ? "center" : "left"};
+    }
+    @media only screen and (max-width: 800px) {
+      text-align: left;
+    }
   `;
 
   const CardHeader = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: ${props.gridColumn == 3
+      ? "space-around"
+      : "space-between"};
   `;
 
   const MoreInfoIcon = styled.img`
-    margin: 1.4rem;
     color: ${actionColor};
+    justify-self: flex-end;
+    position: absolute;
+    right: 1.4rem;
   `;
 
   const CardContent = styled.div`
-    padding: 2.8rem;
+    padding: 1.4rem;
     @media only screen and (max-width: 1000px) {
-      padding: 1.4rem;
+      padding: 0;
     }
     @media only screen and (max-width: 800px) {
       padding: 0;
