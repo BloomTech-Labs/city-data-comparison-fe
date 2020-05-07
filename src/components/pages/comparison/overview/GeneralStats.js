@@ -10,6 +10,7 @@ import weather from '../assets/activity.svg'
 import FavoriteButton from '../buttons/FavoriteButton'
 import Recommendations from "./Recommendations"
 import DeselectCityButton from "../buttons/DeselectCityButton.js"
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 
 // const CenterCard = styled.h3`
 // display:flex;
@@ -41,8 +42,12 @@ function TotalPopulation({ethData}) {
             <div className="city-overview-content">
                 <div className="city-overview-container-one">
                     <div className="overview-title-container-one">
+                    <ScrollLink to='industry' spy={true} smooth={true} offset={-70} duration={500}>
                         <div className="overview-title"><img alt="income" src={income} />Median income</div>
+                    </ScrollLink>
+                    <ScrollLink to='housing' spy={true} smooth={true} offset={-70} duration={500}>
                         <div className="overview-title"><img alt="briefcase" src={briefcase} />Median rent</div>
+                    </ScrollLink>
                     </div>
 
                     <div className="overview-stats-container-one">
@@ -57,8 +62,12 @@ function TotalPopulation({ethData}) {
 
                 <div className="city-overview-container-two">
                     <div className="overview-title-container-two">
-                        <div className="overview-title"> <img alt="people" src={pop} /> Population</div>
+                        <ScrollLink to='culture' spy={true} smooth={true} offset={-70} duration={500}>
+                            <div className="overview-title"> <img alt="people" src={pop} /> Population</div>
+                        </ScrollLink>
+                        <ScrollLink to='weather' spy={true} smooth={true} offset={-70} duration={500}>
             <div className="overview-title"> <img alt="people" src={weather} /> {new Date().toLocaleString('default', { month: 'long' })} average</div>
+                        </ScrollLink>
                     </div>
 
                     <div className="overview-stats-container-two">

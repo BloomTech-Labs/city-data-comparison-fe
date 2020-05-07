@@ -41,7 +41,7 @@
     width: 100%;
     display: grid;
     grid-gap: 1.4rem;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(12, 1fr); 
     grid-auto-rows: auto;
   }
 
@@ -53,9 +53,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1.4rem;
-    @media screen and (max-width: 600px) {
-      margin-bottom: 1.4rem;
-    }
 
     .city-overview-card {
       height: 100%;
@@ -72,6 +69,13 @@
           display: flex;
           flex-wrap: wrap;
         }
+        //other recommendation-container class on onlychild is interfering
+        // .recommendation-container {
+        //   width: 100%;
+        //   display: grid;
+        //   grid-template-columns: auto auto;
+        //   grid-template-rows: auto auto;
+        // }
         .recommendation-title {
           display: flex;
           align-items: center;
@@ -265,6 +269,7 @@
             color: grey;
             display: flex;
             font-size: 1.1rem;
+            cursor: pointer;
           }
         }
         .overview-stats-container-one {
@@ -292,6 +297,7 @@
             color: grey;
             display: flex;
             font-size: 1.1rem;
+            cursor: pointer;
           }
         }
         .overview-stats-container-two {
