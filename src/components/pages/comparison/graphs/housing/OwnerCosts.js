@@ -1,9 +1,4 @@
-import React, { useState } from "react";
-import useModal from "../../../../modal/useModal";
-import Smoc from "./SmocCard";
-import Card from "../../../../card/Card.js";
-
-import ReactGA from "react-ga";
+import React from "react";
 
 export function OwnerCosts({ selected }) {
   function numberCommas(x) {
