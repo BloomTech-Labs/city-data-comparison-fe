@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ReactGA from "react-ga";
 import { getCity } from "../../../redux/actions/cityActions.js";
 const MapSearch = ({
@@ -12,6 +12,7 @@ const MapSearch = ({
   const [search, setSearch] = useState("");
 
   const dispatch = useDispatch();
+  const selectedLength = useSelector(state => state.cityReducer.selected.length)
 
   const selectSearch = (cityMarker) => {
     // Stop function and return if the city is already selected
@@ -32,8 +33,10 @@ const MapSearch = ({
         longitude: found.lng,
         latitude: found.lat,
       });
+      setSearch("")
     } else {
       dispatch(getCity(search));
+      setSearch("")
     }
   };
 
@@ -63,7 +66,7 @@ const MapSearch = ({
 
   const chooseSuggestion = (city) => {
     ReactGA.event({ category: "Search", action: `used autofill` });
-    setSearch(city.name.replace(" city", ""));
+    setSearch("");
     selectSearch(city);
     setSuggestions([]);
     setViewport({
@@ -77,7 +80,7 @@ const MapSearch = ({
     <form className="search-form" autoComplete="off" onSubmit={onSearch} >
       <input
         className={"search-bar " + (suggestions.length ? "active" : "")}
-        placeholder="Search up to 3 cities"
+        placeholder={selectedLength > 2 ? "Remove a city to compare another" : (selectedLength > 0 ? "Search for another city to compare" : "Search for a city")}
         onChange={handleChange}
         value={search}
         data-testid="search-bar-input"
