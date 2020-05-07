@@ -17,11 +17,14 @@ import VacancyGraph from "./graphs/housing/vacancy";
 import Unemployment from "./graphs/economics/Unemployment";
 import GeneralStats from "./overview/GeneralStats";
 import TravelTime from "./graphs/economics/TravelTimeCard";
-import {OwnerCosts, OwnerCostsModalContent} from "./graphs/housing/OwnerCosts";
+import {
+  OwnerCosts,
+  OwnerCostsModalContent,
+} from "./graphs/housing/OwnerCosts";
 
 import Card from "../../card/Card.js";
 
-import {actionColor2, navGrey} from "../../../utils/cityColors.js";
+import { navGrey } from "../../../utils/cityColors.js";
 
 const DataDisplay = ({
   selected,
@@ -80,14 +83,12 @@ const DataDisplay = ({
               </Card>
 
               <Card
-                title={"Homeowner Costs"}
+                title={"Owner Costs"}
                 modalContent={<OwnerCostsModalContent />}
                 gridColumn={3}
               >
                 <OwnerCosts selected={selected} />
               </Card>
-
-      
             </div>
 
             <div className="data-category" id="industry">
@@ -116,7 +117,7 @@ const DataDisplay = ({
                 <TravelTime selected={selected} />
               </Card>
 
-              <Card title={"Unemployment Rate"} gridColumn="3">
+              <Card title={"Unemployment"} gridColumn="3">
                 <Unemployment selected={selected} />
               </Card>
 
@@ -156,16 +157,17 @@ const DataDisplay = ({
                   Source: U.S. Census (2018)
                 </p>
               </Card>
-
             </div>
             <div className="data-category" id="weather">
-            <Card title={"Historical Temperature"}>
+              <Card title={"Historical Temperature"}>
                 <AvgTemp edData={selected} />
               </Card>
             </div>
           </>
         ) : (
-          <p className="map-prompt" style={{color: navGrey}}>Select up to three cities to compare</p>
+          <p className="map-prompt" style={{ color: navGrey }}>
+            Select up to three cities to compare
+          </p>
         )}
       </div>
     </div>
