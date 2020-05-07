@@ -22,7 +22,7 @@ import PopupMap from "./map/PopupMap";
 import { CityContext } from "../../../contexts/CityContext";
 import Axios from "axios";
 
-import {actionColor2} from "../../../utils/cityColors.js";
+import {actionColor} from "../../../utils/cityColors.js";
 //maybe convert toggleSelected and selectSearch
 const MapWrapper = styled.div`
   width: 100vw;
@@ -99,7 +99,7 @@ export default function Map() {
       <div className="loader-animation" timeout={800}>
         <Loader
           type="Plane"
-          color={actionColor2}
+          color={actionColor}
           height={350}
           width={350}
           timeout={700}

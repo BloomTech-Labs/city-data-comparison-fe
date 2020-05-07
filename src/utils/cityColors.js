@@ -7,9 +7,8 @@ const green83 = "#6dd47ed0"
 
 //color variables for the rest of the site:
 //action color is the old main color for site
-export const actionColor = "#2ca4fc";
 //the updated darker blue for the site
-export const actionColor2 = "#0066CC";
+export const actionColor = "#0066CC";
 //color for the words on the nav/footer
 export const navGrey = "#696969";
 

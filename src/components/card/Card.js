@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import helpCircle from "../../assets/icons/helpcircle.svg";
 import useModal from "../modal/useModal";
 import ModalPopup from "../modal/modal.js";
-
+import {actionColor} from "../../utils/cityColors.js";
 import styled from "styled-components";
 
 function Card(props) {
@@ -35,6 +35,7 @@ function Card(props) {
 
   const MoreInfoIcon = styled.img`
     margin: 1.4rem;
+    color: ${actionColor};
   `;
 
   const CardContent = styled.div`

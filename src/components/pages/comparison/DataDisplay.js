@@ -165,7 +165,7 @@ const DataDisplay = ({
             </div>
           </>
         ) : (
-          <p className="map-prompt" style={{color: navGrey}}>Select up to three cities to compare.</p>
+          <p className="map-prompt" style={{color: navGrey}}>Select up to three cities to compare</p>
         )}
       </div>
     </div>
