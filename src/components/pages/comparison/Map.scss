@@ -270,6 +270,9 @@
             display: flex;
             font-size: 1.1rem;
             cursor: pointer;
+            &:hover{
+              color: #0066CC;
+            }
           }
         }
         .overview-stats-container-one {
@@ -298,6 +301,9 @@
             display: flex;
             font-size: 1.1rem;
             cursor: pointer;
+            &:hover{
+              color: #0066CC;
+            }
           }
         }
         .overview-stats-container-two {
@@ -793,7 +799,7 @@
     padding: 16px 33px;
     padding-left: 4.75%;
     font-size: 1.1rem;
-    border-radius: 20px;
+    border-radius: 5px;
     border: 0;
     width: 100%;
     outline: none;
@@ -846,8 +852,8 @@
     padding: 0 1.5%;
     z-index: 5;
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     width: 100%;
     position: relative;
     padding-bottom: 0.01rem;
@@ -909,7 +915,7 @@
     grid-gap: 1.4rem;
     width: 100%;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 4.2rem;
     margin-bottom: 75px;
 
     @media only screen and (max-width: 600px) {
