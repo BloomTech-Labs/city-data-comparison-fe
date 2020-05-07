@@ -64,7 +64,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 1.5rem;
+  padding-left: 5.5%;
   width: 15%;
 }
 .main-nav {
@@ -205,11 +205,11 @@ body {
   }
   .dropbtn {
     background-color: #fcfcfb;
-    color: #a33a00;
+    color: #0066cc;
     font-weight: 600;
     padding: 10px 20px;
     font-size: 16px;
-    border: 1.4px solid #a33a00;
+    border: 1.4px solid #0066cc;
     border-radius: 5px;
     margin-right: 30px;
 
@@ -253,7 +253,7 @@ body {
 
   .dropdown-content a:hover {
     color: #fcfcfb;
-    background-color: #a33a00;
+    background-color: #0066cc;
   }
 
   .dropdown:hover .dropdown-content {
@@ -262,7 +262,7 @@ body {
 
   .dropdown:hover .dropbtn {
     color: #fcfcfb;
-    background-color: #a33a00;
+    background-color: #0066cc;
   }
 }
 //dropdown menu logged-in
@@ -403,7 +403,7 @@ body {
     }
 
     .sign-up-CTA {
-      background-color: #a33a00;
+      background-color: #0066cc;
       color: white;
       border: none;
       padding: 10px 30px;
@@ -532,7 +532,7 @@ body {
       width: 17.42px;
       left: 2.7px;
       bottom: 2.7px;
-      background-color: #a33a00;
+      background-color: #0066cc;
       -webkit-transition: 0.3s;
       transition: 0.3s;
     }
@@ -556,7 +556,7 @@ body {
     }
 
     .search-toggle-green {
-      color: #a33a00 !important;
+      color: #ffffff !important;
     }
   }
 }
@@ -709,7 +709,7 @@ body {
     font-weight: 500;
     padding: 0;
     margin-left: 10px;
-    background-color: #a33a00;
+    background-color: #0066cc;
     color: white;
     width: 70px;
     height: 50px;
@@ -768,7 +768,7 @@ body {
       }
       .dashboard-title2 {
         display: flex;
-        margin-right: 335px;
+        margin-right: 250px;
       }
       .compare-button {
         // padding:14px 50px;
@@ -798,6 +798,9 @@ body {
         margin-top: 10px;
         font-size: 9vw;
         margin-bottom: 40px;
+      }
+      .dashboard-title2 {
+        margin-right: 370px;
       }
     }
   }
