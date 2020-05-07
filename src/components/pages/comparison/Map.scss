@@ -43,48 +43,129 @@
     grid-gap: 1.4rem;
     grid-template-columns: repeat(12, 1fr);
     grid-auto-rows: auto;
-    @media screen and (max-width: 600px) {
-      grid-gap: 0;
-    }
   }
 
   .special-margins {
     margin-bottom: 3%;
   }
 
+  // Contains all city overview cards
   .city-overview-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-auto-rows: auto;
     grid-gap: 1.4rem;
-    @media screen and (max-width: 850px) {
-      display: grid;
-      grid-template-columns: auto;
-      grid-template-rows: auto;
-      grid-gap: 1.4rem;
-    }
 
+    //One whole card
     .city-overview-card {
       height: 100%;
+
+      // The overview portion of the card
+      .city-overview-container {
+        background-color: white;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding: 0 10px;
+        margin-bottom: 0;
+        width: 100%;
+
+        .city-overview-border {
+          margin-bottom: 0 !important;
+          padding-left: 2%;
+          font-size: 1.3rem;
+          width: 100%;
+          display: flex;
+        }
+        .city-overview-content {
+          display: flex;
+          flex-direction: column;
+          padding: 15px 3%;
+          margin-bottom: 0;
+          justify-content: space-between;
+          img {
+            height: 20px;
+            margin-right: 15px;
+          }
+          .city-overview-container-one {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            .overview-title-container-one {
+              width: 60%;
+              display: flex;
+              flex-direction: column;
+              .overview-title {
+                margin: 10px 0;
+                color: grey;
+                display: flex;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: color 500ms;
+                &:hover {
+                  color: #0066cc;
+                }
+              }
+            }
+            .overview-stats-container-one {
+              width: 40%;
+              font-size: 1.1rem;
+              display: flex;
+              flex-direction: column;
+
+              .overview-stats {
+                width: 100%;
+                margin: 10px 0;
+              }
+            }
+          }
+          .city-overview-container-two {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+
+            .overview-title-container-two {
+              width: 60%;
+              display: flex;
+              flex-direction: column;
+              .overview-title {
+                margin: 10px 0;
+                color: grey;
+                display: flex;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: color 500ms;
+                &:hover {
+                  color: #0066cc;
+                }
+              }
+            }
+            .overview-stats-container-two {
+              width: 40%;
+              font-size: 1.1rem;
+              display: flex;
+              flex-direction: column;
+              .overview-stats {
+                width: 100%;
+                margin: 10px 0;
+              }
+            }
+          }
+        }
+      }
+
+      // Recommended similar city portion of the card
       .recommendation-grid {
         background-color: white;
         border-radius: 10px;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         width: 100%;
-        height: 100%;
 
         .recommendation-container {
           width: 100%;
           display: flex;
           flex-wrap: wrap;
         }
-        //other recommendation-container class on onlychild is interfering
-        // .recommendation-container {
-        //   width: 100%;
-        //   display: grid;
-        //   grid-template-columns: auto auto;
-        //   grid-template-rows: auto auto;
-        // }
+
         .recommendation-title {
           display: flex;
           align-items: center;
@@ -126,6 +207,7 @@
             align-items: center;
             justify-content: center;
             margin: 0;
+            white-space: nowrap;
           }
           &:hover {
             background-color: #f6f9fc;
@@ -193,99 +275,6 @@
               background-color: #f6f9fc;
               border: 1px solid #e9e8e9;
             }
-          }
-        }
-      }
-    }
-  }
-
-  .city-overview-container {
-    background-color: white;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    padding: 0 10px;
-    margin-bottom: 0;
-    @media screen and (max-width: 800px) {
-      width: 100%;
-    }
-    .city-overview-border {
-      margin-bottom: 0 !important;
-      padding-left: 2%;
-      font-size: 1.3rem;
-      width: 100%;
-      display: flex;
-    }
-    .city-overview-content {
-      display: flex;
-      flex-direction: column;
-      padding: 15px 3%;
-      margin-bottom: 0;
-      justify-content: space-between;
-      img {
-        height: 20px;
-        margin-right: 15px;
-      }
-      .city-overview-container-one {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        .overview-title-container-one {
-          width: 60%;
-          display: flex;
-          flex-direction: column;
-          .overview-title {
-            margin: 10px 0;
-            color: grey;
-            display: flex;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: color 500ms;
-            &:hover {
-              color: #0066cc;
-            }
-          }
-        }
-        .overview-stats-container-one {
-          width: 40%;
-          font-size: 1.1rem;
-          display: flex;
-          flex-direction: column;
-
-          .overview-stats {
-            width: 100%;
-            margin: 10px 0;
-          }
-        }
-      }
-      .city-overview-container-two {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-
-        .overview-title-container-two {
-          width: 60%;
-          display: flex;
-          flex-direction: column;
-          .overview-title {
-            margin: 10px 0;
-            color: grey;
-            display: flex;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: color 500ms;
-            &:hover {
-              color: #0066cc;
-            }
-          }
-        }
-        .overview-stats-container-two {
-          width: 40%;
-          font-size: 1.1rem;
-          display: flex;
-          flex-direction: column;
-          .overview-stats {
-            width: 100%;
-            margin: 10px 0;
           }
         }
       }
@@ -907,10 +896,6 @@
     margin: auto;
     margin-top: 4.2rem;
     margin-bottom: 75px;
-
-    @media screen and (max-width: 600px) {
-      grid-gap: 0;
-    }
 
     h1 {
       text-align: center;
