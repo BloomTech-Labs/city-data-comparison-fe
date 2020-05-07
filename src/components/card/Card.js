@@ -16,6 +16,7 @@ function Card(props) {
     grid-column: span ${props.gridColumn ? props.gridColumn : 12};
     @media only screen and (max-width: 800px) {
       grid-column: span 12;
+      padding: 2.8rem 1.4rem;
     }
   `;
 
@@ -50,9 +51,7 @@ function Card(props) {
     padding: 1.4rem;
     @media only screen and (max-width: 1000px) {
       padding: 0;
-    }
-    @media only screen and (max-width: 800px) {
-      padding: 0;
+      padding-top: 2.8rem;
     }
   `;
 
