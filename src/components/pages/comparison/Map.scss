@@ -26,7 +26,7 @@
   display: block;
   position: relative;
   max-width: 1200px;
-  margin: 7rem auto;
+  margin: 5rem auto;
 
   // This is the text that appears when no cities are selected.
   .map-prompt {
@@ -43,6 +43,9 @@
     grid-gap: 1.4rem;
     grid-template-columns: repeat(12, 1fr);
     grid-auto-rows: auto;
+    @media screen and (max-width: 600px) {
+      grid-gap: 0;
+    }
   }
 
   .special-margins {
@@ -53,6 +56,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1.4rem;
+    @media screen and (max-width: 850px) {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      grid-gap: 1.4rem;
+    }
 
     .city-overview-card {
       height: 100%;
@@ -186,46 +195,6 @@
             }
           }
         }
-        @media screen and (min-width: 800px) {
-          .city-info-container {
-            padding: 15px 7%;
-            padding-top: 0;
-            flex-direction: row;
-            .city-overview-container-one {
-              width: 45%;
-            }
-            .city-overview-container-two {
-              width: 40%;
-              display: flex;
-              .overview-title-container-two {
-                width: 70%;
-                flex-direction: column;
-              }
-              .overview-stats-container-two {
-                width: 27%;
-              }
-            }
-          }
-          .recommendation-grid {
-            width: none;
-            .recommendation-container {
-              flex-wrap: nowrap;
-            }
-            .recommendation-title {
-              width: 31%;
-              justify-content: center;
-              text-align: left;
-              padding: 5px 10px;
-            }
-            .recommendation {
-              width: 23%;
-              padding: 10px 5px;
-              img {
-                height: 20px;
-              }
-            }
-          }
-        }
       }
     }
   }
@@ -281,6 +250,7 @@
           font-size: 1.1rem;
           display: flex;
           flex-direction: column;
+
           .overview-stats {
             width: 100%;
             margin: 10px 0;
@@ -795,19 +765,19 @@
   }
 
   .search-bar {
-    transition: color .2s;
+    transition: color 0.2s;
 
     &::-webkit-input-placeholder {
       /* WebKit browsers */
-      transition: color .2s;
+      transition: color 0.2s;
     }
     &::-moz-placeholder {
       /* Mozilla Firefox */
-      transition: color .2s;
+      transition: color 0.2s;
     }
     &:-ms-input-placeholder {
       /* IE 10+ */
-      transition: color .2s;
+      transition: color 0.2s;
     }
     &:focus::-webkit-input-placeholder {
       color: white;
@@ -938,7 +908,8 @@
     margin-top: 4.2rem;
     margin-bottom: 75px;
 
-    @media only screen and (max-width: 600px) {
+    @media screen and (max-width: 600px) {
+      grid-gap: 0;
     }
 
     h1 {
