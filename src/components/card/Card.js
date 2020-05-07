@@ -14,7 +14,7 @@ function Card(props) {
     border-radius: 5px;
     position: relative;
     grid-column: span ${props.gridColumn ? props.gridColumn : 12};
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 800px) {
       grid-column: span 12;
     }
   `;
@@ -25,6 +25,7 @@ function Card(props) {
     margin-top: 1.4rem;
     font-size: 1.4rem;
     font-weight: normal;
+    
   `;
 
   const CardHeader = styled.div`
@@ -38,8 +39,11 @@ function Card(props) {
 
   const CardContent = styled.div`
     padding: 2.8rem;
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1000px) {
       padding: 1.4rem;
+    }
+    @media only screen and (max-width: 800px) {
+      padding: 0;
     }
   `;
 
