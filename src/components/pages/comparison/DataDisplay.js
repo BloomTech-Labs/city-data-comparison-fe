@@ -17,12 +17,9 @@ import VacancyGraph from "./graphs/housing/vacancy";
 import Unemployment from "./graphs/economics/Unemployment";
 import GeneralStats from "./overview/GeneralStats";
 import TravelTime from "./graphs/economics/TravelTimeCard";
-
-import OwnerCosts from "./graphs/housing/OwnerCosts";
-import Smoc from "./graphs/housing/SmocCard.js";
+import {OwnerCosts, OwnerCostsModalContent} from "./graphs/housing/OwnerCosts";
 
 import Card from "../../card/Card.js";
-import useModal from "../../modal/useModal";
 
 const DataDisplay = ({
   selected,
@@ -75,7 +72,7 @@ const DataDisplay = ({
 
               <Card
                 title={"Homeowner Costs"}
-                modalContent={<Smoc />}
+                modalContent={<OwnerCostsModalContent />}
                 gridColumn={3}
               >
                 <OwnerCosts selected={selected} />
