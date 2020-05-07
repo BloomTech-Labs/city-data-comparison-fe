@@ -53,7 +53,7 @@ export function OwnerCostsModalContent(props) {
         mortgages, real estate taxes, various insurances, utilities, fuels,
         mobile home costs, and condominium fees. Listing the items separately
         improves accuracy and provides additional detail.
-        
+        <br /><br />
         When combined with income, a new item is created -- Selected Monthly
         Owner Costs as a percentage of household income. This item is used to 
         measure housing affordability and excessive shelter costs. For example,
