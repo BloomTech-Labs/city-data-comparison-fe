@@ -92,15 +92,15 @@ const DataDisplay = ({
             </div>
 
             <div className="data-category" id="industry">
-              <Card title={"Job Industry"}>
-                <Industry edData={selected} />
+              <Card title={"Average Salary"}>
+                <BarGraph edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
               </Card>
 
-              <Card title={"Average Salary"}>
-                <BarGraph edData={selected} />
+              <Card title={"Job Industry"}>
+                <Industry edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
@@ -130,6 +130,13 @@ const DataDisplay = ({
             </div>
 
             <div className="data-category" id="culture">
+              <Card title={"Population Growth"}>
+                <Population selected={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: U.S. Census (2018)
+                </p>
+              </Card>
+
               <Card title={"Age Distribution"}>
                 <AgeDistributionGraph ethData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
@@ -146,13 +153,6 @@ const DataDisplay = ({
 
               <Card title={"Education"}>
                 <EducationGraph edData={selected} />
-                <p style={{ textAlign: "right", fontSize: "10px" }}>
-                  Source: U.S. Census (2018)
-                </p>
-              </Card>
-
-              <Card title={"Population Growth"}>
-                <Population selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
