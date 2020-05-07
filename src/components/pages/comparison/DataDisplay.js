@@ -50,7 +50,7 @@ const DataDisplay = ({
           <>
             <GeneralStats ethData={selected} />
 
-            <div className="data-category">
+            <div className="data-category" id="housing">
               <Card title={"Home Prices"}>
                 <HousePriceGraph selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
@@ -90,7 +90,7 @@ const DataDisplay = ({
       
             </div>
 
-            <div className="data-category">
+            <div className="data-category" id="industry">
               <Card title={"Job Industry"}>
                 <Industry edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
@@ -128,7 +128,7 @@ const DataDisplay = ({
               </Card>
             </div>
 
-            <div className="data-category">
+            <div className="data-category" id="culture">
               <Card title={"Age Distribution"}>
                 <AgeDistributionGraph ethData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
@@ -157,7 +157,9 @@ const DataDisplay = ({
                 </p>
               </Card>
 
-              <Card title={"Historical Temperature"}>
+            </div>
+            <div className="data-category" id="weather">
+            <Card title={"Historical Temperature"}>
                 <AvgTemp edData={selected} />
               </Card>
             </div>
