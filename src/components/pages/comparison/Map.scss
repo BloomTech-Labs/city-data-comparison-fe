@@ -41,7 +41,7 @@
     width: 100%;
     display: grid;
     grid-gap: 1.4rem;
-    grid-template-columns: repeat(12, 1fr); 
+    grid-template-columns: repeat(12, 1fr);
     grid-auto-rows: auto;
   }
 
@@ -270,8 +270,9 @@
             display: flex;
             font-size: 1.1rem;
             cursor: pointer;
-            &:hover{
-              color: #0066CC;
+            transition: color 500ms;
+            &:hover {
+              color: #0066cc;
             }
           }
         }
@@ -301,8 +302,9 @@
             display: flex;
             font-size: 1.1rem;
             cursor: pointer;
-            &:hover{
-              color: #0066CC;
+            transition: color 500ms;
+            &:hover {
+              color: #0066cc;
             }
           }
         }
@@ -793,6 +795,24 @@
   }
 
   .search-bar {
+    transition: color .2s;
+
+    &::-webkit-input-placeholder {
+      /* WebKit browsers */
+      transition: color .2s;
+    }
+    &::-moz-placeholder {
+      /* Mozilla Firefox */
+      transition: color .2s;
+    }
+    &:-ms-input-placeholder {
+      /* IE 10+ */
+      transition: color .2s;
+    }
+    &:focus::-webkit-input-placeholder {
+      color: white;
+    }
+
     background-image: url("../index/assets/search.svg");
     background-position: 10px 16px;
     background-repeat: no-repeat;
@@ -919,7 +939,6 @@
     margin-bottom: 75px;
 
     @media only screen and (max-width: 600px) {
-      
     }
 
     h1 {
