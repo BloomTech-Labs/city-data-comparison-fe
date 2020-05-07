@@ -14,7 +14,7 @@ import EducationGraph from "./graphs/culture/EducationGraph";
 import AgeDistributionGraph from "./graphs/culture/AgeDistrubution";
 import RetirementGraph from "./graphs/economics/retirement";
 import VacancyGraph from "./graphs/housing/vacancy";
-import UnemploymentCard from "./graphs/economics/unemploymentCard";
+import Unemployment from "./graphs/economics/Unemployment";
 import GeneralStats from "./overview/GeneralStats";
 import TravelTime from "./graphs/economics/TravelTimeCard";
 
@@ -73,7 +73,11 @@ const DataDisplay = ({
                 </p>
               </Card>
 
-              <Card title={"Homeowner Costs"} modalContent={<Smoc />} gridColumn={3}>
+              <Card
+                title={"Homeowner Costs"}
+                modalContent={<Smoc />}
+                gridColumn={3}
+              >
                 <OwnerCosts selected={selected} />
               </Card>
               <Card title="Average Rooms Per Household">
@@ -99,17 +103,20 @@ const DataDisplay = ({
                 </p>
               </Card>
 
-              <Card title={"Ways to Commute"}>
+              <Card title={"Ways to Commute"} gridColumn={9}>
                 <Commute edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
               </Card>
 
-              <TravelTime ethData={selected} />
+              <Card title={"Average Commute"} gridColumn="3">
+                <TravelTime selected={selected} />
+              </Card>
 
-              <UnemploymentCard ethData={selected} />
-
+              <Card title={"Unemployment Rate"}>
+                <Unemployment selected={selected} />
+              </Card>
               <Card title={"Retirement Income Source"}>
                 <RetirementGraph ethData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
