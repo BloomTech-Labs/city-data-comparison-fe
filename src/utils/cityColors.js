@@ -1,25 +1,42 @@
+
+
+//city colors variables... the number next to the color in the variable is the b value in the hsb
+const darkBlue31 = "#293250d0";
+const newYellow100 = "#ffd55ad0";
+const green83 = "#6dd47ed0"
+
+//color variables for the rest of the site:
+//action color is the old main color for site
+export const actionColor = "#2ca4fc";
+//the updated darker blue for the site
+export const actionColor2 = "#0066CC";
+//color for the words on the nav/footer
+export const navGrey = "#696969";
+
+
 export const getCityColor = (selected) => {
+  
     if (selected === undefined) {
-      return "#A33A00";
+      return green83;
     }
     let activeColors = selected.map((item) => item.color);
-    if (!activeColors.includes("#A33A00")) {
-      return "#A33A00";
-    } else if (!activeColors.includes("#0041A3")) {
-      return "#0041A3";
-    } else if (!activeColors.includes("#017428")) {
-      return "#017428";
+    if (!activeColors.includes(green83)) {
+      return green83;
+    } else if (!activeColors.includes(newYellow100)) {
+      return newYellow100;
+    } else if (!activeColors.includes(darkBlue31)) {
+      return darkBlue31;
     }
   };
  export const getSecondCityColor = (arr, selected) => {
     let activeColors = selected.map((item) => item.color);
     activeColors.push(arr[0].color);
-    if (!activeColors.includes("#A33A00")) {
-      return "#A33A00";
-    } else if (!activeColors.includes("#0041A3")) {
-      return "#0041A3";
-    } else if (!activeColors.includes("#017428")) {
-      return "#017428";
+    if (!activeColors.includes(green83)) {
+      return green83;
+    } else if (!activeColors.includes(newYellow100)) {
+      return newYellow100;
+    } else if (!activeColors.includes(darkBlue31)) {
+      return darkBlue31;
     }
   };
   export const lightenOrDarken = (color, percent) => {

@@ -21,6 +21,8 @@ import {OwnerCosts, OwnerCostsModalContent} from "./graphs/housing/OwnerCosts";
 
 import Card from "../../card/Card.js";
 
+import {actionColor2, navGrey} from "../../../utils/cityColors.js";
+
 const DataDisplay = ({
   selected,
   cityMarkers,
@@ -161,7 +163,7 @@ const DataDisplay = ({
             </div>
           </>
         ) : (
-          <p className="map-prompt">Select up to three cities to compare.</p>
+          <p className="map-prompt" style={{color: navGrey}}>Select up to three cities to compare.</p>
         )}
       </div>
     </div>
