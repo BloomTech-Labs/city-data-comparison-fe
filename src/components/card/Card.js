@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import helpCircle from "../../assets/icons/helpcircle.svg";
-
 import useModal from "../modal/useModal";
 import Modal from "../modal/modal.js";
 
@@ -13,7 +12,8 @@ function Card(props) {
         padding: "1.4rem",
         borderRadius: "5px",
         position: "relative",
-        gridColumn: props.gridColumn
+        gridColumn: `span ${props.gridColumn ? props.gridColumn : 12}`,
+        height: 'auto'
       }}
     >
         <Modal

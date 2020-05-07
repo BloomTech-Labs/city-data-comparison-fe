@@ -17,9 +17,12 @@ import VacancyGraph from "./graphs/housing/vacancy";
 import UnemploymentCard from "./graphs/economics/unemploymentCard";
 import GeneralStats from "./overview/GeneralStats";
 import TravelTime from "./graphs/economics/TravelTimeCard";
-import OwnerCostCard from "./graphs/housing/OwnerCostCard";
+
+import OwnerCosts from "./graphs/housing/OwnerCosts";
+import Smoc from "./graphs/housing/SmocCard.js";
 
 import Card from "../../card/Card.js";
+import useModal from "../../modal/useModal";
 
 const DataDisplay = ({
   selected,
@@ -49,13 +52,13 @@ const DataDisplay = ({
             <GeneralStats ethData={selected} />
 
             <div className="data-category">
-            <Card title={"Home Prices"}>
-              <HousePriceGraph selected={selected} />
-              <p style={{ textAlign: "right", fontSize: "10px" }}>
-                Source: zillow.com
-              </p>
-            </Card>
-            
+              <Card title={"Home Prices"}>
+                <HousePriceGraph selected={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: zillow.com
+                </p>
+              </Card>
+
               <Card title={"Average Rent"}>
                 <RentChart edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
@@ -63,14 +66,16 @@ const DataDisplay = ({
                 </p>
               </Card>
 
-              <Card title="Vacancy">
+              <Card title="Vacancy" gridColumn={9}>
                 <VacancyGraph edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
               </Card>
-              <OwnerCostCard ethData={selected} />
 
+              <Card title={"Homeowner Costs"} modalContent={<Smoc />} gridColumn={3}>
+                <OwnerCosts selected={selected} />
+              </Card>
               <Card title="Average Rooms Per Household">
                 <RoomGraph edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
