@@ -56,8 +56,15 @@ const DataDisplay = ({
                 </p>
               </Card>
 
-              <Card title={"Average Rent"}>
+              <Card title={"Average Rent"} gridColumn="6">
                 <RentChart edData={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: U.S. Census (2018)
+                </p>
+              </Card>
+
+              <Card title="Average Rooms Per Household" gridColumn="6">
+                <RoomGraph edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
@@ -77,12 +84,8 @@ const DataDisplay = ({
               >
                 <OwnerCosts selected={selected} />
               </Card>
-              <Card title="Average Rooms Per Household">
-                <RoomGraph edData={selected} />
-                <p style={{ textAlign: "right", fontSize: "10px" }}>
-                  Source: U.S. Census (2018)
-                </p>
-              </Card>
+
+      
             </div>
 
             <div className="data-category">
@@ -111,10 +114,11 @@ const DataDisplay = ({
                 <TravelTime selected={selected} />
               </Card>
 
-              <Card title={"Unemployment Rate"}>
+              <Card title={"Unemployment Rate"} gridColumn="3">
                 <Unemployment selected={selected} />
               </Card>
-              <Card title={"Retirement Income Source"}>
+
+              <Card title={"Retirement Income Source"} gridColumn="9">
                 <RetirementGraph ethData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
