@@ -33,15 +33,16 @@ export default function cityReducer(state = initialState, action) {
           isFetching: false,
           error: "Only three cities max.",
         };
-      } 
-      else if (state.selected.filter((item) => item._id === action.payload._id).length > 0) {
+      } else if (
+        state.selected.filter((item) => item._id === action.payload._id)
+          .length > 0
+      ) {
         return {
           ...state,
           isFetching: false,
           error: "The specified city has already been selected.",
         };
-      }
-      else {
+      } else {
         const newCity = {
           ...action.payload,
           color: getCityColor(state.selected),
@@ -70,8 +71,8 @@ export default function cityReducer(state = initialState, action) {
       };
     case types.CITY_COMPARISON_SUCCESS: {
       action.payload.forEach((city, i, cityArray) => {
-        city.color = getCityColor(cityArray)
-      })
+        city.color = getCityColor(cityArray);
+      });
       return {
         ...state,
         isFetching: false,
@@ -79,7 +80,7 @@ export default function cityReducer(state = initialState, action) {
         error: "",
       };
     }
-      
+
     case types.CITY_COMPARISON_ERROR:
       return {
         ...state,
@@ -87,19 +88,21 @@ export default function cityReducer(state = initialState, action) {
         error: action.payload,
       };
 
-    case types.REMOVE_CITY: 
+    case types.REMOVE_CITY:
       return {
         ...state,
-        selected: [...state.selected.filter(item => {
-          return (item._id !== action.payload)
-        })]
-      }
+        selected: [
+          ...state.selected.filter((item) => {
+            return item._id !== action.payload;
+          }),
+        ],
+      };
 
-    case types.CLEAR_ALL_CITIES: 
+    case types.CLEAR_ALL_CITIES:
       return {
         ...state,
-        selected: []
-      }
+        selected: [],
+      };
 
     default:
       return state;
