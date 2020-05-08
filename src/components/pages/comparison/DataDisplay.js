@@ -15,7 +15,7 @@ import AgeDistributionGraph from "./graphs/culture/AgeDistrubution";
 import RetirementGraph from "./graphs/economics/retirement";
 import VacancyGraph from "./graphs/housing/vacancy";
 import Unemployment from "./graphs/economics/Unemployment";
-import Overview from "./ov./overview/Overview
+import Overview from "./overview/Overview";
 import TravelTime from "./graphs/economics/TravelTimeCard";
 import {
   OwnerCosts,
