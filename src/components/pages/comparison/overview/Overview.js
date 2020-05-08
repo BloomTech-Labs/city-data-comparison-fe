@@ -12,25 +12,14 @@ import Recommendations from "./Recommendations";
 import DeselectCityButton from "../buttons/DeselectCityButton.js";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
-// const CenterCard = styled.h3`
-// display:flex;
-// flex-wrap:wrap;
-
-const Wrap = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-const Table = styled.table`
-  width: 100%;
-`;
-function TotalPopulation({ ethData }) {
+function Overview({ selected }) {
   function numberCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   return (
     <div className="city-overview-cards-container">
-      {ethData.map((item) => (
+      {selected.map((item) => (
         <div key={item._id} className="city-overview-card">
           <div className="city-overview-container">
             <div className="city-overview-border">
@@ -130,4 +119,4 @@ function TotalPopulation({ ethData }) {
   );
 }
 
-export default TotalPopulation;
+export default Overview;

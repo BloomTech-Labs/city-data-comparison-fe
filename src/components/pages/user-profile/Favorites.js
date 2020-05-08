@@ -1,75 +1,85 @@
-import React, {useState, useEffect, useContext} from 'react'
-import axios from 'axios'
-import {UserContext} from "../../../contexts/UserContext"
-import GeneralStats from "../comparison/overview/GeneralStats";
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import { UserContext } from "../../../contexts/UserContext";
+import Overview from "../comparison/overview/Overview.js";
+import { useHistory } from "react-router-dom";
 
 const Favorites = (props) => {
-    console.log("im the favorites")
-    const { user, setUser, axiosAuth } = useContext(UserContext);
-    //state for saved cities for specific user
-    const [savedCitiesId, setSavedCitiesId] = useState();
-    const [savedCities, setSavedCities] = useState([]);
+  console.log("im the favorites");
+  const { user, setUser, axiosAuth } = useContext(UserContext);
+  //state for saved cities for specific user
+  const [savedCitiesId, setSavedCitiesId] = useState();
+  const [savedCities, setSavedCities] = useState([]);
 
-
-        //Users saved cities axios call
-        useEffect(() => {
-            axiosAuth()
-                .get(`/users/favs`)
-                .then(res => {
-                    const favArray = [];
-                    res.data.forEach(city => {
-                        axios
-                            .get(`https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${city.city_id}`)
-                            .then(res => {
-                                favArray.push(res.data)
-                            }).then(_ => setSavedCities([...savedCities, ...favArray]))
-                            .catch(err => {
-                                console.error('Error calling DS db', err)
-                            })
-                        })
-                    //Once savedCitiesUrl is set, this call will take that information and call our DS db for the acutal information for each city
-                    
-                })
-                .catch(err => {
-                    console.error('Unable to get saved cities list', err);
-                })
-        }, []);
-
-    let history = useHistory();    
-    //delete saved city handler
-    const handleDelete = id => {
-        // id.preventDefault();
-        axiosAuth()
-            .delete(`/api/users/favs`, id)
-            .then(res => {
-                console.log(res);
+  //Users saved cities axios call
+  useEffect(() => {
+    axiosAuth()
+      .get(`/users/favs`)
+      .then((res) => {
+        const favArray = [];
+        res.data.forEach((city) => {
+          axios
+            .get(
+              `https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/${city.city_id}`
+            )
+            .then((res) => {
+              favArray.push(res.data);
             })
-            .catch(err => {
-                console.error('Error removing city', err);
-            })
-    };
+            .then((_) => setSavedCities([...savedCities, ...favArray]))
+            .catch((err) => {
+              console.error("Error calling DS db", err);
+            });
+        });
+        //Once savedCitiesUrl is set, this call will take that information and call our DS db for the acutal information for each city
+      })
+      .catch((err) => {
+        console.error("Unable to get saved cities list", err);
+      });
+  }, []);
 
-    const handleRefresh = () => {
-        if (savedCities.length === 0 ) {
-            history.push('/compare') 
-        } else {
-        window.location.reload(false);
-        }
+  let history = useHistory();
+  //delete saved city handler
+  const handleDelete = (id) => {
+    // id.preventDefault();
+    axiosAuth()
+      .delete(`/api/users/favs`, id)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error("Error removing city", err);
+      });
+  };
+
+  const handleRefresh = () => {
+    if (savedCities.length === 0) {
+      history.push("/compare");
+    } else {
+      window.location.reload(false);
     }
+  };
 
-    return (
-        <div className="favorites">
-            
-            <div className={`update-favorites`}>
-                <h1>Favorites</h1>
-            <h2 className={savedCities.length === 0 ? 'favorites-header' : 'favorites-header-hidden'}>Explore cities to add to favorites!</h2>
-                    <GeneralStats ethData={savedCities}/>
-                    
-                    <button  onClick={() => handleRefresh()}  >{savedCities.length === 0 ? 'Explore' : 'Update Favorites'}</button>
-                    </div>
-        </div>
-    )
-}
+  return (
+    <div className="favorites">
+      <div className={`update-favorites`}>
+        <h1>Favorites</h1>
+        <h2
+          className={
+            savedCities.length === 0
+              ? "favorites-header"
+              : "favorites-header-hidden"
+          }
+        >
+          Explore cities to add to favorites!
+        </h2>
+        <Overview selected={savedCities} />
+
+        <button onClick={() => handleRefresh()}>
+          {savedCities.length === 0 ? "Explore" : "Update Favorites"}
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Favorites;

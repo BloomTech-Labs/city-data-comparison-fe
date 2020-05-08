@@ -15,7 +15,7 @@ import AgeDistributionGraph from "./graphs/culture/AgeDistrubution";
 import RetirementGraph from "./graphs/economics/retirement";
 import VacancyGraph from "./graphs/housing/vacancy";
 import Unemployment from "./graphs/economics/Unemployment";
-import GeneralStats from "./overview/GeneralStats";
+import Overview from "./ov./overview/Overview
 import TravelTime from "./graphs/economics/TravelTimeCard";
 import {
   OwnerCosts,
@@ -51,7 +51,7 @@ const DataDisplay = ({
       <div className="data-by-category">
         {selected.length > 0 ? (
           <>
-            <GeneralStats ethData={selected} />
+            <Overview selected={selected} />
 
             <div className="data-category" id="housing">
               <Card title={"Home Prices"}>
