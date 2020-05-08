@@ -911,6 +911,7 @@
     padding-bottom: 130px;
   }
 
+  // This contains the overview container, as well as a container for each category of data. overview-cards-container, housing, culture, and weather
   .data-by-category {
     display: grid;
     grid-auto-flow: row;
@@ -936,6 +937,7 @@
   }
 }
 
+// This is the loader for the entire data comparison page, you'll see it at the beginning when you reload
 .loader-animation {
   display: flex;
   justify-content: center;
