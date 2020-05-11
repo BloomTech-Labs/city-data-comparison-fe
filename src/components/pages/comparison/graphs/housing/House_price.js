@@ -9,8 +9,8 @@ const Button = styled.button`
   display: block;
   border: none;
   font-size: 0.9rem;
-  color: #a33a00;
-  border: 0.5px solid #a33a00;
+  color: #0066CCa5;
+  border: 0.5px solid #0066CCa5;
   border-radius: 5px;
   background-color: white;
   position: relative;
