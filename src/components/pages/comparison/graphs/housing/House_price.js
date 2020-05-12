@@ -13,8 +13,8 @@ const Button = styled.button`
   display: block;
   border: none;
   font-size: 0.9rem;
-  color: #0066CCa5;
-  border: 0.5px solid #0066CCa5;
+  color: #0066cca5;
+  border: 0.5px solid #0066cca5;
   border-radius: 5px;
   background-color: white;
   position: relative;
@@ -26,12 +26,9 @@ export default function HousePriceGraph({ selected }) {
   // Get the current date for the purpose of
   // determining where to place the vertical line divider
   const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-  let currentMonth = currentDate.getMonth() + 1;
-  currentMonth = `${currentMonth}`;
-  if (currentMonth.length == 1) {
-    currentMonth = "0" + currentMonth;
-  }
+  const currentYear = String(currentDate.getFullYear());
+  const currentMonth = String(currentDate.getMonth() + 1).padStart(2, "0");
+  const currentDay = String(currentDate().getDate()).padStart(2, "0");
 
   //This initializes a variable that contains all the dates of the historical data
   //that will be turned into labels for the housing prices graph
