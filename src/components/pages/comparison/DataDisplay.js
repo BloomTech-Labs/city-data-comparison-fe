@@ -110,7 +110,7 @@ const DataDisplay = ({
               <Card title={"Job Industry Trends"}>
                 <IndustryLineGraph selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
-                  Source: ???????????????
+                  Source: Bureau of Labor Statistics
                 </p>
               </Card>
 
