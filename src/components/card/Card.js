@@ -11,6 +11,7 @@ function Card(props) {
   const CardContainer = styled.div`
     background-color: white;
     padding: 2.8rem 2.8rem;
+    padding-bottom: 1.4rem;
     border-radius: 5px;
     position: relative;
     grid-column: span ${props.gridColumn ? props.gridColumn : 12};
