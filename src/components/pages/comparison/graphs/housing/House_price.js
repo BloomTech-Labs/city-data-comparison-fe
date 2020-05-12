@@ -28,7 +28,7 @@ export default function HousePriceGraph({ selected }) {
   const currentDate = new Date();
   const currentYear = String(currentDate.getFullYear());
   const currentMonth = String(currentDate.getMonth() + 1).padStart(2, "0");
-  const currentDay = String(currentDate().getDate()).padStart(2, "0");
+  const currentDay = String(currentDate.getDate()).padStart(2, "0");
 
   //This initializes a variable that contains all the dates of the historical data
   //that will be turned into labels for the housing prices graph
