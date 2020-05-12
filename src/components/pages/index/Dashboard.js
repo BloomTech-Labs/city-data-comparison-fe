@@ -6,6 +6,9 @@ import RadarGraph from "./RadarGraph";
 import ReactGA from "react-ga";
 import { useSelector, useDispatch } from "react-redux"; //import
 
+import RUFCarousel from './user-flow/RUFCarousel.js'
+import FlowContainer from './user-flow/FlowContainer'
+
 import {
   getCity,
   cityComparison,
@@ -300,8 +303,10 @@ function Dashboard({ history }) {
               </p>
               {/* SEARCH CONTAINER */}
               <div className="dashboard-function-container">
+                <FlowContainer />
                 {/* TOGGLE SEARCH VS. COMPARE FUNCTIONALITY */}
-                {toggleSearch ? (
+                {/* <RUFCarousel/> */}
+                {/* {toggleSearch ? (
                   <div className="dashboard-single-search-container">
                     <form autoComplete="off" onSubmit={submitCity}>
                       <div className="search-and-button">
@@ -435,10 +440,10 @@ function Dashboard({ history }) {
                       </div>
                     </form>
                   </div>
-                )}
+                )} */}
 
                 {/* * TOGGLE DIV FOR SEARCH AND GO BUTTON */}
-                <div className="toggle-div">
+                {/* <div className="toggle-div">
                   <div id="search-toggle">
                     <label className="switch">
                       <input type="checkbox" onClick={toggleClass} />
@@ -448,7 +453,8 @@ function Dashboard({ history }) {
                       Compare cities
                     </p>
                   </div>
-                </div>
+                </div> */}
+
               </div>
             </div>
           </div>
