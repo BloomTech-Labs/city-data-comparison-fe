@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import styled from "styled-components";
-import { lightenOrDarken } from "../../../../../utils/cityColors.js";
+import {
+  lightenOrDarken,
+  actionColor,
+} from "../../../../../utils/cityColors.js";
+import * as ChartAnnotation from "chartjs-plugin-annotation";
 
 const Button = styled.button`
   margin: 0 auto;
@@ -19,7 +23,15 @@ const Button = styled.button`
 `;
 
 export default function HousePriceGraph({ selected }) {
+  // Get the current date for the purpose of
+  // determining where to place the vertical line divider
   const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  let currentMonth = currentDate.getMonth() + 1;
+  currentMonth = `${currentMonth}`;
+  if (currentMonth.length == 1) {
+    currentMonth = "0" + currentMonth;
+  }
 
   //This initializes a variable that contains all the dates of the historical data
   //that will be turned into labels for the housing prices graph
@@ -45,10 +57,14 @@ export default function HousePriceGraph({ selected }) {
 
     setDateKeys(
       Object.keys(
-        selected[indexOfCityWithMostDates]["Historical Property Value Data"]["Forecast"]
+        selected[indexOfCityWithMostDates]["Historical Property Value Data"][
+          "Forecast"
+        ]
       ).filter(
         (date) =>
-          selected[indexOfCityWithMostDates]["Historical Property Value Data"]["Forecast"][date]
+          selected[indexOfCityWithMostDates]["Historical Property Value Data"][
+            "Forecast"
+          ][date]
       )
     );
   }, [selected]);
@@ -91,13 +107,13 @@ export default function HousePriceGraph({ selected }) {
         data: lineData,
         borderColor: city.color,
         pointRadius: keys.map((date) => {
-          if (new Date(date) < currentDate) {
+          if (new Date(date) > currentDate) {
             return 0;
           } else {
             return 2;
           }
         }),
-        pointBackgroundColor: lightenOrDarken(city.color, 75),
+        pointBackgroundColor: "white",
       };
     });
   }
@@ -108,14 +124,16 @@ export default function HousePriceGraph({ selected }) {
 
   const handleClickLegend = (e, legendItem) => {
     if (lines.length > 1) {
-      setLines(formatGraphLinesWithOneCity(selected[legendItem.datasetIndex], dateKeys));
+      setLines(
+        formatGraphLinesWithOneCity(selected[legendItem.datasetIndex], dateKeys)
+      );
     } else {
       setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
     }
   };
 
   const handleClickShowAll = () => {
-    setLines(formatGraphLinesWithMultipleCities(selected,dateKeys));
+    setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
   };
 
   // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
@@ -130,8 +148,25 @@ export default function HousePriceGraph({ selected }) {
         style={{ position: "relative", width: `100%` }}
       >
         <Line
+          plugins={[ChartAnnotation]}
           data={{ labels: dateKeys, datasets: lines }}
           options={{
+            annotation: {
+              annotations: [
+                {
+                  type: "line",
+                  mode: "vertical",
+                  scaleID: "x-axis-0",
+                  value: `${currentYear}-${currentMonth}`,
+                  borderColor: `${actionColor}`,
+                  label: {
+                    content: "TODAY",
+                    enabled: true,
+                    position: "top",
+                  },
+                },
+              ],
+            },
             title: {
               display: false,
               text: "house price",
@@ -178,10 +213,6 @@ export default function HousePriceGraph({ selected }) {
       ) : (
         <></>
       )}
-      <p style={{ margin: "0 auto", textAlign: "center" }}>
-        The dotted area of the line represents projected values from our machine
-        learning API.
-      </p>
       {selected.length !== 1 && lines.length > 1 ? (
         <p style={{ margin: "0 auto", textAlign: "center" }}>
           Click a city on the legend to enter a more detailed view.
