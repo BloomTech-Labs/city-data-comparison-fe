@@ -100,7 +100,7 @@ const DataDisplay = ({
               </Card>
 
               <Card title={"Job Industry"}>
-                <Industry edData={selected} />
+                <Industry selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
