@@ -5,7 +5,8 @@ import MapSearch from "./MapSearch";
 import HousePriceGraph from "./graphs/housing/House_price";
 import RoomGraph from "./graphs/housing/HousingByRooms";
 import RentChart from "./graphs/housing/RentChart";
-import Industry from "./graphs/economics/industries";
+import IndustryBarGraph from "./graphs/economics/IndustryBarGraph";
+import IndustryLineGraph from "./graphs/economics/IndustryLineGraph.js";
 import Commute from "./graphs/economics/commute";
 import BarGraph from "./graphs/economics/HouseIncome_BarGraph";
 import EthnicityGraph from "./graphs/culture/EthnicityGraph";
@@ -99,10 +100,17 @@ const DataDisplay = ({
                 </p>
               </Card>
 
-              <Card title={"Job Industry"}>
-                <Industry selected={selected} />
+              <Card title={"Job Industry Breakdown"}>
+                <IndustryBarGraph selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
+                </p>
+              </Card>
+
+              <Card title={"Job Industry Trends"}>
+                <IndustryLineGraph selected={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: ???????????????
                 </p>
               </Card>
 
