@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import styled from "styled-components";
+import Select from "../../../../select/Select.js";
 import {
   lightenOrDarken,
   actionColor,
@@ -29,40 +30,58 @@ export default function IndustryLineGraph({ selected }) {
   const currentYear = String(currentDate.getFullYear());
   const currentMonth = String(currentDate.getMonth() + 1).padStart(2, "0");
   const currentDay = String(currentDate.getDate()).padStart(2, "0");
+  function formatDate(date) {
+    var d = new Date(date),
+      month = "" + (d.getMonth() + 1),
+      day = "" + d.getDate(),
+      year = d.getFullYear();
 
-  // Get the all the dates
-  const dateKeys = Object.keys(
-    selected[0]["Industry_Trends"]["Financial Activities"]
-  );
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
 
-  // Get the keys of all the different industries
-  const industryKeys = Object.keys(selected[0]["Industry_Trends"]);
-
-  // This state holds all the lines currently displayed on the graph
-  // it could change when the user clicks a specific city on the legend for focus view
-  const [lines, setLines] = useState([]);
-
-  function formatGraphLines(selected) {
-    const arrayOfCitiesWithArraysOfIndustries = selected.map((city) => {
-      return industryKeys.map((industryLabel) => {
-        return {
-          //just city, state = item.name_with_com,
-          label: `${industryLabel} ${city.name_with_com}`,
-          data: dateKeys.map(
-            (dateLabel) => city["Industry_Trends"][industryLabel][dateLabel]
-          ),
-          fill: false,
-          borderColor: city.color,
-          pointRadius: 0,
-        };
-      });
-    });
-    return [].concat.apply([], arrayOfCitiesWithArraysOfIndustries);
+    return [year, month, day].join("-");
   }
 
+  // The currently selected industry
+  const [currentIndustry, setCurrentIndustry] = useState(
+    "Financial Activities"
+  );
+
+  const [dateKeys, setDateKeys] = useState([]);
   useEffect(() => {
-    setLines(formatGraphLines(selected));
+    setDateKeys(
+      Object.keys(selected[0]["Industry_Trends"]["Financial Activities"])
+    );
   }, [selected]);
+
+  // Gets an array of all the industry options
+  const [industryKeys, setIndustryKeys] = useState([]);
+  useEffect(() => {
+    setIndustryKeys(Object.keys(selected[0]["Industry_Trends"]));
+  }, [selected]);
+
+  // Formats the array of line objects for the graph
+  const [lines, setLines] = useState([]);
+
+  useEffect(() => {
+    setLines(formatGraphLines(selected, currentIndustry, dateKeys));
+  }, [selected, currentIndustry, dateKeys]);
+
+  function formatGraphLines(selectedCities, industry, dates) {
+    const lines = selectedCities.map((city) => {
+      return {
+        label: city.name_with_com,
+        data: dates.map(
+          (dateLabel) => city["Industry_Trends"][industry][dateLabel]
+        ),
+        fill: false,
+        borderColor: city.color,
+        pointRadius: 0,
+      };
+    });
+
+    return lines;
+  }
 
   // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
   function numberCommas(x) {
@@ -78,6 +97,22 @@ export default function IndustryLineGraph({ selected }) {
         <Line
           data={{ labels: dateKeys, datasets: lines }}
           options={{
+            annotation: {
+              annotations: [
+                {
+                  type: "line",
+                  mode: "vertical",
+                  scaleID: "x-axis-0",
+                  // value: `${yyyy}-${mm}-${dd}`,
+                  borderColor: `${actionColor}`,
+                  label: {
+                    content: "TODAY",
+                    enabled: true,
+                    position: "top",
+                  },
+                },
+              ],
+            },
             title: {
               display: false,
               text: "house price",
@@ -116,6 +151,23 @@ export default function IndustryLineGraph({ selected }) {
             },
           }}
         />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            position: "relative",
+          }}
+        >
+          <Select
+            value={currentIndustry}
+            onChange={(e) => setCurrentIndustry(e.target.value)}
+            options={industryKeys}
+          />
+          <p style={{ textAlign: "right", fontSize: "10px" }}>
+            Source: Bureau of Labor Statistics
+          </p>
+        </div>
       </div>
     </div>
   );

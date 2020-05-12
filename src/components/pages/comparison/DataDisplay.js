@@ -109,9 +109,6 @@ const DataDisplay = ({
 
               <Card title={"Job Industry Trends"}>
                 <IndustryLineGraph selected={selected} />
-                <p style={{ textAlign: "right", fontSize: "10px" }}>
-                  Source: Bureau of Labor Statistics
-                </p>
               </Card>
 
               <Card title={"Ways to Commute"} gridColumn={9}>
