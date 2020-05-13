@@ -618,6 +618,18 @@ body {
 
   .dashboard-function-container {
     position: absolute;
+    width: 60%;
+    // @media screen and (max-width: 1300px) {
+    //   width: 58%;
+    // }
+    // @media screen and (max-width: 1200px) {
+    //   width: 57.5%;
+    // }
+  }
+
+  .search-and-modal{
+    display: flex;
+    justify-content: space-between;
   }
 
   .modal-prompt{

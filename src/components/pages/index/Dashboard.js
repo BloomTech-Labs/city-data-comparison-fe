@@ -303,172 +303,184 @@ function Dashboard({ history }) {
               </p>
               {/* SEARCH CONTAINER */}
               <div className="dashboard-function-container">
-                <ModalPopup
-                  isShowing={isShowing}
-                  hide={toggle}
-                  component={<FlowContainer />}
-                />
-                <div className="modal-prompt">
-                  Not sure where you want to go?
-                  <br></br>
-                  take our quiz and let us help you find out!
-                  <button
-                    className="compare-button"
-                    onClick={() => {
-                      toggle();
-                    }}
-                  >
-                    Take the quiz!
-                  </button>
-                </div>
-                {/* TOGGLE SEARCH VS. COMPARE FUNCTIONALITY */}
-                {/* {toggleSearch ? (
-                  <div className="dashboard-single-search-container">
-                    <form autoComplete="off" onSubmit={submitCity}>
-                      <div className="search-and-button">
-                        <input
-                          placeholder="Search for a city"
-                          onChange={handleCityOne}
-                          value={compare.cityOne}
-                          name="cityOne"
-                        />
-                        <button onClick={submitCity} className="compare-button">
-                          Go
-                        </button>
-                      </div>
-                      <div>
-                        {cityOneSuggestions.map((suggestion) => {
-                          const style = {
-                            backgroundColor: suggestion.active
-                              ? "#e9e8e9"
-                              : "#fff",
-                            cursor: "pointer",
-                            fontSize: "1rem",
-                            textAlign: "left",
-                            padding: "10px",
-                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
-                          };
-                          return (
-                            <div
-                              key={suggestion._id}
+                <div className="search-and-modal">
+                  <div className="all-search-container">
+                    {/* TOGGLE SEARCH VS. COMPARE FUNCTIONALITY */}
+                    {toggleSearch ? (
+                      <div className="dashboard-single-search-container">
+                        <form autoComplete="off" onSubmit={submitCity}>
+                          <div className="search-and-button">
+                            <input
+                              placeholder="Search for a city"
+                              onChange={handleCityOne}
+                              value={compare.cityOne}
                               name="cityOne"
-                              style={style}
-                              onClick={() =>
-                                chooseCityOneSuggestion(suggestion)
-                              }
+                            />
+                            <button
+                              onClick={submitCity}
+                              className="compare-button"
                             >
-                              {" "}
-                              <img
-                                alt="a pointer"
-                                className="imageStyle"
-                                src={pointer}
-                              />{" "}
-                              {suggestion.name.replace(" city", "")}
-                            </div>
-                          );
-                        })}
+                              Go
+                            </button>
+                          </div>
+                          <div>
+                            {cityOneSuggestions.map((suggestion) => {
+                              const style = {
+                                backgroundColor: suggestion.active
+                                  ? "#e9e8e9"
+                                  : "#fff",
+                                cursor: "pointer",
+                                fontSize: "1rem",
+                                textAlign: "left",
+                                padding: "10px",
+                                boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
+                              };
+                              return (
+                                <div
+                                  key={suggestion._id}
+                                  name="cityOne"
+                                  style={style}
+                                  onClick={() =>
+                                    chooseCityOneSuggestion(suggestion)
+                                  }
+                                >
+                                  {" "}
+                                  <img
+                                    alt="a pointer"
+                                    className="imageStyle"
+                                    src={pointer}
+                                  />{" "}
+                                  {suggestion.name.replace(" city", "")}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </form>
                       </div>
-                    </form>
-                  </div>
-                ) : (
-                  <div className="dashboard-compare-search-container">
-                    <form autoComplete="off" onSubmit={submitCity}>
-                      <div>
-                        <input
-                          placeholder="Enter city one"
-                          onChange={handleCityOne}
-                          value={compare.cityOne}
-                          name="cityOne"
-                        />
+                    ) : (
+                      <div className="dashboard-compare-search-container">
+                        <form autoComplete="off" onSubmit={submitCity}>
+                          <div>
+                            <input
+                              placeholder="Enter city one"
+                              onChange={handleCityOne}
+                              value={compare.cityOne}
+                              name="cityOne"
+                            />
 
-                        <div>
-                          {cityOneSuggestions.map((suggestion) => {
-                            const style = {
-                              backgroundColor: suggestion.active
-                                ? "#e9e8e9"
-                                : "#fff",
-                              cursor: "pointer",
-                              fontSize: "1rem",
-                              textAlign: "left",
-                              padding: "10px",
-                              boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
-                            };
-                            return (
-                              <div
-                                key={suggestion.name}
-                                style={style}
-                                onClick={() =>
-                                  chooseCityOneSuggestion(suggestion)
-                                }
-                              >
-                                {" "}
-                                <img
-                                  alt="a map pin"
-                                  className="imageStyle"
-                                  src={pointer}
-                                />{" "}
-                                {suggestion.name.replace(" city", "")}
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                      <div style={{ display: "flex", marginTop: "10px" }}>
-                        <input
-                          placeholder="Enter city two"
-                          onChange={handleCityTwo}
-                          value={compare.cityTwo}
-                        />
-                        <button onClick={submitCity} className="compare-button">
-                          Go
-                        </button>
-                      </div>
-                      <div>
-                        {cityTwoSuggestions.map((suggestion) => {
-                          const style = {
-                            backgroundColor: suggestion.active
-                              ? "#e9e8e9"
-                              : "#fff",
-                            cursor: "pointer",
-                            fontSize: "1rem",
-                            textAlign: "left",
-                            padding: "10px",
-                            boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
-                          };
-                          return (
-                            <div
-                              key={suggestion.name}
-                              style={style}
-                              onClick={() =>
-                                chooseCityTwoSuggestion(suggestion)
-                              }
-                            >
-                              {" "}
-                              <img
-                                alt="a map pin"
-                                className="imageStyle"
-                                src={pointer}
-                              />{" "}
-                              {suggestion.name.replace(" city", "")}
+                            <div>
+                              {cityOneSuggestions.map((suggestion) => {
+                                const style = {
+                                  backgroundColor: suggestion.active
+                                    ? "#e9e8e9"
+                                    : "#fff",
+                                  cursor: "pointer",
+                                  fontSize: "1rem",
+                                  textAlign: "left",
+                                  padding: "10px",
+                                  boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
+                                };
+                                return (
+                                  <div
+                                    key={suggestion.name}
+                                    style={style}
+                                    onClick={() =>
+                                      chooseCityOneSuggestion(suggestion)
+                                    }
+                                  >
+                                    {" "}
+                                    <img
+                                      alt="a map pin"
+                                      className="imageStyle"
+                                      src={pointer}
+                                    />{" "}
+                                    {suggestion.name.replace(" city", "")}
+                                  </div>
+                                );
+                              })}
                             </div>
-                          );
-                        })}
+                          </div>
+                          <div style={{ display: "flex", marginTop: "10px" }}>
+                            <input
+                              placeholder="Enter city two"
+                              onChange={handleCityTwo}
+                              value={compare.cityTwo}
+                            />
+                            <button
+                              onClick={submitCity}
+                              className="compare-button"
+                            >
+                              Go
+                            </button>
+                          </div>
+                          <div>
+                            {cityTwoSuggestions.map((suggestion) => {
+                              const style = {
+                                backgroundColor: suggestion.active
+                                  ? "#e9e8e9"
+                                  : "#fff",
+                                cursor: "pointer",
+                                fontSize: "1rem",
+                                textAlign: "left",
+                                padding: "10px",
+                                boxShadow: "0 1px 16px 0 rgba(0, 0, 0, 0.09)",
+                              };
+                              return (
+                                <div
+                                  key={suggestion.name}
+                                  style={style}
+                                  onClick={() =>
+                                    chooseCityTwoSuggestion(suggestion)
+                                  }
+                                >
+                                  {" "}
+                                  <img
+                                    alt="a map pin"
+                                    className="imageStyle"
+                                    src={pointer}
+                                  />{" "}
+                                  {suggestion.name.replace(" city", "")}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </form>
                       </div>
-                    </form>
+                    )}
+                    {/* * TOGGLE DIV FOR SEARCH AND GO BUTTON */}
+                    <div className="toggle-div">
+                      <div id="search-toggle">
+                        <label className="switch">
+                          <input type="checkbox" onClick={toggleClass} />
+                          <span className="slider round"></span>
+                        </label>
+                        <p className={buttonClass} style={toggleStyle}>
+                          Compare cities
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                )} */}
-                {/* * TOGGLE DIV FOR SEARCH AND GO BUTTON */}
-                {/* <div className="toggle-div">
-                  <div id="search-toggle">
-                    <label className="switch">
-                      <input type="checkbox" onClick={toggleClass} />
-                      <span className="slider round"></span>
-                    </label>
-                    <p className={buttonClass} style={toggleStyle}>
-                      Compare cities
-                    </p>
+                  <div className="just-modal">
+                    <ModalPopup
+                      isShowing={isShowing}
+                      hide={toggle}
+                      component={<FlowContainer />}
+                    />
+                    <div className="modal-prompt">
+                      Not sure where you want to go?
+                      <br></br>
+                      take our quiz and let us help you find out!
+                      <button
+                        className="compare-button"
+                        onClick={() => {
+                          toggle();
+                        }}
+                      >
+                        Take the quiz!
+                      </button>
+                    </div>
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
