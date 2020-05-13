@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import styled from "styled-components";
-import Select from "../../../../select/Select.js";
+import { Select } from "antd";
+
 import {
   lightenOrDarken,
   actionColor,
@@ -18,6 +19,7 @@ const SelectPrompt = styled.p`
 `;
 
 export default function IndustryLineGraph({ selected }) {
+  const { Option } = Select;
   // Get the current date for the purpose of
   // determining where to place the vertical line divider
   function formatDate(date) {
@@ -181,16 +183,18 @@ export default function IndustryLineGraph({ selected }) {
           style={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
-            position: "relative",
           }}
         >
           <SelectPrompt>Select an industry:</SelectPrompt>
           <Select
             value={currentIndustry}
-            onChange={(e) => setCurrentIndustry(e.target.value)}
-            options={industryKeys}
-          />
+            style={{ width: "200px" }}
+            onChange={(newValue) => setCurrentIndustry(newValue)}
+          >
+            {industryKeys.map((key) => (
+              <Option value={key}>{key}</Option>
+            ))}
+          </Select>
         </div>
         <p
           style={{

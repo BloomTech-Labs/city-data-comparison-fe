@@ -4,6 +4,7 @@ import ReactGA from "react-ga";
 import PrivateRoute from "./components/PrivateRoute";
 
 import "./App.scss";
+import "antd/dist/antd.css";
 
 import Dashboard from "./components/pages/index/Dashboard";
 import Navigation from "./components/navigation/Navigation";
@@ -20,7 +21,6 @@ import Callback from "./components/Callback";
 import AuthForm from "./components/forms/AuthForm";
 import axiosAuth from "./utils/axiosAuth";
 import SingleCityPage from "./components/pages/singlecity/SingleCityPage";
-
 
 function initializeAnalytics() {
   ReactGA.initialize("UA-156199574-1");
@@ -175,7 +175,10 @@ function App() {
             <Route path="/" render={(props) => <Navigation {...props} />} />
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/" component={Footer} />
-            <Route path="/compare" render={(props) => <Comparison {...props} />} />
+            <Route
+              path="/compare"
+              render={(props) => <Comparison {...props} />}
+            />
             <PrivateRoute path="/profile" component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/meet-the-team" component={AboutUs} />
