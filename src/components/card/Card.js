@@ -18,6 +18,7 @@ function Card(props) {
     @media only screen and (max-width: 800px) {
       grid-column: span 12;
       padding: 2.8rem 1.4rem;
+      padding-bottom: 1.4rem;
     }
   `;
 

@@ -15,7 +15,7 @@ function Select(props) {
     background: white;
     font-size: 1.2rem;
     @media screen and (max-width: 600px) {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
   `;
   const Option = styled.option`
@@ -25,7 +25,7 @@ function Select(props) {
     margin: 0;
     padding: 1% 3%;
     background: white;
-    color: blue;
+    color: black;
     font-size: 0.9rem;
     cursor: pointer;
   `;
