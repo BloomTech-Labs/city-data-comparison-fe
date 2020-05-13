@@ -171,7 +171,7 @@ export default function IndustryLineGraph({ selected }) {
                       return `$${numberCommas(value)}`;
                     },
                   },
-                  gridLines: { display: false },
+                  gridLines: { display: true },
                   scaleLabel: {
                     display: true,
                     labelString: "Amount",

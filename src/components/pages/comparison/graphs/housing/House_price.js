@@ -99,17 +99,10 @@ export default function HousePriceGraph({ selected }) {
         //just city, state = item.name_with_com,
         label: city.name_with_com,
         fill: false,
-        pointRadius: 0,
         //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
         data: lineData,
         borderColor: city.color,
-        pointRadius: keys.map((date) => {
-          if (new Date(date) > currentDate) {
-            return 0;
-          } else {
-            return 2;
-          }
-        }),
+        pointRadius: 0,
         pointBackgroundColor: "white",
       };
     });
@@ -193,7 +186,7 @@ export default function HousePriceGraph({ selected }) {
                       return `$${numberCommas(value)}`;
                     },
                   },
-                  gridLines: { display: false },
+                  gridLines: { display: true },
                   scaleLabel: {
                     display: true,
                     labelString: "Amount",
