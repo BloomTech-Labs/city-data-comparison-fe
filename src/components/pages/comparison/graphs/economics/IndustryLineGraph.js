@@ -8,19 +8,13 @@ import {
 } from "../../../../../utils/cityColors.js";
 import * as ChartAnnotation from "chartjs-plugin-annotation";
 
-const Button = styled.button`
-  margin: 0 auto;
-  text-align: center;
-  display: block;
-  border: none;
-  font-size: 0.9rem;
-  color: #0066cca5;
-  border: 0.5px solid #0066cca5;
-  border-radius: 5px;
-  background-color: white;
-  position: relative;
-  bottom: 27px;
-  left: 120px;
+const SelectPrompt = styled.p`
+  font-size: 1.2rem;
+  @media screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
+  color: ${actionColor};
+  margin-right: 1.2rem;
 `;
 
 export default function IndustryLineGraph({ selected }) {
@@ -127,6 +121,7 @@ export default function IndustryLineGraph({ selected }) {
         <Line
           data={{ labels: dateKeys, datasets: lines }}
           options={{
+            plugins: [ChartAnnotation],
             annotation: {
               annotations: [
                 {
@@ -185,21 +180,26 @@ export default function IndustryLineGraph({ selected }) {
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "center",
             alignItems: "center",
             position: "relative",
           }}
         >
-          <p>Select an industry: </p>
+          <SelectPrompt>Select an industry:</SelectPrompt>
           <Select
             value={currentIndustry}
             onChange={(e) => setCurrentIndustry(e.target.value)}
             options={industryKeys}
           />
-          <p style={{ textAlign: "right", fontSize: "10px" }}>
-            Source: Bureau of Labor Statistics
-          </p>
         </div>
+        <p
+          style={{
+            textAlign: "right",
+            fontSize: "10px",
+          }}
+        >
+          Source: Bureau of Labor Statistics
+        </p>
       </div>
     </div>
   );

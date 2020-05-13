@@ -20,4 +20,5 @@ describe("select component", () => {
     });
     expect(mockOnChange.mock.calls.length).toBe(1);
   });
+  it("value passed into props");
 });
