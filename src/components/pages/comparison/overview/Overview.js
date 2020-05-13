@@ -11,6 +11,7 @@ import FavoriteButton from "../buttons/FavoriteButton";
 import Recommendations from "./Recommendations";
 import DeselectCityButton from "../buttons/DeselectCityButton.js";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Card } from "antd";
 
 function Overview({ selected }) {
   function numberCommas(x) {
@@ -20,7 +21,7 @@ function Overview({ selected }) {
   return (
     <div className="city-overview-cards-container">
       {selected.map((item) => (
-        <div key={item._id} className="city-overview-card">
+        <Card key={item._id} className="city-overview-card">
           <div className="city-overview-container">
             <div className="city-overview-border">
               <p>{item["City"]}</p>
@@ -113,7 +114,7 @@ function Overview({ selected }) {
           ) : (
             <Recommendations city={item} />
           )}
-        </div>
+        </Card>
       ))}
     </div>
   );
