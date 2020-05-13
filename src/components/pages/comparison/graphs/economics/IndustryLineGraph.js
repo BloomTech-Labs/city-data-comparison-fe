@@ -26,12 +26,8 @@ const Button = styled.button`
 export default function IndustryLineGraph({ selected }) {
   // Get the current date for the purpose of
   // determining where to place the vertical line divider
-  const currentDate = new Date();
-  const currentYear = String(currentDate.getFullYear());
-  const currentMonth = String(currentDate.getMonth() + 1).padStart(2, "0");
-  const currentDay = String(currentDate.getDate()).padStart(2, "0");
   function formatDate(date) {
-    var d = new Date(date),
+    let d = new Date(date),
       month = "" + (d.getMonth() + 1),
       day = "" + d.getDate(),
       year = d.getFullYear();
@@ -44,15 +40,49 @@ export default function IndustryLineGraph({ selected }) {
 
   // The currently selected industry
   const [currentIndustry, setCurrentIndustry] = useState(
-    "Financial Activities"
+    "Education and Health Services"
   );
 
   const [dateKeys, setDateKeys] = useState([]);
   useEffect(() => {
     setDateKeys(
-      Object.keys(selected[0]["Industry_Trends"]["Financial Activities"])
+      Object.keys(
+        selected[0]["Industry_Trends"]["Education and Health Services"]
+      )
     );
   }, [selected]);
+
+  // We need to find the value in the array of labels closest to current date
+  // to place the vertical line divider in the graph to represent
+  // where the historical data ends and the future predictions begin
+  const [closestValueToToday, setClosestValueToToday] = useState("");
+
+  useEffect(() => {
+    // If the dateKeys have been initialized and set, run this code
+    if (dateKeys.length > 0) {
+      setClosestValueToToday(
+        // Using this reducer we loop through the dateKeys X axis label array
+        // in order to find the date label on the X axis of the graph
+        // that is closest to the current date
+        dateKeys.reduce((acc, item) => {
+          // Set a value for current date
+          const today = new Date();
+
+          // Create a date object for the current item (the date value string) in the label array
+          const dateValue = new Date(item);
+
+          // If the currently looped item is closer to today than the accumulated value
+          // set the accumulated value to the current item in the array
+          return Math.abs(today.valueOf() - dateValue.valueOf()) <
+            Math.abs(today.valueOf() - new Date(acc).valueOf())
+            ? item
+            : acc;
+        })
+        // The reduce method returns the accumulated value
+        // once it has looped through every item in the array
+      );
+    }
+  }, [dateKeys]);
 
   // Gets an array of all the industry options
   const [industryKeys, setIndustryKeys] = useState([]);
@@ -103,7 +133,8 @@ export default function IndustryLineGraph({ selected }) {
                   type: "line",
                   mode: "vertical",
                   scaleID: "x-axis-0",
-                  // value: `${yyyy}-${mm}-${dd}`,
+                  // Here we tell the graph annotation plugin where to put the vertical line
+                  value: closestValueToToday,
                   borderColor: `${actionColor}`,
                   label: {
                     content: "TODAY",
@@ -159,6 +190,7 @@ export default function IndustryLineGraph({ selected }) {
             position: "relative",
           }}
         >
+          <p>Select an industry: </p>
           <Select
             value={currentIndustry}
             onChange={(e) => setCurrentIndustry(e.target.value)}
