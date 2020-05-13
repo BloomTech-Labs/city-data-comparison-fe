@@ -620,6 +620,21 @@ body {
     position: absolute;
   }
 
+  .modal-prompt{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    background: grey;
+    border-radius: 5px;
+    padding-top: 3%;
+    padding-right: 3%;
+    padding-left: 3%;
+    button {
+      width:30%;
+      margin: 3% auto;
+    }
+  }
+
   .search-and-button {
     display: flex;
     // flex-direction: column;

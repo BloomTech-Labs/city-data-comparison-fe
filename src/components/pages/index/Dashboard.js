@@ -6,14 +6,16 @@ import RadarGraph from "./RadarGraph";
 import ReactGA from "react-ga";
 import { useSelector, useDispatch } from "react-redux"; //import
 
-import RUFCarousel from './user-flow/RUFCarousel.js'
-import FlowContainer from './user-flow/FlowContainer'
+import FlowContainer from "./user-flow/FlowContainer";
 
 import {
   getCity,
   cityComparison,
   removeCity,
 } from "../../../redux/actions/cityActions.js"; //import
+
+import useModal from "../../modal/useModal";
+import ModalPopup from "../../modal/modal.js";
 
 import pointer from "./assets/pointer.svg";
 import backwheel from "./assets/motorbike_back_wheel.png";
@@ -39,6 +41,8 @@ import control from "../../homepage-imgs/control.svg";
 import unlock from "../../homepage-imgs/unlock.svg";
 //submit city needs more looking at.... Reducer needed???
 function Dashboard({ history }) {
+  const { isShowing, toggle } = useModal();
+
   AOS.init();
   const {
     user,
@@ -47,11 +51,7 @@ function Dashboard({ history }) {
     setToggleSearch,
     axiosAuth,
   } = useContext(UserContext);
-  const {
-    cityIndex,
-    viewport,
-    setViewport,
-  } = useContext(CityContext);
+  const { cityIndex, viewport, setViewport } = useContext(CityContext);
 
   const selected = useSelector((state) => state.cityReducer.selected); //added
   const dispatch = useDispatch(); //added
@@ -303,9 +303,25 @@ function Dashboard({ history }) {
               </p>
               {/* SEARCH CONTAINER */}
               <div className="dashboard-function-container">
-                <FlowContainer />
+                <ModalPopup
+                  isShowing={isShowing}
+                  hide={toggle}
+                  component={<FlowContainer />}
+                />
+                <div className="modal-prompt">
+                  Not sure where you want to go?
+                  <br></br>
+                  take our quiz and let us help you find out!
+                  <button
+                    className="compare-button"
+                    onClick={() => {
+                      toggle();
+                    }}
+                  >
+                    Take the quiz!
+                  </button>
+                </div>
                 {/* TOGGLE SEARCH VS. COMPARE FUNCTIONALITY */}
-                {/* <RUFCarousel/> */}
                 {/* {toggleSearch ? (
                   <div className="dashboard-single-search-container">
                     <form autoComplete="off" onSubmit={submitCity}>
@@ -441,7 +457,6 @@ function Dashboard({ history }) {
                     </form>
                   </div>
                 )} */}
-
                 {/* * TOGGLE DIV FOR SEARCH AND GO BUTTON */}
                 {/* <div className="toggle-div">
                   <div id="search-toggle">
@@ -454,7 +469,6 @@ function Dashboard({ history }) {
                     </p>
                   </div>
                 </div> */}
-
               </div>
             </div>
           </div>

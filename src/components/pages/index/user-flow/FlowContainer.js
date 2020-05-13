@@ -5,6 +5,8 @@ import Location from "./Location";
 import Industry from "./Industry";
 import Weather from "./Weather";
 
+import Card from "../../../card/Card.js";
+
 export default function FlowContainer() {
   const [inputs, setInputs] = useState({
     housing: "",
