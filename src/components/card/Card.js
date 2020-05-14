@@ -20,6 +20,12 @@ function Card(props) {
       padding: 2.8rem 1.4rem;
       padding-bottom: 1.4rem;
     }
+    @media only screen and (max-width: 600px) {
+      padding: 1.4rem 0.7rem;
+      padding-bottom: 0.7rem;
+      margin: 0 0.7rem;
+      border-radius: 5px;
+    }
   `;
 
   const CardTitle = styled.h4`
@@ -29,9 +35,15 @@ function Card(props) {
     text-align: left;
     &:only-child {
       text-align: ${props.gridColumn == 3 ? "center" : "left"};
+      @media only screen and (max-width: 800px) {
+        text-align: left;
+      }
     }
     @media only screen and (max-width: 800px) {
       text-align: left;
+    }
+    @media only screen and (max-width: 600px) {
+      padding: 0rem 1.4rem;
     }
   `;
 
@@ -54,6 +66,9 @@ function Card(props) {
     @media only screen and (max-width: 1000px) {
       padding: 0;
       padding-top: 2.8rem;
+    }
+    @media only screen and (max-width: 600px) {
+      padding-top: 1.4rem;
     }
   `;
 
