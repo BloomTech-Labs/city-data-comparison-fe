@@ -23,7 +23,6 @@ function Card(props) {
     @media only screen and (max-width: 600px) {
       padding: 1.4rem 0.7rem;
       padding-bottom: 0.7rem;
-      margin: 0 0.7rem;
       border-radius: 5px;
     }
   `;

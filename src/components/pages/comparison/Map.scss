@@ -27,7 +27,9 @@
   position: relative;
   max-width: 1200px;
   margin: 1.4rem auto;
-
+  @media screen and (max-width: 1200px) {
+    margin: 1.4rem 0.7rem;
+  }
   // This is the text that appears when no cities are selected.
   .map-prompt {
     text-align: center;
@@ -66,9 +68,6 @@
     //One whole card
     .city-overview-card {
       height: 100%;
-      @media screen and (max-width: 600px) {
-        margin: 0 0.7rem;
-      }
       // The overview portion of the card
       .city-overview-container {
         background-color: white;
