@@ -10,10 +10,20 @@ import {
 } from "../../../../../utils/cityColors.js";
 import * as ChartAnnotation from "chartjs-plugin-annotation";
 
+const SelectContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
 const SelectPrompt = styled.p`
   font-size: 1.2rem;
+  white-space: nowrap;
   @media screen and (max-width: 600px) {
-    font-size: 1rem;
+    display: none;
   }
   color: ${actionColor};
   margin-right: 1.2rem;
@@ -179,16 +189,11 @@ export default function IndustryLineGraph({ selected }) {
             },
           }}
         />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        <SelectContainer>
           <SelectPrompt>Select an industry:</SelectPrompt>
           <Select
             value={currentIndustry}
-            style={{ width: "200px" }}
+            style={{ width: "auto" }}
             onChange={(e) => setCurrentIndustry(e.target.value)}
             displayEmpty
             inputProps={{ "aria-label": "Without label" }}
@@ -197,7 +202,7 @@ export default function IndustryLineGraph({ selected }) {
               <MenuItem value={key}>{key}</MenuItem>
             ))}
           </Select>
-        </div>
+        </SelectContainer>
         <p
           style={{
             textAlign: "right",
