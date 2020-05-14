@@ -4,7 +4,6 @@ import ReactGA from "react-ga";
 import PrivateRoute from "./components/PrivateRoute";
 
 import "./App.scss";
-import "antd/dist/antd.css";
 
 import Dashboard from "./components/pages/index/Dashboard";
 import Navigation from "./components/navigation/Navigation";

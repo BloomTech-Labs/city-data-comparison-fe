@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import styled from "styled-components";
-import { Select } from "antd";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 import {
   lightenOrDarken,
@@ -19,7 +20,6 @@ const SelectPrompt = styled.p`
 `;
 
 export default function IndustryLineGraph({ selected }) {
-  const { Option } = Select;
   // Get the current date for the purpose of
   // determining where to place the vertical line divider
   function formatDate(date) {
@@ -189,10 +189,12 @@ export default function IndustryLineGraph({ selected }) {
           <Select
             value={currentIndustry}
             style={{ width: "200px" }}
-            onChange={(newValue) => setCurrentIndustry(newValue)}
+            onChange={(e) => setCurrentIndustry(e.target.value)}
+            displayEmpty
+            inputProps={{ "aria-label": "Without label" }}
           >
             {industryKeys.map((key) => (
-              <Option value={key}>{key}</Option>
+              <MenuItem value={key}>{key}</MenuItem>
             ))}
           </Select>
         </div>
