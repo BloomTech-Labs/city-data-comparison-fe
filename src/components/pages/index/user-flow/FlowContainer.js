@@ -31,12 +31,16 @@ export default function FlowContainer() {
   console.log("CONTAINER INPUTS", inputs);
   // console.log("VALUE", value);
   return (
-    <div>
-      <h1>HI</h1>
-
-      <Housing inputs={inputs} setInputs={setInputs} />
-     
+    <div className='dashboard-modal-container'>
+      <h1>Take this short quiz to be recommended three cities that will best suit you!</h1>
       <Location inputs={inputs} setInputs={setInputs} />
+      
+      <Income inputs={inputs} setInputs={setInputs} />
+      
+      <Housing inputs={inputs} setInputs={setInputs} />
+      
+      <Weather inputs={inputs} setInputs={setInputs} />
+      
 
     </div>
   );

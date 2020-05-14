@@ -27,22 +27,22 @@ export default function HousingBudget(props) {
 
   return (
     <div>
-      <h2>What is your Housing Budget?</h2>
+      <h2>What is your monthly Housing Budget?</h2>
       <Radio.Group defaultValue="low" buttonStyle="solid" onChange={onChange}>
-        <Radio.Button value="low" style={{ width: "250px" }}>
-          Low($100-$500)
+        <Radio.Button value="low" style={{ width: "265px" }}>
+          Low ($0 - $599)
         </Radio.Button>
-        <Radio.Button value="low-middle" style={{ width: "250px" }}>
-          Low-Middle($1000-$1500)
+        <Radio.Button value="lower-middle" style={{ width: "265px" }}>
+          Lower-Middle ($600 - $1199)
         </Radio.Button>
-        <Radio.Button value="middle" style={{ width: "250px" }}>
-          Middle($10000-$50000)
+        <Radio.Button value="middle" style={{ width: "265px" }}>
+          Middle ($1200 - $1799)
         </Radio.Button>
-        <Radio.Button value="upper-middle" style={{ width: "250px" }}>
-          Upper-Middle($100000-$500000)
+        <Radio.Button value="upper-middle" style={{ width: "265px" }}>
+          Upper-Middle ($1800 - $2399)
         </Radio.Button>
-        <Radio.Button value="high" style={{ width: "250px" }}>
-          High($1000000-$5000000)
+        <Radio.Button value="high" style={{ width: "265px" }}>
+          High ($2400 - $3000)
         </Radio.Button>
       </Radio.Group>
     </div>
