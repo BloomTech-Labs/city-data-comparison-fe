@@ -48,7 +48,7 @@ function Card(props) {
 
   const CardHeader = styled.div`
     display: flex;
-    justify-content: ${props.gridColumn == 3
+    justify-content: ${props.gridColumn === 3
       ? "space-around"
       : "space-between"};
   `;
