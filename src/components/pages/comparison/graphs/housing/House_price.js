@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import styled from "styled-components";
-import {
-  lightenOrDarken,
-  actionColor,
-} from "../../../../../utils/cityColors.js";
+import { actionColor } from "../../../../../utils/cityColors.js";
 import * as ChartAnnotation from "chartjs-plugin-annotation";
 
 const Button = styled.button`
@@ -28,7 +25,6 @@ export default function HousePriceGraph({ selected }) {
   const currentDate = new Date();
   const currentYear = String(currentDate.getFullYear());
   const currentMonth = String(currentDate.getMonth() + 1).padStart(2, "0");
-  const currentDay = String(currentDate.getDate()).padStart(2, "0");
 
   //This initializes a variable that contains all the dates of the historical data
   //that will be turned into labels for the housing prices graph
@@ -198,7 +194,7 @@ export default function HousePriceGraph({ selected }) {
           }}
         />
       </div>
-      {selected.length > 1 && lines.length == 1 ? (
+      {selected.length > 1 && lines.length === 1 ? (
         <Button onClick={handleClickShowAll}>Show All</Button>
       ) : (
         <></>
