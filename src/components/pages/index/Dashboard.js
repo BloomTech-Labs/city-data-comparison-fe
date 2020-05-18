@@ -1,23 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import LineGraph from "./PieGraph";
-import LineGraph2 from "./TwoGraph";
-import RadarGraph from "./RadarGraph";
 import ReactGA from "react-ga";
 import { useSelector, useDispatch } from "react-redux"; //import
 
-import {
-  getCity,
-  cityComparison,
-  removeCity,
-} from "../../../redux/actions/cityActions.js"; //import
+import { getCity, cityComparison } from "../../../redux/actions/cityActions.js"; //import
 
 import pointer from "./assets/pointer.svg";
-import backwheel from "./assets/motorbike_back_wheel.png";
-import edgeblur from "./assets/edge_blur.png";
-import driver from "./assets/motorbike_driver.png";
-import frontwheel from "./assets/motorbike_front_wheel.png";
-import plant from "./assets/motorbike_plant.png";
 
 import { CityContext } from "../../../contexts/CityContext";
 import { UserContext } from "../../../contexts/UserContext";
@@ -26,7 +14,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "../../../App.scss";
 
-import landing from "../../homepage-imgs/landing.svg";
 import economy from "../../homepage-imgs/economy.svg";
 import community from "../../homepage-imgs/community.svg";
 import housing from "../../homepage-imgs/housing.svg";
@@ -44,11 +31,7 @@ function Dashboard({ history }) {
     setToggleSearch,
     axiosAuth,
   } = useContext(UserContext);
-  const {
-    cityIndex,
-    viewport,
-    setViewport,
-  } = useContext(CityContext);
+  const { cityIndex, viewport, setViewport } = useContext(CityContext);
 
   const selected = useSelector((state) => state.cityReducer.selected); //added
   const dispatch = useDispatch(); //added
@@ -276,8 +259,8 @@ function Dashboard({ history }) {
   const toggleStyle = {
     marginLeft: "15px",
     fontSize: "1.1rem",
-    color: "grey",
-    color: buttonClass === "search-toggle-green" ? "" : "search-toggle-green",
+    color:
+      buttonClass === "search-toggle-green" ? "grey" : "search-toggle-green",
   };
 
   return (

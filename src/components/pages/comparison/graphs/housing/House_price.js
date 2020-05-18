@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import styled from "styled-components";
-import { lightenOrDarken } from "../../../../../utils/cityColors.js";
+import { actionColor } from "../../../../../utils/cityColors.js";
+import * as ChartAnnotation from "chartjs-plugin-annotation";
 
 const Button = styled.button`
   margin: 0 auto;
@@ -9,8 +10,8 @@ const Button = styled.button`
   display: block;
   border: none;
   font-size: 0.9rem;
-  color: #a33a00;
-  border: 0.5px solid #a33a00;
+  color: #0066cca5;
+  border: 0.5px solid #0066cca5;
   border-radius: 5px;
   background-color: white;
   position: relative;
@@ -19,7 +20,11 @@ const Button = styled.button`
 `;
 
 export default function HousePriceGraph({ selected }) {
+  // Get the current date for the purpose of
+  // determining where to place the vertical line divider
   const currentDate = new Date();
+  const currentYear = String(currentDate.getFullYear());
+  const currentMonth = String(currentDate.getMonth() + 1).padStart(2, "0");
 
   //This initializes a variable that contains all the dates of the historical data
   //that will be turned into labels for the housing prices graph
@@ -45,10 +50,14 @@ export default function HousePriceGraph({ selected }) {
 
     setDateKeys(
       Object.keys(
-        selected[indexOfCityWithMostDates]["Historical Property Value Data"]["Forecast"]
+        selected[indexOfCityWithMostDates]["Historical Property Value Data"][
+          "Forecast"
+        ]
       ).filter(
         (date) =>
-          selected[indexOfCityWithMostDates]["Historical Property Value Data"]["Forecast"][date]
+          selected[indexOfCityWithMostDates]["Historical Property Value Data"][
+            "Forecast"
+          ][date]
       )
     );
   }, [selected]);
@@ -86,18 +95,11 @@ export default function HousePriceGraph({ selected }) {
         //just city, state = item.name_with_com,
         label: city.name_with_com,
         fill: false,
-        pointRadius: 0,
         //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
         data: lineData,
         borderColor: city.color,
-        pointRadius: keys.map((date) => {
-          if (new Date(date) < currentDate) {
-            return 0;
-          } else {
-            return 2;
-          }
-        }),
-        pointBackgroundColor: lightenOrDarken(city.color, 75),
+        pointRadius: 0,
+        pointBackgroundColor: "white",
       };
     });
   }
@@ -108,14 +110,16 @@ export default function HousePriceGraph({ selected }) {
 
   const handleClickLegend = (e, legendItem) => {
     if (lines.length > 1) {
-      setLines(formatGraphLinesWithOneCity(selected[legendItem.datasetIndex], dateKeys));
+      setLines(
+        formatGraphLinesWithOneCity(selected[legendItem.datasetIndex], dateKeys)
+      );
     } else {
       setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
     }
   };
 
   const handleClickShowAll = () => {
-    setLines(formatGraphLinesWithMultipleCities(selected,dateKeys));
+    setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
   };
 
   // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
@@ -130,8 +134,25 @@ export default function HousePriceGraph({ selected }) {
         style={{ position: "relative", width: `100%` }}
       >
         <Line
+          plugins={[ChartAnnotation]}
           data={{ labels: dateKeys, datasets: lines }}
           options={{
+            annotation: {
+              annotations: [
+                {
+                  type: "line",
+                  mode: "vertical",
+                  scaleID: "x-axis-0",
+                  value: `${currentYear}-${currentMonth}`,
+                  borderColor: `${actionColor}`,
+                  label: {
+                    content: "TODAY",
+                    enabled: true,
+                    position: "top",
+                  },
+                },
+              ],
+            },
             title: {
               display: false,
               text: "house price",
@@ -161,7 +182,7 @@ export default function HousePriceGraph({ selected }) {
                       return `$${numberCommas(value)}`;
                     },
                   },
-                  gridLines: { display: false },
+                  gridLines: { display: true },
                   scaleLabel: {
                     display: true,
                     labelString: "Amount",
@@ -173,15 +194,11 @@ export default function HousePriceGraph({ selected }) {
           }}
         />
       </div>
-      {selected.length > 1 && lines.length == 1 ? (
+      {selected.length > 1 && lines.length === 1 ? (
         <Button onClick={handleClickShowAll}>Show All</Button>
       ) : (
         <></>
       )}
-      <p style={{ margin: "0 auto", textAlign: "center" }}>
-        The dotted area of the line represents projected values from our machine
-        learning API.
-      </p>
       {selected.length !== 1 && lines.length > 1 ? (
         <p style={{ margin: "0 auto", textAlign: "center" }}>
           Click a city on the legend to enter a more detailed view.

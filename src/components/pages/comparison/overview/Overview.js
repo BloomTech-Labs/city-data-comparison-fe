@@ -1,16 +1,14 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import styled from "styled-components";
-import world from "../assets/world.svg";
+
 import pop from "../assets/population.svg";
-import users from "../assets/users.svg";
+
 import briefcase from "../assets/briefcase.svg";
 import income from "../assets/dollar.svg";
 import weather from "../assets/activity.svg";
 import FavoriteButton from "../buttons/FavoriteButton";
 import Recommendations from "./Recommendations";
 import DeselectCityButton from "../buttons/DeselectCityButton.js";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 
 function Overview({ selected }) {
   function numberCommas(x) {
