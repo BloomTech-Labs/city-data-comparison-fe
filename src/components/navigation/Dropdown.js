@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CityContext } from "../../contexts/CityContext";
 import { UserContext } from "../../contexts/UserContext";
 import ProfileImage from "../pages/user-profile/icons/profileimage.png";
 
