@@ -19,7 +19,6 @@ import { CityContext } from "./contexts/CityContext";
 import Callback from "./components/Callback";
 import AuthForm from "./components/forms/AuthForm";
 import axiosAuth from "./utils/axiosAuth";
-import SingleCityPage from "./components/pages/singlecity/SingleCityPage";
 
 function initializeAnalytics() {
   ReactGA.initialize("UA-156199574-1");
@@ -181,10 +180,6 @@ function App() {
             <PrivateRoute path="/profile" component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/meet-the-team" component={AboutUs} />
-            <Route
-              path="/SingleCityPage"
-              render={(props) => <SingleCityPage {...props} />}
-            />
 
             <Route
               path="/signin"
