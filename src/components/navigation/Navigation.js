@@ -6,6 +6,7 @@ import { UserContext } from "../../contexts/UserContext";
 import DropMenu from "./Dropdown";
 import { actionColor, navGrey } from "../../utils/cityColors.js";
 
+// All of this code needs refactoring and simplification
 function Navigation(props) {
   const [offset, setOffset] = useState(0);
   const [displayNav, setDisplayNav] = useState("show-nav");
