@@ -221,12 +221,12 @@ const AuthForm = (props) => {
                       <span
                         className="ppText"
                         style={{ margin: "2vw" }}
-                        onClick={() => (
+                        onClick={() => {
                           setModalState(
                             <PrivacyPolicy register={props.register} />
-                          ),
-                          toggle()
-                        )}
+                          );
+                          toggle();
+                        }}
                         style={{ cursor: "pointer" }}
                       >
                         privacy policy
