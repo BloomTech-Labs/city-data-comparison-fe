@@ -14,13 +14,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "../../../App.scss";
 
-import economy from "../../homepage-imgs/economy.svg";
-import community from "../../homepage-imgs/community.svg";
-import housing from "../../homepage-imgs/housing.svg";
-import data from "../../homepage-imgs/visualize.svg";
-import location from "../../homepage-imgs/map.svg";
-import control from "../../homepage-imgs/control.svg";
-import unlock from "../../homepage-imgs/unlock.svg";
+import economy from "./assets/economy.svg";
+import community from "./assets/community.svg";
+import housing from "./assets/housing.svg";
+import data from "./assets/visualize.svg";
+import location from "./assets/map.svg";
+import control from "./assets/control.svg";
+import unlock from "./assets/unlock.svg";
 //submit city needs more looking at.... Reducer needed???
 function Dashboard({ history }) {
   AOS.init();
