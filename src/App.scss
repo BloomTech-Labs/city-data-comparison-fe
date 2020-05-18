@@ -603,7 +603,7 @@ body {
     font-size: 108px;
     line-height: 1;
     margin-bottom: 35px;
-    color: white;
+    color: #444444;
     display: none;
 
     @media screen and (max-width: 500px) {
@@ -618,6 +618,8 @@ body {
 
   .dashboard-function-container {
     position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   .search-and-button {
