@@ -1,5 +1,4 @@
 import React from "react";
-import ReactGA from "react-ga";
 import AvgTemp from "./graphs/culture/tempAvg";
 import MapSearch from "./MapSearch";
 import HousePriceGraph from "./graphs/housing/House_price";
