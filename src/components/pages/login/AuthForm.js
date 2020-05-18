@@ -12,8 +12,8 @@ import { useForm } from "react-hook-form";
 //component for each oauth button
 import "./OauthButton";
 //icons for oauth buttons
-import Google from "../../assets/icons/google.svg";
-import Linkedin from "../../assets/icons/linkedin.svg";
+import Google from "../../../assets/icons/google.svg";
+import Linkedin from "../../../assets/icons/linkedin.svg";
 
 //modal that contains the privacy policy
 import Modal from "../../modal/modal";
@@ -30,9 +30,9 @@ import "./forms.scss";
 import OauthButton from "./OauthButton";
 
 //illustrations for forms
-import signin_photo from "../../assets/forms/world_map.svg";
-import signup_photo from "../../assets/forms/destinations.svg";
-import mobile_blue from "../../assets/forms/town_blue.svg";
+import signin_photo from "./assets/world_map.svg";
+import signup_photo from "./assets/destinations.svg";
+import mobile_blue from "./assets/town_blue.svg";
 
 //styled icons
 const UsernameIcon = styled(User)`

@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../navigation/Footer";
+import Footer from "../../navigation/Footer";
 //styling
 
 import "./privacy.scss";

@@ -10,7 +10,7 @@ import Navigation from "./components/navigation/Navigation";
 import Footer from "./components/navigation/Footer";
 import Comparison from "./components/pages/comparison/Comparison.js";
 import Profile from "./components/pages/user-profile/Profile";
-import PrivacyPolicy from "./components/legal/PrivacyPolicy";
+import PrivacyPolicy from "./components/pages/privacypolicy/PrivacyPolicy";
 import AboutUs from "./components/pages/aboutus/AboutUs";
 // import AboutUs2 from './components/aboutus/AboutUs2';
 import citiesIndex from "./data/city_ids.json";
