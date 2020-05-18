@@ -34,10 +34,6 @@ const DataDisplay = ({
   setViewport,
   cityIndex,
 }) => {
-  const dataNavClicked = (link) => {
-    ReactGA.event({ category: "Data", action: `clicked ${link} link` });
-  };
-
   return (
     <div className="comparison-page-content-container">
       <div className="search-container">
