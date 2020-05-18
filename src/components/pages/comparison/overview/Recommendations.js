@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 
 import recommend from "./recommend-pin.svg";
 import ReactGA from "react-ga";
 
-import {useDispatch} from 'react-redux';
-import {getCity} from '../../../../redux/actions/cityActions.js'
+import { useDispatch } from "react-redux";
+import { getCity } from "../../../../redux/actions/cityActions.js";
 
 //not using this component as far as we can tell right now
 const Recommendations = ({ city }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   let [cultureRec, setCultureRec] = useState({ city: "", ID: "" });
   let [housingRec, setHousingRec] = useState({ city: "", ID: "" });
   let [industryRec, setIndustryRec] = useState({ city: "", ID: "" });
