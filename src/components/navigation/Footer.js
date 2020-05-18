@@ -1,10 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "../modal/modal";
 import useModal from "../modal/useModal";
 import "../modal/modal.scss";
-
-import { UserContext } from "../../contexts/UserContext";
 
 import { actionColor, navGrey } from "../../utils/cityColors.js";
 
