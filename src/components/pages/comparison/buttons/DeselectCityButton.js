@@ -17,7 +17,6 @@ const DeselectCityButton = ({ city }) => {
         justifyContent: "spaceAround",
         background: "white",
         width: "1.4rem",
-        justifyContent: "space-around",
         borderRadius: "0.3rem",
         margin: "0 0.3rem",
         marginRight: "0.6rem",
