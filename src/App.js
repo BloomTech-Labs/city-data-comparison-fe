@@ -17,7 +17,7 @@ import citiesIndex from "./data/city_ids.json";
 import { UserContext } from "./contexts/UserContext";
 import { CityContext } from "./contexts/CityContext";
 import Callback from "./components/Callback";
-import AuthForm from "./components/forms/AuthForm";
+import AuthForm from "./components/pages/login/AuthForm";
 import axiosAuth from "./utils/axiosAuth";
 
 function initializeAnalytics() {

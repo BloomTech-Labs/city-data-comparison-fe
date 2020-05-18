@@ -3,7 +3,7 @@
 
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../contexts/UserContext";
+import { UserContext } from "../../../contexts/UserContext";
 import axios from "axios";
 
 //react hook form is used for validation instead of formik
@@ -16,9 +16,9 @@ import Google from "../../assets/icons/google.svg";
 import Linkedin from "../../assets/icons/linkedin.svg";
 
 //modal that contains the privacy policy
-import Modal from "../modal/modal";
-import useModal from "../modal/useModal";
-import PrivacyPolicy from "../legal/PrivacyPolicy";
+import Modal from "../../modal/modal";
+import useModal from "../../modal/useModal";
+import PrivacyPolicy from "../privacypolicy/PrivacyPolicy";
 
 //styled component icons instead of fontawesome
 import styled from "styled-components";
