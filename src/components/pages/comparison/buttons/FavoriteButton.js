@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { UserContext } from "../../../../contexts/UserContext";
 import { useHistory } from "react-router-dom";
 import heart_icon from "../assets/heart.svg";
