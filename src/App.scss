@@ -453,7 +453,7 @@ body {
   // justify-content:space-between;
 
   .dashboard-image {
-    background-image: url(./components/pages/index/assets/landing.svg);
+    background-image: url(./components/pages/index/assets/wideSkyline.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -462,7 +462,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: auto;
+    height: 100vh;
     min-width: 1520px;
     min-height: 650px;
     margin-top: 70px;
