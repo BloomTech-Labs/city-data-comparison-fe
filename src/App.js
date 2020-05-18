@@ -59,10 +59,6 @@ function App() {
   //city reducer
   const [cityMarkers, setCityMarkers] = useState(cityIndex);
 
-  //comparison components?? also works for map component??
-  //city reducer
-  const [selected, setSelected] = useState([]);
-
   //for the map component, should change from state var to something else
   const [viewport, setViewport] = useState({
     width: "100%",

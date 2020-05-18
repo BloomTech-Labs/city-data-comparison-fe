@@ -14,7 +14,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "../../../App.scss";
 
-import landing from "../../homepage-imgs/landing.svg";
 import economy from "../../homepage-imgs/economy.svg";
 import community from "../../homepage-imgs/community.svg";
 import housing from "../../homepage-imgs/housing.svg";
