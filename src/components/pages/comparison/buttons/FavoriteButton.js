@@ -73,7 +73,6 @@ const FavoriteButton = ({ city }) => {
           display: "flex",
           cursor: "pointer",
           alignItems: "center",
-          justifyContent: "spaceAround",
           background: "white",
           width: "1.4rem",
           justifyContent: "space-around",
