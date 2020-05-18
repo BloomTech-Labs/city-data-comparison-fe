@@ -16,6 +16,10 @@ const SelectContainer = styled.div`
   @media screen and (max-width: 600px) {
     flex-direction: column;
     align-items: center;
+    width: 100%;
+  }
+  div.MuiInputBase-root {
+    width: auto;
   }
 `;
 
@@ -193,7 +197,6 @@ export default function IndustryLineGraph({ selected }) {
           <SelectPrompt>Select an industry:</SelectPrompt>
           <Select
             value={currentIndustry}
-            style={{ width: "auto" }}
             onChange={(e) => setCurrentIndustry(e.target.value)}
             displayEmpty
             inputProps={{ "aria-label": "Without label" }}
