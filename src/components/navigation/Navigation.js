@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import citrics from "./citrics-mock-dark.png";
 import signInLock from "./signInLockDark.png";
@@ -7,7 +7,6 @@ import DropMenu from "./Dropdown";
 import { actionColor, navGrey } from "../../utils/cityColors.js";
 
 function Navigation(props) {
-  const { user, setUser } = useContext(UserContext);
   const [offset, setOffset] = useState(0);
   const [displayNav, setDisplayNav] = useState("show-nav");
   const [bgColor, setBgColor] = useState("default-color");
