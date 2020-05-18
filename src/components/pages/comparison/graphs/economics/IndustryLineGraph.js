@@ -4,10 +4,7 @@ import styled from "styled-components";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
-import {
-  lightenOrDarken,
-  actionColor,
-} from "../../../../../utils/cityColors.js";
+import { actionColor } from "../../../../../utils/cityColors.js";
 import * as ChartAnnotation from "chartjs-plugin-annotation";
 
 const SelectContainer = styled.div`
@@ -34,20 +31,6 @@ const SelectPrompt = styled.p`
 `;
 
 export default function IndustryLineGraph({ selected }) {
-  // Get the current date for the purpose of
-  // determining where to place the vertical line divider
-  function formatDate(date) {
-    let d = new Date(date),
-      month = "" + (d.getMonth() + 1),
-      day = "" + d.getDate(),
-      year = d.getFullYear();
-
-    if (month.length < 2) month = "0" + month;
-    if (day.length < 2) day = "0" + day;
-
-    return [year, month, day].join("-");
-  }
-
   // The currently selected industry
   const [currentIndustry, setCurrentIndustry] = useState(
     "Education and Health Services"
