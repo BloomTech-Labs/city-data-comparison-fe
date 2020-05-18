@@ -259,8 +259,8 @@ function Dashboard({ history }) {
   const toggleStyle = {
     marginLeft: "15px",
     fontSize: "1.1rem",
-    color: "grey",
-    color: buttonClass === "search-toggle-green" ? "" : "search-toggle-green",
+    color:
+      buttonClass === "search-toggle-green" ? "grey" : "search-toggle-green",
   };
 
   return (
