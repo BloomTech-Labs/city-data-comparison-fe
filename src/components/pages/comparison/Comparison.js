@@ -1,11 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import {
-  getCity,
-  cityComparison,
-  removeCity,
-} from "../../../redux/actions/cityActions.js";
+import { getCity, removeCity } from "../../../redux/actions/cityActions.js";
 
 import ReactMapGL from "react-map-gl";
 import styled from "styled-components";
@@ -20,9 +16,8 @@ import DataDisplay from "./DataDisplay";
 import PopupMap from "./map/PopupMap";
 
 import { CityContext } from "../../../contexts/CityContext";
-import Axios from "axios";
 
-import {actionColor} from "../../../utils/cityColors.js";
+import { actionColor } from "../../../utils/cityColors.js";
 //maybe convert toggleSelected and selectSearch
 const MapWrapper = styled.div`
   width: 100vw;
@@ -40,7 +35,6 @@ export default function Map() {
 
   const selected = useSelector((state) => state.cityReducer.selected);
   const dispatch = useDispatch();
-
 
   // Google Analytics Events
   useEffect((_) => {
@@ -107,7 +101,7 @@ export default function Map() {
         />
       </div>
       <div className="map">
-      <PopupMap />
+        <PopupMap />
         <MapWrapper className="main-map">
           <ReactMapGL
             // mapStyle='mapbox://styles/mapbox/light-v10'
