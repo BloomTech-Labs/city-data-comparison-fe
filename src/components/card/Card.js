@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import helpCircle from "../../assets/icons/helpcircle.svg";
 import useModal from "../modal/useModal";
 import ModalPopup from "../modal/modal.js";
@@ -33,7 +33,7 @@ function Card(props) {
     font-weight: normal;
     text-align: left;
     &:only-child {
-      text-align: ${props.gridColumn == 3 ? "center" : "left"};
+      text-align: ${props.gridColumn === 3 ? "center" : "left"};
       @media only screen and (max-width: 800px) {
         text-align: left;
       }
