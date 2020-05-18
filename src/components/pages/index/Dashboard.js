@@ -39,6 +39,7 @@ import data from "../../homepage-imgs/visualize.svg";
 import location from "../../homepage-imgs/map.svg";
 import control from "../../homepage-imgs/control.svg";
 import unlock from "../../homepage-imgs/unlock.svg";
+
 //submit city needs more looking at.... Reducer needed???
 function Dashboard({ history }) {
   const { isShowing, toggle } = useModal();

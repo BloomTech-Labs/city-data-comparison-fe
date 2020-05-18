@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 
-import { Radio } from "antd";
-
 export default function Weather(props) {
   const [weather, setWeather] = useState("");
+
+  const myStyle = {
+    width: "265px"
+  }
 
   const handleChange = (e) => {
     setWeather(e.target.value);
@@ -27,18 +29,14 @@ export default function Weather(props) {
 
   return (
     <div>
-      <h2>What temperature do you prefer living in?</h2>
-      <Radio.Group defaultValue="small" buttonStyle="solid" onChange={onChange}>
-        <Radio.Button value="cold" style={{ width: "265px" }}>
+      <h2>What is your preferred climate?</h2>
+
           Cold (0 - 49°F)
-        </Radio.Button>
-        <Radio.Button value="cool" style={{ width: "265px" }}>
+
           Cool (50 - 69°F)
-        </Radio.Button>
-        <Radio.Button value="warm" style={{ width: "265px" }}>
+
           Warm (70 - 80°F)
-        </Radio.Button>
-      </Radio.Group>
+
     </div>
   );
 }
