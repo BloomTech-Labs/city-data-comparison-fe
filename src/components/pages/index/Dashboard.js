@@ -461,7 +461,7 @@ function Dashboard({ history }) {
                       </div>
                     </div>
                   </div>
-                  <div className="just-modal">
+                  <div>
                     <ModalPopup
                       isShowing={isShowing}
                       hide={toggle}

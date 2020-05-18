@@ -8,14 +8,39 @@ import Weather from "./Weather";
 import Card from "../../../card/Card.js";
 import Testing from "./testing";
 import {
+  Button,
   RadioGroup,
   Radio,
   FormControl,
   FormLabel,
   FormControlLabel,
+  makeStyles
 } from "@material-ui/core";
 
+const useStyles = makeStyles(theme => ({
+  header: {
+    textAlign: "center",
+  },
+  buttonGroup: {
+
+    paddingLeft: "15%",
+    [theme.breakpoints.down(1000)]: {
+      paddingLeft: 0,
+  },
+  },
+  titles: {
+
+    paddingLeft: "5%",
+    [theme.breakpoints.down(1000)]: {
+      paddingLeft: 0,
+  },
+  }
+
+}));
+
 export default function FlowContainer() {
+  const classes = useStyles();
+
   const [inputs, setInputs] = useState({
     housing: "",
     weather: "",
@@ -46,140 +71,147 @@ export default function FlowContainer() {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+  }
+
   console.log("CONTAINER INPUTS", inputs);
   // console.log("VALUE", value);
   return (
     <div className="dashboard-modal-container">
-      <h1>
-        Take this short quiz to be recommended three cities that suit you best!
-      </h1>
+      <h2 className={classes.header}>
+        Find the perfect city to live in!
+      </h2>
       {/* <Testing /> */}
-      <form>
-        <FormControl>
-          <FormLabel component="location">
+      <form onSubmit={handleSubmit}>
+        <FormControl required='true'>
+          <FormLabel component="location" className={classes.titles}>
             What is your preferred size of the city you would like to reside in?
           </FormLabel>
-          <RadioGroup name="location" value={locationValue} onChange={onChange}>
+          <RadioGroup name="location" className={classes.buttonGroup} value={locationValue} onChange={onChange}>
             <FormControlLabel
               value="village"
-              control={<Radio />}
+              control={<Radio color='primary' />}
               label="Village (0 - 999)"
             />
             <FormControlLabel
               value="town"
-              control={<Radio />}
+              control={<Radio color='primary' disableRipple='true'/>}
               label="Town (1000 - 10000)"
             />
             <FormControlLabel
               value="large-town"
-              control={<Radio />}
+              control={<Radio color='primary' />}
               label="Large Town (10,001 - 100,000)"
             />
             <FormControlLabel
               value="medium-city"
-              control={<Radio />}
+              control={<Radio color='primary' />}
               label="Medium City (100,001 - 300,000)"
             />
             <FormControlLabel
               value="large-city"
-              control={<Radio />}
+              control={<Radio color='primary' />}
               label="Large City (300,001 - 999,999)"
             />
             <FormControlLabel
               value="metropolis"
-              control={<Radio />}
+              control={<Radio color='primary' />}
               label="Metropolis (1,000,000 - 3,000,000)"
             />
             <FormControlLabel
               value="conurbation"
-              control={<Radio />}
+              control={<Radio color='primary' />}
               label="Conurbation (3,000,001 - 10,000,000)"
             />
           </RadioGroup>
 
-          <FormLabel component="weather">
+          <FormLabel component="weather" className={classes.titles}>
             What is your preferred climate?
           </FormLabel>
-          <RadioGroup name="weather" value={weatherValue} onChange={onChange}>
+          <RadioGroup name="weather" className={classes.buttonGroup} value={weatherValue} onChange={onChange}>
             <FormControlLabel
               value="cold"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="Cold (0 - 49°F)"
             />
             <FormControlLabel
               value="cool"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="Cool (50 - 69°F)"
             />
             <FormControlLabel
               value="warm"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="Warm (70 - 80°F)"
             />
           </RadioGroup>
 
-          <FormLabel component="housing">
+          <FormLabel component="housing" className={classes.titles}>
             What is your monthly Housing Budget?
           </FormLabel>
-          <RadioGroup name="housing" value={housingValue} onChange={onChange}>
+          <RadioGroup name="housing" className={classes.buttonGroup} value={housingValue} onChange={onChange}>
             <FormControlLabel
               value="housing-low"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="Low ($0 - $599)"
             />
             <FormControlLabel
               value="housing-lower-middle"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="Lower-Middle ($600 - $1199)"
             />
             <FormControlLabel
               value="housing-middle"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="Middle ($1200 - $1799)"
             />
             <FormControlLabel
               value="housing-upper-middle"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="Upper-Middle ($1800 - $2399)"
             />
             <FormControlLabel
               value="housing-high"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="High ($2400 - $3000)"
             />
           </RadioGroup>
 
-          <FormLabel component="income">
+          <FormLabel component="income" className={classes.titles}>
             What is your expected yearly income?
           </FormLabel>
-          <RadioGroup name="income" value={incomeValue} onChange={onChange}>
+          <RadioGroup name="income" className={classes.buttonGroup} value={incomeValue} onChange={onChange}>
             <FormControlLabel
               value="low"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="Low ($0 - $31,000)"
             />
             <FormControlLabel
               value="lower-middle"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="Lower-Middle ($31,001 - $49,999)"
             />
             <FormControlLabel
               value="middle"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="Middle ($50,000 - $99,999)"
             />
             <FormControlLabel
               value="upper-middle"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="Upper-Middle ($100000 - $349,999)"
             />
             <FormControlLabel
               value="high"
-              control={<Radio />}
+              control={<Radio color='primary'/>}
               label="High ($350,000 - $723,000)"
             />
           </RadioGroup>
+          <Button color='primary' variant='contained' size='large'>Submit</Button>
         </FormControl>
+        
       </form>
     </div>
   );
