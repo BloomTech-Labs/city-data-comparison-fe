@@ -3,7 +3,7 @@
 
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../contexts/UserContext";
+import { UserContext } from "../../../contexts/UserContext";
 import axios from "axios";
 
 //react hook form is used for validation instead of formik
@@ -12,13 +12,13 @@ import { useForm } from "react-hook-form";
 //component for each oauth button
 import "./OauthButton";
 //icons for oauth buttons
-import Google from "../../assets/icons/google.svg";
-import Linkedin from "../../assets/icons/linkedin.svg";
+import Google from "../../../assets/icons/google.svg";
+import Linkedin from "../../../assets/icons/linkedin.svg";
 
 //modal that contains the privacy policy
-import Modal from "../modal/modal";
-import useModal from "../modal/useModal";
-import PrivacyPolicy from "../legal/PrivacyPolicy";
+import Modal from "../../modal/modal";
+import useModal from "../../modal/useModal";
+import PrivacyPolicy from "../privacypolicy/PrivacyPolicy";
 
 //styled component icons instead of fontawesome
 import styled from "styled-components";
@@ -30,9 +30,9 @@ import "./forms.scss";
 import OauthButton from "./OauthButton";
 
 //illustrations for forms
-import signin_photo from "../../assets/forms/world_map.svg";
-import signup_photo from "../../assets/forms/destinations.svg";
-import mobile_blue from "../../assets/forms/town_blue.svg";
+import signin_photo from "./assets/world_map.svg";
+import signup_photo from "./assets/destinations.svg";
+import mobile_blue from "./assets/town_blue.svg";
 
 //styled icons
 const UsernameIcon = styled(User)`

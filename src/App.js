@@ -10,14 +10,14 @@ import Navigation from "./components/navigation/Navigation";
 import Footer from "./components/navigation/Footer";
 import Comparison from "./components/pages/comparison/Comparison.js";
 import Profile from "./components/pages/user-profile/Profile";
-import PrivacyPolicy from "./components/legal/PrivacyPolicy";
+import PrivacyPolicy from "./components/pages/privacypolicy/PrivacyPolicy";
 import AboutUs from "./components/pages/aboutus/AboutUs";
 // import AboutUs2 from './components/aboutus/AboutUs2';
 import citiesIndex from "./data/city_ids.json";
 import { UserContext } from "./contexts/UserContext";
 import { CityContext } from "./contexts/CityContext";
 import Callback from "./components/Callback";
-import AuthForm from "./components/forms/AuthForm";
+import AuthForm from "./components/pages/login/AuthForm";
 import axiosAuth from "./utils/axiosAuth";
 
 function initializeAnalytics() {
