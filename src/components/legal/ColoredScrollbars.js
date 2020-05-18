@@ -16,7 +16,6 @@ export default class ColoredScrollbars extends Component {
   }
 
   renderView({ style, ...props }) {
-    c;
     //background and font color
     const viewStyle = {
       padding: 15,
