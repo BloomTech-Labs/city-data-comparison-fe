@@ -6,7 +6,7 @@ import Industry from "./Industry";
 import Weather from "./Weather";
 
 import Card from "../../../card/Card.js";
-import Testing from "./testing"
+import Testing from "./testing";
 import {
   RadioGroup,
   Radio,
@@ -18,13 +18,15 @@ import {
 export default function FlowContainer() {
   const [inputs, setInputs] = useState({
     housing: "",
-    industry: "",
     weather: "",
     location: "",
     income: "",
   });
 
-  const [value, setValue] = useState('');
+  const [housingValue, setHousingValue] = useState("");
+  const [weatherValue, setWeatherValue] = useState("");
+  const [locationValue, setLocationValue] = useState("");
+  const [incomeValue, setIncomeValue] = useState("");
 
   const onChange = (e) => {
     // console.log("radio checked", e.target.value);
@@ -32,9 +34,17 @@ export default function FlowContainer() {
       ...inputs,
       [e.target.name]: e.target.value,
     });
-    setValue(e.target.value);
+    // setValue(e.target.value);
+    if (e.target.name === "housing") {
+      setHousingValue(e.target.value);
+    } else if (e.target.name === "weather") {
+      setWeatherValue(e.target.value);
+    } else if (e.target.name === "location") {
+      setLocationValue(e.target.value);
+    } else if (e.target.name === "income") {
+      setIncomeValue(e.target.value);
+    }
   };
-
 
   console.log("CONTAINER INPUTS", inputs);
   // console.log("VALUE", value);
@@ -43,13 +53,13 @@ export default function FlowContainer() {
       <h1>
         Take this short quiz to be recommended three cities that suit you best!
       </h1>
-        {/* <Testing /> */}
+      {/* <Testing /> */}
       <form>
         <FormControl>
           <FormLabel component="location">
             What is your preferred size of the city you would like to reside in?
           </FormLabel>
-          <RadioGroup name="location" value={value} onChange={onChange} >
+          <RadioGroup name="location" value={locationValue} onChange={onChange}>
             <FormControlLabel
               value="village"
               control={<Radio />}
@@ -86,51 +96,32 @@ export default function FlowContainer() {
               label="Conurbation (3,000,001 - 10,000,000)"
             />
           </RadioGroup>
-          </FormControl>
-          </form>
-          
-          <form>
-          <FormControl>
 
-          <FormLabel component="income">
-          What is your expected yearly income?
+          <FormLabel component="weather">
+            What is your preferred climate?
           </FormLabel>
-          <RadioGroup name="income" value={value} onChange={onChange} >
+          <RadioGroup name="weather" value={weatherValue} onChange={onChange}>
             <FormControlLabel
-              value="low"
+              value="cold"
               control={<Radio />}
-              label="Low ($0 - $31,000)"
+              label="Cold (0 - 49°F)"
             />
             <FormControlLabel
-              value="lower-middle"
+              value="cool"
               control={<Radio />}
-              label="Lower-Middle ($31,001 - $49,999)"
+              label="Cool (50 - 69°F)"
             />
             <FormControlLabel
-              value="middle"
+              value="warm"
               control={<Radio />}
-              label="Middle ($50,000 - $99,999)"
-            />
-            <FormControlLabel
-              value="upper-middle"
-              control={<Radio />}
-              label="Upper-Middle ($100000 - $349,999)"
-            />
-            <FormControlLabel
-              value="high"
-              control={<Radio />}
-              label="High ($350,000 - $723,000)"
+              label="Warm (70 - 80°F)"
             />
           </RadioGroup>
-          </FormControl>
-          </form>
 
-          <form>
-          <FormControl>
           <FormLabel component="housing">
-          What is your monthly Housing Budget?
+            What is your monthly Housing Budget?
           </FormLabel>
-          <RadioGroup name="housing" value={value} onChange={onChange} >
+          <RadioGroup name="housing" value={housingValue} onChange={onChange}>
             <FormControlLabel
               value="housing-low"
               control={<Radio />}
@@ -157,43 +148,39 @@ export default function FlowContainer() {
               label="High ($2400 - $3000)"
             />
           </RadioGroup>
-          </FormControl>
-          </form>
 
-          <form>
-          <FormControl>
-          <FormLabel component="weather">
-          What is your preferred climate?
+          <FormLabel component="income">
+            What is your expected yearly income?
           </FormLabel>
-          <RadioGroup name="weather" value={value} onChange={onChange} >
+          <RadioGroup name="income" value={incomeValue} onChange={onChange}>
             <FormControlLabel
-              value="cold"
+              value="low"
               control={<Radio />}
-              label="Cold (0 - 49°F)"
+              label="Low ($0 - $31,000)"
             />
             <FormControlLabel
-              value="cool"
+              value="lower-middle"
               control={<Radio />}
-              label="Cool (50 - 69°F)"
+              label="Lower-Middle ($31,001 - $49,999)"
             />
             <FormControlLabel
-              value="warm"
+              value="middle"
               control={<Radio />}
-              label="Warm (70 - 80°F)"
+              label="Middle ($50,000 - $99,999)"
+            />
+            <FormControlLabel
+              value="upper-middle"
+              control={<Radio />}
+              label="Upper-Middle ($100000 - $349,999)"
+            />
+            <FormControlLabel
+              value="high"
+              control={<Radio />}
+              label="High ($350,000 - $723,000)"
             />
           </RadioGroup>
-
         </FormControl>
-        
-
       </form>
-      {/* <Location inputs={inputs} setInputs={setInputs} />
-      
-      <Income inputs={inputs} setInputs={setInputs} />
-      
-      <Housing inputs={inputs} setInputs={setInputs} />
-      
-      <Weather inputs={inputs} setInputs={setInputs} /> */}
     </div>
   );
 }
