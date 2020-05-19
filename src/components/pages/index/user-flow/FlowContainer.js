@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import Housing from "./HousingBudget";
-import Income from "./Income";
-import Location from "./Location";
-import Industry from "./Industry";
-import Weather from "./Weather";
 
 import Card from "../../../card/Card.js";
-import Testing from "./testing";
 import {
   RadioGroup,
   Radio,
@@ -29,12 +23,11 @@ export default function FlowContainer() {
   const [incomeValue, setIncomeValue] = useState("");
 
   const onChange = (e) => {
-    // console.log("radio checked", e.target.value);
     setInputs({
       ...inputs,
       [e.target.name]: e.target.value,
     });
-    // setValue(e.target.value);
+
     if (e.target.name === "housing") {
       setHousingValue(e.target.value);
     } else if (e.target.name === "weather") {
@@ -46,14 +39,11 @@ export default function FlowContainer() {
     }
   };
 
-  console.log("CONTAINER INPUTS", inputs);
-  // console.log("VALUE", value);
   return (
     <div className="dashboard-modal-container">
       <h1>
         Take this short quiz to be recommended three cities that suit you best!
       </h1>
-      {/* <Testing /> */}
       <form>
         <FormControl>
           <FormLabel component="location">
