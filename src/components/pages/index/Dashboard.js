@@ -466,6 +466,7 @@ function Dashboard({ history }) {
                       isShowing={isShowing}
                       hide={toggle}
                       component={<FlowContainer />}
+                      size='large'
                     />
                     <div className="modal-prompt">
                       Not sure where you want to go?
