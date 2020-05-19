@@ -169,6 +169,7 @@ export default function IndustryLineGraph({ selected }) {
             },
             legend: {
               display: true,
+              position: "bottom",
             },
             scales: {
               xAxes: [

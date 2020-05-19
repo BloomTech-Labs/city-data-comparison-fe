@@ -108,20 +108,6 @@ export default function HousePriceGraph({ selected }) {
     setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
   }, [selected, dateKeys]);
 
-  const handleClickLegend = (e, legendItem) => {
-    if (lines.length > 1) {
-      setLines(
-        formatGraphLinesWithOneCity(selected[legendItem.datasetIndex], dateKeys)
-      );
-    } else {
-      setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
-    }
-  };
-
-  const handleClickShowAll = () => {
-    setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
-  };
-
   // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
   function numberCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -161,7 +147,6 @@ export default function HousePriceGraph({ selected }) {
             legend: {
               display: true,
               position: "bottom",
-              onClick: handleClickLegend,
             },
             scales: {
               xAxes: [
@@ -194,18 +179,6 @@ export default function HousePriceGraph({ selected }) {
           }}
         />
       </div>
-      {selected.length > 1 && lines.length === 1 ? (
-        <Button onClick={handleClickShowAll}>Show All</Button>
-      ) : (
-        <></>
-      )}
-      {selected.length !== 1 && lines.length > 1 ? (
-        <p style={{ margin: "0 auto", textAlign: "center" }}>
-          Click a city on the legend to enter a more detailed view.
-        </p>
-      ) : (
-        <></>
-      )}
     </div>
   );
 }
