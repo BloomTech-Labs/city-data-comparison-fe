@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import styled from "styled-components";
+
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+
 import { actionColor } from "../../../../../utils/cityColors.js";
 import * as ChartAnnotation from "chartjs-plugin-annotation";
 
@@ -20,6 +23,8 @@ const Button = styled.button`
 `;
 
 export default function HousePriceGraph({ selected }) {
+  const mobile = useMediaQuery("(max-width:600px)");
+
   // Get the current date for the purpose of
   // determining where to place the vertical line divider
   const currentDate = new Date();
@@ -158,7 +163,7 @@ export default function HousePriceGraph({ selected }) {
                     labelString: "Year",
                   },
                   ticks: {
-                    maxTicksLimit: 24,
+                    maxTicksLimit: mobile ? 12 : 24,
                   },
                 },
               ],

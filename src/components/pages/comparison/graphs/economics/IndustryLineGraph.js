@@ -3,6 +3,7 @@ import { Line } from "react-chartjs-2";
 import styled from "styled-components";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import { actionColor } from "../../../../../utils/cityColors.js";
 import * as ChartAnnotation from "chartjs-plugin-annotation";
@@ -31,6 +32,8 @@ const SelectPrompt = styled.p`
 `;
 
 export default function IndustryLineGraph({ selected }) {
+  const mobile = useMediaQuery("(max-width:600px)");
+
   // The selected cities, filtered for any cities that don't have industry trend data.
   const [citiesWithData, setCitiesWithData] = useState([]);
   useEffect(() => {
@@ -144,6 +147,7 @@ export default function IndustryLineGraph({ selected }) {
         <Line
           data={{ labels: dateKeys, datasets: lines }}
           options={{
+            responsive: true,
             plugins: [ChartAnnotation],
             annotation: {
               annotations: [
@@ -181,7 +185,7 @@ export default function IndustryLineGraph({ selected }) {
                     labelString: "Year",
                   },
                   ticks: {
-                    maxTicksLimit: 24,
+                    maxTicksLimit: mobile ? 12 : 24,
                   },
                 },
               ],
