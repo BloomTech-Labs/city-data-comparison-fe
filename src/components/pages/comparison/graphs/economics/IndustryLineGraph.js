@@ -40,11 +40,6 @@ export default function IndustryLineGraph({ selected }) {
     console.log(citiesWithData.length);
   }, [citiesWithData]);
 
-  // The currently selected industry.
-  const [currentIndustry, setCurrentIndustry] = useState(
-    "Education and Health Services"
-  );
-
   // The X axis labels, dates available. (These are standardized on the backend, they will always be the same.)
   const [dateKeys, setDateKeys] = useState([]);
   useEffect(() => {
@@ -91,36 +86,53 @@ export default function IndustryLineGraph({ selected }) {
     }
   }, [dateKeys]);
 
-  // Gets an array of all the industry labels/options.
+  // Gets an array containing the available industry labels/options for each city.
   const [industryKeys, setIndustryKeys] = useState([]);
   useEffect(() => {
     if (citiesWithData.length > 0) {
-      setIndustryKeys(Object.keys(citiesWithData[0]["Industry_Trends"]));
+      // This uses some ES6 syntax (Lookup "new Set array no duplicates" on Google.)
+      // in order to flatten all the industries into one array with no duplicates,
+      // for use with the industry select input component.
+      const keys = Array.from(
+        new Set(
+          [].concat.apply(
+            [],
+            citiesWithData.map((city) => Object.keys(city["Industry_Trends"]))
+          )
+        )
+      );
+      console.log(keys);
+      setIndustryKeys(keys);
     }
   }, [citiesWithData]);
+
+  // The currently selected industry.
+  const [currentIndustry, setCurrentIndustry] = useState("");
+
+  useEffect(() => {
+    setCurrentIndustry(industryKeys[0]);
+  }, [industryKeys]);
 
   // Formats the array of line objects for the graph for filtered citiesWithData
   const [lines, setLines] = useState([]);
 
   useEffect(() => {
-    setLines(formatGraphLines(citiesWithData, currentIndustry, dateKeys));
+    setLines(
+      citiesWithData
+        .filter((city) => city["Industry_Trends"][currentIndustry])
+        .map((city) => {
+          return {
+            label: city.name_with_com,
+            data: dateKeys.map(
+              (date) => city["Industry_Trends"][currentIndustry][date]
+            ),
+            fill: false,
+            borderColor: city.color,
+            pointRadius: 0,
+          };
+        })
+    );
   }, [citiesWithData, currentIndustry, dateKeys]);
-
-  function formatGraphLines(selectedCities, industry, dates) {
-    const lines = selectedCities.map((city) => {
-      return {
-        label: city.name_with_com,
-        data: dates.map(
-          (dateLabel) => city["Industry_Trends"][industry][dateLabel]
-        ),
-        fill: false,
-        borderColor: city.color,
-        pointRadius: 0,
-      };
-    });
-
-    return lines;
-  }
 
   // Formats graph labels with commas.
   function numberCommas(x) {
@@ -219,6 +231,29 @@ export default function IndustryLineGraph({ selected }) {
         ) : (
           <></>
         )}
+
+        {citiesWithData.length > 0 ? (
+          citiesWithData.some(
+            (city) => !city["Industry_Trends"][currentIndustry]
+          ) ? (
+            <p style={{ textAlign: "center" }}>
+              No {currentIndustry} data available for:{" "}
+              {citiesWithData
+                .filter((city) => !city["Industry_Trends"][currentIndustry])
+                .map((city, index, array) => (
+                  <>{`${city["name_with_com"]}${
+                    index === array.length - 1 ? "" : ", "
+                  }`}</>
+                ))}
+              .
+            </p>
+          ) : (
+            <></>
+          )
+        ) : (
+          <></>
+        )}
+
         <p
           style={{
             textAlign: "right",
