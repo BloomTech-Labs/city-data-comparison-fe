@@ -1,77 +1,89 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import citrics from "./citrics-mock-dark.png";
 import signInLock from "./signInLockDark.png";
 import { UserContext } from "../../contexts/UserContext";
-import DropMenu from "./Dropdown";
 import { actionColor, navGrey } from "../../utils/cityColors.js";
 
-//Nav bar for everthing
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import "./Navigation.scss";
+
+import { useDispatch } from "react-redux";
+import { clearAllCities } from "../../redux/actions/cityActions.js";
+
 function Navigation() {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUserValue, setFavorites } = useContext(UserContext);
+  const dispatch = useDispatch();
 
-  const [displayNav, setDisplayNav] = useState("show-nav");
-  const [bgColor, setBgColor] = useState("default-color");
+  const mobile = useMediaQuery("(max-width:600px)");
 
-  const defaultNavigation = () => {
-    setBgColor("default-color");
-    if (displayNav === "show-nav") {
-      setDisplayNav("hide-nav");
-    } else {
-      if (displayNav === "hide-nav") {
-        setDisplayNav("show-nav");
-      }
-    }
-  };
-
-  let styles = {
-    float: "right",
+  const Logout = () => {
+    setUserValue(null);
+    setFavorites([]);
+    dispatch(clearAllCities());
+    localStorage.setItem("user", null);
+    localStorage.setItem("jwt", null);
   };
 
   return (
-    <div
-      className={"navigation-container " + bgColor + `main-nav ${displayNav}`}
-      onMouseEnter={() => {
-        defaultNavigation();
-      }}
-      onMouseLeave={() => {
-        defaultNavigation();
-      }}
-    >
+    <div className={"navigation-container " + "default-color" + `main-nav`}>
       <a className="header-logo" href="/">
         {" "}
         <img className="mock-logo" src={citrics} alt="logo" />
       </a>
       <nav className="main-nav">
-        <Link to="/" className="nav-button" style={{ color: navGrey }}>
-          Home
-        </Link>
-        {user ? <div /> : null}
-        <Link to="/compare" className="nav-button" style={{ color: navGrey }}>
-          Compare
-        </Link>
-        {user == null ? (
-          <>
-            <Link id="login-link" to="/signin" style={{ color: actionColor }}>
-              <img className="lock" alt="lock" src={signInLock} />
-              Log In
-            </Link>
-            {/* <Link id="signup-link" to="/signup">Get Started</Link> */}
-          </>
+        {mobile ? (
+          <></>
         ) : (
           <>
-            {/* DROPDOWN NAVBAR MENU FOR MOBILE STARTS HERE */}
-            <DropMenu />
+            <Link to="/" className="nav-button" style={{ color: navGrey }}>
+              Home
+            </Link>
+
+            <Link
+              to="/compare"
+              className="nav-button"
+              style={{ color: navGrey }}
+            >
+              Compare
+            </Link>
+
+            {user == null ? (
+              <>
+                <Link
+                  className="login-link"
+                  to="/signin"
+                  style={{ color: actionColor }}
+                >
+                  <img className="lock" alt="lock" src={signInLock} />
+                  Log In
+                </Link>
+              </>
+            ) : (
+              <Link
+                className="login-link"
+                style={{ color: navGrey }}
+                onClick={() => Logout()}
+              >
+                <img className="lock" alt="lock" src={signInLock} />
+                Logout
+              </Link>
+            )}
           </>
         )}
       </nav>
       {user == null ? (
         <>
           <div className="dropdownContainer">
-            <div className="dropdown" style={styles}>
+            <div
+              className="dropdown"
+              style={{
+                float: "right",
+              }}
+            >
               <button className="dropbtn">Menu</button>
               <div className="dropdown-content">
-                <Link to="/compare">Explore</Link>
+                <Link to="/compare">Compare</Link>
                 <Link to="/signin">Log In</Link>
                 <Link to="/signup">Get Started</Link>
               </div>
@@ -80,7 +92,21 @@ function Navigation() {
         </>
       ) : (
         <div className="dropdownContainer">
-          <DropMenu />
+          <div className="dropdown" style={{ float: "right" }}>
+            <button className="dropbtn">Menu</button>
+            <div className="dropdown-content">
+              <Link to="/" className="redundant">
+                Home
+              </Link>
+              <Link to="/profile">Profile</Link>
+              <Link to="/compare" className="redundant">
+                Compare
+              </Link>
+              <Link onClick={() => Logout()} to="/">
+                Logout
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </div>
