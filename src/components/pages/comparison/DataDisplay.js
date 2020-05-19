@@ -108,6 +108,8 @@ const DataDisplay = ({
               {selected.every((item, index, array) => {
                 return !item["Industry_Trends"];
               }) ? (
+                <></>
+              ) : (
                 <Card title={"Job Industry Trends"}>
                   <IndustryLineGraph
                     selected={selected.filter(
@@ -115,8 +117,6 @@ const DataDisplay = ({
                     )}
                   />
                 </Card>
-              ) : (
-                <></>
               )}
 
               <Card title={"Ways to Commute"} gridColumn={9}>
