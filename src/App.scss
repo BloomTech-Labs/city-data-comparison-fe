@@ -470,6 +470,10 @@ body {
     @media screen and (max-width: 500px) {
       min-height: 600px;
     }
+    // @media screen and (max-width: 700px) {
+    //   position: static;
+    //   display: inline-block;
+    // }
   }
 
   .dashboard-image-header {
@@ -481,6 +485,9 @@ body {
 
     @media screen and (max-width: 750px) {
       margin-right: 850px;
+    }
+    @media screen and (max-width: 700px) {
+      // margin-right: 850px;
     }
   }
 }
@@ -595,33 +602,45 @@ body {
     @media screen and (max-width: 1440px) {
       font-size: 108px;
     }
+      @media screen and (max-width: 850px) {
+      font-size: 90px;
+    }
   }
   .dashboard-title2 {
     margin-top: -150px;
     width: 100%;
     font-weight: 500;
-    font-size: 108px;
+    font-size: 85px;
     line-height: 1;
     margin-bottom: 35px;
     color: white;
     display: none;
+    text-align: center;
 
-    @media screen and (max-width: 500px) {
-      font-size: 105px !important;
+    @media screen and (max-width: 414px) {
+      margin-left: 9%;
+
     }
 
-    @media screen and (max-width: 500px) {
-      font-size: 75px !important;
-      margin-top: -200px;
+
+    @media screen and (max-width: 375px) {
+      margin-left: 6%;
     }
+    @media screen and (max-width: 360px) {
+      margin-left: 5%
+    }
+    @media screen and (max-width: 320px) {
+      margin-left: 2%
+    }
+
   }
 
   .dashboard-function-container {
     position: absolute;
     width: 60%;
-    // @media screen and (max-width: 1300px) {
-    //   width: 58%;
-    // }
+    @media screen and (max-width: 700px) {
+      position: static;
+    }
     // @media screen and (max-width: 1200px) {
     //   width: 57.5%;
     // }
@@ -745,7 +764,7 @@ body {
     font-weight: 500;
     padding: 0;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 30px;
     background-color: #0066cc;
     color: white;
     width: 38%;
@@ -760,6 +779,32 @@ body {
 
     &:hover {
       filter: brightness(115%);
+    }
+
+    @media screen and (max-width: 700px) {
+      width: 75%;
+    }
+    @media screen and (max-width: 450px) {
+      width: 70%;
+    }
+    @media screen and (max-width: 420px) {
+      width: 60%;
+    }
+    @media screen and (max-width: 414px) {
+
+      margin-left: 19%;
+    }
+    @media screen and (max-width: 375px) {
+
+      margin-left: 14%;
+    }
+    @media screen and (max-width: 360px) {
+
+      margin-left: 12%;
+    }
+    @media screen and (max-width: 320px) {
+
+      margin-left: 6%;
     }
   }
 }
