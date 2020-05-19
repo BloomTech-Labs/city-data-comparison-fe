@@ -189,14 +189,14 @@ export default function IndustryLineGraph({ selected }) {
                 {
                   display: true,
                   ticks: {
-                    userCallback: (value, index, values) => {
-                      return `$${numberCommas(value)}`;
+                    userCallback: (value) => {
+                      return `${value * 1000}`;
                     },
                   },
                   gridLines: { display: true },
                   scaleLabel: {
                     display: true,
-                    labelString: "Amount",
+                    labelString: "Jobs Available",
                     ticks: { beginAtZero: false },
                   },
                 },
