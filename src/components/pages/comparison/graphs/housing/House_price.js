@@ -157,6 +157,9 @@ export default function HousePriceGraph({ selected }) {
                     display: true,
                     labelString: "Year",
                   },
+                  ticks: {
+                    maxTicksLimit: 24,
+                  },
                 },
               ],
               yAxes: [

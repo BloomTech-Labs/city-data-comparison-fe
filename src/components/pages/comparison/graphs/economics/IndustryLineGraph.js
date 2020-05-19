@@ -180,6 +180,9 @@ export default function IndustryLineGraph({ selected }) {
                     display: true,
                     labelString: "Year",
                   },
+                  ticks: {
+                    maxTicksLimit: 24,
+                  },
                 },
               ],
               yAxes: [
