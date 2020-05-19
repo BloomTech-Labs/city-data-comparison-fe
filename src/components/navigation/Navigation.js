@@ -12,7 +12,6 @@ function Navigation() {
   const [offset, setOffset] = useState(0);
   const [displayNav, setDisplayNav] = useState("show-nav");
   const [bgColor, setBgColor] = useState("default-color");
-  const [fixedClass, setFixedClass] = useState("");
 
   const defaultNavigation = () => {
     setBgColor("default-color");
@@ -31,11 +30,7 @@ function Navigation() {
 
   return (
     <div
-      className={
-        "navigation-container " +
-        bgColor +
-        `main-nav ${displayNav} ${fixedClass}`
-      }
+      className={"navigation-container " + bgColor + `main-nav ${displayNav}`}
       onMouseEnter={() => {
         defaultNavigation();
       }}
