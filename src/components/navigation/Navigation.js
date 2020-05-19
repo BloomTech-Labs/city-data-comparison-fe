@@ -9,14 +9,14 @@ import { actionColor, navGrey } from "../../utils/cityColors.js";
 //Nav bar for everthing
 function Navigation() {
   const { user, setUser } = useContext(UserContext);
-  const [offset, setOffset] = useState(0);
+
   const [displayNav, setDisplayNav] = useState("show-nav");
   const [bgColor, setBgColor] = useState("default-color");
 
   const defaultNavigation = () => {
     setBgColor("default-color");
-    if (offset === 0) {
-      setDisplayNav("show-nav");
+    if (displayNav === "show-nav") {
+      setDisplayNav("hide-nav");
     } else {
       if (displayNav === "hide-nav") {
         setDisplayNav("show-nav");
