@@ -36,6 +36,9 @@ export default function IndustryLineGraph({ selected }) {
   useEffect(() => {
     setCitiesWithData(selected.filter((city) => city["Industry_Trends"]));
   }, [selected]);
+  useEffect(() => {
+    console.log(citiesWithData.length);
+  }, [citiesWithData]);
 
   // The currently selected industry.
   const [currentIndustry, setCurrentIndustry] = useState(
@@ -157,7 +160,7 @@ export default function IndustryLineGraph({ selected }) {
               fontSize: 25,
             },
             legend: {
-              display: false,
+              display: true,
             },
             scales: {
               xAxes: [
@@ -203,18 +206,16 @@ export default function IndustryLineGraph({ selected }) {
           </Select>
         </SelectContainer>
         {/* If even one of the cities doesn't have data we will display a message. */}
-        {selected.some((item) => !item["Industry_Trends"]) ? (
-          <>
-            {" "}
-            <p>
-              No data available for:{" "}
-              {selected
-                .filter((city) => !city["Industry_Trends"])
-                .map((city) => (
-                  <>{city["name_with_com"]}</>
-                ))}
-            </p>
-          </>
+        {selected.some((city) => !city["Industry_Trends"]) ? (
+          <p style={{ textAlign: "center" }}>
+            No industry trend data available for:{" "}
+            {selected
+              .filter((city) => !city["Industry_Trends"])
+              .map((city) => (
+                <>{city["name_with_com"]}</>
+              ))}
+            .
+          </p>
         ) : (
           <></>
         )}

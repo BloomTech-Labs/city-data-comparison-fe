@@ -111,11 +111,7 @@ const DataDisplay = ({
                 <></>
               ) : (
                 <Card title={"Job Industry Trends"}>
-                  <IndustryLineGraph
-                    selected={selected.filter(
-                      (item) => item["Industry_Trends"]
-                    )}
-                  />
+                  <IndustryLineGraph selected={selected} />
                 </Card>
               )}
 
