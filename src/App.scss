@@ -453,7 +453,7 @@ body {
   // justify-content:space-between;
 
   .dashboard-image {
-    background-image: url(./components/pages/index/assets/cityLanding.webp);
+    background-image: url(./components/pages/index/assets/landingOptions/skylineLanding.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -498,7 +498,7 @@ body {
     margin-top: 5px;
     display: flex;
     align-items: center;
-    color: #444444;
+    color: white;
 
     .switch {
       position: relative;
@@ -556,7 +556,7 @@ body {
     }
 
     .search-toggle-green {
-      color: #444444 !important;
+      color: white !important;
     }
   }
 }
@@ -590,6 +590,7 @@ body {
     font-size: 108px;
     line-height: 1;
     margin-bottom: 35px;
+    color: white;
     
 
     @media screen and (max-width: 1440px) {
@@ -603,7 +604,7 @@ body {
     font-size: 108px;
     line-height: 1;
     margin-bottom: 35px;
-    color: #444444;
+    color: white;
     display: none;
 
     @media screen and (max-width: 500px) {
