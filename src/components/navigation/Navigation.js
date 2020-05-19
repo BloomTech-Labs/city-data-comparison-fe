@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import citrics from "./citrics-mock-dark.png";
 import signInLock from "./signInLockDark.png";
 import { UserContext } from "../../contexts/UserContext";
@@ -12,6 +12,8 @@ import { useDispatch } from "react-redux";
 import { clearAllCities } from "../../redux/actions/cityActions.js";
 
 function Navigation() {
+  const history = useHistory();
+
   const { user, setUserValue, setFavorites } = useContext(UserContext);
   const dispatch = useDispatch();
 
@@ -23,6 +25,8 @@ function Navigation() {
     dispatch(clearAllCities());
     localStorage.setItem("user", null);
     localStorage.setItem("jwt", null);
+
+    history.push("/signin");
   };
 
   return (
@@ -60,14 +64,20 @@ function Navigation() {
                 </Link>
               </>
             ) : (
-              <Link
-                className="login-link"
-                style={{ color: navGrey }}
-                onClick={() => Logout()}
-              >
-                <img className="lock" alt="lock" src={signInLock} />
-                Logout
-              </Link>
+              <>
+                <Link style={{ color: navGrey }} to="/profile">
+                  Profile
+                </Link>
+
+                <Link
+                  className="login-link"
+                  style={{ color: navGrey }}
+                  onClick={() => Logout()}
+                >
+                  <img className="lock" alt="lock" src={signInLock} />
+                  Logout
+                </Link>
+              </>
             )}
           </>
         )}
