@@ -168,7 +168,7 @@ export default function IndustryLineGraph({ selected }) {
             },
             title: {
               display: false,
-              text: "house price",
+              text: "Industry Trends",
               fontSize: 25,
             },
             legend: {
@@ -190,13 +190,13 @@ export default function IndustryLineGraph({ selected }) {
                   display: true,
                   ticks: {
                     userCallback: (value) => {
-                      return `${value * 1000}`;
+                      return `${numberCommas(value * 1000)}`;
                     },
                   },
                   gridLines: { display: true },
                   scaleLabel: {
                     display: true,
-                    labelString: "Jobs Available",
+                    labelString: "Jobs",
                     ticks: { beginAtZero: false },
                   },
                 },
