@@ -3,6 +3,7 @@
 Applicatio deployed at https://citrics.io/.
 
 ## Contributors
+
 [Meet the Team](https://citrics.io/meet-the-team)
 
 ## Project Overview
@@ -18,47 +19,48 @@ Cities with data are marked on a searchable, indexed map generated from the Mapb
 ### Key Features
 
 ### Basic Features
+
 - Allows users to search city data set without logging in
-- Data visualization of city metrics 
-- Map visualization that allows users to navigate and browse cities 
-- Autofill search feature to streamline city searching 
-- Specific city metrics accessible through side navigation
-- Qualitative metrics (restaurants, activities, events, etc.) for each city displayed on a "Single City Page"
-- Filter on Single City Page to filter and display preferred sections
-- Filter on Data Overview Page to filter and display preferred sections
+- Data visualization of city metrics
+- Map visualization that allows users to navigate and browse cities
+- Autofill search feature to streamline city searching
 
 ### Future Features
-- User account personalization 
-    - Quiz users to indicate their priorities in a city. This will power DS prediciton engine
-    - Allow users to save records of which cities important to them
+
 - Expanded data set - Pending DS completion, this app aims to encompass data from ~30000 US cities
 - User-friendly API access to DS model via multiple endpoints (Premium feature)
+- Re-implementation of single city page view and corresponding API.
+- Collapsible graph cards with brief summaries of the graph's data on the collapsed smaller version of the card.
 
 ## Tech Stack
 
 ### Front end built using:
-- React 
+
+- React
 - Sass
 - Chart JS
+  - Used
+- ChartJS Annotiation Plugin
+  - This plugin is used for the vertical line dividers on the graph.
 - Mapbox
 - Font Awesome
 - React-scroll
 - React-carousel
 - Redux
-- Redux thunk
+  - The application's state management uses redux. We currently have a reducer for the selected cities.
+  - Future iterations of the project might implement a reducer and actions for the currently logged in user and their favorite cities, as well as a reducer for the map viewport settings as they change dynamically when the user selects a city.
+- Redux Thunk
+  - Redux Thunk library is used for async action creator functions.
+- Material UI
 
-#### React
+  - Several components use material UI for input elements. Future iterations of the project might implement Material UI's theming solution for consistent margins, brand colors, and typography.
 
-- Familiarity with React (lower technical debt)
-- Dynamic data rendering
-- Web optimized 
-- Lightweight 
+- Redux Mock Store
+  - Used for testing redux reducers and action creators.
+- Axios Mock Adapter
+  - Used to setup tests for async action creators or any functions that make any axios calls.
 
 #### Front-end deployed to https://citrics.io/
-
-## MapBox
-
-MapBox is an open source mapping platform for custom designed maps. 
 
 <!-- # 3️⃣ Environment Variables
 
@@ -86,9 +88,21 @@ In order for the app to function correctly, the user must set up their own envir
 | doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
 | rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             | -->
 
-<!-- # 4️⃣ Testing
+# Testing
 
-🚫Document what you used for testing and why -->
+Test all your code. Pure functions, components, async, as much coverage as we can get.
+
+To start the test suite use "yarn test".
+You can run a specific test or set of tests by running "yarn test ExampleComponent" or any other filename matcher.
+
+Testing Redux
+
+- Use redux-mock-store to test your action creators as you add any Redux Thunks.
+  https://www.npmjs.com/package/redux-mock-store
+- Use axios mock adapter to mock axios endpoints for any Thunks.
+  https://www.npmjs.com/package/axios-mock-adapter
+- Reducers can be tested just like any other pure function!
+  https://redux.js.org/recipes/writing-tests
 
 # Installation Instructions
 
@@ -105,12 +119,13 @@ When contributing to this repository, please first discuss the change you wish t
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
 ## Issue/Bug Request
-   
- **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
- - Check first to see if your issue has already been reported.
- - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
- - Create a live example of the problem.
- - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes,  where you believe the issue is originating from, and any potential solutions you have considered.
+
+**If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
+
+- Check first to see if your issue has already been reported.
+- Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+- Create a live example of the problem.
+- Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
 
 ### Feature Requests
 
@@ -133,5 +148,6 @@ Remember that this project is licensed under the MIT license, and by submitting 
 ### Attribution
 
 These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
+
 <!-- 
 ## Documentation

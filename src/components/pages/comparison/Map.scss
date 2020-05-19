@@ -27,7 +27,9 @@
   position: relative;
   max-width: 1200px;
   margin: 1.4rem auto;
-
+  @media screen and (max-width: 1200px) {
+    margin: 1.4rem 0.7rem;
+  }
   // This is the text that appears when no cities are selected.
   .map-prompt {
     text-align: center;
@@ -66,7 +68,6 @@
     //One whole card
     .city-overview-card {
       height: 100%;
-
       // The overview portion of the card
       .city-overview-container {
         background-color: white;
@@ -77,10 +78,12 @@
         width: 100%;
         .city-overview-border {
           margin-bottom: 0 !important;
-          padding-left: 2%;
           font-size: 1.3rem;
           width: 100%;
           display: flex;
+          p {
+            margin-left: 1.4rem;
+          }
         }
         .city-overview-content {
           display: flex;
@@ -833,7 +836,8 @@
   }
 
   .search-form {
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     position: absolute;
     top: 0;
@@ -846,7 +850,6 @@
     padding-top: 15px;
     height: 100%;
     width: 100%;
-    margin: 0 auto;
   }
 
   .autofill-container {
