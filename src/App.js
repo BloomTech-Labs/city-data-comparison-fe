@@ -9,7 +9,7 @@ import Dashboard from "./components/pages/index/Dashboard";
 import Navigation from "./components/navigation/Navigation";
 import Footer from "./components/navigation/Footer";
 import Comparison from "./components/pages/comparison/Comparison.js";
-import Profile from "./components/pages/user-profile/Profile";
+import Profile from "./components/pages/profile/Profile";
 import PrivacyPolicy from "./components/pages/privacypolicy/PrivacyPolicy";
 import AboutUs from "./components/pages/aboutus/AboutUs";
 // import AboutUs2 from './components/aboutus/AboutUs2';
