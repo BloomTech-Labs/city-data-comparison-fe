@@ -31,19 +31,30 @@ const SelectPrompt = styled.p`
 `;
 
 export default function IndustryLineGraph({ selected }) {
-  // The currently selected industry
+  // The selected cities, filtered for any cities that don't have industry trend data.
+  const [citiesWithData, setCitiesWithData] = useState([]);
+  useEffect(() => {
+    setCitiesWithData(selected.filter((city) => city["Industry_Trends"]));
+  }, [selected]);
+
+  // The currently selected industry.
   const [currentIndustry, setCurrentIndustry] = useState(
     "Education and Health Services"
   );
 
+  // The X axis labels, dates available. (These are standardized on the backend, they will always be the same.)
   const [dateKeys, setDateKeys] = useState([]);
   useEffect(() => {
-    setDateKeys(
-      Object.keys(
-        selected[0]["Industry_Trends"]["Education and Health Services"]
-      )
-    );
-  }, [selected]);
+    if (citiesWithData.length > 0) {
+      setDateKeys(
+        Object.keys(
+          citiesWithData.find((city) => city["Industry_Trends"])[
+            "Industry_Trends"
+          ]["Education and Health Services"]
+        )
+      );
+    }
+  }, [citiesWithData]);
 
   // We need to find the value in the array of labels closest to current date
   // to place the vertical line divider in the graph to represent
@@ -77,18 +88,20 @@ export default function IndustryLineGraph({ selected }) {
     }
   }, [dateKeys]);
 
-  // Gets an array of all the industry options
+  // Gets an array of all the industry labels/options.
   const [industryKeys, setIndustryKeys] = useState([]);
   useEffect(() => {
-    setIndustryKeys(Object.keys(selected[0]["Industry_Trends"]));
-  }, [selected]);
+    if (citiesWithData.length > 0) {
+      setIndustryKeys(Object.keys(citiesWithData[0]["Industry_Trends"]));
+    }
+  }, [citiesWithData]);
 
-  // Formats the array of line objects for the graph
+  // Formats the array of line objects for the graph for filtered citiesWithData
   const [lines, setLines] = useState([]);
 
   useEffect(() => {
-    setLines(formatGraphLines(selected, currentIndustry, dateKeys));
-  }, [selected, currentIndustry, dateKeys]);
+    setLines(formatGraphLines(citiesWithData, currentIndustry, dateKeys));
+  }, [citiesWithData, currentIndustry, dateKeys]);
 
   function formatGraphLines(selectedCities, industry, dates) {
     const lines = selectedCities.map((city) => {
@@ -106,7 +119,7 @@ export default function IndustryLineGraph({ selected }) {
     return lines;
   }
 
-  // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
+  // Formats graph labels with commas.
   function numberCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -189,6 +202,22 @@ export default function IndustryLineGraph({ selected }) {
             ))}
           </Select>
         </SelectContainer>
+        {/* If even one of the cities doesn't have data we will display a message. */}
+        {selected.some((item) => !item["Industry_Trends"]) ? (
+          <>
+            {" "}
+            <p>
+              No data available for:{" "}
+              {selected
+                .filter((city) => !city["Industry_Trends"])
+                .map((city) => (
+                  <>{city["name_with_com"]}</>
+                ))}
+            </p>
+          </>
+        ) : (
+          <></>
+        )}
         <p
           style={{
             textAlign: "right",
