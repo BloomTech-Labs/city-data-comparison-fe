@@ -36,9 +36,6 @@ export default function IndustryLineGraph({ selected }) {
   useEffect(() => {
     setCitiesWithData(selected.filter((city) => city["Industry_Trends"]));
   }, [selected]);
-  useEffect(() => {
-    console.log(citiesWithData.length);
-  }, [citiesWithData]);
 
   // The X axis labels, dates available. (These are standardized on the backend, they will always be the same.)
   const [dateKeys, setDateKeys] = useState([]);
@@ -101,7 +98,6 @@ export default function IndustryLineGraph({ selected }) {
           )
         )
       );
-      console.log(keys);
       setIndustryKeys(keys);
     }
   }, [citiesWithData]);
