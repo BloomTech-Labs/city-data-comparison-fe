@@ -1,13 +1,9 @@
-import React from 'react';
+import React from "react";
 
 export default function Housing() {
-
-    return(
-
-        <div>
-
-            <h2>Do you prefer small towns, average cities, or metropolis'?</h2>
-            <input></input>
-        </div>
-    )
+  return (
+    <div>
+      <h1>WUT???</h1>
+    </div>
+  );
 }
