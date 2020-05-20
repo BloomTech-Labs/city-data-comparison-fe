@@ -443,7 +443,7 @@ body {
 
 .dashboard-search-container {
   .dashboard-image {
-    background-image: url(./components/pages/index/assets/landing.svg);
+    background-image: url(./components/pages/index/assets/wideSkylineHero.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -452,7 +452,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: auto;
+    height: 100vh;
     min-width: 1520px;
     min-height: 650px;
     margin-top: 70px;
@@ -489,7 +489,7 @@ body {
     margin-top: 5px;
     display: flex;
     align-items: center;
-    color: grey;
+    color: white;
 
     .switch {
       position: relative;
@@ -547,7 +547,7 @@ body {
     }
 
     .search-toggle-green {
-      color: #ffffff !important;
+      color: white !important;
     }
   }
 }
@@ -575,13 +575,14 @@ body {
     }
   }
   .dashboard-title {
-    margin-top: -150px;
+    margin-top: -250px;
     width: 100%;
     font-weight: 500;
     font-size: 108px;
     line-height: 1;
     margin-bottom: 35px;
-    color: white;
+    
+    
 
     @media screen and (max-width: 1440px) {
       font-size: 108px;
@@ -597,7 +598,7 @@ body {
     font-size: 85px;
     line-height: 1;
     margin-bottom: 35px;
-    color: white;
+    color: #444444;
     display: none;
     text-align: center;
 
@@ -618,6 +619,8 @@ body {
 
   .dashboard-function-container {
     position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
     width: 60%;
     @media screen and (max-width: 700px) {
       position: static;
