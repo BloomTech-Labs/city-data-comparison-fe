@@ -8,14 +8,14 @@ const Modal = ({ isShowing, hide, component, size }) => {
   const ModalComp = styled.div`
 
   background: white;
-  position: ${size === 'large' ? 'absolute' : 'relative'};
+  position: ${size === 'large' ? 'relative' : 'relative'};
   margin: 10vh auto;
   border-radius: 3px;
-  max-width: 80vw;
+  
   padding: 1rem;
   margin-top: ${size === 'large' ? '5rem' : '10rem'};
-  overflow-x: ${size === 'large' ? 'hidden' : 'none'};
-  overflow-y: ${size === 'large' ? 'scroll' : 'none'}:
+  overflow-x: ${size === 'large' ? 'visible' : 'visible'};
+  overflow-y: ${size === 'large' ? 'scroll' : 'visible'}:
   `;
 
   const ModalWrapper = styled.div`
@@ -29,8 +29,8 @@ const Modal = ({ isShowing, hide, component, size }) => {
   z-index: 1050;
   width: 100%;
   height: 100%;
-  overflow-x: ${size === 'large' ? 'auto' : 'hidden'};
-  overflow-y: ${size === 'large' ? 'none' : 'auto'};
+  overflow-x: ${size === 'large' ? 'hidden' : 'hidden'};
+  overflow-y: ${size === 'large' ? 'auto' : 'auto'};
   outline: 0;
   padding-left: ${size === 'large' ? '33%' : '30%'};
   padding-right: ${size === 'large' ? '33%' : '30%'};

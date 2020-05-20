@@ -8,25 +8,36 @@ import {
   FormLabel,
   FormControlLabel,
   makeStyles,
+  TextField,
 } from "@material-ui/core";
+import styled from "styled-components";
+import axios from "axios";
+
+const StyledTextField = styled(TextField)`
+  width: 70%;
+`;
 
 const useStyles = makeStyles((theme) => ({
+  form: {
+    margin: "auto"
+  },
   header: {
     textAlign: "center",
   },
   buttonGroup: {
     // paddingLeft: "15%",
-    marginLeft: '3rem',
-    [theme.breakpoints.down(1000)]: {
-    },
+    marginLeft: "3rem",
+    [theme.breakpoints.down(1000)]: {},
   },
   titles: {
     // paddingLeft: "5%",
     [theme.breakpoints.down(1000)]: {
       paddingLeft: 0,
-      color:'grey'
     },
   },
+  fields: {
+    margin: "auto"
+  }
 }));
 
 export default function FlowContainer() {
@@ -64,14 +75,27 @@ export default function FlowContainer() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // console.log("INPUTS", inputs);
+    // e.history.push('/compare');
+    axios
+      .get(
+        `http://labs23-ds-api-test.us-east-1.elasticbeanstalk.com/jkekal6d6e5si3i2ld66d4dl/reverse?temp=${inputs.weather}&mean_income=${inputs.income}&housing=${inputs.housing}&city_size=${inputs.location}`
+      )
+      .then((res) => {
+        console.log("GET RES", res);
+      })
+      .catch((err) => {
+        console.log("GET RES ERR", err);
+      });
+    // http://labs23-ds-api-test.us-east-1.elasticbeanstalk.com/jkekal6d6e5si3i2ld66d4dl/reverse?temp=&mean_income=100000&housing=1800&city_size=town
   };
 
   console.log("CONTAINER INPUTS", inputs);
   // console.log("VALUE", value);
   return (
     <div className="dashboard-modal-container">
-      <h2 style={{textAlign:'center'}}>Find the perfect city to live in!</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 style={{ textAlign: "center" }}>Find the perfect city to live in!</h2>
+      <form onSubmit={handleSubmit} className={classes.form}>
         <FormControl required="true">
           <FormLabel component="location" className={classes.titles}>
             What is your preferred size of the city you would like to reside in?
@@ -83,39 +107,24 @@ export default function FlowContainer() {
             onChange={onChange}
           >
             <FormControlLabel
-              value="village"
-              control={<Radio color="primary" disableRipple="true"/>}
-              label="Village (0 - 999)"
-            />
-            <FormControlLabel
               value="town"
               control={<Radio color="primary" disableRipple="true" />}
-              label="Town (1000 - 10000)"
+              label="Town (0 - 74,999)"
             />
-            <FormControlLabel 
-              value="large-town"
+            <FormControlLabel
+              value="small_city"
               control={<Radio color="primary" disableRipple="true" />}
-              label="Large Town (10,001 - 100,000)"
+              label="Small City (75,000 - 399,999)"
             />
-            <FormControlLabel 
-              value="medium-city"
+            <FormControlLabel
+              value="medium_city"
               control={<Radio color="primary" disableRipple="true" />}
-              label="Medium City (100,001 - 300,000)"
+              label="Medium City (400,000 - 699,999)"
             />
-            <FormControlLabel 
-              value="large-city"
+            <FormControlLabel
+              value="large_city"
               control={<Radio color="primary" disableRipple="true" />}
-              label="Large City (300,001 - 999,999)"
-            />
-            <FormControlLabel 
-              value="metropolis"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Metropolis (1,000,000 - 3,000,000)"
-            />
-            <FormControlLabel 
-              value="conurbation"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Conurbation (3,000,001 - 10,000,000)"
+              label="Large City (700,000+)"
             />
           </RadioGroup>
 
@@ -128,95 +137,61 @@ export default function FlowContainer() {
             value={weatherValue}
             onChange={onChange}
           >
-            <FormControlLabel 
+            <FormControlLabel
               value="cold"
               control={<Radio color="primary" disableRipple="true" />}
               label="Cold (0 - 49°F)"
             />
-            <FormControlLabel 
-              value="cool"
+            <FormControlLabel
+              value="temperate"
               control={<Radio color="primary" disableRipple="true" />}
-              label="Cool (50 - 69°F)"
+              label="Temperate (50 - 69°F)"
             />
-            <FormControlLabel 
-              value="warm"
+            <FormControlLabel
+              value="hot"
               control={<Radio color="primary" disableRipple="true" />}
-              label="Warm (70 - 80°F)"
+              label="Hot (70 - 80°F)"
             />
           </RadioGroup>
 
           <FormLabel component="housing" className={classes.titles}>
             What is your monthly Housing Budget?
           </FormLabel>
-          <RadioGroup
+
+          <br />
+          <TextField
+            className={classes.fields}
             name="housing"
-            className={classes.buttonGroup}
+            id="standard-basic"
+            label="$"
+            type="number"
             value={housingValue}
             onChange={onChange}
-          >
-            <FormControlLabel 
-              value="housing-low"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Low ($0 - $599)"
-            />
-            <FormControlLabel 
-              value="housing-lower-middle"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Lower-Middle ($600 - $1199)"
-            />
-            <FormControlLabel 
-              value="housing-middle"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Middle ($1200 - $1799)"
-            />
-            <FormControlLabel 
-              value="housing-upper-middle"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Upper-Middle ($1800 - $2399)"
-            />
-            <FormControlLabel 
-              value="housing-high"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="High ($2400 - $3000)"
-            />
-          </RadioGroup>
+          />
+          <br />
 
           <FormLabel component="income" className={classes.titles}>
             What is your expected yearly income?
           </FormLabel>
-          <RadioGroup
+          <br />
+          <TextField
+          className={classes.fields}
             name="income"
-            className={classes.buttonGroup}
+            id="standard-basic"
+            label="$"
+            type="number"
             value={incomeValue}
             onChange={onChange}
+          />
+          <br />
+
+          <Button
+            type="submit"
+            className={classes.titles}
+            color="primary"
+            variant="contained"
+            size="large"
           >
-            <FormControlLabel 
-              value="low"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Low ($0 - $31,000)"
-            />
-            <FormControlLabel 
-              value="lower-middle"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Lower-Middle ($31,001 - $49,999)"
-            />
-            <FormControlLabel 
-              value="middle"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Middle ($50,000 - $99,999)"
-            />
-            <FormControlLabel 
-              value="upper-middle"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Upper-Middle ($100000 - $349,999)"
-            />
-            <FormControlLabel 
-              value="high"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="High ($350,000 - $723,000)"
-            />
-          </RadioGroup>
-          <Button color="primary" variant="contained" size="large">
             Submit
           </Button>
         </FormControl>
