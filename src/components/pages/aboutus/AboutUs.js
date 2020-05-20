@@ -29,6 +29,9 @@ const AboutUs = () => {
               <a className="labslink" href="#labs21">
                 Labs 21
               </a>
+              <a className="labslink" href="#labs23">
+                Labs 23
+              </a>
             </div>
           </div>
         </div>
@@ -72,6 +75,19 @@ const AboutUs = () => {
           <div className="cardContainer">
             {team.map((member) => {
               if (member.labs === 21 && member.management !== true) {
+                return <TeamCard member={member} />;
+              }
+            })}
+          </div>
+          <div className="aboutUsH2Div">
+            <h2 id="labs23" className="aboutUsH2">
+              Labs 23 <span>Development Team</span>
+            </h2>
+          </div>
+
+          <div className="cardContainer">
+            {team.map((member) => {
+              if (member.labs === 23 && member.management !== true) {
                 return <TeamCard member={member} />;
               }
             })}

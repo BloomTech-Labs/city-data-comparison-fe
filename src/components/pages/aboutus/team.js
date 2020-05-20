@@ -420,7 +420,19 @@ const team = [
         portfolio: 'https://www.kyleporter.tech'
     }, {
         labs: 23,
-        name: 'Kyle Porter', 
+        name: 'Amy NLe', 
+        image: kyle,
+        role: 'Data Scientist', 
+        social: {
+            twitter: null, 
+            github: 'kylewp13', 
+            linkedin: 'kyletech'
+        }, 
+        about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
+        portfolio: 'https://www.kyleporter.tech'
+    }, {
+        labs: 23,
+        name: 'Robert Tom', 
         image: kyle,
         role: 'Web Developer', 
         social: {
@@ -432,21 +444,9 @@ const team = [
         portfolio: 'https://www.kyleporter.tech'
     }, {
         labs: 23,
-        name: 'Kyle Porter', 
+        name: 'Stephanie Miller', 
         image: kyle,
-        role: 'Web Developer', 
-        social: {
-            twitter: null, 
-            github: 'kylewp13', 
-            linkedin: 'kyletech'
-        }, 
-        about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
-        portfolio: 'https://www.kyleporter.tech'
-    }, {
-        labs: 23,
-        name: 'Kyle Porter', 
-        image: kyle,
-        role: 'Web Developer', 
+        role: 'Data Scientist', 
         social: {
             twitter: null, 
             github: 'kylewp13', 
