@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import styled from "styled-components";
+
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+
 import { actionColor } from "../../../../../utils/cityColors.js";
 import * as ChartAnnotation from "chartjs-plugin-annotation";
 
@@ -20,6 +23,8 @@ const Button = styled.button`
 `;
 
 export default function HousePriceGraph({ selected }) {
+  const mobile = useMediaQuery("(max-width:600px)");
+
   // Get the current date for the purpose of
   // determining where to place the vertical line divider
   const currentDate = new Date();
@@ -108,20 +113,6 @@ export default function HousePriceGraph({ selected }) {
     setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
   }, [selected, dateKeys]);
 
-  const handleClickLegend = (e, legendItem) => {
-    if (lines.length > 1) {
-      setLines(
-        formatGraphLinesWithOneCity(selected[legendItem.datasetIndex], dateKeys)
-      );
-    } else {
-      setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
-    }
-  };
-
-  const handleClickShowAll = () => {
-    setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
-  };
-
   // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
   function numberCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -161,7 +152,6 @@ export default function HousePriceGraph({ selected }) {
             legend: {
               display: true,
               position: "bottom",
-              onClick: handleClickLegend,
             },
             scales: {
               xAxes: [
@@ -171,6 +161,9 @@ export default function HousePriceGraph({ selected }) {
                   scaleLabel: {
                     display: true,
                     labelString: "Year",
+                  },
+                  ticks: {
+                    maxTicksLimit: mobile ? 12 : 24,
                   },
                 },
               ],
@@ -194,18 +187,6 @@ export default function HousePriceGraph({ selected }) {
           }}
         />
       </div>
-      {selected.length > 1 && lines.length === 1 ? (
-        <Button onClick={handleClickShowAll}>Show All</Button>
-      ) : (
-        <></>
-      )}
-      {selected.length !== 1 && lines.length > 1 ? (
-        <p style={{ margin: "0 auto", textAlign: "center" }}>
-          Click a city on the legend to enter a more detailed view.
-        </p>
-      ) : (
-        <></>
-      )}
     </div>
   );
 }

@@ -102,9 +102,18 @@ const DataDisplay = ({
                 </p>
               </Card>
 
-              <Card title={"Job Industry Trends"}>
-                <IndustryLineGraph selected={selected} />
-              </Card>
+              {/* Array.every() returns true if every item meets the condition.
+              This way if none of the cities have Industry Trend data the component won't even be rendered.  
+              */}
+              {selected.every((item, index, array) => {
+                return !item["Industry_Trends"];
+              }) ? (
+                <></>
+              ) : (
+                <Card title={"Job Industry Trends"}>
+                  <IndustryLineGraph selected={selected} />
+                </Card>
+              )}
 
               <Card title={"Ways to Commute"} gridColumn={9}>
                 <Commute edData={selected} />
