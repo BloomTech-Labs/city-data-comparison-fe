@@ -1,28 +1,72 @@
 import ReactGA from "react-ga";
 import * as types from "./actionTypes";
+import { axiosAuth } from "../../utils/axiosAuth.js";
+import { cityDataBaseUrl } from "../../utils/axiosDataScience.js";
 
-export function getUser() {
+export function login(credentials) {
   return async (dispatch) => {
     try {
-      dispatch(types.GET_USER);
-
-      dispatch(types.GET_USER_SUCCESS, payload);
+      dispatch({ type: types.LOGIN, payload: "" });
+      let res = await axiosAuth().post("/auth/login", credentials);
+      if (res.data.token) {
+        localStorage.setItem("jwt", res.data.token);
+        localStorage.setItem("user", res.data.user);
+        dispatch({ type: types.LOGIN_SUCCESS, payload: res.data.user });
+      } else {
+        dispatch({ type: types.LOGIN_ERROR, payload: "User does not exist." });
+      }
     } catch (err) {
-      console.error(err);
-      dispatch(types.GET_USER_ERROR);
+      if (err.response.status === 401) {
+        dispatch({
+          type: types.LOGIN_ERROR,
+          payload: "Please check your credentials.",
+        });
+      } else {
+        dispatch({ type: types.LOGIN_ERROR, payload: "Server error." });
+      }
     }
   };
 }
 
+export function signup(credentials) {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: types.LOGIN, payload: "" });
+      let res = await axiosAuth().post("/auth/register", credentials);
+      if (res.data.token) {
+        localStorage.setItem("jwt", res.data.token);
+        localStorage.setItem("user", res.data.user);
+        dispatch({ type: types.LOGIN_SUCCESS, payload: res.data.user });
+      } else {
+        dispatch({ type: types.LOGIN_ERROR, payload: "User does not exist." });
+      }
+    } catch (err) {
+      if (err.response.status === 409) {
+        dispatch({ type: types.LOGIN_ERROR, payload: "User already exists." });
+      } else {
+        dispatch({ type: types.LOGIN_ERROR, payload: "Server error." });
+      }
+    }
+  };
+}
+
+export function logout() {
+  return (dispatch) => {
+    localStorage.setItem("user", null);
+    localStorage.setItem("jwt", null);
+    dispatch({ type: types.LOGOUT });
+  };
+}
+
+// User profile functionality needs an update once it is decided exactly what information needs to be stored about the user.
 export function editUser() {
   return async (dispatch) => {
     try {
-      dispatch(types.EDIT_USER);
-
-      dispatch(types.EDIT_USER_SUCCESS, payload);
+      dispatch({ type: types.EDIT_USER });
+      dispatch({ type: types.EDIT_USER_SUCCESS, payload: "" });
     } catch (err) {
       console.error(err);
-      dispatch(types.EDIT_USER_ERROR);
+      dispatch({ type: types.EDIT_USER_ERROR, payload: "" });
     }
   };
 }
@@ -30,38 +74,43 @@ export function editUser() {
 export function getFavorites() {
   return async (dispatch) => {
     try {
-      dispatch(types.GET_FAVORITES);
-
-      dispatch(types.GET_FAVORITES_SUCCESS, payload);
+      dispatch({ type: types.GET_FAVORITES });
+      let res = await axiosAuth().get("/users/favs");
+      let promiseArray = res.data.map(async (city) => {
+        return cityDataBaseUrl.get(city.city_id).data;
+      });
+      let favorites = await Promise.all(promiseArray);
+      dispatch({ type: types.GET_FAVORITES_SUCCESS, payload: favorites });
     } catch (err) {
       console.error(err);
-      dispatch(types.GET_FAVORITES_ERROR);
+      dispatch({ type: types.GET_FAVORITES_ERROR, payload: "" });
     }
   };
 }
 
-export function addFavorite() {
+export function addFavorite(newFavorite) {
   return async (dispatch) => {
     try {
-      dispatch(types.ADD_FAVORITE);
-
-      dispatch(types.ADD_FAVORITE_SUCCESS, payload);
+      dispatch({ type: types.ADD_FAVORITE });
+      let request = { city_id: newFavorite._id };
+      let res = await axiosAuth().post("/users/favs", request);
+      dispatch({ type: types.ADD_FAVORITE_SUCCESS, payload: res.data });
     } catch (err) {
       console.error(err);
-      dispatch(types.ADD_FAVORITE_ERROR);
+      dispatch({ type: types.ADD_FAVORITE_ERROR, payload: "Server error." });
     }
   };
 }
 
-export function removeFavorite() {
+export function removeFavorite(id) {
   return async (dispatch) => {
     try {
-      dispatch(types.REMOVE_FAVORITE);
-
-      dispatch(types.REMOVE_FAVORITE_SUCCESS, payload);
+      dispatch({ type: types.REMOVE_FAVORITE, payload: "" });
+      let res = await axiosAuth().delete(`/users/favs`, id);
+      dispatch({ type: types.REMOVE_FAVORITE_SUCCESS, payload: id });
     } catch (err) {
       console.error(err);
-      dispatch(types.REMOVE_FAVORITE_ERROR);
+      dispatch({ type: types.REMOVE_FAVORITE_ERROR, payload: "Server error." });
     }
   };
 }

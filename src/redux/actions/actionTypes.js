@@ -9,9 +9,11 @@ export const CITY_COMPARISON_ERROR = "CITY_COMPARISON_ERROR";
 export const REMOVE_CITY = "REMOVE_CITY";
 export const CLEAR_ALL_CITIES = "CLEAR_ALL_CITIES";
 
-export const GET_USER = "GET_USER";
-export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
-export const GET_USER_ERROR = "GET_USER_ERROR";
+export const LOGIN = "LOGIN";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_ERROR = "LOGIN_ERROR";
+
+export const LOGOUT = "LOGOUT";
 
 export const EDIT_USER = "EDIT_USER";
 export const EDIT_USER_SUCCESS = "EDIT_USER_SUCCESS";

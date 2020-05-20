@@ -1,10 +1,11 @@
 //component used for signup and login forms because there were a lot of similarites between the two.
 //Most elements are conditionally rendered
 
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import { UserContext } from "../../../contexts/UserContext";
-import axios from "axios";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+
+import { useDispatch, useSelector } from "react-redux";
+import { login, signup } from "../../../redux/actions/userActions";
 
 //react hook form is used for validation instead of formik
 import { useForm } from "react-hook-form";
@@ -43,6 +44,8 @@ const LockIcon = styled(LockAlt)`
 `;
 
 const AuthForm = (props) => {
+  const history = useHistory();
+
   //list of companies
   const companies = [
     { name: "Google", icon: Google },
@@ -57,53 +60,28 @@ const AuthForm = (props) => {
   const [modalState, setModalState] = useState();
 
   //state
-  const { user, setUser, axiosAuth } = useContext(UserContext);
-  const [login, setLogin] = useState({ username: "", password: "" });
+  const user = useSelector((state) => state.userReducer.user);
+  const errorMsg = useSelector((state) => state.userReducer.error);
+  const dispatch = useDispatch();
 
-  //error message for any error that is sent back from server
-  const [errorMsg, setErrorMsg] = useState("");
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
 
   const onChange = (e) => {
-    setLogin({ ...login, [e.target.name]: e.target.value });
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
   const onSubmit = (e) => {
-    axios
-      .post(
-        `https://be.citrics.io/api/auth/${props.action.toLowerCase()}`,
-        login
-      )
-      .then((res) => {
-        setUser({ ...user, ...res.data.user });
-
-        localStorage.setItem("jwt", res.data.token);
-        console.log(user, "USERER");
-
-        //redirect user to home
-        return res.data.user;
-      })
-      .then((user) => {
-        axiosAuth()
-          .get(`/users/profile/image`)
-          .then((res) => {
-            if (res.data.length > 0) {
-              setUser({ ...user, userimage: res.data[0].userimage });
-            }
-            props.history.push("/");
-          })
-          .catch((err) => console.log(err));
-      })
-      .catch((error) => {
-        if (error.response) {
-          if (error.response.status === 500) {
-            setErrorMsg("That user already exists.");
-          } else if (error.response.status === 401) {
-            setErrorMsg("Username or password is invalid");
-          }
-        } else {
-          console.log(error);
-        }
-      });
+    if (props.action === "Login") {
+      dispatch(login(credentials));
+      history.push("/compare");
+    }
+    if (props.action === "Signup") {
+      dispatch(signup(credentials));
+      history.push("/compare");
+    }
   };
 
   return (

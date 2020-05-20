@@ -14,11 +14,12 @@ import PrivacyPolicy from "./components/pages/privacypolicy/PrivacyPolicy";
 import AboutUs from "./components/pages/aboutus/AboutUs";
 // import AboutUs2 from './components/aboutus/AboutUs2';
 import citiesIndex from "./data/city_ids.json";
-import { UserContext } from "./contexts/UserContext";
 import { CityContext } from "./contexts/CityContext";
 import Callback from "./components/Callback";
 import AuthForm from "./components/pages/login/AuthForm";
-import axiosAuth from "./utils/axiosAuth";
+
+import { useDispatch } from "react-redux";
+import { getUser } from "./redux/actions/userActions.js";
 
 function initializeAnalytics() {
   ReactGA.initialize("UA-156199574-1");
@@ -45,11 +46,6 @@ function App() {
 
   //possibly for user profile only?? possibly for others?? probably don't use localStorage??
   //user reducer
-  const [user, setUserValue] = useState(
-    localStorage.getItem("user")
-      ? JSON.parse(localStorage.getItem("user"))
-      : null
-  );
 
   //should go with comparison page, doesn't really work right now
   //part of user reducer
@@ -70,12 +66,6 @@ function App() {
     maxZoom: 10,
     trackResize: true,
   });
-
-  //user logic
-  const setUser = (info) => {
-    localStorage.setItem("user", JSON.stringify(info));
-    setUserValue(info);
-  };
 
   //ALL PART OF MAP COMPONENT
   //comparing population numbers between cities
@@ -143,53 +133,40 @@ function App() {
 
   return (
     <Router>
-      <UserContext.Provider
+      <CityContext.Provider
         value={{
-          axiosAuth,
-          user,
-          setUserValue,
-          setUser,
-          favorites,
-          setFavorites,
-          toggleSearch,
-          setToggleSearch,
+          cityIndex,
+          cityMarkers,
+          setCityMarkers,
+          viewport,
+          setViewport,
         }}
       >
-        <CityContext.Provider
-          value={{
-            cityIndex,
-            cityMarkers,
-            setCityMarkers,
-            viewport,
-            setViewport,
-          }}
-        >
-          <div className="App">
-            {/* <Navigation /> */}
-            <Route path="/" render={(props) => <Navigation {...props} />} />
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/" component={Footer} />
-            <Route
-              path="/compare"
-              render={(props) => <Comparison {...props} />}
-            />
-            <PrivateRoute path="/profile" component={Profile} />
-            <Route path="/privacypolicy" component={PrivacyPolicy} />
-            <Route path="/meet-the-team" component={AboutUs} />
+        <div className="App">
+          {/* <Navigation /> */}
+          <Route path="/" render={(props) => <Navigation {...props} />} />
+          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/" component={Footer} />
+          <Route
+            path="/compare"
+            render={(props) => <Comparison {...props} />}
+          />
+          <PrivateRoute path="/profile" component={Profile} />
+          <Route path="/privacypolicy" component={PrivacyPolicy} />
+          <Route path="/meet-the-team" component={AboutUs} />
 
-            <Route
-              path="/signin"
-              render={(props) => <AuthForm {...props} action="Login" />}
-            />
-            <Route
-              path="/signup"
-              render={(props) => <AuthForm {...props} action="Register" />}
-            />
+          <Route
+            path="/signin"
+            render={(props) => <AuthForm {...props} action="Login" />}
+          />
+          <Route
+            path="/signup"
+            render={(props) => <AuthForm {...props} action="Register" />}
+          />
 
-            <Route path="/callback" component={Callback} />
-          </div>
-        </CityContext.Provider>
-      </UserContext.Provider>
+          <Route path="/callback" component={Callback} />
+        </div>
+      </CityContext.Provider>
     </Router>
   );
 }

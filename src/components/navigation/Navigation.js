@@ -8,24 +8,20 @@ import { actionColor, navGrey } from "../../utils/cityColors.js";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import "./Navigation.scss";
 
-import { useDispatch } from "react-redux";
-import { clearAllCities } from "../../redux/actions/cityActions.js";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/actions/userActions.js";
 
 function Navigation() {
   const history = useHistory();
 
-  const { user, setUserValue, setFavorites } = useContext(UserContext);
   const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.userReducer.user);
 
   const mobile = useMediaQuery("(max-width:600px)");
 
-  const Logout = () => {
-    setUserValue(null);
-    setFavorites([]);
-    dispatch(clearAllCities());
-    localStorage.setItem("user", null);
-    localStorage.setItem("jwt", null);
-
+  const handleClickLogout = () => {
+    dispatch(logout());
     history.push("/signin");
   };
 
@@ -72,7 +68,7 @@ function Navigation() {
                 <Link
                   className="login-link"
                   style={{ color: navGrey }}
-                  onClick={() => Logout()}
+                  onClick={() => handleClickLogout()}
                 >
                   <img className="lock" alt="lock" src={signInLock} />
                   Logout
@@ -112,7 +108,7 @@ function Navigation() {
               <Link to="/compare" className="redundant">
                 Compare
               </Link>
-              <Link onClick={() => Logout()} to="/">
+              <Link onClick={() => handleClickLogout()} to="/">
                 Logout
               </Link>
             </div>
