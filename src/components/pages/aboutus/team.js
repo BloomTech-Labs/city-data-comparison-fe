@@ -375,7 +375,7 @@ const team = [
         social: {
             twitter: null, 
             github: 'david-pok', 
-            linkedin: 'kyletech'
+            linkedin: null
         }, 
         about: 'David Pok is a Full Stack Web Developer attending Lambda School.',
         portfolio: 'https://www.kyleporter.tech'
