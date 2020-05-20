@@ -260,7 +260,7 @@ function Dashboard({ history }) {
     marginLeft: "15px",
     fontSize: "1.1rem",
     color:
-      buttonClass === "search-toggle-green" ? "white" : "search-toggle-green",
+      buttonClass === "search-toggle-green" ? "#444444" : "search-toggle-green",
   };
 
   return (

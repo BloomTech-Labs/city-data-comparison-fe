@@ -453,7 +453,7 @@ body {
   // justify-content:space-between;
 
   .dashboard-image {
-    background-image: url(./components/pages/index/assets/currentHero.jpg);
+    background-image: url(./components/pages/index/assets/wideSkylineHero.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -590,7 +590,7 @@ body {
     font-size: 108px;
     line-height: 1;
     margin-bottom: 35px;
-    color: white;
+    
     
 
     @media screen and (max-width: 1440px) {
@@ -604,7 +604,7 @@ body {
     font-size: 108px;
     line-height: 1;
     margin-bottom: 35px;
-    color: white;
+    color: #444444;
     display: none;
 
     @media screen and (max-width: 500px) {
