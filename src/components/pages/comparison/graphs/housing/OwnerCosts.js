@@ -53,15 +53,16 @@ export function OwnerCostsModalContent(props) {
         mortgages, real estate taxes, various insurances, utilities, fuels,
         mobile home costs, and condominium fees. Listing the items separately
         improves accuracy and provides additional detail.
-        <br /><br />
+        <br />
+        <br />
         When combined with income, a new item is created -- Selected Monthly
-        Owner Costs as a percentage of household income. This item is used to 
+        Owner Costs as a percentage of household income. This item is used to
         measure housing affordability and excessive shelter costs. For example,
-        many government agencies define excessive as costs that exceed 30 percent
-        of household income.
+        many government agencies define excessive as costs that exceed 30
+        percent of household income.
       </p>
       <div className="smoc-link">
-        <a href="https://factfinder.census.gov/help/en/selected_monthly_owner_costs.htm">
+        <a href="https://www.census.gov/quickfacts/fact/note/US/HSG650218">
           Source
         </a>
       </div>

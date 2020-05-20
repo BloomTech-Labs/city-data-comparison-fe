@@ -1,55 +1,59 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled from 'styled-components';
+import React from "react";
+import ReactDOM from "react-dom";
+import styled from "styled-components";
 
-
-
-const Modal = ({ isShowing, hide, component, size }) => {
+const Modal = ({ isShowing, hide, component, large }) => {
   const ModalComp = styled.div`
-
-  background: white;
-  position: ${size === 'large' ? 'relative' : 'relative'};
-  margin: 10vh auto;
-  border-radius: 3px;
-  
-  padding: 1rem;
-  margin-top: ${size === 'large' ? '5rem' : '10rem'};
-  overflow-x: ${size === 'large' ? 'visible' : 'visible'};
-  overflow-y: ${size === 'large' ? 'scroll' : 'visible'}:
+    background: white;
+    position: relative;
+    border-radius: 3px;
+    padding: 1rem;
+    max-width: ${large ? "800px" : "500px"};
+    margin: 0 1.4rem;
+    width: 100%;
   `;
 
   const ModalWrapper = styled.div`
-  @media screen and (max-width: 800px) {
-    padding-left: 10%;
-    padding-right: 10%;
-  }
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1050;
-  width: 100%;
-  height: 100%;
-  overflow-x: ${size === 'large' ? 'hidden' : 'hidden'};
-  overflow-y: ${size === 'large' ? 'auto' : 'auto'};
-  outline: 0;
-  padding-left: ${size === 'large' ? '33%' : '30%'};
-  padding-right: ${size === 'large' ? '33%' : '30%'};
-  `
-  
-  return isShowing ? ReactDOM.createPortal(
-  <React.Fragment>
-    <div className="modal-overlay"/>
-    <ModalWrapper aria-modal aria-hidden tabIndex={-1} role="dialog">
-      <ModalComp>
-        <div className="modal-header">
-          <button type="button" className="modal-close-button" data-dismiss="modal" aria-label="Close" onClick={hide}>
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        {component}
-      </ModalComp>
-    </ModalWrapper>
-  </React.Fragment>, document.body
-) : null;}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100vh;
+
+    overflow-y: inital;
+
+    outline: 0;
+  `;
+
+  return isShowing
+    ? ReactDOM.createPortal(
+        <React.Fragment>
+          <div className="modal-overlay" />
+          <ModalWrapper aria-modal aria-hidden tabIndex={-1} role="dialog">
+            <ModalComp>
+              <div className="modal-header">
+                <button
+                  type="button"
+                  className="modal-close-button"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  onClick={hide}
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              {component}
+            </ModalComp>
+          </ModalWrapper>
+        </React.Fragment>,
+        document.body
+      )
+    : null;
+};
 
 export default Modal;

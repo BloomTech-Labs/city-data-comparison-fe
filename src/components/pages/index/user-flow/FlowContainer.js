@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Card from "../../../card/Card.js";
+
 import {
   Button,
   RadioGroup,
@@ -13,13 +14,29 @@ import {
 import styled from "styled-components";
 import axios from "axios";
 
+const ReverseUserFlowDialog = styled.div`
+  overflow-y: scroll;
+  overflow-y: initial !important;
+`;
+
+const ReverseUserFlowBody = styled.div`
+  height: 42vh
+  overflow-y: auto;
+`;
+
 const StyledTextField = styled(TextField)`
   width: 70%;
 `;
 
+const Form = styled.form`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const useStyles = makeStyles((theme) => ({
   form: {
-    margin: "auto"
+    margin: "auto",
   },
   header: {
     textAlign: "center",
@@ -36,8 +53,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   fields: {
-    margin: "auto"
-  }
+    margin: "auto",
+  },
 }));
 
 export default function FlowContainer() {
@@ -91,109 +108,114 @@ export default function FlowContainer() {
   console.log("CONTAINER INPUTS", inputs);
   // console.log("VALUE", value);
   return (
-    <div className="dashboard-modal-container">
-      <h2 style={{ textAlign: "center" }}>Find the perfect city to live in!</h2>
-      <form onSubmit={handleSubmit} className={classes.form}>
-        <FormControl required="true">
-          <FormLabel component="location" className={classes.titles}>
-            What is your preferred size of the city you would like to reside in?
-          </FormLabel>
-          <RadioGroup
-            name="location"
-            className={classes.buttonGroup}
-            value={locationValue}
-            onChange={onChange}
-          >
-            <FormControlLabel
-              value="town"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Town (0 - 74,999)"
-            />
-            <FormControlLabel
-              value="small_city"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Small City (75,000 - 399,999)"
-            />
-            <FormControlLabel
-              value="medium_city"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Medium City (400,000 - 699,999)"
-            />
-            <FormControlLabel
-              value="large_city"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Large City (700,000+)"
-            />
-          </RadioGroup>
+    <ReverseUserFlowDialog>
+      <ReverseUserFlowBody>
+        <h2 style={{ textAlign: "center" }}>
+          Find the perfect city to live in!
+        </h2>
+        <Form onSubmit={handleSubmit} className={classes.form}>
+          <FormControl required="true">
+            <FormLabel component="location" className={classes.titles}>
+              1. What is your preferred size of the city you would like to
+              reside in?
+            </FormLabel>
+            <RadioGroup
+              name="location"
+              className={classes.buttonGroup}
+              value={locationValue}
+              onChange={onChange}
+            >
+              <FormControlLabel
+                value="town"
+                control={<Radio color="primary" disableRipple="true" />}
+                label="Town (0 - 74,999)"
+              />
+              <FormControlLabel
+                value="small_city"
+                control={<Radio color="primary" disableRipple="true" />}
+                label="Small City (75,000 - 399,999)"
+              />
+              <FormControlLabel
+                value="medium_city"
+                control={<Radio color="primary" disableRipple="true" />}
+                label="Medium City (400,000 - 699,999)"
+              />
+              <FormControlLabel
+                value="large_city"
+                control={<Radio color="primary" disableRipple="true" />}
+                label="Large City (700,000+)"
+              />
+            </RadioGroup>
 
-          <FormLabel component="weather" className={classes.titles}>
-            What is your preferred climate?
-          </FormLabel>
-          <RadioGroup
-            name="weather"
-            className={classes.buttonGroup}
-            value={weatherValue}
-            onChange={onChange}
-          >
-            <FormControlLabel
-              value="cold"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Cold (0 - 49°F)"
+            <FormLabel component="weather" className={classes.titles}>
+              2. What is your preferred climate?
+            </FormLabel>
+            <RadioGroup
+              name="weather"
+              className={classes.buttonGroup}
+              value={weatherValue}
+              onChange={onChange}
+            >
+              <FormControlLabel
+                value="cold"
+                control={<Radio color="primary" disableRipple="true" />}
+                label="Cold (0 - 49°F)"
+              />
+              <FormControlLabel
+                value="temperate"
+                control={<Radio color="primary" disableRipple="true" />}
+                label="Temperate (50 - 69°F)"
+              />
+              <FormControlLabel
+                value="hot"
+                control={<Radio color="primary" disableRipple="true" />}
+                label="Hot (70 - 80°F)"
+              />
+            </RadioGroup>
+
+            <FormLabel component="housing" className={classes.titles}>
+              3. What is your monthly Housing Budget?
+            </FormLabel>
+
+            <br />
+            <TextField
+              className={classes.fields}
+              name="housing"
+              id="standard-basic"
+              label="$"
+              type="number"
+              value={housingValue}
+              onChange={onChange}
             />
-            <FormControlLabel
-              value="temperate"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Temperate (50 - 69°F)"
+            <br />
+
+            <FormLabel component="income" className={classes.titles}>
+              4. What is your expected yearly income?
+            </FormLabel>
+            <br />
+            <TextField
+              className={classes.fields}
+              name="income"
+              id="standard-basic"
+              label="$"
+              type="number"
+              value={incomeValue}
+              onChange={onChange}
             />
-            <FormControlLabel
-              value="hot"
-              control={<Radio color="primary" disableRipple="true" />}
-              label="Hot (70 - 80°F)"
-            />
-          </RadioGroup>
+            <br />
 
-          <FormLabel component="housing" className={classes.titles}>
-            What is your monthly Housing Budget?
-          </FormLabel>
-
-          <br />
-          <TextField
-            className={classes.fields}
-            name="housing"
-            id="standard-basic"
-            label="$"
-            type="number"
-            value={housingValue}
-            onChange={onChange}
-          />
-          <br />
-
-          <FormLabel component="income" className={classes.titles}>
-            What is your expected yearly income?
-          </FormLabel>
-          <br />
-          <TextField
-          className={classes.fields}
-            name="income"
-            id="standard-basic"
-            label="$"
-            type="number"
-            value={incomeValue}
-            onChange={onChange}
-          />
-          <br />
-
-          <Button
-            type="submit"
-            className={classes.titles}
-            color="primary"
-            variant="contained"
-            size="large"
-          >
-            Submit
-          </Button>
-        </FormControl>
-      </form>
-    </div>
+            <Button
+              type="submit"
+              className={classes.titles}
+              color="primary"
+              variant="contained"
+              size="large"
+            >
+              Submit
+            </Button>
+          </FormControl>
+        </Form>
+      </ReverseUserFlowBody>
+    </ReverseUserFlowDialog>
   );
 }
