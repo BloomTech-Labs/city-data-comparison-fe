@@ -423,8 +423,6 @@ body {
   .bonus-features-container {
     flex-direction: column;
 
-    .bonus-features-CTA {
-    }
     .motorbike {
       width: 250px;
     }
@@ -784,15 +782,6 @@ body {
   }
 }
 
-@media screen and (max-width: 900px) {
-  .dashboard-search-container {
-    .dashboard-search-function {
-      .compare-button {
-      }
-    }
-  }
-}
-
 @media screen and (max-width: 700px) {
   .dashboard-search-container {
     flex-direction: column-reverse;
@@ -824,8 +813,6 @@ body {
       .dashboard-title2 {
         display: flex;
         margin-right: 250px;
-      }
-      .compare-button {
       }
     }
   }

@@ -1,37 +1,20 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import LineGraph from "./PieGraph";
-import LineGraph2 from "./TwoGraph";
-import RadarGraph from "./RadarGraph";
+
 import ReactGA from "react-ga";
-import { useSelector, useDispatch } from "react-redux"; //import
+import { useSelector } from "react-redux"; //import
 
 import FlowContainer from "./user-flow/FlowContainer";
-
-import {
-  getCity,
-  cityComparison,
-  removeCity,
-} from "../../../redux/actions/cityActions.js"; //import
 
 import useModal from "../../modal/useModal";
 import ModalPopup from "../../modal/modal.js";
 
-import pointer from "./assets/pointer.svg";
-import backwheel from "./assets/motorbike_back_wheel.png";
-import edgeblur from "./assets/edge_blur.png";
-import driver from "./assets/motorbike_driver.png";
-import frontwheel from "./assets/motorbike_front_wheel.png";
-import plant from "./assets/motorbike_plant.png";
-
-import { CityContext } from "../../../contexts/CityContext";
 import { UserContext } from "../../../contexts/UserContext";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../../../App.scss";
 
-import landing from "./assets/landing.svg";
 import economy from "./assets/economy.svg";
 import community from "./assets/community.svg";
 import housing from "./assets/housing.svg";
@@ -45,17 +28,9 @@ function Dashboard({ history }) {
   const { isShowing, toggle } = useModal();
 
   AOS.init();
-  const {
-    user,
-    setUser,
-    toggleSearch,
-    setToggleSearch,
-    axiosAuth,
-  } = useContext(UserContext);
-  const { cityIndex, viewport, setViewport } = useContext(CityContext);
+  const { user, setUser, axiosAuth } = useContext(UserContext);
 
   const selected = useSelector((state) => state.cityReducer.selected); //added
-  const dispatch = useDispatch(); //added
 
   useEffect((_) => {
     if (user) {
@@ -138,17 +113,6 @@ function Dashboard({ history }) {
         >
           <div className="motoranimationcontainer">
             <img alt="img of lock" className="unlockfeatures" src={unlock} />
-
-            {/* <div className="motoranimbackground">
-                              <img className="edgeblurleft" src={edgeblur}/>
-                              <img className="edgeblurright" src={edgeblur}/>
-                         </div>
-                         <div className="moving">
-                              <img className="motoranim wheel" src={backwheel} alt="backwheel" style={{top:"90px", right:"55px"}}/>
-                              <img className="motoranim wheel" src={frontwheel} alt="frontwheel" style={{top:"90px", left:"67px"}}/>
-                              <img className="motoranim driver" src={driver} alt="driver" style={{top:"20px"}}/>
-                              <img className="motoranim plant" src={plant} alt="plant" style={{top:"27px", right:"60px"}} />
-                         </div> */}
           </div>
           <div className="bonus-features-CTA">
             <p className="bonus-features-title">Unlock bonus features</p>
