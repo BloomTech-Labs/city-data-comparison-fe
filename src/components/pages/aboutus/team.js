@@ -345,7 +345,116 @@ const team = [
         about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
         portfolio: 'https://www.kyleporter.tech'
     
-    }
+    }, {
+        labs: 23,
+        name: "Jimmy 'Zeb' Smith", 
+        image: jimmy,
+        management: true,
+        role: 'Team Lead, Labs 23', 
+        social: {
+            twitter: null, 
+            github: 'zebfred', 
+            linkedin: null
+        }, 
+        about: 'Jimmy "Zeb" Smith is a data scientist in Winchester, TN. Prior to starting Lambda, he obtained his bachelors of science at the University South. He majored in chemistry with a pre-engineering focus in math and physics. His interest lies in using emerging data science technologies for a better tomorrow.',
+        portfolio: null
+    }, {
+        labs: 23,
+        name: 'David Pok', 
+        image: kyle,
+        role: 'Web Developer', 
+        social: {
+            twitter: null, 
+            github: 'kylewp13', 
+            linkedin: 'kyletech'
+        }, 
+        about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
+        portfolio: 'https://www.kyleporter.tech'
+    }, {
+        labs: 23,
+        name: 'Liam Moore', 
+        image: kyle,
+        role: 'Web Developer', 
+        social: {
+            twitter: null, 
+            github: 'kylewp13', 
+            linkedin: 'kyletech'
+        }, 
+        about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
+        portfolio: 'https://www.kyleporter.tech'
+    }, {
+        labs: 23,
+        name: 'Svyat Okshin', 
+        image: kyle,
+        role: 'Web Developer', 
+        social: {
+            twitter: null, 
+            github: 'kylewp13', 
+            linkedin: 'kyletech'
+        }, 
+        about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
+        portfolio: 'https://www.kyleporter.tech'
+    }, {
+        labs: 23,
+        name: 'Damon Bogich', 
+        image: kyle,
+        role: 'Web Developer', 
+        social: {
+            twitter: null, 
+            github: 'kylewp13', 
+            linkedin: 'kyletech'
+        }, 
+        about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
+        portfolio: 'https://www.kyleporter.tech'
+    }, {
+        labs: 23,
+        name: 'Steven Reiss', 
+        image: kyle,
+        role: 'Data Scientist', 
+        social: {
+            twitter: null, 
+            github: 'kylewp13', 
+            linkedin: 'kyletech'
+        }, 
+        about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
+        portfolio: 'https://www.kyleporter.tech'
+    }, {
+        labs: 23,
+        name: 'Kyle Porter', 
+        image: kyle,
+        role: 'Web Developer', 
+        social: {
+            twitter: null, 
+            github: 'kylewp13', 
+            linkedin: 'kyletech'
+        }, 
+        about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
+        portfolio: 'https://www.kyleporter.tech'
+    }, {
+        labs: 23,
+        name: 'Kyle Porter', 
+        image: kyle,
+        role: 'Web Developer', 
+        social: {
+            twitter: null, 
+            github: 'kylewp13', 
+            linkedin: 'kyletech'
+        }, 
+        about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
+        portfolio: 'https://www.kyleporter.tech'
+    }, {
+        labs: 23,
+        name: 'Kyle Porter', 
+        image: kyle,
+        role: 'Web Developer', 
+        social: {
+            twitter: null, 
+            github: 'kylewp13', 
+            linkedin: 'kyletech'
+        }, 
+        about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
+        portfolio: 'https://www.kyleporter.tech'
+    },
 ]
 
 export default team;
