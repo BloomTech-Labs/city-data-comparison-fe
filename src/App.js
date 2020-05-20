@@ -10,17 +10,15 @@ import Navigation from "./components/navigation/Navigation";
 import Footer from "./components/navigation/Footer";
 import Comparison from "./components/pages/comparison/Comparison.js";
 import Profile from "./components/pages/user-profile/Profile";
-import PrivacyPolicy from "./components/legal/PrivacyPolicy";
+import PrivacyPolicy from "./components/pages/privacypolicy/PrivacyPolicy";
 import AboutUs from "./components/pages/aboutus/AboutUs";
 // import AboutUs2 from './components/aboutus/AboutUs2';
 import citiesIndex from "./data/city_ids.json";
 import { UserContext } from "./contexts/UserContext";
 import { CityContext } from "./contexts/CityContext";
 import Callback from "./components/Callback";
-import AuthForm from "./components/forms/AuthForm";
+import AuthForm from "./components/pages/login/AuthForm";
 import axiosAuth from "./utils/axiosAuth";
-import SingleCityPage from "./components/pages/singlecity/SingleCityPage";
-
 
 function initializeAnalytics() {
   ReactGA.initialize("UA-156199574-1");
@@ -60,10 +58,6 @@ function App() {
   //map components??
   //city reducer
   const [cityMarkers, setCityMarkers] = useState(cityIndex);
-
-  //comparison components?? also works for map component??
-  //city reducer
-  const [selected, setSelected] = useState([]);
 
   //for the map component, should change from state var to something else
   const [viewport, setViewport] = useState({
@@ -175,14 +169,13 @@ function App() {
             <Route path="/" render={(props) => <Navigation {...props} />} />
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/" component={Footer} />
-            <Route path="/compare" render={(props) => <Comparison {...props} />} />
+            <Route
+              path="/compare"
+              render={(props) => <Comparison {...props} />}
+            />
             <PrivateRoute path="/profile" component={Profile} />
             <Route path="/privacypolicy" component={PrivacyPolicy} />
             <Route path="/meet-the-team" component={AboutUs} />
-            <Route
-              path="/SingleCityPage"
-              render={(props) => <SingleCityPage {...props} />}
-            />
 
             <Route
               path="/signin"

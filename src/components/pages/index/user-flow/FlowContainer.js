@@ -56,12 +56,11 @@ export default function FlowContainer() {
   const [incomeValue, setIncomeValue] = useState("");
 
   const onChange = (e) => {
-    // console.log("radio checked", e.target.value);
     setInputs({
       ...inputs,
       [e.target.name]: e.target.value,
     });
-    // setValue(e.target.value);
+
     if (e.target.name === "housing") {
       setHousingValue(e.target.value);
     } else if (e.target.name === "weather") {
@@ -72,7 +71,6 @@ export default function FlowContainer() {
       setIncomeValue(e.target.value);
     }
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log("INPUTS", inputs);

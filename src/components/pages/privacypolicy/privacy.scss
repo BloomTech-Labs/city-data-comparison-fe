@@ -1,0 +1,70 @@
+.container{
+    overflow: hidden;
+}
+
+
+.privacy-policy{
+    display:flex; 
+    padding: 55px; 
+    overflow: hidden;
+    height: 82vh;
+    margin-top:5%;
+    background: #F2F9FD;
+
+    @media screen and (max-width: 800px){
+        padding: 55px 20px; 
+    }
+
+}
+
+.privacy-policy-nav{
+
+    
+    padding: 2%;
+    background:white;
+    width: 20%; 
+    text-align: end; 
+    border-radius: 10px 0px 0px 10px; 
+    color:#e9f6fe;
+
+    @media screen and (max-width: 800px){
+        display: none;
+    }
+  
+
+    ul{
+        list-style-type: none;
+        margin: 19% 0; 
+        padding: 0; 
+        a{
+            display: inline-block;
+            text-decoration: none;
+            color: #A33A00;
+            padding: 5%; 
+        }
+    }
+
+    
+}
+h1{
+    text-align: center;
+}
+
+.privacy-policy-container{
+    overflow-y: scroll;
+    height: 100%; 
+    padding: 0 3%; 
+    width: 80%;
+    -ms-overflow-style: none;
+
+    @media screen and (max-width: 800px){
+        width: 100%;
+        padding: 0;
+    }
+ 
+
+}
+
+.privacy-policy-container::-webkit-scrollbar {
+    display: none;
+}
