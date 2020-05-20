@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import citrics from "./citrics-mock-dark.png";
 import signInLock from "./signInLockDark.png";
-import { UserContext } from "../../contexts/UserContext";
 import { actionColor, navGrey } from "../../utils/cityColors.js";
 
 import useMediaQuery from "@material-ui/core/useMediaQuery";
