@@ -10,7 +10,7 @@ export function login(credentials) {
       let res = await axiosAuth().post("/auth/login", credentials);
       if (res.data.token) {
         localStorage.setItem("jwt", res.data.token);
-        localStorage.setItem("user", res.data.user);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
         dispatch({ type: types.LOGIN_SUCCESS, payload: res.data.user });
       } else {
         dispatch({ type: types.LOGIN_ERROR, payload: "User does not exist." });
@@ -76,11 +76,7 @@ export function getFavorites() {
     try {
       dispatch({ type: types.GET_FAVORITES });
       let res = await axiosAuth().get("/users/favs");
-      let promiseArray = res.data.map(async (city) => {
-        return cityDataBaseUrl.get(city.city_id).data;
-      });
-      let favorites = await Promise.all(promiseArray);
-      dispatch({ type: types.GET_FAVORITES_SUCCESS, payload: favorites });
+      dispatch({ type: types.GET_FAVORITES_SUCCESS, payload: res.data });
     } catch (err) {
       console.error(err);
       dispatch({ type: types.GET_FAVORITES_ERROR, payload: "" });
@@ -105,8 +101,10 @@ export function addFavorite(newFavorite) {
 export function removeFavorite(id) {
   return async (dispatch) => {
     try {
-      dispatch({ type: types.REMOVE_FAVORITE, payload: "" });
-      let res = await axiosAuth().delete(`/users/favs`, id);
+      dispatch({ type: types.REMOVE_FAVORITE });
+      let res = await axiosAuth().delete(`/users/favs`, {
+        data: { city_id: id },
+      });
       dispatch({ type: types.REMOVE_FAVORITE_SUCCESS, payload: id });
     } catch (err) {
       console.error(err);

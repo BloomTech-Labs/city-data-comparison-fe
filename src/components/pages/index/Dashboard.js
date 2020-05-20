@@ -6,7 +6,6 @@ import { useSelector } from "react-redux"; //import
 
 import FlowContainer from "./user-flow/FlowContainer";
 
-import useLocalStorage from "../../../utils/hooks/useLocalStorage";
 import useModal from "../../modal/useModal";
 import ModalPopup from "../../modal/modal.js";
 
@@ -27,8 +26,8 @@ function Dashboard({ history }) {
   const { isShowing, toggle } = useModal();
 
   AOS.init();
-  const [user, setUser] = useLocalStorage("user", null);
 
+  const user = useSelector((state) => state.userReducer.user);
   const selected = useSelector((state) => state.cityReducer.selected); //added
 
   return (
