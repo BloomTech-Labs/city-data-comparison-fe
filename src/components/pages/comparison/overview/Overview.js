@@ -37,7 +37,7 @@ function Overview({ selected }) {
                   >
                     <div className="overview-title">
                       <img alt="income" src={income} />
-                      Median income
+                      Median income <br></br>per capita
                     </div>
                   </ScrollLink>
                   <ScrollLink
