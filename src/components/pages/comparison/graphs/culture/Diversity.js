@@ -2,31 +2,33 @@ import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
 import GraphContainer from "../ResponsiveGraphContainer";
 
-export default function EducationGraph(props) {
+export default function Diversity({ selected }) {
   return (
     <GraphContainer>
       <HorizontalBar
         data={{
           labels: [
-            "Less than 9th grade",
-            "Some High School",
-            "High school",
-            "Some College",
-            "Associate's Degree",
-            "Bachelor's Degree",
-            "Graduate Degree",
+            "White",
+            "Hispanic or Latino",
+            "African American",
+            "Asian",
+            "American Indian",
+            "Pacific Islander",
+            "Two or more races",
+            "Other",
           ],
-          datasets: props.edData.map((item) => {
+          datasets: selected.map((item) => {
             return {
               label: item.name_with_com,
               data: [
-                item["Educational Attainment"]["Less than 9th grade"],
-                item["Educational Attainment"]["9th to 12th grade no diploma"],
-                item["Educational Attainment"]["High school"],
-                item["Educational Attainment"]["Some college no degree"],
-                item["Educational Attainment"]["Associate's degree"],
-                item["Educational Attainment"]["Bachelor's degree"],
-                item["Educational Attainment"]["Graduate degree"],
+                item["Ethnicity"]["White"],
+                item["Ethnicity"]["Hispanic or Latino"],
+                item["Ethnicity"]["African American"],
+                item["Ethnicity"]["Asian"],
+                item["Ethnicity"]["American Indian"],
+                item["Ethnicity"]["Pacific Islander"],
+                item["Ethnicity"]["Two or more races"],
+                item["Ethnicity"]["other race"],
               ],
               backgroundColor: item.color,
             };
@@ -37,7 +39,7 @@ export default function EducationGraph(props) {
           maintainAspectRatio: false,
           title: {
             display: false,
-            text: "Educational Attainment",
+            text: "Ethnicity",
             fontSize: 25,
           },
           legend: {

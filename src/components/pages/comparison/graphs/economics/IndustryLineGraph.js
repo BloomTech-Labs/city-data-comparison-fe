@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import GraphContainer from "../ResponsiveGraphContainer";
 
 import { actionColor } from "../../../../../utils/cityColors.js";
 import * as ChartAnnotation from "chartjs-plugin-annotation";
@@ -139,15 +140,13 @@ export default function IndustryLineGraph({ selected }) {
   }
 
   return (
-    <div className="housing-graph">
-      <div
-        className="chart-container"
-        style={{ position: "relative", width: `100%` }}
-      >
+    <>
+      <GraphContainer>
         <Line
           data={{ labels: dateKeys, datasets: lines }}
           options={{
             responsive: true,
+            maintainAspectRatio: false,
             plugins: [ChartAnnotation],
             annotation: {
               annotations: [
@@ -208,65 +207,66 @@ export default function IndustryLineGraph({ selected }) {
             },
           }}
         />
-        <SelectContainer>
-          <SelectPrompt>Select an industry:</SelectPrompt>
-          <Select
-            value={currentIndustry}
-            onChange={(e) => setCurrentIndustry(e.target.value)}
-            displayEmpty
-            inputProps={{ "aria-label": "Without label" }}
-          >
-            {industryKeys.map((key) => (
-              <MenuItem value={key}>{key}</MenuItem>
+      </GraphContainer>
+
+      <SelectContainer>
+        <SelectPrompt>Select an industry:</SelectPrompt>
+        <Select
+          value={currentIndustry}
+          onChange={(e) => setCurrentIndustry(e.target.value)}
+          displayEmpty
+          inputProps={{ "aria-label": "Without label" }}
+        >
+          {industryKeys.map((key) => (
+            <MenuItem value={key}>{key}</MenuItem>
+          ))}
+        </Select>
+      </SelectContainer>
+      {/* If even one of the cities doesn't have data we will display a message. */}
+      {selected.some((city) => !city["Industry_Trends"]) ? (
+        <p style={{ textAlign: "center" }}>
+          No industry trend data available for:{" "}
+          {selected
+            .filter((city) => !city["Industry_Trends"])
+            .map((city) => (
+              <>{city["name_with_com"]}</>
             ))}
-          </Select>
-        </SelectContainer>
-        {/* If even one of the cities doesn't have data we will display a message. */}
-        {selected.some((city) => !city["Industry_Trends"]) ? (
+          .
+        </p>
+      ) : (
+        <></>
+      )}
+
+      {citiesWithData.length > 0 ? (
+        citiesWithData.some(
+          (city) => !city["Industry_Trends"][currentIndustry]
+        ) ? (
           <p style={{ textAlign: "center" }}>
-            No industry trend data available for:{" "}
-            {selected
-              .filter((city) => !city["Industry_Trends"])
-              .map((city) => (
-                <>{city["name_with_com"]}</>
+            No {currentIndustry} data available for:{" "}
+            {citiesWithData
+              .filter((city) => !city["Industry_Trends"][currentIndustry])
+              .map((city, index, array) => (
+                <>{`${city["name_with_com"]}${
+                  index === array.length - 1 ? "" : ", "
+                }`}</>
               ))}
             .
           </p>
         ) : (
           <></>
-        )}
+        )
+      ) : (
+        <></>
+      )}
 
-        {citiesWithData.length > 0 ? (
-          citiesWithData.some(
-            (city) => !city["Industry_Trends"][currentIndustry]
-          ) ? (
-            <p style={{ textAlign: "center" }}>
-              No {currentIndustry} data available for:{" "}
-              {citiesWithData
-                .filter((city) => !city["Industry_Trends"][currentIndustry])
-                .map((city, index, array) => (
-                  <>{`${city["name_with_com"]}${
-                    index === array.length - 1 ? "" : ", "
-                  }`}</>
-                ))}
-              .
-            </p>
-          ) : (
-            <></>
-          )
-        ) : (
-          <></>
-        )}
-
-        <p
-          style={{
-            textAlign: "right",
-            fontSize: "10px",
-          }}
-        >
-          Source: Bureau of Labor Statistics
-        </p>
-      </div>
-    </div>
+      <p
+        style={{
+          textAlign: "right",
+          fontSize: "10px",
+        }}
+      >
+        Source: Bureau of Labor Statistics
+      </p>
+    </>
   );
 }

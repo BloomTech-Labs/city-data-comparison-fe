@@ -23,7 +23,7 @@ const Button = styled.button`
   left: 120px;
 `;
 
-export default function HousePriceGraph({ selected }) {
+export default function AverageHomePrices({ selected }) {
   const mobile = useMediaQuery("(max-width:600px)");
 
   // Get the current date for the purpose of
