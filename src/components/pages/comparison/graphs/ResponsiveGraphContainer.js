@@ -3,13 +3,13 @@ import styled from "styled-components/macro";
 
 function ResponsiveGraphContainer(props) {
   const StyledResponsiveGraphContainer = styled.div`
-    min-height: 300px;
+    min-height: ${(props.size ? props.size : 1) * 300}px;
 
     @media screen and (min-width: 600px) {
-      min-height: 400px;
+      min-height: ${(props.size ? props.size : 1) * 400}px;
     }
     @media screen and (min-width: 800px) {
-      min-height: 500px;
+      min-height: ${(props.size ? props.size : 1) * 500}px;
     }
   `;
 
