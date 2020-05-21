@@ -12,7 +12,6 @@ function Profile({ selected }) {
     <div className="profile-body">
       <div className="profile-page">
         <div className="profile-slides">
-          <ProfileCard />
           <Favorites />
         </div>
       </div>
