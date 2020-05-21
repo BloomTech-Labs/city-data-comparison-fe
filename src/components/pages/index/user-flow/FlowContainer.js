@@ -10,6 +10,8 @@ import {
   FormControlLabel,
   makeStyles,
   TextField,
+  Select,
+  MenuItem,
 } from "@material-ui/core";
 import styled from "styled-components";
 import axios from "axios";
@@ -41,21 +43,36 @@ const useStyles = makeStyles((theme) => ({
   header: {
     textAlign: "center",
   },
-  buttonGroup: {
-    // paddingLeft: "15%",
-    marginLeft: "3rem",
+  select: {
+    margin: "1.4rem 0",
     [theme.breakpoints.down(1000)]: {},
   },
-  titles: {
-    // paddingLeft: "5%",
+  submit: {
+    margin: "1.4rem 0",
+  },
+  question: {
     [theme.breakpoints.down(1000)]: {
       paddingLeft: 0,
     },
   },
   fields: {
-    margin: "auto",
+    // margin: "auto",
   },
 }));
+
+const questionValues = {
+  location: [
+    { label: "Town (0 - 74,999)", value: "town" },
+    { label: "Small City (75,000 - 399,999)", value: "small_city" },
+    { label: "Medium City (400,000 - 699,999)", value: "medium_city" },
+    { label: "Large City (700,000+)", value: "large_city" },
+  ],
+  weather: [
+    { label: "Cold (0 - 49°F)", value: "cold" },
+    { label: "Temperate (50 - 69°F)", value: "temperate" },
+    { label: "Hot (70 - 80°F)", value: "hot" },
+  ],
+};
 
 export default function FlowContainer() {
   const classes = useStyles();
@@ -115,67 +132,38 @@ export default function FlowContainer() {
         </h2>
         <Form onSubmit={handleSubmit} className={classes.form}>
           <FormControl required="true">
-            <FormLabel component="location" className={classes.titles}>
+            <label component="location" className={classes.question}>
               1. What is your preferred size of the city you would like to
               reside in?
-            </FormLabel>
-            <RadioGroup
+            </label>
+            <Select
               name="location"
-              className={classes.buttonGroup}
+              className={classes.select}
               value={locationValue}
               onChange={onChange}
             >
-              <FormControlLabel
-                value="town"
-                control={<Radio color="primary" disableRipple="true" />}
-                label="Town (0 - 74,999)"
-              />
-              <FormControlLabel
-                value="small_city"
-                control={<Radio color="primary" disableRipple="true" />}
-                label="Small City (75,000 - 399,999)"
-              />
-              <FormControlLabel
-                value="medium_city"
-                control={<Radio color="primary" disableRipple="true" />}
-                label="Medium City (400,000 - 699,999)"
-              />
-              <FormControlLabel
-                value="large_city"
-                control={<Radio color="primary" disableRipple="true" />}
-                label="Large City (700,000+)"
-              />
-            </RadioGroup>
+              {questionValues.location.map((answer) => (
+                <MenuItem value={answer.value}>{answer.label}</MenuItem>
+              ))}
+            </Select>
 
-            <FormLabel component="weather" className={classes.titles}>
+            <label component="weather" className={classes.question}>
               2. What is your preferred climate?
-            </FormLabel>
-            <RadioGroup
+            </label>
+            <Select
               name="weather"
-              className={classes.buttonGroup}
+              className={classes.select}
               value={weatherValue}
               onChange={onChange}
             >
-              <FormControlLabel
-                value="cold"
-                control={<Radio color="primary" disableRipple="true" />}
-                label="Cold (0 - 49°F)"
-              />
-              <FormControlLabel
-                value="temperate"
-                control={<Radio color="primary" disableRipple="true" />}
-                label="Temperate (50 - 69°F)"
-              />
-              <FormControlLabel
-                value="hot"
-                control={<Radio color="primary" disableRipple="true" />}
-                label="Hot (70 - 80°F)"
-              />
-            </RadioGroup>
+              {questionValues.weather.map((answer) => (
+                <MenuItem value={answer.value}>{answer.label}</MenuItem>
+              ))}
+            </Select>
 
-            <FormLabel component="housing" className={classes.titles}>
+            <label component="housing" className={classes.question}>
               3. What is your monthly Housing Budget?
-            </FormLabel>
+            </label>
 
             <br />
             <TextField
@@ -189,9 +177,9 @@ export default function FlowContainer() {
             />
             <br />
 
-            <FormLabel component="income" className={classes.titles}>
+            <label component="income" className={classes.question}>
               4. What is your expected yearly income?
-            </FormLabel>
+            </label>
             <br />
             <TextField
               className={classes.fields}
@@ -206,7 +194,7 @@ export default function FlowContainer() {
 
             <Button
               type="submit"
-              className={classes.titles}
+              className={classes.submit}
               color="primary"
               variant="contained"
               size="large"
