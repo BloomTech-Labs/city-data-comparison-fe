@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../../../card/Card.js";
+import Card from "../../comparison/graphs/card/GraphCard.js";
 
 import {
   Button,
@@ -13,7 +13,7 @@ import {
   Select,
   MenuItem,
 } from "@material-ui/core";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import axios from "axios";
 
 const ReverseUserFlowDialog = styled.div`

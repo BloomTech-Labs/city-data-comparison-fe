@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL from "react-map-gl";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const SelectedMapWrapper = styled.div`
   position: fixed;

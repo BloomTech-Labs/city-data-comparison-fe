@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import closeIcon from "../../assets/icons/close.svg";
 
 const Modal = ({ isShowing, hide, component, large, title }) => {

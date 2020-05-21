@@ -1,4 +1,32 @@
 import React from "react";
+import styled from "styled-components/macro";
+
+const MortgagePrice = styled.span`
+  font-size: 1.15rem;
+  color: #444444;
+  margin-left: 3px;
+`;
+const MortgageLabelContainer = styled.div`
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+`;
+const CityMortgageTitle = styled.div`
+  color: #2e2f38;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 8px;
+  color: grey;
+`;
+const MortgageLabel = styled.span`
+  color: grey;
+  font-size: 1rem;
+`;
+const MonthLabel = styled.span`
+  font-size: 13px;
+  color: darkgrey;
+`;
 
 export function OwnerCosts({ selected }) {
   function numberCommas(x) {
@@ -16,27 +44,27 @@ export function OwnerCosts({ selected }) {
       >
         {selected.map((item) => (
           <div key={item._id} className="mortgage">
-            <div className="mortgage-label-container">
-              <span className="mortgage-label">Mortgage: </span>
-              <span className="mortgage-price">
+            <MortgageLabelContainer>
+              <MortgageLabel>Mortgage: </MortgageLabel>
+              <MortgagePrice>
                 $
                 {numberCommas(
                   item["Median Selected Monthly Owner Costs with Mortgage"]
                 )}
-                <span className="month-label">/mo</span>
-              </span>
-            </div>
-            <div className="mortgage-label-container">
-              <span className="mortgage-label">No Mortgage: </span>
-              <span className="mortgage-price">
+                <MonthLabel>/mo</MonthLabel>
+              </MortgagePrice>
+            </MortgageLabelContainer>
+            <MortgageLabelContainer>
+              <MortgageLabel>No Mortgage: </MortgageLabel>
+              <MortgagePrice>
                 $
                 {numberCommas(
                   item["Median Selected Monthly Owner Costs without Mortgage"]
                 )}
-                <span className="month-label">/mo</span>
-              </span>
-            </div>
-            <div className="city-mortgage-title">{item["City"]}</div>
+                <MonthLabel>/mo</MonthLabel>
+              </MortgagePrice>
+            </MortgageLabelContainer>
+            <CityMortgageTitle>{item["City"]}</CityMortgageTitle>
           </div>
         ))}
       </div>

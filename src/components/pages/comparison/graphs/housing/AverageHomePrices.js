@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import GraphContainer from "../ResponsiveGraphContainer";
 
 import useMediaQuery from "@material-ui/core/useMediaQuery";

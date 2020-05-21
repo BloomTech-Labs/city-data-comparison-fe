@@ -21,7 +21,7 @@ import useModal from "../../modal/useModal";
 import PrivacyPolicy from "../privacypolicy/PrivacyPolicy";
 
 //styled component icons instead of fontawesome
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { User } from "styled-icons/boxicons-regular/User";
 import { LockAlt } from "styled-icons/boxicons-regular/LockAlt";
 
