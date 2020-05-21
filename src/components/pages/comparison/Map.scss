@@ -116,6 +116,7 @@
                 margin: 10px 0;
                 color: grey;
                 display: flex;
+                align-items: center;
                 font-size: 1.1rem;
                 cursor: pointer;
                 transition: color 500ms;
@@ -149,6 +150,7 @@
                 margin: 10px 0;
                 color: grey;
                 display: flex;
+                align-items: center;
                 font-size: 1.1rem;
                 cursor: pointer;
                 transition: color 500ms;
@@ -306,47 +308,6 @@
       }
     }
   }
-
-  .chart-title {
-    margin-top: 10px;
-    font-size: 1.4rem;
-    margin-left: 1.4rem;
-    margin-top: 1.4rem;
-  }
-
-  .rent-container {
-    width: 100%;
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-  }
-
-  .home-container {
-    width: 100%;
-
-    .ownerMortgage {
-      width: 20%;
-    }
-  }
-  .homeprice-container {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    background-color: white;
-  }
-
-  .smoc {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.2rem;
-    margin-bottom: 13px;
-  }
-  .home-title {
-    display: none;
-  }
   .mortgage-price {
     font-size: 1.15rem;
     color: #444444;
@@ -374,98 +335,12 @@
     color: darkgrey;
   }
 
-  @media screen and (max-width: 1000px) {
-    .home-container {
-      .homeprice-container {
-        width: 100%;
-        margin-bottom: 20px;
-      }
-      .ownerMortgage {
-        width: 100%;
-
-        .homeowner-container {
-          display: flex;
-          justify-content: space-evenly;
-
-          .mortgage {
-            width: 30%;
-          }
-        }
-      }
-    }
-  }
-  @media screen and (max-width: 800px) {
-    .home-container {
-      .ownerMortgage {
-        .homeowner-container {
-          justify-content: space-between;
-
-          .mortgage {
-            width: 100%;
-            .mortgage-label-container {
-              flex-wrap: wrap;
-
-              .mortgage-label {
-                width: 100%;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .room-container {
-    background-color: white;
-    width: 100%;
-    padding: 10px;
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    border-radius: 5px;
-  }
-
-  .vacancy-owner-container {
-    background-color: white;
-    border-radius: 5px;
-    width: 100%;
-    padding: 10px;
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-  }
-
   // ** Industry styling
-  .industries-container {
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    background-color: white;
-  }
-  .salary-container {
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    background-color: white;
-  }
-
-  .commute-container {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    background-color: white;
-  }
 
   .commute-time-container {
     display: flex;
     flex-wrap: wrap;
     width: auto;
-
-    .commute-city-title {
-      font-size: 1rem;
-      width: 100%;
-      margin-bottom: 25px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-    }
 
     .commute-time-num {
       font-size: 1.9rem;
@@ -485,118 +360,6 @@
       margin-top: 3px;
       text-align: center;
       margin-bottom: 5px;
-    }
-  }
-
-  .travel-scores-container {
-    .travel-scores-container-two {
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-      margin-bottom: 30px;
-      background-color: white;
-      display: flex;
-      justify-content: space-around;
-
-      @media screen and (max-width: 800px) {
-        flex-wrap: wrap;
-      }
-
-      .scores-title {
-        margin-bottom: 0;
-      }
-      .scores {
-        margin-left: 0;
-        margin-bottom: 0;
-      }
-      .score-subtitle {
-        margin-top: 0;
-        color: grey;
-        font-size: 0.9rem;
-        margin-bottom: 0;
-      }
-      .score-city {
-        text-align: center;
-        color: grey;
-        margin-top: 0;
-      }
-      .score-num {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .score {
-          font-size: 2.5rem;
-          display: flex;
-          align-items: center;
-          margin: 20px auto;
-        }
-        img {
-          height: 30px;
-          margin-right: 8px;
-        }
-        .bus {
-          height: 26px;
-        }
-        .bike {
-          height: 33px;
-        }
-      }
-    }
-    .transportation-score-container {
-      @media screen and (max-width: 800px) {
-        width: 40%;
-        text-align: center;
-      }
-    }
-
-    .score-breakdown-container {
-      width: 25%;
-
-      @media screen and (max-width: 800px) {
-        width: 70%;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      .score-metric {
-        display: flex;
-        margin-bottom: 0;
-        justify-content: space-between;
-
-        .score-rate-nums {
-          width: 45%;
-          text-align: center;
-
-          p {
-            margin-bottom: 0;
-            color: grey;
-            margin-top: 7px;
-          }
-        }
-        .score-rate-titles {
-          width: 50%;
-          p {
-            margin-bottom: 0;
-            margin-top: 7px;
-            color: grey;
-          }
-          .one {
-            color: #02bfa5;
-          }
-          .two {
-            color: #c3a6ff;
-          }
-          .three {
-            color: #2ca4fc;
-          }
-          .four {
-            color: #fdb461;
-          }
-          .five {
-            color: #fb8072;
-          }
-        }
-      }
     }
   }
 
@@ -635,45 +398,12 @@
     }
   }
 
-  .retirement-container {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    background-color: white;
-  }
-
   //** Culture styling
-  .ethnicity-container {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    background-color: white;
-  }
   .age-container {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
     background-color: white;
-  }
-  .education-container {
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    background-color: white;
-  }
-
-  .population-container {
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.09);
-    background-color: white;
-    width: 100%;
-    @media screen and (max-width: 800px) {
-      width: 100%;
-    }
   }
 
   .birth-container {
@@ -740,43 +470,6 @@
         margin-bottom: 5px;
       }
     }
-  }
-
-  .avg-temp-container {
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 30px;
-    background-color: white;
-  }
-
-  .anchor-header1 {
-    font-size: 1.2rem;
-    text-align: left;
-    text-decoration: none;
-    color: #a33a00;
-    margin: 6% 20px 5% 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .anchor-header2 {
-    font-size: 1.2rem;
-    text-align: left;
-    text-decoration: none;
-    color: #a33a00;
-    margin: 6% 20px 5% 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .anchor-header3 {
-    font-size: 1.2rem;
-    text-align: left;
-    text-decoration: none;
-    color: #a33a00;
-    margin: 6% 20px 5% 20px;
-    display: flex;
-    justify-content: space-between;
   }
 
   .search-bar {
@@ -906,12 +599,6 @@
     margin: auto;
     width: 100%;
     border: 1px solid lightgrey;
-  }
-
-  .nav-bottom-anchor {
-    height: 100%;
-    justify-content: flex-end;
-    padding-bottom: 130px;
   }
 
   // This contains the overview container, as well as a container for each category of data. overview-cards-container, housing, culture, and weather
