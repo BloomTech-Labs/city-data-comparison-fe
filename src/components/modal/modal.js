@@ -9,7 +9,7 @@ const Modal = ({ isShowing, hide, component, large, title }) => {
     position: relative;
     border-radius: 3px;
     padding: 1rem;
-    max-width: ${large ? "800px" : "500px"};
+    max-width: ${large ? "1120px" : "500px"};
     margin: 0 1.4rem;
     width: 100%;
   `;
