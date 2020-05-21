@@ -3,7 +3,7 @@ import Temperature from "./graphs/culture/Temperature";
 import MapSearch from "./MapSearch";
 import AverageHomePrices from "./graphs/housing/AverageHomePrices.js";
 import RoomGraph from "./graphs/housing/HousingByRooms";
-import RentChart from "./graphs/housing/RentChart";
+import AverageRent from "./graphs/housing/AverageRent";
 import IndustryBarGraph from "./graphs/economics/IndustryBarGraph";
 import IndustryLineGraph from "./graphs/economics/IndustryLineGraph.js";
 import Commute from "./graphs/economics/Commute";
@@ -58,7 +58,7 @@ const DataDisplay = ({
               </GraphCard>
 
               <GraphCard title={"Average Rent"} gridColumn="6">
-                <RentChart edData={selected} />
+                <AverageRent edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
