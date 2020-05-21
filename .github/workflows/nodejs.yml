@@ -17,7 +17,8 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-# Check the actions tab to watch that all tests pass
+# Check the actions tab, click the corresponding pull request, and the "Run all tests" job to watch the testing process.
+# You can see exactly which test fails if any.
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
