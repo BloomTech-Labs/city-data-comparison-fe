@@ -5,7 +5,7 @@ import GraphContainer from "../ResponsiveGraphContainer";
 export default function VacancyGraph(props) {
   return (
     <>
-      <GraphContainer>
+      <GraphContainer size={0.7}>
         <Bar
           data={{
             labels: ["Homeowner", "Rental"],

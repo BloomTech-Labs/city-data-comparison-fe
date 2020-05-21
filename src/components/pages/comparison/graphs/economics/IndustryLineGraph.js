@@ -141,7 +141,7 @@ export default function IndustryLineGraph({ selected }) {
 
   return (
     <>
-      <GraphContainer>
+      <GraphContainer size={1}>
         <Line
           data={{ labels: dateKeys, datasets: lines }}
           options={{

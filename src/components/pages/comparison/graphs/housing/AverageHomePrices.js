@@ -120,7 +120,7 @@ export default function AverageHomePrices({ selected }) {
   }
 
   return (
-    <GraphContainer>
+    <GraphContainer size={1}>
       <Line
         plugins={[ChartAnnotation]}
         data={{ labels: dateKeys, datasets: lines }}

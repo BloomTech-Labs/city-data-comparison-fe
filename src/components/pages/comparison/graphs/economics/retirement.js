@@ -4,7 +4,7 @@ import GraphContainer from "../ResponsiveGraphContainer";
 
 export default function RetirementGraph({ selected }) {
   return (
-    <GraphContainer>
+    <GraphContainer size={0.7}>
       <HorizontalBar
         data={{
           labels: ["SSI", "Retirement income", "Social Security"],

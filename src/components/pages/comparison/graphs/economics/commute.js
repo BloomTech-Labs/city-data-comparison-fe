@@ -4,7 +4,7 @@ import GraphContainer from "../ResponsiveGraphContainer";
 
 export default function Commute(props) {
   return (
-    <GraphContainer>
+    <GraphContainer size={0.7}>
       <Bar
         data={{
           labels: [

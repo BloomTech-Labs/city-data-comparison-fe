@@ -4,7 +4,7 @@ import GraphContainer from "../ResponsiveGraphContainer";
 
 export default function AverageSalary(props) {
   return (
-    <GraphContainer>
+    <GraphContainer size={1}>
       <HorizontalBar
         data={{
           labels: [

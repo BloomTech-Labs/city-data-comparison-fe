@@ -4,7 +4,7 @@ import GraphContainer from "../ResponsiveGraphContainer";
 
 export default function JobIndustryBreakdown(props) {
   return (
-    <GraphContainer>
+    <GraphContainer size={1.4}>
       <HorizontalBar
         data={{
           labels: [
