@@ -12,6 +12,13 @@ const MortgageLabelContainer = styled.div`
   justify-content: center;
   margin-top: 5px;
 `;
+const MortgageLabelContainerTwo = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5px;
+`;
 const CityMortgageTitle = styled.div`
   color: #2e2f38;
   font-size: 1rem;
@@ -54,7 +61,7 @@ export function OwnerCosts({ selected }) {
                 <MonthLabel>/mo</MonthLabel>
               </MortgagePrice>
             </MortgageLabelContainer>
-            <MortgageLabelContainer>
+            <MortgageLabelContainerTwo>
               <MortgageLabel>No Mortgage: </MortgageLabel>
               <MortgagePrice>
                 $
@@ -63,7 +70,7 @@ export function OwnerCosts({ selected }) {
                 )}
                 <MonthLabel>/mo</MonthLabel>
               </MortgagePrice>
-            </MortgageLabelContainer>
+            </MortgageLabelContainerTwo>
             <CityMortgageTitle>{item["City"]}</CityMortgageTitle>
           </div>
         ))}
