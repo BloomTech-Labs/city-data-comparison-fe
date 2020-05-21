@@ -51,7 +51,7 @@ export function OwnerCosts({ selected }) {
       >
         {selected.map((item) => (
           <div key={item._id} className="mortgage">
-            <MortgageLabelContainer>
+            <MortgageLabelContainerTwo>
               <MortgageLabel>Mortgage: </MortgageLabel>
               <MortgagePrice>
                 $
@@ -60,7 +60,7 @@ export function OwnerCosts({ selected }) {
                 )}
                 <MonthLabel>/mo</MonthLabel>
               </MortgagePrice>
-            </MortgageLabelContainer>
+            </MortgageLabelContainerTwo>
             <MortgageLabelContainerTwo>
               <MortgageLabel>No Mortgage: </MortgageLabel>
               <MortgagePrice>
