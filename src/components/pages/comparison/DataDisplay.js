@@ -7,7 +7,7 @@ import RentChart from "./graphs/housing/RentChart";
 import IndustryBarGraph from "./graphs/economics/IndustryBarGraph";
 import IndustryLineGraph from "./graphs/economics/IndustryLineGraph.js";
 import Commute from "./graphs/economics/commute";
-import BarGraph from "./graphs/economics/HouseIncome_BarGraph";
+import BarGraph from "./graphs/economics/AverageSalary";
 import EthnicityGraph from "./graphs/culture/EthnicityGraph";
 import Population from "./graphs/culture/PopulationGraph";
 import EducationGraph from "./graphs/culture/EducationGraph";

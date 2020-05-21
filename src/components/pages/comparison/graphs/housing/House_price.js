@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import styled from "styled-components";
+import GraphContainer from "../ResponsiveGraphContainer";
 
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
@@ -119,74 +120,71 @@ export default function HousePriceGraph({ selected }) {
   }
 
   return (
-    <div className="housing-graph">
-      <div
-        className="chart-container"
-        style={{ position: "relative", width: `100%` }}
-      >
-        <Line
-          plugins={[ChartAnnotation]}
-          data={{ labels: dateKeys, datasets: lines }}
-          options={{
-            annotation: {
-              annotations: [
-                {
-                  type: "line",
-                  mode: "vertical",
-                  scaleID: "x-axis-0",
-                  value: `${currentYear}-${currentMonth}`,
-                  borderColor: `${actionColor}`,
-                  label: {
-                    content: "TODAY",
-                    enabled: true,
-                    position: "top",
-                  },
+    <GraphContainer>
+      <Line
+        plugins={[ChartAnnotation]}
+        data={{ labels: dateKeys, datasets: lines }}
+        options={{
+          responsive: true,
+          maintainAspectRatio: false,
+          annotation: {
+            annotations: [
+              {
+                type: "line",
+                mode: "vertical",
+                scaleID: "x-axis-0",
+                value: `${currentYear}-${currentMonth}`,
+                borderColor: `${actionColor}`,
+                label: {
+                  content: "TODAY",
+                  enabled: true,
+                  position: "top",
                 },
-              ],
-            },
-            title: {
-              display: false,
-              text: "house price",
-              fontSize: 25,
-            },
-            legend: {
-              display: true,
-              position: "bottom",
-            },
-            scales: {
-              xAxes: [
-                {
+              },
+            ],
+          },
+          title: {
+            display: false,
+            text: "house price",
+            fontSize: 25,
+          },
+          legend: {
+            display: true,
+            position: "bottom",
+          },
+          scales: {
+            xAxes: [
+              {
+                display: true,
+                gridLines: { display: false },
+                scaleLabel: {
                   display: true,
-                  gridLines: { display: false },
-                  scaleLabel: {
-                    display: true,
-                    labelString: "Year",
-                  },
-                  ticks: {
-                    maxTicksLimit: mobile ? 12 : 24,
+                  labelString: "Year",
+                },
+                ticks: {
+                  maxTicksLimit: mobile ? 12 : 24,
+                },
+              },
+            ],
+            yAxes: [
+              {
+                display: true,
+                ticks: {
+                  userCallback: (value, index, values) => {
+                    return `$${numberCommas(value)}`;
                   },
                 },
-              ],
-              yAxes: [
-                {
+                gridLines: { display: true },
+                scaleLabel: {
                   display: true,
-                  ticks: {
-                    userCallback: (value, index, values) => {
-                      return `$${numberCommas(value)}`;
-                    },
-                  },
-                  gridLines: { display: true },
-                  scaleLabel: {
-                    display: true,
-                    labelString: "Amount",
-                    ticks: { beginAtZero: false },
-                  },
+                  labelString: "Amount",
+                  ticks: { beginAtZero: false },
                 },
-              ],
-            },
-          }}
-        />
-      </div>
-    </div>
+              },
+            ],
+          },
+        }}
+      />
+    </GraphContainer>
   );
 }
