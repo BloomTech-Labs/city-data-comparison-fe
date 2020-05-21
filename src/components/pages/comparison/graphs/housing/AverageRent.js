@@ -2,9 +2,9 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import GraphContainer from "../ResponsiveGraphContainer";
 
-export default function EducationGraph(props) {
+export default function AverageRent(props) {
   return (
-    <GraphContainer>
+    <GraphContainer size={0.7}>
       <Bar
         data={{
           labels: [
