@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ReactGA from "react-ga";
 import { getCity } from "../../../redux/actions/cityActions.js";
-const MapSearch = ({
-  cityMarkers,
-  viewport,
-  setViewport,
-  cityIndex,
-}) => {
+
+const MapSearch = ({ cityMarkers, viewport, setViewport, cityIndex }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [search, setSearch] = useState("");
 
   const dispatch = useDispatch();
-  const selectedLength = useSelector(state => state.cityReducer.selected.length)
+  const selectedLength = useSelector(
+    (state) => state.cityReducer.selected.length
+  );
 
   const selectSearch = (cityMarker) => {
     // Stop function and return if the city is already selected
@@ -33,10 +31,10 @@ const MapSearch = ({
         longitude: found.lng,
         latitude: found.lat,
       });
-      setSearch("")
+      setSearch("");
     } else {
       dispatch(getCity(search));
-      setSearch("")
+      setSearch("");
     }
   };
 
@@ -77,15 +75,25 @@ const MapSearch = ({
   };
 
   return (
-    <form className="search-form" autoComplete="off" onSubmit={onSearch} >
+    <form className="search-form" autoComplete="off" onSubmit={onSearch}>
       <input
         className={"search-bar " + (suggestions.length ? "active" : "")}
-        placeholder={selectedLength > 2 ? "Remove a city to compare another" : (selectedLength > 0 ? "Search for another city to compare" : "Search for a city")}
+        placeholder={
+          selectedLength > 2
+            ? "Remove a city to compare another"
+            : selectedLength > 0
+            ? "Search for another city to compare"
+            : "Search for a city"
+        }
         onChange={handleChange}
         value={search}
         data-testid="search-bar-input"
       />
-      <input type={"submit"} style={{display: 'none'}} data-testid={'search-bar-submit'}/>
+      <input
+        type={"submit"}
+        style={{ display: "none" }}
+        data-testid={"search-bar-submit"}
+      />
 
       <div className={suggestions.length ? "autofill-container" : null}>
         <div className={suggestions.length ? "border-line" : null} />
