@@ -40,6 +40,9 @@ export function OwnerCosts({ selected }) {
           </div>
         ))}
       </div>
+      <p style={{ textAlign: "right", fontSize: "10px" }}>
+        Source: U.S. Census (2018)
+      </p>
     </>
   );
 }
@@ -47,23 +50,21 @@ export function OwnerCosts({ selected }) {
 export function OwnerCostsModalContent(props) {
   return (
     <div>
-      <p style={{ margin: "1.4rem" }}>
-        Selected monthly owner costs are calculated from the sum of payment for
-        mortgages, real estate taxes, various insurances, utilities, fuels,
-        mobile home costs, and condominium fees. Listing the items separately
-        improves accuracy and provides additional detail.
-        <br />
-        <br />
-        When combined with income, a new item is created -- Selected Monthly
-        Owner Costs as a percentage of household income. This item is used to
-        measure housing affordability and excessive shelter costs. For example,
-        many government agencies define excessive as costs that exceed 30
-        percent of household income.
+      <p style={{ margin: "1.4rem", fontWeight: "450" }}>
+        "Mortgage" is focused on homeowners who are currently still paying their
+        mortgage.
       </p>
+      <p style={{ margin: "1.4rem", fontWeight: "450" }}>
+        "No Mortgage" is based on homeowners who no longer pay a mortgage, or
+        own their home in it's entirety.
+      </p>
+      <p style={{ margin: "1.4rem", fontStyle: "italic", fontSize: ".92rem" }}>
+        Selected monthly owner costs are a measure of the total costs associated
+        with home ownership. (Taxes, utilities, insurance, etc.)
+      </p>
+
       <div style={{ textAlign: "center" }}>
-        <a href="https://www.census.gov/quickfacts/fact/note/US/HSG650218">
-          Source
-        </a>
+        <p>Source: US Census 2018</p>
       </div>
     </div>
   );
