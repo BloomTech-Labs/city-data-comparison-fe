@@ -387,10 +387,10 @@ const team = [
         social: {
             twitter: null, 
             github: 'liampmoore', 
-            linkedin: null
+            linkedin: 'liammoorecodes'
         }, 
-        about: 'Liam Moore is a Full Stack Web Developer attending Lambda School.',
-        portfolio: 'https://www.kyleporter.tech'
+        about: 'Liam Moore is a Full Stack Web Developer from Philadelphia.  He loves getting waist-deep into problems that challenge his way of thinking and coming out the other side with a new way of looking at the problem in general. During his free time he likes to hike and camp, spend the day at a park, play video games or play D&D with his friends. His role in Citrics was primarily front-end development, particularly in reworking our state management in Redux. He loves taking the time to write clean and clear code and designing easy-to-understand data-management systems, knowing that he is making the job easier for future developers (and for himself). He also spent a good amount of time working on deployment and CI, setting up GitHub actions and configuring AWS.',
+        portfolio: 'http://liammoore.codes/'
     }, {
         labs: 23,
         name: 'Svyat Okshin', 
@@ -413,7 +413,7 @@ const team = [
             github: 'damonbogich', 
             linkedin: 'damon-bogich-a53bb5120/'
         }, 
-        about: 'Damon Bogich is a Full Stack Web Developer attending Lambda School.  Damon quit his job and moved from New York City back to his home state of Michigan to attend Lambda School and is loving it.  Citrics is the biggest of several projects that he has worked on while at Lambda.  Damon spends most of his free time runnning and studying.',
+        about: 'Damon Bogich is a Full Stack Web Developer from Detroit.  He quit his customer service job at a New York City based start up company and moved back to his home state of Michigan to attend Lambda School.  Citrics is the biggest of several projects that he has worked on while attending Lambda.  In addition to web development and problem solving, he has a passion for basketball and running.',
         portfolio: null
     }, {
         labs: 23,
@@ -423,10 +423,10 @@ const team = [
         social: {
             twitter: null, 
             github: 'steve122192', 
-            linkedin: null
+            linkedin: 'steven-reiss-94102b115/'
         }, 
-        about: 'Steven Reiss is a Data Scientist attending Lambda School.',
-        portfolio: 'https://www.kyleporter.tech'
+        about: 'Steven Reiss is a Data Scientist attending Lambda School.  He is a Philly native with a passion for skiing, motorcycles, and problem solving. ',
+        portfolio: null
     }, {
         labs: 23,
         name: 'Amy NLe', 
