@@ -1,18 +1,23 @@
 import React from "react";
 import styled from "styled-components/macro";
 
+const FlexContainer = styled.div`
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 1.4rem;
+  height: 100%;
+`;
+
+const Mortgage = styled.div`
+  height: auto;
+  width: auto;
+`;
 const MortgagePrice = styled.span`
   font-size: 1.15rem;
   color: #444444;
   margin-left: 3px;
 `;
 const MortgageLabelContainer = styled.div`
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  margin-top: 5px;
-`;
-const MortgageLabelContainerTwo = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -42,16 +47,10 @@ export function OwnerCosts({ selected }) {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-around",
-        }}
-      >
+      <FlexContainer>
         {selected.map((item) => (
           <div key={item._id} className="mortgage">
-            <MortgageLabelContainerTwo>
+            <MortgageLabelContainer>
               <MortgageLabel>Mortgage: </MortgageLabel>
               <MortgagePrice>
                 $
@@ -60,8 +59,8 @@ export function OwnerCosts({ selected }) {
                 )}
                 <MonthLabel>/mo</MonthLabel>
               </MortgagePrice>
-            </MortgageLabelContainerTwo>
-            <MortgageLabelContainerTwo>
+            </MortgageLabelContainer>
+            <MortgageLabelContainer>
               <MortgageLabel>No Mortgage: </MortgageLabel>
               <MortgagePrice>
                 $
@@ -70,11 +69,11 @@ export function OwnerCosts({ selected }) {
                 )}
                 <MonthLabel>/mo</MonthLabel>
               </MortgagePrice>
-            </MortgageLabelContainerTwo>
+            </MortgageLabelContainer>
             <CityMortgageTitle>{item["City"]}</CityMortgageTitle>
           </div>
         ))}
-      </div>
+      </FlexContainer>
       <p style={{ textAlign: "right", fontSize: "10px" }}>
         Source: U.S. Census (2018)
       </p>

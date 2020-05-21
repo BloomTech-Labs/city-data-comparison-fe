@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Card from "../../comparison/graphs/card/GraphCard.js";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { actionColor } from "../../../../utils/cityColors";
 
 import {
-  Button,
-  RadioGroup,
-  Radio,
   FormControl,
   FormLabel,
   FormControlLabel,
@@ -12,51 +11,92 @@ import {
   TextField,
   Select,
   MenuItem,
+  InputAdornment,
+  OutlinedInput,
 } from "@material-ui/core";
 import styled from "styled-components/macro";
 import axios from "axios";
 
 const ReverseUserFlowDialog = styled.div`
   overflow-y: scroll;
-  overflow-y: initial !important;
 `;
 
 const ReverseUserFlowBody = styled.div`
-  height: 42vh
-  overflow-y: auto;
+  max-height: 84vh;
 `;
 
 const StyledTextField = styled(TextField)`
   width: 70%;
 `;
 
+const Question = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.8rem;
+  label {
+    align-self: flex-start;
+  }
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    margin-bottom: 1.4rem;
+    label {
+      margin-bottom: 0.7rem;
+    }
+  }
+`;
+
 const Form = styled.form`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 0 2.8rem;
+  margin-top: 1.4rem;
+`;
+
+const Button = styled.button`
+  border: none;
+  border-radius: 5px;
+  font-size: 1.7rem;
+  font-weight: 500;
+  padding: 0;
+  margin-top: 20px;
+  margin-left: 30px;
+  background-color: #0066cc;
+  color: white;
+  width: 38%;
+  height: 65px;
+  transition: 0.22s ease;
+  box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.07);
+  cursor: pointer;
 `;
 
 const useStyles = makeStyles((theme) => ({
-  form: {
-    margin: "auto",
-  },
   header: {
     textAlign: "center",
   },
   select: {
-    margin: "1.4rem 0",
-    [theme.breakpoints.down(1000)]: {},
+    minWidth: "210px",
+
+    [theme.breakpoints.down(800)]: {
+      width: "100%",
+    },
+  },
+  input: {
+    display: "block",
+    [theme.breakpoints.down(800)]: {
+      justifySelf: "flex-end",
+    },
   },
   submit: {
     margin: "1.4rem 0",
-  },
-  question: {
-    [theme.breakpoints.down(1000)]: {
-      paddingLeft: 0,
+    display: "block",
+    minWidth: "250px",
+    [theme.breakpoints.down(600)]: {
+      width: "100%",
     },
-  },
-  fields: {
-    // margin: "auto",
   },
 }));
 
@@ -76,6 +116,7 @@ const questionValues = {
 
 export default function FlowContainer() {
   const classes = useStyles();
+  const mobile = useMediaQuery("(max-width:800px)");
 
   const [inputs, setInputs] = useState({
     housing: "",
@@ -127,13 +168,14 @@ export default function FlowContainer() {
   return (
     <ReverseUserFlowDialog>
       <ReverseUserFlowBody>
-        <Form onSubmit={handleSubmit} className={classes.form}>
-          <FormControl required="true">
-            <label component="location" className={classes.question}>
+        <Form onSubmit={handleSubmit}>
+          <Question>
+            <label component="location">
               1. What is your preferred size of the city you would like to
               reside in?
             </label>
             <Select
+              variant="outlined"
               name="location"
               className={classes.select}
               value={locationValue}
@@ -143,11 +185,14 @@ export default function FlowContainer() {
                 <MenuItem value={answer.value}>{answer.label}</MenuItem>
               ))}
             </Select>
+          </Question>
 
-            <label component="weather" className={classes.question}>
+          <Question>
+            <label component="weather">
               2. What is your preferred climate?
             </label>
             <Select
+              variant="outlined"
               name="weather"
               className={classes.select}
               value={weatherValue}
@@ -157,48 +202,54 @@ export default function FlowContainer() {
                 <MenuItem value={answer.value}>{answer.label}</MenuItem>
               ))}
             </Select>
+          </Question>
 
-            <label component="housing" className={classes.question}>
+          <Question>
+            <label component="housing">
               3. What is your monthly Housing Budget?
             </label>
 
-            <br />
-            <TextField
+            <OutlinedInput
               className={classes.fields}
               name="housing"
               id="standard-basic"
-              label="$"
               type="number"
               value={housingValue}
               onChange={onChange}
+              fullWidth={mobile}
+              startAdornment={
+                <InputAdornment position="start">$</InputAdornment>
+              }
             />
-            <br />
+          </Question>
 
-            <label component="income" className={classes.question}>
+          <Question>
+            <label component="income">
               4. What is your expected yearly income?
             </label>
-            <br />
-            <TextField
+            <OutlinedInput
               className={classes.fields}
               name="income"
               id="standard-basic"
-              label="$"
               type="number"
               value={incomeValue}
               onChange={onChange}
+              fullWidth={mobile}
+              startAdornment={
+                <InputAdornment position="start">$</InputAdornment>
+              }
             />
-            <br />
+          </Question>
 
-            <Button
-              type="submit"
-              className={classes.submit}
-              color="primary"
-              variant="contained"
-              size="large"
-            >
-              Submit
-            </Button>
-          </FormControl>
+          <Button
+            type="submit"
+            className={classes.submit}
+            color={actionColor}
+            variant="contained"
+            size="large"
+          >
+            Find A City
+          </Button>
         </Form>
       </ReverseUserFlowBody>
     </ReverseUserFlowDialog>

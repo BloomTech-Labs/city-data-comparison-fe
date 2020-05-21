@@ -12,6 +12,7 @@ const Modal = ({ isShowing, hide, component, large, title }) => {
     max-width: ${large ? "1120px" : "500px"};
     margin: 0 1.4rem;
     width: 100%;
+    max-height: 90vh;
   `;
 
   const ModalWrapper = styled.div`
