@@ -10,19 +10,19 @@ function Card(props) {
 
   const CardContainer = styled.div`
     background-color: white;
-    padding: 2.8rem 2.8rem;
-    padding-bottom: 1.4rem;
+    padding: 1.4rem 2.8rem;
+    padding-bottom: 0;
     border-radius: 5px;
     position: relative;
     grid-column: span ${props.gridColumn ? props.gridColumn : 12};
     @media only screen and (max-width: 800px) {
       grid-column: span 12;
-      padding: 2.8rem 1.4rem;
-      padding-bottom: 1.4rem;
+      padding: 1.4rem 1.4rem;
+      padding-bottom: 0rem;
     }
     @media only screen and (max-width: 600px) {
       padding: 1.4rem 0.7rem;
-      padding-bottom: 0.7rem;
+      padding-bottom: 0rem;
       border-radius: 5px;
     }
   `;
@@ -58,6 +58,7 @@ function Card(props) {
     justify-self: flex-end;
     position: absolute;
     right: 1.4rem;
+    top: 1.4rem;
   `;
 
   const CardContent = styled.div`
