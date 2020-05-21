@@ -378,7 +378,7 @@ const team = [
             linkedin: null
         }, 
         about: 'David Pok is a Full Stack Web Developer attending Lambda School.',
-        portfolio: 'https://www.kyleporter.tech'
+        portfolio: null
     }, {
         labs: 23,
         name: 'Liam Moore', 
@@ -402,7 +402,7 @@ const team = [
             linkedin: null
         }, 
         about: 'Svyat Okshin is a Full Stack Web Developer attending Lambda School.',
-        portfolio: 'https://www.kyleporter.tech'
+        portfolio: null
     }, {
         labs: 23,
         name: 'Damon Bogich', 
@@ -425,7 +425,7 @@ const team = [
             github: 'steve122192', 
             linkedin: 'steven-reiss-94102b115/'
         }, 
-        about: 'Steven Reiss is a Data Scientist attending Lambda School.  He is a Philly native with a passion for skiing, motorcycles, and problem solving. ',
+        about: 'Steven Reiss is a Philly native with a passion for skiing, motorcycles, and problem solving.',
         portfolio: null
     }, {
         labs: 23,
@@ -438,7 +438,7 @@ const team = [
             linkedin: null
         }, 
         about: 'Amy NLe is a Data Scientist attending Lambda School.',
-        portfolio: 'https://www.kyleporter.tech'
+        portfolio: null
     }, {
         labs: 23,
         name: 'Robert Tom', 
@@ -450,7 +450,7 @@ const team = [
             linkedin: null
         }, 
         about: 'Robert Tom is a Data Scientist attending Lambda School.',
-        portfolio: 'https://www.kyleporter.tech'
+        portfolio: null
     }, {
         labs: 23,
         name: 'Stephanie Miller', 
@@ -462,7 +462,7 @@ const team = [
             linkedin: null
         }, 
         about: 'Stephanie Miller is a Data Scientist attending Lambda School.',
-        portfolio: 'https://www.kyleporter.tech'
+        portfolio: null
     },
 ]
 
