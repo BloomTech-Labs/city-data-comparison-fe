@@ -24,7 +24,7 @@ const Favorite = (props) => {
       .then((res) => setCityData(res.data))
       .catch((err) => console.log(err));
   }, [props.favorite]);
-  console.log("data", cityData);
+
   return (
     <div className="single-fav">
       <p className="fav-title">{cityData["name_with_com"]}</p>
