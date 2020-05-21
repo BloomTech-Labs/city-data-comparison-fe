@@ -433,12 +433,12 @@ const team = [
         image: amy,
         role: 'Data Scientist', 
         social: {
-            twitter: null, 
+            twitter: 'hyamynl619', 
             github: 'hyamynl619', 
-            linkedin: null
+            linkedin: 'amy-nguyen-le/'
         }, 
-        about: 'Amy NLe is a Data Scientist attending Lambda School.',
-        portfolio: null
+        about: 'Amy Nguyen-Le is a Data Scientist & Engineer from Manchester, CT.  Being the oldest of 5 siblings, she often finds ways to be a good role model for them through learning and perseverance. She often spends her time coding new games with them or educating herself on advanced technology. She believes that Data Scientists can help change the world one step at a time and people will start to have a better idea on who they are.',
+        portfolio:  'https://hyamynl619.github.io/'
     }, {
         labs: 23,
         name: 'Robert Tom', 
@@ -461,7 +461,7 @@ const team = [
             github: 'shmilyface', 
             linkedin: null
         }, 
-        about: 'Stephanie Miller is a Data Scientist attending Lambda School.',
+        about: 'Stephanie Miller is located in the PNW, she has a fondness for problem-solving, and a creative background to take it out of the box. She currently has 2 dogs, and works tirelessly to have more dogs in the future.',
         portfolio: null
     },
 ]
