@@ -1,202 +1,94 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useHistory } from "react-router-dom";
 import citrics from "./citrics-mock-dark.png";
 import signInLock from "./signInLockDark.png";
-import { UserContext } from "../../contexts/UserContext";
-import DropMenu from "./Dropdown";
 import { actionColor, navGrey } from "../../utils/cityColors.js";
 
-// All of this code needs refactoring and simplification
-function Navigation(props) {
-  const [offset, setOffset] = useState(0);
-  const [displayNav, setDisplayNav] = useState("show-nav");
-  const [bgColor, setBgColor] = useState("default-color");
-  const [fixedClass, setFixedClass] = useState("");
-  const defaultNavigation = () => {
-    setBgColor("default-color");
-    if (offset === 0) {
-      setDisplayNav("show-nav");
-    } else {
-      if (displayNav === "hide-nav") {
-        setDisplayNav("show-nav");
-      }
-    }
-  };
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import "./Navigation.scss";
 
-  let styles = {
-    float: "right",
-  };
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/actions/userActions.js";
 
-  return (
-    <>
-      {props.location.pathname === "/meet-the-team" ? (
-        <MeetTheTeam />
-      ) : (
-        <NavBar />
-      )}
-    </>
-  );
-}
+function Navigation() {
+  const history = useHistory();
 
-//Nav bar for everthing
-function NavBar() {
-  const { user, setUser } = useContext(UserContext);
-  const [offset, setOffset] = useState(0);
-  const [displayNav, setDisplayNav] = useState("show-nav");
-  const [bgColor, setBgColor] = useState("default-color");
-  const [fixedClass, setFixedClass] = useState("");
+  const dispatch = useDispatch();
 
-  const defaultNavigation = () => {
-    setBgColor("default-color");
-    if (offset === 0) {
-      setDisplayNav("show-nav");
-    } else {
-      if (displayNav === "hide-nav") {
-        setDisplayNav("show-nav");
-      }
-    }
-  };
+  const user = useSelector((state) => state.userReducer.user);
 
-  let styles = {
-    float: "right",
+  const mobile = useMediaQuery("(max-width:600px)");
+
+  const handleClickLogout = () => {
+    dispatch(logout());
+    history.push("/signin");
   };
 
   return (
-    <div
-      className={
-        "navigation-container " +
-        bgColor +
-        `main-nav ${displayNav} ${fixedClass}`
-      }
-      onMouseEnter={() => {
-        defaultNavigation();
-      }}
-      onMouseLeave={() => {
-        defaultNavigation();
-      }}
-    >
+    <div className={"navigation-container " + "default-color" + `main-nav`}>
       <a className="header-logo" href="/">
         {" "}
         <img className="mock-logo" src={citrics} alt="logo" />
       </a>
       <nav className="main-nav">
-        <Link to="/" className="nav-button" style={{ color: navGrey }}>
-          Home
-        </Link>
-        {user ? <div /> : null}
-        <Link to="/compare" className="nav-button" style={{ color: navGrey }}>
-          Compare
-        </Link>
-        {user == null ? (
-          <>
-            <Link id="login-link" to="/signin" style={{ color: actionColor }}>
-              <img className="lock" alt="lock" src={signInLock} />
-              Log In
-            </Link>
-            {/* <Link id="signup-link" to="/signup">Get Started</Link> */}
-          </>
+        {mobile ? (
+          <></>
         ) : (
           <>
-            {/* DROPDOWN NAVBAR MENU FOR MOBILE STARTS HERE */}
-            <DropMenu />
-          </>
-        )}
-      </nav>
-      {user == null ? (
-        <>
-          <div className="dropdownContainer">
-            <div className="dropdown" style={styles}>
-              <button className="dropbtn">Menu</button>
-              <div className="dropdown-content">
-                <Link to="/compare">Explore</Link>
-                <Link to="/signin">Log In</Link>
-                <Link to="/signup">Get Started</Link>
-              </div>
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="dropdownContainer">
-          <DropMenu />
-        </div>
-      )}
-    </div>
-  );
-}
+            <Link to="/" className="nav-button" style={{ color: navGrey }}>
+              Home
+            </Link>
 
-//Nav bar for meet the team Page
-function MeetTheTeam() {
-  const { user, setUser } = useContext(UserContext);
-  const [offset, setOffset] = useState(0);
-  const [displayNav, setDisplayNav] = useState("show-nav");
-  const [bgColor, setBgColor] = useState("default-color");
-  const [fixedClass, setFixedClass] = useState("");
-  const defaultNavigation = () => {
-    setBgColor("default-color");
-    if (offset === 0) {
-      setDisplayNav("show-nav");
-    } else {
-      if (displayNav === "hide-nav") {
-        setDisplayNav("show-nav");
-      }
-    }
-  };
-
-  let styles = {
-    float: "right",
-  };
-
-  return (
-    <div
-      className={
-        "navigation-container " +
-        bgColor +
-        `main-nav ${displayNav} ${fixedClass}`
-      }
-      onMouseEnter={() => {
-        defaultNavigation();
-      }}
-      onMouseLeave={() => {
-        defaultNavigation();
-      }}
-    >
-      <a className="header-logo" href="/">
-        {" "}
-        <img className="mock-logo" src={citrics} alt="logo" />
-      </a>
-      <nav className="main-nav">
-        {user ? <div /> : null}
-        <Link to="/compare" className="nav-button" style={{ color: "white" }}>
-          Explore
-        </Link>
-        {user == null ? (
-          <>
             <Link
               to="/compare"
               className="nav-button"
-              style={{ color: "white" }}
+              style={{ color: navGrey }}
             >
               Compare
             </Link>
-            <Link id="login-link" to="/signin">
-              <img alt="lock" src={signInLock} />
-              Log In
-            </Link>
-            {/* <Link id="signup-link" to="/signup">Get Started</Link> */}
-          </>
-        ) : (
-          <>
-            <DropMenu />
+
+            {user == null ? (
+              <>
+                <Link
+                  className="login-link"
+                  to="/signin"
+                  style={{ color: actionColor }}
+                >
+                  <img className="lock" alt="lock" src={signInLock} />
+                  Log In
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link style={{ color: navGrey }} to="/profile">
+                  Profile
+                </Link>
+
+                <Link
+                  className="login-link"
+                  style={{ color: navGrey }}
+                  onClick={() => handleClickLogout()}
+                >
+                  <img className="lock" alt="lock" src={signInLock} />
+                  Logout
+                </Link>
+              </>
+            )}
           </>
         )}
       </nav>
       {user == null ? (
         <>
           <div className="dropdownContainer">
-            <div className="dropdown" style={styles}>
+            <div
+              className="dropdown"
+              style={{
+                float: "right",
+              }}
+            >
               <button className="dropbtn">Menu</button>
               <div className="dropdown-content">
-                <Link to="/compare">Explore</Link>
+                <Link to="/compare">Compare</Link>
                 <Link to="/signin">Log In</Link>
                 <Link to="/signup">Get Started</Link>
               </div>
@@ -205,7 +97,21 @@ function MeetTheTeam() {
         </>
       ) : (
         <div className="dropdownContainer">
-          <DropMenu />
+          <div className="dropdown" style={{ float: "right" }}>
+            <button className="dropbtn">Menu</button>
+            <div className="dropdown-content">
+              <Link to="/" className="redundant">
+                Home
+              </Link>
+              <Link to="/profile">Profile</Link>
+              <Link to="/compare" className="redundant">
+                Compare
+              </Link>
+              <Link onClick={() => handleClickLogout()} to="/">
+                Logout
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </div>

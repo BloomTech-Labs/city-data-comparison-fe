@@ -1,69 +1,43 @@
-import React, { useContext, useEffect } from "react";
-import { UserContext } from "../../../../contexts/UserContext";
+import React, { useEffect } from "react";
+
 import { useHistory } from "react-router-dom";
 import heart_icon from "../assets/heart.svg";
 import filled_heart from "../../../../assets/icons/filled_heart.svg";
 import ReactGA from "react-ga";
 
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getFavorites,
+  addFavorite,
+  removeFavorite,
+} from "../../../../redux/actions/userActions";
+
 const FavoriteButton = ({ city }) => {
   const history = useHistory();
-  const { favorites, setFavorites, user, axiosAuth } = useContext(UserContext);
 
-  const favcities = [{}];
+  const dispatch = useDispatch();
+
+  const favorites = useSelector((state) => state.userReducer.favorites);
+  const user = useSelector((state) => state.userReducer.user);
 
   useEffect(() => {
-    if (user) {
-      axiosAuth()
-        .get(`/api/users/favs`)
-        .then((response) => {
-          response.data.forEach((cityid) => {
-            favcities.push(cityid.city_id);
-            setFavorites([...favorites, ...favcities]);
-          });
-        })
-        .catch((error) => console.log(error));
-    }
+    dispatch(getFavorites());
   }, []);
 
   const toggle = () => {
     if (user) {
-      if (favorites.includes(city._id)) {
-        removeFromFavorites(city);
+      if (
+        favorites.filter((favorite) => favorite.city_id === city._id).length > 0
+      ) {
+        dispatch(removeFavorite(city._id));
       } else {
-        saveToFavorites(city);
+        dispatch(addFavorite(city));
       }
     } else {
       history.push("/signup");
     }
   };
-  const saveToFavorites = (city) => {
-    if (!user) return;
-    ReactGA.event({
-      category: "User",
-      action: `added city to favorites: ${city.name_with_com}`,
-    });
-    let cityReq = { city_id: city._id };
-    axiosAuth()
-      .post(`/users/favs`, cityReq)
-      .then((response) => {
-        setFavorites([...favorites, city._id]);
-      })
-      .catch((error) => console.log(error));
-  };
-  const removeFromFavorites = (city) => {
-    if (!user) return;
-    let cityReq = { city_id: city._id };
-    ReactGA.event({
-      category: "User",
-      action: `removed city from favorites: ${city.name_with_com}`,
-    });
-    axiosAuth()
-      .delete(`/users/favs`, { data: cityReq })
-      .then((response) => {
-        setFavorites(favorites.filter((item) => item !== city._id));
-      })
-      .catch((err) => console.log(err));
-  };
+
   return (
     <>
       <div
@@ -84,7 +58,9 @@ const FavoriteButton = ({ city }) => {
         <img
           style={{ width: "100%" }}
           src={
-            favorites && favorites.includes(city._id)
+            favorites &&
+            favorites.filter((favorite) => favorite.city_id === city._id)
+              .length > 0
               ? filled_heart
               : heart_icon
           }

@@ -10,9 +10,7 @@ import Recommendations from "./Recommendations";
 import DeselectCityButton from "../buttons/DeselectCityButton.js";
 import { Link as ScrollLink } from "react-scroll";
 
-import "./Overview.scss";
-
-function Overview({ selected }) {
+function Overview({ selected, isProfilePage }) {
   function numberCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -25,7 +23,7 @@ function Overview({ selected }) {
             <div className="city-overview-border">
               <p>{item["City"]}</p>
               <FavoriteButton city={item} />
-              <DeselectCityButton city={item} />
+              {isProfilePage ? <></> : <DeselectCityButton city={item} />}
             </div>
             <div className="city-overview-content">
               <div className="city-overview-container-one">

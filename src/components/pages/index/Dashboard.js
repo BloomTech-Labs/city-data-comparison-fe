@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import ReactGA from "react-ga";
@@ -8,8 +8,6 @@ import FlowContainer from "./user-flow/FlowContainer";
 
 import useModal from "../../modal/useModal";
 import Modal from "../../modal/modal.js";
-
-import { UserContext } from "../../../contexts/UserContext";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -28,34 +26,9 @@ function Dashboard({ history }) {
   const { isShowing, toggle } = useModal();
 
   AOS.init();
-  const { user, setUser, axiosAuth } = useContext(UserContext);
 
+  const user = useSelector((state) => state.userReducer.user);
   const selected = useSelector((state) => state.cityReducer.selected); //added
-
-  useEffect((_) => {
-    if (user) {
-      axiosAuth()
-        .get(`/users/profile/image`)
-        .then((res) => {
-          const image = res.data[0];
-
-          if (image) {
-            setUser({ ...user, userimage: image.userimage });
-          }
-        })
-        .catch((err) => console.log(err));
-    }
-  }, []);
-
-  useEffect(
-    (_) => {
-      ReactGA.event({
-        category: "Selected",
-        action: "selected a city using dashboard",
-      });
-    },
-    [selected]
-  );
 
   return (
     <div className="dashboard-container">
