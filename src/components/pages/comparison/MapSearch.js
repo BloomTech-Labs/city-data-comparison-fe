@@ -16,7 +16,6 @@ const MapSearch = ({ cityMarkers, viewport, setViewport, cityIndex }) => {
     // Stop function and return if the city is already selected
     dispatch(getCity(cityMarker));
   };
-
   //WORKS WITH THE SEARCH BAR ON LEFT
   const onSearch = (e) => {
     e.preventDefault();

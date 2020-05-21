@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Card from "../../card/Card";
+import ProfileCard from "./cards/ProfileCard";
 import {
   getFavorites,
   removeFavorite,
 } from "../../../redux/actions/userActions";
+import closeIcon from "../../../assets/icons/close.svg";
 
 import { getCity } from "../../../redux/actions/cityActions";
 
@@ -13,49 +14,77 @@ import { cityDataById } from "../../../utils/axiosDataScience";
 
 const Favorite = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const [cityData, setCityData] = useState({});
+
   useEffect(() => {
     cityDataById()
       .get(`/${props.favorite.city_id}`)
       .then((res) => setCityData(res.data))
       .catch((err) => console.log(err));
   }, [props.favorite]);
-  console.log("FAVE?", cityData);
+  console.log("data", cityData);
   return (
-    <div>
-      <p>{cityData["name_with_com"]}</p>
+    <div className="single-fav">
+      <p className="fav-title">{cityData["name_with_com"]}</p>
       <button
+        className="go-btn"
         onClick={() => {
-          dispatch(getCity(cityData.city));
+          dispatch(getCity(cityData.name_with_com));
+          history.push("/compare");
         }}
       >
-        GO TO CITY
+        Go to City
       </button>
-      <button
-        onClick={() => {
-          dispatch(removeFavorite(cityData._id));
+      <div
+        style={{
+          display: "flex",
+          cursor: "pointer",
+          alignItems: "center",
+          justifyContent: "spaceAround",
+          background: "white",
+          width: "1.4rem",
+          borderRadius: "0.3rem",
+          margin: "0 0.3rem",
+          marginRight: "0.6rem",
         }}
       >
-        REMOVE
-      </button>
+        <img
+          alt={"Remove favorite"}
+          style={{
+            width: "100%",
+            opacity: "84%",
+            color: "",
+          }}
+          src={closeIcon}
+          onClick={() => {
+            dispatch(removeFavorite(cityData._id));
+          }}
+        />
+      </div>
     </div>
   );
 };
 
 const Favorites = (props) => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getFavorites());
   }, []);
+
   const favorites = useSelector((state) => state.userReducer.favorites);
+
   return (
     <>
       <div className={"favorites"}>
+        <h1>Favorites</h1>
         <div className="update-favorites">
           {favorites.map((favorite) => (
-            <Card>
+            <ProfileCard>
               <Favorite favorite={favorite} />
-            </Card>
+            </ProfileCard>
           ))}
         </div>
       </div>
