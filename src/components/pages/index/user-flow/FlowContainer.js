@@ -127,9 +127,6 @@ export default function FlowContainer() {
   return (
     <ReverseUserFlowDialog>
       <ReverseUserFlowBody>
-        <h2 style={{ textAlign: "center" }}>
-          Find the perfect city to live in!
-        </h2>
         <Form onSubmit={handleSubmit} className={classes.form}>
           <FormControl required="true">
             <label component="location" className={classes.question}>

@@ -47,8 +47,7 @@ export function OwnerCosts({ selected }) {
 export function OwnerCostsModalContent(props) {
   return (
     <div>
-      <h1 className="smocTitle">Selected Monthly Owner Costs</h1>
-      <p className="smocText">
+      <p style={{ margin: "1.4rem" }}>
         Selected monthly owner costs are calculated from the sum of payment for
         mortgages, real estate taxes, various insurances, utilities, fuels,
         mobile home costs, and condominium fees. Listing the items separately
@@ -61,7 +60,7 @@ export function OwnerCostsModalContent(props) {
         many government agencies define excessive as costs that exceed 30
         percent of household income.
       </p>
-      <div className="smoc-link">
+      <div style={{ textAlign: "center" }}>
         <a href="https://www.census.gov/quickfacts/fact/note/US/HSG650218">
           Source
         </a>

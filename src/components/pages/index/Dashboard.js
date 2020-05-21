@@ -78,6 +78,7 @@ function Dashboard({ history }) {
               {/* SEARCH CONTAINER */}
               <div className="dashboard-function-container">
                 <Modal
+                  title={"Find Your Perfect City"}
                   isShowing={isShowing}
                   hide={toggle}
                   large={true}

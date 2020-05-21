@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { removeCity } from "../../../../redux/actions/cityActions.js";
-import closeIcon from "../assets/close.svg";
+import closeIcon from "../../../../assets/icons/close.svg";
 
 const DeselectCityButton = ({ city }) => {
   const dispatch = useDispatch();

@@ -31,7 +31,7 @@
   background: white;
   position: relative;
   margin: 10vh auto;
-  border-radius: 3px;
+  border-radius: 5px;
   max-width: 80vw;
   padding: 1rem;
   margin-top: 10rem;
@@ -39,17 +39,29 @@
 
 .modal-header {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  width: 100%;
+  height: 2.8rem;
+  position: relative;
+}
+
+.modal-title {
+  display: block;
+  align-self: center;
 }
 
 .modal-close-button {
-  font-size: 1.4rem;
-  font-weight: 700;
+  display: block;
+  position: absolute;
+  align-self: flex-end;
   line-height: 1;
-  color: #000;
-  opacity: 0.3;
   cursor: pointer;
   border: none;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 // button {
@@ -77,46 +89,4 @@
   height: 100vh;
   background-color: #000;
   opacity: 0.5;
-}
-
-.smoc-modal-wrapper {
-  @media screen and (max-width: 800px) {
-    padding-left: 10%;
-    padding-right: 10%;
-  }
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1050;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  outline: 0;
-  padding-left: 30%;
-  padding-right: 30%;
-}
-
-.smoc-modal {
-  background: white;
-  position: relative;
-  margin: 10vh auto;
-  border-radius: 3px;
-  max-width: 80vw;
-  padding: 1rem;
-  margin-top: 10rem;
-}
-
-.smoc-modal-header {
-  display: flex;
-  justify-content: flex-end;
-}
-.smocTitle {
-  margin-top: 0.5%;
-}
-.smocText {
-  margin: 1.4rem;
-}
-.smoc-link {
-  text-align: center;
 }

@@ -81,6 +81,7 @@ const DataDisplay = ({
               <Card
                 title={"Owner Costs"}
                 modalContent={<OwnerCostsModalContent />}
+                modalTitle={"Selected Monthly Owner Costs"}
                 gridColumn={3}
               >
                 <OwnerCosts selected={selected} />

@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
+import closeIcon from "../../assets/icons/close.svg";
 
-const Modal = ({ isShowing, hide, component, large }) => {
+const Modal = ({ isShowing, hide, component, large, title }) => {
   const ModalComp = styled.div`
     background: white;
     position: relative;
@@ -37,15 +38,13 @@ const Modal = ({ isShowing, hide, component, large }) => {
           <ModalWrapper aria-modal aria-hidden tabIndex={-1} role="dialog">
             <ModalComp>
               <div className="modal-header">
-                <button
-                  type="button"
+                <h3 className="modal-title">{title}</h3>
+                <img
                   className="modal-close-button"
-                  data-dismiss="modal"
-                  aria-label="Close"
+                  alt={"Deselect city."}
+                  src={closeIcon}
                   onClick={hide}
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                />
               </div>
               {component}
             </ModalComp>

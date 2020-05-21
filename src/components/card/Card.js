@@ -77,6 +77,7 @@ function Card(props) {
         isShowing={isShowing}
         hide={toggle}
         component={props.modalContent}
+        title={props.modalTitle}
       />
       <CardHeader>
         <CardTitle>{props.title}</CardTitle>
