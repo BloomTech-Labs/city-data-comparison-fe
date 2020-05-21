@@ -1,22 +1,22 @@
 import React from "react";
-import AvgTemp from "./graphs/culture/tempAvg";
+import Temperature from "./graphs/culture/Temperature";
 import MapSearch from "./MapSearch";
-import HousePriceGraph from "./graphs/housing/House_price";
+import AverageHomePrices from "./graphs/housing/AverageHomePrices.js";
 import RoomGraph from "./graphs/housing/HousingByRooms";
 import RentChart from "./graphs/housing/RentChart";
 import IndustryBarGraph from "./graphs/economics/IndustryBarGraph";
 import IndustryLineGraph from "./graphs/economics/IndustryLineGraph.js";
-import Commute from "./graphs/economics/commute";
+import Commute from "./graphs/economics/Commute";
 import BarGraph from "./graphs/economics/AverageSalary";
-import EthnicityGraph from "./graphs/culture/EthnicityGraph";
+import Diversity from "./graphs/culture/Diversity";
 import Population from "./graphs/culture/PopulationGraph";
 import EducationGraph from "./graphs/culture/EducationGraph";
 import AgeDistributionGraph from "./graphs/culture/AgeDistrubution";
-import RetirementGraph from "./graphs/economics/retirement";
-import VacancyGraph from "./graphs/housing/vacancy";
+import RetirementGraph from "./graphs/economics/Retirement";
+import Vacancy from "./graphs/housing/Vacancy";
 import Unemployment from "./graphs/economics/Unemployment";
 import Overview from "./overview/Overview";
-import TravelTime from "./graphs/economics/TravelTimeCard";
+import AverageTravelTime from "./graphs/economics/AverageTravelTime";
 import {
   OwnerCosts,
   OwnerCostsModalContent,
@@ -51,7 +51,7 @@ const DataDisplay = ({
 
             <div className="data-category" id="housing">
               <Card title={"Home Prices"}>
-                <HousePriceGraph selected={selected} />
+                <AverageHomePrices selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: zillow.com
                 </p>
@@ -72,7 +72,7 @@ const DataDisplay = ({
               </Card>
 
               <Card title="Vacancy" gridColumn={9}>
-                <VacancyGraph edData={selected} />
+                <Vacancy edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
@@ -124,7 +124,7 @@ const DataDisplay = ({
               </Card>
 
               <Card title={"Average Commute"} gridColumn="3">
-                <TravelTime selected={selected} />
+                <AverageTravelTime selected={selected} />
               </Card>
 
               <Card title={"Unemployment"} gridColumn="3">
@@ -132,7 +132,7 @@ const DataDisplay = ({
               </Card>
 
               <Card title={"Retirement Income Source"} gridColumn="9">
-                <RetirementGraph ethData={selected} />
+                <RetirementGraph selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
@@ -155,7 +155,7 @@ const DataDisplay = ({
               </Card>
 
               <Card title={"Diversity"}>
-                <EthnicityGraph ethData={selected} />
+                <Diversity selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
@@ -170,7 +170,10 @@ const DataDisplay = ({
             </div>
             <div className="data-category" id="weather">
               <Card title={"Historical Temperature"}>
-                <AvgTemp edData={selected} />
+                <Temperature selected={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: NOAA
+                </p>
               </Card>
             </div>
           </>
