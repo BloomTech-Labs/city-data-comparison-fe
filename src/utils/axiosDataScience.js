@@ -20,6 +20,6 @@ export function matchCityFromString() {
 
 export function citySuggestion() {
   return axios.create({
-    baseURL: `http://labs23-ds-api-test.us-east-1.elasticbeanstalk.com/jkekal6d6e5si3i2ld66d4dl`,
+    baseURL: `https://labs23-ds-api-test.us-east-1.elasticbeanstalk.com/jkekal6d6e5si3i2ld66d4dl`,
   });
 }
