@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   padding: 10px 0;
@@ -20,6 +20,7 @@
   margin: 0 auto;
   transition: top 0.3s;
   background-color: white;
+  z-index: 1000;
 }
 .unfixed {
   position: absolute;
