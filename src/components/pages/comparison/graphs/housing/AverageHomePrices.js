@@ -8,21 +8,6 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { actionColor } from "../../../../../utils/cityColors.js";
 import * as ChartAnnotation from "chartjs-plugin-annotation";
 
-const Button = styled.button`
-  margin: 0 auto;
-  text-align: center;
-  display: block;
-  border: none;
-  font-size: 0.9rem;
-  color: #0066cca5;
-  border: 0.5px solid #0066cca5;
-  border-radius: 5px;
-  background-color: white;
-  position: relative;
-  bottom: 27px;
-  left: 120px;
-`;
-
 export default function AverageHomePrices({ selected }) {
   const mobile = useMediaQuery("(max-width:600px)");
 
