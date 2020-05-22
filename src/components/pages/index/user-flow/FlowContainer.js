@@ -27,9 +27,6 @@ const ReverseUserFlowBody = styled.div`
   max-height: 84vh;
   overflow-y: scroll;
   padding-bottom: 2.8rem;
-  @media screen and (min-width: 800px) {
-    overflow-y: hidden;
-  }
 `;
 
 const Description = styled.p`
@@ -66,6 +63,12 @@ const Form = styled.form`
   padding: 0 2.8rem;
 `;
 
+const Error = styled.p`
+  color: red;
+  position: relative;
+  bottom: 0;
+`;
+
 const Button = styled.button`
   border: none;
   border-radius: 5px;
@@ -80,9 +83,13 @@ const Button = styled.button`
   transition: 0.22s ease;
   box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.07);
   cursor: pointer;
-
   min-width: 250px;
-  margin-bottom: 1.4rem;
+  margin-bottom: 0.7rem;
+
+  &.disabled {
+    background-color: "grey";
+    cursor: default;
+  }
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -116,6 +123,21 @@ const questionValues = {
     { label: "Temperate (50 - 69°F)", value: "temperate" },
     { label: "Hot (70 - 80°F)", value: "hot" },
   ],
+  industry: [
+    "Agriculture, Forestry, Fishing, Hunting, or Mining",
+    "Construction",
+    "Manufacturing",
+    "Wholesale Trade",
+    "Retail Trade",
+    "Transportation, Warehousing or Utilities",
+    "Information",
+    "Finance, Insurance, Real Estate, Rental, or Leasing",
+    "Professional Scientific, Management, Administrative, or Waste Management Services",
+    "Educational Services, Health Care, or Social Assistance",
+    "Arts, Entertainment, Recreation, Accommodation, or Food Services",
+    "Other",
+    "Public Administration",
+  ],
 };
 
 export default function FlowContainer() {
@@ -130,38 +152,31 @@ export default function FlowContainer() {
     weather: "",
     location: "",
     income: "",
+    industry: "",
+    error: "",
   });
-
-  const [housingValue, setHousingValue] = useState("");
-  const [weatherValue, setWeatherValue] = useState("");
-  const [locationValue, setLocationValue] = useState("");
-  const [incomeValue, setIncomeValue] = useState("");
 
   const onChange = (e) => {
     setInputs({
       ...inputs,
       [e.target.name]: e.target.value,
+      error: "",
     });
-
-    if (e.target.name === "housing") {
-      setHousingValue(e.target.value);
-    } else if (e.target.name === "weather") {
-      setWeatherValue(e.target.value);
-    } else if (e.target.name === "location") {
-      setLocationValue(e.target.value);
-    } else if (e.target.name === "income") {
-      setIncomeValue(e.target.value);
-    }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(clearAllCities());
-    dispatch(getSuggestedCity(inputs));
-    history.push("/compare");
+    if (inputs.housing && inputs.weather && inputs.location && inputs.income) {
+      dispatch(clearAllCities());
+      dispatch(getSuggestedCity(inputs));
+      history.push("/compare");
+    } else {
+      setInputs({
+        error: "Missing required fields.",
+      });
+      console.log(inputs.error);
+    }
   };
 
-  console.log("CONTAINER INPUTS", inputs);
-  // console.log("VALUE", value);
   return (
     <ReverseUserFlowWrapper>
       <ReverseUserFlowBody>
@@ -180,8 +195,9 @@ export default function FlowContainer() {
               variant="outlined"
               name="location"
               className={classes.select}
-              value={locationValue}
+              value={inputs.location}
               onChange={onChange}
+              error={inputs.error && !inputs.location}
             >
               {questionValues.location.map((answer) => (
                 <MenuItem value={answer.value}>{answer.label}</MenuItem>
@@ -197,8 +213,9 @@ export default function FlowContainer() {
               variant="outlined"
               name="weather"
               className={classes.select}
-              value={weatherValue}
+              value={inputs.weather}
               onChange={onChange}
+              error={inputs.error && !inputs.weather}
             >
               {questionValues.weather.map((answer) => (
                 <MenuItem value={answer.value}>{answer.label}</MenuItem>
@@ -216,9 +233,10 @@ export default function FlowContainer() {
               name="housing"
               id="standard-basic"
               type="number"
-              value={housingValue}
+              value={inputs.housing}
               onChange={onChange}
               fullWidth={mobile}
+              error={inputs.error && !inputs.housing}
               startAdornment={
                 <InputAdornment position="start">$</InputAdornment>
               }
@@ -234,9 +252,10 @@ export default function FlowContainer() {
               name="income"
               id="standard-basic"
               type="number"
-              value={incomeValue}
+              value={inputs.income}
               onChange={onChange}
               fullWidth={mobile}
+              error={inputs.error && !inputs.income}
               startAdornment={
                 <InputAdornment position="start">$</InputAdornment>
               }
@@ -244,29 +263,30 @@ export default function FlowContainer() {
           </Question>
 
           <Question>
-            <label component="income">
-              4. What is your expected yearly income?
-            </label>
-            <OutlinedInput
-              className={classes.fields}
-              name="income"
-              id="standard-basic"
-              type="number"
-              value={incomeValue}
+            <label component="industry">5. What industry do you work in?</label>
+            <Select
+              variant="outlined"
+              name="industry"
+              className={classes.select}
+              value={inputs.industry}
               onChange={onChange}
-              fullWidth={mobile}
-              startAdornment={
-                <InputAdornment position="start">$</InputAdornment>
-              }
-            />
+            >
+              {questionValues.industry.map((answer) => (
+                <MenuItem value={answer}>{answer}</MenuItem>
+              ))}
+            </Select>
           </Question>
-
+          {inputs.error ? <Error>{inputs.error}</Error> : <></>}
           <Button
             type="submit"
-            className={classes.submit}
-            color={actionColor}
-            variant="contained"
-            size="large"
+            className={
+              inputs.housing &&
+              inputs.weather &&
+              inputs.location &&
+              inputs.income
+                ? ""
+                : "disabled"
+            }
           >
             Find A City
           </Button>
