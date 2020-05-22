@@ -25,7 +25,7 @@ function Navigation() {
   };
 
   return (
-    <div className={"navigation-container " + "default-color" + `main-nav`}>
+    <div className={"navigation-container default-colormain-nav"}>
       <a className="header-logo" href="/">
         {" "}
         <img className="mock-logo" src={citrics} alt="logo" />
