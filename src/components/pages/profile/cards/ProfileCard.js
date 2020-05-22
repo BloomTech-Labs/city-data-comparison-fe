@@ -11,10 +11,10 @@ function ProfileCard(props) {
     grid-column: span ${props.gridColumn ? props.gridColumn : 12};
     @media only screen and (max-width: 800px) {
       grid-column: span 12;
-      padding: 1.4rem 0.7;
+      padding: 0rem 0.7;
     }
     @media only screen and (max-width: 600px) {
-      padding: 1.4rem 0.7rem;
+      padding: 0rem 0.7rem;
       padding-bottom: 0.7rem;
       border-radius: 5px;
     }
@@ -48,13 +48,6 @@ function ProfileCard(props) {
 
   const CardContent = styled.div`
     padding: 0.7rem;
-    @media only screen and (max-width: 1000px) {
-      padding: 0;
-      padding-top: 2.8rem;
-    }
-    @media only screen and (max-width: 600px) {
-      padding-top: 1.4rem;
-    }
   `;
 
   return (

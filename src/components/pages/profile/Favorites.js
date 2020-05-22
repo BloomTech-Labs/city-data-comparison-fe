@@ -46,8 +46,10 @@ const Favorite = (props) => {
           background: "white",
           width: "1.4rem",
           borderRadius: "0.3rem",
-          margin: "0 0.3rem",
-          marginRight: "0.6rem",
+          margin: "0",
+          position: "absolute",
+          right: "1.4rem",
+          top: "2rem",
         }}
       >
         <img

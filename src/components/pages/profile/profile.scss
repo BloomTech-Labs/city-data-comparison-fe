@@ -13,7 +13,7 @@
   background-color: #e9e8e9;
   width: 75%;
   @media screen and (max-width: 900px) {
-    width: 100%
+    width: 100%;
   }
   .profile-slides {
     margin: 0 auto;
@@ -75,35 +75,30 @@
 
     .single-fav {
       display: flex;
-      align-items: center;
       flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 1.4rem;
+      width: 100%;
       .fav-title {
         white-space: nowrap;
         font-size: 20px;
-        width: 300px;
-
-        @media screen and (max-width: 1400px) {
-          white-space: normal;
-        }
-        @media screen and (max-width: 800px) {
-          width: 200px;
-        }
-        @media screen and (max-width: 550px) {
-          width: 100px;
-        }
       }
       .go-btn {
+        position: absolute;
+        right: 2.8rem;
+        display: block;
         height: 2.8rem;
         border: none;
         border-radius: 5px;
         font-size: 1.1rem;
         font-weight: 500;
         padding: 0;
-        margin-right: 50%;
-        background-color: #0066cc;
-        color: white;
+        background-color: white;
+        border: 1px solid #0066cc;
+        color: #0066cc;
         transition: 0.22s ease;
         box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.07);
+        margin-right: 1.4rem;
 
         cursor: pointer;
         &:focus {
@@ -111,22 +106,8 @@
         }
 
         &:hover {
-          filter: brightness(115%);
-        }
-        @media screen and (max-width: 1750px) {
-          margin-right: 40%;
-        }
-        @media screen and (max-width: 1600px) {
-          margin-right: 30%;
-        }
-        @media screen and (max-width: 1200px) {
-          margin-right: 20%;
-        }
-        @media screen and (max-width: 600px) {
-          margin-right: 10%;
-        }
-        @media screen and (max-width: 500px) {
-          width: 90px;
+          background-color: #0066cc;
+          color: white;
         }
       }
     }
