@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import ReactGA from "react-ga";
-import PrivateRoute from "./components/PrivateRoute";
+import PrivateRoute from "./components/PrivateRoute.js";
 
 import "./App.scss";
 
-import Dashboard from "./components/pages/index/Dashboard";
-import Navigation from "./components/navigation/Navigation";
-import Footer from "./components/navigation/Footer";
+import Dashboard from "./components/pages/index/Dashboard.js";
+import Navigation from "./components/navigation/Navigation.js";
+import Footer from "./components/navigation/Footer.js";
 import Comparison from "./components/pages/comparison/Comparison.js";
-import Profile from "./components/pages/profile/Profile";
-import PrivacyPolicy from "./components/pages/privacypolicy/PrivacyPolicy";
-import AboutUs from "./components/pages/aboutus/AboutUs";
+import Profile from "./components/pages/profile/Profile.js";
+import PrivacyPolicy from "./components/pages/privacypolicy/PrivacyPolicy.js";
+import AboutUs from "./components/pages/aboutus/AboutUs.js";
 import citiesIndex from "./data/city_ids.json";
-import { CityContext } from "./contexts/CityContext";
-import Callback from "./components/Callback";
-import AuthForm from "./components/pages/login/AuthForm";
+import { CityContext } from "./contexts/CityContext.js";
+import Callback from "./components/Callback.js";
+import AuthForm from "./components/pages/login/AuthForm.js";
 
 function initializeAnalytics() {
   ReactGA.initialize("UA-156199574-1");
