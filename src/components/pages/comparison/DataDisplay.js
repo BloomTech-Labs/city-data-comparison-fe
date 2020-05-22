@@ -6,7 +6,7 @@ import RoomGraph from "./graphs/housing/HousingByRooms";
 import AverageRent from "./graphs/housing/AverageRent";
 import IndustryBarGraph from "./graphs/economics/IndustryBarGraph";
 import IndustryLineGraph from "./graphs/economics/IndustryLineGraph.js";
-import Commute from "./graphs/economics/Commute";
+import Commute from "./graphs/economics/Commute.js";
 import BarGraph from "./graphs/economics/AverageSalary";
 import Diversity from "./graphs/culture/Diversity";
 import Population from "./graphs/culture/PopulationGraph";
