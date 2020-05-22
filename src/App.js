@@ -86,7 +86,8 @@ function App() {
         );
       }
 
-      //Determines the bounds of the map on screen
+      // Determines the bounds of the map on screen
+      // This code could probably use some refactoring since it's useEffect doesn ot have all the dependancies
       const f1 = (item) =>
         item.lng >
         viewport.longitude -

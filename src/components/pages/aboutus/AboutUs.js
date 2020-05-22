@@ -60,6 +60,8 @@ const AboutUs = () => {
             {team.map((member) => {
               if (member.labs === 19 && member.management !== true) {
                 return <TeamCard member={member} />;
+              } else {
+                return <></>;
               }
             })}
           </div>
@@ -73,6 +75,8 @@ const AboutUs = () => {
             {team.map((member) => {
               if (member.labs === 21 && member.management !== true) {
                 return <TeamCard member={member} />;
+              } else {
+                return <></>;
               }
             })}
           </div>
