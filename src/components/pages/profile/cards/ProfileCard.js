@@ -1,6 +1,5 @@
 import React from "react";
 
-import { actionColor } from "../../../../utils/cityColors.js";
 import styled from "styled-components";
 
 function ProfileCard(props) {
