@@ -21,7 +21,7 @@ function Navigation() {
 
   const handleClickLogout = () => {
     dispatch(logout());
-    history.push("/signin");
+    // history.push("/signin");
   };
 
   return (
@@ -68,6 +68,7 @@ function Navigation() {
                   className="login-link"
                   style={{ color: navGrey }}
                   onClick={() => handleClickLogout()}
+                  to="/"
                 >
                   <img className="lock" alt="lock" src={signInLock} />
                   Logout
