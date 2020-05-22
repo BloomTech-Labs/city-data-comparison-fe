@@ -184,9 +184,10 @@ function Dashboard({ history }) {
             />
             {/* <LineGraph2 /> */}
             <p className="metrics-description">
-              <p className="metrics-description-title">Housing</p>Housing data
-              includes median rent, home prices, monthly homeowner costs,
-              housing by rooms, and etc.
+              <span className="metrics-description-title">Housing</span>
+              <br />
+              Housing data includes median rent, home prices, monthly homeowner
+              costs, housing by rooms, and etc.
             </p>
           </div>
           <div
@@ -206,9 +207,10 @@ function Dashboard({ history }) {
             />
             {/* <LineGraph /> */}
             <p className="metrics-description">
-              <p className="metrics-description-title">Community</p>Data for
-              social trends consists of age, ethnicity, education, languages
-              spoken, school enrollment, and etc.
+              <span className="metrics-description-title">Community</span>
+              <br />
+              Data for social trends consists of age, ethnicity, education,
+              languages spoken, school enrollment, and etc.
             </p>
           </div>
           <div
@@ -228,8 +230,9 @@ function Dashboard({ history }) {
             />
             {/* <RadarGraph /> */}
             <p className="metrics-description">
-              <p className="metrics-description-title">Economy</p>Economic data
-              includes household income, major industries, etc.
+              <span className="metrics-description-title">Economy</span>
+              <br />
+              Economic data includes household income, major industries, etc.
             </p>
           </div>
         </div>
