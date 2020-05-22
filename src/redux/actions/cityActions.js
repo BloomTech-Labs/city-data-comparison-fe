@@ -74,7 +74,11 @@ export function getSuggestedCity(inputs) {
     try {
       //Make an axios call to the citydata api using the city's id.
       const res = await citySuggestion().get(
-        `/reverse?temp=${inputs.weather}&mean_income=${inputs.income}&housing=${inputs.housing}&city_size=${inputs.location}`
+        `/reverse?temp=${inputs.weather}&mean_income=${inputs.income}&housing=${
+          inputs.housing
+        }&city_size=${inputs.location}${
+          inputs.industry ? `&industry=${inputs.industry}` : ""
+        }`
       );
       //Log selected city in Google Analytics.
       ReactGA.event({
