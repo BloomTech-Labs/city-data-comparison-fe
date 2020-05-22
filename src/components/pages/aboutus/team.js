@@ -55,12 +55,12 @@ import regino from '../../../assets/team2_photos/Regino Parragil.jpg';
 import thomas from '../../../assets/team2_photos/Thomas Rodriguez.png';
 import jeremy from '../../../assets/team2_photos/Jeremy Rogel1.png';
 //labs 23
-import svyat from '../../../assets/team3_photos/Svyat.jpg';
+import svyat from '../../../assets/team3_photos/Svyat.png';
 import liam from '../../../assets/team3_photos/Liam Moore.jpg';
 import damon from '../../../assets/team3_photos/Damon Bogich.jpg';
 import amy from '../../../assets/team3_photos/Amy NLe.jpg';
 import steven from '../../../assets/team3_photos/Steven Reiss.jpg';
-import robert from '../../../assets/team3_photos/Robert Tom.png';
+import robert from '../../../assets/team3_photos/Robert Tom.jpg';
 import stephanie from '../../../assets/team3_photos/Stephanie Miller.png';
 
 
@@ -393,16 +393,16 @@ const team = [
         portfolio: 'http://liammoore.codes/'
     }, {
         labs: 23,
-        name: 'Svyat Okshin', 
+        name: 'Svyatoslav Okshin', 
         image: svyat,
         role: 'Web Developer', 
         social: {
             twitter: null, 
             github: 'svyatokshin', 
-            linkedin: null
+            linkedin: 'svyatoslav-okshin-a348b98b/'
         }, 
-        about: 'Svyat Okshin is a Full Stack Web Developer attending Lambda School.',
-        portfolio: null
+        about: 'Svyatoslav was born in Russia and won the Green Card Lottery with his family when he was three years old. This allowed him to move to the United States and work toward a citizenship which he is very grateful for. He is now a full-stack web developer who graduated from Lambda School. He also has a degree in Chemical Engineering, and utilizes the skills learned from both to create stunning and interactive websites, while problem-solving effectively in order to obtain the most pristine product in the most optimal time. After learning the core languages for web development, he sees the future as a bright one, as any new language will be less challenging to learn. His goal is to one day advance his learning into a profession where he will be able to manage others while continuing to create products that will help make the world a better place.',
+        portfolio: 'https://svyatokshin.github.io/portfolio/'
     }, {
         labs: 23,
         name: 'Damon Bogich', 
@@ -443,13 +443,13 @@ const team = [
         labs: 23,
         name: 'Robert Tom', 
         image: robert,
-        role: 'Web Developer', 
+        role: 'Data Scientist', 
         social: {
-            twitter: null, 
+            twitter: 'BlackRaptor62', 
             github: 'RCTom168', 
-            linkedin: null
+            linkedin: 'robertctom168'
         }, 
-        about: 'Robert Tom is a Data Scientist attending Lambda School.',
+        about: 'Summary: Robert Tom is a Data Scientist living in the San Francisco Bay Area. Robert has focuses on polishing his skills in Natural Language Processing and Machine Learning. When not wrangling data he spends time playing computer games and walking his dogs.  For this Project, Robert worked on developing the K-Nearest Neighbors and Nearest Neighbors prediction models for the Citrics City Reverse User Flow. This work allows users to search for cities that they may want to move to based off of certain criteria, rather than searching by name.',
         portfolio: null
     }, {
         labs: 23,
