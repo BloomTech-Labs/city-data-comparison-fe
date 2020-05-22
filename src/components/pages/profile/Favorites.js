@@ -72,7 +72,7 @@ const Favorites = (props) => {
 
   useEffect(() => {
     dispatch(getFavorites());
-  }, []);
+  }, [dispatch]);
 
   const favorites = useSelector((state) => state.userReducer.favorites);
 

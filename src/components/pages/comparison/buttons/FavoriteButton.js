@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import heart_icon from "../assets/heart.svg";
 import filled_heart from "../../../../assets/icons/filled_heart.svg";
-import ReactGA from "react-ga";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -24,7 +23,7 @@ const FavoriteButton = ({ city }) => {
     if (localStorage.getItem("token")) {
       dispatch(getFavorites());
     }
-  }, []);
+  }, [dispatch]);
 
   const toggle = () => {
     if (user) {

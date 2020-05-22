@@ -12,7 +12,6 @@ import Comparison from "./components/pages/comparison/Comparison.js";
 import Profile from "./components/pages/profile/Profile";
 import PrivacyPolicy from "./components/pages/privacypolicy/PrivacyPolicy";
 import AboutUs from "./components/pages/aboutus/AboutUs";
-// import AboutUs2 from './components/aboutus/AboutUs2';
 import citiesIndex from "./data/city_ids.json";
 import { CityContext } from "./contexts/CityContext";
 import Callback from "./components/Callback";
@@ -38,17 +37,6 @@ function App() {
     cityIndex.push(city);
   });
 
-  //search component??
-  const [toggleSearch, setToggleSearch] = useState(true);
-
-  //possibly for user profile only?? possibly for others?? probably don't use localStorage??
-  //user reducer
-
-  //should go with comparison page, doesn't really work right now
-  //part of user reducer
-  const [favorites, setFavorites] = useState([]);
-
-  //map components??
   //city reducer
   const [cityMarkers, setCityMarkers] = useState(cityIndex);
 
@@ -98,7 +86,7 @@ function App() {
         );
       }
 
-      //these 4 lines of code took too long to write, they determine the bounds of the map on screen
+      //Determines the bounds of the map on screen
       const f1 = (item) =>
         item.lng >
         viewport.longitude -

@@ -1,6 +1,5 @@
 import * as types from "./actionTypes";
 import { axiosAuth } from "../../utils/axiosAuth.js";
-import { cityDataBaseUrl } from "../../utils/axiosDataScience.js";
 
 export function login(credentials) {
   return async (dispatch) => {
@@ -101,7 +100,7 @@ export function removeFavorite(id) {
   return async (dispatch) => {
     try {
       dispatch({ type: types.REMOVE_FAVORITE });
-      let res = await axiosAuth().delete(`/users/favs`, {
+      await axiosAuth().delete(`/users/favs`, {
         data: { city_id: id },
       });
       dispatch({ type: types.REMOVE_FAVORITE_SUCCESS, payload: id });
