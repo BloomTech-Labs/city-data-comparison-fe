@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Card from "../../comparison/graphs/card/GraphCard.js";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { actionColor } from "../../../../utils/cityColors";
 import { useHistory } from "react-router-dom";
@@ -10,18 +9,13 @@ import {
 } from "../../../../redux/actions/cityActions";
 
 import {
-  FormControl,
-  FormLabel,
-  FormControlLabel,
   makeStyles,
-  TextField,
   Select,
   MenuItem,
   InputAdornment,
   OutlinedInput,
 } from "@material-ui/core";
 import styled from "styled-components/macro";
-import axios from "axios";
 
 const ReverseUserFlowDialog = styled.div`
   overflow-y: scroll;
@@ -29,10 +23,6 @@ const ReverseUserFlowDialog = styled.div`
 
 const ReverseUserFlowBody = styled.div`
   max-height: 84vh;
-`;
-
-const StyledTextField = styled(TextField)`
-  width: 70%;
 `;
 
 const Question = styled.div`
