@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Card from "../../comparison/graphs/card/GraphCard.js";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { actionColor } from "../../../../utils/cityColors";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+  clearAllCities,
+  getSuggestedCity,
+} from "../../../../redux/actions/cityActions";
 
 import {
   FormControl,
@@ -108,6 +114,9 @@ const questionValues = {
 };
 
 export default function FlowContainer() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const classes = useStyles();
   const mobile = useMediaQuery("(max-width:800px)");
 
@@ -141,19 +150,9 @@ export default function FlowContainer() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("INPUTS", inputs);
-    // e.history.push('/compare');
-    axios
-      .get(
-        `http://labs23-ds-api-test.us-east-1.elasticbeanstalk.com/jkekal6d6e5si3i2ld66d4dl/reverse?temp=${inputs.weather}&mean_income=${inputs.income}&housing=${inputs.housing}&city_size=${inputs.location}`
-      )
-      .then((res) => {
-        console.log("GET RES", res);
-      })
-      .catch((err) => {
-        console.log("GET RES ERR", err);
-      });
-    // http://labs23-ds-api-test.us-east-1.elasticbeanstalk.com/jkekal6d6e5si3i2ld66d4dl/reverse?temp=&mean_income=100000&housing=1800&city_size=town
+    dispatch(clearAllCities());
+    dispatch(getSuggestedCity(inputs));
+    history.push("/compare");
   };
 
   console.log("CONTAINER INPUTS", inputs);
