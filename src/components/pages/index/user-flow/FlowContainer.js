@@ -35,7 +35,7 @@ const Question = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2.8rem;
+  margin-bottom: 1.4rem;
   label {
     align-self: flex-start;
   }
@@ -53,7 +53,6 @@ const Form = styled.form`
   flex-direction: column;
   align-items: center;
   padding: 0 2.8rem;
-  margin-top: 1.4rem;
 `;
 
 const Button = styled.button`
@@ -62,8 +61,7 @@ const Button = styled.button`
   font-size: 1.7rem;
   font-weight: 500;
   padding: 0;
-  margin-top: 20px;
-  margin-left: 30px;
+
   background-color: #0066cc;
   color: white;
   width: 38%;
@@ -71,6 +69,9 @@ const Button = styled.button`
   transition: 0.22s ease;
   box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.07);
   cursor: pointer;
+
+  min-width: 250px;
+  margin-bottom: 1.4rem;
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -88,14 +89,6 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     [theme.breakpoints.down(800)]: {
       justifySelf: "flex-end",
-    },
-  },
-  submit: {
-    margin: "1.4rem 0",
-    display: "block",
-    minWidth: "250px",
-    [theme.breakpoints.down(600)]: {
-      width: "100%",
     },
   },
 }));
@@ -168,6 +161,19 @@ export default function FlowContainer() {
   return (
     <ReverseUserFlowDialog>
       <ReverseUserFlowBody>
+        <p
+          style={{
+            fontSize: ".96rem",
+            padding: "1.4rem 2.8rem",
+          }}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+          bibendum quam sem, sed tristique dolor viverra eget. Quisque viverra
+          arcu eget ligula ultrices vulputate. Pellentesque aliquet metus nec
+          lectus pharetra, et ultrices lorem pretium. Nullam placerat mollis
+          ante sit amet laoreet. Etiam mi ipsum, pharetra sed pulvinar id,
+          facilisis eu mauris.
+        </p>
         <Form onSubmit={handleSubmit}>
           <Question>
             <label component="location">
