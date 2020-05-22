@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { useSelector } from "react-redux"; //import
-
 import FlowContainer from "./user-flow/FlowContainer";
 
 import useModal from "../../modal/useModal";

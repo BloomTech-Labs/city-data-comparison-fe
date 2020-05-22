@@ -47,13 +47,6 @@ function ProfileCard(props) {
       : "space-between"};
   `;
 
-  const MoreInfoIcon = styled.img`
-    color: ${actionColor};
-    justify-self: flex-end;
-    position: absolute;
-    right: 1.4rem;
-  `;
-
   const CardContent = styled.div`
     padding: 0.7rem;
     @media only screen and (max-width: 1000px) {

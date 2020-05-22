@@ -55,28 +55,10 @@ export default function AverageHomePrices({ selected }) {
   // This state holds all the lines currently displayed on the graph
   // it could change when the user clicks a specific city on the legend for focus view
   const [lines, setLines] = useState([]);
-  // This function formats the line data for when you click a city on the chart legend
-  // this array goes into "lines" array above, which goes into chartjs line graph component's prop called "datasets"
-  // datasets is an array representing all the different datasets being compared in the chart
-  // https://www.chartjs.org/docs/latest/charts/line.html
-  function formatGraphLinesWithOneCity(city, keys) {
-    const lineData = keys.map((label) => {
-      return city["Historical Property Value Data"]["Forecast"][label];
-    });
-    return [
-      {
-        //just city, state = item.name_with_com,
-        label: city.name_with_com,
-        fill: false,
-        //mapping through selected city then using useEffect hook to figure out which dataset to use, then setting that data with ternary operator.
-        data: lineData,
-        borderColor: city.color,
-      },
-    ];
-  }
+
   // This function formats an array of lines in the line graph for displaying multiple cities,
   // to be placed in the chartjs line graph component's prop called "datasets"
-  function formatGraphLinesWithMultipleCities(cities, keys) {
+  function formatGraphLines(cities, keys) {
     return cities.map((city) => {
       const lineData = keys.map((label) => {
         return city["Historical Property Value Data"]["Forecast"][label];
@@ -95,7 +77,7 @@ export default function AverageHomePrices({ selected }) {
   }
 
   useEffect(() => {
-    setLines(formatGraphLinesWithMultipleCities(selected, dateKeys));
+    setLines(formatGraphLines(selected, dateKeys));
   }, [selected, dateKeys]);
 
   // This numberCommas Function generates commas for the y axis in this case dollar amounts that exceed 3 zeros.
