@@ -1,5 +1,5 @@
 import React from "react";
-import helpCircle from "../../../../assets/icons/helpcircle.svg";
+
 import { actionColor } from "../../../../utils/cityColors.js";
 import styled from "styled-components";
 
