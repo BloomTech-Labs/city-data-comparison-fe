@@ -21,7 +21,9 @@ const FavoriteButton = ({ city }) => {
   const user = useSelector((state) => state.userReducer.user);
 
   useEffect(() => {
-    dispatch(getFavorites());
+    if (user) {
+      dispatch(getFavorites());
+    }
   }, []);
 
   const toggle = () => {
