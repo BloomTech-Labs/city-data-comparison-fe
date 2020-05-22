@@ -181,9 +181,9 @@ export default function FlowContainer() {
     <ReverseUserFlowWrapper>
       <ReverseUserFlowBody>
         <Description>
-          Using a machine learning model, Citrics will compare your answers with
-          data collected on over 28,000 cities and towns in America to find one
-          that best suits your preferences and budget!
+          Using a machine learning model, we will compare your answers with data
+          collected on over 28,000 cities and towns in America to find one that
+          best suits your preferences and budget!
         </Description>
         <Form onSubmit={handleSubmit}>
           <Question>
