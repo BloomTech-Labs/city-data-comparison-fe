@@ -5,17 +5,6 @@ import closeIcon from "../../assets/icons/close.svg";
 import "./modal.scss";
 
 const Modal = ({ isShowing, hide, component, large, title }) => {
-  const ModalComp = styled.div`
-    background: white;
-    position: relative;
-    border-radius: 3px;
-    padding: 1rem;
-    max-width: ${large ? "1120px" : "500px"};
-    margin: 0 1.4rem;
-    width: 100%;
-    max-height: 90vh;
-  `;
-
   const ModalWrapper = styled.div`
     display: flex;
     align-items: center;
@@ -28,9 +17,19 @@ const Modal = ({ isShowing, hide, component, large, title }) => {
     width: 100%;
     height: 100vh;
 
-    overflow-y: inital;
-
     outline: 0;
+  `;
+
+  const ModalComp = styled.div`
+    background: white;
+    position: relative;
+    border-radius: 3px;
+    padding: 1.4rem;
+    max-width: ${large ? "1120px" : "500px"};
+    margin: 1.4rem 1.4rem;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: hidden;
   `;
 
   return isShowing

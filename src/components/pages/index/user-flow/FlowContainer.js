@@ -17,12 +17,27 @@ import {
 } from "@material-ui/core";
 import styled from "styled-components/macro";
 
-const ReverseUserFlowDialog = styled.div`
-  overflow-y: scroll;
+const ReverseUserFlowWrapper = styled.div`
+  padding: 0rem;
+  overflow-y: hidden;
 `;
 
 const ReverseUserFlowBody = styled.div`
+  padding: 0;
   max-height: 84vh;
+  overflow-y: scroll;
+  padding-bottom: 2.8rem;
+  @media screen and (min-width: 800px) {
+    overflow-y: hidden;
+  }
+`;
+
+const Description = styled.p`
+  font-size: 0.96rem;
+  padding: 1.4rem 2.8rem;
+
+  margin: 0;
+  border: 0;
 `;
 
 const Question = styled.div`
@@ -148,21 +163,13 @@ export default function FlowContainer() {
   console.log("CONTAINER INPUTS", inputs);
   // console.log("VALUE", value);
   return (
-    <ReverseUserFlowDialog>
+    <ReverseUserFlowWrapper>
       <ReverseUserFlowBody>
-        <p
-          style={{
-            fontSize: ".96rem",
-            padding: "1.4rem 2.8rem",
-          }}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-          bibendum quam sem, sed tristique dolor viverra eget. Quisque viverra
-          arcu eget ligula ultrices vulputate. Pellentesque aliquet metus nec
-          lectus pharetra, et ultrices lorem pretium. Nullam placerat mollis
-          ante sit amet laoreet. Etiam mi ipsum, pharetra sed pulvinar id,
-          facilisis eu mauris.
-        </p>
+        <Description>
+          Using a machine learning model, Citrics will compare your answers with
+          data collected on over 28,000 cities and towns in America to find one
+          that best suits your preferences and budget!
+        </Description>
         <Form onSubmit={handleSubmit}>
           <Question>
             <label component="location">
@@ -236,6 +243,24 @@ export default function FlowContainer() {
             />
           </Question>
 
+          <Question>
+            <label component="income">
+              4. What is your expected yearly income?
+            </label>
+            <OutlinedInput
+              className={classes.fields}
+              name="income"
+              id="standard-basic"
+              type="number"
+              value={incomeValue}
+              onChange={onChange}
+              fullWidth={mobile}
+              startAdornment={
+                <InputAdornment position="start">$</InputAdornment>
+              }
+            />
+          </Question>
+
           <Button
             type="submit"
             className={classes.submit}
@@ -247,6 +272,6 @@ export default function FlowContainer() {
           </Button>
         </Form>
       </ReverseUserFlowBody>
-    </ReverseUserFlowDialog>
+    </ReverseUserFlowWrapper>
   );
 }
