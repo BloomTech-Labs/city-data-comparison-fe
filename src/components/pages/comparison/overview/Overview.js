@@ -10,6 +10,8 @@ import Recommendations from "./Recommendations";
 import DeselectCityButton from "../buttons/DeselectCityButton.js";
 import { Link as ScrollLink } from "react-scroll";
 
+import "./Overview.scss";
+
 function Overview({ selected, isProfilePage }) {
   function numberCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
