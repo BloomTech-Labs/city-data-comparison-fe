@@ -1,4 +1,3 @@
-import ReactGA from "react-ga";
 import * as types from "./actionTypes";
 import { axiosAuth } from "../../utils/axiosAuth.js";
 import { cityDataBaseUrl } from "../../utils/axiosDataScience.js";

@@ -18,9 +18,6 @@ import { CityContext } from "./contexts/CityContext";
 import Callback from "./components/Callback";
 import AuthForm from "./components/pages/login/AuthForm";
 
-import { useDispatch } from "react-redux";
-import { getUser } from "./redux/actions/userActions.js";
-
 function initializeAnalytics() {
   ReactGA.initialize("UA-156199574-1");
   ReactGA.pageview("/");

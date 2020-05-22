@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-import ReactGA from "react-ga";
 import { useSelector } from "react-redux"; //import
 
 import FlowContainer from "./user-flow/FlowContainer";
@@ -26,9 +25,6 @@ function Dashboard({ history }) {
   const { isShowing, toggle } = useModal();
 
   AOS.init();
-
-  const user = useSelector((state) => state.userReducer.user);
-  const selected = useSelector((state) => state.cityReducer.selected); //added
 
   return (
     <div className="dashboard-container">
