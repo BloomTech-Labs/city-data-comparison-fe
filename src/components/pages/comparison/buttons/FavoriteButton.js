@@ -21,7 +21,7 @@ const FavoriteButton = ({ city }) => {
   const user = useSelector((state) => state.userReducer.user);
 
   useEffect(() => {
-    if (user) {
+    if (localStorage.getItem("token")) {
       dispatch(getFavorites());
     }
   }, []);
@@ -51,10 +51,10 @@ const FavoriteButton = ({ city }) => {
           alignItems: "center",
           background: "white",
           width: "1.4rem",
-          justifyContent: "space-around",
+          justifyContent: "space-between",
           borderRadius: "0.3rem",
           margin: "0 0.3rem",
-          "margin-left": "auto",
+          marginLeft: "auto",
         }}
       >
         <img
