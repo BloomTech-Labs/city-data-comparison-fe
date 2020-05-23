@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { useHistory } from "react-router-dom";
 import heart_icon from "../assets/heart.svg";
-import filled_heart from "../../../../assets/icons/filled_heart.svg";
+import filled_heart from "../../../../assets/icons/filled-heart.png";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
