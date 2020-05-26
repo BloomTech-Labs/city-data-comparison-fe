@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import citrics from "./citrics-mock-dark.png";
 import signInLock from "./signInLockDark.png";
 import { actionColor, navGrey } from "../../utils/cityColors.js";
@@ -11,8 +11,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/actions/userActions.js";
 
 function Navigation() {
-  const history = useHistory();
-
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.userReducer.user);
@@ -21,11 +19,10 @@ function Navigation() {
 
   const handleClickLogout = () => {
     dispatch(logout());
-    history.push("/signin");
   };
 
   return (
-    <div className={"navigation-container " + "default-color" + `main-nav`}>
+    <div className={"navigation-container default-colormain-nav"}>
       <a className="header-logo" href="/">
         {" "}
         <img className="mock-logo" src={citrics} alt="logo" />
@@ -68,6 +65,7 @@ function Navigation() {
                   className="login-link"
                   style={{ color: navGrey }}
                   onClick={() => handleClickLogout()}
+                  to="/"
                 >
                   <img className="lock" alt="lock" src={signInLock} />
                   Logout

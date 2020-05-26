@@ -157,7 +157,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vh;
+    height: 94vh;
     min-width: 1520px;
     min-height: 650px;
     margin-top: 70px;
@@ -168,6 +168,7 @@ body {
   }
 
   .dashboard-image-header {
+    margin-top: 22vh;
     margin-right: 650px;
 
     @media screen and (max-width: 850px) {
@@ -447,7 +448,6 @@ body {
     font-weight: 500;
     padding: 0;
     margin-top: 20px;
-    margin-left: 30px;
     background-color: #0066cc;
     color: white;
     width: 38%;
@@ -464,26 +464,9 @@ body {
       filter: brightness(115%);
     }
 
-    @media screen and (max-width: 700px) {
-      width: 75%;
-    }
-    @media screen and (max-width: 450px) {
-      width: 70%;
-    }
-    @media screen and (max-width: 420px) {
-      width: 60%;
-    }
-    @media screen and (max-width: 414px) {
-      margin-left: 19%;
-    }
-    @media screen and (max-width: 375px) {
-      margin-left: 14%;
-    }
-    @media screen and (max-width: 360px) {
-      margin-left: 12%;
-    }
-    @media screen and (max-width: 320px) {
-      margin-left: 6%;
+    @media screen and (max-width: 800px) {
+      margin-top: 8vh;
+      width: 100%;
     }
   }
 }

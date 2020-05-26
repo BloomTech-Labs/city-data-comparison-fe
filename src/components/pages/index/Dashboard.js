@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-
-import ReactGA from "react-ga";
-import { useSelector } from "react-redux"; //import
 
 import FlowContainer from "./user-flow/FlowContainer";
 
 import useModal from "../../modal/useModal";
-import ModalPopup from "../../modal/modal.js";
+import Modal from "../../modal/modal.js";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -26,9 +23,6 @@ function Dashboard({ history }) {
   const { isShowing, toggle } = useModal();
 
   AOS.init();
-
-  const user = useSelector((state) => state.userReducer.user);
-  const selected = useSelector((state) => state.cityReducer.selected); //added
 
   return (
     <div className="dashboard-container">
@@ -50,9 +44,11 @@ function Dashboard({ history }) {
               </p>
               {/* SEARCH CONTAINER */}
               <div className="dashboard-function-container">
-                <ModalPopup
+                <Modal
+                  title={"Find Your Perfect City"}
                   isShowing={isShowing}
                   hide={toggle}
+                  large={true}
                   component={<FlowContainer />}
                 />
                 <button
@@ -188,9 +184,10 @@ function Dashboard({ history }) {
             />
             {/* <LineGraph2 /> */}
             <p className="metrics-description">
-              <p className="metrics-description-title">Housing</p>Housing data
-              includes median rent, home prices, monthly homeowner costs,
-              housing by rooms, and etc.
+              <span className="metrics-description-title">Housing</span>
+              <br />
+              Housing data includes median rent, home prices, monthly homeowner
+              costs, housing by rooms, and etc.
             </p>
           </div>
           <div
@@ -210,9 +207,10 @@ function Dashboard({ history }) {
             />
             {/* <LineGraph /> */}
             <p className="metrics-description">
-              <p className="metrics-description-title">Community</p>Data for
-              social trends consists of age, ethnicity, education, languages
-              spoken, school enrollment, and etc.
+              <span className="metrics-description-title">Community</span>
+              <br />
+              Data for social trends consists of age, ethnicity, education,
+              languages spoken, school enrollment, and etc.
             </p>
           </div>
           <div
@@ -232,8 +230,9 @@ function Dashboard({ history }) {
             />
             {/* <RadarGraph /> */}
             <p className="metrics-description">
-              <p className="metrics-description-title">Economy</p>Economic data
-              includes household income, major industries, etc.
+              <span className="metrics-description-title">Economy</span>
+              <br />
+              Economic data includes household income, major industries, etc.
             </p>
           </div>
         </div>

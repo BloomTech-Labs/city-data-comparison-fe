@@ -4,6 +4,7 @@ import * as types from "./actionTypes";
 import {
   cityDataById,
   matchCityFromString,
+  citySuggestion,
 } from "../../utils/axiosDataScience.js";
 
 //This thunk either takes a object with a property ID,
@@ -62,6 +63,37 @@ export function getCity(cityMarker) {
           payload: `Could not find city: ${cityMarker}`,
         });
       }
+    }
+  };
+}
+
+export function getSuggestedCity(inputs) {
+  return async (dispatch, getState) => {
+    //Set isFetching in store.
+    dispatch({ type: types.GET_CITY });
+    try {
+      //Make an axios call to the citydata api using the city's id.
+      const res = await citySuggestion().get(
+        `/reverse?temp=${inputs.weather}&mean_income=${inputs.income}&housing=${
+          inputs.housing
+        }&city_size=${inputs.location}${
+          inputs.industry ? `&industry=${inputs.industry}` : ""
+        }`
+      );
+      //Log selected city in Google Analytics.
+      ReactGA.event({
+        category: "Data",
+        action: `selected ${res.data.name_with_com}`,
+      });
+      let newCity = res.data;
+      //Dispatch the city to state.
+      dispatch({ type: types.GET_CITY_SUCCESS, payload: newCity });
+    } catch (err) {
+      dispatch({
+        type: types.GET_CITY_ERROR,
+        payload: `Could not find city.`,
+      });
+      console.error(err);
     }
   };
 }

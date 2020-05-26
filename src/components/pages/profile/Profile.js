@@ -5,8 +5,6 @@ import "./profile.scss";
 import Footer from "../../navigation/Footer";
 import Favorites from "./Favorites";
 
-import ProfileCard from "./ProfileCard";
-
 function Profile({ selected }) {
   return (
     <div className="profile-body">

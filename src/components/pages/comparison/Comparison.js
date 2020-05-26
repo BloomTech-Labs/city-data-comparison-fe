@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getCity, removeCity } from "../../../redux/actions/cityActions.js";
 
 import ReactMapGL from "react-map-gl";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import "./Map.scss";
 import ReactGA from "react-ga";
 import Footer from "../../navigation/Footer";

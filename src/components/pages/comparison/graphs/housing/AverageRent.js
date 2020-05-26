@@ -1,32 +1,32 @@
 import React from "react";
-import { HorizontalBar } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import GraphContainer from "../ResponsiveGraphContainer";
 
-export default function EducationGraph(props) {
+export default function AverageRent(props) {
   return (
-    <GraphContainer>
-      <HorizontalBar
+    <GraphContainer size={0.7}>
+      <Bar
         data={{
           labels: [
-            "Less than 9th grade",
-            "Some High School",
-            "High school",
-            "Some College",
-            "Associate's Degree",
-            "Bachelor's Degree",
-            "Graduate Degree",
+            "Less than $500",
+            "$500 - $999",
+            "$1,000 - $1,499",
+            "$1,500 - $1,999",
+            "$2,000 - $2,499",
+            "$2,500 - $2,999",
+            "$3,000 or more",
           ],
           datasets: props.edData.map((item) => {
             return {
               label: item.name_with_com,
               data: [
-                item["Educational Attainment"]["Less than 9th grade"],
-                item["Educational Attainment"]["9th to 12th grade no diploma"],
-                item["Educational Attainment"]["High school"],
-                item["Educational Attainment"]["Some college no degree"],
-                item["Educational Attainment"]["Associate's degree"],
-                item["Educational Attainment"]["Bachelor's degree"],
-                item["Educational Attainment"]["Graduate degree"],
+                item["Rent"]["Less than USD 500"],
+                item["Rent"]["USD 500 - USD 999"],
+                item["Rent"]["USD 1,000 - USD 1,499"],
+                item["Rent"]["USD 1,500 - USD 1,999"],
+                item["Rent"]["USD 2,000 - USD 2,499"],
+                item["Rent"]["USD 2,500 - USD 2,999"],
+                item["Rent"]["USD 3,000 or more"],
               ],
               backgroundColor: item.color,
             };
@@ -37,7 +37,7 @@ export default function EducationGraph(props) {
           maintainAspectRatio: false,
           title: {
             display: false,
-            text: "Educational Attainment",
+            text: "Rent",
             fontSize: 25,
           },
           legend: {
@@ -53,7 +53,7 @@ export default function EducationGraph(props) {
                 },
                 scaleLabel: {
                   display: true,
-                  labelString: "Percent",
+                  labelString: "Average rent",
                 },
               },
             ],
@@ -64,7 +64,7 @@ export default function EducationGraph(props) {
                   display: false,
                 },
                 scaleLabel: {
-                  display: false,
+                  display: true,
                   labelString: "Percent",
                   ticks: {
                     beginAtZero: true,

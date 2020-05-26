@@ -1,28 +1,28 @@
 import React from "react";
-import AvgTemp from "./graphs/culture/tempAvg";
+import Temperature from "./graphs/culture/Temperature";
 import MapSearch from "./MapSearch";
-import HousePriceGraph from "./graphs/housing/House_price";
+import AverageHomePrices from "./graphs/housing/AverageHomePrices.js";
 import RoomGraph from "./graphs/housing/HousingByRooms";
-import RentChart from "./graphs/housing/RentChart";
+import AverageRent from "./graphs/housing/AverageRent";
 import IndustryBarGraph from "./graphs/economics/IndustryBarGraph";
 import IndustryLineGraph from "./graphs/economics/IndustryLineGraph.js";
-import Commute from "./graphs/economics/commute";
-import BarGraph from "./graphs/economics/HouseIncome_BarGraph";
-import EthnicityGraph from "./graphs/culture/EthnicityGraph";
+import Commute from "./graphs/economics/commute.js";
+import BarGraph from "./graphs/economics/AverageSalary";
+import Diversity from "./graphs/culture/Diversity";
 import Population from "./graphs/culture/PopulationGraph";
 import EducationGraph from "./graphs/culture/EducationGraph";
 import AgeDistributionGraph from "./graphs/culture/AgeDistrubution";
 import RetirementGraph from "./graphs/economics/retirement";
-import VacancyGraph from "./graphs/housing/vacancy";
+import Vacancy from "./graphs/housing/vacancy";
 import Unemployment from "./graphs/economics/Unemployment";
 import Overview from "./overview/Overview";
-import TravelTime from "./graphs/economics/TravelTimeCard";
+import AverageTravelTime from "./graphs/economics/AverageTravelTime";
 import {
   OwnerCosts,
   OwnerCostsModalContent,
 } from "./graphs/housing/OwnerCosts";
 
-import Card from "../../card/Card.js";
+import GraphCard from "./graphs/card/GraphCard.js";
 
 import { navGrey } from "../../../utils/cityColors.js";
 
@@ -50,57 +50,58 @@ const DataDisplay = ({
             <Overview selected={selected} />
 
             <div className="data-category" id="housing">
-              <Card title={"Home Prices"}>
-                <HousePriceGraph selected={selected} />
+              <GraphCard title={"Home Prices"}>
+                <AverageHomePrices selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: zillow.com
                 </p>
-              </Card>
+              </GraphCard>
 
-              <Card title={"Average Rent"} gridColumn="6">
-                <RentChart edData={selected} />
+              <GraphCard title={"Average Rent"} gridColumn="6">
+                <AverageRent edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </Card>
+              </GraphCard>
 
-              <Card title="Average Rooms Per Household" gridColumn="6">
+              <GraphCard title="Average Rooms Per Household" gridColumn="6">
                 <RoomGraph edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </Card>
+              </GraphCard>
 
-              <Card title="Vacancy" gridColumn={9}>
-                <VacancyGraph edData={selected} />
+              <GraphCard title="Vacancy" gridColumn={9}>
+                <Vacancy edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </Card>
+              </GraphCard>
 
-              <Card
+              <GraphCard
                 title={"Owner Costs"}
                 modalContent={<OwnerCostsModalContent />}
+                modalTitle={"Selected Monthly Owner Costs"}
                 gridColumn={3}
               >
                 <OwnerCosts selected={selected} />
-              </Card>
+              </GraphCard>
             </div>
 
             <div className="data-category" id="industry">
-              <Card title={"Average Salary"}>
+              <GraphCard title={"Average Salary"}>
                 <BarGraph edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </Card>
+              </GraphCard>
 
-              <Card title={"Job Industry Breakdown"}>
+              <GraphCard title={"Job Industry Breakdown"}>
                 <IndustryBarGraph selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </Card>
+              </GraphCard>
 
               {/* Array.every() returns true if every item meets the condition.
               This way if none of the cities have Industry Trend data the component won't even be rendered.  
@@ -110,67 +111,70 @@ const DataDisplay = ({
               }) ? (
                 <></>
               ) : (
-                <Card title={"Job Industry Trends"}>
+                <GraphCard title={"Job Industry Trends"}>
                   <IndustryLineGraph selected={selected} />
-                </Card>
+                </GraphCard>
               )}
 
-              <Card title={"Ways to Commute"} gridColumn={9}>
+              <GraphCard title={"Ways to Commute"} gridColumn={9}>
                 <Commute edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </Card>
+              </GraphCard>
 
-              <Card title={"Average Commute"} gridColumn="3">
-                <TravelTime selected={selected} />
-              </Card>
+              <GraphCard title={"Average Commute"} gridColumn="3">
+                <AverageTravelTime selected={selected} />
+              </GraphCard>
 
-              <Card title={"Unemployment"} gridColumn="3">
+              <GraphCard title={"Unemployment"} gridColumn="3">
                 <Unemployment selected={selected} />
-              </Card>
+              </GraphCard>
 
-              <Card title={"Retirement Income Source"} gridColumn="9">
-                <RetirementGraph ethData={selected} />
+              <GraphCard title={"Retirement Income Source"} gridColumn="9">
+                <RetirementGraph selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </Card>
+              </GraphCard>
             </div>
 
             <div className="data-category" id="culture">
-              <Card title={"Population Growth"}>
+              <GraphCard title={"Population Growth"}>
                 <Population selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </Card>
+              </GraphCard>
 
-              <Card title={"Age Distribution"}>
+              <GraphCard title={"Age Distribution"}>
                 <AgeDistributionGraph ethData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </Card>
+              </GraphCard>
 
-              <Card title={"Diversity"}>
-                <EthnicityGraph ethData={selected} />
+              <GraphCard title={"Diversity"}>
+                <Diversity selected={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </Card>
+              </GraphCard>
 
-              <Card title={"Education"}>
+              <GraphCard title={"Education"}>
                 <EducationGraph edData={selected} />
                 <p style={{ textAlign: "right", fontSize: "10px" }}>
                   Source: U.S. Census (2018)
                 </p>
-              </Card>
+              </GraphCard>
             </div>
             <div className="data-category" id="weather">
-              <Card title={"Historical Temperature"}>
-                <AvgTemp edData={selected} />
-              </Card>
+              <GraphCard title={"Historical Temperature"}>
+                <Temperature selected={selected} />
+                <p style={{ textAlign: "right", fontSize: "10px" }}>
+                  Source: NOAA
+                </p>
+              </GraphCard>
             </div>
           </>
         ) : (

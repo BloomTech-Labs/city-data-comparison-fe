@@ -1,11 +1,11 @@
 import React from "react";
-import helpCircle from "../../assets/icons/helpcircle.svg";
+import helpCircle from "../../assets/helpcircle.svg";
 import useModal from "../../../../modal/useModal";
 import ModalPopup from "../../../../modal/modal.js";
 import { actionColor } from "../../../../../utils/cityColors.js";
 import styled from "styled-components/macro";
 
-function Card(props) {
+function GraphCard(props) {
   const { isShowing, toggle } = useModal();
 
   const CardContainer = styled.div`
@@ -99,4 +99,4 @@ function Card(props) {
   );
 }
 
-export default Card;
+export default GraphCard;

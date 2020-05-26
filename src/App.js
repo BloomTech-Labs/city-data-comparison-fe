@@ -1,25 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import ReactGA from "react-ga";
-import PrivateRoute from "./components/PrivateRoute";
+import PrivateRoute from "./components/PrivateRoute.js";
 
 import "./App.scss";
 
-import Dashboard from "./components/pages/index/Dashboard";
-import Navigation from "./components/navigation/Navigation";
-import Footer from "./components/navigation/Footer";
+import Dashboard from "./components/pages/index/Dashboard.js";
+import Navigation from "./components/navigation/Navigation.js";
+import Footer from "./components/navigation/Footer.js";
 import Comparison from "./components/pages/comparison/Comparison.js";
-import Profile from "./components/pages/profile/Profile";
-import PrivacyPolicy from "./components/pages/privacypolicy/PrivacyPolicy";
-import AboutUs from "./components/pages/aboutus/AboutUs";
-// import AboutUs2 from './components/aboutus/AboutUs2';
+import Profile from "./components/pages/profile/Profile.js";
+import PrivacyPolicy from "./components/pages/privacypolicy/PrivacyPolicy.js";
+import AboutUs from "./components/pages/aboutus/AboutUs.js";
 import citiesIndex from "./data/city_ids.json";
-import { CityContext } from "./contexts/CityContext";
-import Callback from "./components/Callback";
-import AuthForm from "./components/pages/login/AuthForm";
-
-import { useDispatch } from "react-redux";
-import { getUser } from "./redux/actions/userActions.js";
+import { CityContext } from "./contexts/CityContext.js";
+import Callback from "./components/Callback.js";
+import AuthForm from "./components/pages/login/AuthForm.js";
 
 function initializeAnalytics() {
   ReactGA.initialize("UA-156199574-1");
@@ -41,17 +37,6 @@ function App() {
     cityIndex.push(city);
   });
 
-  //search component??
-  const [toggleSearch, setToggleSearch] = useState(true);
-
-  //possibly for user profile only?? possibly for others?? probably don't use localStorage??
-  //user reducer
-
-  //should go with comparison page, doesn't really work right now
-  //part of user reducer
-  const [favorites, setFavorites] = useState([]);
-
-  //map components??
   //city reducer
   const [cityMarkers, setCityMarkers] = useState(cityIndex);
 
@@ -101,7 +86,8 @@ function App() {
         );
       }
 
-      //these 4 lines of code took too long to write, they determine the bounds of the map on screen
+      // Determines the bounds of the map on screen
+      // This code could probably use some refactoring since it's useEffect doesn ot have all the dependancies
       const f1 = (item) =>
         item.lng >
         viewport.longitude -

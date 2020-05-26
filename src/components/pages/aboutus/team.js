@@ -56,6 +56,7 @@ import thomas from '../../../assets/team2_photos/Thomas Rodriguez.png';
 import jeremy from '../../../assets/team2_photos/Jeremy Rogel1.png';
 
 
+
 const team = [
     {
         labs: 19,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ProfileCard from "./cards/ProfileCard";
@@ -46,8 +46,10 @@ const Favorite = (props) => {
           background: "white",
           width: "1.4rem",
           borderRadius: "0.3rem",
-          margin: "0 0.3rem",
-          marginRight: "0.6rem",
+          margin: "0",
+          position: "absolute",
+          right: "1.4rem",
+          top: "2rem",
         }}
       >
         <img
@@ -72,7 +74,7 @@ const Favorites = (props) => {
 
   useEffect(() => {
     dispatch(getFavorites());
-  }, []);
+  }, [dispatch]);
 
   const favorites = useSelector((state) => state.userReducer.favorites);
 

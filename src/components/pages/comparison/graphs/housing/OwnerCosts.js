@@ -1,4 +1,55 @@
 import React from "react";
+import styled from "styled-components/macro";
+
+const FlexContainer = styled.div`
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 1.4rem;
+  height: 100%;
+`;
+
+const Mortgage = styled.div`
+  height: auto;
+  width: auto;
+`;
+const MortgagePrice = styled.span`
+  font-size: 1.15rem;
+  color: #444444;
+  margin-left: 3px;
+`;
+const MortgageLabelContainer = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5px;
+`;
+const CityMortgageTitle = styled.div`
+  color: #2e2f38;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 8px;
+  color: grey;
+`;
+const MortgageLabel = styled.span`
+  color: grey;
+  font-size: 1rem;
+`;
+const MonthLabel = styled.span`
+  font-size: 13px;
+  color: darkgrey;
+`;
+
+const Source = styled.p`
+  text-align: right;
+  font-size: 10px;
+  @media screen and (min-width: 800px) {
+    position: absolute;
+    bottom: 1.4rem;
+    text-align: center;
+    width: 55%;
+  }
+`;
 
 export function OwnerCosts({ selected }) {
   function numberCommas(x) {
@@ -7,39 +58,34 @@ export function OwnerCosts({ selected }) {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-around",
-        }}
-      >
+      <FlexContainer>
         {selected.map((item) => (
           <div key={item._id} className="mortgage">
-            <div className="mortgage-label-container">
-              <span className="mortgage-label">Mortgage: </span>
-              <span className="mortgage-price">
+            <MortgageLabelContainer>
+              <MortgageLabel>Mortgage: </MortgageLabel>
+              <MortgagePrice>
                 $
                 {numberCommas(
                   item["Median Selected Monthly Owner Costs with Mortgage"]
                 )}
-                <span className="month-label">/mo</span>
-              </span>
-            </div>
-            <div className="mortgage-label-container">
-              <span className="mortgage-label">No Mortgage: </span>
-              <span className="mortgage-price">
+                <MonthLabel>/mo</MonthLabel>
+              </MortgagePrice>
+            </MortgageLabelContainer>
+            <MortgageLabelContainer>
+              <MortgageLabel>No Mortgage: </MortgageLabel>
+              <MortgagePrice>
                 $
                 {numberCommas(
                   item["Median Selected Monthly Owner Costs without Mortgage"]
                 )}
-                <span className="month-label">/mo</span>
-              </span>
-            </div>
-            <div className="city-mortgage-title">{item["City"]}</div>
+                <MonthLabel>/mo</MonthLabel>
+              </MortgagePrice>
+            </MortgageLabelContainer>
+            <CityMortgageTitle>{item["City"]}</CityMortgageTitle>
           </div>
         ))}
-      </div>
+      </FlexContainer>
+      <Source>Source: U.S. Census (2018)</Source>
     </>
   );
 }
@@ -47,23 +93,21 @@ export function OwnerCosts({ selected }) {
 export function OwnerCostsModalContent(props) {
   return (
     <div>
-      <h1 className="smocTitle">Selected Monthly Owner Costs</h1>
-      <p className="smocText">
-        Selected monthly owner costs are calculated from the sum of payment for
-        mortgages, real estate taxes, various insurances, utilities, fuels,
-        mobile home costs, and condominium fees. Listing the items separately
-        improves accuracy and provides additional detail.
-        <br /><br />
-        When combined with income, a new item is created -- Selected Monthly
-        Owner Costs as a percentage of household income. This item is used to 
-        measure housing affordability and excessive shelter costs. For example,
-        many government agencies define excessive as costs that exceed 30 percent
-        of household income.
+      <p style={{ margin: "1.4rem", fontWeight: "450" }}>
+        "Mortgage" is focused on homeowners who are currently still paying their
+        mortgage.
       </p>
-      <div className="smoc-link">
-        <a href="https://factfinder.census.gov/help/en/selected_monthly_owner_costs.htm">
-          Source
-        </a>
+      <p style={{ margin: "1.4rem", fontWeight: "450" }}>
+        "No Mortgage" is based on homeowners who no longer pay a mortgage, or
+        own their home in it's entirety.
+      </p>
+      <p style={{ margin: "1.4rem", fontStyle: "italic", fontSize: ".92rem" }}>
+        Selected monthly owner costs are a measure of the total costs associated
+        with home ownership. (Taxes, utilities, insurance, etc.)
+      </p>
+
+      <div style={{ textAlign: "center" }}>
+        <p>Source: US Census 2018</p>
       </div>
     </div>
   );

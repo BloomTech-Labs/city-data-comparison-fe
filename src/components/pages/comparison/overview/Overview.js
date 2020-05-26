@@ -10,6 +10,8 @@ import Recommendations from "./Recommendations";
 import DeselectCityButton from "../buttons/DeselectCityButton.js";
 import { Link as ScrollLink } from "react-scroll";
 
+import "./Overview.scss";
+
 function Overview({ selected, isProfilePage }) {
   function numberCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -37,7 +39,7 @@ function Overview({ selected, isProfilePage }) {
                   >
                     <div className="overview-title">
                       <img alt="income" src={income} />
-                      Median income
+                      Median income <br></br>per capita
                     </div>
                   </ScrollLink>
                   <ScrollLink

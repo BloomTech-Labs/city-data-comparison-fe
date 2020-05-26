@@ -1,5 +1,5 @@
 import React from "react";
-import archive from "../../assets/archive.svg";
+import clock from "../../assets/clock.svg";
 import styled from "styled-components/macro";
 
 const Source = styled.p`
@@ -13,7 +13,7 @@ const Source = styled.p`
   }
 `;
 
-function Unemployment({ selected }) {
+function AverageTravelTime({ selected }) {
   return (
     <>
       <div
@@ -25,14 +25,12 @@ function Unemployment({ selected }) {
         }}
       >
         {selected.map((item) => (
-          <div key={item._id} className="unemployment-container">
-            <span className="unemployment-num">
-              <img className="archive" src={archive} alt="archive" />{" "}
-              {item["Unemployment Rate"]}%
+          <div key={item._id} className="commute-time-container">
+            <span className="commute-time-num">
+              <img className="commute-clock" src={clock} alt="clock" />
+              {item["Mean Travel Time"]} min.
             </span>
-            <p className="unemployment-label">
-              are unemployed in {item["City"]}
-            </p>
+            <p id="commute-label">{item["City"]}</p>
           </div>
         ))}
       </div>
@@ -41,4 +39,4 @@ function Unemployment({ selected }) {
   );
 }
 
-export default Unemployment;
+export default AverageTravelTime;

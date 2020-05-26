@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 
 import { useHistory } from "react-router-dom";
 import heart_icon from "../assets/heart.svg";
-import filled_heart from "../../../../assets/icons/filled_heart.svg";
-import ReactGA from "react-ga";
+import filled_heart from "../../../../assets/icons/filled-heart.png";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -21,8 +20,10 @@ const FavoriteButton = ({ city }) => {
   const user = useSelector((state) => state.userReducer.user);
 
   useEffect(() => {
-    dispatch(getFavorites());
-  }, []);
+    if (localStorage.getItem("token")) {
+      dispatch(getFavorites());
+    }
+  }, [dispatch]);
 
   const toggle = () => {
     if (user) {
@@ -49,10 +50,10 @@ const FavoriteButton = ({ city }) => {
           alignItems: "center",
           background: "white",
           width: "1.4rem",
-          justifyContent: "space-around",
+          justifyContent: "space-between",
           borderRadius: "0.3rem",
           margin: "0 0.3rem",
-          "margin-left": "auto",
+          marginLeft: "auto",
         }}
       >
         <img

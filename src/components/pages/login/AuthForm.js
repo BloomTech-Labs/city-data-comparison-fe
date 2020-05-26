@@ -22,7 +22,7 @@ import useModal from "../../modal/useModal";
 import PrivacyPolicy from "../privacypolicy/PrivacyPolicy";
 
 //styled component icons instead of fontawesome
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { User } from "styled-icons/boxicons-regular/User";
 import { LockAlt } from "styled-icons/boxicons-regular/LockAlt";
 
@@ -60,7 +60,6 @@ const AuthForm = (props) => {
   const [modalState, setModalState] = useState();
 
   //state
-  const user = useSelector((state) => state.userReducer.user);
   const errorMsg = useSelector((state) => state.userReducer.error);
   const dispatch = useDispatch();
 
@@ -198,14 +197,13 @@ const AuthForm = (props) => {
                       Please accept our
                       <span
                         className="ppText"
-                        style={{ margin: "2vw" }}
+                        style={{ margin: "2vw", cursor: "pointer" }}
                         onClick={() => {
                           setModalState(
                             <PrivacyPolicy register={props.register} />
                           );
                           toggle();
                         }}
-                        style={{ cursor: "pointer" }}
                       >
                         privacy policy
                       </span>

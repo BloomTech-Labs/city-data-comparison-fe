@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Axios from "axios";
 
 import recommend from "./recommend-pin.svg";
@@ -21,38 +21,41 @@ const Recommendations = ({ city }) => {
     "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/recommend/industry/";
   //get recommendations when component mounts
 
-  const randomKey = (obj) => {
-    const keys = Object.keys(obj);
-    const randomIndex = (keys.length * Math.random()) << 0;
-    return obj[keys[randomIndex]].id !== city._id
-      ? keys[randomIndex]
-      : randomKey(obj);
-  };
+  const randomKey = useCallback(
+    (obj) => {
+      const keys = Object.keys(obj);
+      const randomIndex = (keys.length * Math.random()) << 0;
+      return obj[keys[randomIndex]].id !== city._id
+        ? keys[randomIndex]
+        : randomKey(obj);
+    },
+    [city]
+  );
 
-  useEffect((_) => {
-    {
-      /* on mount, this component selects one recommendation at random for each available category */
-    }
-    Axios.get(`${housingURL}${city._id}`)
-      .then((res) => {
-        let recName = randomKey(res.data);
+  useEffect(
+    (_) => {
+      Axios.get(`${housingURL}${city._id}`)
+        .then((res) => {
+          let recName = randomKey(res.data);
 
-        setHousingRec({ city: recName, ID: res.data[recName].id });
-      })
-      .catch((err) => console.log(err));
-    Axios.get(`${cultureURL}${city._id}`)
-      .then((res) => {
-        let recName = randomKey(res.data);
-        setCultureRec({ city: recName, ID: res.data[recName].id });
-      })
-      .catch((err) => console.log(err));
-    Axios.get(`${industryURL}${city._id}`)
-      .then((res) => {
-        let recName = randomKey(res.data);
-        setIndustryRec({ city: recName, ID: res.data[recName].id });
-      })
-      .catch((err) => console.log(err));
-  }, []);
+          setHousingRec({ city: recName, ID: res.data[recName].id });
+        })
+        .catch((err) => console.log(err));
+      Axios.get(`${cultureURL}${city._id}`)
+        .then((res) => {
+          let recName = randomKey(res.data);
+          setCultureRec({ city: recName, ID: res.data[recName].id });
+        })
+        .catch((err) => console.log(err));
+      Axios.get(`${industryURL}${city._id}`)
+        .then((res) => {
+          let recName = randomKey(res.data);
+          setIndustryRec({ city: recName, ID: res.data[recName].id });
+        })
+        .catch((err) => console.log(err));
+    },
+    [city, cultureURL, housingURL, industryURL, randomKey]
+  );
 
   return (
     <div className="recommendation-grid">

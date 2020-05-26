@@ -2,31 +2,37 @@ import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
 import GraphContainer from "../ResponsiveGraphContainer";
 
-export default function EducationGraph(props) {
+export default function AverageSalary(props) {
   return (
-    <GraphContainer>
+    <GraphContainer size={1}>
       <HorizontalBar
         data={{
           labels: [
-            "Less than 9th grade",
-            "Some High School",
-            "High school",
-            "Some College",
-            "Associate's Degree",
-            "Bachelor's Degree",
-            "Graduate Degree",
+            "Less than $10,000",
+            "$10,000 - $14,999",
+            "$15,000 - $24,999",
+            "$25,000 - $34,999",
+            "$35,000 - $49,999",
+            "$50,000 - $74,999",
+            "$75,000 - $99,999",
+            "$100,000 - $149,999",
+            "$150,000 - $199,999",
+            "$200,000 or more",
           ],
           datasets: props.edData.map((item) => {
             return {
               label: item.name_with_com,
               data: [
-                item["Educational Attainment"]["Less than 9th grade"],
-                item["Educational Attainment"]["9th to 12th grade no diploma"],
-                item["Educational Attainment"]["High school"],
-                item["Educational Attainment"]["Some college no degree"],
-                item["Educational Attainment"]["Associate's degree"],
-                item["Educational Attainment"]["Bachelor's degree"],
-                item["Educational Attainment"]["Graduate degree"],
+                item["Household Income"]["Less than USD 10,000"],
+                item["Household Income"]["USD 10,000 - USD 14,999"],
+                item["Household Income"]["USD 15,000 - USD 24,999"],
+                item["Household Income"]["USD 25,000 - USD 34,999"],
+                item["Household Income"]["USD 35,000 - USD 49,999"],
+                item["Household Income"]["USD 50,000 - USD 74,999"],
+                item["Household Income"]["USD 75,000 - USD 99,999"],
+                item["Household Income"]["USD 100,000 - USD 149,999"],
+                item["Household Income"]["USD 150,000 - USD 199,999"],
+                item["Household Income"]["USD 200,000 or more"],
               ],
               backgroundColor: item.color,
             };
@@ -37,7 +43,7 @@ export default function EducationGraph(props) {
           maintainAspectRatio: false,
           title: {
             display: false,
-            text: "Educational Attainment",
+            text: "Household Income",
             fontSize: 25,
           },
           legend: {
@@ -65,7 +71,7 @@ export default function EducationGraph(props) {
                 },
                 scaleLabel: {
                   display: false,
-                  labelString: "Percent",
+                  labelString: "Household income",
                   ticks: {
                     beginAtZero: true,
                   },
