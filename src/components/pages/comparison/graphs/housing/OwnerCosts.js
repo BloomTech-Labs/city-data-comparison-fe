@@ -40,6 +40,17 @@ const MonthLabel = styled.span`
   color: darkgrey;
 `;
 
+const Source = styled.p`
+  text-align: right;
+  font-size: 10px;
+  @media screen and (min-width: 800px) {
+    position: absolute;
+    bottom: 1.4rem;
+    text-align: center;
+    width: 55%;
+  }
+`;
+
 export function OwnerCosts({ selected }) {
   function numberCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -74,9 +85,7 @@ export function OwnerCosts({ selected }) {
           </div>
         ))}
       </FlexContainer>
-      <p style={{ textAlign: "right", fontSize: "10px" }}>
-        Source: U.S. Census (2018)
-      </p>
+      <Source>Source: U.S. Census (2018)</Source>
     </>
   );
 }

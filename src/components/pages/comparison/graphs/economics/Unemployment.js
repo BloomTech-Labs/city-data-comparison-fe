@@ -1,5 +1,17 @@
 import React from "react";
 import archive from "../../assets/archive.svg";
+import styled from "styled-components/macro";
+
+const Source = styled.p`
+  text-align: right;
+  font-size: 10px;
+  @media screen and (min-width: 800px) {
+    position: absolute;
+    bottom: 1.4rem;
+    text-align: center;
+    width: 55%;
+  }
+`;
 
 function Unemployment({ selected }) {
   return (
@@ -24,9 +36,7 @@ function Unemployment({ selected }) {
           </div>
         ))}
       </div>
-      <p style={{ textAlign: "right", fontSize: "10px" }}>
-        Source: U.S. Census (2018)
-      </p>
+      <Source>Source: U.S. Census (2018)</Source>
     </>
   );
 }
