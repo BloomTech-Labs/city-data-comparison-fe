@@ -55,6 +55,7 @@ import regino from '../../../assets/team2_photos/Regino Parragil.jpg';
 import thomas from '../../../assets/team2_photos/Thomas Rodriguez.png';
 import jeremy from '../../../assets/team2_photos/Jeremy Rogel1.png';
 //labs 23
+import david from '../../../assets/team3_photos/David Pok.jpg';
 import svyat from '../../../assets/team3_photos/Svyat.png';
 import liam from '../../../assets/team3_photos/Liam Moore.jpg';
 import damon from '../../../assets/team3_photos/Damon Bogich.jpg';
@@ -370,14 +371,14 @@ const team = [
     }, {
         labs: 23,
         name: 'David Pok', 
-        image: kyle,
+        image: david,
         role: 'Web Developer', 
         social: {
             twitter: null, 
             github: 'david-pok', 
             linkedin: null
         }, 
-        about: 'David Pok is a Full Stack Web Developer attending Lambda School.',
+        about: 'David Pok is a Full Stack Web Developer from Los Angeles.  He is a curious person who loves problem solving.',
         portfolio: null
     }, {
         labs: 23,
