@@ -61,6 +61,23 @@ Cities with data are marked on a searchable, indexed map generated from the Mapb
 - Axios Mock Adapter
   - Used to setup tests for async action creators or any functions that make any axios calls.
 
+## Style Guidelines
+
+### Color Scheme
+
+- Action color: "#0066CC"
+  - Used throughout the site to identify things that we want our users to notice.  This includes our logo, login button, and any other clickable words/icons we want our users to take notice of.  
+- Data visualization colors: Green: "#6dd47ed0", Yellow: "#ffd55ad0", Darkblue/grey: "#6dd47ed0"
+  - Colors Newly implemented to make the data visualizations more accessible to those who have vision impairments
+  - Colors all have a varying brightness that ensures they appear differently on greyscale.
+
+### Font
+- font-family: "Rubik",sans-serif;
+
+### Margins
+- Multiples of 1.4 rems used for margins
+- Css grid used to space the graphs out and give the site a consitent/even look.
+
 #### Front-end deployed to https://citrics.io/
 
 <!-- # 3️⃣ Environment Variables
