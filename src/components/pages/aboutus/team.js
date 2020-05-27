@@ -54,6 +54,16 @@ import ryan from '../../../assets/team2_photos/Ryan Cooper.png';
 import regino from '../../../assets/team2_photos/Regino Parragil.jpg'; 
 import thomas from '../../../assets/team2_photos/Thomas Rodriguez.png';
 import jeremy from '../../../assets/team2_photos/Jeremy Rogel1.png';
+//labs 23
+import david from '../../../assets/team3_photos/David Pok.jpg';
+import svyat from '../../../assets/team3_photos/Svyat.png';
+import liam from '../../../assets/team3_photos/Liam Moore.jpg';
+import damon from '../../../assets/team3_photos/Damon Bogich.jpg';
+import amy from '../../../assets/team3_photos/Amy NLe.jpg';
+import steven from '../../../assets/team3_photos/Steven Reiss.jpg';
+import robert from '../../../assets/team3_photos/Robert Tom.jpg';
+import stephanie from '../../../assets/team3_photos/Stephanie Miller.png';
+
 
 
 
@@ -251,7 +261,7 @@ const team = [
         social: {
             twitter: null, 
             github: 'zebfred', 
-            linkedin: null
+            linkedin: 'zeb-smith-0240b8a8/'
         }, 
         about: 'Jimmy "Zeb" Smith is a data scientist in Winchester, TN. Prior to starting Lambda, he obtained his bachelors of science at the University South. He majored in chemistry with a pre-engineering focus in math and physics. His interest lies in using emerging data science technologies for a better tomorrow.',
         portfolio: null
@@ -346,7 +356,116 @@ const team = [
         about: 'Kyle Porter is a Full Stack Web Developer who graduated from Lambda School. During his tenure at Lambda, Kyle engaged in hands-on coding through all phases of several projects. Most notably, Kyle was involved in creating Citrics as we know it today. From Jacksonville, Florida, Kyle knew Web Developing was his jam when he began coding personal websites during his free time using Google and Trial-and-error. Fast-forward a few months and Kyle was assisting several ecommerce go-lives\'. During his free time, Kyle enjoys traveling domestically to explore major metro cities, trying different local eateries, and home renovations.',
         portfolio: 'https://www.kyleporter.tech'
     
-    }
+    }, {
+        labs: 23,
+        name: "Jimmy 'Zeb' Smith", 
+        image: jimmy,
+        management: true,
+        role: 'Team Lead, Labs 23', 
+        social: {
+            twitter: null, 
+            github: 'zebfred', 
+            linkedin: 'zeb-smith-0240b8a8/'
+        }, 
+        about: 'Jimmy "Zeb" Smith is a data scientist in Winchester, TN. Prior to starting Lambda, he obtained his bachelors of science at the University South. He majored in chemistry with a pre-engineering focus in math and physics. His interest lies in using emerging data science technologies for a better tomorrow.',
+        portfolio: null
+    }, {
+        labs: 23,
+        name: 'David Pok', 
+        image: david,
+        role: 'Web Developer', 
+        social: {
+            twitter: null, 
+            github: 'david-pok', 
+            linkedin: null
+        }, 
+        about: 'David Pok is a Full Stack Web Developer from Los Angeles.  He is a curious person who loves problem solving.',
+        portfolio: null
+    }, {
+        labs: 23,
+        name: 'Liam Moore', 
+        image: liam,
+        role: 'Web Developer', 
+        social: {
+            twitter: null, 
+            github: 'liampmoore', 
+            linkedin: 'liammoorecodes'
+        }, 
+        about: 'Liam Moore is a Full Stack Web Developer from Philadelphia.  He loves getting waist-deep into problems that challenge his way of thinking and coming out the other side with a new way of looking at the problem in general. During his free time he likes to hike and camp, spend the day at a park, play video games or play D&D with his friends. His role in Citrics was primarily front-end development, particularly in reworking our state management in Redux. He loves taking the time to write clean and clear code and designing easy-to-understand data-management systems, knowing that he is making the job easier for future developers (and for himself). He also spent a good amount of time working on deployment and CI, setting up GitHub actions and configuring AWS.',
+        portfolio: 'http://liammoore.codes/'
+    }, {
+        labs: 23,
+        name: 'Svyatoslav Okshin', 
+        image: svyat,
+        role: 'Web Developer', 
+        social: {
+            twitter: null, 
+            github: 'svyatokshin', 
+            linkedin: 'svyatoslav-okshin-a348b98b/'
+        }, 
+        about: 'Svyatoslav was born in Russia and won the Green Card Lottery with his family when he was three years old. This allowed him to move to the United States and work toward a citizenship which he is very grateful for. He is now a full-stack web developer who graduated from Lambda School. He also has a degree in Chemical Engineering, and utilizes the skills learned from both to create stunning and interactive websites, while problem-solving effectively in order to obtain the most pristine product in the most optimal time. After learning the core languages for web development, he sees the future as a bright one, as any new language will be less challenging to learn. His goal is to one day advance his learning into a profession where he will be able to manage others while continuing to create products that will help make the world a better place.',
+        portfolio: 'https://svyatokshin.github.io/portfolio/'
+    }, {
+        labs: 23,
+        name: 'Damon Bogich', 
+        image: damon,
+        role: 'Web Developer', 
+        social: {
+            twitter: 'damonbogich', 
+            github: 'damonbogich', 
+            linkedin: 'damon-bogich-a53bb5120/'
+        }, 
+        about: 'Damon Bogich is a Full Stack Web Developer from Detroit.  He quit his customer service job at a New York City based start up company and moved back to his home state of Michigan to attend Lambda School.  Citrics is the biggest of several projects that he has worked on while attending Lambda.  In addition to web development and problem solving, he has a passion for basketball and running.',
+        portfolio: null
+    }, {
+        labs: 23,
+        name: 'Steven Reiss', 
+        image: steven,
+        role: 'Data Scientist', 
+        social: {
+            twitter: null, 
+            github: 'steve122192', 
+            linkedin: 'steven-reiss-94102b115/'
+        }, 
+        about: 'Steven Reiss is a Philly native with a passion for skiing, motorcycles, and problem solving.',
+        portfolio: null
+    }, {
+        labs: 23,
+        name: 'Amy NLe', 
+        image: amy,
+        role: 'Data Scientist', 
+        social: {
+            twitter: 'hyamynl619', 
+            github: 'hyamynl619', 
+            linkedin: 'amy-nguyen-le/'
+        }, 
+        about: 'Amy Nguyen-Le is a Data Scientist & Engineer from Manchester, CT.  Being the oldest of 5 siblings, she often finds ways to be a good role model for them through learning and perseverance. She often spends her time coding new games with them or educating herself on advanced technology. She believes that Data Scientists can help change the world one step at a time and people will start to have a better idea on who they are.',
+        portfolio:  'https://hyamynl619.github.io/'
+    }, {
+        labs: 23,
+        name: 'Robert Tom', 
+        image: robert,
+        role: 'Data Scientist', 
+        social: {
+            twitter: 'BlackRaptor62', 
+            github: 'RCTom168', 
+            linkedin: 'robertctom168'
+        }, 
+        about: 'Summary: Robert Tom is a Data Scientist living in the San Francisco Bay Area. Robert has focuses on polishing his skills in Natural Language Processing and Machine Learning. When not wrangling data he spends time playing computer games and walking his dogs.  For this Project, Robert worked on developing the K-Nearest Neighbors and Nearest Neighbors prediction models for the Citrics City Reverse User Flow. This work allows users to search for cities that they may want to move to based off of certain criteria, rather than searching by name.',
+        portfolio: null
+    }, {
+        labs: 23,
+        name: 'Stephanie Miller', 
+        image: stephanie,
+        role: 'Data Scientist', 
+        social: {
+            twitter: null, 
+            github: 'shmilyface', 
+            linkedin: null
+        }, 
+        about: 'Stephanie Miller is located in the PNW, she has a fondness for problem-solving, and a creative background to take it out of the box. She currently has 2 dogs, and works tirelessly to have more dogs in the future.',
+        portfolio: null
+    },
 ]
 
 export default team;

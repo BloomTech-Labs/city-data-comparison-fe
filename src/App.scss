@@ -19,6 +19,140 @@ body {
   box-sizing: border-box;
 }
 
+//* Navigation Styling
+.no-color {
+  background: none !important;
+}
+.mock-logo {
+  width: 110px;
+  margin-top: -45px;
+  margin-bottom: -45px;
+}
+
+.navigation-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 10px 0;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  font-size: 0.9rem;
+  margin: 0 auto;
+  transition: top 0.3s;
+  background-color: white;
+}
+.unfixed {
+  position: absolute;
+}
+
+.hide-nav {
+  display: none;
+}
+.show-nav {
+  display: flex;
+  z-index: 999999;
+}
+
+.navigation-container:active {
+  background-color: #fff;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5.5%;
+  width: 15%;
+}
+.main-nav {
+  width: 35%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 0%;
+  padding-right: 2%;
+  margin-top: 5px;
+}
+
+.main-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+  transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: 0.33s ease;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
+}
+#login-link {
+  color: #0066cc;
+
+  img {
+    height: 15px;
+    width: 11px;
+    margin-right: 6px;
+  }
+
+  &:hover {
+    color: #a33a00;
+  }
+}
+#signup-link {
+  border: none;
+  background-color: #a33a00;
+  border-radius: 5px;
+  padding: 10px 13px;
+  color: white;
+  text-decoration: none;
+  transition: 0.22s ease;
+  &:hover {
+    color: white;
+    filter: brightness(110%);
+  }
+}
+.nav-button {
+  border: none;
+  border-radius: 5px;
+  padding: 5px 8px;
+  color: #2e2f38;
+  text-decoration: none;
+  transition: 0.22s ease;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+@media screen and (max-width: 800px) {
+  .main-nav {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-nav {
+    width: 100%;
+  }
+  .main-nav a {
+    display: none;
+  }
+  .navigation-container {
+    nav {
+      width: 100%;
+    }
+    nav a {
+      display: none;
+    }
+  }
+  .sign-up-btn {
+    display: none;
+  }
+}
 #noUnderline {
   text-decoration: none;
 }
