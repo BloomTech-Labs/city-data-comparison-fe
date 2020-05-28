@@ -263,7 +263,9 @@ export default function FlowContainer() {
           </Question>
 
           <Question>
-            <label component="industry">5. What industry do you work in?</label>
+            <label component="industry">
+              5. What industry do you work in? (Optional)
+            </label>
             <Select
               variant="outlined"
               name="industry"
