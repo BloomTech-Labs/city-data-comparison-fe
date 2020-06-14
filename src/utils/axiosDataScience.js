@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const cityDataBaseUrl =
-  "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/citydata/";
+  "https://fricktrics.herokuapp.com/jkekal6d6e5si3i2ld66d4dl/citydata/";
 //Axios call to get data about a city from the api using id
 export function cityDataById() {
   return axios.create({
@@ -10,7 +10,7 @@ export function cityDataById() {
 }
 
 export const matchCityBaseUrl =
-  "https://api.citrics.io/jkekal6d6e5si3i2ld66d4dl/matchcity";
+  "https://fricktrics.herokuapp.com/jkekal6d6e5si3i2ld66d4dl/matchcity";
 
 export function matchCityFromString() {
   return axios.create({
