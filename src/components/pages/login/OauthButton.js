@@ -1,4 +1,5 @@
 import React from "react";
+import axiosAuthURL from "../../../utils/axiosAuth.js";
 
 /*
     props.company: used to create classes if additional styling is need for a specific instance of this 
@@ -8,7 +9,7 @@ import React from "react";
 const OauthButton = (props) => {
   const connectAccount = (_) =>
     window.location.replace(
-      `https://be.citrics.io/api/auth/login/${props.company}`
+      `${axiosAuthURL}/auth/login/${props.company}`
     );
 
   return (
