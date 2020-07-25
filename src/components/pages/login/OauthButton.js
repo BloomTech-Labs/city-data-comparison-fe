@@ -1,5 +1,5 @@
 import React from "react";
-import axiosAuthURL from "../../../utils/axiosAuth.js";
+import { axiosAuthURL } from "../../../utils/axiosAuth.js";
 
 /*
     props.company: used to create classes if additional styling is need for a specific instance of this 
