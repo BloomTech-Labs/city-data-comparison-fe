@@ -13,6 +13,7 @@ const Callback = (props) => {
   ReactGA.event({ category: "User", action: "Logged in via Oauth" });
   localStorage.setItem("jwt", values.jwt);
   let newUser = JSON.parse(values.user);
+  console.log('NEWUSER', newUser);
   setUser(newUser);
   return <>{Redirect("/")}</>;
 };
