@@ -2,9 +2,11 @@ import * as types from "./actionTypes";
 import { axiosAuth } from "../../utils/axiosAuth.js";
 
 export function setUser(jwt, user) {
-  localStorage.setItem("jwt", jwt);
-  localStorage.setItem("user", user);
-  dispatch({ type: types.LOGIN_SUCCESS, payload: user });
+  return (dispatch) => {
+    localStorage.setItem("jwt", jwt);
+    localStorage.setItem("user", user);
+    dispatch({ type: types.LOGIN_SUCCESS, payload: user });
+    }
 }
 export function login(credentials) {
   return async (dispatch) => {
