@@ -4,6 +4,7 @@ import { axiosAuth } from "../../utils/axiosAuth.js";
 export function setUser(jwt, user) {
   return (dispatch) => {
     localStorage.setItem("jwt", jwt);
+    const jsonUser = JSON.stringify(user);
     localStorage.setItem("user", user);
     dispatch({ type: types.LOGIN_SUCCESS, payload: user });
     }
