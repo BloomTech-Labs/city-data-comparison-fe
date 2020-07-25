@@ -5,10 +5,11 @@ export function setUser(jwt, user) {
   return (dispatch) => {
     localStorage.setItem("jwt", jwt);
     const jsonUser = JSON.stringify(user);
-    localStorage.setItem("user", user);
+    localStorage.setItem("user", jsonUser);
     dispatch({ type: types.LOGIN_SUCCESS, payload: user });
     }
 }
+
 export function login(credentials) {
   return async (dispatch) => {
     try {
