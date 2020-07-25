@@ -1,6 +1,6 @@
 # Citrics
 
-Applicatio deployed at https://citrics.io/.
+Application deployed at https://city-data-comparison-fe-1.vercel.app/.
 
 ## Contributors
 
