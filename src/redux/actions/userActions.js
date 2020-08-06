@@ -1,6 +1,15 @@
 import * as types from "./actionTypes";
 import { axiosAuth } from "../../utils/axiosAuth.js";
 
+export function setUser(jwt, user) {
+  return (dispatch) => {
+    localStorage.setItem("jwt", jwt);
+    const jsonUser = JSON.stringify(user);
+    localStorage.setItem("user", jsonUser);
+    dispatch({ type: types.LOGIN_SUCCESS, payload: user });
+    }
+}
+
 export function login(credentials) {
   return async (dispatch) => {
     try {
@@ -25,7 +34,6 @@ export function login(credentials) {
     }
   };
 }
-
 export function signup(credentials) {
   return async (dispatch) => {
     try {
@@ -47,7 +55,6 @@ export function signup(credentials) {
     }
   };
 }
-
 export function logout() {
   return (dispatch) => {
     localStorage.setItem("user", null);
@@ -55,7 +62,6 @@ export function logout() {
     dispatch({ type: types.LOGOUT });
   };
 }
-
 // User profile functionality needs an update once it is decided exactly what information needs to be stored about the user.
 export function editUser() {
   return async (dispatch) => {
@@ -68,7 +74,6 @@ export function editUser() {
     }
   };
 }
-
 export function getFavorites() {
   return async (dispatch) => {
     try {
@@ -81,7 +86,6 @@ export function getFavorites() {
     }
   };
 }
-
 export function addFavorite(newFavorite) {
   return async (dispatch) => {
     try {
@@ -95,7 +99,6 @@ export function addFavorite(newFavorite) {
     }
   };
 }
-
 export function removeFavorite(id) {
   return async (dispatch) => {
     try {
