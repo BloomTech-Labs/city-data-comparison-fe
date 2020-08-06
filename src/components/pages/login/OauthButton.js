@@ -8,9 +8,7 @@ import { axiosAuthURL } from "../../../utils/axiosAuth.js";
 
 const OauthButton = (props) => {
   const connectAccount = (_) =>
-    window.location.replace(
-      `${axiosAuthURL}/auth/login/${props.company}`
-    );
+    window.location.replace(`${axiosAuthURL}/auth/login/${props.company}`);
 
   return (
     <div

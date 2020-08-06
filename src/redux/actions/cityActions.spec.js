@@ -12,7 +12,7 @@ import { initialState } from "../reducers/cityReducer.js";
 import * as cityActions from "./cityActions.js";
 import * as types from "./actionTypes";
 
-import {mockCityMarkers} from "../../utils/testing/mockCityData.js";
+import { mockCityMarkers } from "../../utils/testing/mockCityData.js";
 
 //Mock the module 'react-ga' so none of the functions we are testing try to actually use google analytics
 import ReactGA from "react-ga";
@@ -34,9 +34,7 @@ describe("City actions", () => {
   describe("Get city", () => {
     it("should create action GET_CITY_SUCCESS when passed a city object", () => {
       //Creates a mock for this axios endpoint within this test, gets cleared after each test with mockAxios.restore in aftereach clause above
-      mockAxios
-        .onGet(`7244`)
-        .reply(200, mockCityMarkers["Angie, LA"]);
+      mockAxios.onGet(`7244`).reply(200, mockCityMarkers["Angie, LA"]);
       //Write the action objects we expect the thunk action creator "getCity()""  to create
       const expectedActions = [
         { type: types.GET_CITY },
@@ -62,12 +60,8 @@ describe("City actions", () => {
 
   describe("Get cities", () => {
     it("should create action CITY_COMPARISON_SUCCESS if passed an array of city objects", () => {
-      mockAxios
-        .onGet(`/7244`)
-        .reply(200, mockCityMarkers["Angie, LA"]);
-      mockAxios
-        .onGet(`/1533`)
-        .reply(200, mockCityMarkers["Angels, CA"]);
+      mockAxios.onGet(`/7244`).reply(200, mockCityMarkers["Angie, LA"]);
+      mockAxios.onGet(`/1533`).reply(200, mockCityMarkers["Angels, CA"]);
 
       const expectedActions = [
         { type: types.CITY_COMPARISON },
@@ -95,24 +89,15 @@ describe("City actions", () => {
     });
 
     it("should create action CITY_COMPARISON_SUCCESS if passed an array of strings", () => {
-      mockAxios
-        .onGet(`/angi`)
-        .reply(200, mockCityMarkers);
-      mockAxios
-        .onGet("/angel")
-        .reply(200, mockCityMarkers);
-      mockAxios
-        .onGet(`/7244`)
-        .reply(200, mockCityMarkers["Angie, LA"]);
+      mockAxios.onGet(`/angi`).reply(200, mockCityMarkers);
+      mockAxios.onGet("/angel").reply(200, mockCityMarkers);
+      mockAxios.onGet(`/7244`).reply(200, mockCityMarkers["Angie, LA"]);
 
       const expectedActions = [
         { type: types.CITY_COMPARISON },
         {
           type: types.CITY_COMPARISON_SUCCESS,
-          payload: [
-            mockCityMarkers["Angie, LA"],
-            mockCityMarkers["Angie, LA"],
-          ],
+          payload: [mockCityMarkers["Angie, LA"], mockCityMarkers["Angie, LA"]],
         },
       ];
 
@@ -126,15 +111,9 @@ describe("City actions", () => {
     });
 
     it("should create action CITY_COMPARISON_SUCCESS if passed an array containing one a string and a city object", () => {
-      mockAxios
-        .onGet(`/angi`)
-        .reply(200, mockCityMarkers);
-      mockAxios
-        .onGet(`/7244`)
-        .reply(200, mockCityMarkers["Angie, LA"]);
-      mockAxios
-        .onGet(`/1533`)
-        .reply(200, mockCityMarkers["Angels, CA"]);
+      mockAxios.onGet(`/angi`).reply(200, mockCityMarkers);
+      mockAxios.onGet(`/7244`).reply(200, mockCityMarkers["Angie, LA"]);
+      mockAxios.onGet(`/1533`).reply(200, mockCityMarkers["Angels, CA"]);
 
       const expectedActions = [
         { type: types.CITY_COMPARISON },
@@ -177,7 +156,7 @@ describe("City actions", () => {
     it("should clear all cities in state", () => {
       const expectedActions = [
         {
-          type: types.CLEAR_ALL_CITIES
+          type: types.CLEAR_ALL_CITIES,
         },
       ];
       const store = mockStore(initialState);

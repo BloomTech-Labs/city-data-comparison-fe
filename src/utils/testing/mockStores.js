@@ -1,5 +1,5 @@
-export const mockThreeSelected = []
+export const mockThreeSelected = [];
 
-export const mockTwoSelected = []
+export const mockTwoSelected = [];
 
-export const mockOneSelected = []
+export const mockOneSelected = [];

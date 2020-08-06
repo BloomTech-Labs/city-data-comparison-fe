@@ -18,10 +18,9 @@ Sentry.init({
 const store = createStore(reducers, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
-      <Provider store={store}>
-        <App />
-      </Provider>
-,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );
 
