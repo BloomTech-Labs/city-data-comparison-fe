@@ -1,10 +1,10 @@
 # Citrics
 
-Applicatio deployed at https://citrics.io/.
+Application deployed at https://citrics.vercel.app/.
 
 ## Contributors
 
-[Meet the Team](https://citrics.io/meet-the-team)
+[Meet the Team](https://citrics.vercel.app/meet-the-team)
 
 ## Project Overview
 
@@ -72,13 +72,13 @@ Cities with data are marked on a searchable, indexed map generated from the Mapb
   - Colors all have a varying brightness that ensures they appear differently on greyscale.
 
 ### Font
-- font-family: "Rubik",sans-serif;
+- font-family: "Rubik", sans-serif;
 
 ### Margins
 - Multiples of 1.4 rems used for margins
 - Css grid used to space the graphs out and give the site a consitent/even look.
 
-#### Front-end deployed to https://citrics.io/
+#### Front-end deployed to https://citrics.vercel.app/
 
 <!-- # 3️⃣ Environment Variables
 
